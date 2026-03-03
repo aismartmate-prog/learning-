@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תרגול אחוזים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tirgul-blue: #3b82f6;
+            --tirgul-dark: #0f172a;
+            --sidebar-bg: #1e40af;
+        }
+
+        body, html {
+            margin: 0; padding: 0; height: 100%;
+            font-family: 'Assistant', sans-serif;
+            /* רקע מדורג כמו באתר Tirgul */
+            background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 100%);
+            overflow: hidden;
+        }
+
+        /* סרגל עליון */
+        .top-nav {
+            height: 45px;
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 14px;
+            justify-content: space-between;
+        }
+
+        .main-layout {
+            display: flex;
+            height: calc(100% - 45px);
+        }
+
+        /* סרגל צד ימני - כהה כמו ב-Tirgul */
+        .sidebar {
+            width: 200px;
+            background: #1e3a8a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border-left: 2px solid #1d4ed8;
+        }
+
+        .sidebar-title {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 15px;
+        }
+
+        .side-btn {
+            background: #2563eb;
+            color: white;
+            border: 1px solid #60a5fa;
+            padding: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            font-family: 'Assistant';
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+
+        .side-btn:hover { background: #1d4ed8; }
+        
+        .nav-icons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        /* אזור השאלה המרכזי */
+        .content-area {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .question-box, .answers-box {
+            width: 100%;
+            max-width: 700px;
+            background: white;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .box-header {
+            background: #f8fafc;
+            padding: 5px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 13px;
+            color: #64748b;
+            text-align: left;
+        }
+
+        .box-body { padding: 25px; text-align: center; }
+        .q-text { font-size: 22px; font-weight: bold; color: #1e3a8a; }
+
+        /* אזור התשובות */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .option-row {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #f1f5f9;
+            cursor: pointer;
+        }
+
+        .option-row:hover { background: #f0f9ff; }
+        .option-row input { transform: scale(1.2); }
+
+        /* הסברים */
+        .info-popup {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+            width: 100%;
+            max-width: 700px;
+            border-right: 5px solid;
+        }
+        .hint-pop { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
+        .solve-pop { background: #f0fdf4; border-color: #22c55e; color: #166534; }
+
+        .correct { color: #22c55e; font-weight: bold; }
+        .wrong { color: #ef4444; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="top-nav">
+    <div>שלום, תלמיד | מתמטיקה > אחוזים > תרגול</div>
+    <div>EduBuddy v2.0</div>
+</div>
+
+<div class="main-layout">
+    <aside class="sidebar">
+        <div class="sidebar-title" id="sideNum">שאלה: 1</div>
+        
+        <button class="side-btn" onclick="toggleBox('hint')">💡 רמז</button>
+        <button class="side-btn" onclick="toggleBox('solve')">🔎 פתרון</button>
+        
+        <div class="nav-icons">
+            <button class="side-btn" onclick="changeQ(-1)">◀ הקודם</button>
+            <button class="side-btn" onclick="changeQ(1)">הבא ▶</button>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <button class="side-btn" style="background:#475569" onclick="location.href='math.html?grade=ה-ו'">🔄 החלף פעילות</button>
+            <button class="side-btn" style="background:#475569" onclick="location.href='index.html'">📚 החלף מקצוע</button>
+        </div>
+    </aside>
+
+    <main class="content-area">
+        <div class="question-box">
+            <div class="box-header">שאלה מספר: <span id="qIdxDisplay">1</span></div>
+            <div class="box-body q-text" id="qText">טוען שאלה...</div>
+        </div>
+
+        <div class="answers-box">
+            <div class="box-header">תשובות :</div>
+            <div class="options-list" id="optsContainer"></div>
+        </div>
+
+        <div id="hint-area" class="info-popup hint-pop"></div>
+        <div id="solve-area" class="info-popup solve-pop"></div>
+    </main>
+</div>
+
+<script>
+    const quizData = [
+        { q: "כמה הם 10% מתוך 250 ש\"ח?", opts: ["25 ש\"ח", "10 ש\"ח", "2.5 ש\"ח", "50 ש\"ח"], ans: 0, hint: "חלק את המספר ב-10.", exp: "10% הם עשירית מהשלם. $250 : 10 = 25$." },
+        { q: "חולצה עולה 120 ש\"ח. ההנחה היא 25%. מה גובה ההנחה?", opts: ["20 ש\"ח", "30 ש\"ח", "40 ש\"ח", "60 ש\"ח"], ans: 1, hint: "25% הם רבע מהשלם.", exp: "רבע מ-120 הוא $120 : 4 = 30$ שקלים." },
+        { q: "בכיתה 40 תלמידים. 50% מהם בנים. כמה בנים בכיתה?", opts: ["10", "25", "20", "30"], ans: 2, hint: "50% זה חצי.", exp: "חצי מתוך 40 תלמידים הוא 20." },
+        { q: "כמה הם 1% מתוך 700 ש\"ח?", opts: ["70 ש\"ח", "7 ש\"ח", "1 ש\"ח", "0.7 ש\"ח"], ans: 1, hint: "חלק את המספר ב-100.", exp: "$700 : 100 = 7$." },
+        { q: "מוצר עלה 80 ש\"ח והתייקר ב-10%. מה מחירו החדש?", opts: ["88 ש\"ח", "90 ש\"ח", "82 ש\"ח", "100 ש\"ח"], ans: 0, hint: "מצא 10% והוסף למחיר המקורי.", exp: "10% מ-80 הם 8. $80 + 8 = 88$ שקלים." },
+        { q: "איזה שבר פשוט שווה ל-20%?", opts: ["1/2", "1/4", "1/5", "1/10"], ans: 2, hint: "20 מתוך 100. צמצם ב-20.", exp: "$20/100 = 2/10 = 1/5$." },
+        { q: "75% מתוך 200 הם:", opts: ["150", "100", "175", "125"], ans: 0, hint: "מצא רבע (50) והכפל ב-3.", exp: "רבע הוא 50. $50 * 3 = 150$." },
+        { q: "במבחן 20 שאלות. ענית נכון על 18. מה אחוז ההצלחה?", opts: ["80%", "90%", "95%", "85%"], ans: 1, hint: "מהו החלק של 18 מתוך 20?", exp: "$18/20 = 9/10$, שהם 90%." },
+        { q: "מחיר מחשב 3000 ש\"ח. הנחה של 5% היא:", opts: ["150 ש\"ח", "300 ש\"ח", "50 ש\"ח", "15 ש\"ח"], ans: 0, hint: "מצא 10% (300) וקח חצי.", exp: "10% הם 300. חצי מזה הוא 150." },
+        { q: "כמה הם 200% מתוך 45?", opts: ["45", "90", "135", "200"], ans: 1, hint: "200% זה פי 2.", exp: "$45 * 2 = 90$." },
+        { q: "בכד 50 כדורים. 12% מהם אדומים. כמה אדומים?", opts: ["12", "6", "10", "5"], ans: 1, hint: "מצא 1% (0.5) והכפל ב-12.", exp: "$0.5 * 12 = 6$." },
+        { q: "מחיר ספר ירד מ-100 ל-80. מה אחוז ההנחה?", opts: ["10%", "25%", "20%", "30%"], ans: 2, hint: "המחיר ירד ב-20 מתוך 100.", exp: "20 מתוך 100 הם בדיוק 20%." },
+        { q: "כמה הם 150% מתוך 60?", opts: ["60", "90", "120", "30"], ans: 1, hint: "השלם (60) ועוד חצי (30).", exp: "$60 + 30 = 90$." },
+        { q: "איזה אחוז גדול יותר: 1/4 או 20%?", opts: ["1/4", "20%", "שניהם שווים", "אף אחד"], ans: 0, hint: "1/4 שווה ל-25%.", exp: "25% גדול מ-20%." },
+        { q: "המע\"מ בישראל הוא 17%. על קנייה של 100 ש\"ח, כמה מע\"מ נשלם?", opts: ["17 ש\"ח", "1.7 ש\"ח", "117 ש\"ח", "7 ש\"ח"], ans: 0, hint: "17 מתוך 100.", exp: "17% מתוך 100 הם 17 שקלים." },
+        { q: "בכיתה 30 תלמידים. 20% נעדרו. כמה נעדרו?", opts: ["2", "6", "3", "5"], ans: 1, hint: "10% הם 3. כפול 2?", exp: "$3 * 2 = 6$." },
+        { q: "מהו 0.5 כפי שמוצג באחוזים?", opts: ["0.5%", "5%", "50%", "500%"], ans: 2, hint: "הכפל ב-100.", exp: "$0.5 * 100 = 50%$." },
+        { q: "בטיול 80 איש. 25% מהם ילדים. כמה מבוגרים היו?", opts: ["20", "60", "40", "50"], ans: 1, hint: "מצא כמה ילדים (רבע) והחסר מהסך הכל.", exp: "20 ילדים. $80 - 20 = 60$ מבוגרים." },
+        { q: "כמה הם 40% מתוך 200?", opts: ["40", "80", "100", "60"], ans: 1, hint: "10% הם 20. כפול 4?", exp: "$20 * 4 = 80$." },
+        { q: "חבילת גלידה עלתה ב-50%. המחיר היה 20. מה המחיר החדש?", opts: ["25", "30", "40", "22"], ans: 1, hint: "הוסף חצי מהמחיר.", exp: "חצי הוא 10. $20+10=30$." },
+        { q: "מה האחוז המשלים את 35% ל-100%?", opts: ["75%", "65%", "55%", "45%"], ans: 1, hint: "$100 - 35 = ?$", exp: "השלמה ל-100: $100 - 35 = 65$." },
+        { q: "ריבית של 2% על 1000 ש\"ח היא:", opts: ["2", "20", "200", "10"], ans: 1, hint: "1% הוא 10. כפול 2?", exp: "$10 * 2 = 20$." },
+        { q: "מתוך 400 עמודים, קראתי 10%. כמה נשארו?", opts: ["40", "360", "300", "390"], ans: 1, hint: "החסר 10% מהסך הכל.", exp: "10% הם 40. $400 - 40 = 360$." },
+        { q: "כמה הם 5% מתוך 60?", opts: ["6", "3", "5", "1.2"], ans: 1, hint: "חצי מ-10%.", exp: "10% הם 6. חצי מהם זה 3." },
+        { q: "המרחק לתל אביב 100 ק\"מ. עברנו 85%. כמה נשאר?", opts: ["85", "15", "25", "10"], ans: 1, hint: "100 - 85.", exp: "נשארו 15% שהם 15 ק\"מ." },
+        { q: "איזה ערך שווה ל-1/10?", opts: ["1%", "10%", "100%", "0.1%"], ans: 1, hint: "צמצם 10/100.", exp: "1/10 הם בדיוק 10%." },
+        { q: "מחיר כרטיס 120 ש\"ח. יש הנחה של 10%. מה המחיר הסופי?", opts: ["110", "108", "100", "118"], ans: 1, hint: "120 פחות 10%.", exp: "10% הם 12. $120 - 12 = 108$." },
+        { q: "בכד 20 כדורים. 5 אדומים. מה אחוז האדומים?", opts: ["5%", "20%", "25%", "50%"], ans: 2, hint: "5 מתוך 20.", exp: "זהו רבע מהכמות, כלומר 25%." },
+        { q: "מהו 1/2 באחוזים?", opts: ["20%", "50%", "100%", "25%"], ans: 1, hint: "חצי מהשלם.", exp: "חצי מ-100% הוא 50%." },
+        { q: "כמה הם 30% מתוך 30?", opts: ["3", "9", "10", "1"], ans: 1, hint: "10% הם 3. כפול 3?", exp: "$3 * 3 = 9$." }
+    ];
+
+    let current = 0;
+    let answered = false;
+
+    function render() {
+        answered = false;
+        const item = quizData[current];
+        document.getElementById('sideNum').innerText = `שאלה: ${current + 1}`;
+        document.getElementById('qIdxDisplay').innerText = current + 1;
+        document.getElementById('qText').innerText = item.q;
+        
+        const container = document.getElementById('optsContainer');
+        container.innerHTML = '';
+        
+        item.opts.forEach((txt, i) => {
+            const row = document.createElement('div');
+            row.className = 'option-row';
+            row.innerHTML = `<span>${txt}</span><input type="radio" name="opt" id="o${i}">`;
+            row.onclick = () => check(i, row);
+            container.appendChild(row);
+        });
+
+        document.getElementById('hint-area').style.display = 'none';
+        document.getElementById('solve-area').style.display = 'none';
+    }
+
+    function check(idx, el) {
+        if(answered) return;
+        answered = true;
+        const correct = quizData[current].ans;
+        const spans = el.parentElement.querySelectorAll('span');
+        
+        if(idx === correct) {
+            spans[idx].classList.add('correct');
+        } else {
+            spans[idx].classList.add('wrong');
+            spans[correct].classList.add('correct');
+        }
+    }
+
+    function toggleBox(type) {
+        const area = document.getElementById(type + '-area');
+        const content = type === 'hint' ? quizData[current].hint : quizData[current].exp;
+        area.innerHTML = `<b>${type === 'hint' ? '💡 רמז:' : '🔍 פתרון:'}</b><br>${content}`;
+        area.style.display = area.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function changeQ(dir) {
+        if(current + dir >= 0 && current + dir < quizData.length) {
+            current += dir;
+            render();
+        }
+    }
+
+    render();
+</script>
+</body>
+</html>

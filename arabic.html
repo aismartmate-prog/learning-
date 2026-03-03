@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מתמטיקה - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #0f172a; --accent-color: #b09151; --bg-color: #fbfaf8; }
+        body { font-family: 'Heebo', sans-serif; background-color: var(--bg-color); margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        header { background: var(--primary-color); color: white; padding: 25px; text-align: center; }
+        header h1 { font-size: 1.8rem; margin: 0; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
+        .back-btn { display: inline-block; margin-bottom: 15px; color: var(--primary-color); text-decoration: none; font-weight: bold; }
+        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .activity-card { background: white; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); cursor: pointer; transition: 0.2s; border-bottom: 5px solid var(--primary-color); }
+        .activity-card:active { transform: scale(0.98); }
+        .icon { font-size: 35px; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: flex-end; z-index: 2000; }
+        .modal-content { background: white; padding: 30px; border-radius: 25px 25px 0 0; width: 100%; max-width: 500px; box-sizing: border-box; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .close-modal { float: left; cursor: pointer; font-size: 1.5rem; color: #94a3b8; }
+        select { width: 100%; padding: 12px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 16px; margin-bottom: 20px; outline: none; background: #fff; font-family: 'Heebo'; }
+        .btn-start { background: var(--primary-color); color: white; border: none; padding: 15px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
+        @media (min-width: 600px) { .modal-overlay { align-items: center; } .modal-content { border-radius: 20px; width: 90%; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>מתמטיקה - בחירת פעילות</h1>
+    <p id="grade-display">טוען...</p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← חזרה</a>
+    <div class="activity-grid">
+        <div class="activity-card" onclick="openSelectionModal('תרגול', true)">
+            <div class="icon">📝</div>
+            <h3>תרגול</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('בוחן', true)">
+            <div class="icon">⏱️</div>
+            <h3>בוחן</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('מבחן', false)">
+            <div class="icon">🎓</div>
+            <h3>מבחן</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('המיליונר', false)">
+            <div class="icon">💰</div>
+            <h3>המיליונר</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('ראש בראש', false)">
+            <div class="icon">⚔️</div>
+            <h3>ראש בראש</h3>
+        </div>
+    </div>
+</div>
+
+<div id="selection-modal" class="modal-overlay">
+    <div class="modal-content" id="modal-inner-content"></div>
+</div>
+
+<script>
+    const allMathData = {
+        "35371": {
+            "algebra371": { name: "אלגברה", subs: ["הוצאת גורם משותף", "נוסחאות הכפל המקוצר", "פירוק הטרינום הריבועי", "צמצום שברים אלגבריים", "כפל וחילוק שברים אלגבריים", "חיבור וחיסור שברים אלגבריים"] },
+            "wordProblems371": { name: "בעיות גידול ודעיכה", subs: ["חישובי אחוזים", "נוסחת גידול ודעיכה - מציאת כמות סופית", "נוסחת גידול ודעיכה - מציאת כמות התחלתית", "נוסחת גידול ודעיכה - מציאת שיעור השינוי (q)", "נוסחת גידול ודעיכה - מציאת זמן"] },
+            "probability371": { name: "הסתברות", subs: ["הסתברות קלאסית", "דיאגרמת עץ", "הסתברות מותנית", "נוסחת ברנולי", "מאורעות בלתי תלויים"] },
+            "algebraTech371": { name: "טכניקה אלגברית", subs: ["משוואות ממעלה ראשונה", "משוואות ריבועיות", "משוואות עם שברים אלגבריים", "משוואות מיוחדות"] },
+            "trigPlane371": { name: "טריגונומטריה במישור", subs: ["משולש ישר זווית", "משולש שווה שוקיים", "משולש כללי (משפט הסינוסים והקוסינוסים)", "מרובעים (מלבן, מעוין, טרפז)"] },
+            "trigSpace371": { name: "טריגונומטריה במרחב", subs: ["תיבה וקוביה", "מנסרה ישרה", "פירמידה ישרה"] },
+            "systems371": { name: "מערכת משוואות ממעלה ראשונה", subs: ["פתרון בשיטת ההצבה", "פתרון בשיטת השוואת מקדמים", "מערכת משוואות עם שברים"] },
+            "inequalities371": { name: "משוואות ואי שוויונות", subs: ["אי שוויונות ממעלה ראשונה", "אי שוויונות ממעלה שנייה", "פתרון גרפי של אי שוויון"] },
+            "quadraticEq371": { name: "משוואות ממעלה שנייה ויותר", subs: ["משוואות ריבועיות מלאות וחסרות", "משוואות דו-ריבועיות", "משוואות עם שברים אלגבריים מורכבים"] },
+            "sequences371": { name: "סדרות", subs: ["סדרה חשבונית - איבר כללי", "סדרה חשבונית - סכום", "סדרה הנדסית - איבר כללי", "סדרה הנדסית - סכום", "סדרות מעורבות"] },
+            "stats371": { name: "סטטיסטיקה והסתברות", subs: ["מדדי מרכז (ממוצע, חציון, שכיח)", "סטיית תקן", "התפלגות נורמלית"] },
+            "graphs371": { name: "קריאת גרפים", subs: ["חקירת פונקציה קווית", "חקירת פונקציה ריבועית", "נקודות חיתוך בין גרפים"] },
+            "linearProg371": { name: "תכנון ליניארי", subs: ["מערכת אילוצים", "פונקציית מטרה", "מציאת פתרון אופטימלי"] },
+            "finalExams371": { name: "תרגול בחינות בגרות", subs: ["בחינות משנים קודמות", "מבחני מתכונת", "תרגול שאלות בגרות לפי נושאים"] }
+        },
+        "35172": {
+            "algebra": { name: "אלגברה", subs: ["מערכת משוואות ממעלה שנייה", "משוואות ממעלה שנייה ויותר", "פירוק לגורמים", "שינוי נושא בנוסחה"] },
+            "wordProblems": { name: "בעיות מילוליות", subs: ["בעיות אחוזים", "בעיות קנייה ומכירה"] },
+            "geometryAnalytic": { name: "גיאומטריה אנליטית", subs: ["אמצע קטע", "מרחק בין נקודות", "משוואת הישר", "קריאת גרפים", "תרגילים מסכמים"] },
+            "realGraphs": { name: "גרפים מציאותיים", subs: ["קריאת מידע"] },
+            "probability": { name: "הסתברות", subs: ["הסתברות", "טבלה דו מימדית", "מאורעות דו שלביים"] },
+            "trigonometry": { name: "טריגונומטריה", subs: ["הגדרת הסינוס, הקוסינוס והטנגנס, במשולש ישר זווית", "מלבן", "מעוין", "משולש כללי", "משולש שווה שוקיים"] },
+            "equations": { name: "משוואות ואי שוויונות", subs: ["משוואות עם שברים", "משוואות פשוטות"] },
+            "sequences": { name: "סדרה חשבונית", subs: ["בעיות מציאותיות", "האיבר הכללי", "סכום סדרה"] },
+            "stats": { name: "סטטיסטיקה והסתברות", subs: ["ממוצע וחציון", "שכיחות ושכיחות יחסית"] },
+            "quadratic": { name: "תכונות הפונקציה הריבועית", subs: ["הפרבולה - מאפיינים שונים", "הקשר בין פתרון אלגברי ופתרון גרפי"] },
+            "finalExams": { name: "🏆 תרגול בחינות בגרות", subs: ["תרגול מבחנים מסכמים"] }
+        },
+        "35372": {
+            "wordProblems372": { name: "בעיות מילוליות", subs: ["בעיות אחוזים", "בעיות קנייה ומכירה"] },
+            "sequences372": { name: "סדרות", subs: ["סדרה חשבונית - איבר כללי", "סדרה חשבונית - סכום", "בעיות מציאותיות"] },
+            "trigonometry372": { name: "טריגונומטריה", subs: ["הגדרת הסינוס, הקוסינוס והטנגנס במשולש ישר זווית", "משולש שווה שוקיים", "משולש כללי", "מלבן", "מעוין"] },
+            "analytic372": { name: "גאומטריה אנליטית", subs: ["אמצע קטע", "מרחק בין נקודות", "משוואת הישר", "קריאת גרפים", "תרגילים מסכמים"] },
+            "probability372": { name: "הסתברות", subs: ["הסתברות", "טבלה דו-ממדית", "מאורעות דו-שלביים"] },
+            "statistics372": { name: "סטטיסטיקה והסתברות", subs: ["ממוצע וחציון", "שכיחות ושכיחות יחסית"] },
+            "quadratic372": { name: "תכונות הפונקציה הריבועית", subs: ["הפרבולה - מאפיינים שונים", "הקשר בין פתרון אלגברי וגרפי"] },
+            "finalExams372": { name: "תרגול בחינות בגרות", subs: ["תרגול מבחנים מסכמים"] }
+        },
+        "ה-ו": {
+            "percents": { name: "אחוזים", subs: ["חישוב ערך האחוז וחישוב האחוז", "מבוא"] },
+            "wordProblems": { name: "בעיות מילוליות", subs: ["בעיות הספק", "בעיות מילוליות רב שלביות", "בעיות תנועה"] },
+            "geometry": { name: "גיאומטריה", subs: ["היקפים ושטחים", "הכרת הגופים", "חישובי נפחים", "מעגל ועיגול"] },
+            "dataAnalysis": { name: "חקר נתונים וניתוח סיכויים", subs: ["חקר נתונים", "ניתוח סיכויים"] },
+            "ratio": { name: "יחס", subs: ["הגדרת היחס ותכונותיו", "חלוקת כמות לפי יחס נתון", "קנה מידה"] },
+            "decimals": { name: "מידות עשרוניות", subs: ["מעבר בין יחידות אורך שונות", "מעבר בין יחידות משקל שונות", "מעבר בין יחידות שטח ונפח שונות"] },
+            "fractions": { name: "שברים", subs: ["חיבור וחיסור שברים עשרוניים", "חיבור וחיסור שברים פשוטים", "חילוק שברים עשרוניים", "חילוק שברים פשוטים", "חישוב חלק של כמות ומציאת הכמות היסודית", "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'", "כפל שבר כולל מספרים מעורבים", "כפל שברים עשרוניים ואימוד תוצאות", "כפל שלם בשבר פשוט ובמספר מעורב", "מיקום על ישר המספרים", "מעבר משבר פשוט לשבר עשרוני", "צמצום והרחבה של שברים פשוטים", "שבר כנתת חילוק", "שבר עשרוני מחזורי"] },
+            "finalReviews": { name: "תרגול ומבחנים מסכמים", subs: ["לקראת כיתה ו'", "מבדק מחצית שנה - כיתה ו'"] }
+        },
+        "ז": {
+            "wordProblemsZ": { name: "בעיות מילוליות", subs: ["בעיות אחוזים", "בעיות כלליות-מספרים", "בעיות מילוי והרקה", "בעיות קנייה ומכירה", "בעיות תנועה"] },
+            "geometryZ": { name: "גאומטריה", subs: ["היקף ושטח עיגול", "מנסרה משולשת ישרה", "תיבה"] },
+            "graphsZ": { name: "גרפים מציאותיים", subs: ["קריאת מידע"] },
+            "triangleZ": { name: "המשולש", subs: ["היקף ושטח", "זוויות במשולש"] },
+            "anglesZ": { name: "זוויות", subs: ["זוויות מתחלפות וזוויות מתאימות", "זוויות צמודות", "זוויות קודקודיות", "חוצה זווית"] },
+            "arithmeticZ": { name: "חוקי פעולות החשבון", subs: ["חוק החילוף והקיבוץ", "חוק הפילוג", "סדר פעולות החשבון"] },
+            "powersZ": { name: "חזקות ושורשים", subs: ["חוקי החזקות", "חזקות עם מעריך טבעי", "שורש ריבועי"] },
+            "signedNumbersZ": { name: "מספרים מכוונים", subs: ["חיבור", "חיבור וחיסור", "חיבור וחיסור קטעים", "חיבור וחיסור שברים", "חילוק", "חיסור", "כפל", "כפל וחילוק", "כפל וחילוק שברים", "מספרים נגדיים והופכיים", "מערכת צירים", "ערך מוחלט", "ציר המספרים"] },
+            "quadrilateralsZ": { name: "מרובעים", subs: ["טרפז", "מלבן", "מקבילית", "ריבוע"] },
+            "equationsWordProblemsZ": { name: "משוואות ובעיות מילוליות", subs: ["בעיות מילוליות", "משוואות"] },
+            "algebraZ": { name: "משתנים וביטויים אלגבריים", subs: ["ביטויים שווי ערך-כינוס איברים", "המשתנה בביטוי אלגברי", "הצבה בביטויים אלגבריים", "חוקיות"] },
+            "functionsZ": { name: "פונקציות", subs: ["הכרת מושג הפונקציה", "ייצוגים שונים של פונקציה", "מושג ההשתנות - עלייה וירידה"] }
+        },
+        "ח": {
+            "percentsH": { name: "אחוזים", subs: ["בעיות אחוזים - התייקרות והוזלה", "חישובי אחוזים"] },
+            "wordProblemsH": { name: "בעיות מילוליות", subs: ["בעיות גאומטריות", "בעיות כלליות", "בעיות קנייה ומכירה", "בעיות תנועה"] },
+            "triangleH": { name: "משולש", subs: ["היקף ושטח משולש", "זוויות במשולש", "תיכון במשולש", "משפט חפיפה ראשון", "משפט חפיפה שני", "משפט חפיפה שלישי", "משפט חפיפה רביעי", "שימוש בחפיפת משולשים", "הגדרת דמיון ויחס דמיון", "משפטי דמיון", "חישובי צלעות במשולשים דומים"] },
+            "pythagorasH": { name: "משפט פיתגורס", subs: ["חישוב יתר", "חישוב ניצב", "יישומים במישור"] },
+            "geometry3DH": { name: "נפח ושטח פנים", subs: ["תיבה וקוביה", "גליל", "מנסרה ישרה", "פירמידה"] },
+            "anglesH": { name: "זוויות", subs: ["זוויות בין מקבילים", "זוויות צמודות וקודקודיות", "סכום זוויות במצולע"] },
+            "factoringH": { name: "חוק הפילוג ופירוק לגורמים", subs: ["הוצאת גורם משותף", "חוק הפילוג המורחב", "נוסחאות הכפל המקוצר"] },
+            "algebraTechH": { name: "טכניקה אלגברית", subs: ["צמצום שברים אלגבריים", "כפל וחילוק שברים אלגבריים"] },
+            "ratioH": { name: "יחס ופרופורציה", subs: ["קנה מידה", "חלוקה לפי יחס", "תכונת הפרופורציה"] },
+            "systemsH": { name: "מערכת משוואות", subs: ["שיטת ההצבה", "השוואת מקדמים", "פתרון גרפי"] },
+            "inequalitiesH": { name: "משוואות ואי שוויונות", subs: ["משוואות עם מכנה מספרי", "אי שוויונות ממעלה ראשונה"] },
+            "statsH": { name: "סטטיסטיקה והסתברות", subs: ["ממוצע, חציון ושכיח", "שכיחות יחסית", "הסתברות פשוטה"] },
+            "linearFuncH": { name: "פונקציה קווית", subs: ["מציאת שיפוע", "משוואת ישר", "נקודות חיתוך", "ישרים מקבילים"] }
+        },
+        "ט": {
+            "signedNumbers": { name: "מספרים מכוונים", subs: ["חיבור וחיסור", "כפל וחילוק", "סדר פעולות החשבון", "מספרים נגדיים וערך מוחלט"] },
+            "algebraTech": { name: "אלגברה וטכניקה אלגברית", subs: ["פירוק לגורמים - הוצאת גורם משותף", "נוסחאות הכפל המקוצר", "פירוק הטרינום הריבועי", "צמצום שברים אלגבריים", "כפל וחילוק שברים אלגבריים", "חיבור וחיסור שברים אלגבריים"] },
+            "equations": { name: "משוואות", subs: ["משוואות ממעלה ראשונה", "משוואות ריבועיות (נוסחת השורשים)", "משוואות עם שברים אלגבריים", "משוואות מיוחדות"] },
+            "systems": { name: "מערכת משוואות", subs: ["מערכת שתי משוואות בשני נעלמים", "שיטת ההצבה", "שיטת השוואת מקדמים", "פתרון גרפי", "מערכת משוואות ממעלה שנייה (קו ופרבולה)"] },
+            "wordProblems": { name: "בעיות מילוליות", subs: ["בעיות תנועה", "בעיות הספק", "בעיות קנייה ומכירה", "בעיות אחוזים", "בעיות גיאומטריות", "בעיות מספרים"] },
+            "inequalities": { name: "אי-שוויונות", subs: ["אי-שוויונות ממעלה ראשונה", "אי-שוויונות ממעלה שנייה", "ייצוג פתרון על ציר המספרים"] },
+            "linearFunc": { name: "הפונקציה הקווית", subs: ["שיפוע של ישר", "משוואת ישר", "ישרים מקבילים וניצבים", "נקודות חיתוך עם הצירים", "מרחק בין נקודות", "אמצע קטע"] },
+            "quadraticFunc": { name: "הפונקציה הריבועית", subs: ["הפרבולה f(x)=ax^2+bx+c", "הזזות ומתיחות (הצגה קודקודית)", "נקודות חיתוך עם הצירים", "קודקוד הפרבולה", "תחומי עלייה וירידה", "תחומי חיוביות ושליליות", "פתרון גרפי של אי-שוויונות ריבועיים"] },
+            "geometry": { name: "גאומטריה", subs: ["המקבילית", "המלבן", "המעוין", "הריבוע", "הטרפז", "דמיון משולשים", "משפט פיתגורס", "יחס שטחים ויחס היקפים במשולשים דומים", "קטע אמצעים", "תיכון במשולש ישר זווית"] },
+            "trigonometry": { name: "טריגונומטריה", subs: ["הגדרת הסינוס, הקוסינוס והטנגנס", "חישוב צלעות וזוויות במשולש ישר זווית", "טריגונומטריה במישור (מרובעים)"] },
+            "probability": { name: "הסתברות", subs: ["הסתברות של מאורע יחיד", "דיאגרמת עץ", "הסתברות מותנית", "מאורעות בלתי תלויים"] },
+            "statistics": { name: "סטטיסטיקה", subs: ["ממוצע", "חציון", "שכיח", "דיאגרמות עמודות ועיגול", "שכיחות יחסית"] },
+            "powersRoots": { name: "חזקות ושורשים", subs: ["חוקי החזקות", "חזקות עם מעריך אפס ושלילי", "כתיב מדעי", "שורש ריבועי ושורש n-י"] },
+            "dataAnalysis": { name: "ניתוח נתונים וגרפים", subs: ["קריאת מידע מגרפים מורכבים", "קשרים בין משתנים", "ניתוח מגמות"] },
+            "finalReview": { name: "תרגול מסכם", subs: ["מבחני מפמ\"ר", "מבחנים מסכמים לכיתה ט'", "חזרה לקראת כיתה י'"] }
+        }
+    };
+
+    let currentActivity = "";
+    let needsSubtopic = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    const grade = urlParams.get('grade'); 
+    document.getElementById('grade-display').innerText = grade ? (grade === "35371" ? "שאלון 371" : (grade === "35172" ? "שאלון 172" : (grade === "35372" ? "שאלון 372" : `כיתה ${grade}`))) : "בחירת פעילות";
+
+    function openSelectionModal(activityName, subtopicRequired) {
+        currentActivity = activityName;
+        needsSubtopic = subtopicRequired;
+        const inner = document.getElementById('modal-inner-content');
+        if (!grade || !allMathData[grade]) {
+            inner.innerHTML = `<span class="close-modal" onclick="closeModal()">✕</span><h2>שגיאה</h2><p>לא נבחרה כיתה תקינה.</p>`;
+        } else {
+            let topicOptions = '<option value="">-- בחר נושא --</option>';
+            for (let key in allMathData[grade]) { topicOptions += `<option value="${key}">${allMathData[grade][key].name}</option>`; }
+            inner.innerHTML = `<span class="close-modal" onclick="closeModal()">✕</span><h2>${activityName}</h2><select id="topic-select" onchange="updateSubtopics()">${topicOptions}</select><div id="subtopic-container" style="display:none;"><select id="subtopic-select"></select></div><button class="btn-start" onclick="handleStart()">התחל</button>`;
+        }
+        document.getElementById('selection-modal').style.display = 'flex';
+    }
+    function closeModal() { document.getElementById('selection-modal').style.display = 'none'; }
+    function updateSubtopics() {
+        const topicKey = document.getElementById('topic-select').value;
+        const container = document.getElementById('subtopic-container');
+        const select = document.getElementById('subtopic-select');
+        if (needsSubtopic && topicKey && allMathData[grade][topicKey] && allMathData[grade][topicKey].subs.length > 0) {
+            select.innerHTML = '<option value="">-- בחר תת נושא --</option>';
+            allMathData[grade][topicKey].subs.forEach(s => { const opt = document.createElement('option'); opt.value = s; opt.text = s; select.appendChild(opt); });
+            container.style.display = 'block';
+        } else { container.style.display = 'none'; }
+    }
+    function handleStart() {
+        const t = document.getElementById('topic-select');
+        const s = document.getElementById('subtopic-select');
+        const hasSubs = allMathData[grade][t.value] && allMathData[grade][t.value].subs.length > 0;
+        if (!t.value || (needsSubtopic && hasSubs && !s.value)) { alert("אנא בחר נושא"); return; }
+        alert(`מתחיל ${currentActivity}... בהצלחה!`);
+        closeModal();
+    }
+</script>
+</body>
+</html>

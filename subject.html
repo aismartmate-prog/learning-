@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המרכז להישגים לימודיים</title>
+    <style>
+        :root { --primary-color: #1a3a5f; --accent-color: #f39c12; --bg-color: #f8f9fa; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); margin: 0; padding: 0; }
+        header { background: var(--primary-color); color: white; padding: 30px; text-align: center; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none; font-weight: bold; }
+        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .activity-card { background: white; border-radius: 15px; padding: 25px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; border-bottom: 5px solid var(--primary-color); }
+        .activity-card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+        .activity-card h3 { margin: 15px 0 5px 0; color: var(--primary-color); }
+        .icon { font-size: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="subject-title">המרכז להישגים לימודיים</h1>
+    <p>בחר את סוג הפעילות הרצוי</p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← חזרה לדף הבית</a>
+
+    <div class="activity-grid">
+        <div class="activity-card">
+            <div class="icon">📝</div>
+            <h3>תרגול</h3>
+            <small>שאלות ללא הגבלת זמן</small>
+        </div>
+        <div class="activity-card">
+            <div class="icon">⏱️</div>
+            <h3>בוחן</h3>
+            <small>בדיקת ידע מהירה</small>
+        </div>
+        <div class="activity-card">
+            <div class="icon">🎓</div>
+            <h3>מבחן</h3>
+            <small>סימולציה מלאה עם ציון</small>
+        </div>
+        <div class="activity-card">
+            <div class="icon">💰</div>
+            <h3>המיליונר</h3>
+            <small>משחק טריוויה נושא פרסים</small>
+        </div>
+        <div class="activity-card">
+            <div class="icon">⚔️</div>
+            <h3>ראש בראש</h3>
+            <small>תחרות מול חברים</small>
+        </div>
+    </div>
+</div>
+
+<script>
+    // הקוד שמבצע את ה"קסם"
+    const params = new URLSearchParams(window.location.search);
+    const subject = params.get('sub');
+
+    if (subject) {
+        document.getElementById('subject-title').innerText = subject + " - בחירת פעילות";
+        document.title = "המרכז להישגים לימודיים - " + subject;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>אבטיח - מתמטיקה שאלון 172/35172</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --blue: #0f172a; --red: #ef4444; --bg: #fbfaf8; }
+        body { font-family: 'Heebo', sans-serif; background: var(--bg); margin: 0; }
+        
+        header { background: white; padding: 30px; text-align: center; border-bottom: 2px solid var(--red); }
+        .back-link { position: absolute; top: 20px; right: 20px; text-decoration: none; color: var(--blue); font-weight: bold; }
+
+        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        
+        .intro { text-align: center; margin-bottom: 40px; }
+        .intro h2 { color: var(--blue); font-size: 2rem; }
+
+        /* רשת הנושאים */
+        .topics-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 15px; 
+        }
+
+        .topic-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-right: 5px solid var(--blue);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .topic-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .topic-card.exam {
+            border-right-color: var(--red);
+            background: #fff5f5;
+        }
+
+        .topic-name { font-size: 1.2rem; font-weight: 700; color: #334155; }
+        .topic-icon { font-size: 1.5rem; }
+
+        /* צ'אט צף */
+        #chat-trigger { position: fixed; bottom: 25px; left: 25px; background: var(--blue); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.15); font-weight: bold; }
+        .chat-win { position: fixed; bottom: 100px; left: 25px; width: 350px; height: 450px; background: white; border-radius: 20px; display: none; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #eee; }
+        .chat-header { background: var(--blue); color: white; padding: 15px; display: flex; justify-content: space-between; }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
+        .chat-footer { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
+        .chat-footer input { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #ddd; outline: none; }
+        .msg { padding: 10px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; }
+        .user { background: var(--blue); color: white; align-self: flex-end; }
+        .bot { background: #e2e8f0; color: black; align-self: flex-start; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">🔙 חזרה לבית</a>
+    <h1>מתמטיקה - שאלון 172/35172 🍉</h1>
+</header>
+
+<div class="container">
+    <div class="intro">
+        <h2>בחרו נושא ללמידה</h2>
+        <p>כל התכנים מעודכנים לפי תוכנית הלימודים החדשה (כיתה י')</p>
+    </div>
+
+    <div class="topics-grid">
+        <div class="topic-card" onclick="location.href='#algebra'">
+            <span class="topic-name">1. אלגברה</span>
+            <span class="topic-icon">🔢</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#word-problems'">
+            <span class="topic-name">2. בעיות מילוליות</span>
+            <span class="topic-icon">📝</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#analytical'">
+            <span class="topic-name">3. גיאומטריה אנליטית</span>
+            <span class="topic-icon">📉</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#real-graphs'">
+            <span class="topic-name">4. גרפים מציאותיים</span>
+            <span class="topic-icon">📊</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#probability'">
+            <span class="topic-name">5. הסתברות</span>
+            <span class="topic-icon">🎲</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#trigo'">
+            <span class="topic-name">6. טריגונומטריה</span>
+            <span class="topic-icon">📐</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#equations'">
+            <span class="topic-name">7. משוואות ואי-שוויונות</span>
+            <span class="topic-icon">⚖️</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#sequences'">
+            <span class="topic-name">8. סדרה חשבונית</span>
+            <span class="topic-icon">♾️</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#stats'">
+            <span class="topic-name">9. סטטיסטיקה והסתברות</span>
+            <span class="topic-icon">📉</span>
+        </div>
+        <div class="topic-card" onclick="location.href='#quadratic'">
+            <span class="topic-name">10. תכונות הפונקציה הריבועית</span>
+            <span class="topic-icon">🎯</span>
+        </div>
+
+        <div class="topic-card exam" onclick="location.href='#exams'">
+            <span class="topic-name">🏆 תרגול בחינות בגרות</span>
+            <span class="topic-icon">📜</span>
+        </div>
+    </div>
+</div>
+
+<div id="chat-trigger" onclick="toggleChat()">👨‍🏫 שאל את מורה אבטיח</div>
+<div id="chat-win" class="chat-win">
+    <div class="chat-header"><span>מורה עוזר - אבטיח</span><span onclick="toggleChat()" style="cursor:pointer">✖</span></div>
+    <div class="chat-body" id="chat-body">
+        <div class="msg bot">שלום! אני כאן לעזור לך בשאלון 172. איזה נושא נתרגל?</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="user-in" placeholder="כתוב שאלה...">
+        <button onclick="send()" class="btn" style="padding:10px; background:var(--blue); color:white; border:none; border-radius:10px; cursor:pointer;">שלח</button>
+    </div>
+</div>
+
+<script>
+    function toggleChat() { const win = document.getElementById('chat-win'); win.style.display = (win.style.display === 'flex') ? 'none' : 'flex'; }
+    async function send() {
+        const input = document.getElementById('user-in');
+        const body = document.getElementById('chat-body');
+        const text = input.value.trim();
+        if(!text) return;
+
+        body.innerHTML += `<div class="msg user">${text}</div>`;
+        input.value = "";
+        const loading = document.createElement('div');
+        loading.className = 'msg bot'; loading.innerText = 'המורה חושב...';
+        body.appendChild(loading);
+        body.scrollTop = body.scrollHeight;
+
+        try {
+            const res = await fetch('http://127.0.0.1:5000/ask', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({question: text})
+            });
+            const data = await res.json();
+            loading.innerText = data.answer;
+        } catch(e) { loading.innerText = "שגיאה בחיבור לשרת אבטיח!"; }
+        body.scrollTop = body.scrollHeight;
+    }
+</script>
+</body>
+</html>

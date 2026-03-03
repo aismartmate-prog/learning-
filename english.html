@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>אנגלית - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary-color: #0f172a; 
+            --accent-color: #f59e0b; 
+            --bg-color: #fbfaf8; 
+        }
+        body { 
+            font-family: 'Heebo', sans-serif; 
+            background-color: var(--bg-color); 
+            margin: 0; padding: 0; 
+            -webkit-tap-highlight-color: transparent;
+        }
+        header { background: var(--primary-color); color: white; padding: 25px; text-align: center; }
+        header h1 { font-size: 1.8rem; margin: 0; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
+        
+        .back-btn { display: inline-block; margin-bottom: 15px; color: var(--primary-color); text-decoration: none; font-weight: bold; }
+
+        .activity-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: 15px; 
+        }
+        .activity-card { 
+            background: white; border-radius: 15px; padding: 20px; 
+            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            cursor: pointer; transition: 0.2s; border-bottom: 5px solid var(--accent-color); 
+        }
+        .activity-card:active { transform: scale(0.98); }
+        .icon { font-size: 35px; }
+
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: flex-end; z-index: 2000;
+        }
+        .modal-content {
+            background: white; padding: 30px; border-radius: 25px 25px 0 0; 
+            width: 100%; max-width: 500px; box-sizing: border-box;
+            animation: slideUp 0.3s ease-out;
+        }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        
+        .close-modal { float: left; cursor: pointer; font-size: 1.5rem; color: #94a3b8; }
+        select {
+            width: 100%; padding: 12px; border-radius: 12px; border: 2px solid #e2e8f0;
+            font-size: 16px; margin-bottom: 20px; outline: none; background: #fff;
+            direction: ltr;
+        }
+        .btn-start {
+            background: var(--primary-color); color: white; border: none;
+            padding: 15px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem;
+        }
+
+        @media (min-width: 600px) {
+            .modal-overlay { align-items: center; }
+            .modal-content { border-radius: 20px; width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>אנגלית - English</h1>
+    <p>בחירת פעילות</p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← חזרה</a>
+    <div class="activity-grid">
+        <div class="activity-card" onclick="openSelectionModal('Practice', true)">
+            <div class="icon">📝</div>
+            <h3>תרגול</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('Quiz', true)">
+            <div class="icon">⏱️</div>
+            <h3>בוחן</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('Exam', false)">
+            <div class="icon">🎓</div>
+            <h3>מבחן</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('Millionaire', false)">
+            <div class="icon">💰</div>
+            <h3>המיליונר</h3>
+        </div>
+        <div class="activity-card" onclick="openSelectionModal('Head-to-Head', false)">
+            <div class="icon">⚔️</div>
+            <h3>ראש בראש</h3>
+        </div>
+    </div>
+</div>
+
+<div id="selection-modal" class="modal-overlay">
+    <div class="modal-content" id="modal-inner-content"></div>
+</div>
+
+<script>
+    // תתי נושאים מעודכנים לפי התמונות
+    const englishSubtopics = {
+        "Grammar": [
+            "Active or Passive", "Adjectives", "Adverb", "Articles", 
+            "Comparative and superlative", "Conditionals", "Demonstratives", 
+            "Future", "Grammar cloze", "Mixed tenses", "Modals", 
+            "Participles", "Passive forms", "Past Perfect", 
+            "Past Perfect Progressive", "Past Progressive", "Past Simple", 
+            "Possessive forms", "Prepositions", "Present Perfect", 
+            "Present Progressive", "Present Simple", "Pronouns", 
+            "Question tags", "Relative Pronouns", "Reported Speech", 
+            "Singular-Plural Nouns", "Stative verbs", "Temporals", 
+            "WH Question", "Yes/No questions - be"
+        ],
+        "Literature": [
+            "A summer's reading / Bernard Malamud", "All my sons / Artur Miller", 
+            "As I grew older / Langston Hughes", "Count that day lost / George Eliot", 
+            "Grandmother / Saemeneh Shirazie", "Introduction to poetry / Billy Collins", 
+            "Mama and her bank account / Kathryn Forbs", "Mr. know all / W. Somerset Maugham", 
+            "Thank you, Ma'm / Langston Hughes", "The enemy / Pearl S. Buck", 
+            "The road not taken / Robert Frost", "The split cherry tree / Jesse Syuart", 
+            "The treasure of Lemon Brown", "The wave / Morton Rhue"
+        ],
+        "Reading comprehension": [
+            "cloze", "easy unseen", "unseen", "vocabulary"
+        ]
+    };
+
+    let currentActivity = "";
+    let activityWantsSubtopic = false;
+
+    function openSelectionModal(activityName, wantsSubtopic) {
+        currentActivity = activityName;
+        activityWantsSubtopic = wantsSubtopic;
+        const inner = document.getElementById('modal-inner-content');
+
+        inner.innerHTML = `
+            <span class="close-modal" onclick="closeModal()">✕</span>
+            <h2 style="margin-top:0; text-align:center;">${activityName}</h2>
+            
+            <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">בחר נושא (Topic):</label>
+            <select id="topic-select" onchange="updateSubtopics()">
+                <option value="">-- בחר נושא --</option>
+                <option value="Bagrut exams.-module A">Bagrut exams.-module A</option>
+                <option value="Bagrut exams.-module B">Bagrut exams.-module B</option>
+                <option value="Bagrut exams.-module C">Bagrut exams.-module C</option>
+                <option value="Bagrut exams.-module D">Bagrut exams.-module D</option>
+                <option value="Bagrut exams.-module E">Bagrut exams.-module E</option>
+                <option value="Bagrut exams.-module F">Bagrut exams.-module F</option>
+                <option value="Bagrut exams.-module G">Bagrut exams.-module G</option>
+                <option value="Grammar">Grammar</option>
+                <option value="Literature">Literature</option>
+                <option value="Reading comprehension">Reading comprehension</option>
+            </select>
+            
+            <div id="subtopic-container" style="display:none;">
+                <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">בחר תת נושא (Subtopic):</label>
+                <select id="subtopic-select"></select>
+            </div>
+            
+            <button class="btn-start" onclick="handleStart()">התחל פעילות / Start</button>
+        `;
+        
+        document.getElementById('selection-modal').style.display = 'flex';
+    }
+
+    function closeModal() { document.getElementById('selection-modal').style.display = 'none'; }
+
+    function updateSubtopics() {
+        const topicVal = document.getElementById('topic-select').value;
+        const container = document.getElementById('subtopic-container');
+        const select = document.getElementById('subtopic-select');
+        
+        // מציג תתי נושאים רק אם הפעילות דורשת (תרגול/בוחן) וזה לא בגרויות
+        if (activityWantsSubtopic && topicVal && !topicVal.startsWith("Bagrut") && englishSubtopics[topicVal]) {
+            select.innerHTML = '<option value="">-- בחר תת נושא --</option>';
+            englishSubtopics[topicVal].forEach(s => {
+                const opt = document.createElement('option');
+                opt.value = s; opt.text = s; select.appendChild(opt);
+            });
+            container.style.display = 'block';
+        } else {
+            container.style.display = 'none';
+        }
+    }
+
+    function handleStart() {
+        const t = document.getElementById('topic-select');
+        const s = document.getElementById('subtopic-select');
+        const container = document.getElementById('subtopic-container');
+        
+        if (!t.value) { alert("יש לבחור נושא"); return; }
+        // אם תפריט תת-הנושא מוצג, הוא חובה
+        if (container.style.display === 'block' && !s.value) { alert("יש לבחור תת נושא"); return; }
+        
+        alert(`מתחיל ${currentActivity} בנושא ${t.value}...`);
+        closeModal();
+    }
+</script>
+</body>
+</html>
