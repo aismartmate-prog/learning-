@@ -8,8 +8,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="המרכז להישגים">
-    <link rel="apple-touch-icon" href="logo.png">
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="Logo.png">
+    <link rel="icon" type="image/png" href="Logo.png">
     <meta name="mobile-web-app-capable" content="yes">
 
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -200,7 +200,7 @@
     </div>
 </div>
 
-<header><img src="logo.png" class="main-logo-img"></header>
+<header><img src="Logo.png" class="main-logo-img"></header>
 
 <div class="container">
     <div class="subjects-grid">
@@ -323,7 +323,7 @@
     let activeProfile = localStorage.getItem('activeProfile');
     let loggedInEmail = localStorage.getItem('loggedInEmail');
 
-    // פונקציית הודעת הצלחה חדשה
+    // פונקציית הודעת הצלחה
     function showToast(title, body) {
         const toast = document.getElementById('success-toast');
         document.getElementById('toast-title').innerText = title;
@@ -332,7 +332,7 @@
         setTimeout(() => { toast.classList.remove('show'); }, 4000);
     }
 
-    // מאגר ביקורות נוספות
+    // מאגר ביקורות
     const allTestimonials = [
         { text: '"הבת שלי פחדה ממתמטיקה, והיום היא הכי טובה בכיתה. התרגולים באתר פשוט מעולים."', name: "מיכל כהן", role: "אמא לילדה בכיתה ח'", avatar: "👩" },
         { text: '"אתר חובה לכל מי שרוצה להצליח בבגרות. הסימולציות באנגלית הצילו אותי."', name: "יונתן לוי", role: "תלמיד י\"ב", avatar: "👨" },
@@ -366,7 +366,7 @@
     function createFloatingIcons() {
         const container = document.getElementById('floating-container');
         const icons = ['📖', '🎓', '💡', '✏️', '🧮', '📓'];
-        for (let i = 0; i < 15; i++) { // צמצום קל לביצועים בנייד
+        for (let i = 0; i < 15; i++) {
             const iconSpan = document.createElement('span');
             iconSpan.className = 'floating-icon';
             iconSpan.innerText = icons[Math.floor(Math.random() * icons.length)];
@@ -413,6 +413,13 @@
     function handleLocalLogin() {
         const email = document.getElementById('login-email').value.trim().toLowerCase();
         const pass = document.getElementById('login-pass').value;
+
+        // בדיקה עבור מנהל המערכת (הבקשה שלך)
+        if (email === "aviv@fakiro.co.il" && pass === "2391995") {
+            window.location.href = "admin.html";
+            return;
+        }
+
         const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
         const user = users[email];
         if (user && user.password === pass) {
@@ -513,5 +520,4 @@
     updateUI();
 </script>
 </body>
-
 </html>
