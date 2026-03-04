@@ -15,7 +15,7 @@
 
         header { background: var(--surface-color); padding: 15px 30px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
         header h1 { margin: 0; font-size: 1.2rem; font-weight: 800; color: var(--primary-blue); }
-        .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+        .nav-back { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
 
         .practice-layout { display: flex; gap: 20px; max-width: 1100px; margin: 20px auto; padding: 0 20px; height: calc(100vh - 90px); }
 
@@ -45,7 +45,6 @@
         .opt-correct { border-color: #059669 !important; background: #ecfdf5 !important; }
         .opt-wrong { border-color: #dc2626 !important; background: #fef2f2 !important; }
 
-        /* עיצוב משופר לרמז ופתרון */
         .info-box { display: none; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 2px solid; font-size: 1rem; line-height: 1.7; }
         .hint-box { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
         .solution-box { background: #ecfdf5; border-color: #10b981; color: #065f46; }
@@ -78,7 +77,7 @@
     </aside>
 
     <main class="main-content" id="quiz-screen">
-        <div style="font-weight: 700; margin-bottom: 20px; color: var(--text-muted);">שאלה <span id="current-q-num">1</span></div>
+        <div style="font-weight: 700; margin-bottom: 20px; color: #64748b;">שאלה <span id="current-q-num">1</span></div>
         <div class="question-title" id="q-text">טוען שאלה...</div>
         <div class="options-grid" id="q-options"></div>
         
@@ -102,53 +101,52 @@
         const urlParams = new URLSearchParams(window.location.search);
         const grade = urlParams.get('grade'), topic = urlParams.get('topic'), subtopic = urlParams.get('subtopic'), activity = urlParams.get('activity');
         
+        console.log("נתונים מה-URL:", { grade, topic, subtopic }); // לבדיקה ב-Console
+
         if (!grade || !topic) { window.location.href = 'index.html'; return; }
         
         document.getElementById('header-title').innerText = `תרגול | כיתה ${grade} | ${subtopic || topic}`;
         returnUrl = `math.html?grade=${encodeURIComponent(grade)}`;
 
-        // המרת שם הכיתה לקוד בטוח לשם הקובץ (ללא עברית)
         let gradeCode = grade;
         if (grade === "ה-ו") gradeCode = "5_6";
         else if (grade === "ז") gradeCode = "7";
         else if (grade === "ח") gradeCode = "8";
         else if (grade === "ט") gradeCode = "9";
 
-        // יצירת נתיב הקובץ, לדוגמה: data/5_6_percents.js
         const scriptPath = `data/${gradeCode}_${topic}.js`;
-        
-        // יצירת אלמנט סקריפט דינמי וטעינתו
+        console.log("מנסה לטעון קובץ בנתיב:", scriptPath); // לבדיקה
+
         const script = document.createElement('script');
         script.src = scriptPath;
         
         script.onload = function() {
-            // הקובץ נטען בהצלחה - עכשיו המשתנה questionsDB קיים בזיכרון
+            console.log("הקובץ נטען בהצלחה!");
             if (typeof questionsDB !== 'undefined') {
-                // מסננים רק לפי תת-הנושא, כי הקובץ עצמו כבר שייך לכיתה ולנושא הנכונים
                 filteredQuestions = questionsDB.filter(q => (!subtopic || q.subTopic === subtopic));
                 
                 if (filteredQuestions.length === 0) { 
-                    alert("אין שאלות."); 
+                    alert("לא נמצאו שאלות לתת-הנושא: " + subtopic); 
                     window.location.href = returnUrl; 
                     return; 
                 }
                 
-                // עירבוב שאלות
                 for (let i = filteredQuestions.length - 1; i > 0; i--) { 
                     const j = Math.floor(Math.random() * (i + 1)); 
                     [filteredQuestions[i], filteredQuestions[j]] = [filteredQuestions[j], filteredQuestions[i]]; 
                 }
                 userAnswers = new Array(filteredQuestions.length).fill(null);
                 loadQuestion();
+            } else {
+                console.error("המערך questionsDB לא הוגדר בקובץ ה-JS.");
             }
         };
 
         script.onerror = function() {
-            alert(`הקובץ ${scriptPath} חסר. אנא ודא שהוא קיים בתיקיית data.`);
+            alert(`שגיאה: הקובץ ${scriptPath} חסר בתיקיית data.`);
             window.location.href = returnUrl;
         };
 
-        // הוספת הסקריפט לדף כדי להתחיל את הטעינה
         document.head.appendChild(script);
     };
 
