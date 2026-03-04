@@ -44,9 +44,6 @@
         .btn-sm { padding: 6px 12px; font-size: 0.8rem; }
         
         .status-tag { padding: 5px 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; }
-        .status-active { background: #dcfce7; color: #166534; }
-        .status-blocked { background: #fee2e2; color: #b91c1c; }
-        .status-infinite { background: #e0f2fe; color: #0369a1; }
         .status-online { background: #3b82f6; color: white; border: 2px solid #2563eb; }
         .status-offline { background: #94a3b8; color: white; }
         
@@ -72,7 +69,7 @@
     </div>
 </div>
 
-<div id="adminPassModal" class="admin-modal">
+<div id="adminPassModal" class="admin-modal" onclick="closeModalOnOutsideClick(event, 'adminPassModal')">
     <div class="admin-modal-content">
         <h3>שינוי סיסמת מנהל 🔑</h3>
         <input type="password" id="old-p" placeholder="סיסמה נוכחית">
@@ -84,7 +81,7 @@
     </div>
 </div>
 
-<div id="editUserModal" class="admin-modal">
+<div id="editUserModal" class="admin-modal" onclick="closeModalOnOutsideClick(event, 'editUserModal')">
     <div class="admin-modal-content">
         <h3 id="modal-title">עריכת שובר/משתמש ✏️</h3>
         <div id="verify-box">
@@ -105,12 +102,6 @@
             
             <label class="edit-label">תאריך תוקף (תפוגה):</label>
             <input type="date" id="e-date">
-            
-            <label class="edit-label">סטטוס חשבון:</label>
-            <select id="e-status" style="width:100%; padding:12px; margin:8px 0; border-radius:10px; border:1px solid #ddd; font-family:'Heebo';">
-                <option value="active">פעיל ✅</option>
-                <option value="blocked">חסום ⛔</option>
-            </select>
 
             <button class="btn btn-gold" style="width:100%; margin-top:15px;" onclick="saveChanges()">שמור שינויים</button>
             <button class="btn btn-red" style="width:100%; margin-top:8px;" onclick="resetSessions()">🚫 נתק את כל המכשירים</button>
@@ -150,7 +141,8 @@
                     <th>אימייל לקוח</th>
                     <th>שם לקוח</th>
                     <th>עיר</th>
-                    <th>כתובת</th> <th>סטטוס אונליין</th>
+                    <th>כתובת</th>
+                    <th>סטטוס אונליין</th>
                     <th>ניהול</th>
                 </tr>
             </thead>
@@ -171,6 +163,14 @@
     let activeVoucherCode = null;
     let refreshSec = 30;
 
+    // פונקציית עזר לסגירת מודאלים בלחיצה בחוץ
+    function closeModalOnOutsideClick(event, modalId) {
+        if (event.target.id === modalId) {
+            toggleModal(modalId);
+        }
+    }
+
+    // טיימר רענון
     setInterval(() => {
         refreshSec--;
         document.getElementById('timer-sec').innerText = refreshSec;
@@ -231,11 +231,10 @@
         const v = config.vouchers.find(x => x.code === code);
         const u = users[email] || {};
         
-        document.getElementById('info-email').innerText = email !== 'null' && email !== 'undefined' ? email : 'טרם נרשם';
+        document.getElementById('info-email').innerText = (email && email !== 'null' && email !== 'undefined') ? email : 'טרם נרשם';
         document.getElementById('e-pass').value = u.password || "";
         document.getElementById('e-limit').value = u.deviceLimit || 1;
         document.getElementById('e-date').value = v ? v.expiryDate : "";
-        document.getElementById('e-status').value = u.status || "active";
         
         document.getElementById('verify-admin-p').value = "";
         document.getElementById('verify-box').style.display = 'block';
@@ -263,34 +262,58 @@
     }
 
     function saveChanges() {
-        const config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
+        const config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[], "kickedUsers":[]}');
         const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
         const v = config.vouchers.find(x => x.code === activeVoucherCode);
+        
         if(v) {
             v.expiryDate = document.getElementById('e-date').value;
-            if(v.usedBy && users[v.usedBy]) {
+            // נוודא שהמשתמש באמת קיים ונרשם עם השובר לפני שנעדכן אותו
+            if(v.usedBy && v.usedBy !== 'null' && v.usedBy !== 'undefined' && users[v.usedBy]) {
                 const u = users[v.usedBy];
+                const email = v.usedBy;
                 u.password = document.getElementById('e-pass').value;
-                u.deviceLimit = parseInt(document.getElementById('e-limit').value);
-                u.status = document.getElementById('e-status').value;
+                u.deviceLimit = parseInt(document.getElementById('e-limit').value) || 1;
                 u.expiry = v.expiryDate;
+
+                // פתרון לבעיית הניתוק: ברגע ששמרנו שינויים, המשתמש "מאושר" מחדש
+                // אנחנו מנקים אותו מרשימת הבעיטה כדי שלא ייזרק בכניסה הבאה
+                if (config.kickedUsers) {
+                    config.kickedUsers = config.kickedUsers.filter(e => e !== email);
+                }
             }
         }
         localStorage.setItem('shared_config', JSON.stringify(config));
         localStorage.setItem('edu_users', JSON.stringify(users));
-        toggleModal('editUserModal'); render();
+        toggleModal('editUserModal'); 
+        render();
     }
 
     function resetSessions() {
         const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-        const config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
+        const config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[], "kickedUsers":[]}');
         const v = config.vouchers.find(x => x.code === activeVoucherCode);
-        if(v && v.usedBy && users[v.usedBy]) {
-            users[v.usedBy].activeSessions = 0;
-            users[v.usedBy].isOnline = false;
-            users[v.usedBy].forceLogoutToken = "OUT_" + Math.random();
-            localStorage.setItem('edu_users', JSON.stringify(users));
-            alert("מכשירים נותקו."); render();
+        
+        if(v && v.usedBy && v.usedBy !== 'null' && v.usedBy !== 'undefined') {
+            const email = v.usedBy;
+            if(users[email]) {
+                users[email].activeSessions = 0;
+                users[email].isOnline = false;
+                // הוספת טוקן ניתוק פנימי
+                users[email].forceLogoutToken = "OUT_" + Math.random();
+                localStorage.setItem('edu_users', JSON.stringify(users));
+            }
+            
+            // הוספה לרשימת הבעיטה המיידית
+            if (!config.kickedUsers) config.kickedUsers = [];
+            if (!config.kickedUsers.includes(email)) config.kickedUsers.push(email);
+            
+            localStorage.setItem('shared_config', JSON.stringify(config));
+            alert("מכשירים נותקו והמשתמש יצא."); 
+            toggleModal('editUserModal');
+            render();
+        } else {
+             alert("לא ניתן לנתק שובר שטרם נרשמו אליו.");
         }
     }
 
@@ -300,6 +323,7 @@
         const tbody = document.getElementById('table-body');
         const today = new Date().toISOString().split('T')[0];
         const now = Date.now();
+        let usersDataChanged = false; // דגל שיסמן אם צריך לשמור עדכונים ב-users
 
         tbody.innerHTML = '';
         let stats = { total: 0, active: 0, online: 0, expired: 0, free: 0 };
@@ -310,7 +334,7 @@
             let onlineHTML = '<span class="status-tag status-offline">מנותק</span>';
             let clientName = '---';
             let clientCity = '---';
-            let clientAddress = '---'; // משתנה לכתובת
+            let clientAddress = '---'; 
             
             if(u) {
                 const isRecentlyActive = u.lastSeen && (now - u.lastSeen < 20000);
@@ -319,13 +343,13 @@
                     stats.online++;
                 } else if (u.isOnline && !isRecentlyActive) {
                     u.isOnline = false;
-                    localStorage.setItem('edu_users', JSON.stringify(users));
+                    usersDataChanged = true; // נסמן שהמשתמש עבר לסטטוס מנותק וצריך לשמור את זה
                 }
                 
                 clientName = (u.firstName || '') + ' ' + (u.lastName || '');
                 if(clientName.trim() === '') clientName = 'משתמש';
                 clientCity = u.city || '---';
-                clientAddress = u.address || '---'; // שליפת הכתובת
+                clientAddress = u.address || '---'; 
                 
                 if (v.expiryDate >= today) stats.active++;
                 else stats.expired++;
@@ -340,7 +364,8 @@
                     <td>${v.usedBy || '---'}</td>
                     <td>${clientName}</td>
                     <td>${clientCity}</td>
-                    <td>${clientAddress}</td> <td>${onlineHTML}</td>
+                    <td>${clientAddress}</td>
+                    <td>${onlineHTML}</td>
                     <td>
                         <div style="display:flex; gap:5px; justify-content:center;">
                             <button class="btn btn-sm btn-gold" onclick="openEdit('${v.code}','${v.usedBy}')">עריכה</button>
@@ -349,6 +374,12 @@
                     </td>
                 </tr>`;
         });
+
+        // שמירה ל-LocalStorage רק פעם אחת בסוף הלולאה במקום בכל איטרציה
+        if (usersDataChanged) {
+            localStorage.setItem('edu_users', JSON.stringify(users));
+        }
+
         document.getElementById('stat-total').innerText = stats.total;
         document.getElementById('stat-active').innerText = stats.active;
         document.getElementById('stat-online').innerText = stats.online;
@@ -357,7 +388,9 @@
         document.getElementById('v-next').value = (config.vouchers.length > 0 ? Math.max(...config.vouchers.map(v => parseInt(v.code))) + 1 : 12851);
     }
     
+    // האזנה לשינויים כדי לרענן בזמן אמת כשמשהו משתנה בטאב אחר
     window.addEventListener('storage', render);
+    
     render();
 </script>
 </body>

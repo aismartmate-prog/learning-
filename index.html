@@ -2,16 +2,8 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>המרכז להישגים לימודיים</title>
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="המרכז להישגים">
-    <link rel="apple-touch-icon" href="logo.png">
-    <link rel="icon" type="image/png" href="logo.png">
-    <meta name="mobile-web-app-capable" content="yes">
-
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -37,19 +29,7 @@
         body {
             font-family: 'Heebo', sans-serif; margin: 0; padding: 0; color: #334155; line-height: 1.5;
             background-color: var(--bg-cream); position: relative; min-height: 100vh;
-            overflow-x: hidden; /* מניעת גלילה לצדדים בנייד */
-        }
-
-        /* התאמות לנייד - Media Queries */
-        @media (max-width: 768px) {
-            .main-logo-img { width: 90% !important; transform: none !important; }
-            .subjects-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
-            .subject-card { min-height: auto !important; padding: 20px !important; }
-            .login-card { width: 90% !important; padding: 20px !important; }
-            .guest-access { top: 15px; left: 15px; flex-direction: column; align-items: flex-start; gap: 8px; }
-            .user-welcome-tag, .btn-guest { min-width: 120px; font-size: 0.85rem; height: 38px; }
-            .testimonials-grid { grid-template-columns: 1fr !important; }
-            .toast-msg { width: 85%; padding: 15px; }
+            overflow-x: hidden; /* מונע גלילה אופקית מיותרת בגלל אנימציות או אייקונים חורגים */
         }
 
         /* רקע צף */
@@ -121,31 +101,33 @@
         .news-content { display: inline-block; animation: marquee 40s linear infinite; font-weight: 700; }
         @keyframes marquee { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
         footer { text-align: center; padding: 50px 20px; background: #fff; border-top: 1px solid #e2e8f0; color: #94a3b8; position: relative; z-index: 10; }
+        
+        .forgot-pass-link { display: block; margin: 10px 0; color: var(--accent-gold); cursor: pointer; font-size: 0.9rem; text-decoration: underline; }
 
-        /* סגנון הודעת הצלחה */
-        .toast-msg {
-            position: fixed; top: 30px; left: 50%; transform: translateX(-50%) translateY(-100px);
-            background: white; padding: 20px 40px; border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-right: 8px solid var(--accent-gold);
-            z-index: 5000; transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); opacity: 0;
-            display: flex; align-items: center; gap: 15px; pointer-events: none;
+        /* --- מודאל הודעות מותאם אישית --- */
+        .custom-alert-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); backdrop-filter: blur(3px);
+            display: none; justify-content: center; align-items: center; z-index: 5000;
         }
-        .toast-msg.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-        .toast-msg h4 { margin: 0; color: var(--primary-blue); font-size: 1.2rem; }
-        .toast-msg p { margin: 5px 0 0; color: #64748b; font-size: 0.95rem; }
+        .custom-alert-card {
+            background: white; padding: 35px; border-radius: 25px;
+            width: 320px; text-align: center; box-shadow: var(--shadow-hover);
+            border: 2px solid var(--secondary-gold);
+        }
+        .custom-alert-msg { font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 25px; }
     </style>
 </head>
 <body>
 
-<div id="floating-container"></div>
-<div id="success-toast" class="toast-msg">
-    <div style="font-size: 2rem;">✨</div>
-    <div>
-        <h4 id="toast-title">ברוך הבא!</h4>
-        <p id="toast-body">התהליך הושלם, למידה מהנה ופורה.</p>
+<div id="custom-alert" class="custom-alert-overlay">
+    <div class="custom-alert-card">
+        <div id="alert-text" class="custom-alert-msg"></div>
+        <button class="btn-action" style="padding: 10px 30px;" onclick="closeAlert()">אישור</button>
     </div>
 </div>
 
+<div id="floating-container"></div>
 <div class="accessibility-btn" onclick="toggleAccMenu()">♿</div>
 <div id="acc-menu" class="acc-menu">
     <button onclick="toggleAcc('large-text')">טקסט גדול</button>
@@ -174,6 +156,7 @@
             <div id="login-section">
                 <input type="email" id="login-email" placeholder="אימייל">
                 <input type="password" id="login-pass" placeholder="סיסמה">
+                <span class="forgot-pass-link" onclick="handleForgotPass()">שכחתי סיסמה</span>
                 <button class="btn-action" style="width:100%" onclick="handleLocalLogin()">כניסה למערכת</button>
             </div>
             <div id="register-section" style="display:none;">
@@ -200,7 +183,7 @@
     </div>
 </div>
 
-<header><img src="logo.png" class="main-logo-img"></header>
+<header><img src="Logo.png" class="main-logo-img" alt="לוגו המרכז להישגים לימודיים"></header>
 
 <div class="container">
     <div class="subjects-grid">
@@ -320,19 +303,123 @@
 <footer><p>© 2026 המרכז להישגים לימודיים | מצוינות. יוקרה. הצלחה.</p></footer>
 
 <script>
-    let activeProfile = localStorage.getItem('activeProfile');
-    let loggedInEmail = localStorage.getItem('loggedInEmail');
-
-    // פונקציית הודעת הצלחה
-    function showToast(title, body) {
-        const toast = document.getElementById('success-toast');
-        document.getElementById('toast-title').innerText = title;
-        document.getElementById('toast-body').innerText = body;
-        toast.classList.add('show');
-        setTimeout(() => { toast.classList.remove('show'); }, 4000);
+    // משתנים גלובליים
+    let activeProfile = null;
+    let loggedInEmail = null;
+    
+    try {
+        activeProfile = localStorage.getItem('activeProfile');
+        loggedInEmail = localStorage.getItem('loggedInEmail');
+    } catch (e) {
+        console.warn('LocalStorage is blocked or not available.');
     }
 
-    // מאגר ביקורות
+    // --- פונקציות להודעות מעוצבות ---
+    function myAlert(text) {
+        document.getElementById('alert-text').innerText = text;
+        document.getElementById('custom-alert').style.display = 'flex';
+    }
+    function closeAlert() {
+        document.getElementById('custom-alert').style.display = 'none';
+    }
+
+    // --- מערכת דיווח נוכחות משופרת (מטפלת בבעיית ההתנתקות באדמין) ---
+    function keepAlive() {
+        // אנחנו תמיד בודקים מהשמירה המקומית כדי למנוע חוסר סנכרון במשתנה גלובלי
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (!currentEmail) return;
+        
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[currentEmail]) {
+                users[currentEmail].isOnline = true;
+                users[currentEmail].lastSeen = Date.now();
+                localStorage.setItem('edu_users', JSON.stringify(users));
+            }
+        } catch(e) {}
+    }
+
+    // פעימת חיים אוטומטית כל 10 שניות
+    setInterval(keepAlive, 10000);
+
+    // מנגנון ניתוק אוטומטי (30 דקות) ומעקב אקטיביות
+    const INACTIVITY_LIMIT = 30 * 60 * 1000; 
+    let inactivityTimer;
+    let lastKeepAlive = 0;
+
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimer);
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        
+        if (currentEmail) {
+            inactivityTimer = setTimeout(logoutDueToInactivity, INACTIVITY_LIMIT);
+            
+            // עדכון סטטוס אקטיבי באדמין ברגע שהמשתמש זז (מוגבל לעד פעם ב-5 שניות)
+            const now = Date.now();
+            if (now - lastKeepAlive > 5000) {
+                keepAlive();
+                lastKeepAlive = now;
+            }
+        }
+    }
+
+    function logoutDueToInactivity() {
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (currentEmail) {
+            try {
+                const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+                if (users[currentEmail]) {
+                    users[currentEmail].isOnline = false;
+                    localStorage.setItem('edu_users', JSON.stringify(users));
+                }
+                localStorage.removeItem('activeProfile');
+                localStorage.removeItem('loggedInEmail');
+            } catch(e) {}
+            
+            loggedInEmail = null;
+            activeProfile = null;
+            updateUI();
+            myAlert("נותקת מהמערכת עקב חוסר פעילות במשך חצי שעה.");
+        }
+    }
+
+    // מאזינים לפעולות המשתמש כדי למנוע ניתוק בטעות אם הוא קורא טקסט ורק מזיז עכבר
+    window.addEventListener('load', resetInactivityTimer);
+    document.addEventListener('mousemove', resetInactivityTimer);
+    document.addEventListener('keydown', resetInactivityTimer);
+    document.addEventListener('click', resetInactivityTimer);
+    document.addEventListener('scroll', resetInactivityTimer);
+
+    // --- בדיקת ניתוק מצד מנהל (Kick) ---
+    setInterval(() => {
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (currentEmail) {
+            try {
+                let config = JSON.parse(localStorage.getItem('shared_config') || '{"kickedUsers":[]}');
+                if (config.kickedUsers && config.kickedUsers.includes(currentEmail)) {
+                    config.kickedUsers = config.kickedUsers.filter(e => e !== currentEmail);
+                    localStorage.setItem('shared_config', JSON.stringify(config));
+                    handleAuthClick(); // יפעיל ניתוק
+                    myAlert("נותקת מהמערכת על ידי מנהל.");
+                }
+            } catch (e) {}
+        }
+    }, 3000);
+
+    // --- שאר הפונקציות (התחברות, עדכון ממשק, תפריטים) ---
+    function handleForgotPass() {
+        const email = prompt("אנא הזן את כתובת האימייל שלך לשחזור סיסמה:");
+        if (!email) return;
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[email.toLowerCase().trim()]) {
+                myAlert("הוראות לשחזור סיסמה נשלחו לתיבת המייל (בסימולציה זו: הסיסמה שלך היא " + users[email.toLowerCase().trim()].password + ")");
+            } else {
+                myAlert("אימייל זה לא נמצא במערכת.");
+            }
+        } catch(e) {}
+    }
+
     const allTestimonials = [
         { text: '"הבת שלי פחדה ממתמטיקה, והיום היא הכי טובה בכיתה. התרגולים באתר פשוט מעולים."', name: "מיכל כהן", role: "אמא לילדה בכיתה ח'", avatar: "👩" },
         { text: '"אתר חובה לכל מי שרוצה להצליח בבגרות. הסימולציות באנגלית הצילו אותי."', name: "יונתן לוי", role: "תלמיד י\"ב", avatar: "👨" },
@@ -345,9 +432,14 @@
     let currentStartIndex = 0;
 
     function updateTestimonials() {
-        const cards = [document.getElementById('card-0'), document.getElementById('card-1'), document.getElementById('card-2')];
-        if(!cards[0]) return;
+        const card0 = document.getElementById('card-0');
+        const card1 = document.getElementById('card-1');
+        const card2 = document.getElementById('card-2');
+        if(!card0 || !card1 || !card2) return;
+        
+        const cards = [card0, card1, card2];
         cards.forEach(card => card.classList.add('fade-out'));
+        
         setTimeout(() => {
             currentStartIndex = (currentStartIndex + 1) % allTestimonials.length;
             cards.forEach((card, i) => {
@@ -365,8 +457,9 @@
 
     function createFloatingIcons() {
         const container = document.getElementById('floating-container');
+        if(!container) return;
         const icons = ['📖', '🎓', '💡', '✏️', '🧮', '📓'];
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 20; i++) {
             const iconSpan = document.createElement('span');
             iconSpan.className = 'floating-icon';
             iconSpan.innerText = icons[Math.floor(Math.random() * icons.length)];
@@ -378,23 +471,18 @@
     }
     createFloatingIcons();
 
-    function setOnlineStatus(email, status) {
-        if (!email) return;
-        const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-        if (users[email]) {
-            users[email].isOnline = status;
-            users[email].lastSeen = Date.now();
-            localStorage.setItem('edu_users', JSON.stringify(users));
-        }
-    }
-    setInterval(() => { if(loggedInEmail) setOnlineStatus(loggedInEmail, true); }, 10000);
-
     function updateUI() {
         const btn = document.getElementById('main-auth-btn');
         const welcome = document.getElementById('user-welcome');
-        if (activeProfile && loggedInEmail) {
+        if(!btn || !welcome) return;
+        
+        // מעודכן מה-localStorage ישירות
+        const curProfile = localStorage.getItem('activeProfile');
+        const curEmail = localStorage.getItem('loggedInEmail');
+
+        if (curProfile && curEmail) {
             btn.innerText = "התנתק"; btn.classList.add('btn-logout');
-            welcome.innerHTML = "<span>👤 " + activeProfile + "</span>"; welcome.style.display = 'flex';
+            welcome.innerHTML = "<span>👤 " + curProfile + "</span>"; welcome.style.display = 'flex';
         } else {
             btn.innerText = "כניסה / הרשמה"; btn.classList.remove('btn-logout');
             welcome.style.display = 'none';
@@ -402,32 +490,52 @@
     }
 
     function openProfileSwitcher() {
-        const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-        const user = users[loggedInEmail];
-        if (user && user.children) {
-            document.getElementById('login-modal').style.display = 'flex';
-            showProfiles(user.children);
-        }
+        try {
+            const currentEmail = localStorage.getItem('loggedInEmail');
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            const user = users[currentEmail];
+            if (user && user.children) {
+                document.getElementById('login-modal').style.display = 'flex';
+                showProfiles(user.children);
+            }
+        } catch(e) {}
     }
 
     function handleLocalLogin() {
-        const email = document.getElementById('login-email').value.trim().toLowerCase();
-        const pass = document.getElementById('login-pass').value;
+        const emailInput = document.getElementById('login-email');
+        const passInput = document.getElementById('login-pass');
+        if(!emailInput || !passInput) return;
 
-        // בדיקה עבור מנהל המערכת (הבקשה שלך)
+        const email = emailInput.value.trim().toLowerCase();
+        const pass = passInput.value;
+
+        // מעקף כניסת מנהל (Admin Bypass)
         if (email === "aviv@fakiro.co.il" && pass === "2391995") {
-            window.location.href = "admin.html";
+            try {
+                localStorage.setItem('loggedInEmail', email);
+                localStorage.setItem('activeProfile', 'מנהל');
+                keepAlive(); // שולח דיווח מיידי שהוא אונליין
+                myAlert("התחברת בהצלחה כמנהל המערכת! מועבר לפאנל...");
+                setTimeout(() => {
+                    window.location.href = 'admin.html'; 
+                }, 1500);
+            } catch(e) { myAlert("שגיאה בגישה לזכרון הדפדפן."); }
             return;
         }
 
-        const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-        const user = users[email];
-        if (user && user.password === pass) {
-            localStorage.setItem('loggedInEmail', email);
-            setOnlineStatus(email, true);
-            showProfiles(user.children || ["אורח"]);
-            showToast("התחברת בהצלחה!", "טוב לראות אותך שוב, למידה מהנה.");
-        } else alert("פרטים שגויים.");
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            const user = users[email];
+            if (user && user.password === pass) {
+                localStorage.setItem('loggedInEmail', email);
+                keepAlive(); // עדכון נוכחות מיידי
+                myAlert("התחברת בהצלחה! לימוד נעים.");
+                showProfiles(user.children || ["אורח"]);
+                resetInactivityTimer();
+            } else {
+                myAlert("פרטים שגויים.");
+            }
+        } catch(e) { myAlert("שגיאה במערכת ההתחברות."); }
     }
 
     function handleLocalRegister() {
@@ -441,32 +549,46 @@
         const voucherInput = document.getElementById('reg-voucher').value.trim();
         const children = document.getElementById('reg-children').value.split(/\s+/).filter(n => n);
 
-        if(!email || !fname || !lname || !pass || !city || !address || !voucherInput) { 
-            alert("נא למלא את כל שדות החובה"); return; 
+        if(!email || !fname || !lname || !pass || !passConfirm || !city || !address || !voucherInput || children.length === 0) { 
+            myAlert("נא למלא את כל שדות החובה המסומנים ב-*"); return; 
         }
 
-        let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
-        let voucherObj = config.vouchers.find(v => v.code === voucherInput);
+        try {
+            let users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[email]) {
+                myAlert("כתובת האימייל כבר קיימת במערכת.");
+                return;
+            }
 
-        if(!voucherObj) { alert("קוד שובר לא קיים במערכת."); return; }
-        if(voucherObj.used) { alert("שובר זה כבר נוצל להרשמה קודמת."); return; }
-        if(pass !== passConfirm) { alert("הסיסמאות לא תואמות"); return; }
+            let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
+            let voucherObj = config.vouchers ? config.vouchers.find(v => v.code === voucherInput) : null;
 
-        voucherObj.used = true;
-        voucherObj.usedBy = email;
-        voucherObj.dateUsed = new Date().toLocaleString();
-        localStorage.setItem('shared_config', JSON.stringify(config));
+            if(!voucherObj) {
+                myAlert("קוד שובר לא קיים במערכת."); return;
+            }
+            if(voucherObj.used) {
+                myAlert("שובר זה כבר נוצל."); return;
+            }
 
-        let users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-        users[email] = { 
-            password: pass, firstName: fname, lastName: lname, city: city, address: address, 
-            children: children, voucher: voucherInput, isOnline: true, lastSeen: Date.now() 
-        };
-        localStorage.setItem('edu_users', JSON.stringify(users));
-        localStorage.setItem('loggedInEmail', email);
-        
-        showToast("ברוך הבא למרכז! 🎉", "החשבון נוצר בהצלחה. מאחלים לך לימוד פורה.");
-        showProfiles(children);
+            if(pass !== passConfirm) { myAlert("הסיסמאות לא תואמות"); return; }
+
+            voucherObj.used = true;
+            voucherObj.usedBy = email;
+            voucherObj.dateUsed = new Date().toLocaleString();
+            localStorage.setItem('shared_config', JSON.stringify(config));
+
+            users[email] = { 
+                password: pass, firstName: fname, lastName: lname, 
+                city: city, address: address, children: children, 
+                voucher: voucherInput, isOnline: true, lastSeen: Date.now() 
+            };
+            localStorage.setItem('edu_users', JSON.stringify(users));
+            localStorage.setItem('loggedInEmail', email);
+            
+            myAlert("נרשמת בהצלחה למערכת! לימוד נעים.");
+            showProfiles(children);
+            resetInactivityTimer();
+        } catch(e) { myAlert("שגיאת מערכת בעת ההרשמה."); }
     }
 
     function showProfiles(children) {
@@ -476,23 +598,37 @@
         list.innerHTML = '';
         children.forEach(name => {
             const d = document.createElement('div'); d.className = 'profile-btn'; d.innerText = '👤 ' + name;
-            d.onclick = () => { localStorage.setItem('activeProfile', name); location.reload(); };
+            d.onclick = () => { 
+                try { localStorage.setItem('activeProfile', name); } catch(e){}
+                location.reload(); 
+            };
             list.appendChild(d);
         });
     }
 
     function handleAuthClick() { 
-        if (activeProfile) { 
-            setOnlineStatus(loggedInEmail, false);
-            localStorage.removeItem('activeProfile'); 
-            localStorage.removeItem('loggedInEmail'); 
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (localStorage.getItem('activeProfile') || currentEmail) { 
+            try {
+                if(currentEmail) {
+                    const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+                    if(users[currentEmail]) {
+                        users[currentEmail].isOnline = false;
+                        localStorage.setItem('edu_users', JSON.stringify(users));
+                    }
+                }
+                localStorage.removeItem('activeProfile'); 
+                localStorage.removeItem('loggedInEmail'); 
+            } catch(e) {}
             location.reload(); 
-        } else toggleLogin(); 
+        } else {
+            toggleLogin(); 
+        }
     }
     
     function toggleLogin() { 
         const m = document.getElementById('login-modal');
-        m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; 
+        if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; 
     }
     
     function switchAuth(mode) { 
@@ -511,14 +647,15 @@
     
     function showMenu(id) { document.querySelectorAll('.grade-overlay').forEach(el => el.style.display = 'none'); document.getElementById(id).style.display = 'flex'; }
     function hideMenu(id) { document.getElementById(id).style.display = 'none'; }
-    function checkAccess(id) { if(loggedInEmail) showMenu(id); else toggleLogin(); }
-    function checkAccessRedirect(url) { if(loggedInEmail) window.location.href = url; else toggleLogin(); }
-    function toggleAccMenu() { const m = document.getElementById('acc-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+    function checkAccess(id) { if(localStorage.getItem('loggedInEmail')) showMenu(id); else toggleLogin(); }
+    function checkAccessRedirect(url) { if(localStorage.getItem('loggedInEmail')) window.location.href = url; else toggleLogin(); }
+    function toggleAccMenu() { const m = document.getElementById('acc-menu'); if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
     function toggleAcc(cls) { document.body.classList.toggle(cls); }
     function resetAcc() { document.body.className = ''; }
-    
+
+    // אתחול ראשוני
+    keepAlive();
     updateUI();
 </script>
 </body>
-
 </html>

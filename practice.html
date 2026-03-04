@@ -3,281 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>תרגול אחוזים</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+    <title>תרגול - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --tirgul-blue: #3b82f6;
-            --tirgul-dark: #0f172a;
-            --sidebar-bg: #1e40af;
+            --primary-blue: #0f172a; --accent-gold: #b09151; --bg-color: #f8fafc;
+            --surface-color: #ffffff; --text-main: #334155; --border-light: #e2e8f0;
         }
 
-        body, html {
-            margin: 0; padding: 0; height: 100%;
-            font-family: 'Assistant', sans-serif;
-            /* רקע מדורג כמו באתר Tirgul */
-            background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 100%);
-            overflow: hidden;
-        }
+        body { font-family: 'Heebo', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; height: 100vh; overflow: hidden; }
 
-        /* סרגל עליון */
-        .top-nav {
-            height: 45px;
-            background: rgba(15, 23, 42, 0.9);
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            font-size: 14px;
-            justify-content: space-between;
-        }
+        header { background: var(--surface-color); padding: 15px 30px; border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; }
+        header h1 { margin: 0; font-size: 1.2rem; font-weight: 800; color: var(--primary-blue); }
+        .nav-back { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
 
-        .main-layout {
-            display: flex;
-            height: calc(100% - 45px);
-        }
+        .practice-layout { display: flex; gap: 20px; max-width: 1100px; margin: 20px auto; padding: 0 20px; height: calc(100vh - 90px); }
 
-        /* סרגל צד ימני - כהה כמו ב-Tirgul */
-        .sidebar {
-            width: 200px;
-            background: #1e3a8a;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            border-left: 2px solid #1d4ed8;
+        .sidebar { width: 240px; display: flex; flex-direction: column; gap: 10px; }
+        .btn-side { 
+            width: 100%; padding: 12px; border: 1px solid var(--border-light); border-radius: 10px; 
+            background: #fff; font-family: 'Heebo'; cursor: pointer; display: flex; align-items: center; gap: 10px;
+            font-size: 0.95rem; font-weight: 600; transition: 0.2s;
         }
+        .btn-side:hover:not(:disabled) { border-color: var(--accent-gold); background: #fdfbf7; }
 
-        .sidebar-title {
-            text-align: center;
-            font-weight: bold;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 15px;
+        .main-content { 
+            flex: 1; background: var(--surface-color); border-radius: 16px; padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-light);
+            display: flex; flex-direction: column; overflow-y: auto;
         }
-
-        .side-btn {
-            background: #2563eb;
-            color: white;
-            border: 1px solid #60a5fa;
-            padding: 10px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 14px;
-            font-family: 'Assistant';
-            border-radius: 4px;
-            transition: 0.2s;
-        }
-
-        .side-btn:hover { background: #1d4ed8; }
         
-        .nav-icons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5px;
-            margin-top: 10px;
+        .question-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; color: var(--primary-blue); }
+        
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .btn-option { 
+            background: #fff; border: 1px solid var(--border-light); padding: 20px; border-radius: 12px; 
+            font-size: 1.05rem; cursor: pointer; transition: 0.2s; text-align: right;
         }
+        .btn-option:hover:not(:disabled) { border-color: var(--accent-gold); background: #fdfbf7; }
 
-        /* אזור השאלה המרכזי */
-        .content-area {
-            flex: 1;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-y: auto;
+        .opt-correct { border-color: #059669 !important; background: #ecfdf5 !important; }
+        .opt-wrong { border-color: #dc2626 !important; background: #fef2f2 !important; }
+
+        /* עיצוב משופר לרמז ופתרון */
+        .info-box { display: none; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 2px solid; font-size: 1rem; line-height: 1.7; }
+        .hint-box { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
+        .solution-box { background: #ecfdf5; border-color: #10b981; color: #065f46; }
+        .box-title { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; }
+
+        .btn-next-main { 
+            background: var(--primary-blue); color: white; display: none; padding: 14px 30px; 
+            border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer;
+            margin-top: 10px; align-self: flex-start;
         }
-
-        .question-box, .answers-box {
-            width: 100%;
-            max-width: 700px;
-            background: white;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .box-header {
-            background: #f8fafc;
-            padding: 5px 15px;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 13px;
-            color: #64748b;
-            text-align: left;
-        }
-
-        .box-body { padding: 25px; text-align: center; }
-        .q-text { font-size: 22px; font-weight: bold; color: #1e3a8a; }
-
-        /* אזור התשובות */
-        .options-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 20px;
-        }
-
-        .option-row {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-            padding: 10px;
-            border-bottom: 1px solid #f1f5f9;
-            cursor: pointer;
-        }
-
-        .option-row:hover { background: #f0f9ff; }
-        .option-row input { transform: scale(1.2); }
-
-        /* הסברים */
-        .info-popup {
-            margin-top: 15px;
-            padding: 15px;
-            border-radius: 4px;
-            display: none;
-            width: 100%;
-            max-width: 700px;
-            border-right: 5px solid;
-        }
-        .hint-pop { background: #fffbeb; border-color: #f59e0b; color: #92400e; }
-        .solve-pop { background: #f0fdf4; border-color: #22c55e; color: #166534; }
-
-        .correct { color: #22c55e; font-weight: bold; }
-        .wrong { color: #ef4444; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="top-nav">
-    <div>שלום, תלמיד | מתמטיקה > אחוזים > תרגול</div>
-    <div>EduBuddy v2.0</div>
-</div>
+<header>
+    <h1 id="header-title">תרגול</h1>
+    <a href="javascript:history.back()" class="nav-back">חזרה ↩</a>
+</header>
 
-<div class="main-layout">
+<div class="practice-layout">
     <aside class="sidebar">
-        <div class="sidebar-title" id="sideNum">שאלה: 1</div>
-        
-        <button class="side-btn" onclick="toggleBox('hint')">💡 רמז</button>
-        <button class="side-btn" onclick="toggleBox('solve')">🔎 פתרון</button>
-        
-        <div class="nav-icons">
-            <button class="side-btn" onclick="changeQ(-1)">◀ הקודם</button>
-            <button class="side-btn" onclick="changeQ(1)">הבא ▶</button>
-        </div>
-
-        <div style="margin-top: 30px;">
-            <button class="side-btn" style="background:#475569" onclick="location.href='math.html?grade=ה-ו'">🔄 החלף פעילות</button>
-            <button class="side-btn" style="background:#475569" onclick="location.href='index.html'">📚 החלף מקצוע</button>
-        </div>
+        <button class="btn-side" onclick="toggleBox('hint-box')">💡 רמז</button>
+        <button class="btn-side" onclick="toggleBox('solution-box')">📘 פתרון מלא</button>
+        <hr style="width:100%; border:0; border-top:1px solid #eee;">
+        <button class="btn-side" id="btn-next-side" onclick="nextQuestion()">➡️ שאלה הבאה</button>
+        <button class="btn-side" id="btn-prev" onclick="prevQuestion()" disabled>⬅️ שאלה קודמת</button>
+        <hr style="width:100%; border:0; border-top:1px solid #eee;">
+        <button class="btn-side" onclick="goBackToActivity()">🔄 החלף פעילות</button>
+        <button class="btn-side" onclick="window.location.href='index.html'">📚 החלף מקצוע</button>
     </aside>
 
-    <main class="content-area">
-        <div class="question-box">
-            <div class="box-header">שאלה מספר: <span id="qIdxDisplay">1</span></div>
-            <div class="box-body q-text" id="qText">טוען שאלה...</div>
+    <main class="main-content" id="quiz-screen">
+        <div style="font-weight: 700; margin-bottom: 20px; color: var(--text-muted);">שאלה <span id="current-q-num">1</span></div>
+        <div class="question-title" id="q-text">טוען שאלה...</div>
+        <div class="options-grid" id="q-options"></div>
+        
+        <div id="hint-box" class="info-box hint-box">
+            <div class="box-title">💡 רמז</div>
+            <span id="hint-content"></span>
         </div>
-
-        <div class="answers-box">
-            <div class="box-header">תשובות :</div>
-            <div class="options-list" id="optsContainer"></div>
+        <div id="solution-box" class="info-box solution-box">
+            <div class="box-title">📘 פתרון מלא</div>
+            <div id="solution-content" style="white-space: pre-wrap;"></div>
         </div>
-
-        <div id="hint-area" class="info-popup hint-pop"></div>
-        <div id="solve-area" class="info-popup solve-pop"></div>
+        
+        <button id="btn-next-main" class="btn-next-main" onclick="nextQuestion()">המשך לשאלה הבאה</button>
     </main>
 </div>
 
 <script>
-    const quizData = [
-        { q: "כמה הם 10% מתוך 250 ש\"ח?", opts: ["25 ש\"ח", "10 ש\"ח", "2.5 ש\"ח", "50 ש\"ח"], ans: 0, hint: "חלק את המספר ב-10.", exp: "10% הם עשירית מהשלם. $250 : 10 = 25$." },
-        { q: "חולצה עולה 120 ש\"ח. ההנחה היא 25%. מה גובה ההנחה?", opts: ["20 ש\"ח", "30 ש\"ח", "40 ש\"ח", "60 ש\"ח"], ans: 1, hint: "25% הם רבע מהשלם.", exp: "רבע מ-120 הוא $120 : 4 = 30$ שקלים." },
-        { q: "בכיתה 40 תלמידים. 50% מהם בנים. כמה בנים בכיתה?", opts: ["10", "25", "20", "30"], ans: 2, hint: "50% זה חצי.", exp: "חצי מתוך 40 תלמידים הוא 20." },
-        { q: "כמה הם 1% מתוך 700 ש\"ח?", opts: ["70 ש\"ח", "7 ש\"ח", "1 ש\"ח", "0.7 ש\"ח"], ans: 1, hint: "חלק את המספר ב-100.", exp: "$700 : 100 = 7$." },
-        { q: "מוצר עלה 80 ש\"ח והתייקר ב-10%. מה מחירו החדש?", opts: ["88 ש\"ח", "90 ש\"ח", "82 ש\"ח", "100 ש\"ח"], ans: 0, hint: "מצא 10% והוסף למחיר המקורי.", exp: "10% מ-80 הם 8. $80 + 8 = 88$ שקלים." },
-        { q: "איזה שבר פשוט שווה ל-20%?", opts: ["1/2", "1/4", "1/5", "1/10"], ans: 2, hint: "20 מתוך 100. צמצם ב-20.", exp: "$20/100 = 2/10 = 1/5$." },
-        { q: "75% מתוך 200 הם:", opts: ["150", "100", "175", "125"], ans: 0, hint: "מצא רבע (50) והכפל ב-3.", exp: "רבע הוא 50. $50 * 3 = 150$." },
-        { q: "במבחן 20 שאלות. ענית נכון על 18. מה אחוז ההצלחה?", opts: ["80%", "90%", "95%", "85%"], ans: 1, hint: "מהו החלק של 18 מתוך 20?", exp: "$18/20 = 9/10$, שהם 90%." },
-        { q: "מחיר מחשב 3000 ש\"ח. הנחה של 5% היא:", opts: ["150 ש\"ח", "300 ש\"ח", "50 ש\"ח", "15 ש\"ח"], ans: 0, hint: "מצא 10% (300) וקח חצי.", exp: "10% הם 300. חצי מזה הוא 150." },
-        { q: "כמה הם 200% מתוך 45?", opts: ["45", "90", "135", "200"], ans: 1, hint: "200% זה פי 2.", exp: "$45 * 2 = 90$." },
-        { q: "בכד 50 כדורים. 12% מהם אדומים. כמה אדומים?", opts: ["12", "6", "10", "5"], ans: 1, hint: "מצא 1% (0.5) והכפל ב-12.", exp: "$0.5 * 12 = 6$." },
-        { q: "מחיר ספר ירד מ-100 ל-80. מה אחוז ההנחה?", opts: ["10%", "25%", "20%", "30%"], ans: 2, hint: "המחיר ירד ב-20 מתוך 100.", exp: "20 מתוך 100 הם בדיוק 20%." },
-        { q: "כמה הם 150% מתוך 60?", opts: ["60", "90", "120", "30"], ans: 1, hint: "השלם (60) ועוד חצי (30).", exp: "$60 + 30 = 90$." },
-        { q: "איזה אחוז גדול יותר: 1/4 או 20%?", opts: ["1/4", "20%", "שניהם שווים", "אף אחד"], ans: 0, hint: "1/4 שווה ל-25%.", exp: "25% גדול מ-20%." },
-        { q: "המע\"מ בישראל הוא 17%. על קנייה של 100 ש\"ח, כמה מע\"מ נשלם?", opts: ["17 ש\"ח", "1.7 ש\"ח", "117 ש\"ח", "7 ש\"ח"], ans: 0, hint: "17 מתוך 100.", exp: "17% מתוך 100 הם 17 שקלים." },
-        { q: "בכיתה 30 תלמידים. 20% נעדרו. כמה נעדרו?", opts: ["2", "6", "3", "5"], ans: 1, hint: "10% הם 3. כפול 2?", exp: "$3 * 2 = 6$." },
-        { q: "מהו 0.5 כפי שמוצג באחוזים?", opts: ["0.5%", "5%", "50%", "500%"], ans: 2, hint: "הכפל ב-100.", exp: "$0.5 * 100 = 50%$." },
-        { q: "בטיול 80 איש. 25% מהם ילדים. כמה מבוגרים היו?", opts: ["20", "60", "40", "50"], ans: 1, hint: "מצא כמה ילדים (רבע) והחסר מהסך הכל.", exp: "20 ילדים. $80 - 20 = 60$ מבוגרים." },
-        { q: "כמה הם 40% מתוך 200?", opts: ["40", "80", "100", "60"], ans: 1, hint: "10% הם 20. כפול 4?", exp: "$20 * 4 = 80$." },
-        { q: "חבילת גלידה עלתה ב-50%. המחיר היה 20. מה המחיר החדש?", opts: ["25", "30", "40", "22"], ans: 1, hint: "הוסף חצי מהמחיר.", exp: "חצי הוא 10. $20+10=30$." },
-        { q: "מה האחוז המשלים את 35% ל-100%?", opts: ["75%", "65%", "55%", "45%"], ans: 1, hint: "$100 - 35 = ?$", exp: "השלמה ל-100: $100 - 35 = 65$." },
-        { q: "ריבית של 2% על 1000 ש\"ח היא:", opts: ["2", "20", "200", "10"], ans: 1, hint: "1% הוא 10. כפול 2?", exp: "$10 * 2 = 20$." },
-        { q: "מתוך 400 עמודים, קראתי 10%. כמה נשארו?", opts: ["40", "360", "300", "390"], ans: 1, hint: "החסר 10% מהסך הכל.", exp: "10% הם 40. $400 - 40 = 360$." },
-        { q: "כמה הם 5% מתוך 60?", opts: ["6", "3", "5", "1.2"], ans: 1, hint: "חצי מ-10%.", exp: "10% הם 6. חצי מהם זה 3." },
-        { q: "המרחק לתל אביב 100 ק\"מ. עברנו 85%. כמה נשאר?", opts: ["85", "15", "25", "10"], ans: 1, hint: "100 - 85.", exp: "נשארו 15% שהם 15 ק\"מ." },
-        { q: "איזה ערך שווה ל-1/10?", opts: ["1%", "10%", "100%", "0.1%"], ans: 1, hint: "צמצם 10/100.", exp: "1/10 הם בדיוק 10%." },
-        { q: "מחיר כרטיס 120 ש\"ח. יש הנחה של 10%. מה המחיר הסופי?", opts: ["110", "108", "100", "118"], ans: 1, hint: "120 פחות 10%.", exp: "10% הם 12. $120 - 12 = 108$." },
-        { q: "בכד 20 כדורים. 5 אדומים. מה אחוז האדומים?", opts: ["5%", "20%", "25%", "50%"], ans: 2, hint: "5 מתוך 20.", exp: "זהו רבע מהכמות, כלומר 25%." },
-        { q: "מהו 1/2 באחוזים?", opts: ["20%", "50%", "100%", "25%"], ans: 1, hint: "חצי מהשלם.", exp: "חצי מ-100% הוא 50%." },
-        { q: "כמה הם 30% מתוך 30?", opts: ["3", "9", "10", "1"], ans: 1, hint: "10% הם 3. כפול 3?", exp: "$3 * 3 = 9$." }
-    ];
+    let filteredQuestions = [], currentIndex = 0, userAnswers = [], returnUrl = 'index.html';
 
-    let current = 0;
-    let answered = false;
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const grade = urlParams.get('grade'), topic = urlParams.get('topic'), subtopic = urlParams.get('subtopic'), activity = urlParams.get('activity');
+        
+        if (!grade || !topic) { window.location.href = 'index.html'; return; }
+        
+        document.getElementById('header-title').innerText = `תרגול | כיתה ${grade} | ${subtopic || topic}`;
+        returnUrl = `math.html?grade=${encodeURIComponent(grade)}`;
 
-    function render() {
-        answered = false;
-        const item = quizData[current];
-        document.getElementById('sideNum').innerText = `שאלה: ${current + 1}`;
-        document.getElementById('qIdxDisplay').innerText = current + 1;
-        document.getElementById('qText').innerText = item.q;
+        // המרת שם הכיתה לקוד בטוח לשם הקובץ (ללא עברית)
+        let gradeCode = grade;
+        if (grade === "ה-ו") gradeCode = "5_6";
+        else if (grade === "ז") gradeCode = "7";
+        else if (grade === "ח") gradeCode = "8";
+        else if (grade === "ט") gradeCode = "9";
+
+        // יצירת נתיב הקובץ, לדוגמה: data/5_6_percents.js
+        const scriptPath = `data/${gradeCode}_${topic}.js`;
         
-        const container = document.getElementById('optsContainer');
-        container.innerHTML = '';
+        // יצירת אלמנט סקריפט דינמי וטעינתו
+        const script = document.createElement('script');
+        script.src = scriptPath;
         
-        item.opts.forEach((txt, i) => {
-            const row = document.createElement('div');
-            row.className = 'option-row';
-            row.innerHTML = `<span>${txt}</span><input type="radio" name="opt" id="o${i}">`;
-            row.onclick = () => check(i, row);
-            container.appendChild(row);
+        script.onload = function() {
+            // הקובץ נטען בהצלחה - עכשיו המשתנה questionsDB קיים בזיכרון
+            if (typeof questionsDB !== 'undefined') {
+                // מסננים רק לפי תת-הנושא, כי הקובץ עצמו כבר שייך לכיתה ולנושא הנכונים
+                filteredQuestions = questionsDB.filter(q => (!subtopic || q.subTopic === subtopic));
+                
+                if (filteredQuestions.length === 0) { 
+                    alert("אין שאלות."); 
+                    window.location.href = returnUrl; 
+                    return; 
+                }
+                
+                // עירבוב שאלות
+                for (let i = filteredQuestions.length - 1; i > 0; i--) { 
+                    const j = Math.floor(Math.random() * (i + 1)); 
+                    [filteredQuestions[i], filteredQuestions[j]] = [filteredQuestions[j], filteredQuestions[i]]; 
+                }
+                userAnswers = new Array(filteredQuestions.length).fill(null);
+                loadQuestion();
+            }
+        };
+
+        script.onerror = function() {
+            alert(`הקובץ ${scriptPath} חסר. אנא ודא שהוא קיים בתיקיית data.`);
+            window.location.href = returnUrl;
+        };
+
+        // הוספת הסקריפט לדף כדי להתחיל את הטעינה
+        document.head.appendChild(script);
+    };
+
+    function loadQuestion() {
+        const q = filteredQuestions[currentIndex];
+        document.getElementById('current-q-num').innerText = currentIndex + 1;
+        document.getElementById('q-text').innerText = q.question;
+        document.getElementById('hint-content').innerText = q.hint || "אין רמז.";
+        document.getElementById('solution-content').innerText = q.solution || "אין פתרון.";
+        document.getElementById('hint-box').style.display = 'none';
+        document.getElementById('solution-box').style.display = 'none';
+        document.getElementById('btn-next-main').style.display = 'none';
+        document.getElementById('btn-prev').disabled = (currentIndex === 0);
+        
+        const optionsBox = document.getElementById('q-options');
+        optionsBox.innerHTML = '';
+        q.options.forEach((optText, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'btn-option';
+            btn.innerText = optText;
+            if (userAnswers[currentIndex] !== null) {
+                btn.disabled = true;
+                if (index === q.correctAnswer) btn.classList.add('opt-correct');
+                else if (index === userAnswers[currentIndex]) btn.classList.add('opt-wrong');
+            } else {
+                btn.onclick = () => {
+                    userAnswers[currentIndex] = index;
+                    document.querySelectorAll('.btn-option').forEach(b => b.disabled = true);
+                    if(index === q.correctAnswer) btn.classList.add('opt-correct');
+                    else { btn.classList.add('opt-wrong'); document.querySelectorAll('.btn-option')[q.correctAnswer].classList.add('opt-correct'); }
+                    document.getElementById('btn-next-main').style.display = 'block';
+                };
+            }
+            optionsBox.appendChild(btn);
         });
-
-        document.getElementById('hint-area').style.display = 'none';
-        document.getElementById('solve-area').style.display = 'none';
+        if (userAnswers[currentIndex] !== null) document.getElementById('btn-next-main').style.display = 'block';
     }
 
-    function check(idx, el) {
-        if(answered) return;
-        answered = true;
-        const correct = quizData[current].ans;
-        const spans = el.parentElement.querySelectorAll('span');
-        
-        if(idx === correct) {
-            spans[idx].classList.add('correct');
-        } else {
-            spans[idx].classList.add('wrong');
-            spans[correct].classList.add('correct');
-        }
+    function nextQuestion() {
+        if (currentIndex < filteredQuestions.length - 1) { currentIndex++; loadQuestion(); } 
+        else { alert("כל הכבוד! סיימת את כל השאלות בנושא זה."); }
     }
-
-    function toggleBox(type) {
-        const area = document.getElementById(type + '-area');
-        const content = type === 'hint' ? quizData[current].hint : quizData[current].exp;
-        area.innerHTML = `<b>${type === 'hint' ? '💡 רמז:' : '🔍 פתרון:'}</b><br>${content}`;
-        area.style.display = area.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function changeQ(dir) {
-        if(current + dir >= 0 && current + dir < quizData.length) {
-            current += dir;
-            render();
-        }
-    }
-
-    render();
+    function prevQuestion() { if (currentIndex > 0) { currentIndex--; loadQuestion(); } }
+    function toggleBox(id) { const b = document.getElementById(id); b.style.display = (b.style.display === 'block' ? 'none' : 'block'); }
+    function goBackToActivity() { window.location.href = returnUrl; }
 </script>
 </body>
 </html>
