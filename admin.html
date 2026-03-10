@@ -60,7 +60,7 @@
     <div class="nav-left">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
             <div style="display: flex; gap: 8px;">
-                <button class="btn btn-blue btn-sm" onclick="window.location.href='index.html'">🌐 לאתר</button>
+                <button class="btn btn-blue btn-sm" onclick="window.location.href='tirgul.html'">🌐 לאתר</button>
                 <button class="btn btn-gold btn-sm" onclick="toggleModal('adminPassModal')">🔑 שינוי סיסמה</button>
                 <button class="btn btn-red btn-sm" onclick="adminLogout()">🚪 התנתק</button>
             </div>
@@ -186,7 +186,8 @@
         document.getElementById(id).style.display = (document.getElementById(id).style.display === 'flex') ? 'none' : 'flex'; 
     }
 
-    function adminLogout() { if(confirm("להתנתק מהמערכת?")) window.location.href = 'index.html'; }
+    // שונה ל- tirgul.html
+    function adminLogout() { if(confirm("להתנתק מהמערכת?")) window.location.href = 'tirgul.html'; }
 
     function updateAdminPass() {
         const currentP = localStorage.getItem('admin_p') || "2391995";

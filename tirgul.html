@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המרכז להישגים לימודיים | דף הבית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* פלטת צבעים יוקרתית - אפור פנינה, שחור וזהב */
+            --primary-header: #0f172a;  
+            --accent-gold: #c5a059;   
+            --primary-blue: #0f172a;  
+            --bg-color: #f1f5f9;      
+            --surface-color: #ffffff; 
+            --text-main: #1e293b;     
+            --text-muted: #64748b;    
+            --border-soft: #e2e8f0;
+            
+            /* צבעי מקצועות יוקרתיים */
+            --math: #dc2626; 
+            --english: #d97706; 
+            --hebrew: #7c3aed;
+            --science: #059669; 
+            --arabic: #ea580c;
+            --finance: #10b981; /* ירוק-כסף לחינוך פיננסי */
+            
+            --shadow-card: 0 8px 25px -5px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 35px -5px rgba(197, 160, 89, 0.15);
+        }
+
+        /* הגדרות נגישות */
+        body.high-contrast { background: #000 !important; color: #fff !important; background-image: none !important; }
+        body.high-contrast .subject-card, body.high-contrast header, body.high-contrast footer, body.high-contrast .login-card, body.high-contrast .info-modal-card { background: #000 !important; border: 2px solid #fff !important; color: #fff !important; }
+        body.high-contrast .btn-action { background: #fff !important; color: #000 !important; border: 2px solid #fff !important; }
+        body.high-contrast .floating-icon { opacity: 0.1 !important; color: #fff !important; }
+        body.large-text { font-size: 1.2rem !important; }
+
+        body {
+            font-family: 'Heebo', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-main); 
+            line-height: 1.4;
+            background: radial-gradient(circle at top, #ffffff 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; 
+        }
+
+        /* רקע צף ללימודים */
+        #floating-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
+        .floating-icon { position: absolute; font-size: 3rem; color: var(--primary-blue); opacity: 0.03; animation: floatDiagonal infinite linear; font-family: times new roman, serif; font-style: italic;}
+        @keyframes floatDiagonal { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(150px, -150px) rotate(360deg); } }
+
+        /* עדכוני מערכת */
+        .edu-updates-strip { background: var(--primary-header); color: var(--accent-gold); padding: 5px 0; font-size: 0.85rem; border-bottom: 1px solid #333; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; font-weight: 600;}
+        .edu-ticker { display: inline-block; animation: marquee-slow 50s linear infinite; }
+        @keyframes marquee-slow { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+        /* כפתור נגישות */
+        .accessibility-btn { position: fixed; bottom: 15px; right: 15px; width: 40px; height: 40px; background: var(--primary-header); color: var(--accent-gold); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; z-index: 3000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: 0.3s; }
+        .accessibility-btn:hover { background: var(--accent-gold); color: #000; transform: scale(1.05); }
+        .acc-menu { position: fixed; bottom: 65px; right: 15px; background: white; border-radius: 12px; box-shadow: var(--shadow-hover); display: none; flex-direction: column; padding: 10px; z-index: 3000; border: 2px solid var(--accent-gold); width: 160px; }
+        .acc-menu button { background: #f8fafc; color: #000; border: 1px solid #e2e8f0; padding: 6px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; font-family: 'Heebo'; font-weight: 600; text-align: right; font-size: 0.85rem;}
+
+        /* הדר עליון - עיצוב שכבתי חדש כדי למנוע צפיפות לחלוטין */
+        header { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            padding: 15px 30px 10px 30px; 
+            border-bottom: 2px solid var(--border-soft); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+        
+        /* לוגו טיפוגרפי במרכז למעלה */
+        .logo-container { text-align: center; margin-bottom: 15px; }
+        .logo-text { color: var(--primary-header); font-size: 2.4rem; font-weight: 900; margin: 0; letter-spacing: 0px; white-space: nowrap; line-height: 1.1;}
+        .logo-text span { font-weight: 300; color: var(--accent-gold); }
+        .logo-subtext { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; margin: 0; letter-spacing: 4px; text-transform: uppercase;}
+
+        /* מעטפת ניווט מתחת ללוגו */
+        .nav-bar-wrapper { display: flex; justify-content: space-between; width: 100%; max-width: 1400px; align-items: center; }
+        
+        /* תפריט ניווט */
+        .top-nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;}
+        .nav-btn { 
+            background: rgba(15, 23, 42, 0.04); border: 1px solid transparent; color: var(--text-main); 
+            font-family: 'Heebo'; font-weight: 600; font-size: 0.85rem; padding: 6px 14px; 
+            border-radius: 20px; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
+        }
+        .nav-btn:hover { background: var(--accent-gold); color: #fff; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.2); transform: translateY(-2px); }
+
+        /* חיבור ומשתמש בשמאל */
+        .guest-access { display: flex; align-items: center; gap: 10px; justify-content: flex-end;}
+        .user-welcome-tag, .btn-guest { height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 25px; font-size: 0.9rem; font-weight: 700; padding: 0 20px; transition: all 0.3s; cursor: pointer; }
+        .user-welcome-tag { background: #f8fafc; color: var(--primary-blue); border: 1px solid var(--border-soft); display: none; }
+        .user-welcome-tag:hover { border-color: var(--accent-gold); }
+        .btn-guest { background: var(--primary-header); color: #fff; border: 2px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap;}
+        .btn-guest:hover { background: transparent; color: var(--primary-header); border-color: var(--primary-header); transform: translateY(-2px); }
+        .btn-logout { background: #f8fafc !important; color: #dc2626 !important; border: 1px solid #fecaca !important; }
+        .btn-logout:hover { background: #fee2e2 !important; border-color: #ef4444 !important; }
+
+        /* קונטיינר מרכזי - ריווחים מוקטנים למניעת גלילה מיותרת */
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 30px 20px 40px 20px; 
+            position: relative; 
+            z-index: 5; 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* גריד המקצועות - 3 עמודות מאפשרות חלוקה טובה יותר על פני שתי שורות */
+        .subjects-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+            width: 100%;
+        }
+
+        .subject-card { 
+            background: var(--surface-color); 
+            border-radius: 16px; 
+            padding: 25px 20px 20px 20px; 
+            text-align: center; 
+            box-shadow: var(--shadow-card); 
+            position: relative; 
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            border: 1px solid #ffffff; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            justify-content: space-between; 
+            min-height: 220px; 
+            z-index: 5;
+        }
+        .subject-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: var(--accent-gold); z-index: 10;}
+        
+        .card-line { position: absolute; top: 0; left: 0; width: 100%; height: 5px; border-radius: 16px 16px 0 0;}
+
+        .subject-icon { width: 55px; height: 55px; margin: 0 auto 10px auto; display: flex; align-items: center; justify-content: center; color: var(--primary-blue);}
+        .subject-icon svg { width: 100%; height: 100%; }
+
+        .subject-card h3 { margin: 0 0 8px 0; font-size: 1.3rem; color: var(--primary-blue); font-weight: 800;}
+        .subject-card p { font-size: 0.9rem; margin: 0 0 15px 0; color: var(--text-muted); line-height: 1.3;}
+
+        .btn-action { background: var(--surface-color); color: var(--primary-header); border: 2px solid var(--border-soft); padding: 10px 20px; border-radius: 25px; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); width: 100%;}
+        .subject-card:hover .btn-action { background: var(--accent-gold); color: #fff; border-color: var(--accent-gold); box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3); }
+
+        /* --- כרטיסיות מתמטיקה (בגרויות וכיתות) --- */
+        .grade-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.98); display: none; flex-direction: column; justify-content: center; align-items: center; padding: 25px 15px 15px 15px; z-index: 20; box-sizing: border-box; border-radius: 16px;}
+        .grade-title { font-weight: 800; color: var(--primary-blue); margin-bottom: 12px; font-size: 1.1rem; }
+        .grade-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; }
+        .grade-link { padding: 8px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; color: var(--primary-blue); font-weight: 700; text-align: center; font-size: 0.9rem; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center;}
+        .grade-link:hover { border-color: var(--accent-gold); background: #fff; color: #000; transform: scale(1.02);}
+        
+        /* כפתור בגרויות אלגנטי וקלאסי */
+        .btn-bagrut { grid-column: span 2; background: #ffffff !important; color: var(--primary-header) !important; border: 2px solid var(--accent-gold) !important; font-weight: 800; font-size: 0.95rem; margin-top: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .btn-bagrut:hover { background: var(--accent-gold) !important; color: #fff !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.25); }
+        
+        /* רשימת בגרויות אסתטית ונגללת */
+        .bagrut-list { display: flex; flex-direction: column; gap: 8px; width: 100%; max-height: 140px; overflow-y: auto; padding-right: 5px; box-sizing: border-box;}
+        /* עיצוב פס גלילה */
+        .bagrut-list::-webkit-scrollbar { width: 5px; }
+        .bagrut-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        .bagrut-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .bagrut-list::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
+
+        .unit-group { display: flex; flex-direction: column; gap: 6px; background: #ffffff; border: 1px solid var(--border-soft); border-radius: 10px; padding: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
+        .unit-label { font-size: 0.95rem; font-weight: 800; color: var(--primary-header); text-align: center; border-bottom: 2px solid var(--border-soft); padding-bottom: 4px; margin: 0; }
+        .pill-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); gap: 6px;}
+        .pill-container .grade-link { padding: 6px 4px; font-size: 0.85rem; border-radius: 6px; background: #f8fafc; border: 1px solid #e2e8f0; font-weight: 700; }
+        .pill-container .grade-link:hover { border-color: var(--accent-gold); background: var(--accent-gold); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(197, 160, 89, 0.2);}
+        
+        /* איקס סגירה לכרטיסיות */
+        .close-overlay {
+            position: absolute; top: 10px; left: 12px; font-size: 1.2rem; font-weight: bold;
+            color: #94a3b8; cursor: pointer; transition: color 0.2s; z-index: 30; line-height: 1;
+        }
+        .close-overlay:hover { color: #ef4444; }
+
+        /* חלון התחברות והרשמה */
+        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .login-card { background: white; color: #000; width: 400px; padding: 20px 25px; border-radius: 16px; position: relative; text-align: center; max-height: 90vh; overflow-y: auto; border-top: 5px solid var(--accent-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3);}
+        
+        .login-card input, .login-card select { width: 100%; padding: 8px 10px; margin-bottom: 10px; border: 1.5px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-family: 'Heebo'; font-size: 0.9rem; background: #f8fafc; transition: all 0.2s;}
+        .login-card input:focus, .login-card select:focus { border-color: var(--accent-gold); outline: none; background: #fff; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);}
+        
+        .input-row { display: flex; gap: 8px; width: 100%; align-items: flex-start;}
+        .input-row input, .input-row select { flex: 1; min-width: 0; margin-bottom: 0;}
+        
+        #children-container { background: #f1f5f9; padding: 12px; border-radius: 10px; border: 1px dashed #cbd5e1; margin-bottom: 12px; text-align: right;}
+        .child-entry { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+        .remove-child-btn { background: #fee2e2; color: #ef4444; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: bold; font-size: 0.9rem; cursor: pointer; transition: 0.2s; flex-shrink: 0; }
+        .remove-child-btn:hover { background: #fecaca; color: #b91c1c; }
+
+        .profile-btn { cursor: pointer; background: #ffffff; color: var(--primary-blue); padding: 12px; border-radius: 10px; margin-bottom: 8px; font-weight: 700; border: 1.5px solid var(--border-soft); transition: 0.3s; display: flex; align-items: center; justify-content: flex-start; gap: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
+        .profile-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.15);}
+
+        .forgot-pass-link { display: block; margin: 4px 0 12px 0; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; text-decoration: underline;}
+
+        .auth-tabs { display:flex; margin-bottom:15px; border-bottom: 2px solid var(--border-soft); }
+        .auth-tab { flex:1; cursor:pointer; font-weight:800; font-size: 0.95rem; padding:8px; transition: 0.2s; color: var(--text-muted); }
+        .auth-tab.active { color: var(--primary-header); border-bottom: 3px solid var(--accent-gold); }
+        .auth-tab:hover:not(.active) { color: #000; }
+
+        /* --- חלונות מידע כללי --- */
+        .info-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.8); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 4000; }
+        .info-modal-card { background: white; padding: 30px; border-radius: 16px; width: 90%; max-width: 600px; max-height: 85vh; overflow-y: auto; position: relative; border-top: 5px solid var(--accent-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3);}
+        .info-modal-card h2 { color: var(--primary-header); margin-top: 0; border-bottom: 2px solid var(--border-soft); padding-bottom: 10px; margin-bottom: 20px; font-size: 1.6rem;}
+        
+        .reviews-container { display: flex; flex-direction: column; gap: 20px; text-align: right; }
+        .review-box { background: #ffffff; border: 1px solid var(--border-soft); padding: 20px; border-radius: 12px; display: flex; gap: 15px; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.02); position: relative;}
+        .review-content { flex: 1; }
+        .review-content p { margin: 0 0 8px 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; font-style: italic;}
+        .review-author { font-weight: 800; color: var(--primary-header); font-size: 0.9rem; }
+        .verified-badge { display: inline-flex; align-items: center; gap: 4px; background: #dcfce7; color: #166534; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; font-weight: 700; margin-right: 10px; border: 1px solid #86efac;}
+        .exam-proof { width: 90px; height: 90px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); flex-shrink:0; position: relative;}
+        .exam-proof::before { content: ''; position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border: 1px solid #e2e8f0; border-radius: 5px; }
+        .exam-proof span { color: #dc2626; font-weight: 900; font-size: 1.8rem; font-family: Tahoma, serif; line-height: 1; z-index: 1;}
+        .exam-proof small { font-size: 0.65rem; color: var(--text-muted); font-weight: bold; margin-top: 4px; z-index: 1;}
+
+        .custom-alert-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(3px); display: none; justify-content: center; align-items: center; z-index: 5000; }
+        .custom-alert-card { background: white; padding: 25px; border-radius: 16px; width: 300px; text-align: center; box-shadow: var(--shadow-hover); border: 2px solid var(--accent-gold); }
+        .custom-alert-msg { font-size: 1rem; font-weight: 700; color: var(--primary-header); margin-bottom: 20px; }
+
+        footer { text-align: center; padding: 10px 20px; background: transparent; color: var(--text-muted); font-size: 0.8rem; font-weight: 500; position: relative; z-index: 10; margin-top: auto;}
+
+        /* התאמה למסכים קטנים */
+        @media (max-width: 1000px) {
+            body { overflow-y: auto; } 
+            .subjects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            header { padding: 15px; }
+            .logo-text { font-size: 2rem; }
+            .nav-bar-wrapper { flex-direction: column; gap: 10px; }
+            .guest-access { width: 100%; justify-content: center;}
+            .top-nav { flex-wrap: wrap; justify-content: center; gap: 8px;}
+            .review-box { flex-direction: column; text-align: center; }
+            .exam-proof { transform: rotate(0); }
+            .login-card { width: 90%; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="custom-alert" class="custom-alert-overlay">
+    <div class="custom-alert-card">
+        <div id="alert-text" class="custom-alert-msg"></div>
+        <button class="btn-action" style="padding: 8px 25px; width:100%;" onclick="closeAlert()">אישור</button>
+    </div>
+</div>
+
+<div id="floating-container"></div>
+
+<div class="accessibility-btn" onclick="toggleAccMenu()" title="נגישות">♿</div>
+<div id="acc-menu" class="acc-menu">
+    <button onclick="toggleAcc('large-text')">טקסט גדול</button>
+    <button onclick="toggleAcc('high-contrast')">ניגודיות גבוהה</button>
+    <button onclick="toggleAcc('underline-links')">הדגשת קישורים</button>
+    <button onclick="resetAcc()" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;">איפוס</button>
+</div>
+
+<div class="edu-updates-strip">
+    <div class="edu-ticker">🔹 מערכת הלמידה עודכנה: סימולציות מלאות לבגרויות • 🔹 חומרים חדשים התווספו למאגר שאלות ההכנה של חטיבות הביניים</div>
+</div>
+
+<header>
+    <div class="logo-container">
+        <h1 class="logo-text">המרכז <span>להישגים לימודיים</span></h1>
+        <p class="logo-subtext">מצוינות • יוקרה • הצלחה</p>
+    </div>
+    
+    <div class="nav-bar-wrapper">
+        <div class="top-nav">
+        </div>
+        
+        <div class="guest-access">
+            <div id="user-welcome" class="user-welcome-tag" onclick="openProfileSwitcher()"></div>
+            <button class="btn-guest" id="main-auth-btn" onclick="handleAuthClick()">כניסה לחשבון</button>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="subjects-grid">
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--math);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--math)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <div>
+                <h3>מתמטיקה</h3>
+                <p>תרגול יסודי, חטיבה עליונה והכנה לבגרויות מלאות.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccess('math-overlay')">התחל תרגול</button>
+            
+            <div id="math-overlay" class="grade-overlay">
+                <span class="close-overlay" onclick="hideMenu('math-overlay')">✕</span>
+                <div class="grade-title">בחר כיתה</div>
+                <div class="grade-options">
+                    <a href="math.html?grade=ה-ו" class="grade-link">כיתות ה'-ו'</a>
+                    <a href="math.html?grade=ז" class="grade-link">כיתה ז'</a>
+                    <a href="math.html?grade=ח" class="grade-link">כיתה ח'</a>
+                    <a href="math.html?grade=ט" class="grade-link">כיתה ט'</a>
+                    <button class="grade-link btn-bagrut" onclick="showMenu('bagrut-overlay')">שאלוני בגרות</button>
+                </div>
+            </div>
+            
+            <div id="bagrut-overlay" class="grade-overlay">
+                <span class="close-overlay" onclick="showMenu('math-overlay')">✕</span>
+                <div class="grade-title" style="margin-bottom:10px;">שאלוני בגרות במתמטיקה</div>
+                <div class="bagrut-list">
+                    <div class="unit-group">
+                        <div class="unit-label">3 יח"ל</div>
+                        <div class="pill-container">
+                            <a href="math.html?grade=35172" class="grade-link">35172</a>
+                            <a href="math.html?grade=35371" class="grade-link">35371</a>
+                            <a href="math.html?grade=35372" class="grade-link">35372</a>
+                        </div>
+                    </div>
+                    <div class="unit-group">
+                        <div class="unit-label">4 יח"ל</div>
+                        <div class="pill-container">
+                            <a href="math.html?grade=35471" class="grade-link">35471</a>
+                            <a href="math.html?grade=35472" class="grade-link">35472</a>
+                        </div>
+                    </div>
+                    <div class="unit-group">
+                        <div class="unit-label">5 יח"ל</div>
+                        <div class="pill-container">
+                            <a href="math.html?grade=35571" class="grade-link">35571</a>
+                            <a href="math.html?grade=35572" class="grade-link">35572</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--english);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--english)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4"></path><path d="M6 20V4l8 16"></path><path d="M14 4h4v16"></path></svg>
+            </div>
+            <div>
+                <h3>אנגלית</h3>
+                <p>אוצר מילים, דקדוק, הבנת הנקרא והכנה ל-Unseen.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('english.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--hebrew);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--hebrew)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+            </div>
+            <div>
+                <h3>לשון והבעה</h3>
+                <p>מערכת הפועל, שם העצם, תחביר, והבעה בכתב.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('hebrew.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--science);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--science)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .11 1.89l1.8 2.6a2 2 0 0 1-3.28 2.28l-2.6-1.8a1.65 1.65 0 0 0-1.89.11 8 8 0 0 1-9.91-12.58 1.65 1.65 0 0 0-.11-1.89l-1.8-2.6a2 2 0 0 1 3.28-2.28l2.6 1.8a1.65 1.65 0 0 0 1.89-.11 8 8 0 0 1 9.91 12.58z"></path></svg>
+            </div>
+            <div>
+                <h3>מדעים</h3>
+                <p>פיזיקה, כימיה וביולוגיה לחטיבות הביניים.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('science.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--arabic);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--arabic)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div>
+                <h3>ערבית</h3>
+                <p>רכישת השפה, קריאה, כתיבה, דקדוק ואוצר מילים.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('arabic.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--finance);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--finance)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
+            </div>
+            <div>
+                <h3>חינוך פיננסי</h3>
+                <p>התנהלות כלכלית, ריביות, חיסכון והשקעות לחיים האמיתיים.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('finance.html')">התחל תרגול</button>
+        </div>
+    </div>
+</div>
+
+<div id="login-modal" class="login-overlay">
+    <div class="login-card">
+        <span class="close-overlay" onclick="toggleLogin()">✕</span>
+        <div id="auth-forms">
+            <div class="auth-tabs">
+                <div id="tab-login" class="auth-tab active" onclick="switchAuth('login')">כניסה</div>
+                <div id="tab-register" class="auth-tab" onclick="switchAuth('register')">הרשמה</div>
+            </div>
+            
+            <div id="login-section">
+                <input type="email" id="login-email" placeholder="אימייל / Email *">
+                <input type="password" id="login-pass" placeholder="סיסמה">
+                <span class="forgot-pass-link" onclick="handleForgotPass()">שכחתי סיסמה</span>
+                <button class="btn-action" style="border-radius:10px; margin-top:5px;" onclick="handleLocalLogin()">היכנס למערכת</button>
+            </div>
+            
+            <div id="register-section" style="display:none; text-align:right;">
+                <input type="email" id="reg-email" placeholder="אימייל / Email *">
+                <div class="input-row">
+                    <input type="text" id="reg-fname" placeholder="שם פרטי (הורה) *">
+                    <input type="text" id="reg-lname" placeholder="שם משפחה *">
+                </div>
+                <div class="input-row">
+                    <input type="password" id="reg-pass" placeholder="סיסמה *">
+                    <input type="password" id="reg-pass-confirm" placeholder="אימות סיסמה *">
+                </div>
+                <div class="input-row" style="margin-bottom: 5px;">
+                    <input type="text" id="reg-city" placeholder="עיר מגורים *">
+                    <input type="text" id="reg-voucher" placeholder="קוד שובר הפעלה *">
+                </div>
+                
+                <div id="children-container">
+                    <label style="font-size:0.95rem; font-weight:800; color:var(--primary-blue); display:block; margin-bottom:8px;">פרטי התלמידים (הילדים הלומדים):</label>
+                    <div class="child-entry">
+                        <input type="text" class="child-name" placeholder="שם הילד *" style="margin-bottom:0;">
+                        <select class="child-grade" style="margin-bottom:0;">
+                            <option value="">בחירת כיתה...</option>
+                            <option value="ה-ו">ה'-ו' (יסודי)</option>
+                            <option value="ז">כיתה ז'</option>
+                            <option value="ח">כיתה ח'</option>
+                            <option value="ט">כיתה ט'</option>
+                            <option value="תיכון">תיכון (י'-י"ב)</option>
+                        </select>
+                        <span class="remove-child-btn" style="visibility:hidden;" title="מחק תלמיד">✕</span>
+                    </div>
+                </div>
+                <div style="text-align:left; margin-bottom:15px;">
+                    <button type="button" onclick="addChildRow()" style="background:none; border:none; color:var(--accent-gold); cursor:pointer; font-weight:800; font-size:0.9rem; text-decoration:underline; transition:0.2s;">+ הוסף תלמיד נוסף</button>
+                </div>
+                
+                <button class="btn-action" style="border-radius:10px;" onclick="handleLocalRegister()">צור חשבון חדש</button>
+            </div>
+        </div>
+        
+        <div id="profile-selection" style="display:none;">
+            <h3 style="margin-bottom:20px; font-weight:800; color:var(--primary-blue);">מי לומד עכשיו?</h3>
+            <div id="profiles-list"></div>
+        </div>
+    </div>
+</div>
+
+<div id="global-info-modal" class="info-modal-overlay">
+    <div class="info-modal-card">
+        <span class="close-overlay" onclick="closeGlobalModal()">✕</span>
+        <h2 id="global-info-title">כותרת</h2>
+        <div id="global-info-content" style="text-align:right; font-size:1rem; line-height:1.5; color:var(--text-muted);">
+            תוכן החלון...
+        </div>
+    </div>
+</div>
+
+<footer><p>© כל הזכויות שמורות למרכז להישגים לימודיים</p></footer>
+
+<script>
+    let activeProfile = null;
+    let loggedInEmail = null;
+    
+    try {
+        activeProfile = localStorage.getItem('activeProfile');
+        loggedInEmail = localStorage.getItem('loggedInEmail');
+    } catch (e) {
+        console.warn('LocalStorage blocked.');
+    }
+
+    function myAlert(text) {
+        document.getElementById('alert-text').innerText = text;
+        document.getElementById('custom-alert').style.display = 'flex';
+    }
+    function closeAlert() {
+        document.getElementById('custom-alert').style.display = 'none';
+    }
+
+    function openGlobalModal(type) {
+        const title = document.getElementById('global-info-title');
+        const content = document.getElementById('global-info-content');
+        
+        if (type === 'about') {
+            title.innerText = "קצת עלינו - המרכז להישגים לימודיים";
+            content.innerHTML = `
+                <p>המרכז להישגים לימודיים נוסד בשנת 2020, בשיאה של מגפת הקורונה העולמית. מתוך המשבר והאתגר העצום של הלמידה מרחוק, הבנו שזוהי למעשה ההזדמנות ליצור את הדרך הנכונה, המדויקת והמותאמת ביותר עבור ילדים ללמוד ולהצליח.</p>
+                <p>גילינו שלמידה דיגיטלית חכמה, המשלבת תרגול אינטראקטיבי, פידבק מיידי וניתוח נתונים, מביאה לתוצאות חסרות תקדים ועוקפת את שיטות הלימוד המסורתיות.</p>
+                <p>מאז ועד היום, אנו מפתחים, משכללים ומשפרים את המערכת שלנו מדי יום, תוך הקפדה על חומרי הלימוד האיכותיים ביותר, המותאמים בצורה מושלמת לתוכנית הלימודים של משרד החינוך בישראל, מבית הספר היסודי ועד למבחני הבגרות.</p>
+                <p style="font-weight:bold; color:var(--accent-gold); margin-top:20px; text-align:center;">המטרה שלנו: לאפשר לכל תלמיד לממש את הפוטנציאל שלו למצוינות.</p>
+            `;
+        } 
+        else if (type === 'reviews') {
+            title.innerText = "המלצות והוכחות להצלחה";
+            content.innerHTML = `
+                <p style="margin-bottom:15px; font-weight:bold; color:var(--primary-blue); text-align:center;">ההשקעה שלנו משתקפת בציונים של התלמידים שלנו.</p>
+                <div class="reviews-container">
+                    <div class="review-box">
+                        <div class="review-content">
+                            <p>"הבת שלי פחדה ממתמטיקה והייתה על ממוצע 60. מאז שהתחלנו לתרגל במערכת, היא הבינה את ההיגיון מאחורי המספרים. היום היא קיבלה 95 במבחן המסכם! מדהים."</p>
+                            <span class="review-author">מיכל, אמא לתלמידת ח'</span>
+                            <br><span class="verified-badge">✓ הורה מאומת</span>
+                        </div>
+                        <div class="exam-proof">
+                            <span>95</span>
+                            <small>במבחן במתמטיקה</small>
+                        </div>
+                    </div>
+                    
+                    <div class="review-box">
+                        <div class="review-content">
+                            <p>"התרגולים באנגלית (במיוחד קטעי ה-Unseen) הם ברמה הכי קרובה לבגרות שראיתי. זה נתן לי ביטחון ענק וסיימתי עם 92 סופי ב-5 יחידות."</p>
+                            <span class="review-author">יונתן, תלמיד י"ב</span>
+                            <br><span class="verified-badge">✓ תלמיד מאומת</span>
+                        </div>
+                        <div class="exam-proof">
+                            <span>92</span>
+                            <small>בגרות 5 יח"ל</small>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="review-content">
+                            <p>"כאמא ל-3 ילדים בגילאים שונים, המערכת הזו הצילה אותנו כלכלית. יש פה הכל - לשון, מדעים, מתמטיקה. הילדים לומדים לבד והציונים בתעודה מדברים בעד עצמם."</p>
+                            <span class="review-author">דנה, אמא ל-3</span>
+                            <br><span class="verified-badge">✓ מנוי משפחתי</span>
+                        </div>
+                        <div class="exam-proof">
+                            <span style="font-size:1.6rem; color:#059669;">מצוין</span>
+                            <small>הערכה בתעודה</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        else if (type === 'collab') {
+            title.innerText = "שיתופי פעולה אסטרטגיים";
+            content.innerHTML = `
+                <p>אנו מאמינים בכוחה של טכנולוגיה לסגור פערים ולהנגיש חינוך איכותי לכולם.</p>
+                <p>המרכז להישגים לימודיים פתוח לשיתופי פעולה עם מוסדות וארגונים:</p>
+                <ul style="line-height:1.6; margin-top:15px;">
+                    <li><strong>בתי ספר:</strong> שילוב המערכת במערך השיעורים ואפשרות מעקב מורים אחר התקדמות תלמידים.</li>
+                    <li><strong>רשויות מקומיות:</strong> רכישת רישיונות מרוכזים ומסובסדים לתלמידי הרשות.</li>
+                    <li><strong>עמותות וקידום נוער:</strong> תוכניות מיוחדות להנגשת המערכת לאוכלוסיות מגוונות.</li>
+                </ul>
+                <p style="margin-top:20px; font-weight:bold; color:var(--primary-blue);">לפרטים נוספים ותיאום פגישת הדגמה, אנא השאירו פרטים בחלון 'צור קשר'.</p>
+            `;
+        }
+        else if (type === 'contact') {
+            title.innerText = "צור קשר";
+            content.innerHTML = `
+                <p>נשמח לעמוד לשירותך לכל שאלה, תקלה או הצעה.</p>
+                <div style="display:flex; flex-direction:column; gap:10px; margin-top:15px;">
+                    <input type="text" placeholder="שם מלא" style="padding:10px; border-radius:8px; border:1px solid var(--border-soft); font-family:'Heebo';">
+                    <input type="email" placeholder="אימייל לחזרה" style="padding:10px; border-radius:8px; border:1px solid var(--border-soft); font-family:'Heebo';">
+                    <textarea placeholder="כיצד נוכל לעזור?" rows="4" style="padding:10px; border-radius:8px; border:1px solid var(--border-soft); font-family:'Heebo'; resize:none;"></textarea>
+                    <button class="btn-action" style="width:100%; border-radius:10px; margin-top:5px;" onclick="myAlert('פנייתך נשלחה בהצלחה למחלקת פניות הציבור. נחזור אליך בהקדם!'); closeGlobalModal();">שליחת פנייה</button>
+                </div>
+            `;
+        }
+
+        document.getElementById('global-info-modal').style.display = 'flex';
+    }
+
+    function closeGlobalModal() {
+        document.getElementById('global-info-modal').style.display = 'none';
+    }
+
+    function createFloatingIcons() {
+        const container = document.getElementById('floating-container');
+        if(!container) return;
+        const icons = ['∑', 'π', 'E=mc²', '√', '∞', 'A', '∫', '∆', 'a²', 'sin(θ)', 'Ω', 'H₂O'];
+        for (let i = 0; i < 25; i++) {
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'floating-icon';
+            iconSpan.innerText = icons[Math.floor(Math.random() * icons.length)];
+            iconSpan.style.left = Math.random() * 100 + 'vw';
+            iconSpan.style.top = Math.random() * 100 + 'vh';
+            iconSpan.style.animationDuration = Math.random() * 30 + 40 + 's';
+            container.appendChild(iconSpan);
+        }
+    }
+    createFloatingIcons();
+
+    function keepAlive() {
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (!currentEmail) return;
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[currentEmail]) {
+                users[currentEmail].isOnline = true;
+                users[currentEmail].lastSeen = Date.now();
+                localStorage.setItem('edu_users', JSON.stringify(users));
+            }
+        } catch(e) {}
+    }
+
+    setInterval(keepAlive, 10000);
+
+    const INACTIVITY_LIMIT = 30 * 60 * 1000; 
+    let inactivityTimer;
+    let lastKeepAlive = 0;
+
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimer);
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (currentEmail) {
+            inactivityTimer = setTimeout(logoutDueToInactivity, INACTIVITY_LIMIT);
+            const now = Date.now();
+            if (now - lastKeepAlive > 5000) {
+                keepAlive();
+                lastKeepAlive = now;
+            }
+        }
+    }
+
+    function logoutDueToInactivity() {
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (currentEmail) {
+            try {
+                const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+                if (users[currentEmail]) {
+                    users[currentEmail].isOnline = false;
+                    localStorage.setItem('edu_users', JSON.stringify(users));
+                }
+                localStorage.removeItem('activeProfile');
+                localStorage.removeItem('loggedInEmail');
+            } catch(e) {}
+            
+            loggedInEmail = null;
+            activeProfile = null;
+            updateUI();
+            myAlert("נותקת מהמערכת עקב חוסר פעילות במשך חצי שעה.");
+        }
+    }
+
+    window.addEventListener('load', resetInactivityTimer);
+    document.addEventListener('mousemove', resetInactivityTimer);
+    document.addEventListener('keydown', resetInactivityTimer);
+    document.addEventListener('click', resetInactivityTimer);
+    document.addEventListener('scroll', resetInactivityTimer);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const loginModal = document.getElementById('login-modal');
+            if (loginModal && loginModal.style.display === 'flex') {
+                const loginSection = document.getElementById('login-section');
+                const registerSection = document.getElementById('register-section');
+                
+                if (loginSection.style.display !== 'none') {
+                    handleLocalLogin();
+                } else if (registerSection.style.display !== 'none') {
+                    handleLocalRegister();
+                }
+            }
+        }
+    });
+
+    setInterval(() => {
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (currentEmail) {
+            try {
+                let config = JSON.parse(localStorage.getItem('shared_config') || '{"kickedUsers":[]}');
+                if (config.kickedUsers && config.kickedUsers.includes(currentEmail)) {
+                    config.kickedUsers = config.kickedUsers.filter(e => e !== currentEmail);
+                    localStorage.setItem('shared_config', JSON.stringify(config));
+                    handleAuthClick(); 
+                    myAlert("נותקת מהמערכת על ידי מנהל.");
+                }
+            } catch (e) {}
+        }
+    }, 3000);
+
+    function handleForgotPass() {
+        const email = prompt("אנא הזן את כתובת האימייל שלך לשחזור סיסמה:");
+        if (!email) return;
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[email.toLowerCase().trim()]) {
+                myAlert("הוראות לשחזור סיסמה נשלחו לתיבת המייל (בסימולציה זו: הסיסמה שלך היא " + users[email.toLowerCase().trim()].password + ")");
+            } else {
+                myAlert("אימייל זה לא נמצא במערכת.");
+            }
+        } catch(e) {}
+    }
+
+    function updateUI() {
+        const btn = document.getElementById('main-auth-btn');
+        const welcome = document.getElementById('user-welcome');
+        if(!btn || !welcome) return;
+        
+        const curProfile = localStorage.getItem('activeProfile');
+        const curEmail = localStorage.getItem('loggedInEmail');
+
+        if (curProfile && curEmail) {
+            btn.innerText = "התנתק"; btn.classList.add('btn-logout');
+            welcome.innerHTML = "<span>👤 תלמיד: " + curProfile + "</span>"; welcome.style.display = 'flex';
+        } else {
+            btn.innerText = "כניסה לחשבון"; btn.classList.remove('btn-logout');
+            welcome.style.display = 'none';
+        }
+    }
+
+    function openProfileSwitcher() {
+        try {
+            const currentEmail = localStorage.getItem('loggedInEmail');
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            const user = users[currentEmail];
+            if (user && user.children) {
+                document.getElementById('login-modal').style.display = 'flex';
+                showProfiles(user.children);
+            }
+        } catch(e) {}
+    }
+
+    function handleLocalLogin() {
+        const emailInput = document.getElementById('login-email');
+        const passInput = document.getElementById('login-pass');
+        if(!emailInput || !passInput) return;
+
+        const email = emailInput.value.trim().toLowerCase();
+        const pass = passInput.value;
+
+        if (email === "aviv@fakiro.co.il" && pass === "2391995") {
+            try {
+                localStorage.setItem('loggedInEmail', email);
+                localStorage.setItem('activeProfile', 'מנהל');
+                keepAlive(); 
+                myAlert("התחברת בהצלחה כמנהל המערכת! מועבר לפאנל...");
+                setTimeout(() => { window.location.href = 'admin.html'; }, 1500);
+            } catch(e) { myAlert("שגיאה בגישה לזכרון הדפדפן."); }
+            return;
+        }
+
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            const user = users[email];
+            if (user && user.password === pass) {
+                localStorage.setItem('loggedInEmail', email);
+                keepAlive(); 
+                myAlert("התחברת בהצלחה! בחר מי לומד עכשיו.");
+                showProfiles(user.children || ["אורח"]);
+                resetInactivityTimer();
+            } else {
+                myAlert("פרטים שגויים. נסה שוב.");
+            }
+        } catch(e) { myAlert("שגיאה במערכת ההתחברות."); }
+    }
+
+    function addChildRow() {
+        const container = document.getElementById('children-container');
+        const row = document.createElement('div');
+        row.className = 'child-entry';
+        row.innerHTML = `
+            <input type="text" class="child-name" placeholder="שם הילד *" style="margin-bottom:0;">
+            <select class="child-grade" style="margin-bottom:0;">
+                <option value="">בחירת כיתה...</option>
+                <option value="ה-ו">ה'-ו' (יסודי)</option>
+                <option value="ז">כיתה ז'</option>
+                <option value="ח">כיתה ח'</option>
+                <option value="ט">כיתה ט'</option>
+                <option value="תיכון">תיכון (י'-י"ב)</option>
+            </select>
+            <span class="remove-child-btn" onclick="this.parentElement.remove()" title="מחק תלמיד">✕</span>
+        `;
+        container.appendChild(row);
+        
+        const allRows = container.querySelectorAll('.child-entry');
+        allRows.forEach((r, idx) => {
+            const btn = r.querySelector('.remove-child-btn');
+            if(idx === 0) btn.style.visibility = 'hidden';
+            else btn.style.visibility = 'visible';
+        });
+    }
+
+    function handleLocalRegister() {
+        const email = document.getElementById('reg-email').value.trim().toLowerCase();
+        const fname = document.getElementById('reg-fname').value.trim();
+        const lname = document.getElementById('reg-lname').value.trim();
+        const pass = document.getElementById('reg-pass').value;
+        const passConfirm = document.getElementById('reg-pass-confirm').value;
+        const city = document.getElementById('reg-city').value.trim();
+        const voucherInput = document.getElementById('reg-voucher').value.trim();
+        
+        const childrenElements = document.querySelectorAll('.child-entry');
+        let childrenArray = [];
+        let childrenValid = true;
+        
+        childrenElements.forEach(el => {
+            const n = el.querySelector('.child-name').value.trim();
+            const g = el.querySelector('.child-grade').value;
+            if(n && g) {
+                childrenArray.push({ name: n, grade: g });
+            } else if (n || g) {
+                childrenValid = false; 
+            }
+        });
+
+        if(!email || !fname || !lname || !pass || !passConfirm || !city || !voucherInput) { 
+            myAlert("נא למלא את כל שדות החובה של ההורה המסומנים ב-*"); return; 
+        }
+        
+        if(childrenArray.length === 0 || !childrenValid) {
+            myAlert("יש להזין שם וכיתה באופן מלא עבור כל תלמיד שהוסף."); return;
+        }
+
+        try {
+            let users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[email]) { myAlert("כתובת האימייל כבר קיימת במערכת."); return; }
+
+            let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
+            let voucherObj = config.vouchers ? config.vouchers.find(v => v.code === voucherInput) : null;
+
+            if(!voucherObj) { myAlert("קוד שובר לא קיים במערכת."); return; }
+            if(voucherObj.used) { myAlert("שובר זה כבר נוצל."); return; }
+            if(pass !== passConfirm) { myAlert("הסיסמאות לא תואמות"); return; }
+
+            voucherObj.used = true;
+            voucherObj.usedBy = email;
+            voucherObj.dateUsed = new Date().toLocaleString();
+            localStorage.setItem('shared_config', JSON.stringify(config));
+
+            users[email] = { 
+                password: pass, firstName: fname, lastName: lname, 
+                city: city, children: childrenArray, 
+                voucher: voucherInput, isOnline: true, lastSeen: Date.now() 
+            };
+            localStorage.setItem('edu_users', JSON.stringify(users));
+            localStorage.setItem('loggedInEmail', email);
+            
+            myAlert("נרשמת בהצלחה למערכת! לימוד נעים.");
+            showProfiles(childrenArray);
+            resetInactivityTimer();
+        } catch(e) { myAlert("שגיאת מערכת בעת ההרשמה."); }
+    }
+
+    function showProfiles(children) {
+        document.getElementById('auth-forms').style.display = 'none';
+        document.getElementById('profile-selection').style.display = 'block';
+        const list = document.getElementById('profiles-list');
+        list.innerHTML = '';
+        
+        children.forEach(childData => {
+            let cName = typeof childData === 'string' ? childData : childData.name;
+            let cGrade = typeof childData === 'string' ? "כללי" : childData.grade;
+            
+            const d = document.createElement('div'); 
+            d.className = 'profile-btn'; 
+            d.innerHTML = `<span style="font-size:1.4rem;">👤</span> <span style="font-size:1.1rem;">${cName}</span> <span style="font-size:0.85rem; color:#64748b; background:#e2e8f0; padding:4px 10px; border-radius:15px; margin-right:auto;">כיתה ${cGrade}</span>`;
+            
+            d.onclick = () => { 
+                try { localStorage.setItem('activeProfile', cName); } catch(e){}
+                location.reload(); 
+            };
+            list.appendChild(d);
+        });
+    }
+
+    function handleAuthClick() { 
+        const currentEmail = localStorage.getItem('loggedInEmail');
+        if (localStorage.getItem('activeProfile') || currentEmail) { 
+            try {
+                if(currentEmail) {
+                    const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+                    if(users[currentEmail]) {
+                        users[currentEmail].isOnline = false;
+                        localStorage.setItem('edu_users', JSON.stringify(users));
+                    }
+                }
+                localStorage.removeItem('activeProfile'); 
+                localStorage.removeItem('loggedInEmail'); 
+            } catch(e) {}
+            location.reload(); 
+        } else {
+            toggleLogin(); 
+        }
+    }
+    
+    function toggleLogin() { 
+        const m = document.getElementById('login-modal');
+        if(m) {
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; 
+            if (m.style.display === 'flex' && document.getElementById('children-container')) {
+                const container = document.getElementById('children-container');
+                const rows = container.querySelectorAll('.child-entry');
+                for(let i=1; i<rows.length; i++) rows[i].remove();
+                rows[0].querySelector('.child-name').value = '';
+                rows[0].querySelector('.child-grade').value = '';
+            }
+        }
+    }
+    
+    function switchAuth(mode) { 
+        document.getElementById('login-section').style.display = mode === 'login' ? 'block' : 'none'; 
+        document.getElementById('register-section').style.display = mode === 'register' ? 'block' : 'none'; 
+        
+        const tLogin = document.getElementById('tab-login');
+        const tReg = document.getElementById('tab-register');
+        
+        if(mode === 'login') {
+            tLogin.classList.add('active');
+            tReg.classList.remove('active');
+        } else {
+            tReg.classList.add('active');
+            tLogin.classList.remove('active');
+        }
+    }
+    
+    function showMenu(id) { document.querySelectorAll('.grade-overlay').forEach(el => el.style.display = 'none'); document.getElementById(id).style.display = 'flex'; }
+    function hideMenu(id) { document.getElementById(id).style.display = 'none'; }
+    function checkAccess(id) { if(localStorage.getItem('loggedInEmail')) showMenu(id); else toggleLogin(); }
+    
+    function checkAccessRedirect(url) { 
+        if(localStorage.getItem('loggedInEmail')) {
+            window.location.href = url; 
+        } else {
+            toggleLogin(); 
+        }
+    }
+    
+    function toggleAccMenu() { const m = document.getElementById('acc-menu'); if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+    function toggleAcc(cls) { document.body.classList.toggle(cls); }
+    function resetAcc() { document.body.className = ''; }
+
+    keepAlive();
+    updateUI();
+</script>
+</body>
+</html>

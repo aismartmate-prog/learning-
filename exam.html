@@ -599,9 +599,10 @@
         window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
     }
     
+    // כאן בוצע השינוי השני
     function goHome() { 
         if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("יציאה לדף הבית? ההתקדמות תאבד.")) return; 
-        window.location.href = 'index.html'; 
+        window.location.href = 'tirgul.html'; 
     }
     
     function loadQuestion() {

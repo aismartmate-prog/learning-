@@ -230,7 +230,7 @@
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn">חזרה לתפריט הראשי ↩</a>
+    <a href="tirgul.html" class="back-btn">חזרה לתפריט הראשי ↩</a>
     
     <div class="section-title">למידה ומבחנים</div>
     <div class="activity-grid">
@@ -524,7 +524,6 @@
         const bagrutVal = document.getElementById('bagrut-select').value;
         if (!bagrutVal) { alert("יש לבחור נושא מהרשימה"); return; }
         
-        // הניתוב שונה מ-exam.html ל-practice.html כדי שההכנה תהיה במבנה של תרגול
         window.location.href = `practice.html?grade=${encodeURIComponent(grade)}&topic=${encodeURIComponent(bagrutVal)}&activity=הכנה לבגרות`;
     }
 
@@ -541,7 +540,6 @@
             if (!t || !t.value) { alert("אנא בחר נושא לפני ההתחלה"); return; }
             topicParam = t.value;
             
-            // ואלידציה חשובה: דורש לבחור תת-נושא
             if (currentActivity === 'תרגול' || currentActivity === 'בר אילן') {
                 const s = document.getElementById('subtopic-select');
                 if (!s || !s.value) { alert("חובה לבחור תת נושא כדי להתחיל תרגול"); return; }
@@ -607,4 +605,4 @@
     }
 </script>
 </body>
-</html>
+</html> אוקיי נתחיל אחד אחרי השני, זה השני, לא לגעת בכלום אל תמחוק ואל תשנה כלוםםם רק את הניתוב ותחזיר לי את הקוד השלם עליו אעשה העתק הדבק ותעבור לבא
