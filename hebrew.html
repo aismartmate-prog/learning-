@@ -3,97 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>לשון - המרכז להישגים לימודיים</title>
+    <title>לשון והבעה - המרכז להישגים לימודיים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --primary-color: #0f172a; 
-            --accent-color: #8b5cf6; /* סגול לשון */
-            --bg-color: #fbfaf8; 
+            /* צבע עליון - שחור יוקרתי עם נגיעות זהב */
+            --primary-header: #000000;  
+            --accent-gold: #c5a059;   
+            --primary-blue: #0f172a;  
+            
+            --bg-color: #f8fafc;      
+            --surface-color: #ffffff; 
+            --text-main: #000000;     
+            --text-muted: #334155;    
+            --border-soft: #cbd5e1;
+            
+            --btn-cream: #ffffff;
         }
+        
         body { 
             font-family: 'Heebo', sans-serif; 
             background-color: var(--bg-color); 
-            margin: 0; padding: 0; 
-            -webkit-tap-highlight-color: transparent;
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-main); 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+            overflow-x: hidden;
         }
-        header { background: var(--primary-color); color: white; padding: 25px; text-align: center; }
-        header h1 { font-size: 1.8rem; margin: 0; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
         
-        .back-btn { display: inline-block; margin-bottom: 15px; color: var(--primary-color); text-decoration: none; font-weight: bold; }
+        header { 
+            background: var(--primary-header); 
+            color: white; 
+            padding: 15px 25px; 
+            text-align: center; 
+            border-bottom: 3px solid var(--accent-gold); 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 { 
+            font-size: 1.6rem; 
+            margin: 0; 
+            font-weight: 800; 
+            letter-spacing: 0.5px;
+        }
+        
+        #grade-display { 
+            font-weight: 500; 
+            margin-top: 5px; 
+            color: #d1d5db;
+            font-size: 1rem;
+        }
+        
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 15px 20px; 
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .back-btn { 
+            display: inline-block; 
+            margin-bottom: 10px; 
+            color: var(--primary-blue); 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            transition: color 0.2s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--accent-gold);
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-header);
+            margin: 10px 0 10px 0;
+            border-bottom: 2px dashed var(--border-soft);
+            padding-bottom: 5px;
+            font-weight: 700;
+        }
 
         .activity-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
             gap: 15px; 
+            margin-bottom: 20px;
         }
-        .activity-card { 
-            background: white; border-radius: 15px; padding: 20px; 
-            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-            cursor: pointer; transition: 0.2s; border-bottom: 5px solid var(--accent-color); 
-        }
-        .activity-card:active { transform: scale(0.98); }
-        .icon { font-size: 35px; }
-
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
-            display: none; justify-content: center; align-items: flex-end; z-index: 2000;
-        }
-        .modal-content {
-            background: white; padding: 30px; border-radius: 25px 25px 0 0; 
-            width: 100%; max-width: 500px; box-sizing: border-box;
-            animation: slideUp 0.3s ease-out;
-        }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         
-        .close-modal { float: left; cursor: pointer; font-size: 1.5rem; color: #94a3b8; }
-        select {
-            width: 100%; padding: 12px; border-radius: 12px; border: 2px solid #e2e8f0;
-            font-size: 16px; margin-bottom: 20px; outline: none; background: #fff;
-            font-family: 'Heebo', sans-serif;
+        .activity-card { 
+            background: var(--btn-cream); 
+            border-radius: 12px; 
+            padding: 20px 15px; 
+            text-align: center; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04); 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 1.5px solid var(--border-soft); 
+            border-bottom: 4px solid var(--border-soft); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .btn-start {
-            background: var(--primary-color); color: white; border: none;
-            padding: 15px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem;
+        
+        .activity-card:hover { 
+            border-color: var(--accent-gold); 
+            background: #fdfcf8; 
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.15);
+        }
+        
+        .activity-card:active {
+            transform: translateY(1px);
+            border-bottom-width: 2px;
+            margin-top: 2px;
+        }
+        
+        .icon { 
+            font-size: 38px; 
+            margin-bottom: 10px; 
+            display: block; 
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+        }
+        
+        .activity-card h3 { 
+            margin: 5px 0 0; 
+            font-weight: 800; 
+            font-size: 1.15rem; 
+            color: var(--primary-blue); 
         }
 
-        @media (min-width: 600px) {
-            .modal-overlay { align-items: center; }
-            .modal-content { border-radius: 20px; width: 90%; }
+        .game-card { border-color: #6366f1; border-bottom-color: #4338ca; }
+        .game-card:hover { border-color: #4f46e5; background: #e0e7ff; }
+
+        .modal-overlay { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(15, 23, 42, 0.7); 
+            backdrop-filter: blur(6px); 
+            display: none; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 2000; 
+            padding: 20px; 
+        }
+        
+        .modal-content { 
+            background: white; 
+            padding: 30px 25px; 
+            border-radius: 16px; 
+            width: 100%; 
+            max-width: 450px; 
+            box-sizing: border-box; 
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-top: 5px solid var(--accent-gold);
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-content h2 { margin-top: 0; color: var(--primary-blue); font-size: 1.6rem; margin-bottom: 20px; text-align: center; }
+        .close-modal { position: absolute; left: 20px; top: 20px; cursor: pointer; font-size: 1.8rem; color: #94a3b8; font-weight: bold; line-height: 1;}
+        .close-modal:hover { color: #ef4444; }
+        
+        select { 
+            width: 100%; padding: 14px; border-radius: 10px; border: 2px solid #e2e8f0; 
+            font-size: 1.1rem; margin-bottom: 15px; outline: none; background: #f8fafc; 
+            font-family: 'Heebo'; font-weight: 500; color: var(--primary-blue); cursor: pointer;
+        }
+        
+        select:focus { border-color: var(--accent-gold); background: white; }
+        
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 250px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            background: #f8fafc;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-item { 
+            display: flex; align-items: center; gap: 10px; font-size: 1.05rem; 
+            color: var(--primary-blue); font-weight: 500; cursor: pointer; padding: 4px 0; 
+        }
+        .checkbox-item input { width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-header); }
+
+        .btn-start { 
+            background: var(--primary-header); color: white; border: none; 
+            padding: 16px; border-radius: 30px; font-weight: 700; 
+            cursor: pointer; width: 100%; font-size: 1.25rem; transition: 0.3s; margin-top: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .btn-start:hover { background: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.3); }
+
+        .copyright-footer { text-align: center; font-size: 0.85rem; color: #94a3b8; padding: 20px; margin-top: auto; }
+
+        @media (max-width: 600px) {
+            .activity-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .activity-card { padding: 15px 10px; }
+            .icon { font-size: 32px; }
+            .activity-card h3 { font-size: 1.1rem; }
+            .modal-content { padding: 25px 20px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>לשון - Hebrew</h1>
-    <p>בחירת פעילות</p>
+    <h1>לשון והבעה - בחירת פעילות</h1>
+    <p id="grade-display">טוען...</p>
 </header>
 
 <div class="container">
-    <a href="index.html" class="back-btn">← חזרה</a>
+    <a href="index.html" class="back-btn">חזרה לתפריט הראשי ↩</a>
+    
+    <div class="section-title">למידה ומבחנים</div>
     <div class="activity-grid">
         <div class="activity-card" onclick="openSelectionModal('תרגול', true)">
-            <div class="icon">📝</div>
-            <h3>תרגול</h3>
+            <div class="icon">📝</div><h3>תרגול</h3>
         </div>
         <div class="activity-card" onclick="openSelectionModal('בוחן', true)">
-            <div class="icon">⏱️</div>
-            <h3>בוחן</h3>
+            <div class="icon">⏱️</div><h3>בוחן</h3>
         </div>
         <div class="activity-card" onclick="openSelectionModal('מבחן', false)">
-            <div class="icon">🎓</div>
-            <h3>מבחן</h3>
+            <div class="icon">🎓</div><h3>מבחן</h3>
         </div>
-        <div class="activity-card" onclick="openSelectionModal('המיליונר', false)">
-            <div class="icon">💰</div>
-            <h3>המיליונר</h3>
+        <div class="activity-card" onclick="openSelectionModal('בגרות', false)">
+            <div class="icon">📚</div><h3>הכנה לבגרות</h3>
         </div>
-        <div class="activity-card" onclick="openSelectionModal('ראש בראש', false)">
-            <div class="icon">⚔️</div>
-            <h3>ראש בראש</h3>
+    </div>
+
+    <div class="section-title">למידה משחקית (בקרוב)</div>
+    <div class="activity-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+        <div class="activity-card game-card" onclick="openSelectionModal('המרדף', true)">
+            <div class="icon">🏃‍♂️</div><h3>המרדף</h3>
+        </div>
+        <div class="activity-card game-card" onclick="openSelectionModal('ראש בראש', true)">
+            <div class="icon">⚔️</div><h3>ראש בראש</h3>
         </div>
     </div>
 </div>
@@ -102,85 +263,97 @@
     <div class="modal-content" id="modal-inner-content"></div>
 </div>
 
+<div class="copyright-footer">© כל הזכויות שמורות למרכז להישגים לימודיים</div>
+
 <script>
-    // תתי נושאים מדויקים לפי התמונות שנשלחו
-    const hebrewSubtopics = {
-        "אוצר מילים ומילון": [
-            "מילים מכלילות", "מילים מנוגדות", "מילים נרדפות"
-        ],
-        "הבנת הנקרא": [
-            "אמצעים רטוריים", "הבנת הנקרא", "מאזכרים", "עובדה - דעה"
-        ],
-        "פועל": [
-            "בניינים", "גזרת החסרים חפנ וחפיצ", "גזרת מרובעים", "גזרת נחי לא", 
-            "גזרת נחי ל/ה", "גזרת נחי ע/ו", "גזרת נחי פ/י", "גזרת עע (הכפולים)", 
-            "זמנים וגופים", "יצירת פעלים", "ניתוח", "שורשים", "שלמים גרוניים"
-        ],
-        "תורת ההגה": [
-            "א'ה'ח'ע' - עיצורים ואותיות קריאה", "דגשים", "הברות", 
-            "הגרוניות והשפעתן על ההגייה-הניקוד", "הטעמה", "המפיק", 
-            "עיצורים", "שוואים", "תופעות פונטיות בהתפעל", "תנועות"
-        ],
-        "תורת הצורות": [
-            "חלקי דיבר", "מילות קישור", "שם המספר"
-        ],
-        "תחביר": [
-            "דיבור ישיר ודיבור עקיף", "חלקי המשפט", "סוגי משפטים", 
-            "סמיכות", "פעיל וסביל", "שחבור"
-        ],
-        "תצורת שם עצם": [
-            "גזירה מסורגת- שורש ומשקל", "גזירה קווית"
-        ]
+    // מאגר נושאי לשון (אפשר להרחיב ולהתאים בעתיד)
+    const hebrewData = {
+        "פועל": { 
+            name: "מערכת הפועל", 
+            subs: ["בניינים", "גזרות", "שורשים", "זמנים"] 
+        },
+        "תחביר": { 
+            name: "תחביר", 
+            subs: ["חלקי המשפט", "סוגי משפטים", "סמיכות"] 
+        },
+        "הבנת הנקרא": { 
+            name: "הבנת הנקרא והבעה", 
+            subs: ["מאזכרים", "אמצעים רטוריים", "עובדה ודעה", "כתיבת טיעון"] 
+        },
+        "שם העצם": { 
+            name: "שם העצם ותצורתו", 
+            subs: ["בסיס וצורן", "הלחם בסיסים", "נוטריקון"] 
+        }
     };
 
     let currentActivity = "";
-    let activityWantsSubtopic = false;
+    let needsSubtopic = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    let grade = urlParams.get('grade') || "כללי";
 
-    function openSelectionModal(activityName, wantsSubtopic) {
+    window.onload = function() {
+        const gradeNames = {
+            "ה-ו": "יסודי ה'-ו'", "ז": "כיתה ז'", "ח": "כיתה ח'", "ט": "כיתה ט'", "תיכון": "תיכון ובגרויות", "כללי": "כללי"
+        };
+        document.getElementById('grade-display').innerText = gradeNames[grade] || `כיתה ${grade}`;
+    };
+
+    function openSelectionModal(activityName, subtopicRequired) {
         currentActivity = activityName;
-        activityWantsSubtopic = wantsSubtopic;
+        needsSubtopic = subtopicRequired;
         const inner = document.getElementById('modal-inner-content');
-
-        inner.innerHTML = `
-            <span class="close-modal" onclick="closeModal()">✕</span>
-            <h2 style="margin-top:0; text-align:center;">${activityName}</h2>
-            
-            <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">בחר נושא:</label>
-            <select id="topic-select" onchange="updateSubtopics()">
-                <option value="">-- בחר נושא --</option>
-                <option value="אוצר מילים ומילון">אוצר מילים ומילון</option>
-                <option value="הבנת הנקרא">הבנת הנקרא</option>
-                <option value="פועל">פועל</option>
-                <option value="תורת ההגה">תורת ההגה</option>
-                <option value="תורת הצורות">תורת הצורות</option>
-                <option value="תחביר">תחביר</option>
-                <option value="תצורת שם עצם">תצורת שם עצם</option>
-            </select>
-            
-            <div id="subtopic-container" style="display:none;">
-                <label style="display:block; text-align:right; margin-bottom:5px; font-weight:bold;">בחר תת נושא:</label>
-                <select id="subtopic-select"></select>
-            </div>
-            
-            <button class="btn-start" onclick="handleStart()">התחל פעילות</button>
-        `;
         
+        let dataSource = hebrewData;
+
+        let btnText = "התחל למידה";
+        if (activityName === "תרגול") btnText = "התחל תרגול";
+        else if (activityName === "בוחן") btnText = "התחל בוחן";
+        else if (activityName === "מבחן" || activityName === "בגרות") btnText = "התחל מבחן";
+        else if (activityName === "המרדף" || activityName === "ראש בראש") btnText = "התחל משחק";
+
+        let html = `<span class="close-modal" onclick="closeModal()">✕</span><h2>${activityName}</h2>`;
+
+        if (activityName === 'מבחן' || activityName === 'בגרות') {
+            html += `<div style="font-weight:700; margin-bottom:10px; font-size:1.1rem; color:var(--primary-blue);">בחר נושאים למבחן:</div><div class="checkbox-list">`;
+            for (let key in dataSource) {
+                html += `<label class="checkbox-item"><input type="checkbox" name="topic-check" value="${key}"> ${dataSource[key].name}</label>`;
+            }
+            html += `</div>`;
+            html += `<button class="btn-start" onclick="handleStart()">${btnText}</button>`;
+        } else {
+            let topicOptions = '<option value="">-- בחר נושא --</option>';
+            for (let key in dataSource) { topicOptions += `<option value="${key}">${dataSource[key].name}</option>`; }
+            
+            html += `<select id="topic-select" onchange="updateSubtopics()">${topicOptions}</select>`;
+            html += `<div id="subtopic-container" style="display:none;"></div>`;
+            html += `<button class="btn-start" onclick="handleStart()">${btnText}</button>`;
+        }
+
+        inner.innerHTML = html;
         document.getElementById('selection-modal').style.display = 'flex';
     }
-
+    
     function closeModal() { document.getElementById('selection-modal').style.display = 'none'; }
 
     function updateSubtopics() {
-        const topicVal = document.getElementById('topic-select').value;
+        const tKey = document.getElementById('topic-select').value;
         const container = document.getElementById('subtopic-container');
-        const select = document.getElementById('subtopic-select');
-        
-        if (activityWantsSubtopic && topicVal && hebrewSubtopics[topicVal]) {
-            select.innerHTML = '<option value="">-- בחר תת נושא --</option>';
-            hebrewSubtopics[topicVal].forEach(s => {
-                const opt = document.createElement('option');
-                opt.value = s; opt.text = s; select.appendChild(opt);
-            });
+        let dataSource = hebrewData;
+
+        if (tKey && dataSource[tKey]) {
+            if (currentActivity === 'בוחן') {
+                let checks = `<div style="font-weight:700; margin-bottom:8px; font-size:1.05rem; color:var(--primary-blue);">בחר תתי נושאים לבוחן:</div><div class="checkbox-list">`;
+                dataSource[tKey].subs.forEach(s => {
+                    checks += `<label class="checkbox-item"><input type="checkbox" name="subtopic-check" value="${s}"> ${s}</label>`;
+                });
+                checks += `</div>`;
+                container.innerHTML = checks;
+            } else {
+                let sel = `<select id="subtopic-select"><option value="">-- בחר תת נושא --</option>`;
+                dataSource[tKey].subs.forEach(s => { sel += `<option value="${s}">${s}</option>`; });
+                sel += `</select>`;
+                container.innerHTML = sel;
+            }
             container.style.display = 'block';
         } else {
             container.style.display = 'none';
@@ -188,15 +361,37 @@
     }
 
     function handleStart() {
-        const t = document.getElementById('topic-select');
-        const s = document.getElementById('subtopic-select');
-        const container = document.getElementById('subtopic-container');
+        let topicParam = "";
+        let subtopicParam = "";
+
+        if (currentActivity === 'מבחן' || currentActivity === 'בגרות') {
+            const checkedTopics = document.querySelectorAll('input[name="topic-check"]:checked');
+            if (checkedTopics.length === 0) { alert("יש לבחור לפחות נושא אחד למבחן"); return; }
+            topicParam = Array.from(checkedTopics).map(cb => cb.value).join(",");
+        } else {
+            const t = document.getElementById('topic-select');
+            if (!t || !t.value) { alert("אנא בחר נושא לפני ההתחלה"); return; }
+            topicParam = t.value;
+            
+            if (currentActivity === 'בוחן') {
+                const checkedSubs = document.querySelectorAll('input[name="subtopic-check"]:checked');
+                if (checkedSubs.length === 0) { alert("חובה לבחור לפחות תת-נושא אחד לבוחן"); return; }
+                subtopicParam = Array.from(checkedSubs).map(cb => cb.value).join(",");
+            } else {
+                const s = document.getElementById('subtopic-select');
+                if (s && s.value) subtopicParam = s.value;
+            }
+        }
+
+        if (currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
+            alert("מצב המשחק המקוון נטען... (אפשרות זו תופעל במלואה בגרסה הבאה)");
+            return;
+        }
+
+        let targetFile = (currentActivity === 'תרגול') ? 'practice.html' : 'exam.html';
         
-        if (!t.value) { alert("יש לבחור נושא"); return; }
-        if (container.style.display === 'block' && !s.value) { alert("יש לבחור תת נושא"); return; }
-        
-        alert(`מתחיל ${currentActivity} בנושא ${t.value}${s.value ? ' - ' + s.value : ''}...`);
-        closeModal();
+        // צירוף המקצוע כדי שקובץ התרגול ידע לטעון את נתוני הלשון ולא המתמטיקה
+        window.location.href = `${targetFile}?subject=hebrew&grade=${encodeURIComponent(grade)}&topic=${encodeURIComponent(topicParam.trim())}&subtopic=${encodeURIComponent(subtopicParam)}&activity=${encodeURIComponent(currentActivity)}`;
     }
 </script>
 </body>

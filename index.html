@@ -3,119 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרכז להישגים לימודיים</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <title>המרכז להישגים לימודיים | דף הבית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-cream: #fbfaf8;                
-            --card-white: #ffffff;
-            --primary-blue: #0f172a;            
-            --accent-gold: #b09151;            
-            --secondary-gold: #f5eadd;         
-            --math: #ef4444; --english: #f59e0b; --hebrew: #8b5cf6;
-            --science: #10b981; --arabic: #f97316;
-            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            /* פלטת צבעים יוקרתית - אפור פנינה, שחור וזהב */
+            --primary-header: #0f172a;  
+            --accent-gold: #c5a059;   
+            --primary-blue: #0f172a;  
+            --bg-color: #f1f5f9;      
+            --surface-color: #ffffff; 
+            --text-main: #1e293b;     
+            --text-muted: #64748b;    
+            --border-soft: #e2e8f0;
+            
+            /* צבעי מקצועות יוקרתיים */
+            --math: #dc2626; 
+            --english: #d97706; 
+            --hebrew: #7c3aed;
+            --science: #059669; 
+            --arabic: #ea580c;
+            
+            --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 20px 40px -5px rgba(197, 160, 89, 0.15);
         }
 
         /* הגדרות נגישות */
         body.high-contrast { background: #000 !important; color: #fff !important; background-image: none !important; }
-        body.high-contrast .subject-card, body.high-contrast header, body.high-contrast footer, body.high-contrast .testimonial-card, body.high-contrast .login-card { background: #000 !important; border: 2px solid #fff !important; color: #fff !important; }
+        body.high-contrast .subject-card, body.high-contrast header, body.high-contrast footer, body.high-contrast .login-card, body.high-contrast .info-modal-card { background: #000 !important; border: 2px solid #fff !important; color: #fff !important; }
         body.high-contrast .btn-action { background: #fff !important; color: #000 !important; border: 2px solid #fff !important; }
         body.high-contrast .floating-icon { opacity: 0.1 !important; color: #fff !important; }
         body.large-text { font-size: 1.2rem !important; }
-        body.underline-links a { text-decoration: underline !important; font-weight: bold !important; }
 
         body {
-            font-family: 'Heebo', sans-serif; margin: 0; padding: 0; color: #334155; line-height: 1.5;
-            background-color: var(--bg-cream); position: relative; min-height: 100vh;
-            overflow-x: hidden; /* מונע גלילה אופקית מיותרת בגלל אנימציות או אייקונים חורגים */
+            font-family: 'Heebo', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-main); 
+            line-height: 1.4;
+            background: radial-gradient(circle at top, #ffffff 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden; 
         }
 
-        /* רקע צף */
-        #floating-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
-        .floating-icon { position: absolute; font-size: 2.5rem; color: var(--accent-gold); opacity: 0.12; animation: floatDiagonal infinite linear; }
-        @keyframes floatDiagonal { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(100px, -100px) rotate(360deg); } }
+        /* רקע צף ללימודים */
+        #floating-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
+        .floating-icon { position: absolute; font-size: 3rem; color: var(--primary-blue); opacity: 0.03; animation: floatDiagonal infinite linear; font-family: times new roman, serif; font-style: italic;}
+        @keyframes floatDiagonal { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(150px, -150px) rotate(360deg); } }
 
-        .edu-updates-strip { background: #f1f5f9; color: #475569; padding: 8px 0; font-size: 0.85rem; border-bottom: 1px solid #e2e8f0; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; }
-        .edu-ticker { display: inline-block; animation: marquee-slow 60s linear infinite; }
+        /* עדכוני מערכת */
+        .edu-updates-strip { background: var(--primary-header); color: var(--accent-gold); padding: 6px 0; font-size: 0.85rem; border-bottom: 1px solid #333; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; font-weight: 600;}
+        .edu-ticker { display: inline-block; animation: marquee-slow 50s linear infinite; }
         @keyframes marquee-slow { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
 
-        .accessibility-btn { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; cursor: pointer; z-index: 3000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; }
-        .acc-menu { position: fixed; bottom: 80px; right: 20px; background: white; border-radius: 15px; box-shadow: var(--shadow-hover); display: none; flex-direction: column; padding: 15px; z-index: 3000; border: 1px solid #e2e8f0; width: 200px; }
-        .acc-menu button { background: #f8fafc; border: 1px solid #e2e8f0; padding: 10px; margin-bottom: 8px; border-radius: 8px; cursor: pointer; font-family: 'Heebo'; font-weight: 600; text-align: right; }
+        /* כפתור נגישות */
+        .accessibility-btn { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; background: var(--primary-header); color: var(--accent-gold); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; z-index: 3000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: 0.3s; }
+        .accessibility-btn:hover { background: var(--accent-gold); color: #000; transform: scale(1.05); }
+        .acc-menu { position: fixed; bottom: 75px; right: 20px; background: white; border-radius: 12px; box-shadow: var(--shadow-hover); display: none; flex-direction: column; padding: 12px; z-index: 3000; border: 2px solid var(--accent-gold); width: 180px; }
+        .acc-menu button { background: #f8fafc; color: #000; border: 1px solid #e2e8f0; padding: 8px; margin-bottom: 6px; border-radius: 6px; cursor: pointer; font-family: 'Heebo'; font-weight: 600; text-align: right; font-size: 0.9rem;}
 
-        .guest-access { position: absolute; top: 40px; left: 30px; z-index: 100; display: flex; align-items: center; gap: 15px; }
-        .user-welcome-tag, .btn-guest { height: 45px; min-width: 140px; display: flex; align-items: center; justify-content: center; border-radius: 12px; font-size: 0.95rem; font-weight: 700; padding: 0 20px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
-        .user-welcome-tag { background: rgba(255, 255, 255, 0.95); color: var(--primary-blue); backdrop-filter: blur(5px); display: none; border: 1px solid rgba(176, 145, 81, 0.3); box-shadow: var(--shadow-card); }
-        .btn-guest { background: var(--primary-blue); color: white; border: none; box-shadow: var(--shadow-card); }
-        .btn-logout { background: #dc2626 !important; }
+        /* הדר עליון - עיצוב שכבתי חדש כדי למנוע צפיפות לחלוטין */
+        header { 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
+            padding: 25px 40px 20px 40px; 
+            border-bottom: 2px solid var(--border-soft); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+        
+        /* לוגו טיפוגרפי במרכז למעלה */
+        .logo-container { text-align: center; margin-bottom: 25px; }
+        .logo-text { color: var(--primary-header); font-size: 2.8rem; font-weight: 900; margin: 0; letter-spacing: 0px; white-space: nowrap; line-height: 1.1;}
+        .logo-text span { font-weight: 300; color: var(--accent-gold); }
+        .logo-subtext { color: var(--text-muted); font-size: 0.95rem; font-weight: 500; margin: 0; letter-spacing: 5px; text-transform: uppercase;}
 
-        header { padding: 10px 20px 0 20px; text-align: center; position: relative; z-index: 5; }
-        .main-logo-img { max-width: 700px; height: auto; display: block; margin: 0 auto; transform: scaleX(1.1) scaleY(1.05); transform-origin: bottom center; }
+        /* מעטפת ניווט מתחת ללוגו */
+        .nav-bar-wrapper { display: flex; justify-content: space-between; width: 100%; max-width: 1400px; align-items: center; }
+        
+        /* תפריט ניווט */
+        .top-nav { display: flex; gap: 10px; align-items: center; flex-wrap: wrap;}
+        .nav-btn { 
+            background: rgba(15, 23, 42, 0.04); border: 1px solid transparent; color: var(--text-main); 
+            font-family: 'Heebo'; font-weight: 600; font-size: 0.9rem; padding: 8px 18px; 
+            border-radius: 20px; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
+        }
+        .nav-btn:hover { background: var(--accent-gold); color: #fff; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.2); transform: translateY(-2px); }
 
-        .container { max-width: 1250px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 5; }
-        .subjects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        /* חיבור ומשתמש בשמאל */
+        .guest-access { display: flex; align-items: center; gap: 10px; justify-content: flex-end;}
+        .user-welcome-tag, .btn-guest { height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 25px; font-size: 0.95rem; font-weight: 700; padding: 0 25px; transition: all 0.3s; cursor: pointer; }
+        .user-welcome-tag { background: #f8fafc; color: var(--primary-blue); border: 1px solid var(--border-soft); display: none; }
+        .user-welcome-tag:hover { border-color: var(--accent-gold); }
+        .btn-guest { background: var(--primary-header); color: #fff; border: 2px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap;}
+        .btn-guest:hover { background: transparent; color: var(--primary-header); border-color: var(--primary-header); transform: translateY(-2px); }
+        .btn-logout { background: #f8fafc !important; color: #dc2626 !important; border: 1px solid #fecaca !important; }
+        .btn-logout:hover { background: #fee2e2 !important; border-color: #ef4444 !important; }
 
-        .subject-card { background: rgba(255, 255, 255, 0.95); border-radius: 30px; padding: 25px 40px 50px 40px; text-align: center; box-shadow: var(--shadow-card); position: relative; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); overflow: hidden; border: 1px solid #f1f5f9; display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; }
-        .card-line { position: absolute; top: 0; left: 0; width: 100%; height: 7px; }
+        /* קונטיינר מרכזי - עם ריווח גדול יותר כדי לתת אוויר לדף */
+        .container { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 80px 20px 100px 20px; 
+            position: relative; 
+            z-index: 5; 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        .subject-icon { width: 70px; height: 70px; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; }
+        /* גריד המקצועות */
+        .subjects-grid { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 20px; 
+            width: 100%;
+        }
+
+        .subject-card { 
+            background: var(--surface-color); 
+            border-radius: 20px; 
+            padding: 35px 20px 25px 20px; 
+            text-align: center; 
+            box-shadow: var(--shadow-card); 
+            position: relative; 
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            border: 1px solid #ffffff; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            justify-content: space-between; 
+            min-height: 260px; 
+            z-index: 5;
+        }
+        .subject-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: var(--accent-gold); z-index: 10;}
+        
+        .card-line { position: absolute; top: 0; left: 0; width: 100%; height: 6px; border-radius: 20px 20px 0 0;}
+
+        .subject-icon { width: 65px; height: 65px; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: var(--primary-blue);}
         .subject-icon svg { width: 100%; height: 100%; }
 
-        .btn-action { background: var(--primary-blue); color: white; border: none; padding: 18px 35px; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .subject-card h3 { margin: 0 0 10px 0; font-size: 1.4rem; color: var(--primary-blue); font-weight: 800;}
+        .subject-card p { font-size: 0.95rem; margin: 0 0 20px 0; color: var(--text-muted); line-height: 1.4;}
 
-        .grade-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.99); display: none; flex-direction: column; justify-content: center; align-items: center; padding: 30px; z-index: 20; border-radius: 30px; box-sizing: border-box; }
-        .grade-title { font-weight: 800; color: var(--primary-blue); margin-bottom: 25px; font-size: 1.4rem; }
-        .grade-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; }
-        .grade-link { padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 15px; text-decoration: none; color: var(--primary-blue); font-weight: 600; text-align: center; }
+        .btn-action { background: var(--surface-color); color: var(--primary-header); border: 2px solid var(--border-soft); padding: 12px 25px; border-radius: 30px; font-weight: 800; font-size: 1rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); width: 100%;}
+        .subject-card:hover .btn-action { background: var(--accent-gold); color: #fff; border-color: var(--accent-gold); box-shadow: 0 4px 15px rgba(197, 160, 89, 0.35); }
+
+        /* --- כרטיסיות מתמטיקה (בגרויות וכיתות) --- */
+        .grade-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.98); display: none; flex-direction: column; justify-content: flex-start; align-items: center; padding: 35px 15px 15px 15px; z-index: 20; box-sizing: border-box; border-radius: 20px;}
+        .grade-title { font-weight: 800; color: var(--primary-blue); margin-bottom: 15px; font-size: 1.2rem; }
+        .grade-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
+        .grade-link { padding: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; text-decoration: none; color: var(--primary-blue); font-weight: 700; text-align: center; font-size: 0.95rem; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center;}
+        .grade-link:hover { border-color: var(--accent-gold); background: #fff; color: #000; transform: scale(1.02);}
         
-        .bagrut-list { display: flex; flex-direction: column; gap: 8px; width: 100%; overflow-y: auto; max-height: 85%; padding: 5px; box-sizing: border-box;}
-        .unit-label { font-size: 0.9rem; font-weight: 700; color: var(--accent-gold); text-align: right; border-right: 3px solid var(--accent-gold); padding-right: 10px; margin: 15px 0 8px 0; }
-        .close-btn { margin-top: 20px; color: #94a3b8; cursor: pointer; font-size: 0.95rem; text-decoration: underline; font-weight: 600; }
-
-        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .login-card { background: white; width: 440px; padding: 40px; border-radius: 30px; position: relative; text-align: center; overflow-y: auto; max-height: 90vh; }
-        .login-card input { width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid #e2e8f0; border-radius: 12px; box-sizing: border-box; font-family: 'Heebo'; }
+        /* כפתור בגרויות אלגנטי וקלאסי */
+        .btn-bagrut { grid-column: span 2; background: #ffffff !important; color: var(--primary-header) !important; border: 2px solid var(--accent-gold) !important; font-weight: 800; font-size: 1rem; margin-top: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .btn-bagrut:hover { background: var(--accent-gold) !important; color: #fff !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.25); }
         
-        .input-row { display: flex; gap: 10px; width: 100%; }
-        .input-row input { flex: 1; min-width: 0; }
+        /* רשימת בגרויות אסתטית ונגללת */
+        .bagrut-list { display: flex; flex-direction: column; gap: 12px; width: 100%; max-height: 180px; overflow-y: auto; padding-right: 5px; box-sizing: border-box;}
+        /* עיצוב פס גלילה */
+        .bagrut-list::-webkit-scrollbar { width: 5px; }
+        .bagrut-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        .bagrut-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .bagrut-list::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
 
-        .profile-btn { cursor: pointer; background: #f8fafc; padding: 18px; border-radius: 20px; margin-bottom: 12px; font-weight: 700; border: 1px solid #e2e8f0; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
-
-        .testimonials { padding: 100px 20px; background: rgba(255,255,255,0.5); margin-top: 50px; position: relative; z-index: 5; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .unit-group { display: flex; flex-direction: column; gap: 8px; background: #ffffff; border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
+        .unit-label { font-size: 1.05rem; font-weight: 800; color: var(--primary-header); text-align: center; border-bottom: 2px solid var(--border-soft); padding-bottom: 6px; margin: 0; }
+        .pill-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 8px;}
+        .pill-container .grade-link { padding: 8px 5px; font-size: 0.95rem; border-radius: 8px; background: #f8fafc; border: 1px solid #e2e8f0; font-weight: 700; }
+        .pill-container .grade-link:hover { border-color: var(--accent-gold); background: var(--accent-gold); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(197, 160, 89, 0.2);}
         
-        .testimonial-card { 
-            background: white; padding: 40px; border-radius: 25px; box-shadow: var(--shadow-card); 
-            border: 1px solid #f1f5f9; text-align: right; position: relative; 
-            transition: opacity 0.8s ease, transform 0.8s ease; 
+        /* איקס סגירה לכרטיסיות */
+        .close-overlay {
+            position: absolute; top: 12px; left: 15px; font-size: 1.4rem; font-weight: bold;
+            color: #94a3b8; cursor: pointer; transition: color 0.2s; z-index: 30; line-height: 1;
         }
-        .testimonial-card.fade-out { opacity: 0; transform: translateY(10px); }
+        .close-overlay:hover { color: #ef4444; }
 
-        .testimonial-user { display: flex; align-items: center; gap: 18px; margin-top: 25px; border-top: 1px solid #f1f5f9; padding-top: 20px; }
-        .user-avatar { width: 55px; height: 55px; border-radius: 50%; background: var(--secondary-gold); display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent-gold); border: 2px solid white; }
-        .stars { color: #fbbf24; font-size: 1.2rem; margin-bottom: 15px; }
-
-        .news-ticker-bottom { background: linear-gradient(90deg, var(--primary-blue), #1e293b); color: white; padding: 20px 0; overflow: hidden; white-space: nowrap; border-top: 4px solid var(--accent-gold); margin-top: 60px; position: relative; z-index: 10; font-size: 1.1rem; }
-        .news-content { display: inline-block; animation: marquee 40s linear infinite; font-weight: 700; }
-        @keyframes marquee { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-        footer { text-align: center; padding: 50px 20px; background: #fff; border-top: 1px solid #e2e8f0; color: #94a3b8; position: relative; z-index: 10; }
+        /* חלון התחברות והרשמה */
+        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .login-card { background: white; color: #000; width: 420px; padding: 25px 30px; border-radius: 20px; position: relative; text-align: center; max-height: 90vh; overflow-y: auto; border-top: 5px solid var(--accent-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3);}
         
-        .forgot-pass-link { display: block; margin: 10px 0; color: var(--accent-gold); cursor: pointer; font-size: 0.9rem; text-decoration: underline; }
+        .login-card input, .login-card select { width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 1.5px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-family: 'Heebo'; font-size: 0.9rem; background: #f8fafc; transition: all 0.2s;}
+        .login-card input:focus, .login-card select:focus { border-color: var(--accent-gold); outline: none; background: #fff; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);}
+        
+        .input-row { display: flex; gap: 10px; width: 100%; align-items: flex-start;}
+        .input-row input, .input-row select { flex: 1; min-width: 0; margin-bottom: 0;}
+        
+        #children-container { background: #f1f5f9; padding: 15px; border-radius: 12px; border: 1px dashed #cbd5e1; margin-bottom: 15px; text-align: right;}
+        .child-entry { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+        .remove-child-btn { background: #fee2e2; color: #ef4444; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.2s; flex-shrink: 0; }
+        .remove-child-btn:hover { background: #fecaca; color: #b91c1c; }
 
-        /* --- מודאל הודעות מותאם אישית --- */
-        .custom-alert-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(3px);
-            display: none; justify-content: center; align-items: center; z-index: 5000;
+        .profile-btn { cursor: pointer; background: #ffffff; color: var(--primary-blue); padding: 15px; border-radius: 12px; margin-bottom: 10px; font-weight: 700; border: 1.5px solid var(--border-soft); transition: 0.3s; display: flex; align-items: center; justify-content: flex-start; gap: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
+        .profile-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.15);}
+
+        .forgot-pass-link { display: block; margin: 4px 0 16px 0; color: var(--text-muted); cursor: pointer; font-size: 0.85rem; text-decoration: underline;}
+
+        .auth-tabs { display:flex; margin-bottom:20px; border-bottom: 2px solid var(--border-soft); }
+        .auth-tab { flex:1; cursor:pointer; font-weight:800; font-size: 1rem; padding:10px; transition: 0.2s; color: var(--text-muted); }
+        .auth-tab.active { color: var(--primary-header); border-bottom: 3px solid var(--accent-gold); }
+        .auth-tab:hover:not(.active) { color: #000; }
+
+        /* --- חלונות מידע כללי --- */
+        .info-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.8); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 4000; }
+        .info-modal-card { background: white; padding: 40px; border-radius: 20px; width: 90%; max-width: 700px; max-height: 85vh; overflow-y: auto; position: relative; border-top: 5px solid var(--accent-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3);}
+        .info-modal-card h2 { color: var(--primary-header); margin-top: 0; border-bottom: 2px solid var(--border-soft); padding-bottom: 15px; margin-bottom: 25px; font-size: 1.8rem;}
+        
+        .reviews-container { display: flex; flex-direction: column; gap: 25px; text-align: right; }
+        .review-box { background: #ffffff; border: 1px solid var(--border-soft); padding: 25px; border-radius: 16px; display: flex; gap: 20px; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); position: relative;}
+        .review-content { flex: 1; }
+        .review-content p { margin: 0 0 10px 0; font-size: 1.05rem; color: var(--text-muted); line-height: 1.5; font-style: italic;}
+        .review-author { font-weight: 800; color: var(--primary-header); font-size: 0.95rem; }
+        .verified-badge { display: inline-flex; align-items: center; gap: 4px; background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 3px 8px; border-radius: 12px; font-weight: 700; margin-right: 10px; border: 1px solid #86efac;}
+        .exam-proof { width: 110px; height: 110px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); flex-shrink:0; position: relative;}
+        .exam-proof::before { content: ''; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px; border: 1px solid #e2e8f0; border-radius: 6px; }
+        .exam-proof span { color: #dc2626; font-weight: 900; font-size: 2.2rem; font-family: Tahoma, serif; line-height: 1; z-index: 1;}
+        .exam-proof small { font-size: 0.7rem; color: var(--text-muted); font-weight: bold; margin-top: 5px; z-index: 1;}
+
+        .custom-alert-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(3px); display: none; justify-content: center; align-items: center; z-index: 5000; }
+        .custom-alert-card { background: white; padding: 30px; border-radius: 20px; width: 320px; text-align: center; box-shadow: var(--shadow-hover); border: 2px solid var(--accent-gold); }
+        .custom-alert-msg { font-size: 1.1rem; font-weight: 700; color: var(--primary-header); margin-bottom: 25px; }
+
+        footer { text-align: center; padding: 15px 20px; background: transparent; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; position: relative; z-index: 10; margin-top: auto;}
+
+        /* התאמה למסכים קטנים */
+        @media (max-width: 1000px) {
+            body { overflow-y: auto; } 
+            .subjects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            header { padding: 20px; }
+            .logo-text { font-size: 2.2rem; }
+            .nav-bar-wrapper { flex-direction: column; gap: 15px; }
+            .guest-access { width: 100%; justify-content: center;}
+            .top-nav { flex-wrap: wrap; justify-content: center; gap: 10px;}
+            .review-box { flex-direction: column; text-align: center; }
+            .exam-proof { transform: rotate(0); }
+            .login-card { width: 90%; padding: 25px; }
         }
-        .custom-alert-card {
-            background: white; padding: 35px; border-radius: 25px;
-            width: 320px; text-align: center; box-shadow: var(--shadow-hover);
-            border: 2px solid var(--secondary-gold);
-        }
-        .custom-alert-msg { font-size: 1.1rem; font-weight: 600; color: var(--primary-blue); margin-bottom: 25px; }
     </style>
 </head>
 <body>
@@ -123,187 +255,224 @@
 <div id="custom-alert" class="custom-alert-overlay">
     <div class="custom-alert-card">
         <div id="alert-text" class="custom-alert-msg"></div>
-        <button class="btn-action" style="padding: 10px 30px;" onclick="closeAlert()">אישור</button>
+        <button class="btn-action" style="padding: 10px 30px; width:100%;" onclick="closeAlert()">אישור</button>
     </div>
 </div>
 
 <div id="floating-container"></div>
-<div class="accessibility-btn" onclick="toggleAccMenu()">♿</div>
+
+<div class="accessibility-btn" onclick="toggleAccMenu()" title="נגישות">♿</div>
 <div id="acc-menu" class="acc-menu">
     <button onclick="toggleAcc('large-text')">טקסט גדול</button>
     <button onclick="toggleAcc('high-contrast')">ניגודיות גבוהה</button>
     <button onclick="toggleAcc('underline-links')">הדגשת קישורים</button>
-    <button onclick="resetAcc()" style="background:#fee2e2; color:#b91c1c;">איפוס</button>
+    <button onclick="resetAcc()" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;">איפוס</button>
 </div>
 
 <div class="edu-updates-strip">
-    <div class="edu-ticker">🔹 עדכון משרד החינוך: נפתחה ההרשמה למבחני המחוננים לשנת תשפ"ו • 🔹 שינוי במבנה הבגרות במתמטיקה - שאלון 35471 יעודכן</div>
+    <div class="edu-ticker">🔹 מערכת הלמידה עודכנה: סימולציות מלאות לבגרויות • 🔹 חומרים חדשים התווספו למאגר שאלות ההכנה של חטיבות הביניים</div>
 </div>
 
-<div class="guest-access">
-    <div id="user-welcome" class="user-welcome-tag" onclick="openProfileSwitcher()"></div>
-    <button class="btn-guest" id="main-auth-btn" onclick="handleAuthClick()">כניסה / הרשמה</button>
+<header>
+    <div class="logo-container">
+        <h1 class="logo-text">המרכז <span>להישגים לימודיים</span></h1>
+        <p class="logo-subtext">מצוינות • יוקרה • הצלחה</p>
+    </div>
+    
+    <div class="nav-bar-wrapper">
+        <div class="top-nav">
+            <button class="nav-btn" onclick="openGlobalModal('about')">קצת עלינו</button>
+            <button class="nav-btn" onclick="openGlobalModal('reviews')">המלצות וביקורות</button>
+            <button class="nav-btn" onclick="openGlobalModal('collab')">שיתופי פעולה</button>
+            <button class="nav-btn" onclick="openGlobalModal('contact')">צור קשר</button>
+        </div>
+        
+        <div class="guest-access">
+            <div id="user-welcome" class="user-welcome-tag" onclick="openProfileSwitcher()"></div>
+            <button class="btn-guest" id="main-auth-btn" onclick="handleAuthClick()">כניסה לחשבון</button>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="subjects-grid">
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--math);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--math)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <div>
+                <h3>מתמטיקה</h3>
+                <p>תרגול יסודי, חטיבה עליונה והכנה לבגרויות מלאות.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccess('math-overlay')">התחל תרגול</button>
+            
+            <div id="math-overlay" class="grade-overlay">
+                <span class="close-overlay" onclick="hideMenu('math-overlay')">✕</span>
+                <div class="grade-title">בחר כיתה</div>
+                <div class="grade-options">
+                    <a href="math.html?grade=ה-ו" class="grade-link">כיתות ה'-ו'</a>
+                    <a href="math.html?grade=ז" class="grade-link">כיתה ז'</a>
+                    <a href="math.html?grade=ח" class="grade-link">כיתה ח'</a>
+                    <a href="math.html?grade=ט" class="grade-link">כיתה ט'</a>
+                    <button class="grade-link btn-bagrut" onclick="showMenu('bagrut-overlay')">🎓 הכנה לבגרויות</button>
+                </div>
+            </div>
+            
+            <div id="bagrut-overlay" class="grade-overlay">
+                <span class="close-overlay" onclick="showMenu('math-overlay')">✕</span>
+                <div class="grade-title" style="margin-bottom:12px;">שאלוני בגרות במתמטיקה</div>
+                <div class="bagrut-list">
+                    <div class="unit-group">
+                        <div class="unit-label">3 יח"ל</div>
+                        <div class="pill-container">
+                            <a href="math.html?grade=35172" class="grade-link">35172</a>
+                            <a href="math.html?grade=35371" class="grade-link">35371</a>
+                            <a href="math.html?grade=35372" class="grade-link">35372</a>
+                        </div>
+                    </div>
+                    <div class="unit-group">
+                        <div class="unit-label">4 יח"ל</div>
+                        <div class="pill-container">
+                            <a href="math.html?grade=35471" class="grade-link">35471</a>
+                            <a href="math.html?grade=35472" class="grade-link">35472</a>
+                        </div>
+                    </div>
+                    <div class="unit-group">
+                        <div class="unit-label">5 יח"ל</div>
+                        <div class="pill-container">
+                            <a href="math.html?grade=35571" class="grade-link">35571</a>
+                            <a href="math.html?grade=35572" class="grade-link">35572</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--english);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--english)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4"></path><path d="M6 20V4l8 16"></path><path d="M14 4h4v16"></path></svg>
+            </div>
+            <div>
+                <h3>אנגלית</h3>
+                <p>אוצר מילים, דקדוק, הבנת הנקרא והכנה ל-Unseen.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('english.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--hebrew);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--hebrew)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+            </div>
+            <div>
+                <h3>לשון והבעה</h3>
+                <p>מערכת הפועל, שם העצם, תחביר, והבעה בכתב.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('hebrew.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--science);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--science)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .11 1.89l1.8 2.6a2 2 0 0 1-3.28 2.28l-2.6-1.8a1.65 1.65 0 0 0-1.89.11 8 8 0 0 1-9.91-12.58 1.65 1.65 0 0 0-.11-1.89l-1.8-2.6a2 2 0 0 1 3.28-2.28l2.6 1.8a1.65 1.65 0 0 0 1.89-.11 8 8 0 0 1 9.91 12.58z"></path></svg>
+            </div>
+            <div>
+                <h3>מדעים</h3>
+                <p>פיזיקה, כימיה וביולוגיה לחטיבות הביניים.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('science.html')">התחל תרגול</button>
+        </div>
+
+        <div class="subject-card">
+            <div class="card-line" style="background: var(--arabic);"></div>
+            <div class="subject-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--arabic)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div>
+                <h3>ערבית</h3>
+                <p>רכישת השפה, קריאה, כתיבה, דקדוק ואוצר מילים.</p>
+            </div>
+            <button class="btn-action" onclick="checkAccessRedirect('arabic.html')">התחל תרגול</button>
+        </div>
+    </div>
 </div>
 
 <div id="login-modal" class="login-overlay">
     <div class="login-card">
-        <span style="position:absolute; left:25px; top:20px; cursor:pointer; font-weight:800; color:#94a3b8;" onclick="toggleLogin()">✕</span>
+        <span class="close-overlay" onclick="toggleLogin()" style="top:20px; left:20px;">✕</span>
         <div id="auth-forms">
-            <div style="display:flex; margin-bottom:25px; border-bottom:1px solid #e2e8f0;">
-                <div id="tab-login" style="flex:1; cursor:pointer; font-weight:800; border-bottom:3px solid var(--accent-gold); padding:15px;" onclick="switchAuth('login')">כניסה</div>
-                <div id="tab-register" style="flex:1; cursor:pointer; padding:15px; color:#64748b;" onclick="switchAuth('register')">הרשמה</div>
+            <div class="auth-tabs">
+                <div id="tab-login" class="auth-tab active" onclick="switchAuth('login')">כניסה</div>
+                <div id="tab-register" class="auth-tab" onclick="switchAuth('register')">הרשמה</div>
             </div>
+            
             <div id="login-section">
-                <input type="email" id="login-email" placeholder="אימייל">
+                <input type="email" id="login-email" placeholder="אימייל / Email *">
                 <input type="password" id="login-pass" placeholder="סיסמה">
                 <span class="forgot-pass-link" onclick="handleForgotPass()">שכחתי סיסמה</span>
-                <button class="btn-action" style="width:100%" onclick="handleLocalLogin()">כניסה למערכת</button>
+                <button class="btn-action" style="border-radius:10px; margin-top:5px;" onclick="handleLocalLogin()">היכנס למערכת</button>
             </div>
-            <div id="register-section" style="display:none;">
-                <input type="email" id="reg-email" placeholder="אימייל *">
+            
+            <div id="register-section" style="display:none; text-align:right;">
+                <input type="email" id="reg-email" placeholder="אימייל / Email *">
                 <div class="input-row">
-                    <input type="text" id="reg-fname" placeholder="שם פרטי *">
+                    <input type="text" id="reg-fname" placeholder="שם פרטי (הורה) *">
                     <input type="text" id="reg-lname" placeholder="שם משפחה *">
                 </div>
                 <div class="input-row">
                     <input type="password" id="reg-pass" placeholder="סיסמה *">
                     <input type="password" id="reg-pass-confirm" placeholder="אימות סיסמה *">
                 </div>
-                <input type="text" id="reg-city" placeholder="עיר מגורים *">
-                <input type="text" id="reg-address" placeholder="כתובת מגורים *">
-                <input type="text" id="reg-children" placeholder="שמות הילדים (מופרדים ברווח) *">
-                <input type="text" id="reg-voucher" placeholder="קוד שובר הפעלה *">
-                <button class="btn-action" style="width:100%" onclick="handleLocalRegister()">צור חשבון</button>
+                <div class="input-row" style="margin-bottom: 5px;">
+                    <input type="text" id="reg-city" placeholder="עיר מגורים *">
+                    <input type="text" id="reg-voucher" placeholder="קוד שובר הפעלה *">
+                </div>
+                
+                <div id="children-container">
+                    <label style="font-size:0.95rem; font-weight:800; color:var(--primary-blue); display:block; margin-bottom:10px;">פרטי התלמידים (הילדים הלומדים):</label>
+                    <div class="child-entry">
+                        <input type="text" class="child-name" placeholder="שם הילד *" style="margin-bottom:0;">
+                        <select class="child-grade" style="margin-bottom:0;">
+                            <option value="">בחירת כיתה...</option>
+                            <option value="ה-ו">ה'-ו' (יסודי)</option>
+                            <option value="ז">כיתה ז'</option>
+                            <option value="ח">כיתה ח'</option>
+                            <option value="ט">כיתה ט'</option>
+                            <option value="תיכון">תיכון (י'-י"ב)</option>
+                        </select>
+                        <span class="remove-child-btn" style="visibility:hidden;" title="מחק תלמיד">✕</span>
+                    </div>
+                </div>
+                <div style="text-align:left; margin-bottom:15px;">
+                    <button type="button" onclick="addChildRow()" style="background:none; border:none; color:var(--accent-gold); cursor:pointer; font-weight:800; font-size:0.95rem; text-decoration:underline; transition:0.2s;">+ הוסף תלמיד נוסף</button>
+                </div>
+                
+                <button class="btn-action" style="border-radius:10px;" onclick="handleLocalRegister()">צור חשבון חדש</button>
             </div>
         </div>
+        
         <div id="profile-selection" style="display:none;">
-            <h3 style="margin-bottom:25px; font-weight:800;">מי לומד עכשיו?</h3>
+            <h3 style="margin-bottom:20px; font-weight:800; color:var(--primary-blue);">מי לומד עכשיו?</h3>
             <div id="profiles-list"></div>
         </div>
     </div>
 </div>
 
-<header><img src="Logo.png" class="main-logo-img" alt="לוגו המרכז להישגים לימודיים"></header>
-
-<div class="container">
-    <div class="subjects-grid">
-        <div class="subject-card">
-            <div class="card-line" style="background: var(--math);"></div>
-            <div>
-                <h3>מתמטיקה</h3>
-                <p>אלגברה, גיאומטריה וסימולציות בגרות מקיפות.</p>
-            </div>
-            <div class="subject-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
-            </div>
-            <button class="btn-action" onclick="checkAccess('math-overlay')">המשך לתרגול ←</button>
-            <div id="math-overlay" class="grade-overlay">
-                <div class="grade-title">בחר שכבת גיל</div>
-                <div class="grade-options">
-                    <a href="math.html?grade=ה-ו" class="grade-link">כיתות ה-ו</a>
-                    <a href="math.html?grade=ז" class="grade-link">כיתה ז</a>
-                    <a href="math.html?grade=ח" class="grade-link">כיתה ח</a>
-                    <a href="math.html?grade=ט" class="grade-link">כיתה ט</a>
-                    <button class="grade-link" style="grid-column: span 2; background: #fef2f2; color: var(--math); font-weight:700;" onclick="showMenu('bagrut-overlay')">🎓 שאלוני בגרות</button>
-                </div>
-                <div class="close-btn" onclick="hideMenu('math-overlay')">חזור</div>
-            </div>
-            <div id="bagrut-overlay" class="grade-overlay">
-                <div class="grade-title">שאלוני בגרות</div>
-                <div class="bagrut-list">
-                    <div class="unit-label">3 יחידות לימוד</div>
-                    <a href="math.html?grade=35172" class="grade-link">שאלון 35172</a>
-                    <a href="math.html?grade=35371" class="grade-link">שאלון 35371</a>
-                    <a href="math.html?grade=35372" class="grade-link">שאלון 35372</a>
-                    <div class="unit-label">4 יחידות לימוד</div>
-                    <a href="math.html?grade=35471" class="grade-link">שאלון 35471</a>
-                    <a href="math.html?grade=35472" class="grade-link">שאלון 35472</a>
-                    <div class="unit-label">5 יחידות לימוד</div>
-                    <a href="math.html?grade=35571" class="grade-link">שאלון 35571</a>
-                    <a href="math.html?grade=35572" class="grade-link">שאלון 35572</a>
-                </div>
-                <div class="close-btn" onclick="showMenu('math-overlay')">חזור</div>
-            </div>
-        </div>
-
-        <div class="subject-card">
-            <div class="card-line" style="background: var(--english);"></div>
-            <div>
-                <h3>אנגלית</h3>
-                <p>אוצר מילים, דקדוק והכנה למבחני Unseen.</p>
-            </div>
-            <div class="subject-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-            </div>
-            <button class="btn-action" onclick="checkAccessRedirect('english.html')">המשך לתרגול ←</button>
-        </div>
-
-        <div class="subject-card">
-            <div class="card-line" style="background: var(--hebrew);"></div>
-            <div>
-                <h3>לשון והבעה</h3>
-                <p>שליטה במערכת הפועל, תחביר והבנת הנקרא.</p>
-            </div>
-            <div class="subject-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l1.5 1.5"></path><circle cx="11" cy="11" r="2"></circle></svg>
-            </div>
-            <button class="btn-action" onclick="checkAccessRedirect('hebrew.html')">המשך לתרגול ←</button>
-        </div>
-
-        <div class="subject-card">
-            <div class="card-line" style="background: var(--science);"></div>
-            <div>
-                <h3>מדעים</h3>
-                <p>פיזיקה, כימיה וביולוגיה לחטיבת הביניים.</p>
-            </div>
-            <div class="subject-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.3 21.2L12 15 7.7 21.2c-.6.8-.2 2 .8 2h7c1 0 1.4-1.2.8-2z"></path><path d="M9 12V4c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v8"></path><path d="M9 8h6"></path></svg>
-            </div>
-            <button class="btn-action" onclick="checkAccessRedirect('science.html')">המשך לתרגול ←</button>
-        </div>
-
-        <div class="subject-card">
-            <div class="card-line" style="background: var(--arabic);"></div>
-            <div>
-                <h3>ערבית</h3>
-                <p>לימוד השפה, דקדוק ואוצר מילים מורחב.</p>
-            </div>
-            <div class="subject-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"></path></svg>
-            </div>
-            <button class="btn-action" onclick="checkAccessRedirect('arabic.html')">המשך לתרגול ←</button>
+<div id="global-info-modal" class="info-modal-overlay">
+    <div class="info-modal-card">
+        <span class="close-overlay" onclick="closeGlobalModal()" style="font-size:2rem; top:15px; left:20px;">✕</span>
+        <h2 id="global-info-title">כותרת</h2>
+        <div id="global-info-content" style="text-align:right; font-size:1.05rem; line-height:1.6; color:var(--text-muted);">
+            תוכן החלון...
         </div>
     </div>
 </div>
 
-<section class="testimonials">
-    <div style="text-align:center; margin-bottom:60px;">
-        <h2 style="font-size:2.8rem; color:var(--primary-blue); font-weight:800;">מה ההורים והתלמידים אומרים?</h2>
-    </div>
-    <div class="testimonials-grid" id="testimonials-container">
-        <div class="testimonial-card" id="card-0">
-            <div class="stars">★★★★★</div>
-            <p class="t-text">"הבת שלי פחדה ממתמטיקה, והיום היא הכי טובה בכיתה. התרגולים באתר פשוט מעולים."</p>
-            <div class="testimonial-user"><div class="user-avatar">👩</div><div><strong class="t-name">מיכל כהן</strong><br><small class="t-role">אמא לילדה בכיתה ח'</small></div></div>
-        </div>
-        <div class="testimonial-card" id="card-1">
-            <div class="stars">★★★★★</div>
-            <p class="t-text">"אתר חובה לכל מי שרוצה להצליח בבגרות. הסימולציות באנגלית הצילו אותי."</p>
-            <div class="testimonial-user"><div class="user-avatar">👨</div><div><strong class="t-name">יונתן לוי</strong><br><small class="t-role">תלמיד י"ב</small></div></div>
-        </div>
-        <div class="testimonial-card" id="card-2">
-            <div class="stars">★★★★★</div>
-            <p class="t-text">"הממשק נוח, הילדים נהנים ללמוד וזה חוסך לנו המון כסף על מורים פרטיים."</p>
-            <div class="testimonial-user"><div class="user-avatar">👩</div><div><strong class="t-name">דנה אלוני</strong><br><small class="t-role">אמא ל-3 תלמידים</small></div></div>
-        </div>
-    </div>
-</section>
-
-<div class="news-ticker-bottom"><div class="news-content">🚀 עדכון מערכת: נוספו 200 תרגילים חדשים • 🏆 מזל טוב לנבחרת האתר על זכייה בתחרות הארצית</div></div>
-<footer><p>© 2026 המרכז להישגים לימודיים | מצוינות. יוקרה. הצלחה.</p></footer>
+<footer><p>© כל הזכויות שמורות למרכז להישגים לימודיים</p></footer>
 
 <script>
-    // משתנים גלובליים
     let activeProfile = null;
     let loggedInEmail = null;
     
@@ -311,10 +480,9 @@
         activeProfile = localStorage.getItem('activeProfile');
         loggedInEmail = localStorage.getItem('loggedInEmail');
     } catch (e) {
-        console.warn('LocalStorage is blocked or not available.');
+        console.warn('LocalStorage blocked.');
     }
 
-    // --- פונקציות להודעות מעוצבות ---
     function myAlert(text) {
         document.getElementById('alert-text').innerText = text;
         document.getElementById('custom-alert').style.display = 'flex';
@@ -323,12 +491,117 @@
         document.getElementById('custom-alert').style.display = 'none';
     }
 
-    // --- מערכת דיווח נוכחות משופרת (מטפלת בבעיית ההתנתקות באדמין) ---
+    // --- מערכת חלונות המידע העליונים ---
+    function openGlobalModal(type) {
+        const title = document.getElementById('global-info-title');
+        const content = document.getElementById('global-info-content');
+        
+        if (type === 'about') {
+            title.innerText = "קצת עלינו - המרכז להישגים לימודיים";
+            content.innerHTML = `
+                <p>המרכז להישגים לימודיים נוסד בשנת 2020, בשיאה של מגפת הקורונה העולמית. מתוך המשבר והאתגר העצום של הלמידה מרחוק, הבנו שזוהי למעשה ההזדמנות ליצור את הדרך הנכונה, המדויקת והמותאמת ביותר עבור ילדים ללמוד ולהצליח.</p>
+                <p>גילינו שלמידה דיגיטלית חכמה, המשלבת תרגול אינטראקטיבי, פידבק מיידי וניתוח נתונים, מביאה לתוצאות חסרות תקדים ועוקפת את שיטות הלימוד המסורתיות.</p>
+                <p>מאז ועד היום, אנו מפתחים, משכללים ומשפרים את המערכת שלנו מדי יום, תוך הקפדה על חומרי הלימוד האיכותיים ביותר, המותאמים בצורה מושלמת לתוכנית הלימודים של משרד החינוך בישראל, מבית הספר היסודי ועד למבחני הבגרות.</p>
+                <p style="font-weight:bold; color:var(--accent-gold); margin-top:20px; text-align:center;">המטרה שלנו: לאפשר לכל תלמיד לממש את הפוטנציאל שלו למצוינות.</p>
+            `;
+        } 
+        else if (type === 'reviews') {
+            title.innerText = "המלצות והוכחות להצלחה";
+            content.innerHTML = `
+                <p style="margin-bottom:20px; font-weight:bold; color:var(--primary-blue); text-align:center;">ההשקעה שלנו משתקפת בציונים של התלמידים שלנו.</p>
+                <div class="reviews-container">
+                    <div class="review-box">
+                        <div class="review-content">
+                            <p>"הבת שלי פחדה ממתמטיקה והייתה על ממוצע 60. מאז שהתחלנו לתרגל במערכת, היא הבינה את ההיגיון מאחורי המספרים. היום היא קיבלה 95 במבחן המסכם! מדהים."</p>
+                            <span class="review-author">מיכל, אמא לתלמידת ח'</span>
+                            <br><span class="verified-badge">✓ הורה מאומת</span>
+                        </div>
+                        <div class="exam-proof">
+                            <span>95</span>
+                            <small>במבחן במתמטיקה</small>
+                        </div>
+                    </div>
+                    
+                    <div class="review-box">
+                        <div class="review-content">
+                            <p>"התרגולים באנגלית (במיוחד קטעי ה-Unseen) הם ברמה הכי קרובה לבגרות שראיתי. זה נתן לי ביטחון ענק וסיימתי עם 92 סופי ב-5 יחידות."</p>
+                            <span class="review-author">יונתן, תלמיד י"ב</span>
+                            <br><span class="verified-badge">✓ תלמיד מאומת</span>
+                        </div>
+                        <div class="exam-proof">
+                            <span>92</span>
+                            <small>בגרות 5 יח"ל</small>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="review-content">
+                            <p>"כאמא ל-3 ילדים בגילאים שונים, המערכת הזו הצילה אותנו כלכלית. יש פה הכל - לשון, מדעים, מתמטיקה. הילדים לומדים לבד והציונים בתעודה מדברים בעד עצמם."</p>
+                            <span class="review-author">דנה, אמא ל-3</span>
+                            <br><span class="verified-badge">✓ מנוי משפחתי</span>
+                        </div>
+                        <div class="exam-proof">
+                            <span style="font-size:1.8rem; color:#059669;">מצוין</span>
+                            <small>הערכה בתעודה</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        else if (type === 'collab') {
+            title.innerText = "שיתופי פעולה אסטרטגיים";
+            content.innerHTML = `
+                <p>אנו מאמינים בכוחה של טכנולוגיה לסגור פערים ולהנגיש חינוך איכותי לכולם.</p>
+                <p>המרכז להישגים לימודיים פתוח לשיתופי פעולה עם מוסדות וארגונים:</p>
+                <ul style="line-height:1.8; margin-top:15px;">
+                    <li><strong>בתי ספר:</strong> שילוב המערכת במערך השיעורים ואפשרות מעקב מורים אחר התקדמות תלמידים.</li>
+                    <li><strong>רשויות מקומיות:</strong> רכישת רישיונות מרוכזים ומסובסדים לתלמידי הרשות.</li>
+                    <li><strong>עמותות וקידום נוער:</strong> תוכניות מיוחדות להנגשת המערכת לאוכלוסיות מגוונות.</li>
+                </ul>
+                <p style="margin-top:20px; font-weight:bold; color:var(--primary-blue);">לפרטים נוספים ותיאום פגישת הדגמה, אנא השאירו פרטים בחלון 'צור קשר'.</p>
+            `;
+        }
+        else if (type === 'contact') {
+            title.innerText = "צור קשר";
+            content.innerHTML = `
+                <p>נשמח לעמוד לשירותך לכל שאלה, תקלה או הצעה.</p>
+                <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+                    <input type="text" placeholder="שם מלא" style="padding:12px; border-radius:8px; border:1px solid var(--border-soft); font-family:'Heebo';">
+                    <input type="email" placeholder="אימייל לחזרה" style="padding:12px; border-radius:8px; border:1px solid var(--border-soft); font-family:'Heebo';">
+                    <textarea placeholder="כיצד נוכל לעזור?" rows="5" style="padding:12px; border-radius:8px; border:1px solid var(--border-soft); font-family:'Heebo'; resize:none;"></textarea>
+                    <button class="btn-action" style="width:100%; border-radius:10px; margin-top:10px;" onclick="myAlert('פנייתך נשלחה בהצלחה למחלקת פניות הציבור. נחזור אליך בהקדם!'); closeGlobalModal();">שליחת פנייה</button>
+                </div>
+            `;
+        }
+
+        document.getElementById('global-info-modal').style.display = 'flex';
+    }
+
+    function closeGlobalModal() {
+        document.getElementById('global-info-modal').style.display = 'none';
+    }
+
+    // --- יצירת רקע צף מדעי/לימודי ---
+    function createFloatingIcons() {
+        const container = document.getElementById('floating-container');
+        if(!container) return;
+        const icons = ['∑', 'π', 'E=mc²', '√', '∞', 'A', '∫', '∆', 'a²', 'sin(θ)', 'Ω', 'H₂O'];
+        for (let i = 0; i < 30; i++) {
+            const iconSpan = document.createElement('span');
+            iconSpan.className = 'floating-icon';
+            iconSpan.innerText = icons[Math.floor(Math.random() * icons.length)];
+            iconSpan.style.left = Math.random() * 100 + 'vw';
+            iconSpan.style.top = Math.random() * 100 + 'vh';
+            iconSpan.style.animationDuration = Math.random() * 30 + 40 + 's';
+            container.appendChild(iconSpan);
+        }
+    }
+    createFloatingIcons();
+
+    // --- מערכת דיווח נוכחות משופרת ---
     function keepAlive() {
-        // אנחנו תמיד בודקים מהשמירה המקומית כדי למנוע חוסר סנכרון במשתנה גלובלי
         const currentEmail = localStorage.getItem('loggedInEmail');
         if (!currentEmail) return;
-        
         try {
             const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
             if (users[currentEmail]) {
@@ -339,10 +612,8 @@
         } catch(e) {}
     }
 
-    // פעימת חיים אוטומטית כל 10 שניות
     setInterval(keepAlive, 10000);
 
-    // מנגנון ניתוק אוטומטי (30 דקות) ומעקב אקטיביות
     const INACTIVITY_LIMIT = 30 * 60 * 1000; 
     let inactivityTimer;
     let lastKeepAlive = 0;
@@ -350,11 +621,8 @@
     function resetInactivityTimer() {
         clearTimeout(inactivityTimer);
         const currentEmail = localStorage.getItem('loggedInEmail');
-        
         if (currentEmail) {
             inactivityTimer = setTimeout(logoutDueToInactivity, INACTIVITY_LIMIT);
-            
-            // עדכון סטטוס אקטיבי באדמין ברגע שהמשתמש זז (מוגבל לעד פעם ב-5 שניות)
             const now = Date.now();
             if (now - lastKeepAlive > 5000) {
                 keepAlive();
@@ -383,14 +651,29 @@
         }
     }
 
-    // מאזינים לפעולות המשתמש כדי למנוע ניתוק בטעות אם הוא קורא טקסט ורק מזיז עכבר
     window.addEventListener('load', resetInactivityTimer);
     document.addEventListener('mousemove', resetInactivityTimer);
     document.addEventListener('keydown', resetInactivityTimer);
     document.addEventListener('click', resetInactivityTimer);
     document.addEventListener('scroll', resetInactivityTimer);
 
-    // --- בדיקת ניתוק מצד מנהל (Kick) ---
+    // --- האזנה למקש Enter בטופס ---
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const loginModal = document.getElementById('login-modal');
+            if (loginModal && loginModal.style.display === 'flex') {
+                const loginSection = document.getElementById('login-section');
+                const registerSection = document.getElementById('register-section');
+                
+                if (loginSection.style.display !== 'none') {
+                    handleLocalLogin();
+                } else if (registerSection.style.display !== 'none') {
+                    handleLocalRegister();
+                }
+            }
+        }
+    });
+
     setInterval(() => {
         const currentEmail = localStorage.getItem('loggedInEmail');
         if (currentEmail) {
@@ -399,14 +682,13 @@
                 if (config.kickedUsers && config.kickedUsers.includes(currentEmail)) {
                     config.kickedUsers = config.kickedUsers.filter(e => e !== currentEmail);
                     localStorage.setItem('shared_config', JSON.stringify(config));
-                    handleAuthClick(); // יפעיל ניתוק
+                    handleAuthClick(); 
                     myAlert("נותקת מהמערכת על ידי מנהל.");
                 }
             } catch (e) {}
         }
     }, 3000);
 
-    // --- שאר הפונקציות (התחברות, עדכון ממשק, תפריטים) ---
     function handleForgotPass() {
         const email = prompt("אנא הזן את כתובת האימייל שלך לשחזור סיסמה:");
         if (!email) return;
@@ -420,71 +702,19 @@
         } catch(e) {}
     }
 
-    const allTestimonials = [
-        { text: '"הבת שלי פחדה ממתמטיקה, והיום היא הכי טובה בכיתה. התרגולים באתר פשוט מעולים."', name: "מיכל כהן", role: "אמא לילדה בכיתה ח'", avatar: "👩" },
-        { text: '"אתר חובה לכל מי שרוצה להצליח בבגרות. הסימולציות באנגלית הצילו אותי."', name: "יונתן לוי", role: "תלמיד י\"ב", avatar: "👨" },
-        { text: '"הממשק נוח, הילדים נהנים ללמוד וזה חוסך לנו המון כסף על מורים פרטיים."', name: "דנה אלוני", role: "אמא ל-3 תלמידים", avatar: "👩" },
-        { text: '"הילד לומד ערבית בהנאה, חומר הלימוד מונגש בצורה מקצועית ומעניינת."', name: "רוני גבאי", role: "אבא לתלמיד ז'", avatar: "👨" },
-        { text: '"שיפרתי את הציון בלשון ב-30 נקודות בזכות התרגול הממוקד באתר. פשוט מדהים."', name: "עדי שרון", role: "תלמידת כיתה ט'", avatar: "👩" },
-        { text: '"מרכז ברמה הגבוהה ביותר. השילוב של טכנולוגיה וחינוך עובד פה מצוין."', name: "יצחק לוין", role: "סבא לנכדים לומדים", avatar: "👴" }
-    ];
-
-    let currentStartIndex = 0;
-
-    function updateTestimonials() {
-        const card0 = document.getElementById('card-0');
-        const card1 = document.getElementById('card-1');
-        const card2 = document.getElementById('card-2');
-        if(!card0 || !card1 || !card2) return;
-        
-        const cards = [card0, card1, card2];
-        cards.forEach(card => card.classList.add('fade-out'));
-        
-        setTimeout(() => {
-            currentStartIndex = (currentStartIndex + 1) % allTestimonials.length;
-            cards.forEach((card, i) => {
-                const dataIndex = (currentStartIndex + i) % allTestimonials.length;
-                const data = allTestimonials[dataIndex];
-                card.querySelector('.t-text').innerText = data.text;
-                card.querySelector('.t-name').innerText = data.name;
-                card.querySelector('.t-role').innerText = data.role;
-                card.querySelector('.user-avatar').innerText = data.avatar;
-                card.classList.remove('fade-out');
-            });
-        }, 800);
-    }
-    setInterval(updateTestimonials, 6000);
-
-    function createFloatingIcons() {
-        const container = document.getElementById('floating-container');
-        if(!container) return;
-        const icons = ['📖', '🎓', '💡', '✏️', '🧮', '📓'];
-        for (let i = 0; i < 20; i++) {
-            const iconSpan = document.createElement('span');
-            iconSpan.className = 'floating-icon';
-            iconSpan.innerText = icons[Math.floor(Math.random() * icons.length)];
-            iconSpan.style.left = Math.random() * 100 + 'vw';
-            iconSpan.style.top = Math.random() * 100 + 'vh';
-            iconSpan.style.animationDuration = Math.random() * 15 + 20 + 's';
-            container.appendChild(iconSpan);
-        }
-    }
-    createFloatingIcons();
-
     function updateUI() {
         const btn = document.getElementById('main-auth-btn');
         const welcome = document.getElementById('user-welcome');
         if(!btn || !welcome) return;
         
-        // מעודכן מה-localStorage ישירות
         const curProfile = localStorage.getItem('activeProfile');
         const curEmail = localStorage.getItem('loggedInEmail');
 
         if (curProfile && curEmail) {
-            btn.innerText = "התנתק"; btn.classList.add('btn-logout');
-            welcome.innerHTML = "<span>👤 " + curProfile + "</span>"; welcome.style.display = 'flex';
+            btn.innerText = "התנתקות"; btn.classList.add('btn-logout');
+            welcome.innerHTML = "<span>👤 תלמיד מחובר: " + curProfile + "</span>"; welcome.style.display = 'flex';
         } else {
-            btn.innerText = "כניסה / הרשמה"; btn.classList.remove('btn-logout');
+            btn.innerText = "כניסה לחשבון"; btn.classList.remove('btn-logout');
             welcome.style.display = 'none';
         }
     }
@@ -509,16 +739,13 @@
         const email = emailInput.value.trim().toLowerCase();
         const pass = passInput.value;
 
-        // מעקף כניסת מנהל (Admin Bypass)
         if (email === "aviv@fakiro.co.il" && pass === "2391995") {
             try {
                 localStorage.setItem('loggedInEmail', email);
                 localStorage.setItem('activeProfile', 'מנהל');
-                keepAlive(); // שולח דיווח מיידי שהוא אונליין
+                keepAlive(); 
                 myAlert("התחברת בהצלחה כמנהל המערכת! מועבר לפאנל...");
-                setTimeout(() => {
-                    window.location.href = 'admin.html'; 
-                }, 1500);
+                setTimeout(() => { window.location.href = 'admin.html'; }, 1500);
             } catch(e) { myAlert("שגיאה בגישה לזכרון הדפדפן."); }
             return;
         }
@@ -528,14 +755,41 @@
             const user = users[email];
             if (user && user.password === pass) {
                 localStorage.setItem('loggedInEmail', email);
-                keepAlive(); // עדכון נוכחות מיידי
-                myAlert("התחברת בהצלחה! לימוד נעים.");
+                keepAlive(); 
+                myAlert("התחברת בהצלחה! בחר מי לומד עכשיו.");
                 showProfiles(user.children || ["אורח"]);
                 resetInactivityTimer();
             } else {
-                myAlert("פרטים שגויים.");
+                myAlert("פרטים שגויים. נסה שוב.");
             }
         } catch(e) { myAlert("שגיאה במערכת ההתחברות."); }
+    }
+
+    function addChildRow() {
+        const container = document.getElementById('children-container');
+        const row = document.createElement('div');
+        row.className = 'child-entry';
+        row.innerHTML = `
+            <input type="text" class="child-name" placeholder="שם הילד *" style="margin-bottom:0;">
+            <select class="child-grade" style="margin-bottom:0;">
+                <option value="">בחירת כיתה...</option>
+                <option value="ה-ו">ה'-ו' (יסודי)</option>
+                <option value="ז">כיתה ז'</option>
+                <option value="ח">כיתה ח'</option>
+                <option value="ט">כיתה ט'</option>
+                <option value="תיכון">תיכון (י'-י"ב)</option>
+            </select>
+            <span class="remove-child-btn" onclick="this.parentElement.remove()" title="מחק תלמיד">✕</span>
+        `;
+        container.appendChild(row);
+        
+        // ודא שרק לשורה הראשונה אין כפתור מחיקה, ולשאר יש
+        const allRows = container.querySelectorAll('.child-entry');
+        allRows.forEach((r, idx) => {
+            const btn = r.querySelector('.remove-child-btn');
+            if(idx === 0) btn.style.visibility = 'hidden';
+            else btn.style.visibility = 'visible';
+        });
     }
 
     function handleLocalRegister() {
@@ -545,31 +799,39 @@
         const pass = document.getElementById('reg-pass').value;
         const passConfirm = document.getElementById('reg-pass-confirm').value;
         const city = document.getElementById('reg-city').value.trim();
-        const address = document.getElementById('reg-address').value.trim();
         const voucherInput = document.getElementById('reg-voucher').value.trim();
-        const children = document.getElementById('reg-children').value.split(/\s+/).filter(n => n);
+        
+        const childrenElements = document.querySelectorAll('.child-entry');
+        let childrenArray = [];
+        let childrenValid = true;
+        
+        childrenElements.forEach(el => {
+            const n = el.querySelector('.child-name').value.trim();
+            const g = el.querySelector('.child-grade').value;
+            if(n && g) {
+                childrenArray.push({ name: n, grade: g });
+            } else if (n || g) {
+                childrenValid = false; 
+            }
+        });
 
-        if(!email || !fname || !lname || !pass || !passConfirm || !city || !address || !voucherInput || children.length === 0) { 
-            myAlert("נא למלא את כל שדות החובה המסומנים ב-*"); return; 
+        if(!email || !fname || !lname || !pass || !passConfirm || !city || !voucherInput) { 
+            myAlert("נא למלא את כל שדות החובה של ההורה המסומנים ב-*"); return; 
+        }
+        
+        if(childrenArray.length === 0 || !childrenValid) {
+            myAlert("יש להזין שם וכיתה באופן מלא עבור כל תלמיד שהוסף."); return;
         }
 
         try {
             let users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-            if (users[email]) {
-                myAlert("כתובת האימייל כבר קיימת במערכת.");
-                return;
-            }
+            if (users[email]) { myAlert("כתובת האימייל כבר קיימת במערכת."); return; }
 
             let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
             let voucherObj = config.vouchers ? config.vouchers.find(v => v.code === voucherInput) : null;
 
-            if(!voucherObj) {
-                myAlert("קוד שובר לא קיים במערכת."); return;
-            }
-            if(voucherObj.used) {
-                myAlert("שובר זה כבר נוצל."); return;
-            }
-
+            if(!voucherObj) { myAlert("קוד שובר לא קיים במערכת."); return; }
+            if(voucherObj.used) { myAlert("שובר זה כבר נוצל."); return; }
             if(pass !== passConfirm) { myAlert("הסיסמאות לא תואמות"); return; }
 
             voucherObj.used = true;
@@ -579,14 +841,14 @@
 
             users[email] = { 
                 password: pass, firstName: fname, lastName: lname, 
-                city: city, address: address, children: children, 
+                city: city, children: childrenArray, 
                 voucher: voucherInput, isOnline: true, lastSeen: Date.now() 
             };
             localStorage.setItem('edu_users', JSON.stringify(users));
             localStorage.setItem('loggedInEmail', email);
             
             myAlert("נרשמת בהצלחה למערכת! לימוד נעים.");
-            showProfiles(children);
+            showProfiles(childrenArray);
             resetInactivityTimer();
         } catch(e) { myAlert("שגיאת מערכת בעת ההרשמה."); }
     }
@@ -596,10 +858,17 @@
         document.getElementById('profile-selection').style.display = 'block';
         const list = document.getElementById('profiles-list');
         list.innerHTML = '';
-        children.forEach(name => {
-            const d = document.createElement('div'); d.className = 'profile-btn'; d.innerText = '👤 ' + name;
+        
+        children.forEach(childData => {
+            let cName = typeof childData === 'string' ? childData : childData.name;
+            let cGrade = typeof childData === 'string' ? "כללי" : childData.grade;
+            
+            const d = document.createElement('div'); 
+            d.className = 'profile-btn'; 
+            d.innerHTML = `<span style="font-size:1.4rem;">👤</span> <span style="font-size:1.1rem;">${cName}</span> <span style="font-size:0.85rem; color:#64748b; background:#e2e8f0; padding:4px 10px; border-radius:15px; margin-right:auto;">כיתה ${cGrade}</span>`;
+            
             d.onclick = () => { 
-                try { localStorage.setItem('activeProfile', name); } catch(e){}
+                try { localStorage.setItem('activeProfile', cName); } catch(e){}
                 location.reload(); 
             };
             list.appendChild(d);
@@ -628,32 +897,50 @@
     
     function toggleLogin() { 
         const m = document.getElementById('login-modal');
-        if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; 
+        if(m) {
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; 
+            if (m.style.display === 'flex' && document.getElementById('children-container')) {
+                const container = document.getElementById('children-container');
+                const rows = container.querySelectorAll('.child-entry');
+                for(let i=1; i<rows.length; i++) rows[i].remove();
+                rows[0].querySelector('.child-name').value = '';
+                rows[0].querySelector('.child-grade').value = '';
+            }
+        }
     }
     
     function switchAuth(mode) { 
         document.getElementById('login-section').style.display = mode === 'login' ? 'block' : 'none'; 
         document.getElementById('register-section').style.display = mode === 'register' ? 'block' : 'none'; 
+        
         const tLogin = document.getElementById('tab-login');
         const tReg = document.getElementById('tab-register');
+        
         if(mode === 'login') {
-            tLogin.style.borderBottom = '3px solid var(--accent-gold)';
-            tReg.style.borderBottom = 'none';
+            tLogin.classList.add('active');
+            tReg.classList.remove('active');
         } else {
-            tReg.style.borderBottom = '3px solid var(--accent-gold)';
-            tLogin.style.borderBottom = 'none';
+            tReg.classList.add('active');
+            tLogin.classList.remove('active');
         }
     }
     
     function showMenu(id) { document.querySelectorAll('.grade-overlay').forEach(el => el.style.display = 'none'); document.getElementById(id).style.display = 'flex'; }
     function hideMenu(id) { document.getElementById(id).style.display = 'none'; }
     function checkAccess(id) { if(localStorage.getItem('loggedInEmail')) showMenu(id); else toggleLogin(); }
-    function checkAccessRedirect(url) { if(localStorage.getItem('loggedInEmail')) window.location.href = url; else toggleLogin(); }
+    
+    function checkAccessRedirect(url) { 
+        if(localStorage.getItem('loggedInEmail')) {
+            window.location.href = url; 
+        } else {
+            toggleLogin(); 
+        }
+    }
+    
     function toggleAccMenu() { const m = document.getElementById('acc-menu'); if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
     function toggleAcc(cls) { document.body.classList.toggle(cls); }
     function resetAcc() { document.body.className = ''; }
 
-    // אתחול ראשוני
     keepAlive();
     updateUI();
 </script>

@@ -2,164 +2,149 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>אבטיח - מתמטיקה שאלון 172/35172</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מתמטיקה תיכון - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --blue: #0f172a; --red: #ef4444; --bg: #fbfaf8; }
-        body { font-family: 'Heebo', sans-serif; background: var(--bg); margin: 0; }
+        :root { 
+            --primary-blue: #1e293b; 
+            --accent-gold: #b09151; 
+            --bg-color: #eae8e3; 
+            --btn-cream: #fdfbf7; 
+            --text-main: #1e293b; 
+        }
+        body { font-family: 'Heebo', sans-serif; background-color: var(--bg-color); margin: 0; padding: 0; color: var(--text-main); }
+        header { background: var(--primary-blue); color: white; padding: 25px; text-align: center; border-bottom: 4px solid var(--accent-gold); }
+        header h1 { font-size: 1.8rem; margin: 0; font-weight: 800; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: var(--primary-blue); text-decoration: none; font-weight: 800; font-size: 1.1rem; }
         
-        header { background: white; padding: 30px; text-align: center; border-bottom: 2px solid var(--red); }
-        .back-link { position: absolute; top: 20px; right: 20px; text-decoration: none; color: var(--blue); font-weight: bold; }
-
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        
-        .intro { text-align: center; margin-bottom: 40px; }
-        .intro h2 { color: var(--blue); font-size: 2rem; }
-
-        /* רשת הנושאים */
-        .topics-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 15px; 
+        .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .activity-card { 
+            background: var(--btn-cream); border-radius: 16px; padding: 25px; text-align: center; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; transition: 0.2s; 
+            border: 1px solid #d1d5db; border-bottom: 5px solid #cbd5e1; 
         }
+        .activity-card:hover { border-color: var(--accent-gold); background: #f9f4eb; }
+        .activity-card:active { transform: translateY(2px); border-bottom-width: 1px; }
+        .icon { font-size: 40px; margin-bottom: 10px; display: block; }
+        .activity-card h3 { margin: 10px 0 0; font-weight: 800; font-size: 1.1rem; color: var(--primary-blue); }
 
-        .topic-card {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-right: 5px solid var(--blue);
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        .topic-card:hover {
-            transform: scale(1.01);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .topic-card.exam {
-            border-right-color: var(--red);
-            background: #fff5f5;
-        }
-
-        .topic-name { font-size: 1.2rem; font-weight: 700; color: #334155; }
-        .topic-icon { font-size: 1.5rem; }
-
-        /* צ'אט צף */
-        #chat-trigger { position: fixed; bottom: 25px; left: 25px; background: var(--blue); color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.15); font-weight: bold; }
-        .chat-win { position: fixed; bottom: 100px; left: 25px; width: 350px; height: 450px; background: white; border-radius: 20px; display: none; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.2); z-index: 1000; overflow: hidden; border: 1px solid #eee; }
-        .chat-header { background: var(--blue); color: white; padding: 15px; display: flex; justify-content: space-between; }
-        .chat-body { flex: 1; padding: 15px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 10px; }
-        .chat-footer { padding: 10px; border-top: 1px solid #eee; display: flex; gap: 5px; }
-        .chat-footer input { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #ddd; outline: none; }
-        .msg { padding: 10px; border-radius: 12px; max-width: 85%; font-size: 0.9rem; }
-        .user { background: var(--blue); color: white; align-self: flex-end; }
-        .bot { background: #e2e8f0; color: black; align-self: flex-start; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
+        .modal-content { background: white; padding: 30px; border-radius: 20px; width: 100%; max-width: 500px; box-sizing: border-box; position: relative; }
+        .close-modal { position: absolute; left: 20px; top: 20px; cursor: pointer; font-size: 1.5rem; color: #94a3b8; font-weight: bold; }
+        select { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 16px; margin-bottom: 20px; outline: none; background: #fff; font-family: 'Heebo'; font-weight: 600; }
+        .btn-start { background: var(--primary-blue); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 800; cursor: pointer; width: 100%; font-size: 1.2rem; transition: 0.2s; }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="back-link">🔙 חזרה לבית</a>
-    <h1>מתמטיקה - שאלון 172/35172 🍉</h1>
+    <h1>מתמטיקה תיכון - שאלוני בגרות</h1>
+    <p id="grade-display" style="font-weight: 600; margin-top: 5px; color: #cbd5e1;">טוען...</p>
 </header>
 
 <div class="container">
-    <div class="intro">
-        <h2>בחרו נושא ללמידה</h2>
-        <p>כל התכנים מעודכנים לפי תוכנית הלימודים החדשה (כיתה י')</p>
-    </div>
-
-    <div class="topics-grid">
-        <div class="topic-card" onclick="location.href='#algebra'">
-            <span class="topic-name">1. אלגברה</span>
-            <span class="topic-icon">🔢</span>
+    <a href="index.html" class="back-btn">חזרה לתפריט ↩</a>
+    <div class="activity-grid">
+        <div class="activity-card" onclick="openSelectionModal('תרגול', true)">
+            <div class="icon">📝</div>
+            <h3>תרגול 📝</h3>
         </div>
-        <div class="topic-card" onclick="location.href='#word-problems'">
-            <span class="topic-name">2. בעיות מילוליות</span>
-            <span class="topic-icon">📝</span>
+        <div class="activity-card" onclick="openSelectionModal('בוחן', true)">
+            <div class="icon">⏱️</div>
+            <h3>בוחן ⏱️</h3>
         </div>
-        <div class="topic-card" onclick="location.href='#analytical'">
-            <span class="topic-name">3. גיאומטריה אנליטית</span>
-            <span class="topic-icon">📉</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#real-graphs'">
-            <span class="topic-name">4. גרפים מציאותיים</span>
-            <span class="topic-icon">📊</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#probability'">
-            <span class="topic-name">5. הסתברות</span>
-            <span class="topic-icon">🎲</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#trigo'">
-            <span class="topic-name">6. טריגונומטריה</span>
-            <span class="topic-icon">📐</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#equations'">
-            <span class="topic-name">7. משוואות ואי-שוויונות</span>
-            <span class="topic-icon">⚖️</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#sequences'">
-            <span class="topic-name">8. סדרה חשבונית</span>
-            <span class="topic-icon">♾️</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#stats'">
-            <span class="topic-name">9. סטטיסטיקה והסתברות</span>
-            <span class="topic-icon">📉</span>
-        </div>
-        <div class="topic-card" onclick="location.href='#quadratic'">
-            <span class="topic-name">10. תכונות הפונקציה הריבועית</span>
-            <span class="topic-icon">🎯</span>
-        </div>
-
-        <div class="topic-card exam" onclick="location.href='#exams'">
-            <span class="topic-name">🏆 תרגול בחינות בגרות</span>
-            <span class="topic-icon">📜</span>
+        <div class="activity-card" onclick="openSelectionModal('מבחן', false)">
+            <div class="icon">🎓</div>
+            <h3>מבחן 🎓</h3>
         </div>
     </div>
 </div>
 
-<div id="chat-trigger" onclick="toggleChat()">👨‍🏫 שאל את מורה אבטיח</div>
-<div id="chat-win" class="chat-win">
-    <div class="chat-header"><span>מורה עוזר - אבטיח</span><span onclick="toggleChat()" style="cursor:pointer">✖</span></div>
-    <div class="chat-body" id="chat-body">
-        <div class="msg bot">שלום! אני כאן לעזור לך בשאלון 172. איזה נושא נתרגל?</div>
-    </div>
-    <div class="chat-footer">
-        <input type="text" id="user-in" placeholder="כתוב שאלה...">
-        <button onclick="send()" class="btn" style="padding:10px; background:var(--blue); color:white; border:none; border-radius:10px; cursor:pointer;">שלח</button>
-    </div>
+<div id="selection-modal" class="modal-overlay">
+    <div class="modal-content" id="modal-inner-content"></div>
 </div>
 
 <script>
-    function toggleChat() { const win = document.getElementById('chat-win'); win.style.display = (win.style.display === 'flex') ? 'none' : 'flex'; }
-    async function send() {
-        const input = document.getElementById('user-in');
-        const body = document.getElementById('chat-body');
-        const text = input.value.trim();
-        if(!text) return;
+    const highSchoolData = {
+        "35172": {
+            "algebra": { name: "אלגברה", subs: ["מערכת משוואות ממעלה ראשונה", "משוואות ריבועיות", "נוסחאות הכפל המקוצר", "פירוק לגורמים", "שינוי נושא בנוסחה"] },
+            "wordProblems": { name: "בעיות מילוליות", subs: ["בעיות אחוזים", "בעיות קנייה ומכירה", "בעיות תנועה"] },
+            "geometryAnalytic": { name: "גיאומטריה אנליטית", subs: ["אמצע קטע", "מרחק בין נקודות", "משוואת הישר", "הישר במערכת הצירים"] },
+            "realGraphs": { name: "גרפים מציאותיים", subs: ["קריאת מידע", "מערכת צירים"] },
+            "probability": { name: "הסתברות", subs: ["הסתברות בסיסית", "טבלה דו מימדית", "עץ הסתברויות"] },
+            "trigonometry": { name: "טריגונומטריה", subs: ["Sin, Cos, Tan", "מלבן", "מעוין", "משולש כללי"] },
+            "equations": { name: "משוואות", subs: ["עם שברים", "משוואות פשוטות"] },
+            "sequences": { name: "סדרה חשבונית", subs: ["איבר כללי", "סכום סדרה", "בעיות מציאותיות"] },
+            "stats": { name: "סטטיסטיקה", subs: ["ממוצע וחציון", "שכיחות יחסית"] },
+            "quadratic": { name: "פונקציה ריבועית", subs: ["חיתוך עם צירים", "קודקוד", "חיוביות ושליליות"] }
+        },
+        "35371": {
+            "algebra371": { name: "אלגברה", subs: ["הוצאת גורם משותף", "נוסחאות הכפל", "פירוק הטרינום", "שברים אלגבריים"] },
+            "wordProblems371": { name: "גידול ודעיכה", subs: ["חישובי אחוזים", "כמות סופית", "כמות התחלתית", "מציאת q", "מציאת זמן"] },
+            "probability371": { name: "הסתברות", subs: ["קלאסית", "דיאגרמת עץ", "מותנית", "ברנולי"] },
+            "trigPlane371": { name: "טריגו במישור", subs: ["ישר זווית", "שווה שוקיים", "משפט הסינוסים והקוסינוסים"] }
+        },
+        "35372": {
+            "wordProblems372": { name: "בעיות מילוליות", subs: ["אחוזים", "קנייה ומכירה", "תנועה"] },
+            "calculusDiff372": { name: "חשבון דיפרנציאלי", subs: ["נגזרת פולינום", "נגזרת מנה", "נגזרת שורש", "נקודות קיצון", "אסימפטוטות"] },
+            "calculusInt372": { name: "חשבון אינטגרלי", subs: ["פונקציה קדומה", "חישוב שטחים"] }
+        },
+        "35471": {
+            "geometryEuclid471": { name: "גאומטריה אוקלידית", subs: ["משולשים", "מרובעים", "פרופורציה ודמיון", "מעגל"] },
+            "calculusDiff471": { name: "חשבון דיפרנציאלי", subs: ["פולינומים", "פונקציות רציונליות", "פונקציות שורש"] }
+        },
+        "35472": {
+            "sequences472": { name: "סדרות", subs: ["חשבונית", "הנדסית", "כלל נסיגה"] },
+            "calculusExpLog472": { name: "מעריכיות ולוגריתמיות", subs: ["נגזרות", "חקירה מלאה", "אינטגרלים"] }
+        },
+        "35571": {
+            "trigonometry571": { name: "טריגונומטריה", subs: ["זהויות", "משוואות", "משולש כללי", "מרחב"] },
+            "calculusDiff571": { name: "חשבון דיפרנציאלי", subs: ["פונקציות מורכבות", "קיצון ונקודות פיתול"] }
+        },
+        "35572": {
+            "vectors572": { name: "וקטורים", subs: ["גיאומטרי", "אלגברי", "מצבים הדדיים", "מרחקים"] },
+            "complexNumbers572": { name: "מספרים מרוכבים", subs: ["הצגה קוטבית", "דה-מואבר", "שורשי היחידה"] }
+        }
+    };
 
-        body.innerHTML += `<div class="msg user">${text}</div>`;
-        input.value = "";
-        const loading = document.createElement('div');
-        loading.className = 'msg bot'; loading.innerText = 'המורה חושב...';
-        body.appendChild(loading);
-        body.scrollTop = body.scrollHeight;
+    let currentActivity = "", needsSubtopic = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    const grade = urlParams.get('grade') || "35172"; 
+    
+    const gradeNames = {"35172": "שאלון 172 (3 יח\"ל)", "35371": "שאלון 371 (3 יח\"ל)", "35372": "שאלון 372 (3 יח\"ל)", "35471": "שאלון 471 (4 יח\"ל)", "35472": "שאלון 472 (4 יח\"ל)", "35571": "שאלון 571 (5 יח\"ל)", "35572": "שאלון 572 (5 יח\"ל)"};
+    document.getElementById('grade-display').innerText = gradeNames[grade] || "מתמטיקה תיכון";
 
-        try {
-            const res = await fetch('http://127.0.0.1:5000/ask', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({question: text})
-            });
-            const data = await res.json();
-            loading.innerText = data.answer;
-        } catch(e) { loading.innerText = "שגיאה בחיבור לשרת אבטיח!"; }
-        body.scrollTop = body.scrollHeight;
+    function openSelectionModal(activityName, subtopicRequired) {
+        currentActivity = activityName; needsSubtopic = subtopicRequired;
+        const inner = document.getElementById('modal-inner-content');
+        if (!highSchoolData[grade]) { inner.innerHTML = `<span class="close-modal" onclick="closeModal()">✕</span><h2>שגיאה</h2><p>שאלון לא נמצא במערכת.</p>`; }
+        else {
+            let topicOptions = '<option value="">-- בחר נושא --</option>';
+            for (let key in highSchoolData[grade]) { topicOptions += `<option value="${key}">${highSchoolData[grade][key].name}</option>`; }
+            inner.innerHTML = `<span class="close-modal" onclick="closeModal()">✕</span><h2 style="font-weight:800; margin-bottom:20px;">${activityName}</h2><select id="topic-select" onchange="updateSubtopics()">${topicOptions}</select><div id="subtopic-container" style="display:none;"><select id="subtopic-select"></select></div><button class="btn-start" onclick="handleStart()">התחל ללמוד</button>`;
+        }
+        document.getElementById('selection-modal').style.display = 'flex';
+    }
+    
+    function closeModal() { document.getElementById('selection-modal').style.display = 'none'; }
+    function updateSubtopics() {
+        const topicKey = document.getElementById('topic-select').value;
+        const container = document.getElementById('subtopic-container'), select = document.getElementById('subtopic-select');
+        if (needsSubtopic && topicKey && highSchoolData[grade][topicKey]) {
+            select.innerHTML = '<option value="">-- בחר תת נושא --</option>';
+            highSchoolData[grade][topicKey].subs.forEach(s => { select.innerHTML += `<option value="${s}">${s}</option>`; });
+            container.style.display = 'block';
+        } else { container.style.display = 'none'; select.innerHTML = ''; }
+    }
+
+    function handleStart() {
+        const t = document.getElementById('topic-select'), s = document.getElementById('subtopic-select'), cont = document.getElementById('subtopic-container');
+        if (!t.value) { alert("אנא בחר נושא לפני ההתחלה"); return; }
+        if (cont.style.display !== 'none' && !s.value) { alert("חובה לבחור תת-נושא כדי להמשיך"); return; }
+        let targetFile = (currentActivity === 'תרגול') ? 'practice.html' : 'exam.html';
+        window.location.href = `${targetFile}?grade=${grade}&topic=${encodeURIComponent(t.value)}&subtopic=${encodeURIComponent(s.value)}&activity=${encodeURIComponent(currentActivity)}`;
     }
 </script>
 </body>

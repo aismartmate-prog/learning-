@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת בחינות - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* צבע עליון - שחור יוקרתי עם נגיעות זהב */
+            --primary-header: #000000;  
+            --accent-gold: #c5a059;   
+            --primary-blue: #0f172a;  
+            
+            --bg-color: #f8fafc;      
+            --surface-color: #ffffff; 
+            --text-main: #000000;     
+            --text-muted: #334155;    
+            --border-soft: #cbd5e1;   
+            
+            /* צבעי משוב - שקופים ועדינים */
+            --correct-bg: rgba(34, 197, 94, 0.12); 
+            --correct-text: #14532d; 
+            --correct-border: #4ade80; 
+            
+            --wrong-bg: rgba(248, 113, 113, 0.12); 
+            --wrong-text: #7f1d1d; 
+            --wrong-border: #f87171;        
+            
+            --hint-bg: rgba(250, 204, 21, 0.12); 
+            --hint-text: #713f12; 
+            --hint-border: #fde047;          
+            
+            --sol-bg: rgba(34, 197, 94, 0.08); 
+            --sol-text: #14532d; 
+            --sol-border: #4ade80;              
+        }
+        
+        body { 
+            font-family: 'Heebo', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            line-height: 1.2; 
+            overflow: hidden; 
+        }
+        
+        header { 
+            background: var(--primary-header); 
+            color: white; 
+            padding: 0 20px; 
+            border-bottom: 2px solid var(--accent-gold); 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 45px; 
+            flex-shrink: 0;
+            z-index: 1000; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 { margin: 0; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; }
+
+        .practice-layout { 
+            display: flex; 
+            gap: 12px; 
+            max-width: 1400px; 
+            margin: 8px auto; 
+            padding: 0 10px; 
+            flex: 1; 
+            width: 100%; 
+            box-sizing: border-box; 
+            align-items: flex-start; 
+            overflow: hidden; 
+        }
+        
+        .sidebar { 
+            width: 180px; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 6px; 
+            flex-shrink: 0; 
+            height: 100%;
+        }
+        
+        /* טיימר פרימיום יוקרתי */
+        .timer-sidebar { 
+            background: #000000; 
+            border: 2px solid var(--accent-gold); 
+            border-radius: 8px; 
+            padding: 8px 5px; 
+            text-align: center; 
+            box-shadow: 0 4px 10px rgba(197, 160, 89, 0.2);
+        }
+        .timer-label { font-size: 0.85rem; font-weight: 700; color: #ffffff; letter-spacing: 0.5px;}
+        .timer-val { font-size: 1.6rem; font-weight: 800; color: var(--accent-gold); font-family: monospace; letter-spacing: 1px; }
+        
+        .score-display { 
+            display: none; 
+            background: var(--primary-header); 
+            color: white; 
+            border-radius: 8px; 
+            padding: 10px; 
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold); 
+        }
+
+        .btn-side { 
+            width: 100%; 
+            padding: 8px 10px; 
+            background: var(--surface-color); 
+            border: 1.5px solid var(--border-soft); 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            color: var(--text-muted); 
+            transition: all 0.2s ease; 
+            text-align: center; 
+        }
+        .btn-side:hover:not(:disabled) { border-color: var(--primary-header); background: #fafafa; color: var(--primary-header); transform: translateX(-2px); }
+        .btn-disabled-gray { background: #f1f5f9 !important; color: #94a3b8 !important; border-color: #e2e8f0 !important; cursor: not-allowed !important; transform: none !important;}
+
+        .btn-finish { background: var(--primary-header); color: white; border: 1px solid var(--accent-gold); font-weight: 700; padding: 10px; border-radius: 20px;}
+        .btn-finish:hover:not(:disabled) { background: #222222; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(197, 160, 89, 0.3);}
+
+        .main-content { 
+            flex: 1; 
+            background: var(--surface-color); 
+            border-radius: 8px; 
+            padding: 12px 15px; 
+            border: 1px solid var(--border-soft); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
+            display: flex; 
+            flex-direction: column; 
+            width: 100%; 
+            box-sizing: border-box; 
+            height: 100%;
+            overflow-y: auto; 
+            position: relative;
+        }
+        
+        /* --- עיצוב דף פתיחה יוקרתי --- */
+        #intro-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        
+        .intro-title { font-size: 1.8rem; color: var(--primary-header); font-weight: 800; border-bottom: 3px solid var(--accent-gold); padding-bottom: 5px; margin-bottom: 12px; margin-top: 5px;}
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; width: 100%; max-width: 900px; text-align: right; }
+        .intro-card { background: #fdfcf8; border: 1.5px solid var(--accent-gold); border-radius: 8px; padding: 12px 15px; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.08); }
+        .intro-card h3 { color: var(--primary-header); margin-top: 0; font-size: 1.15rem; border-bottom: 1px dashed var(--border-soft); padding-bottom: 5px; margin-bottom: 8px;}
+        .intro-card ul { padding-right: 20px; margin: 0; font-size: 0.95rem; line-height: 1.4; color: var(--text-main); }
+        .intro-card li { margin-bottom: 4px; }
+        
+        .btn-start-exam { 
+            background: var(--primary-header); color: white; border: 2px solid var(--accent-gold); 
+            font-size: 1.3rem; font-weight: 800; padding: 12px 40px; border-radius: 30px; 
+            cursor: pointer; transition: 0.3s; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .btn-start-exam:hover:not(:disabled) { background: var(--accent-gold); color: #000; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4); }
+
+        /* --- עיצוב אזור השאלות --- */
+        #quiz-area { display: none; flex-direction: column; height: 100%; }
+
+        .question-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; text-align: center; color: #000000; line-height: 1.3;}
+        
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; max-width: 800px; align-self: center; margin-bottom: 10px; }
+        
+        .btn-option { 
+            background: var(--surface-color); border: 1.5px solid var(--border-soft); 
+            padding: 10px; border-radius: 6px; font-size: 1.05rem; font-weight: 600; 
+            color: var(--text-main); cursor: pointer; transition: all 0.2s ease; text-align: center;
+        }
+        .btn-option:hover:not(:disabled) { border-color: var(--accent-gold); box-shadow: 0 2px 5px rgba(197, 160, 89, 0.15); }
+        
+        .btn-option.selected { border-color: var(--accent-gold); background: #fdfcf8; box-shadow: inset 0 0 0 1px var(--accent-gold); }
+        
+        .opt-correct { border-color: var(--correct-border) !important; background: var(--correct-bg) !important; color: var(--correct-text) !important;}
+        .opt-wrong { border-color: var(--wrong-border) !important; background: var(--wrong-bg) !important; color: var(--wrong-text) !important; text-decoration: line-through; }
+
+        .info-box { display: none; padding: 12px; border-radius: 6px; margin-bottom: 8px; border: 1.5px solid; width: 100%; box-sizing: border-box; overflow: hidden; }
+        .hint-box { background: var(--hint-bg); border-color: var(--hint-border); font-size: 1.05rem; }
+        
+        .solution-box { background: var(--sol-bg); border-color: var(--sol-border); }
+        .solution-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        .solution-table th { background: #000000; color: #ffffff; padding: 6px; border-bottom: 2px solid var(--accent-gold); font-size: 0.95rem; font-weight: 600; text-align: center; }
+        .solution-table td { padding: 6px 8px; border-bottom: 1px solid rgba(34, 197, 94, 0.2); vertical-align: middle; text-align: center; }
+        .text-col { font-size: 0.95rem; border-left: 1.5px solid rgba(34, 197, 94, 0.2); color: #166534; font-weight: 500; }
+        .math-col { font-size: 1.1rem; font-weight: 800; color: #064e3b; }
+        .final-answer-row { margin: 8px; padding: 8px; background: rgba(255,255,255,0.8); border: 1.5px solid #4ade80; border-radius: 6px; text-align: center; font-weight: 800; font-size: 1.1rem; color: #14532d; display: flex; justify-content: center; gap: 10px; }
+
+        .status-tag { font-weight: 700; font-size: 0.9rem; padding: 4px 15px; border-radius: 15px; }
+        
+        .copyright-footer { text-align: center; font-size: 0.75rem; color: #94a3b8; padding-top: 10px; margin-top: auto; border-top: 1px dashed var(--border-soft); width: 100%; }
+
+        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; }
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
+        .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
+        .fraction-denominator { text-align: center; padding: 0 2px; }
+        sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
+
+        @media (max-width: 1000px) {
+            body { overflow: auto; }
+            .practice-layout { flex-direction: column; overflow: visible; height: auto; }
+            .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; height: auto; }
+            .btn-side { width: auto; flex: 1 1 calc(33% - 10px); }
+            .main-content { overflow: visible; height: auto; }
+            .intro-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1 id="header-title">מערכת בחינות</h1>
+    <a onclick="goBackToSelection()" style="color: var(--accent-gold); text-decoration: none; cursor: pointer; font-weight: 500; font-size: 1.05rem; transition: opacity 0.2s;">חזרה ↩</a>
+</header>
+<div class="practice-layout">
+    <aside class="sidebar">
+        <div class="timer-sidebar" id="timer-container"><div class="timer-label">זמן נותר</div><div class="timer-val" id="timer-text">--:--</div></div>
+        <div class="score-display" id="score-container"><div style="font-size: 0.8rem; opacity: 0.9;">ציון סופי</div><div class="timer-val" id="score-val" style="color: white;">0</div></div>
+        
+        <button class="btn-side btn-finish btn-disabled-gray" id="finish-btn" onclick="confirmFinish()" disabled>הגשת המבחן</button>
+        <button class="btn-side btn-disabled-gray" id="formulas-btn" onclick="openFormulasWindow()" disabled>דף נוסחאות 📐</button>
+        <button class="btn-side btn-disabled-gray" id="hint-btn" onclick="toggleBox('hint-box')" disabled>הצג רמז 💡</button>
+        <button class="btn-side btn-disabled-gray" id="sol-btn" onclick="toggleBox('sol-box')" disabled>פתרון מלא 📝</button>
+        
+        <hr style="width:100%; border:0; border-top:1px dashed var(--border-soft); margin: 2px 0;">
+        <button class="btn-side btn-disabled-gray" id="btn-next-side" onclick="nextQuestion()" disabled><span>שאלה הבאה</span> <span style="font-size:1.1rem; line-height: 1;">←</span></button>
+        <button class="btn-side btn-disabled-gray" id="btn-prev" onclick="prevQuestion()" disabled><span>שאלה קודמת</span> <span style="font-size:1.1rem; line-height: 1;">→</span></button>
+        <button class="btn-side" id="review-btn" onclick="showReviewSummary()" style="display:none; background: var(--accent-gold); color: white; border: none; margin-top: 5px;">סיכום תוצאות</button>
+        
+        <button class="btn-side" id="new-exam-btn" onclick="startNewExam()" style="display:none; background: #10b981; color: white; border: none; margin-top: 5px;">מבחן חדש 🔄</button>
+        
+        <hr style="width:100%; border:0; border-top:1px dashed var(--border-soft); margin: 2px 0;">
+        <button class="btn-side" onclick="goBackToSelection()" style="margin-top: auto; color: var(--primary-header); font-weight: 700;">בחירת נושא 🗂️</button>
+        <button class="btn-side" onclick="goHome()" style="color: #64748b; border: none;">דף הבית 🏠</button>
+    </aside>
+    
+    <main class="main-content">
+        <div id="intro-screen">
+            <div class="intro-title" id="intro-main-title">הכנה לבחינה</div>
+            
+            <div class="intro-grid">
+                <div class="intro-card">
+                    <h3>📋 פרטי הבחינה</h3>
+                    <ul>
+                        <li><strong>סוג הפעילות:</strong> <span id="intro-act-type">מבחן</span></li>
+                        <li><strong>כמות שאלות:</strong> <span id="intro-q-count">0</span> שאלות (ר-ברירה).</li>
+                        <li><strong>זמן מוקצב:</strong> <span id="intro-time-limit"></span> דקות. הטיימר יחל לפעול מרגע לחיצה על התחלה.</li>
+                        <li><strong>נושאים נכללים:</strong> <span id="intro-topics" style="color:var(--primary-blue); font-weight:600;">טוען שאלות...</span></li>
+                    </ul>
+                </div>
+                
+                <div class="intro-card">
+                    <h3>💡 מיומנויות וטיפים להצלחה</h3>
+                    <ul>
+                        <li><strong>קריאה זהירה:</strong> קראו כל שאלה עד סופה לפני שאתם מסתכלים על התשובות.</li>
+                        <li><strong>שימוש בטיוטה:</strong> מומלץ מאוד לשרטט צורות או לכתוב משוואות על דף טיוטה בצד.</li>
+                        <li><strong>ניהול זמן:</strong> נתקעתם על שאלה? סמנו ניחוש מושכל, המשיכו הלאה, וחיזרו אליה בסוף אם נותר זמן.</li>
+                        <li><strong>פסילת תשובות:</strong> שללו מיד תשובות שאינן הגיוניות מבחינה מתמטית (אלימינציה).</li>
+                        <li><strong>עזרים:</strong> ניתן להיעזר בכפתורי הרמז ודף הנוסחאות (בסרגל הצד) במהלך הבחינה.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <button class="btn-start-exam" onclick="startExam()" disabled style="opacity: 0.5;">אנא המתן לטעינת המבחן...</button>
+        </div>
+
+        <div id="quiz-area">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; width: 100%; max-width: 800px; align-self: center;">
+                <span style="font-weight: 700; color: var(--accent-gold); font-size: 1.1rem;">שאלה <span id="current-num">1</span> מתוך <span id="total-num">5</span></span>
+                <span id="status-tag" class="status-tag"></span>
+            </div>
+            <div class="question-area" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                <div class="question-title" id="q-text" style="width:100%;">טוען שאלה...</div>
+                <div class="options-grid" id="q-options"></div>
+                <div id="hint-box" class="info-box hint-box"></div>
+                
+                <div id="sol-box" class="info-box solution-box">
+                    <table class="solution-table">
+                        <thead><tr><th>הסבר מילולי</th><th>ביטוי מתמטי</th></tr></thead>
+                        <tbody id="solution-tbody"></tbody>
+                    </table>
+                    <div id="final-answer-container" style="display: flex; justify-content: center; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="review-screen" style="display:none; text-align: center; width: 100%;">
+            <h2 style="color: var(--primary-header); margin-top: 0;">סיכום המבחן</h2>
+            <div class="review-list" id="full-review-list" style="width:100%; display:flex; flex-direction:column; align-items:center; gap: 6px;"></div>
+            <button class="btn-finish" style="margin-top:15px; width: 220px;" onclick="backToQuestionView()">חזרה למעבר על שאלות</button>
+        </div>
+        
+        <div class="copyright-footer">© כל הזכויות שמורות למרכז להישגים לימודיים</div>
+    </main>
+</div>
+
+<script>
+    let questions = [], currentIndex = 0, answers = [], timer, isFinished = false;
+    let timeLeft = 0; 
+    let urlGrade = '', currentTopicStr = '', currentActivity = '';
+
+    // מילון תרגום לשמות נושאים בעברית עבור מסך הפתיחה
+    const topicNamesHe = {
+        "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
+        "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
+        "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
+        "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
+        "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
+        "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
+        "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
+        "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
+        "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
+        "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות (172)",
+        "analytic_geometry_172": "גיאומטריה אנליטית (172)", "geometry_172": "הנדסת המישור והמרחב",
+        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות (172)", "finalReviews": "תרגול ומבחנים מסכמים"
+    };
+
+    function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
+
+    function formatContent(text) {
+        if (!text) return "";
+        let html = text.replace(/<svg[\s\S]*?<\/svg>/gi, m => m); 
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
+        html = html.replace(/\*/g, '×'); 
+
+        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
+            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            return match; 
+        });
+
+        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5'};
+        html = html.replace(/[²³⁴⁵]/g, m => `<sup>${pMap[m]}</sup>`);
+        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+
+        return html.trim();
+    }
+
+    // משתנה גלובלי שיאגור את כל השאלות מכל הקבצים שיטענו
+    window.allFetchedQuestions = [];
+
+    window.onload = function() {
+        const p = new URLSearchParams(window.location.search);
+        const grade = p.get('grade'), topicsParam = p.get('topic'), subtopicsParam = p.get('subtopic'), act = p.get('activity') || "מבחן";
+        urlGrade = grade;
+        currentTopicStr = topicsParam || "";
+        currentActivity = act;
+        
+        let displayGrade = grade === '5_6' ? 'ה-ו' : (grade === "grade7" ? "ז" : grade === "grade8" ? "ח" : grade === "grade9" ? "ט" : grade);
+        let titleSubtext = (act === 'מבחן' || act === 'בגרות') ? "מבחן מסכם" : "בוחן נושאי";
+        document.getElementById('header-title').innerText = `${act} | כיתה ${displayGrade}`;
+        document.getElementById('intro-main-title').innerText = `ברוכים הבאים ל${act}`;
+        document.getElementById('intro-act-type').innerText = act;
+
+        // קביעת טקסט כפתור הרענון ("מבחן חדש" או "בוחן חדש")
+        if (act === 'מבחן' || act === 'בגרות') {
+            document.getElementById('new-exam-btn').innerHTML = "מבחן חדש 🔄";
+        } else {
+            document.getElementById('new-exam-btn').innerHTML = "בוחן חדש 🔄";
+        }
+
+        // קביעת זמן המבחן (60 דק' למבחן, 45 לבוחן)
+        let isExamMode = (act === 'מבחן' || act === 'בגרות');
+        let examMinutes = isExamMode ? 60 : 45;
+        timeLeft = examMinutes * 60;
+        document.getElementById('intro-time-limit').innerText = examMinutes;
+        document.getElementById('timer-text').innerText = `${examMinutes}:00`;
+
+        // בניית מחרוזת נושאים בעברית למסך הפתיחה
+        let topicsForIntro = [];
+        let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
+        
+        topicsToLoad.forEach(t => {
+            topicsForIntro.push(topicNamesHe[t.trim()] || t.trim());
+        });
+        
+        let introTopicsText = topicsForIntro.join(", ");
+        if(subtopicsParam && subtopicsParam.trim() !== "") {
+            introTopicsText += ` (${subtopicsParam.split(',').join(', ')})`;
+        }
+        document.getElementById('intro-topics').innerText = introTopicsText;
+
+        const startBtn = document.querySelector('.btn-start-exam');
+
+        // טעינה סדרתית של קבצי נתונים
+        let filesToLoad = [];
+        if (grade === "bar_ilan" || grade === "5_6_bar_ilan") {
+            filesToLoad.push(`data/5_6_bar_ilan.js`);
+        } else if (topicsToLoad.length > 0) {
+            topicsToLoad.forEach(t => {
+                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
+                
+                // --- הניתוב המתוקן למציאת הקבצים שיצרנו (ללא שגיאות) ---
+                if (grade === "5_6" || grade === "ה-ו") {
+                    filesToLoad.push(`data/5_6_${safeTopic}.js`);
+                } else if (grade === "35172" && safeTopic === "trigo_172") {
+                    filesToLoad.push(`data/35172_trigonometry_172.js`);
+                } else {
+                    filesToLoad.push(`data/${grade}_${safeTopic}.js`);
+                }
+            });
+        }
+
+        let currentFileIndex = 0;
+
+        function loadNextScript() {
+            if (currentFileIndex >= filesToLoad.length) {
+                processLoadedQuestions();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = filesToLoad[currentFileIndex];
+            
+            script.onload = () => {
+                if (typeof questionsDB !== 'undefined') {
+                    window.allFetchedQuestions = window.allFetchedQuestions.concat(questionsDB);
+                    window.questionsDB = undefined; 
+                }
+                currentFileIndex++;
+                loadNextScript();
+            };
+            
+            script.onerror = () => {
+                console.error("שגיאה בטעינת הקובץ: " + script.src);
+                document.getElementById('intro-topics').innerHTML += `<br><span style="color:red; font-size:0.9rem;">לא נמצא קובץ: ${script.src}</span>`;
+                currentFileIndex++;
+                loadNextScript();
+            };
+            
+            document.head.appendChild(script);
+        }
+
+        if (filesToLoad.length > 0) {
+            loadNextScript();
+        } else {
+            processLoadedQuestions();
+        }
+
+        function processLoadedQuestions() {
+            const pParams = new URLSearchParams(window.location.search);
+            const subsParam = pParams.get('subtopic');
+            const selectedSubs = subsParam ? subsParam.split(',') : [];
+            
+            let pool = window.allFetchedQuestions.filter(q => {
+                if (selectedSubs.length > 0) return selectedSubs.includes(q.subTopic.trim());
+                return true; 
+            });
+
+            // הגדרת כמות השאלות: 10 למבחן/בגרות, 5 לבוחן
+            let targetNum = isExamMode ? 10 : 5;
+            
+            questions = pool.sort(() => 0.5 - Math.random()).slice(0, targetNum);
+            answers = new Array(questions.length).fill(null);
+            
+            document.getElementById('total-num').innerText = questions.length;
+            document.getElementById('intro-q-count').innerText = questions.length;
+            
+            if(questions.length > 0) {
+                startBtn.disabled = false;
+                startBtn.innerText = "התחל בחינה עכשיו";
+                startBtn.style.opacity = 1;
+                loadQuestion(); // רק מכין את הממשק מאחורי הקלעים
+            } else {
+                startBtn.innerText = "אין שאלות זמינות";
+            }
+        }
+    };
+
+    function startExam() {
+        document.getElementById('intro-screen').style.display = 'none';
+        document.getElementById('quiz-area').style.display = 'flex';
+        
+        document.getElementById('finish-btn').disabled = false;
+        document.getElementById('finish-btn').classList.remove('btn-disabled-gray');
+        document.getElementById('formulas-btn').disabled = false;
+        document.getElementById('formulas-btn').classList.remove('btn-disabled-gray');
+        document.getElementById('hint-btn').disabled = false;
+        document.getElementById('hint-btn').classList.remove('btn-disabled-gray');
+        
+        const prevBtn = document.getElementById('btn-prev');
+        const nextBtn = document.getElementById('btn-next-side');
+        if (currentIndex === 0) { prevBtn.classList.add('btn-disabled-gray'); prevBtn.disabled = true; } 
+        else { prevBtn.classList.remove('btn-disabled-gray'); prevBtn.disabled = false; }
+        if (currentIndex === questions.length - 1) { nextBtn.classList.add('btn-disabled-gray'); nextBtn.disabled = true; } 
+        else { nextBtn.classList.remove('btn-disabled-gray'); nextBtn.disabled = false; }
+
+        timer = setInterval(() => { 
+            timeLeft--; 
+            let m = Math.floor(timeLeft / 60), s = timeLeft % 60; 
+            document.getElementById('timer-text').innerText = `${m}:${s < 10 ? '0' : ''}${s}`; 
+            if (timeLeft <= 0) finishExam(); 
+        }, 1000); 
+    }
+
+    function openFormulasWindow() {
+        const formulaWin = window.open('', '_blank', 'width=800,height=700,scrollbars=yes');
+        if (!formulaWin) { alert("חוסם החלונות מופעל. אנא אשרו חלונות קופצים."); return; }
+        
+        let formulasHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>דף נוסחאות עזר</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.6;}
+                .hdr { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #000; margin: 0 0 5px 0; font-size: 1.8rem; }
+                .sec { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);}
+                .sec h2 { color: #c5a059; margin-top: 0; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; }
+                .it { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9; align-items:center;}
+                .it:last-child { border-bottom: none; }
+                .math { font-size: 1.3rem; font-weight: 800; direction: ltr; background: #f8fafc; padding: 4px 12px; border-radius: 4px; border: 1px solid #e2e8f0;}
+                sup { font-size: 0.7em; vertical-align: super; }
+            </style>
+        </head>
+        <body>
+            <div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1><p>מיועד לשימוש במהלך הבחינה</p></div>
+        `;
+        
+        if (currentTopicStr.includes('powers')) {
+            formulasHtml += `<div class="sec"><h2>חוקי חזקות</h2>
+                <div class="it"><span>כפל חזקות: מחברים מעריכים</span><span class="math">a<sup>n</sup> × a<sup>m</sup> = a<sup>n+m</sup></span></div>
+                <div class="it"><span>חילוק חזקות: מחסרים מעריכים</span><span class="math">a<sup>n</sup> / a<sup>m</sup> = a<sup>n-m</sup></span></div>
+                <div class="it"><span>חזקה של חזקה</span><span class="math">(a<sup>n</sup>)<sup>m</sup> = a<sup>n×m</sup></span></div>
+                <div class="it"><span>חזקה שלילית</span><span class="math">a<sup>-n</sup> = 1 / a<sup>n</sup></span></div>
+            </div>`;
+        }
+        if (currentTopicStr.includes('functions') || currentTopicStr.includes('linear') || currentTopicStr.includes('equations')) {
+            formulasHtml += `<div class="sec"><h2>פונקציות ומשוואות</h2>
+                <div class="it"><span>משוואת ישר</span><span class="math">y = mx + b</span></div>
+                <div class="it"><span>שיפוע בין 2 נקודות</span><span class="math">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</span></div>
+                <div class="it"><span>נוסחת השורשים למשוואה ריבועית</span><span class="math">x<sub>1,2</sub> = (-b ± √(b² - 4ac)) / (2a)</span></div>
+                <div class="it"><span>קודקוד פרבולה</span><span class="math">x<sub>v</sub> = -b / (2a)</span></div>
+            </div>`;
+        }
+        if (currentTopicStr.includes('geometry') || currentTopicStr.includes('triangle') || currentTopicStr.includes('angles') || currentTopicStr.includes('172')) {
+            formulasHtml += `<div class="sec"><h2>גיאומטריה וטריגונומטריה</h2>
+                <div class="it"><span>משפט פיתגורס</span><span class="math">a² + b² = c²</span></div>
+                <div class="it"><span>שטח משולש</span><span class="math">S = (a × h) / 2</span></div>
+                <div class="it"><span>שטח משולש לפי טריגונומטריה</span><span class="math">S = (a × b × sin(γ)) / 2</span></div>
+                <div class="it"><span>פונקציית סינוס (sin)</span><span class="math">מול / יתר</span></div>
+                <div class="it"><span>פונקציית קוסינוס (cos)</span><span class="math">ליד / יתר</span></div>
+                <div class="it"><span>פונקציית טנגנס (tan)</span><span class="math">מול / ליד</span></div>
+            </div>`;
+        }
+        if (!currentTopicStr.includes('powers') && !currentTopicStr.includes('functions') && !currentTopicStr.includes('geometry') && !currentTopicStr.includes('172')) {
+            formulasHtml += `<div class="sec"><h2>נוסחאות כלליות נפוצות</h2>
+                <div class="it"><span>נוסחת הכפל המקוצר (הפרש ריבועים)</span><span class="math">a² - b² = (a - b)(a + b)</span></div>
+                <div class="it"><span>סכום/הפרש בריבוע</span><span class="math">(a ± b)² = a² ± 2ab + b²</span></div>
+                <div class="it"><span>חישוב מהירות (בעיות תנועה)</span><span class="math">V = S / t</span></div>
+            </div>`;
+        }
+        
+        formulasHtml += `</body></html>`;
+        formulaWin.document.write(formulasHtml); 
+        formulaWin.document.close();
+    }
+    
+    function goBackToSelection() { 
+        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
+        let returnGrade = (urlGrade === '5_6') ? 'ה-ו' : (urlGrade === 'grade7' ? 'ז' : urlGrade === 'grade8' ? 'ח' : urlGrade === 'grade9' ? 'ט' : urlGrade); 
+        window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
+    }
+    
+    function goHome() { 
+        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("יציאה לדף הבית? ההתקדמות תאבד.")) return; 
+        window.location.href = 'index.html'; 
+    }
+    
+    function loadQuestion() {
+        if(questions.length === 0) return;
+        const q = questions[currentIndex];
+        
+        document.getElementById('current-num').innerText = currentIndex + 1;
+        document.getElementById('q-text').innerHTML = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
+        document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint || "קראו את השאלה בעיון.")}</div>`;
+        
+        const tbody = document.getElementById('solution-tbody');
+        const finalAnsContainer = document.getElementById('final-answer-container');
+        tbody.innerHTML = ''; finalAnsContainer.innerHTML = ''; finalAnsContainer.style.display = 'none';
+        
+        let finalAnswerText = "";
+        if (q.solution_steps && q.solution_steps.length > 0) {
+            q.solution_steps.forEach((step, index) => {
+                let verbal = step.verbal_explanation || "";
+                let mathText = step.math_expression || "";
+                let verbalDir = containsHebrew(verbal) ? "rtl" : "ltr";
+                let mathDir = containsHebrew(mathText) ? "rtl" : "ltr";
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
+                tbody.appendChild(tr);
+                if (index === q.solution_steps.length - 1) finalAnswerText = step.math_expression;
+            });
+            if (q.final_answer) finalAnswerText = q.final_answer;
+        } else if (q.solution) {
+             const tr = document.createElement('tr');
+             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl">${formatContent(q.solution)}</td>`;
+             tbody.appendChild(tr);
+        }
+
+        if (finalAnswerText) {
+            let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
+            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}">${formatContent(finalAnswerText)}</span></div>`;
+            finalAnsContainer.style.display = 'flex';
+        }
+
+        const prevBtn = document.getElementById('btn-prev');
+        const nextBtn = document.getElementById('btn-next-side');
+        
+        if (document.getElementById('quiz-area').style.display === 'flex') {
+            if (currentIndex === 0) { prevBtn.classList.add('btn-disabled-gray'); prevBtn.disabled = true; } 
+            else { prevBtn.classList.remove('btn-disabled-gray'); prevBtn.disabled = false; }
+            
+            if (currentIndex === questions.length - 1) { nextBtn.classList.add('btn-disabled-gray'); nextBtn.disabled = true; } 
+            else { nextBtn.classList.remove('btn-disabled-gray'); nextBtn.disabled = false; }
+        }
+
+        const status = document.getElementById('status-tag');
+        if (isFinished) {
+            if (answers[currentIndex] === null || answers[currentIndex] === undefined) { 
+                status.innerText = "לא נענתה"; status.style.color = "#94a3b8"; status.style.background = "transparent"; border="1px solid #94a3b8"; 
+            }
+            else if (answers[currentIndex] === q.correctAnswer) { 
+                status.innerText = "תשובה נכונה"; status.style.color = "var(--correct-text)"; status.style.background = "var(--correct-bg)"; 
+            }
+            else { 
+                status.innerText = "תשובה שגויה"; status.style.color = "var(--wrong-text)"; status.style.background = "var(--wrong-bg)"; 
+            }
+        } else {
+            status.innerText = ""; status.style.background = "transparent";
+        }
+
+        const box = document.getElementById('q-options'); box.innerHTML = '';
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement('button'); 
+            btn.className = 'btn-option'; 
+            let optDir = containsHebrew(opt) ? "rtl" : "ltr";
+            btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(opt)}</span>`;
+            
+            if (!isFinished) { 
+                if (answers[currentIndex] === idx) btn.classList.add('selected'); 
+                btn.onclick = () => { 
+                    answers[currentIndex] = idx; 
+                    document.querySelectorAll('.btn-option').forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                }; 
+            }
+            else { 
+                btn.disabled = true; 
+                if (idx === q.correctAnswer) btn.classList.add('opt-correct'); 
+                else if (idx === answers[currentIndex]) btn.classList.add('opt-wrong'); 
+            }
+            box.appendChild(btn);
+        });
+        
+        document.getElementById('hint-box').style.display = 'none'; 
+        document.getElementById('sol-box').style.display = 'none';
+    }
+
+    function confirmFinish() { 
+        let unanswered = answers.filter(a => a === null || a === undefined).length;
+        let msg = unanswered > 0 ? `ישנן ${unanswered} שאלות ללא מענה. האם להגיש את המבחן?` : "האם להגיש את המבחן ולסיים?";
+        if(confirm(msg)) finishExam(); 
+    }
+
+    function finishExam() {
+        clearInterval(timer); isFinished = true;
+        let correct = 0; questions.forEach((q, i) => { if (answers[i] === q.correctAnswer) correct++; });
+        document.getElementById('timer-container').style.display = 'none';
+        document.getElementById('score-container').style.display = 'block';
+        document.getElementById('score-val').innerText = Math.round((correct / questions.length) * 100);
+        document.getElementById('finish-btn').style.display = 'none';
+        document.getElementById('review-btn').style.display = 'block';
+        document.getElementById('new-exam-btn').style.display = 'block';
+        
+        document.getElementById('sol-btn').disabled = false;
+        document.getElementById('sol-btn').classList.remove('btn-disabled-gray');
+        
+        showReviewSummary(); 
+    }
+
+    function showReviewSummary() {
+        const list = document.getElementById('full-review-list'); list.innerHTML = '';
+        questions.forEach((q, i) => {
+            let isCorrect = answers[i] === q.correctAnswer;
+            let isUnanswered = answers[i] === null || answers[i] === undefined;
+            let statusColor = isCorrect ? 'var(--correct-text)' : (isUnanswered ? '#94a3b8' : 'var(--wrong-text)');
+            let statusBg = isCorrect ? 'var(--correct-bg)' : (isUnanswered ? '#f1f5f9' : 'var(--wrong-bg)');
+            let statusText = isCorrect ? '✓ נכון' : (isUnanswered ? 'לא נענה' : '✗ שגוי');
+            
+            let qTitle = (q.question_text || q.question).replace(/<[^>]*>/g, '').substring(0, 50) + '...';
+            
+            list.innerHTML += `
+            <div style="padding:15px; border:1px solid var(--border-soft); text-align:right; background:white; border-radius:8px; width: 100%; max-width: 600px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <div style="font-weight:700; color:var(--primary-blue); margin-bottom:5px;">שאלה ${i+1}</div>
+                    <div style="font-size:0.9rem; color:var(--text-muted);">${qTitle}</div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:8px; align-items:center;">
+                    <span style="background:${statusBg}; color:${statusColor}; padding:4px 10px; border-radius:12px; font-weight:700; font-size:0.85rem;">${statusText}</span>
+                    <button class="btn-side" style="padding:5px 15px; width:auto;" onclick="goToQ(${i})">צפה בשאלה</button>
+                </div>
+            </div>`;
+        });
+        document.getElementById('quiz-area').style.display = 'none'; 
+        document.getElementById('review-screen').style.display = 'block';
+    }
+
+    function backToQuestionView() { 
+        document.getElementById('review-screen').style.display = 'none'; 
+        document.getElementById('quiz-area').style.display = 'flex'; 
+    }
+    
+    function goToQ(idx) { 
+        currentIndex = idx; 
+        backToQuestionView(); 
+        loadQuestion(); 
+    }
+    
+    function nextQuestion() { if(currentIndex < questions.length - 1) { currentIndex++; loadQuestion(); } }
+    function prevQuestion() { if(currentIndex > 0) { currentIndex--; loadQuestion(); } }
+    
+    function toggleBox(id) { 
+        if (id === 'sol-box' && !isFinished) return; 
+        const b = document.getElementById(id); 
+        b.style.display = b.style.display === 'block' ? 'none' : 'block'; 
+    }
+    
+    function startNewExam() {
+        if(confirm("האם ברצונך להתחיל " + currentActivity + " חדש באותם נושאים?")) {
+            window.location.reload();
+        }
+    }
+</script>
+</body>
+</html>
