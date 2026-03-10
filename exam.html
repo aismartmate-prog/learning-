@@ -354,6 +354,16 @@
         return html.trim();
     }
 
+    // פונקציה לערבוב מערך (שומרת גם על האינדקס המקורי)
+    function shuffleOptions(options) {
+        let optionsWithOriginalIndices = options.map((opt, index) => ({ text: opt, originalIndex: index }));
+        for (let i = optionsWithOriginalIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [optionsWithOriginalIndices[i], optionsWithOriginalIndices[j]] = [optionsWithOriginalIndices[j], optionsWithOriginalIndices[i]];
+        }
+        return optionsWithOriginalIndices;
+    }
+
     // משתנה גלובלי שיאגור את כל השאלות מכל הקבצים שיטענו
     window.allFetchedQuestions = [];
 
@@ -469,6 +479,12 @@
             let targetNum = isExamMode ? 10 : 5;
             
             questions = pool.sort(() => 0.5 - Math.random()).slice(0, targetNum);
+            
+            // ערבוב התשובות לכל שאלה מיד לאחר הטעינה
+            questions.forEach(q => {
+                q.shuffledOptions = shuffleOptions(q.options);
+            });
+
             answers = new Array(questions.length).fill(null);
             
             document.getElementById('total-num').innerText = questions.length;
@@ -652,24 +668,28 @@
         }
 
         const box = document.getElementById('q-options'); box.innerHTML = '';
-        q.options.forEach((opt, idx) => {
+        
+        // יצירת הכפתורים מתוך המערך המעורבב ששמרנו לכל שאלה
+        q.shuffledOptions.forEach((shuffledOpt, displayIdx) => {
             const btn = document.createElement('button'); 
             btn.className = 'btn-option'; 
-            let optDir = containsHebrew(opt) ? "rtl" : "ltr";
-            btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(opt)}</span>`;
+            let optDir = containsHebrew(shuffledOpt.text) ? "rtl" : "ltr";
+            btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(shuffledOpt.text)}</span>`;
             
             if (!isFinished) { 
-                if (answers[currentIndex] === idx) btn.classList.add('selected'); 
+                // בודקים אם האינדקס המקורי של התשובה שנבחרה שווה לאינדקס המקורי של התשובה הנוכחית
+                if (answers[currentIndex] === shuffledOpt.originalIndex) btn.classList.add('selected'); 
                 btn.onclick = () => { 
-                    answers[currentIndex] = idx; 
+                    answers[currentIndex] = shuffledOpt.originalIndex; // שומרים את האינדקס המקורי, לא את המיקום על המסך
                     document.querySelectorAll('.btn-option').forEach(b => b.classList.remove('selected'));
                     btn.classList.add('selected');
                 }; 
             }
             else { 
                 btn.disabled = true; 
-                if (idx === q.correctAnswer) btn.classList.add('opt-correct'); 
-                else if (idx === answers[currentIndex]) btn.classList.add('opt-wrong'); 
+                // בבדיקת התשובות, נשווה תמיד לאינדקס המקורי (שזה מה ששמור ב- correctAnswer)
+                if (shuffledOpt.originalIndex === q.correctAnswer) btn.classList.add('opt-correct'); 
+                else if (shuffledOpt.originalIndex === answers[currentIndex]) btn.classList.add('opt-wrong'); 
             }
             box.appendChild(btn);
         });
