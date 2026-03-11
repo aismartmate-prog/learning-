@@ -29,7 +29,7 @@
             
             --hint-bg: rgba(250, 204, 21, 0.12); 
             --hint-text: #713f12; 
-            --hint-border: #fde047;          
+            --hint-border: #fde047;         
             
             --sol-bg: rgba(34, 197, 94, 0.08); /* ירוק בהיר שקוף לפתרון */
             --sol-text: #14532d; 
@@ -398,7 +398,7 @@
 </div>
 
 <script>
-    let filteredQuestions = [], displayIndex = 0, userAnswers = {}, returnUrl = 'tirgul.html'; // שונה גם כאן ליתר ביטחון
+    let filteredQuestions = [], displayIndex = 0, userAnswers = {}, returnUrl = 'tirgul.html'; 
     let currentTopic = "";
     let currentGrade = "";
 
@@ -625,70 +625,118 @@
     }
 
     function openFormulasWindow() {
-        const formulaWin = window.open('', '_blank', 'width=800,height=700,scrollbars=yes');
+        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
         if (!formulaWin) { alert("חוסם החלונות הקופצים פועל. אנא אשר פתיחת חלונות באתר זה."); return; }
+        
         let formulasHtml = `
         <!DOCTYPE html>
         <html lang="he" dir="rtl">
         <head>
             <meta charset="UTF-8">
-            <title>דף נוסחאות עזר</title>
+            <title>דף נוסחאות עזר מתמטי מקיף</title>
             <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
             <style>
                 body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; color: #0f172a; padding: 30px; margin: 0; line-height: 1.5; }
                 .header { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; }
-                h1 { color: #000; margin: 0 0 5px 0; font-size: 1.8rem; }
+                h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;}
                 .subtitle { font-size: 1.1rem; color: #475569; margin: 0; }
                 .instructions { background: #fdfcf8; padding: 12px; border-radius: 6px; border-right: 4px solid #c5a059; font-weight: 600; margin-bottom: 25px; font-size:1rem;}
-                .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); margin-bottom: 20px; border: 1px solid #e2e8f0; }
-                .section-title { font-weight: 800; color: #c5a059; font-size: 1.2rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
-                .item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+                
+                .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+                @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
+                
+                .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;}
+                .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
+                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;}
                 .item:last-child { border-bottom: none; }
-                .desc { font-size: 1rem; color: #334155; font-weight: 500; }
-                .math { font-size: 1.2rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 4px 12px; border-radius: 4px; border: 1px solid #e2e8f0; }
-                sup { font-size: 0.7em; vertical-align: super; }
+                .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; }
+                .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left; min-width: 150px;}
+                sup { font-size: 0.75em; vertical-align: super; }
+                sub { font-size: 0.75em; vertical-align: sub; }
             </style>
         </head>
         <body>
-            <div class="header"><h1>דף נוסחאות עזר מתמטי</h1><p class="subtitle">מותאם לנושא הנלמד | כיתה ${currentGrade}</p></div>
-            <div class="instructions">כיצד להשתמש? ניתן להיעזר בנוסחאות אלו בעת פתרון תרגילים. הקפידו להציב את הנתונים בזהירות.</div>
-        `;
-        
-        if (currentTopic === 'powers_and_roots' || currentTopic.includes('powers')) {
-            formulasHtml += `
-            <div class="section"><h2 class="section-title">חוקי חזקות</h2>
-                <div class="item"><span class="desc">כפל חזקות: מחברים מעריכים</span><span class="math">a<sup>n</sup> × a<sup>m</sup> = a<sup>n+m</sup></span></div>
-                <div class="item"><span class="desc">חילוק חזקות: מחסרים מעריכים</span><span class="math">a<sup>n</sup> / a<sup>m</sup> = a<sup>n-m</sup></span></div>
-                <div class="item"><span class="desc">חזקה של חזקה</span><span class="math">(a<sup>n</sup>)<sup>m</sup> = a<sup>n×m</sup></span></div>
-                <div class="item"><span class="desc">חזקה שלילית</span><span class="math">a<sup>-n</sup> = 1 / a<sup>n</sup></span></div>
+            <div class="header"><h1>דף נוסחאות עזר מתמטי מקיף</h1><p class="subtitle">מותאם לכלל רמות הלימוד (3, 4 ו-5 יחידות)</p></div>
+            <div class="instructions">לפניכם כל נוסחאות המתמטיקה המרכזיות. ניתן להיעזר בהן בעת פתרון התרגילים במערכת.</div>
+            
+            <div class="grid-container">
+                <div class="section"><h2 class="section-title">אלגברה ומשוואות</h2>
+                    <div class="item"><span class="desc">נוסחת השורשים (משוואה ריבועית)</span><span class="math">x<sub>1,2</sub> = (-b &plusmn; &radic;(b<sup>2</sup> - 4ac)) / 2a</span></div>
+                    <div class="item"><span class="desc">כפל מקוצר: הפרש ריבועים</span><span class="math">a<sup>2</sup> - b<sup>2</sup> = (a - b)(a + b)</span></div>
+                    <div class="item"><span class="desc">כפל מקוצר: סכום/הפרש בריבוע</span><span class="math">(a &plusmn; b)<sup>2</sup> = a<sup>2</sup> &plusmn; 2ab + b<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">כפל מקוצר: סכום/הפרש בשלישית</span><span class="math">a<sup>3</sup> &plusmn; b<sup>3</sup> = (a &plusmn; b)(a<sup>2</sup> &#8723; ab + b<sup>2</sup>)</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">חוקי חזקות ושורשים</h2>
+                    <div class="item"><span class="desc">כפל וחילוק חזקות</span><span class="math">a<sup>n</sup> &middot; a<sup>m</sup> = a<sup>n+m</sup> &nbsp;|&nbsp; a<sup>n</sup> / a<sup>m</sup> = a<sup>n-m</sup></span></div>
+                    <div class="item"><span class="desc">חזקה של חזקה</span><span class="math">(a<sup>n</sup>)<sup>m</sup> = a<sup>n&middot;m</sup></span></div>
+                    <div class="item"><span class="desc">מעריך שלילי ומעריך אפס</span><span class="math">a<sup>-n</sup> = 1 / a<sup>n</sup> &nbsp;|&nbsp; a<sup>0</sup> = 1</span></div>
+                    <div class="item"><span class="desc">חזקת שבר (שורש)</span><span class="math">a<sup>n/m</sup> = <sup>m</sup>&radic;(a<sup>n</sup>)</span></div>
+                    <div class="item"><span class="desc">כפל וחילוק שורשים</span><span class="math">&radic;a &middot; &radic;b = &radic;(ab) &nbsp;|&nbsp; &radic;a / &radic;b = &radic;(a/b)</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">לוגריתמים</h2>
+                    <div class="item"><span class="desc">הגדרת הלוגריתם</span><span class="math">log<sub>a</sub>x = b &nbsp;&#10132;&nbsp; a<sup>b</sup> = x</span></div>
+                    <div class="item"><span class="desc">סכום והפרש לוגריתמים</span><span class="math">log<sub>a</sub>x &plusmn; log<sub>a</sub>y = log<sub>a</sub>(x &middot;/ y)</span></div>
+                    <div class="item"><span class="desc">הוצאת חזקה מלוגריתם</span><span class="math">log<sub>a</sub>(x<sup>n</sup>) = n &middot; log<sub>a</sub>x</span></div>
+                    <div class="item"><span class="desc">מעבר בסיס</span><span class="math">log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">סדרות</h2>
+                    <div class="item"><span class="desc">איבר כללי - סדרה חשבונית</span><span class="math">a<sub>n</sub> = a<sub>1</sub> + (n-1)d</span></div>
+                    <div class="item"><span class="desc">סכום - סדרה חשבונית</span><span class="math">S<sub>n</sub> = (n/2)[2a<sub>1</sub> + (n-1)d]</span></div>
+                    <div class="item"><span class="desc">איבר כללי - סדרה הנדסית</span><span class="math">a<sub>n</sub> = a<sub>1</sub> &middot; q<sup>n-1</sup></span></div>
+                    <div class="item"><span class="desc">סכום - סדרה הנדסית</span><span class="math">S<sub>n</sub> = a<sub>1</sub>(q<sup>n</sup> - 1) / (q - 1)</span></div>
+                    <div class="item"><span class="desc">סכום - הנדסית אינסופית יורדת</span><span class="math">S = a<sub>1</sub> / (1 - q)</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">גאומטריה אנליטית</h2>
+                    <div class="item"><span class="desc">מרחק בין שתי נקודות</span><span class="math">d = &radic;((x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup>)</span></div>
+                    <div class="item"><span class="desc">נקודת אמצע קטע</span><span class="math">M = ((x<sub>1</sub>+x<sub>2</sub>)/2 , (y<sub>1</sub>+y<sub>2</sub>)/2)</span></div>
+                    <div class="item"><span class="desc">שיפוע ישר</span><span class="math">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</span></div>
+                    <div class="item"><span class="desc">משוואת ישר לפי נקודה ושיפוע</span><span class="math">y - y<sub>1</sub> = m(x - x<sub>1</sub>)</span></div>
+                    <div class="item"><span class="desc">משוואת מעגל</span><span class="math">(x - a)<sup>2</sup> + (y - b)<sup>2</sup> = R<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">פרבולה / אליפסה</span><span class="math">y<sup>2</sup> = 2px &nbsp;|&nbsp; x<sup>2</sup>/a<sup>2</sup> + y<sup>2</sup>/b<sup>2</sup> = 1</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">טריגונומטריה</h2>
+                    <div class="item"><span class="desc">זהויות יסוד</span><span class="math">sin<sup>2</sup>&alpha; + cos<sup>2</sup>&alpha; = 1 &nbsp;|&nbsp; tan&alpha; = sin&alpha; / cos&alpha;</span></div>
+                    <div class="item"><span class="desc">זווית כפולה - סינוס</span><span class="math">sin(2&alpha;) = 2sin&alpha;cos&alpha;</span></div>
+                    <div class="item"><span class="desc">זווית כפולה - קוסינוס</span><span class="math">cos(2&alpha;) = cos<sup>2</sup>&alpha; - sin<sup>2</sup>&alpha;</span></div>
+                    <div class="item"><span class="desc">משפט הסינוסים</span><span class="math">a / sin&alpha; = b / sin&beta; = c / sin&gamma; = 2R</span></div>
+                    <div class="item"><span class="desc">משפט הקוסינוסים</span><span class="math">c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab cos&gamma;</span></div>
+                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = &frac12; ab sin&gamma;</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">חשבון דיפרנציאלי (נגזרות)</h2>
+                    <div class="item"><span class="desc">נגזרת של חזקה</span><span class="math">(x<sup>n</sup>)' = n&middot;x<sup>n-1</sup></span></div>
+                    <div class="item"><span class="desc">נגזרת מכפלה</span><span class="math">(u&middot;v)' = u'v + uv'</span></div>
+                    <div class="item"><span class="desc">נגזרת מנה</span><span class="math">(u/v)' = (u'v - uv') / v<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">נגזרת טריגונומטרית</span><span class="math">(sin x)' = cos x &nbsp;|&nbsp; (cos x)' = -sin x</span></div>
+                    <div class="item"><span class="desc">נגזרת מעריכית ולוגריתמית</span><span class="math">(e<sup>x</sup>)' = e<sup>x</sup> &nbsp;|&nbsp; (ln x)' = 1/x</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">חשבון אינטגרלי</h2>
+                    <div class="item"><span class="desc">אינטגרל של חזקה</span><span class="math">&int; x<sup>n</sup> dx = x<sup>n+1</sup> / (n+1) + C</span></div>
+                    <div class="item"><span class="desc">אינטגרל פונקציה רציונלית</span><span class="math">&int; (1/x) dx = ln|x| + C</span></div>
+                    <div class="item"><span class="desc">אינטגרל מעריכי</span><span class="math">&int; e<sup>kx</sup> dx = e<sup>kx</sup> / k + C</span></div>
+                    <div class="item"><span class="desc">אינטגרל טריגונומטרי</span><span class="math">&int; sin(x) dx = -cos(x) + C</span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">הסתברות</h2>
+                    <div class="item"><span class="desc">הסתברות מותנית</span><span class="math">P(A|B) = P(A &cap; B) / P(B)</span></div>
+                    <div class="item"><span class="desc">נוסחת ברנולי (בינומית)</span><span class="math">P<sub>n</sub>(k) = (n! / k!(n-k)!) &middot; p<sup>k</sup> &middot; (1-p)<sup>n-k</sup></span></div>
+                </div>
+
+                <div class="section"><h2 class="section-title">מרוכבים ווקטורים</h2>
+                    <div class="item"><span class="desc">הצגה קוטבית ודה-מואבר</span><span class="math">z = r cis&theta; &nbsp;|&nbsp; z<sup>n</sup> = r<sup>n</sup> cis(n&theta;)</span></div>
+                    <div class="item"><span class="desc">מכפלה סקלרית</span><span class="math">u &middot; v = |u||v| cos&alpha; = x<sub>1</sub>x<sub>2</sub> + y<sub>1</sub>y<sub>2</sub> + z<sub>1</sub>z<sub>2</sub></span></div>
+                    <div class="item"><span class="desc">מרחק נקודה ממישור</span><span class="math">d = |Ax<sub>0</sub> + By<sub>0</sub> + Cz<sub>0</sub> + D| / &radic;(A<sup>2</sup>+B<sup>2</sup>+C<sup>2</sup>)</span></div>
+                </div>
             </div>
-            <div class="section"><h2 class="section-title">חוקי שורשים</h2>
-                <div class="item"><span class="desc">שורש של מכפלה</span><span class="math">√(a × b) = √a × √b</span></div>
-                <div class="item"><span class="desc">שורש של מנה (שבר)</span><span class="math">√(a / b) = √a / √b</span></div>
-            </div>`;
-        } else if (currentTopic === 'functions' || currentTopic.includes('functions')) {
-            formulasHtml += `
-            <div class="section"><h2 class="section-title">פונקציה קווית וריבועית</h2>
-                <div class="item"><span class="desc">משוואת ישר מפורשת</span><span class="math">y = mx + b</span></div>
-                <div class="item"><span class="desc">נוסחת שיפוע</span><span class="math">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</span></div>
-                <div class="item"><span class="desc">משוואת פרבולה</span><span class="math">y = ax² + bx + c</span></div>
-                <div class="item"><span class="desc">קודקוד פרבולה</span><span class="math">x<sub>v</sub> = -b / (2a)</span></div>
-            </div>`;
-        } else if (currentTopic === 'equations' || currentTopic === 'algebraic_fractions' || currentTopic.includes('review')) {
-            formulasHtml += `
-            <div class="section"><h2 class="section-title">כפל מקוצר ומשוואות</h2>
-                <div class="item"><span class="desc">סכום/הפרש בריבוע</span><span class="math">(a ± b)² = a² ± 2ab + b²</span></div>
-                <div class="item"><span class="desc">הפרש ריבועים</span><span class="math">a² - b² = (a - b)(a + b)</span></div>
-                <div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b ± √(b² - 4ac)) / (2a)</span></div>
-            </div>`;
-        } else {
-             formulasHtml += `
-             <div class="section"><h2 class="section-title">נוסחאות כלליות</h2>
-                <div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b ± √(b² - 4ac)) / (2a)</span></div>
-                <div class="item"><span class="desc">הפרש ריבועים</span><span class="math">a² - b² = (a - b)(a + b)</span></div>
-            </div>`;
-        }
-        formulasHtml += `</body></html>`;
+            <div style="text-align: center; margin-top: 30px; font-weight: 600; color: #94a3b8; font-size: 0.9rem;">נכתב והותאם במיוחד עבור המרכז להישגים לימודיים.</div>
+        </body>
+        </html>`;
         formulaWin.document.write(formulasHtml);
         formulaWin.document.close();
     }
@@ -799,10 +847,29 @@
         const grade = urlParams.get('grade'), rawTopic = urlParams.get('topic'), subtopic = urlParams.get('subtopic'), activity = urlParams.get('activity') || "תרגול";
         
         currentTopic = rawTopic || ""; 
-        const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371" };
+        const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
         currentGrade = gradeNames[grade] || grade;
         
-        document.getElementById('header-title').innerText = `${activity} | כיתה ${currentGrade} | ${subtopic || currentTopic}`;
+        // יצירת שם תצוגה ברור וחכם לכותרת 
+        const topicTranslations = {
+            "bagrut_prep": "הכנה לבגרות",
+            "bagrut_prep_35472": "הכנה לבגרות",
+            "bagrut_35582": "הכנה לבגרות",
+            "bagrut_35571": "הכנה לבגרות",
+            "bagrut_35471": "הכנה לבגרות",
+            "bagrut_35372": "הכנה לבגרות",
+            "bagrut_35371": "הכנה לבגרות",
+            "bagrut_5_units": "הכנה לבגרות",
+            "bagrut_5_units_82": "הכנה לבגרות"
+        };
+        
+        let displayTopic = topicTranslations[currentTopic] || currentTopic;
+        if (!topicTranslations[currentTopic] && currentTopic.includes('bagrut')) {
+            displayTopic = "הכנה לבגרות";
+        }
+        
+        // הצגת הכותרת בדיוק כפי שהתבקש
+        document.getElementById('header-title').innerText = `${activity} | כיתה ${currentGrade} | ${displayTopic}${subtopic ? ' - ' + subtopic : ''}`;
         
         const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
         returnUrl = `math.html?grade=${encodeURIComponent(backMap[grade] || grade)}`;
@@ -812,7 +879,6 @@
         
         let safeTopic = currentTopic.replace(/\s+/g, '_').replace(/'/g, '');
 
-        // --- הניתוב המתוקן למציאת הקבצים שביקשת ---
         if (grade === "bar_ilan" || grade === "5_6_bar_ilan") {
             filePath = `data/5_6_bar_ilan.js`;
         } else if (grade === "5_6" || grade === "ה-ו") {

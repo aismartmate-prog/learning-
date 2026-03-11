@@ -1,0 +1,681 @@
+const questionsDB = [
+    // ========================================================================
+    // תת נושא 1: מושג הפונקציה
+    // ========================================================================
+
+    // --- שאלה 1 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "איזו מבין המשוואות הבאות מייצגת פונקציה לינארית (קווית) תקינה?",
+        options: ["\u202Ay = 4x - 7\u202C", "\u202Ay = x² + 2\u202C", "\u202Ay = 5 / x\u202C", "\u202Ay = √x + 3\u202C"],
+        correctAnswer: 0,
+        hint: "פונקציה לינארית חייבת להיות מהצורה y = mx + b, כאשר המשתנה x נמצא בחזקה ראשונה בלבד, אינו במכנה ואינו בתוך שורש.",
+        solution_steps: [
+            { verbal_explanation: "נבחן את התשובות. פונקציה לינארית מתארת קו ישר ומשוואתה הכללית ממעלה ראשונה.", math_expression: "\u202Ay = mx + b\u202C" },
+            { verbal_explanation: "האפשרות השנייה מכילה איקס בריבוע, לכן היא פונקציה ריבועית (פרבולה) ולא קווית.", math_expression: "\u202Ax²\u202C" },
+            { verbal_explanation: "האפשרות השלישית מכילה איקס במכנה, זוהי פונקציה רציונלית.", math_expression: "\u202A5 / x\u202C" },
+            { verbal_explanation: "רק האפשרות הראשונה עונה להגדרה: מספר כפול איקס ועוד מספר חופשי.", math_expression: "\u202Ay = 4x - 7\u202C" }
+        ],
+        final_answer: "\u202Ay = 4x - 7\u202C"
+    },
+
+    // --- שאלה 2 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "נתונה הפונקציה הקווית הבאה:<br><br>\u202Ay = -3x + 8\u202C<br><br>מהם השיפוע של הפונקציה ונקודת החיתוך שלה עם ציר ה-y?",
+        options: ["השיפוע הוא -3 והחיתוך עם ציר ה-y הוא בנקודה (0,8)", "השיפוע הוא 3 והחיתוך עם ציר ה-y הוא בנקודה (0,-8)", "השיפוע הוא 8 והחיתוך עם ציר ה-y הוא בנקודה (0,-3)", "השיפוע הוא -3x והחיתוך עם ציר ה-y הוא בנקודה (8,0)"],
+        correctAnswer: 0,
+        hint: "במשוואה מהצורה y = mx + b, המספר שכופל את ה-x (ה-m) הוא השיפוע, והמספר החופשי (ה-b) הוא ערך ה-y שבו הישר חותך את הציר האנכי.",
+        solution_steps: [
+            { verbal_explanation: "נסתכל על מבנה הפונקציה. המקדם של המשתנה איקס מציין את שיפוע הישר (m).", math_expression: "\u202Am = -3\u202C" },
+            { verbal_explanation: "המספר החופשי (שאינו צמוד למשתנה) מציין את גובה החיתוך עם ציר ה-y (b).", math_expression: "\u202Ab = 8\u202C" },
+            { verbal_explanation: "נקודת חיתוך עם ציר ה-y תמיד מאופיינת בכך ששיעור האיקס שלה הוא אפס.", math_expression: "\u202Ax = 0  =>  y = 8\u202C" },
+            { verbal_explanation: "לכן הנקודה המלאה היא אפס פסיק שמונה.", math_expression: "\u202A(0 , 8)\u202C" }
+        ],
+        final_answer: "השיפוע הוא -3 והחיתוך עם ציר ה-y הוא בנקודה (0,8)"
+    },
+
+    // --- שאלה 3 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "נתונה הפונקציה:<br><br>\u202Af(x) = 5x - 2\u202C<br><br>חשבו את ערכה של הפונקציה כאשר \u202Ax = 4\u202C (כלומר, מצאו את f(4)).",
+        options: ["18", "20", "22", "15"],
+        correctAnswer: 0,
+        hint: "הכיתוב f(4) אומר בפשטות: 'הציבו את המספר 4 במקום האות x בתוך המשוואה, וחשבו את התוצאה'.",
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא את ערך הפונקציה עבור איקס מסוים, נציב את המספר הנתון במקום המשתנה איקס במשוואה.", math_expression: "\u202Af(4) = 5 × 4 - 2\u202C" },
+            { verbal_explanation: "על פי סדר פעולות חשבון, נבצע קודם את פעולת הכפל.", math_expression: "\u202A5 × 4 = 20\u202C" },
+            { verbal_explanation: "נשלים את התרגיל על ידי חיסור שתיים מהתוצאה.", math_expression: "\u202A20 - 2 = 18\u202C" }
+        ],
+        final_answer: "18"
+    },
+
+    // --- שאלה 4 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "נתונה הפונקציה הקווית:<br><br>\u202Ay = -2x + 10\u202C<br><br>עבור איזה ערך של \u202Ax\u202C, הפונקציה מקבלת את הערך \u202Ay = 24\u202C?",
+        options: ["-7", "7", "-14", "14"],
+        correctAnswer: 0,
+        hint: "הפעם נתון לנו ה-y ולא ה-x. הציבו את המספר 24 במקום ה-y במשוואה, ופתרו משוואה בנעלם אחד כדי למצוא את ה-x.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערך עשרים וארבע במקום המשתנה וואי בצד השמאלי של המשוואה.", math_expression: "\u202A24 = -2x + 10\u202C" },
+            { verbal_explanation: "נעביר את המספר עשר לאגף השמאלי בחיסור כדי לבודד את איבר האיקס.", math_expression: "\u202A24 - 10 = -2x\u202C" },
+            { verbal_explanation: "נחשב את ההפרש באגף שמאל.", math_expression: "\u202A14 = -2x\u202C" },
+            { verbal_explanation: "נחלק את המשוואה במינוס שתיים כדי למצוא את המשתנה איקס.", math_expression: "\u202Ax = 14 / (-2) = -7\u202C" }
+        ],
+        final_answer: "-7"
+    },
+
+    // --- שאלה 5 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "סדרו את המשוואה הבאה כך שתהיה בצורה הסטנדרטית של פונקציה לינארית (\u202Ay = mx + b\u202C), וציינו מהו השיפוע שלה:<br><br>\u202A3y - 6x = 12\u202C",
+        options: ["השיפוע הוא 2", "השיפוע הוא 6", "השיפוע הוא -6", "השיפוע הוא -2"],
+        correctAnswer: 0,
+        hint: "כדי למצוא שיפוע, ה-y חייב להיות מבודד לחלוטין וללא מקדם. העבירו את ה-x לאגף ימין, ולאחר מכן חלקו את כל המשוואה ב-3.",
+        solution_steps: [
+            { verbal_explanation: "המשוואה אינה מסודרת. המטרה היא לבודד את המשתנה וואי בצד שמאל. נעביר את שש איקס לצד ימין.", math_expression: "\u202A3y = 6x + 12\u202C" },
+            { verbal_explanation: "לוואי יש עדיין מקדם שלוש. כדי להגיע לצורה התקנית, נחלק את כל המשוואה בשלוש.", math_expression: "\u202Ay = (6x) / 3 + 12 / 3\u202C" },
+            { verbal_explanation: "נפשט את השברים ונקבל את הפונקציה בצורתה הסופית והברורה.", math_expression: "\u202Ay = 2x + 4\u202C" },
+            { verbal_explanation: "כעת קל לראות שהמקדם של איקס, שהוא השיפוע, עומד על שתיים.", math_expression: "\u202Am = 2\u202C" }
+        ],
+        final_answer: "השיפוע הוא 2"
+    },
+
+    // --- שאלה 6 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "איזו מבין הפונקציות הבאות היא פונקציה 'קבועה', כלומר פונקציה שהגרף שלה הוא קו ישר המקביל לציר ה-x?",
+        options: ["\u202Ay = 7\u202C", "\u202Ay = 7x\u202C", "\u202Ay = x + 7\u202C", "\u202Ax = 7\u202C"],
+        correctAnswer: 0,
+        hint: "פונקציה קבועה היא פונקציה שאין בה שינוי. השיפוע שלה הוא אפס, ולכן המשתנה x נעלם ממנה לחלוטין. נשאר רק מספר חופשי.",
+        solution_steps: [
+            { verbal_explanation: "פונקציה קבועה שומרת על אותו ערך של וואי לכל אורך ציר האיקס, כלומר השיפוע שלה הוא אפס.", math_expression: "\u202Am = 0\u202C" },
+            { verbal_explanation: "נציב שיפוע אפס בנוסחת הפונקציה הכללית.", math_expression: "\u202Ay = 0 × x + b\u202C" },
+            { verbal_explanation: "האיבר המכיל את איקס מתאפס, ואנו נותרים עם משוואה בה וואי שווה למספר קבוע בלבד.", math_expression: "\u202Ay = b\u202C" },
+            { verbal_explanation: "התשובה היחידה שמתאימה לתבנית זו היא וואי שווה שבע.", math_expression: "\u202Ay = 7\u202C" }
+        ],
+        final_answer: "\u202Ay = 7\u202C"
+    },
+
+    // --- שאלה 7 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "בעיה מילולית: טכנאי מחשבים גובה 150 שקלים על עצם הביקור בבית הלקוח, ועוד 80 שקלים עבור כל שעת עבודה. אם נסמן את מספר שעות העבודה ב-x ואת התשלום הכולל ב-y, איזו פונקציה מתארת את התשלום?",
+        options: ["\u202Ay = 80x + 150\u202C", "\u202Ay = 150x + 80\u202C", "\u202Ay = 230x\u202C", "\u202Ay = x(150 + 80)\u202C"],
+        correctAnswer: 0,
+        hint: "הסכום הקבוע והחד-פעמי (ביקור) הוא ה-b שלכם. התעריף שמשתנה בכל שעה (קצב השינוי) הוא השיפוע שלכם, ה-m. בנו את הפונקציה.",
+        solution_steps: [
+            { verbal_explanation: "נזהה את הערך ההתחלתי. הלקוח משלם מאה וחמישים שקלים גם אם לא בוצעה שום עבודה (זמן אפס). זהו ה-b.", math_expression: "\u202Ab = 150\u202C" },
+            { verbal_explanation: "קצב השינוי הוא התשלום המתווסף על כל שעה שעוברת. על כל איקס שנוסף, המחיר עולה בשמונים. זהו השיפוע.", math_expression: "\u202Am = 80\u202C" },
+            { verbal_explanation: "נציב את הנתונים שמצאנו אל תוך משוואת הפונקציה הלינארית הכללית.", math_expression: "\u202Ay = mx + b  =>  y = 80x + 150\u202C" }
+        ],
+        final_answer: "\u202Ay = 80x + 150\u202C"
+    },
+
+    // --- שאלה 8 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "נתונות שתי פונקציות קוויות:<br>\u202A1. y = 3x - 5\u202C<br>\u202A2. y = 3x + 10\u202C<br>איזה מן המשפטים הבאים מתאר נכונה את הקשר הגיאומטרי בין שני הישרים הללו?",
+        options: ["הישרים מקבילים זה לזה לעולם לא ייפגשו", "הישרים נחתכים בדיוק בנקודה אחת", "הישרים מתלכדים ויושבים זה על זה", "הישרים מאונכים זה לזה ויוצרים זווית של 90 מעלות"],
+        correctAnswer: 0,
+        hint: "הביטו על השיפועים (המקדם של x) של שתי הפונקציות. כאשר לשני ישרים יש בדיוק את אותו השיפוע אך נקודות חיתוך שונות עם ציר ה-y, הם מקבילים.",
+        solution_steps: [
+            { verbal_explanation: "נחלץ את השיפועים של שתי הפונקציות הנתונות על סמך המקדם של איקס.", math_expression: "\u202Am1 = 3 , m2 = 3\u202C" },
+            { verbal_explanation: "נחלץ את נקודות החיתוך עם הציר האנכי, המספרים החופשיים שבמשוואה.", math_expression: "\u202Ab1 = -5 , b2 = 10\u202C" },
+            { verbal_explanation: "כלל ברזל בגיאומטריה אנליטית: לישרים בעלי שיפוע זהה וחיתוך שונה אין אף נקודה משותפת והם מוגדרים כמקבילים.", math_expression: "\u202Am1 = m2  and  b1 ≠ b2\u202C" }
+        ],
+        final_answer: "הישרים מקבילים זה לזה לעולם לא ייפגשו"
+    },
+
+    // --- שאלה 9 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "מה ניתן להסיק בוודאות על הפונקציה הלינארית \u202Ay = -4x + 1\u202C רק מהתבוננות במשוואה שלה?",
+        options: ["זוהי פונקציה יורדת כי השיפוע שלה שלילי", "זוהי פונקציה עולה כי החיתוך שלה עם ציר ה-y חיובי", "היא עוברת דרך ראשית הצירים (0,0)", "השיפוע שלה הוא 1 ונקודת החיתוך היא 4"],
+        correctAnswer: 0,
+        hint: "כיוון הפונקציה (עולה או יורדת) נקבע אך ורק על פי סימן השיפוע שלה. אם ה-m חיובי היא עולה, ואם ה-m שלילי היא יורדת.",
+        solution_steps: [
+            { verbal_explanation: "בפונקציה לינארית, תכונת העלייה או הירידה נקבעת על ידי המקדם של המשתנה איקס.", math_expression: "\u202Am = -4\u202C" },
+            { verbal_explanation: "כאשר השיפוע קטן מאפס (מספר שלילי), הפונקציה יורדת - כלומר ככל שאיקס גדל, וואי קטן.", math_expression: "\u202Am < 0\u202C" },
+            { verbal_explanation: "המספר החופשי אחד מציין את נקודת ההתחלה, אך אינו משפיע על כיוון המגמה של הישר.", math_expression: "\u202Ab = 1\u202C" }
+        ],
+        final_answer: "זוהי פונקציה יורדת כי השיפוע שלה שלילי"
+    },
+
+    // --- שאלה 10 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "מושג הפונקציה",
+        question: "נתונה פונקציה המייצגת את יתרת הכסף (y) בכרטיסיה של מתקני שעשועים, לאחר שעלו על x מתקנים:<br><br>\u202Ay = 100 - 15x\u202C<br><br>מהי המשמעות הכלכלית של המספרים 100 ו-15 בסיפור זה?",
+        options: ["היו בכרטיסיה 100 שקלים, וכל מתקן עולה 15 שקלים", "היו בכרטיסיה 15 שקלים, וכל מתקן עולה 100 שקלים", "העלות הכוללת היא 100 שקלים עבור 15 מתקנים", "המשפחה שילמה 115 שקלים סך הכל"],
+        correctAnswer: 0,
+        hint: "המספר שאינו תלוי ב-x הוא המצב ההתחלתי לפני שבוצעה פעולה (לפני שעלו על מתקנים). המקדם של x מראה בכמה יורדת היתרה בכל פעם שעולים על מתקן אחד.",
+        solution_steps: [
+            { verbal_explanation: "המספר החופשי במשוואה הוא מאה. זהו מצב הפונקציה כאשר איקס שווה אפס. כלומר, כמות הכסף בכרטיסיה לפני שעלו למתקן כלשהו.", math_expression: "\u202Ax = 0  =>  y = 100\u202C" },
+            { verbal_explanation: "השיפוע של הפונקציה הוא מינוס חמש עשרה. פירוש הדבר הוא שעל כל מתקן נוסף שעולים עליו (הגדלת איקס באחד), היתרה פוחתת בחמישה עשר שקלים.", math_expression: "\u202Am = -15\u202C" }
+        ],
+        final_answer: "היו בכרטיסיה 100 שקלים, וכל מתקן עולה 15 שקלים"
+    },
+
+    // ========================================================================
+    // תת נושא 2: טבלה
+    // ========================================================================
+
+    // --- שאלה 11 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `לפניכם טבלת ערכים של פונקציה לינארית:<br><br>
+        <table style="width:80%; max-width: 300px; text-align:center; border-collapse: collapse; margin: 15px auto; border: 2px solid #0f172a; font-size: 1.1em;">
+            <tr style="background:#cbd5e1; font-weight:bold;">
+                <td style="border: 1px solid #0f172a; padding: 8px;">x</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">1</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">2</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">3</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #0f172a; padding: 8px; font-weight:bold; background:#e2e8f0;">y</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">5</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">8</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">11</td>
+            </tr>
+        </table>
+        מהו שיפוע הפונקציה המתוארת בטבלה?`,
+        options: ["3", "5", "8", "2"],
+        correctAnswer: 0,
+        hint: "שיפוע (קצב השתנות) בטבלה מחושב על ידי בדיקה בכמה גדל ערך ה-y, כאשר ה-x גדל בצעד אחד (קפיצה מ-1 ל-2, למשל).",
+        solution_steps: [
+            { verbal_explanation: "שיפוע הפונקציה מוגדר כהפרש ערכי הוואי חלקי הפרש ערכי האיקס.", math_expression: "\u202Am = (y2 - y1) / (x2 - x1)\u202C" },
+            { verbal_explanation: "נבחר שתי נקודות סמוכות מהטבלה. למשל הנקודה הראשונה והנקודה השנייה.", math_expression: "\u202A(1, 5) , (2, 8)\u202C" },
+            { verbal_explanation: "נחשב את השינוי בערך של וואי. משמונה נחסר חמש ונקבל עלייה של שלוש.", math_expression: "\u202A8 - 5 = 3\u202C" },
+            { verbal_explanation: "מכיוון שהשינוי באיקס הוא בדיוק צעד אחד (משתיים נחסר אחד), השיפוע שווה בדיוק לעלייה בערכי הוואי.", math_expression: "\u202Am = 3 / 1 = 3\u202C" }
+        ],
+        final_answer: "3"
+    },
+
+    // --- שאלה 12 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `לפניכם טבלת ערכים חלקית של פונקציה לינארית. מצאו את המספר החסר המסומן בסימן שאלה:<br><br>
+        <table style="width:80%; max-width: 300px; text-align:center; border-collapse: collapse; margin: 15px auto; border: 2px solid #0f172a; font-size: 1.1em;">
+            <tr style="background:#f1f5f9; font-weight:bold;">
+                <td style="border: 1px solid #0f172a; padding: 8px; background:#cbd5e1;">x</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">2</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">3</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">4</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #0f172a; padding: 8px; font-weight:bold; background:#e2e8f0;">y</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">10</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">14</td>
+                <td style="border: 1px solid #0f172a; padding: 8px; color:#ef4444; font-weight:900;">?</td>
+            </tr>
+        </table>`,
+        options: ["18", "16", "20", "15"],
+        correctAnswer: 0,
+        hint: "בידקו את החוקיות: בכמה גדל ה-y כשעוברים מעמודה לעמודה? כש-x עלה מ-2 ל-3, ה-y עלה מ-10 ל-14 (קפיצה של 4). הוסיפו 4 לערך האחרון.",
+        solution_steps: [
+            { verbal_explanation: "נמצא תחילה את קצב השינוי הקבוע (השיפוע) על ידי חישוב ההפרש בין שני ערכי וואי סמוכים וידועים.", math_expression: "\u202A14 - 10 = 4\u202C" },
+            { verbal_explanation: "מכיוון שערכי האיקס בטבלה עולים בקפיצות יחידות ומסודרות, אנו יודעים שבכל עמודה יתווספו בדיוק 4 יחידות.", math_expression: "\u202A+4\u202C" },
+            { verbal_explanation: "ניקח את ערך הוואי האחרון שידוע לנו ונוסיף לו את קצב השינוי שמצאנו כדי לגלות את הערך הבא בתור.", math_expression: "\u202A14 + 4 = 18\u202C" }
+        ],
+        final_answer: "18"
+    },
+
+    // --- שאלה 13 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `מהי משוואת הפונקציה המתארת בדיוק את הקשר בין x ל-y בטבלה הבאה?<br><br>
+        <table style="width:80%; max-width: 300px; text-align:center; border-collapse: collapse; margin: 15px auto; border: 2px solid #0f172a; font-size: 1.1em;">
+            <tr style="background:#f1f5f9; font-weight:bold;">
+                <td style="border: 1px solid #0f172a; padding: 8px; background:#cbd5e1;">x</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">0</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">1</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">2</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #0f172a; padding: 8px; font-weight:bold; background:#e2e8f0;">y</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">6</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">8</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">10</td>
+            </tr>
+        </table>`,
+        options: ["\u202Ay = 2x + 6\u202C", "\u202Ay = 6x + 2\u202C", "\u202Ay = 2x\u202C", "\u202Ay = x + 6\u202C"],
+        correctAnswer: 0,
+        hint: "העמודה שבה x=0 מספקת לכם במתנה את ערך ה-b (נקודת החיתוך עם ציר y). קפיצות ה-y (מ-6 ל-8) מספקות לכם את השיפוע m.",
+        solution_steps: [
+            { verbal_explanation: "נמצא את החיתוך עם ציר הוואי (המספר החופשי במשוואה). נחפש בטבלה את העמודה בה המשתנה איקס מתאפס.", math_expression: "\u202Ax = 0  =>  y = 6  =>  b = 6\u202C" },
+            { verbal_explanation: "נמצא את השיפוע על ידי חישוב ההפרש בין העמודה השנייה לראשונה.", math_expression: "\u202Am = 8 - 6 = 2\u202C" },
+            { verbal_explanation: "נרכיב את משוואת הפונקציה השלמה על סמך התבנית המוכרת ועל סמך הנתונים שחילצנו כרגע מהטבלה.", math_expression: "\u202Ay = 2x + 6\u202C" }
+        ],
+        final_answer: "\u202Ay = 2x + 6\u202C"
+    },
+
+    // --- שאלה 14 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `לפניכם טבלת ערכים של פונקציה יורדת. מצאו את המספר החסר:<br><br>
+        <table style="width:80%; max-width: 300px; text-align:center; border-collapse: collapse; margin: 15px auto; border: 2px solid #0f172a; font-size: 1.1em;">
+            <tr style="background:#f1f5f9; font-weight:bold;">
+                <td style="border: 1px solid #0f172a; padding: 8px; background:#cbd5e1;">x</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">2</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">3</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">4</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #0f172a; padding: 8px; font-weight:bold; background:#e2e8f0;">y</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">15</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">10</td>
+                <td style="border: 1px solid #0f172a; padding: 8px; color:#ef4444; font-weight:900;">?</td>
+            </tr>
+        </table>`,
+        options: ["5", "0", "-5", "8"],
+        correctAnswer: 0,
+        hint: "בכל התקדמות של צעד ב-x, ה-y הולך ופוחת. בידקו בכמה הוא פוחת מ-15 ל-10. החסירו את אותו גודל מ-10 כדי למצוא את העמודה הבאה.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את קצב השינוי על ידי חיסור ערך הוואי הישן מערך הוואי החדש. עשר פחות חמש עשרה מעיד על ירידה.", math_expression: "\u202A10 - 15 = -5\u202C" },
+            { verbal_explanation: "נחיל את מגמת הירידה על הערך האחרון הידוע בטבלה כדי למצוא את המשך הסדרה המבוקש.", math_expression: "\u202A10 - 5 = 5\u202C" }
+        ],
+        final_answer: "5"
+    },
+
+    // --- שאלה 15 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `אתגר דילוגים בטבלה! מצאו את השיפוע ואת הערך החסר בטבלה הבאה, שבה קפיצות ה-x אינן רציפות:<br><br>
+        <table style="width:80%; max-width: 300px; text-align:center; border-collapse: collapse; margin: 15px auto; border: 2px solid #0f172a; font-size: 1.1em;">
+            <tr style="background:#f1f5f9; font-weight:bold;">
+                <td style="border: 1px solid #0f172a; padding: 8px; background:#cbd5e1;">x</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">0</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">2</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">5</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #0f172a; padding: 8px; font-weight:bold; background:#e2e8f0;">y</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">4</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">10</td>
+                <td style="border: 1px solid #0f172a; padding: 8px; color:#ef4444; font-weight:900;">?</td>
+            </tr>
+        </table>`,
+        options: ["19", "16", "20", "15"],
+        correctAnswer: 0,
+        hint: "חשבו שיפוע בעזרת הנוסחה: הפרש ה-y מחולק בהפרש ה-x (קפיצה של 2 ב-x נתנה עלייה של 6 ב-y, ולכן קפיצה של 1 ב-x נותנת...). לאחר שתדעו את השיפוע, תבינו שהקפיצה מ-2 ל-5 היא של 3 צעדים.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את השיפוע המדויק על ידי חלוקת העלייה בוואי בהתקדמות המקבילה בציר האיקס. הפרש הוואי הוא שש, מול הפרש איקס שהוא שתיים.", math_expression: "\u202Am = (10 - 4) / (2 - 0) = 6 / 2 = 3\u202C" },
+            { verbal_explanation: "כעת נתבונן בדילוג לעמודה האחרונה. האיקס קפץ משתיים לחמש, כלומר התקדמות של שלושה צעדים שלמים.", math_expression: "\u202A\u0394x = 5 - 2 = 3\u202C" },
+            { verbal_explanation: "על כל צעד בודד, הוואי עולה בשלוש. לכן על שלושה צעדים הוא יעלה בתשע.", math_expression: "\u202A\u0394y = 3 &times; 3 = 9\u202C" },
+            { verbal_explanation: "נוסיף את התוספת הזו לערך הוואי האחרון שידענו.", math_expression: "\u202A10 + 9 = 19\u202C" }
+        ],
+        final_answer: "19"
+    },
+
+    // --- שאלה 16 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: "טבלת ערכים מראה שעבור x=1, ה-y הוא 10. ועבור x=2, ה-y הוא 10. ועבור x=3, ה-y הוא גם 10. איזו פונקציה זו?",
+        options: ["\u202Ay = 10\u202C", "\u202Ay = 10x\u202C", "\u202Ax = 10\u202C", "\u202Ay = x + 10\u202C"],
+        correctAnswer: 0,
+        hint: "זהו המקרה הקלאסי של פונקציה קבועה. כיוון שאין שום שינוי בערך ה-y, השיפוע הוא 0. הפונקציה לא תלויה כלל ב-x.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את השיפוע דרך הפרשי הערכים. עשר פחות עשר שווה אפס. השיפוע מאופס לחלוטין.", math_expression: "\u202Am = (10 - 10) / (2 - 1) = 0\u202C" },
+            { verbal_explanation: "נציב שיפוע אפס למשוואת הישר הכללית.", math_expression: "\u202Ay = 0 &times; x + b\u202C" },
+            { verbal_explanation: "מכיוון שהוואי תמיד תקוע על המספר עשר, הרי שהמספר החופשי (החיתוך) הוא עשר והוא מהווה את הפונקציה כולה.", math_expression: "\u202Ay = 10\u202C" }
+        ],
+        final_answer: "\u202Ay = 10\u202C"
+    },
+
+    // --- שאלה 17 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `טבלה מתארת תשלום חודשי (y) עבור חוג, כאשר x הוא מספר החודשים.<br><br>
+        <table style="width:80%; max-width: 300px; text-align:center; border-collapse: collapse; margin: 15px auto; border: 2px solid #0f172a; font-size: 1.1em;">
+            <tr style="background:#f1f5f9; font-weight:bold;">
+                <td style="border: 1px solid #0f172a; padding: 8px; background:#cbd5e1;">חודש (x)</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">0</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">1</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">2</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #0f172a; padding: 8px; font-weight:bold; background:#e2e8f0;">תשלום (y)</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">150</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">250</td>
+                <td style="border: 1px solid #0f172a; padding: 8px;">350</td>
+            </tr>
+        </table>
+        מהו התשלום הראשוני (דמי ההרשמה) ומהו התשלום עבור כל חודש נוסף?`,
+        options: ["הרשמה: 150, תשלום חודשי: 100", "הרשמה: 0, תשלום חודשי: 150", "הרשמה: 100, תשלום חודשי: 150", "הרשמה: 250, תשלום חודשי: 100"],
+        correctAnswer: 0,
+        hint: "דמי ההרשמה נגבים בחודש 0 (לפני שהתחיל החוג). התשלום החודשי הוא ההפרש בתשלום בין חודש לחודש (השיפוע של הפונקציה).",
+        solution_steps: [
+            { verbal_explanation: "דמי הרשמה הם התשלום המשולם בהתחלה, כאשר טרם עברו חודשים. נחפש בטבלה את עמודת האפס.", math_expression: "\u202Ax = 0  =>  y = 150\u202C" },
+            { verbal_explanation: "התשלום החודשי השוטף מיוצג על ידי התוספת למחיר בכל חודש שעובר. נחשב את הפרש הוואי בין עמודה לעמודה.", math_expression: "\u202A250 - 150 = 100\u202C" },
+            { verbal_explanation: "מסקנה: המחיר ההתחלתי (b) הוא 150, וקצב השינוי (m) הוא 100.", math_expression: "\u202Ay = 100x + 150\u202C" }
+        ],
+        final_answer: "הרשמה: 150, תשלום חודשי: 100"
+    },
+
+    // --- שאלה 18 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `טבלת נתונים חסרה לחלוטין. אנו יודעים שהפונקציה הלינארית היא \u202Ay = -2x + 12\u202C.<br>מה אמור להיות הערך של x בטבלה בעמודה שבה y = 0?`,
+        options: ["6", "-6", "12", "0"],
+        correctAnswer: 0,
+        hint: "שאלה זו דורשת למצוא למעשה את נקודת החיתוך עם ציר ה-x. פשוט הציבו אפס במקום y בתוך משוואת הפונקציה, ופתרו כדי למצוא את ה-x.",
+        solution_steps: [
+            { verbal_explanation: "אנו מתבקשים למצוא את ערך האיקס שמאפס את הפונקציה. נציב אפס בתוך תבנית המשוואה הנתונה במקום הוואי.", math_expression: "\u202A0 = -2x + 12\u202C" },
+            { verbal_explanation: "נעביר את המשתנה השלילי לאגף הנגדי כדי להפוך אותו לחיובי ולבודד אותו.", math_expression: "\u202A2x = 12\u202C" },
+            { verbal_explanation: "נחלק בשתיים לקבלת הערך המדויק לעמודה זו בטבלה.", math_expression: "\u202Ax = 6\u202C" }
+        ],
+        final_answer: "6"
+    },
+
+    // --- שאלה 19 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: `איזו מהטבלאות הבאות מתאימה במדויק לפונקציה: \u202Ay = x - 2\u202C?`,
+        options: [
+            `x: 2, 4, 6<br>y: 0, 2, 4`,
+            `x: 0, 1, 2<br>y: 2, 3, 4`,
+            `x: 2, 3, 4<br>y: 4, 5, 6`,
+            `x: -2, 0, 2<br>y: 0, -2, -4`
+        ],
+        correctAnswer: 0,
+        hint: "קחו מספרים מהטבלה, הציבו אותם במקום x בפונקציה, ובדקו אם ה-y שיוצא בחישוב מתאים בדיוק ל-y שרשום בטבלה.",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את האפשרות הראשונה. נציב איקס שווה שתיים במשוואה.", math_expression: "\u202Ay = 2 - 2 = 0\u202C" },
+            { verbal_explanation: "נציב איקס שווה ארבע כדי לאמת את המשך הטבלה.", math_expression: "\u202Ay = 4 - 2 = 2\u202C" },
+            { verbal_explanation: "נציב איקס שווה שש.", math_expression: "\u202Ay = 6 - 2 = 4\u202C" },
+            { verbal_explanation: "הערכים המחושבים תואמים לחלוטין לזוגות המספרים המוצעים בתשובה הראשונה.", math_expression: "\u202A(2,0) , (4,2) , (6,4)\u202C" }
+        ],
+        final_answer: `x: 2, 4, 6<br>y: 0, 2, 4`
+    },
+
+    // --- שאלה 20 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "טבלה",
+        question: "בטבלה המתארת את פונקציית צריכת החשמל (y שקלים) ביחס לשעות עבודת המזגן (x שעות), מופיעים הזוגות הבאים: <br>\u202A(1 , 5.5)\u202C וכן \u202A(3 , 16.5)\u202C.<br>מהי עלות החשמל עבור שעה אחת של עבודה?",
+        options: ["5.5 שקלים", "11 שקלים", "5 שקלים", "3 שקלים"],
+        correctAnswer: 0,
+        hint: "נקודות בטבלה הן פשוט שיעורים. כאשר שעות העבודה (x) הן 1, עלות החשמל (y) היא 5.5. זוהי המשמעות הישירה של הזוג הראשון.",
+        solution_steps: [
+            { verbal_explanation: "בכל פונקציה מילולית, הזוגות בטבלה או בגרף מציינים את הקשר הישיר בין המשתנים.", math_expression: "\u202A(x, y)\u202C" },
+            { verbal_explanation: "הוצג לנו במפורש הזוג המייצג שעת עבודה אחת. נסתכל על ערך הוואי המקושר לאיקס שהוא אחד.", math_expression: "\u202Ax = 1  =>  y = 5.5\u202C" },
+            { verbal_explanation: "אין צורך בחישובים מורכבים במקרה זה, התשובה נגזרת ישירות מהבנת הקריאה של הנתונים בטבלה.", math_expression: "\u202A5.5\u202C" }
+        ],
+        final_answer: "5.5 שקלים"
+    },
+
+    // ========================================================================
+    // תת נושא 3: גרף
+    // ========================================================================
+
+    // --- שאלה 21 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `איזה מהמשפטים הבאים מתאר בצורה הנכונה ביותר את הגרף המופיע בסרטוט?<br><br>
+        <svg viewBox="0 0 200 200" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
+            <g stroke="#e2e8f0" stroke-width="1">
+                <line x1="0" y1="50" x2="200" y2="50"/>
+                <line x1="0" y1="100" x2="200" y2="100"/>
+                <line x1="0" y1="150" x2="200" y2="150"/>
+                <line x1="50" y1="0" x2="50" y2="200"/>
+                <line x1="100" y1="0" x2="100" y2="200"/>
+                <line x1="150" y1="0" x2="150" y2="200"/>
+            </g>
+            <line x1="0" y1="100" x2="200" y2="100" stroke="#0f172a" stroke-width="2"/>
+            <line x1="100" y1="0" x2="100" y2="200" stroke="#0f172a" stroke-width="2"/>
+            <text x="190" y="90" font-size="12" fill="#0f172a" font-weight="bold">x</text>
+            <text x="110" y="15" font-size="12" fill="#0f172a" font-weight="bold">y</text>
+            <line x1="0" y1="150" x2="200" y2="50" stroke="#ef4444" stroke-width="3"/>
+        </svg>`,
+        options: ["פונקציה עולה בעלת שיפוע חיובי", "פונקציה יורדת בעלת שיפוע שלילי", "פונקציה קבועה בעלת שיפוע אפס", "פונקציה שאינה לינארית"],
+        correctAnswer: 0,
+        hint: "קריאת גרפים במתמטיקה נעשית תמיד משמאל לימין. כשאתם מתקדמים על הציר האופקי ימינה, האם הקו האדום מטפס למעלה או יורד למטה?",
+        solution_steps: [
+            { verbal_explanation: "גרף נקרא משמאל לימין, בדיוק כמו קריאת טקסט באנגלית או פעולת ציר המספרים ההולכת וגדלה.", math_expression: "\u202Ax -> \u202C" },
+            { verbal_explanation: "כאשר אנו נעים ימינה בגרף המסורטט, קו הפונקציה מצביע למעלה וערכי הוואי שלו הולכים וגדלים.", math_expression: "\u202A\u0394y > 0\u202C" },
+            { verbal_explanation: "התנהגות זו מגדירה פונקציה עולה. מבחינה אלגברית, פונקציה עולה מתאפיינת תמיד בשיפוע חיובי.", math_expression: "\u202Am > 0\u202C" }
+        ],
+        final_answer: "פונקציה עולה בעלת שיפוע חיובי"
+    },
+
+    // --- שאלה 22 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `התבוננו בגרף הפונקציה הלינארית. מהי נקודת החיתוך של הפונקציה עם ציר ה-y (מסומנת בנקודה בולטת)?<br><br>
+        <svg viewBox="0 0 200 200" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
+            <g stroke="#e2e8f0" stroke-width="1">
+                <line x1="0" y1="50" x2="200" y2="50"/>
+                <line x1="0" y1="100" x2="200" y2="100"/>
+                <line x1="0" y1="150" x2="200" y2="150"/>
+                <line x1="50" y1="0" x2="50" y2="200"/>
+                <line x1="100" y1="0" x2="100" y2="200"/>
+                <line x1="150" y1="0" x2="150" y2="200"/>
+            </g>
+            <line x1="0" y1="100" x2="200" y2="100" stroke="#0f172a" stroke-width="2"/>
+            <line x1="100" y1="0" x2="100" y2="200" stroke="#0f172a" stroke-width="2"/>
+            <text x="80" y="55" font-size="12" fill="#0f172a">1</text>
+            <text x="80" y="155" font-size="12" fill="#0f172a">-1</text>
+            <line x1="0" y1="0" x2="200" y2="200" stroke="#3b82f6" stroke-width="3"/>
+            <circle cx="100" cy="100" r="5" fill="#ef4444"/>
+        </svg>`,
+        options: ["(0,0)", "(0,1)", "(1,0)", "(0,-1)"],
+        correctAnswer: 0,
+        hint: "הנקודה האדומה המסמנת את החיתוך יושבת בדיוק במרכז צלבי הצירים, היכן שהציר האופקי והציר האנכי נפגשים.",
+        solution_steps: [
+            { verbal_explanation: "נקודת החיתוך עם ציר הוואי היא הנקודה שבה הישר שלנו (הכחול) חותך את הציר האנכי של הגרף.", math_expression: "\u202Ax = 0\u202C" },
+            { verbal_explanation: "אנו רואים שהקו חותך בדיוק בראשית הצירים המרכזית. בראשית הצירים הגובה (וואי) הוא גם כן אפס.", math_expression: "\u202Ay = 0\u202C" },
+            { verbal_explanation: "מכאן שהנקודה היא נקודת האפס המוחלטת של המערכת.", math_expression: "\u202A(0, 0)\u202C" }
+        ],
+        final_answer: "(0,0)"
+    },
+
+    // --- שאלה 23 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `לפניכם ישר שמשוואתו היא \u202Ay = -2x + 6\u202C. מהי נקודת החיתוך של ישר זה עם ציר ה-x?<br><br>
+        <svg viewBox="0 0 200 150" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
+            <line x1="0" y1="100" x2="200" y2="100" stroke="#0f172a" stroke-width="2"/>
+            <line x1="50" y1="0" x2="50" y2="150" stroke="#0f172a" stroke-width="2"/>
+            <line x1="25" y1="0" x2="75" y2="150" stroke="#10b981" stroke-width="3"/>
+            <circle cx="58.3" cy="100" r="5" fill="#f59e0b"/>
+            <text x="65" y="90" font-size="14" fill="#f59e0b" font-weight="bold">?</text>
+        </svg>`,
+        options: ["(3,0)", "(0,6)", "(-3,0)", "(6,0)"],
+        correctAnswer: 0,
+        hint: "חיתוך עם ציר ה-x משמעו שגובה הנקודה הוא אפס (y=0). הציבו 0 במקום y בתוך המשוואה, ופתרו כדי למצוא את ה-x.",
+        solution_steps: [
+            { verbal_explanation: "הכלל למציאת חיתוך עם הציר האופקי (איקס) דורש מאיתנו לאפס את פונקציית הגובה.", math_expression: "\u202Ay = 0\u202C" },
+            { verbal_explanation: "נציב אפס אל תוך משוואת הפונקציה הנתונה ונפתור.", math_expression: "\u202A0 = -2x + 6\u202C" },
+            { verbal_explanation: "נעביר את משתנה האיקס לאגף השני כדי לשנות את סימנו לחיובי.", math_expression: "\u202A2x = 6\u202C" },
+            { verbal_explanation: "נחלק בשתיים לקבלת שיעור האיקס המדויק. הנקודה מתהווה מאיקס שווה שלוש ווואי שווה אפס.", math_expression: "\u202Ax = 3  =>  (3, 0)\u202C" }
+        ],
+        final_answer: "(3,0)"
+    },
+
+    // --- שאלה 24 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `חישוב שיפוע מתוך גרף מרושת. על גרף הפונקציה מסומנות שתי נקודות בולטות על הצמתים. חשבו מהו שיפוע הישר.<br><br>
+        <svg viewBox="0 0 200 200" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
+            <g stroke="#e2e8f0" stroke-width="1">
+                <line x1="0" y1="50" x2="200" y2="50"/>
+                <line x1="0" y1="100" x2="200" y2="100"/>
+                <line x1="0" y1="150" x2="200" y2="150"/>
+                <line x1="50" y1="0" x2="50" y2="200"/>
+                <line x1="100" y1="0" x2="100" y2="200"/>
+                <line x1="150" y1="0" x2="150" y2="200"/>
+            </g>
+            <line x1="0" y1="150" x2="200" y2="150" stroke="#0f172a" stroke-width="2"/> <line x1="50" y1="0" x2="50" y2="200" stroke="#0f172a" stroke-width="2"/> <line x1="0" y1="150" x2="200" y2="50" stroke="#6366f1" stroke-width="3"/>
+            <circle cx="50" cy="150" r="5" fill="#0f172a"/>
+            <text x="30" y="165" font-size="12" font-weight="bold">(0,0)</text>
+            <circle cx="150" cy="100" r="5" fill="#0f172a"/>
+            <text x="155" y="95" font-size="12" font-weight="bold">(2,1)</text>
+            <line x1="50" y1="100" x2="150" y2="100" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+            <line x1="50" y1="150" x2="50" y2="100" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+        </svg>`,
+        options: ["1/2", "2", "1", "-1/2"],
+        correctAnswer: 0,
+        hint: "שיפוע הוא 'עלייה לחלק להתקדמות'. בידקו כמה הישר עולה ב-y (מ-0 ל-1), חלקו בכמה שהוא מתקדם ימינה ב-x (מ-0 ל-2).",
+        solution_steps: [
+            { verbal_explanation: "נחלץ את הקואורדינטות של שתי הנקודות הידועות המופיעות בגרף.", math_expression: "\u202A(0,0) , (2,1)\u202C" },
+            { verbal_explanation: "נציב את הערכים לתוך הנוסחה למציאת שיפוע, המחשבת הפרש וואי חלקי הפרש איקס.", math_expression: "\u202Am = (y2 - y1) / (x2 - x1)\u202C" },
+            { verbal_explanation: "נציב את המספרים במונה ובמכנה.", math_expression: "\u202Am = (1 - 0) / (2 - 0)\u202C" },
+            { verbal_explanation: "נחשב את ההפרשים ונקבל שבר המייצג את שיפוע הגרף.", math_expression: "\u202Am = 1 / 2\u202C" }
+        ],
+        final_answer: "1/2"
+    },
+
+    // --- שאלה 25 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: "איזו מבין משוואות הפונקציות הבאות מתאימה לתיאור של 'ישר המקביל לציר ה-x, והחותך את ציר ה-y בנקודה שלילית'?",
+        options: ["\u202Ay = -5\u202C", "\u202Ay = -5x\u202C", "\u202Ax = -5\u202C", "\u202Ay = x - 5\u202C"],
+        correctAnswer: 0,
+        hint: "ישר המקביל לציר x הוא פונקציה קבועה (אין בה משתנה x). מכיוון שהוא חותך את החלק השלילי, הערך הקבוע שלה חייב להיות מספר שלילי.",
+        solution_steps: [
+            { verbal_explanation: "נעבד את רמזי השאלה. ישר המקביל לציר האיקס הוא ישר אופקי ללא כל עלייה או ירידה. זה אומר שהשיפוע שלו אפס.", math_expression: "\u202Am = 0\u202C" },
+            { verbal_explanation: "נציב שיפוע אפס במשוואת הישר, מה שיעלים את איבר האיקס מהמשוואה.", math_expression: "\u202Ay = 0 &times; x + b  =>  y = b\u202C" },
+            { verbal_explanation: "הישר חותך את ציר הוואי בנקודה שלילית, לכן המספר החופשי בי צריך להיות שלילי. התשובה התואמת את שני התנאים היא וואי שווה מינוס חמש.", math_expression: "\u202Ay = -5\u202C" }
+        ],
+        final_answer: "\u202Ay = -5\u202C"
+    },
+
+    // --- שאלה 26 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `איזה מהמשפטים הבאים נכון לגבי שני הישרים הבאים?<br><br>
+        \u202Aישר א': y = 4x + 2\u202C<br>
+        \u202Aישר ב': y = -4x + 2\u202C`,
+        options: ["הם נחתכים בדיוק על ציר ה-y", "הם מקבילים זה לזה", "הם נחתכים על ציר ה-x", "הם מתלכדים לישר אחד"],
+        correctAnswer: 0,
+        hint: "הביטו על השיפועים ועל המספר החופשי. השיפועים שונים (4 מול מינוס 4) לכן הם לא מקבילים. המספר החופשי (b) זהה בשניהם.",
+        solution_steps: [
+            { verbal_explanation: "נבדוק תחילה את השיפועים. השיפועים שונים לחלוטין ולכן ברור כי הם יחתכו זה את זה ולא יהיו מקבילים.", math_expression: "\u202Am1 = 4 , m2 = -4\u202C" },
+            { verbal_explanation: "נבחן את נקודות החיתוך עם ציר הוואי לפי המספרים החופשיים שבמשוואות.", math_expression: "\u202Ab1 = 2 , b2 = 2\u202C" },
+            { verbal_explanation: "לשני הישרים יש בדיוק את אותה נקודת חיתוך עם ציר הוואי. כלומר נקודת המפגש וההצטלבות שלהם מתרחשת שם בדיוק.", math_expression: "\u202A(0, 2)\u202C" }
+        ],
+        final_answer: "הם נחתכים בדיוק על ציר ה-y"
+    },
+
+    // --- שאלה 27 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: "נתון הגרף של הפונקציה \u202Ay = 2x - 8\u202C. הישר חותך את ציר ה-y בנקודה A ואת ציר ה-x בנקודה B. נוצר משולש ישר זווית AOB (כאשר O היא ראשית הצירים). מהו שטח המשולש?",
+        options: ["16 יח\"ר", "8 יח\"ר", "24 יח\"ר", "32 יח\"ר"],
+        correctAnswer: 0,
+        hint: "אורך הניצב האנכי (גובה) הוא המרחק מ-0 ועד נקודת חיתוך Y. אורך הניצב האופקי (בסיס) הוא המרחק מ-0 ועד חיתוך X. מצאו את שתי נקודות החיתוך, כפלו את האורכים המוחלטים וחלקו ב-2.",
+        solution_steps: [
+            { verbal_explanation: "נמצא את החיתוך עם ציר הוואי. זהו המספר החופשי בפונקציה. אורך ניצב זה הוא הערך המוחלט שלו.", math_expression: "\u202Ay = -8  =>  Length = 8\u202C" },
+            { verbal_explanation: "נמצא חיתוך עם ציר איקס על ידי השוואת הפונקציה לאפס.", math_expression: "\u202A0 = 2x - 8  =>  2x = 8  =>  x = 4\u202C" },
+            { verbal_explanation: "אורך הניצב השני המונח על הרצפה הוא ארבע. נחשב שטח משולש ישר זווית המהווה מחצית ממכפלת שני הניצבים הללו.", math_expression: "\u202AS = (8 &times; 4) / 2\u202C" },
+            { verbal_explanation: "נסיים את החישוב.", math_expression: "\u202AS = 32 / 2 = 16\u202C" }
+        ],
+        final_answer: "16 יח\"ר"
+    },
+
+    // --- שאלה 28 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `גרף פונקציה מסוים עובר דרך ראשית הצירים (0,0) ודרך הנקודה (3,15). איזו פונקציה מיוצגת בגרף זה?`,
+        options: ["\u202Ay = 5x\u202C", "\u202Ay = x + 12\u202C", "\u202Ay = 3x + 15\u202C", "\u202Ay = 15x\u202C"],
+        correctAnswer: 0,
+        hint: "היעזר בנקודה (0,0) כדי לגלות שהמספר החופשי b הוא 0. השתמש בשתי הנקודות כדי לחשב את השיפוע על ידי חלוקת ההפרש ב-y (15-0) בהפרש ה-x (3-0).",
+        solution_steps: [
+            { verbal_explanation: "ישר שעובר דרך ראשית הצירים (אפס פסיק אפס), בהכרח חותך את ציר הוואי בגובה אפס. לכן החלק החופשי של הפונקציה מתבטל.", math_expression: "\u202Ab = 0  =>  y = mx\u202C" },
+            { verbal_explanation: "נשתמש בנוסחת השיפוע למציאת המקדם בעזרת שתי הנקודות שקיבלנו.", math_expression: "\u202Am = (15 - 0) / (3 - 0)\u202C" },
+            { verbal_explanation: "נחלץ את ערכו המספרי של השיפוע.", math_expression: "\u202Am = 15 / 3 = 5\u202C" },
+            { verbal_explanation: "נציב את השיפוע במשוואה הריקה (בלי החלק החופשי).", math_expression: "\u202Ay = 5x\u202C" }
+        ],
+        final_answer: "\u202Ay = 5x\u202C"
+    },
+
+    // --- שאלה 29 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: "איזה מן הישרים הבאים מקביל לישר \u202Ay = -3x + 1\u202C ועובר דרך נקודת האפס המוחלט של המערכת (ראשית הצירים)?",
+        options: ["\u202Ay = -3x\u202C", "\u202Ay = 3x\u202C", "\u202Ay = -3x + 2\u202C", "\u202Ay = x - 3\u202C"],
+        correctAnswer: 0,
+        hint: "מקביל אומר 'בעל אותו שיפוע בדיוק'. עובר בראשית הצירים אומר 'שהמספר החופשי b שווה לאפס'. חפשו ישר שעונה לשני התנאים האלו יחד.",
+        solution_steps: [
+            { verbal_explanation: "נחלץ את השיפוע מהישר המקורי שניתן לנו בשאלה. ישר מקביל ידרוש שיפוע זהה לחלוטין.", math_expression: "\u202Am = -3\u202C" },
+            { verbal_explanation: "הנקודה המצוינת, ראשית הצירים, מעידה כי חיתוך ציר הוואי של הישר החדש מתבצע באפס.", math_expression: "\u202Ab = 0\u202C" },
+            { verbal_explanation: "נרכיב את משוואת הישר החדש מאבני הבניין שמצאנו.", math_expression: "\u202Ay = -3x + 0  =>  y = -3x\u202C" }
+        ],
+        final_answer: "\u202Ay = -3x\u202C"
+    },
+
+    // --- שאלה 30 ---
+    {
+        subject: "מתמטיקה",
+        topic: "פונקציה לינארית",
+        subTopic: "גרף",
+        question: `גרף של בעיה מילולית: גרף מציג את כמות המים בבריכה (y ליטרים) כפונקציה של הזמן (x דקות). הגרף הוא קו ישר יורד. הנקודה הגבוהה ביותר בו היא (0, 500) ונקודת החיתוך עם הציר האופקי היא (50, 0). מהי המשמעות המעשית של הגרף?`,
+        options: ["הבריכה החלה עם 500 ליטרים והתרוקנה לחלוטין לאחר 50 דקות", "קצב מילוי הבריכה הוא 500 ליטר ב-50 דקות", "לאחר 500 דקות הבריכה מכילה 50 ליטר", "הבריכה מאבדת 50 ליטרים בכל דקה"],
+        correctAnswer: 0,
+        hint: "הנקודה ההתחלתית (זמן 0) מראה את הכמות הראשונית (500). נקודת החיתוך עם ציר x מראה את הזמן (50) שבו כמות המים הגיעה לאפס.",
+        solution_steps: [
+            { verbal_explanation: "ננתח את נקודת ההתחלה של הגרף על ציר הוואי. היא ממוקמת בשיעורים של אפס פסיק חמש מאות. זה הזמן ההתחלתי (טרום הריקון).", math_expression: "\u202At = 0 , Vol = 500\u202C" },
+            { verbal_explanation: "ננתח את נקודת הסיום בה הגרף פוגש את ציר האיקס המאוזן. הגובה הוא אפס (אין מים). הזמן שחלף עד לנקודה זו הוא חמישים דקות.", math_expression: "\u202At = 50 , Vol = 0\u202C" },
+            { verbal_explanation: "מסקנה: הבריכה החלה מלאה והתרוקנה באופן לינארי ויציב על פני פרק זמן של חמישים דקות.", math_expression: "\u202AConclusion\u202C" }
+        ],
+        final_answer: "הבריכה החלה עם 500 ליטרים והתרוקנה לחלוטין לאחר 50 דקות"
+    }
+];

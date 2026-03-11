@@ -33,7 +33,7 @@
             
             --sol-bg: rgba(34, 197, 94, 0.08); 
             --sol-text: #14532d; 
-            --sol-border: #4ade80;              
+            --sol-border: #4ade80;               
         }
         
         body { 
@@ -312,7 +312,7 @@
     let timeLeft = 0; 
     let urlGrade = '', currentTopicStr = '', currentActivity = '';
 
-    // מילון תרגום לשמות נושאים בעברית עבור מסך הפתיחה
+    // מילון תרגום לשמות נושאים בעברית עבור מסך הפתיחה - מורחב וכולל את כל הנושאים!
     const topicNamesHe = {
         "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
         "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
@@ -328,9 +328,24 @@
         "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
         "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
         "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
-        "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות (172)",
-        "analytic_geometry_172": "גיאומטריה אנליטית (172)", "geometry_172": "הנדסת המישור והמרחב",
-        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות (172)", "finalReviews": "תרגול ומבחנים מסכמים"
+        
+        // הנושאים של 35172
+        "algebra_172": "אלגברה ומשוואות", 
+        "word_problems_172": "בעיות מילוליות",
+        "analytic_geometry_172": "גיאומטריה אנליטית", 
+        "geometry_172": "הנדסת המישור והמרחב",
+        "trigo_172": "טריגונומטריה במישור", 
+        "stats_prob_172": "סטטיסטיקה והסתברות",
+        "algebraic_expr_172": "ביטויים אלגבריים",
+        "algebraic_frac_172": "שברים אלגבריים",
+        "linear_eq_172": "משוואות ממעלה ראשונה",
+        "lines_plane_172": "ישר במישור",
+        "area_perim_172": "שטחים והיקפים",
+        "factoring_172": "פירוק לגורמים",
+        "basic_algebra_172": "אלגברה בסיסית",
+        "linear_func_172": "פונקציה לינארית",
+        "triangles_quads_172": "משולשים ומרובעים",
+        "finalReviews": "תרגול ומבחנים מסכמים"
     };
 
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
