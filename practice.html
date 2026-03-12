@@ -29,7 +29,7 @@
             
             --hint-bg: rgba(250, 204, 21, 0.12); 
             --hint-text: #713f12; 
-            --hint-border: #fde047;         
+            --hint-border: #fde047;          
             
             --sol-bg: rgba(34, 197, 94, 0.08); /* ירוק בהיר שקוף לפתרון */
             --sol-text: #14532d; 
@@ -216,6 +216,7 @@
             font-size: 1.2rem; 
             font-weight: 800; 
             color: #064e3b; 
+            direction: ltr; /* מחייב את העמודה המתמטית להישאר משמאל לימין תמיד */
         }
 
         .final-answer-row { 
@@ -293,9 +294,9 @@
             cursor: pointer; 
             align-self: center; 
             margin-top: 10px; 
-            margin-bottom: 15px;
+            margin-bottom: 15px; 
             font-size: 1.1rem; 
-            transition: all 0.2s ease;
+            transition: all 0.2s ease; 
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
         
@@ -319,6 +320,7 @@
         .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
         .fraction-denominator { text-align: center; padding: 0 2px; }
         sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
+        sub { font-size: 0.7em; vertical-align: sub; }
 
         @media print {
             .sidebar, header, .btn-next-main, .options-grid, #feedback-text { display: none !important; }
@@ -447,6 +449,10 @@
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
         html = html.replace(/\*/g, '×'); 
+
+        // המרה חכמה של סימן כובע (^) לתגית חזקה (sup)
+        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
 
         html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
             if (!/[\u0590-\u05FF]/.test(content)) {
@@ -761,8 +767,39 @@
                 let verbal = step.verbal_explanation || "";
                 let mathText = step.math_expression || "";
                 
+                // 1. מחיקת תגיות כיווניות קיימות מהטקסט כדי למנוע היפוך מספרים
+                mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
+
+                // 2. תרגום מילים מסוימות מאנגלית לעברית מבלי לפגוע באותיות מתמטיות
+                const translations = {
+                    "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
+                    "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", 
+                    "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", 
+                    "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", 
+                    "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", 
+                    "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", 
+                    "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה",
+                    "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד",
+                    "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום",
+                    "Max / Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
+                    "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים"
+                };
+                
+                for (const [eng, heb] of Object.entries(translations)) {
+                    const regex = new RegExp("\\b" + eng + "\\b", "gi");
+                    mathText = mathText.replace(regex, heb);
+                }
+
+                // עיצוב משתנים כמו P_1 למראה טבעי P₁
+                mathText = mathText.replace(/([a-zA-Z])_([0-9a-zA-Z]+)/g, '$1<sub>$2</sub>');
+
+                // 3. הגנה על המילים בעברית (עטיפתן בתגית bdi). כך המתמטיקה נשארת משמאל לימין והמילים לא הופכות אותה
+                mathText = mathText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<bdi dir="rtl">$1</bdi>');
+
                 let verbalDir = containsHebrew(verbal) ? "rtl" : "ltr";
-                let mathDir = containsHebrew(mathText) ? "rtl" : "ltr";
+                
+                // 4. העמודה המתמטית חייבת להיות ltr תמיד
+                let mathDir = "ltr"; 
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
@@ -770,10 +807,15 @@
                 if (index === q.solution_steps.length - 1) finalAnswerText = step.math_expression;
             });
             if (q.final_answer) finalAnswerText = q.final_answer;
+        } else if (q.solution) {
+             const tr = document.createElement('tr');
+             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl">${formatContent(q.solution)}</td>`;
+             tbody.appendChild(tr);
         }
 
         if (finalAnswerText) {
             let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
+            // הסרת כפיית direction:ltr מהתשובה הסופית
             finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block;">${formatContent(finalAnswerText)}</span></div>`;
             finalAnsContainer.style.display = 'flex';
         }
@@ -794,6 +836,7 @@
             btn.className = 'btn-option';
             
             let optDir = containsHebrew(opt) ? "rtl" : "ltr";
+            // הסרת כפיית direction:ltr מהכפתורים
             btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(opt)}</span>`;
             
             btn.onclick = () => {
@@ -850,7 +893,6 @@
         const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
         currentGrade = gradeNames[grade] || grade;
         
-        // יצירת שם תצוגה ברור וחכם לכותרת 
         const topicTranslations = {
             "bagrut_prep": "הכנה לבגרות",
             "bagrut_prep_35472": "הכנה לבגרות",
@@ -860,16 +902,66 @@
             "bagrut_35372": "הכנה לבגרות",
             "bagrut_35371": "הכנה לבגרות",
             "bagrut_5_units": "הכנה לבגרות",
-            "bagrut_5_units_82": "הכנה לבגרות"
+            "bagrut_5_units_82": "הכנה לבגרות",
+            "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+            "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
+            "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
+            "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
+            "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+            "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+            "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+            "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
+            "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
+            "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+            "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
+            "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
+            "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
+            "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
+            "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות",
+            "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
+            "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות",
+            "algebraic_expr_172": "ביטויים אלגבריים", "algebraic_frac_172": "שברים אלגבריים",
+            "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
+            "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
+            "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
+            "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
+            "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון",
+            "trigo_right_371": "טריגונומטריה במשולש ישר זווית", "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים",
+            "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
+            "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה",
+            "quad_func_372": "פונקציה ריבועית", "func_investigation_372": "חקירת פונקציה",
+            "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
+            "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות",
+            "normal_dist_372": "התפלגות נורמלית", "alg_frac_471": "אלגברה ושברים אלגבריים",
+            "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+            "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
+            "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
+            "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+            "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+            "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
+            "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+            "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
+            "sequences_571": "סדרות", "probability_571": "הסתברות",
+            "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+            "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
+            "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית"
         };
         
-        let displayTopic = topicTranslations[currentTopic] || currentTopic;
-        if (!topicTranslations[currentTopic] && currentTopic.includes('bagrut')) {
+        let displayTopic = "";
+        if (currentTopic.includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
+        } else {
+            let topicsArray = currentTopic.split(',');
+            let translatedTopics = topicsArray.map(t => topicTranslations[t.trim()] || t.trim());
+            displayTopic = translatedTopics.join(', ');
         }
         
-        // הצגת הכותרת בדיוק כפי שהתבקש
-        document.getElementById('header-title').innerText = `${activity} | כיתה ${currentGrade} | ${displayTopic}${subtopic ? ' - ' + subtopic : ''}`;
+        // תיקון הניתוב לתלמיד: מציג את סוג הפעילות, הכיתה, הנושא, ואם יש תת נושא גם אותו
+        let headerText = `${activity} | כיתה ${currentGrade} | ${displayTopic}`;
+        if (subtopic && subtopic.trim() !== "") {
+            headerText += ` | ${subtopic}`;
+        }
+        document.getElementById('header-title').innerText = headerText;
         
         const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
         returnUrl = `math.html?grade=${encodeURIComponent(backMap[grade] || grade)}`;
