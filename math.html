@@ -225,7 +225,7 @@
 <body>
 
 <header>
-    <h1>מתמטיקה - בחירת פעילות</h1>
+    <h1 id="main-header-title">מתמטיקה - בחירת פעילות</h1>
     <p id="grade-display">טוען...</p>
 </header>
 
@@ -296,6 +296,7 @@
         }
     };
 
+    // הוספנו כאן את המפתח "finance" כדי למנוע את הקריסה
     const allMathData = {
         "ה-ו": {
             "percents": { name: "אחוזים", subs: ["חישוב ערך האחוז וחישוב האחוז", "מבוא"] },
@@ -352,11 +353,6 @@
             "probabilityT": { name: "הסתברות", subs: ["הסתברות במאורע דו-שלבי", "חישובים בעזרת דיאגרמת עץ", "חישובים בעזרת טבלה דו-ממדית", "הסתברות מותנית (הוצאה ללא החזרה)"] },
             "finalReviewT": { name: "תרגול ומבחנים מסכמים", subs: ["בעיות מילוליות (תנועה, הספק ואחוזים)", "שאלות משולבות (אלגברה וגרפים)", "חזרה כללית בגיאומטריה", "פתרון מבחני מפמר מסכמים"] }
         },
-
-        // =========================================================================================
-        // תוכנית לימודים מעודכנת - שאלוני בגרות לפי המיקוד הרשמי שסופק
-        // =========================================================================================
-
         "35172": {
             "basic_algebra_172": { name: "אלגברה בסיסית", subs: ["סדר פעולות", "חזקות של מספרים", "שורש ריבועי"] },
             "algebraic_expr_172": { name: "ביטויים אלגבריים", subs: ["הצבה בביטוי", "פתיחת סוגריים", "כינוס איברים"] },
@@ -420,6 +416,12 @@
             "sequences_572": { name: "סדרות", subs: ["סדרה חשבונית", "סדרה הנדסית", "סכום סדרה", "איבר כללי"] },
             "probability_572": { name: "הסתברות", subs: ["הסתברות מותנית", "עצי הסתברות", "התפלגות בינומית"] },
             "analytic_geom_572": { name: "גאומטריה אנליטית", subs: ["ישרים במישור", "מרחק מנקודה לישר", "נקודות חיתוך", "מעגל במערכת צירים"] }
+        },
+        // מפתח חובה למניעת קריסה בחינוך פיננסי
+        "finance": {
+            "general_finance": { name: "חינוך פיננסי ותקציב", subs: ["מושגי יסוד", "התנהלות כלכלית", "תקציב אישי", "צרכנות נבונה", "כללי"] },
+            "banking_loans": { name: "בנקאות ואשראי", subs: ["אמצעי תשלום", "ריבית והלוואות", "חיסכון והשקעה"] },
+            "work_rights": { name: "עולם העבודה", subs: ["תלוש שכר", "זכויות עובדים", "פנסיה וביטוחים"] }
         }
     };
 
@@ -442,15 +444,24 @@
         window.history.replaceState({}, '', window.location.pathname + '?grade=ט');
     }
     
+    // סידור הכותרת והתצוגה באופן מיידי
     window.onload = function() {
-        if (grade) {
+        if (grade === 'finance') {
+            document.getElementById('main-header-title').innerText = "חינוך פיננסי - בחירת פעילות";
+            document.getElementById('grade-display').style.display = 'none'; // מעלים את הכיתוב 'כיתה finance'
+            document.getElementById('bagrut-card').style.display = 'none';
+            document.getElementById('bar-ilan-card').style.display = 'none';
+        } else if (grade) {
             const gradeNames = {
                 "ה-ו": "יסודי ה-ו", "ז": "כיתה ז'", "ח": "כיתה ח'", "ט": "כיתה ט'", 
                 "35172": "שאלון 35172 (3 יח\"ל)", "35371": "שאלון 35371 (3 יח\"ל)", "35372": "שאלון 35372 (3 יח\"ל)",
                 "35471": "שאלון 35471 (4 יח\"ל)", "35472": "שאלון 35472 (4 יח\"ל)",
                 "35571": "שאלון 35571 (5 יח\"ל)", "35572": "שאלון 35572 (5 יח\"ל)"
             };
+            document.getElementById('main-header-title').innerText = "מתמטיקה - בחירת פעילות";
             document.getElementById('grade-display').innerText = gradeNames[grade] || `כיתה ${grade}`;
+            document.getElementById('grade-display').style.display = 'block';
+            
             if (["ה-ו", "ז", "ח", "ט"].includes(grade)) { document.getElementById('bagrut-card').style.display = 'none'; }
             document.getElementById('bar-ilan-card').style.display = (grade === "ה-ו") ? 'block' : 'none';
         }
@@ -465,7 +476,7 @@
         let displayTitle = (activityName === 'בר אילן') ? 'תוכנית מצטיינים בר אילן' : activityName;
 
         if (!dataSource && activityName !== 'בגרות') {
-            inner.innerHTML = `<span class="close-modal" onclick="closeModal()">✕</span><h2 style="font-weight:700;">שגיאה</h2><p>בחר כיתה תקינה.</p>`;
+            inner.innerHTML = `<span class="close-modal" onclick="closeModal()">✕</span><h2 style="font-weight:700;">שגיאה</h2><p>לא נמצאו נתונים לכיתה זו במערכת.</p>`;
             document.getElementById('selection-modal').style.display = 'flex';
             return;
         }
@@ -583,6 +594,8 @@
             gradeParam = "grade8";
         } else if (grade === "ט") {
             gradeParam = "grade9";
+        } else if (grade === "finance") {
+            gradeParam = "finance"; // הניתוב החשוב לפיננסי!
         } else {
             gradeParam = (grade === "ה-ו") ? "5_6" : grade;
         }
@@ -612,7 +625,7 @@
             finalTopicParam = topicParam;
         }
 
-        if (["35172", "35371", "35372", "35471", "35472", "35571", "35572"].includes(grade)) {
+        if (["35172", "35371", "35372", "35471", "35472", "35571", "35572", "finance"].includes(grade)) {
             finalTopicParam = topicParam; 
             gradeParam = grade;
         }

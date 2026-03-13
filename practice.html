@@ -29,7 +29,7 @@
             
             --hint-bg: rgba(250, 204, 21, 0.12); 
             --hint-text: #713f12; 
-            --hint-border: #fde047;          
+            --hint-border: #fde047;         
             
             --sol-bg: rgba(34, 197, 94, 0.08); /* ירוק בהיר שקוף לפתרון */
             --sol-text: #14532d; 
@@ -294,9 +294,9 @@
             cursor: pointer; 
             align-self: center; 
             margin-top: 10px; 
-            margin-bottom: 15px; 
+            margin-bottom: 15px;
             font-size: 1.1rem; 
-            transition: all 0.2s ease; 
+            transition: all 0.2s ease;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
         
@@ -384,8 +384,8 @@
             <table class="solution-table">
                 <thead>
                     <tr>
-                        <th>הסבר מילולי</th>
-                        <th>ביטוי מתמטי</th>
+                        <th id="th-verbal">הסבר מילולי</th>
+                        <th id="th-math">ביטוי מתמטי</th>
                     </tr>
                 </thead>
                 <tbody id="solution-tbody"></tbody>
@@ -403,6 +403,7 @@
     let filteredQuestions = [], displayIndex = 0, userAnswers = {}, returnUrl = 'tirgul.html'; 
     let currentTopic = "";
     let currentGrade = "";
+    let isFinanceMode = false;
 
     function playSound(type) {
         try {
@@ -450,7 +451,6 @@
         html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
         html = html.replace(/\*/g, '×'); 
 
-        // המרה חכמה של סימן כובע (^) לתגית חזקה (sup)
         html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
         html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
 
@@ -747,163 +747,22 @@
         formulaWin.document.close();
     }
     
-    function loadQuestion() {
-        if(filteredQuestions.length === 0) return;
-        const q = filteredQuestions[displayIndex % filteredQuestions.length];
-        
-        document.getElementById('q-number-display').innerText = `שאלה ${displayIndex + 1}`;
-        document.getElementById('q-text').innerHTML = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
-        document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint || "חשבו על הכללים שלמדנו.")}</div>`;
-        
-        document.getElementById('feedback-text').style.display = 'none';
-        const tbody = document.getElementById('solution-tbody');
-        const finalAnsContainer = document.getElementById('final-answer-container');
-        tbody.innerHTML = ''; finalAnsContainer.innerHTML = ''; finalAnsContainer.style.display = 'none';
-        
-        let finalAnswerText = "";
-
-        if (q.solution_steps && q.solution_steps.length > 0) {
-            q.solution_steps.forEach((step, index) => {
-                let verbal = step.verbal_explanation || "";
-                let mathText = step.math_expression || "";
-                
-                // 1. מחיקת תגיות כיווניות קיימות מהטקסט כדי למנוע היפוך מספרים
-                mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
-
-                // 2. תרגום מילים מסוימות מאנגלית לעברית מבלי לפגוע באותיות מתמטיות
-                const translations = {
-                    "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
-                    "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", 
-                    "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", 
-                    "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", 
-                    "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", 
-                    "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", 
-                    "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה",
-                    "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד",
-                    "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום",
-                    "Max / Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
-                    "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים"
-                };
-                
-                for (const [eng, heb] of Object.entries(translations)) {
-                    const regex = new RegExp("\\b" + eng + "\\b", "gi");
-                    mathText = mathText.replace(regex, heb);
-                }
-
-                // עיצוב משתנים כמו P_1 למראה טבעי P₁
-                mathText = mathText.replace(/([a-zA-Z])_([0-9a-zA-Z]+)/g, '$1<sub>$2</sub>');
-
-                // 3. הגנה על המילים בעברית (עטיפתן בתגית bdi). כך המתמטיקה נשארת משמאל לימין והמילים לא הופכות אותה
-                mathText = mathText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<bdi dir="rtl">$1</bdi>');
-
-                let verbalDir = containsHebrew(verbal) ? "rtl" : "ltr";
-                
-                // 4. העמודה המתמטית חייבת להיות ltr תמיד
-                let mathDir = "ltr"; 
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
-                tbody.appendChild(tr);
-                if (index === q.solution_steps.length - 1) finalAnswerText = step.math_expression;
-            });
-            if (q.final_answer) finalAnswerText = q.final_answer;
-        } else if (q.solution) {
-             const tr = document.createElement('tr');
-             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl">${formatContent(q.solution)}</td>`;
-             tbody.appendChild(tr);
-        }
-
-        if (finalAnswerText) {
-            let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
-            // הסרת כפיית direction:ltr מהתשובה הסופית
-            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block;">${formatContent(finalAnswerText)}</span></div>`;
-            finalAnsContainer.style.display = 'flex';
-        }
-
-        document.getElementById('hint-box').style.display = 'none'; 
-        document.getElementById('solution-box').style.display = 'none'; 
-        document.getElementById('btn-next-main').style.display = 'none';
-        document.getElementById('btn-prev').disabled = (displayIndex === 0); 
-        window.scrollTo(0,0); 
-        renderOptions(q);
-    }
-
-    function renderOptions(q) {
-        const box = document.getElementById('q-options'); box.innerHTML = '';
-        
-        q.options.forEach((opt, idx) => {
-            const btn = document.createElement('button'); 
-            btn.className = 'btn-option';
-            
-            let optDir = containsHebrew(opt) ? "rtl" : "ltr";
-            // הסרת כפיית direction:ltr מהכפתורים
-            btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(opt)}</span>`;
-            
-            btn.onclick = () => {
-                document.querySelectorAll('.btn-option').forEach(b => {
-                    b.style.backgroundColor = 'var(--surface-color)';
-                    b.style.borderColor = 'var(--border-soft)';
-                    b.style.color = 'var(--text-main)';
-                });
-
-                userAnswers[displayIndex] = idx;
-                document.getElementById('btn-next-main').style.display = 'block';
-                const fb = document.getElementById('feedback-text');
-                
-                if (idx === q.correctAnswer) {
-                    btn.style.backgroundColor = 'var(--correct-bg)';
-                    btn.style.borderColor = 'var(--correct-border)';
-                    btn.style.color = 'var(--correct-text)';
-                    playSound('correct');
-                    fb.innerText = "כל הכבוד! תשובה נכונה.";
-                    fb.className = 'feedback-correct';
-                } else {
-                    btn.style.backgroundColor = 'var(--wrong-bg)';
-                    btn.style.borderColor = 'var(--wrong-border)';
-                    btn.style.color = 'var(--wrong-text)';
-                    playSound('wrong');
-                    fb.innerText = "טעות, נסו שוב או היעזרו ברמז.";
-                    fb.className = 'feedback-wrong';
-                }
-                fb.style.display = 'block';
-            };
-            
-            if (userAnswers[displayIndex] === idx) {
-                if (idx === q.correctAnswer) {
-                    btn.style.backgroundColor = 'var(--correct-bg)';
-                    btn.style.borderColor = 'var(--correct-border)';
-                    btn.style.color = 'var(--correct-text)';
-                } else {
-                    btn.style.backgroundColor = 'var(--wrong-bg)';
-                    btn.style.borderColor = 'var(--wrong-border)';
-                    btn.style.color = 'var(--wrong-text)';
-                }
-                document.getElementById('btn-next-main').style.display = 'block';
-            }
-            
-            box.appendChild(btn);
-        });
-    }
-    
+    // ניהול ניתוב דינמי וחכם לחזרה לעמוד הקודם
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
-        const grade = urlParams.get('grade'), rawTopic = urlParams.get('topic'), subtopic = urlParams.get('subtopic'), activity = urlParams.get('activity') || "תרגול";
+        const gradeParam = urlParams.get('grade');
+        const rawTopic = urlParams.get('topic');
+        const subtopic = urlParams.get('subtopic');
+        const activity = urlParams.get('activity') || "תרגול";
         
+        isFinanceMode = (gradeParam === "finance");
         currentTopic = rawTopic || ""; 
-        const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
-        currentGrade = gradeNames[grade] || grade;
+        
+        const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582", "finance": "חינוך פיננסי" };
+        currentGrade = gradeNames[gradeParam] || gradeParam || "";
         
         const topicTranslations = {
-            "bagrut_prep": "הכנה לבגרות",
-            "bagrut_prep_35472": "הכנה לבגרות",
-            "bagrut_35582": "הכנה לבגרות",
-            "bagrut_35571": "הכנה לבגרות",
-            "bagrut_35471": "הכנה לבגרות",
-            "bagrut_35372": "הכנה לבגרות",
-            "bagrut_35371": "הכנה לבגרות",
-            "bagrut_5_units": "הכנה לבגרות",
-            "bagrut_5_units_82": "הכנה לבגרות",
-            "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+            "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
             "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
             "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
             "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
@@ -956,40 +815,67 @@
             displayTopic = translatedTopics.join(', ');
         }
         
-        // תיקון הניתוב לתלמיד: מציג את סוג הפעילות, הכיתה, הנושא, ואם יש תת נושא גם אותו
-        let headerText = `${activity} | כיתה ${currentGrade} | ${displayTopic}`;
-        if (subtopic && subtopic.trim() !== "") {
-            headerText += ` | ${subtopic}`;
+        // יצירת כותרת מותאמת
+        let headerText = "";
+        if (isFinanceMode) {
+            headerText = `חינוך פיננסי`;
+            if (displayTopic) headerText += ` | ${displayTopic}`;
+            if (subtopic && subtopic.trim() !== "") headerText += ` | ${subtopic}`;
+        } else {
+            headerText = `${activity} | כיתה ${currentGrade} | ${displayTopic}`;
+            if (subtopic && subtopic.trim() !== "") headerText += ` | ${subtopic}`;
         }
         document.getElementById('header-title').innerText = headerText;
         
+        // הניתוב האמיתי של כפתור 'חזרה לתפריט הראשי' עובד בצורה חכמה לפי המקצוע!
         const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
-        returnUrl = `math.html?grade=${encodeURIComponent(backMap[grade] || grade)}`;
         
+        if (gradeParam === "finance") {
+            returnUrl = "finance.html";
+        } else if (gradeParam === "english") {
+            returnUrl = "english.html";
+        } else if (gradeParam === "hebrew") {
+            returnUrl = "hebrew.html";
+        } else if (gradeParam === "science") {
+            returnUrl = "science.html";
+        } else if (gradeParam === "arabic") {
+            returnUrl = "arabic.html";
+        } else {
+            returnUrl = `math.html?grade=${encodeURIComponent(backMap[gradeParam] || gradeParam)}`;
+        }
+        
+        // טעינת הקובץ הנכון
         const script = document.createElement('script'); 
         let filePath = "";
-        
         let safeTopic = currentTopic.replace(/\s+/g, '_').replace(/'/g, '');
 
-        if (grade === "bar_ilan" || grade === "5_6_bar_ilan") {
+        if (gradeParam === "bar_ilan" || gradeParam === "5_6_bar_ilan") {
             filePath = `data/5_6_bar_ilan.js`;
-        } else if (grade === "5_6" || grade === "ה-ו") {
+        } else if (gradeParam === "5_6" || gradeParam === "ה-ו") {
             filePath = `data/5_6_${safeTopic}.js`;
-        } else if (grade === "35172" && safeTopic === "trigo_172") {
+        } else if (gradeParam === "35172" && safeTopic === "trigo_172") {
             filePath = `data/35172_trigonometry_172.js`; 
+        } else if (isFinanceMode) {
+            filePath = currentTopic ? `data/finance_${safeTopic}.js` : `data/finance.js`;
         } else {
-            filePath = `data/${grade}_${safeTopic}.js`;
+            filePath = `data/${gradeParam}_${safeTopic}.js`;
         }
 
         script.src = filePath;
 
         script.onload = () => { 
             if (typeof questionsDB !== 'undefined') { 
-                filteredQuestions = questionsDB.filter(q => (!subtopic || q.subTopic.trim() === subtopic.trim())); 
+                filteredQuestions = questionsDB.filter(q => {
+                    if (!subtopic) return true;
+                    const qSub = q.subTopic || q.subtopic || "";
+                    return qSub.trim() === subtopic.trim();
+                });
+                
                 if (filteredQuestions.length > 0) {
                     loadQuestion(); 
+                } else {
+                    document.getElementById('q-text').innerHTML = `שגיאה: לא נמצאו שאלות לתת-הנושא '${subtopic}'.`;
                 }
-                else document.getElementById('q-text').innerHTML = `שגיאה: לא נמצאו שאלות לתת-הנושא '${subtopic}'.`;
             } 
         };
 
@@ -1005,6 +891,156 @@
         document.head.appendChild(script);
     };
 
+    function loadQuestion() {
+        if (!filteredQuestions || filteredQuestions.length === 0) return;
+        const q = filteredQuestions[displayIndex % filteredQuestions.length];
+        if (!q) return;
+
+        // ניהול תצוגת טבלה בהתאם לחינוך פיננסי / מתמטיקה
+        const thMath = document.getElementById('th-math');
+        const thVerbal = document.getElementById('th-verbal');
+        
+        if (isFinanceMode) {
+            thMath.style.display = 'none';
+            thVerbal.setAttribute('colspan', '2');
+            thVerbal.style.width = '100%';
+            thVerbal.innerText = 'הסבר פתרון';
+        } else {
+            thMath.style.display = 'table-cell';
+            thVerbal.setAttribute('colspan', '1');
+            thVerbal.style.width = '50%';
+            thVerbal.innerText = 'הסבר מילולי';
+        }
+        
+        document.getElementById('q-number-display').innerText = `שאלה ${displayIndex + 1}`;
+        document.getElementById('q-text').innerHTML = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
+        document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint || "חשבו על הכללים שלמדנו.")}</div>`;
+        
+        document.getElementById('feedback-text').style.display = 'none';
+        const tbody = document.getElementById('solution-tbody');
+        const finalAnsContainer = document.getElementById('final-answer-container');
+        tbody.innerHTML = ''; finalAnsContainer.innerHTML = ''; finalAnsContainer.style.display = 'none';
+        
+        let finalAnswerText = "";
+
+        if (q.solution_steps && q.solution_steps.length > 0) {
+            q.solution_steps.forEach((step, index) => {
+                let verbal = step.verbal_explanation || step.explanation || "";
+                let mathText = step.math_expression || "";
+                
+                let verbalDir = containsHebrew(verbal) ? "rtl" : "ltr";
+                let mathDir = "ltr"; 
+                
+                const tr = document.createElement('tr');
+                
+                if (isFinanceMode) {
+                    tr.innerHTML = `<td class="text-col" colspan="2" dir="${verbalDir}" style="border-left:none; text-align:right; padding:15px;">${formatContent(verbal)}</td>`;
+                } else {
+                    mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
+                    const translations = {
+                        "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
+                        "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", 
+                        "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", 
+                        "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", 
+                        "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", 
+                        "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", 
+                        "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה",
+                        "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד",
+                        "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום",
+                        "Max \/ Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
+                        "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים"
+                    };
+                    for (const [eng, heb] of Object.entries(translations)) {
+                        const regex = new RegExp("\\b" + eng + "\\b", "gi");
+                        mathText = mathText.replace(regex, heb);
+                    }
+                    mathText = mathText.replace(/([a-zA-Z])_([0-9a-zA-Z]+)/g, '$1<sub>$2</sub>');
+                    mathText = mathText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<bdi dir="rtl">$1</bdi>');
+
+                    tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
+                }
+                tbody.appendChild(tr);
+            });
+            if (q.final_answer) finalAnswerText = q.final_answer;
+        } else if (q.solution) {
+             const tr = document.createElement('tr');
+             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl" style="border-left:none; text-align:right; padding:15px;">${formatContent(q.solution)}</td>`;
+             tbody.appendChild(tr);
+             if (q.final_answer) finalAnswerText = q.final_answer;
+        }
+
+        if (finalAnswerText) {
+            let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
+            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block;">${formatContent(finalAnswerText)}</span></div>`;
+            finalAnsContainer.style.display = 'flex';
+        }
+
+        document.getElementById('hint-box').style.display = 'none'; 
+        document.getElementById('solution-box').style.display = 'none'; 
+        document.getElementById('btn-next-main').style.display = 'none';
+        document.getElementById('btn-prev').disabled = (displayIndex === 0); 
+        window.scrollTo(0,0); 
+        renderOptions(q);
+    }
+
+    function renderOptions(q) {
+        const box = document.getElementById('q-options'); box.innerHTML = '';
+        
+        if (q.options && Array.isArray(q.options)) {
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button'); 
+                btn.className = 'btn-option';
+                
+                let optDir = containsHebrew(opt) ? "rtl" : "ltr";
+                btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(opt)}</span>`;
+                
+                btn.onclick = () => {
+                    document.querySelectorAll('.btn-option').forEach(b => {
+                        b.style.backgroundColor = 'var(--surface-color)';
+                        b.style.borderColor = 'var(--border-soft)';
+                        b.style.color = 'var(--text-main)';
+                    });
+
+                    userAnswers[displayIndex] = idx;
+                    document.getElementById('btn-next-main').style.display = 'block';
+                    const fb = document.getElementById('feedback-text');
+                    
+                    if (idx === q.correctAnswer) {
+                        btn.style.backgroundColor = 'var(--correct-bg)';
+                        btn.style.borderColor = 'var(--correct-border)';
+                        btn.style.color = 'var(--correct-text)';
+                        playSound('correct');
+                        fb.innerText = "כל הכבוד! תשובה נכונה.";
+                        fb.className = 'feedback-correct';
+                    } else {
+                        btn.style.backgroundColor = 'var(--wrong-bg)';
+                        btn.style.borderColor = 'var(--wrong-border)';
+                        btn.style.color = 'var(--wrong-text)';
+                        playSound('wrong');
+                        fb.innerText = "טעות, נסו שוב או היעזרו ברמז.";
+                        fb.className = 'feedback-wrong';
+                    }
+                    fb.style.display = 'block';
+                };
+                
+                if (userAnswers[displayIndex] === idx) {
+                    if (idx === q.correctAnswer) {
+                        btn.style.backgroundColor = 'var(--correct-bg)';
+                        btn.style.borderColor = 'var(--correct-border)';
+                        btn.style.color = 'var(--correct-text)';
+                    } else {
+                        btn.style.backgroundColor = 'var(--wrong-bg)';
+                        btn.style.borderColor = 'var(--wrong-border)';
+                        btn.style.color = 'var(--wrong-text)';
+                    }
+                    document.getElementById('btn-next-main').style.display = 'block';
+                }
+                
+                box.appendChild(btn);
+            });
+        }
+    }
+    
     function nextQuestion() { displayIndex++; loadQuestion(); }
     function prevQuestion() { if (displayIndex > 0) { displayIndex--; loadQuestion(); } }
     

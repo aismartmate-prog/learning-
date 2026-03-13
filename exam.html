@@ -293,7 +293,7 @@
                 
                 <div id="sol-box" class="info-box solution-box">
                     <table class="solution-table">
-                        <thead><tr><th>הסבר מילולי</th><th>ביטוי מתמטי</th></tr></thead>
+                        <thead id="solution-table-head"><tr><th>הסבר מילולי</th><th>ביטוי מתמטי</th></tr></thead>
                         <tbody id="solution-tbody"></tbody>
                     </table>
                     <div id="final-answer-container" style="display: flex; justify-content: center; width: 100%;"></div>
@@ -316,7 +316,7 @@
     let timeLeft = 0; 
     let urlGrade = '', currentTopicStr = '', currentActivity = '';
 
-    // מילון תרגום לשמות נושאים בעברית עבור מסך הפתיחה
+    // מילון תרגום לשמות נושאים בעברית
     const topicNamesHe = {
         "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
         "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
@@ -332,64 +332,37 @@
         "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
         "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
         "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
-        
-        "algebra_172": "אלגברה ומשוואות", 
-        "word_problems_172": "בעיות מילוליות",
-        "analytic_geometry_172": "גיאומטריה אנליטית", 
-        "geometry_172": "הנדסת המישור והמרחב",
-        "trigo_172": "טריגונומטריה במישור", 
-        "stats_prob_172": "סטטיסטיקה והסתברות",
-        "algebraic_expr_172": "ביטויים אלגבריים",
-        "algebraic_frac_172": "שברים אלגבריים",
-        "linear_eq_172": "משוואות ממעלה ראשונה",
-        "lines_plane_172": "ישר במישור",
-        "area_perim_172": "שטחים והיקפים",
-        "factoring_172": "פירוק לגורמים",
-        "basic_algebra_172": "אלגברה בסיסית",
-        "linear_func_172": "פונקציה לינארית",
-        "triangles_quads_172": "משולשים ומרובעים",
-        "finalReviews": "תרגול ומבחנים מסכמים",
-        "triangle_sim_371": "דמיון משולשים",
-        "sim_ratio_371": "יחס דמיון",
-        "trigo_right_371": "טריגונומטריה במשולש ישר זווית",
-        "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים",
-        "growth_decay_371": "גדילה ודעיכה",
-        "exp_models_371": "מודלים מעריכיים",
-        "prob_stats_371": "הסתברות וסטטיסטיקה",
-        "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה",
-        "quad_func_372": "פונקציה ריבועית",
-        "func_investigation_372": "חקירת פונקציה",
-        "quad_eq_372": "משוואות ריבועיות",
-        "analytic_geom_372": "גאומטריה אנליטית",
-        "space_geom_bodies_372": "הנדסת המרחב וגופים",
-        "sequences_372": "סדרות",
-        "normal_dist_372": "התפלגות נורמלית",
-        "alg_frac_471": "אלגברה ושברים אלגבריים",
-        "func_lin_quad_471": "פונקציות לינאריות וריבועיות",
-        "trigo_471": "טריגונומטריה",
-        "geom_euclid_471": "גאומטריה אוקלידית",
-        "analytic_geom_471": "גאומטריה אנליטית",
-        "basic_calculus_471": "חדו\"א בסיסי",
-        "adv_func_472": "פונקציות מתקדמות",
-        "func_investigation_472": "חקירת פונקציות",
-        "extrema_probs_472": "בעיות קיצון",
-        "adv_trigo_472": "טריגונומטריה מתקדמת",
-        "probability_472": "הסתברות",
-        "geom_euclid_571": "גאומטריה אוקלידית",
-        "analytic_geom_571": "גאומטריה אנליטית",
-        "functions_571": "פונקציות",
-        "calculus_deriv_571": "חדו\"א – נגזרות",
-        "calculus_tangents_571": "חדו\"א – משיקים",
-        "adv_trigo_571": "טריגונומטריה מתקדמת",
-        "sequences_571": "סדרות",
-        "probability_571": "הסתברות",
-        "calculus_integrals_572": "חדו\"א – אינטגרלים",
-        "trigo_func_572": "פונקציות טריגונומטריות",
-        "functions_572": "פונקציות",
-        "func_investigation_572": "חקירת פונקציות",
-        "sequences_572": "סדרות",
-        "probability_572": "הסתברות",
-        "analytic_geom_572": "גאומטריה אנליטית"
+        "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות",
+        "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
+        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות",
+        "algebraic_expr_172": "ביטויים אלגבריים", "algebraic_frac_172": "שברים אלגבריים",
+        "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
+        "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
+        "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
+        "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
+        "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון",
+        "trigo_right_371": "טריגונומטריה במשולש ישר זווית", "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים",
+        "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
+        "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה",
+        "quad_func_372": "פונקציה ריבועית", "func_investigation_372": "חקירת פונקציה",
+        "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
+        "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות",
+        "normal_dist_372": "התפלגות נורמלית", "alg_frac_471": "אלגברה ושברים אלגבריים",
+        "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
+        "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
+        "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+        "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
+        "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
+        "sequences_571": "סדרות", "probability_571": "הסתברות",
+        "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
+        "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
+        "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
+        "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
+        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית"
     };
 
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
@@ -409,7 +382,6 @@
         const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
         html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
         
-        // החלפה חכמה של סימן כובע לחזקה רגילה
         html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
         html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
 
@@ -436,10 +408,9 @@
         currentTopicStr = topicsParam || "";
         currentActivity = act;
         
-        const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
+        const gradeNames = { "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
         let displayGrade = gradeNames[grade] || grade;
         
-        // מציאת שם הנושא המלא - במקרה של מבחן עם כמה נושאים יחולק בפסיקים
         let displayTopic = "";
         if (currentTopicStr.includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
@@ -449,8 +420,7 @@
             displayTopic = translatedTopics.join(', ');
         }
         
-        // בניית הכותרת: סוג פעילות | כיתה X | נושא Y (פסיקים אם יש כמה) | תת-נושא Z
-        let headerText = `${act} | כיתה ${displayGrade} | ${displayTopic}`;
+        let headerText = `${act} | ${displayGrade} | ${displayTopic}`;
         if (subtopicsParam && subtopicsParam.trim() !== "") {
             headerText += ` | ${subtopicsParam}`;
         }
@@ -487,7 +457,14 @@
         const startBtn = document.querySelector('.btn-start-exam');
 
         let filesToLoad = [];
-        if (grade === "bar_ilan" || grade === "5_6_bar_ilan") {
+        
+        // תיקון ניתוב: טעינת קובץ מותאמת לפי חינוך פיננסי לעומת מתמטיקה
+        if (grade === "finance") {
+            topicsToLoad.forEach(t => {
+                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
+                filesToLoad.push(`data/finance_${safeTopic}.js`);
+            });
+        } else if (grade === "bar_ilan" || grade === "5_6_bar_ilan") {
             filesToLoad.push(`data/5_6_bar_ilan.js`);
         } else if (topicsToLoad.length > 0) {
             topicsToLoad.forEach(t => {
@@ -715,6 +692,13 @@
     
     function goBackToSelection() { 
         if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
+        
+        // תיקון ניתוב: אם אנחנו בחינוך פיננסי, נחזור למסך הפיננסי
+        if (urlGrade === "finance") {
+            window.location.href = "finance.html";
+            return;
+        }
+        
         let returnGrade = (urlGrade === '5_6') ? 'ה-ו' : (urlGrade === 'grade7' ? 'ז' : urlGrade === 'grade8' ? 'ח' : urlGrade === 'grade9' ? 'ט' : urlGrade); 
         window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
     }
@@ -736,16 +720,24 @@
         const finalAnsContainer = document.getElementById('final-answer-container');
         tbody.innerHTML = ''; finalAnsContainer.innerHTML = ''; finalAnsContainer.style.display = 'none';
         
+        // תיקון: העלמת כותרות "הסבר מילולי / ביטוי מתמטי" במצב פיננסי
+        const tableHead = document.getElementById('solution-table-head');
+        if (tableHead) {
+            if (urlGrade === "finance") {
+                tableHead.style.display = 'none';
+            } else {
+                tableHead.style.display = 'table-header-group';
+            }
+        }
+        
         let finalAnswerText = "";
         if (q.solution_steps && q.solution_steps.length > 0) {
             q.solution_steps.forEach((step, index) => {
                 let verbal = step.verbal_explanation || "";
                 let mathText = step.math_expression || "";
                 
-                // 1. חובה - מחיקת תגיות כיווניות קיימות מהטקסט כדי למנוע היפוך מספרים
+                // תרגום מילים באנגלית עבור משוואות מתמטיות
                 mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
-
-                // 2. תרגום מילים מסוימות מאנגלית לעברית מבלי לפגוע באותיות מתמטיות
                 const translations = {
                     "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
                     "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", 
@@ -756,7 +748,7 @@
                     "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה",
                     "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד",
                     "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום",
-                    "Medium": "אמצע", "Max / Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
+                    "Max / Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
                     "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים"
                 };
                 
@@ -765,32 +757,33 @@
                     mathText = mathText.replace(regex, heb);
                 }
 
-                // עיצוב משתנים כמו P_1 למראה טבעי P₁
                 mathText = mathText.replace(/([a-zA-Z])_([0-9a-zA-Z]+)/g, '$1<sub>$2</sub>');
-
-                // 3. הגנה על המילים בעברית (עטיפתן בתגית bdi). כך המתמטיקה נשארת משמאל לימין והמילים לא הופכות אותה
                 mathText = mathText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<bdi dir="rtl">$1</bdi>');
 
                 let verbalDir = containsHebrew(verbal) ? "rtl" : "ltr";
-                
-                // 4. העמודה המתמטית חייבת להיות ltr תמיד בתוך הטבלה
                 let mathDir = "ltr"; 
 
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
+                
+                // אם אנחנו בפיננסי, אין צורך בעמודת 'ביטוי מתמטי'
+                if (urlGrade === "finance") {
+                    tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl" style="border-left:none; text-align:right;">${formatContent(verbal)}</td>`;
+                } else {
+                    tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
+                }
+                
                 tbody.appendChild(tr);
                 if (index === q.solution_steps.length - 1) finalAnswerText = step.math_expression;
             });
             if (q.final_answer) finalAnswerText = q.final_answer;
         } else if (q.solution) {
              const tr = document.createElement('tr');
-             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl">${formatContent(q.solution)}</td>`;
+             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl" style="border-left:none; text-align:right;">${formatContent(q.solution)}</td>`;
              tbody.appendChild(tr);
         }
 
         if (finalAnswerText) {
             let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
-            // הסרת כפיית direction:ltr כדי שמילים כמו "מ"ר" או "ס"מ" יסתדרו נכון אחרי המספר
             finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block;">${formatContent(finalAnswerText)}</span></div>`;
             finalAnsContainer.style.display = 'flex';
         }
@@ -827,7 +820,7 @@
             const btn = document.createElement('button'); 
             btn.className = 'btn-option'; 
             let optDir = containsHebrew(shuffledOpt.text) ? "rtl" : "ltr";
-            // הסרת כפיית direction:ltr מהכפתורים כדי שטקסט ומספר ישתלבו טבעי
+            // ביטול כפיית ה-LTR מהכפתורים לטובת פיננסי
             btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(shuffledOpt.text)}</span>`;
             
             if (!isFinished) { 
