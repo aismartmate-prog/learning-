@@ -214,6 +214,17 @@
         sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
         sub { font-size: 0.7em; vertical-align: sub; }
 
+        /* --- הוספת עיצוב כפתור ההקראה --- */
+        .btn-tts { 
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe); border: 2px solid #6366f1; border-radius: 40px; 
+            padding: 10px 30px; font-size: 1.2rem; cursor: pointer; font-weight: 800; color: #4338ca; 
+            display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 6px 12px rgba(99,102,241,0.25); 
+        }
+        .btn-tts:hover { background: linear-gradient(135deg, #c7d2fe, #a5b4fc); transform: scale(1.05) translateY(-2px); box-shadow: 0 8px 15px rgba(99,102,241,0.35); }
+        .btn-tts:active { transform: scale(0.95); }
+        .btn-tts.playing { animation: pulse-tts 1.5s infinite; border-color: #10b981; color: #059669; background: #d1fae5; }
+        @keyframes pulse-tts { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
         @media (max-width: 1000px) {
             body { overflow: auto; }
             .practice-layout { flex-direction: column; overflow: visible; height: auto; }
@@ -293,7 +304,7 @@
                 
                 <div id="sol-box" class="info-box solution-box">
                     <table class="solution-table">
-                        <thead id="solution-table-head"><tr><th>הסבר מילולי</th><th>ביטוי מתמטי</th></tr></thead>
+                        <thead id="solution-table-head"><tr><th id="th-verbal-exam">הסבר מילולי</th><th id="th-math-exam">ביטוי מתמטי</th></tr></thead>
                         <tbody id="solution-tbody"></tbody>
                     </table>
                     <div id="final-answer-container" style="display: flex; justify-content: center; width: 100%;"></div>
@@ -315,6 +326,52 @@
     let questions = [], currentIndex = 0, answers = [], timer, isFinished = false;
     let timeLeft = 0; 
     let urlGrade = '', currentTopicStr = '', currentActivity = '';
+    let currentSpeechText = "";
+
+    // טעינת הקולות מראש להקראה באנגלית
+    if (window.speechSynthesis) {
+        window.speechSynthesis.onvoiceschanged = function() {
+            window.speechSynthesis.getVoices();
+        };
+    }
+    
+    window.playTTS = function() {
+        if (!currentSpeechText) return;
+        window.speechSynthesis.cancel(); 
+        
+        const msg = new SpeechSynthesisUtterance(currentSpeechText);
+        msg.lang = 'en-US';
+        msg.rate = 0.8; 
+        msg.pitch = 1.1; 
+        
+        const voices = window.speechSynthesis.getVoices();
+        const preferredVoice = voices.find(voice => 
+            voice.name.includes('Google US English') || 
+            voice.name.includes('Samantha') || 
+            voice.name.includes('Victoria') ||
+            voice.name.includes('Alex')
+        );
+        if (preferredVoice) {
+            msg.voice = preferredVoice;
+        }
+
+        const btn = document.getElementById('tts-button-element');
+        if (btn) {
+            btn.classList.add('playing');
+            btn.innerHTML = '<span>מקריא עכשיו...</span> <span style="font-size:1.4rem;">🎶</span>';
+            
+            msg.onend = function() {
+                btn.classList.remove('playing');
+                btn.innerHTML = '<span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>';
+            };
+            msg.onerror = function() {
+                btn.classList.remove('playing');
+                btn.innerHTML = '<span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>';
+            };
+        }
+        
+        window.speechSynthesis.speak(msg);
+    };
 
     // מילון תרגום לשמות נושאים בעברית
     const topicNamesHe = {
@@ -362,7 +419,11 @@
         "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
         "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
         "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
-        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית"
+        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
+        "bagrut_prep": "הכנה לבגרות", "abc_basics": "אנגלית מהבסיס (ABC)",
+        "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
+        "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
+        "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)"
     };
 
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
@@ -403,12 +464,18 @@
 
     window.onload = function() {
         const p = new URLSearchParams(window.location.search);
-        const grade = p.get('grade'), topicsParam = p.get('topic'), subtopicsParam = p.get('subtopic'), act = p.get('activity') || "מבחן";
+        let rawGrade = p.get('grade') || "";
+        const grade = rawGrade.trim().toLowerCase();
+        
+        const topicsParam = p.get('topic');
+        const subtopicsParam = p.get('subtopic');
+        const act = p.get('activity') || "מבחן";
+        
         urlGrade = grade;
         currentTopicStr = topicsParam || "";
         currentActivity = act;
         
-        const gradeNames = { "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
+        const gradeNames = { "english": "אנגלית", "hebrew": "לשון והבעה", "science": "מדעים", "arabic": "ערבית", "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
         let displayGrade = gradeNames[grade] || grade;
         
         let displayTopic = "";
@@ -458,7 +525,6 @@
 
         let filesToLoad = [];
         
-        // תיקון ניתוב: טעינת קובץ מותאמת לפי חינוך פיננסי לעומת מתמטיקה
         if (grade === "finance") {
             topicsToLoad.forEach(t => {
                 let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
@@ -473,6 +539,14 @@
                     filesToLoad.push(`data/5_6_${safeTopic}.js`);
                 } else if (grade === "35172" && safeTopic === "trigo_172") {
                     filesToLoad.push(`data/35172_trigonometry_172.js`);
+                } else if (grade === "english") {
+                    filesToLoad.push(`data/english_${safeTopic}.js`);
+                } else if (grade === "hebrew") {
+                    filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+                } else if (grade === "science") {
+                    filesToLoad.push(`data/science_${safeTopic}.js`);
+                } else if (grade === "arabic") {
+                    filesToLoad.push(`data/arabic_${safeTopic}.js`);
                 } else {
                     filesToLoad.push(`data/${grade}_${safeTopic}.js`);
                 }
@@ -547,6 +621,25 @@
             }
         }
     };
+
+    // פונקציות הניתוב החכם למניעת חזרה למתמטיקה (תיקון הבעיה שביקשת 100 פעם!)
+    function goBackToSelection() { 
+        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
+        
+        if (urlGrade === "finance") { window.location.href = "finance.html"; return; }
+        if (urlGrade === "english") { window.location.href = "english.html"; return; }
+        if (urlGrade === "hebrew") { window.location.href = "hebrew.html"; return; }
+        if (urlGrade === "science") { window.location.href = "science.html"; return; }
+        if (urlGrade === "arabic") { window.location.href = "arabic.html"; return; }
+        
+        let returnGrade = (urlGrade === '5_6') ? 'ה-ו' : (urlGrade === 'grade7' ? 'ז' : urlGrade === 'grade8' ? 'ח' : urlGrade === 'grade9' ? 'ט' : urlGrade); 
+        window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
+    }
+    
+    function goHome() { 
+        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("יציאה לדף הבית? ההתקדמות תאבד.")) return; 
+        window.location.href = 'tirgul.html'; 
+    }
 
     function startExam() {
         document.getElementById('intro-screen').style.display = 'none';
@@ -689,44 +782,42 @@
         formulaWin.document.write(formulasHtml);
         formulaWin.document.close();
     }
-    
-    function goBackToSelection() { 
-        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
-        
-        // תיקון ניתוב: אם אנחנו בחינוך פיננסי, נחזור למסך הפיננסי
-        if (urlGrade === "finance") {
-            window.location.href = "finance.html";
-            return;
-        }
-        
-        let returnGrade = (urlGrade === '5_6') ? 'ה-ו' : (urlGrade === 'grade7' ? 'ז' : urlGrade === 'grade8' ? 'ח' : urlGrade === 'grade9' ? 'ט' : urlGrade); 
-        window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
-    }
-    
-    function goHome() { 
-        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("יציאה לדף הבית? ההתקדמות תאבד.")) return; 
-        window.location.href = 'tirgul.html'; 
-    }
-    
+
     function loadQuestion() {
         if(questions.length === 0) return;
         const q = questions[currentIndex];
         
         document.getElementById('current-num').innerText = currentIndex + 1;
-        document.getElementById('q-text').innerHTML = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
+        
+        let qTextHtml = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
+        if (urlGrade === "english" && q.tts_text) {
+            currentSpeechText = q.tts_text;
+            qTextHtml += `<div style="text-align:center; margin-top:15px; margin-bottom: 20px;"><button id="tts-button-element" class="btn-tts" onclick="playTTS()"><span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span></button></div>`;
+        }
+        document.getElementById('q-text').innerHTML = qTextHtml;
+        
         document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint || "קראו את השאלה בעיון.")}</div>`;
         
         const tbody = document.getElementById('solution-tbody');
         const finalAnsContainer = document.getElementById('final-answer-container');
         tbody.innerHTML = ''; finalAnsContainer.innerHTML = ''; finalAnsContainer.style.display = 'none';
         
-        // תיקון: העלמת כותרות "הסבר מילולי / ביטוי מתמטי" במצב פיננסי
+        // תיקון: העלמת כותרות במצב אנגלית או פיננסי
         const tableHead = document.getElementById('solution-table-head');
-        if (tableHead) {
-            if (urlGrade === "finance") {
-                tableHead.style.display = 'none';
+        const thVerbalExam = document.getElementById('th-verbal-exam');
+        const thMathExam = document.getElementById('th-math-exam');
+        
+        if (tableHead && thVerbalExam && thMathExam) {
+            if (urlGrade === "finance" || urlGrade === "english" || urlGrade === "hebrew" || urlGrade === "arabic") {
+                thMathExam.style.display = 'none';
+                thVerbalExam.setAttribute('colspan', '2');
+                thVerbalExam.style.width = '100%';
+                thVerbalExam.innerText = 'דרך הפתרון';
             } else {
-                tableHead.style.display = 'table-header-group';
+                thMathExam.style.display = 'table-cell';
+                thVerbalExam.setAttribute('colspan', '1');
+                thVerbalExam.style.width = '50%';
+                thVerbalExam.innerText = 'הסבר מילולי';
             }
         }
         
@@ -736,7 +827,6 @@
                 let verbal = step.verbal_explanation || "";
                 let mathText = step.math_expression || "";
                 
-                // תרגום מילים באנגלית עבור משוואות מתמטיות
                 mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
                 const translations = {
                     "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
@@ -765,9 +855,8 @@
 
                 const tr = document.createElement('tr');
                 
-                // אם אנחנו בפיננסי, אין צורך בעמודת 'ביטוי מתמטי'
-                if (urlGrade === "finance") {
-                    tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl" style="border-left:none; text-align:right;">${formatContent(verbal)}</td>`;
+                if (urlGrade === "finance" || urlGrade === "english" || urlGrade === "hebrew" || urlGrade === "arabic") {
+                    tr.innerHTML = `<td colspan="2" class="text-col" dir="${verbalDir}" style="border-left:none; text-align:right;">${formatContent(verbal)}</td>`;
                 } else {
                     tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
                 }
@@ -820,7 +909,6 @@
             const btn = document.createElement('button'); 
             btn.className = 'btn-option'; 
             let optDir = containsHebrew(shuffledOpt.text) ? "rtl" : "ltr";
-            // ביטול כפיית ה-LTR מהכפתורים לטובת פיננסי
             btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(shuffledOpt.text)}</span>`;
             
             if (!isFinished) { 
