@@ -371,10 +371,82 @@
             .practice-layout { flex-direction: column; padding: 10px; }
             .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; position: static; gap:6px;}
             .btn-side { width: auto; flex: 1 1 calc(33% - 10px); padding: 8px; font-size:0.9rem;}
-            .main-content { max-width: 100%; padding: 15px; }
-            .solution-table td, .solution-table th { display: block; width: 100%; text-align: center; border-left: none; padding: 8px;}
-            .text-col { border-bottom: 1px dashed var(--border-soft); padding-bottom: 8px; }
-            .options-grid { grid-template-columns: 1fr; gap: 8px;}
+            .main-content { max-width: 100%; padding: 15px; overflow-x: hidden; }
+        }
+
+        /* --- הוספת התאמה מוחלטת לפתרונות בסלולר בלבד --- */
+        @media (max-width: 600px) {
+            .btn-side { flex: 1 1 calc(50% - 10px); } 
+            .options-grid { grid-template-columns: 1fr; gap: 8px; } 
+            
+            /* עיצוב חכם לטבלת הפתרונות בסלולר - הופך לכרטיסיות קריאות במקום טבלה צפופה */
+            #th-verbal, #th-math { display: none !important; } 
+            .solution-table, .solution-table tbody, .solution-table tr, .solution-table td {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .solution-table tr {
+                margin-bottom: 15px;
+                border: 1px solid var(--border-soft);
+                border-radius: 8px;
+                background: #fff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                overflow: hidden;
+            }
+            .solution-table td {
+                border: none;
+                padding: 12px;
+                text-align: right;
+            }
+            .solution-table td.text-col {
+                border-bottom: 1px solid #e2e8f0;
+                border-left: none;
+                font-size: 1rem;
+            }
+            .solution-table td.math-col {
+                text-align: left;
+                background: #f8fafc;
+                font-size: 1.1rem;
+                overflow-x: auto; /* מאפשר גלילה ימינה-שמאלה למשוואות מתמטיות ארוכות במיוחד */
+            }
+            
+            /* יצירת תוויות מובנות שיחליפו את הכותרות העליונות של הטבלה */
+            .solution-table td.text-col::before {
+                content: "הסבר מילולי: ";
+                display: block;
+                font-size: 0.85rem;
+                color: var(--primary-header);
+                font-weight: 800;
+                margin-bottom: 5px;
+                text-decoration: underline;
+                text-decoration-color: var(--accent-gold);
+            }
+            .solution-table td.math-col::before {
+                content: " :ביטוי מתמטי";
+                display: block;
+                font-size: 0.85rem;
+                color: var(--primary-header);
+                font-weight: 800;
+                margin-bottom: 5px;
+                text-align: right;
+                text-decoration: underline;
+                text-decoration-color: var(--accent-gold);
+            }
+            /* למקרה שיש רק פתרון מילולי אחד פרוש על פני כל העמודה (למשל באנגלית או חינוך פיננסי) */
+            .solution-table td[colspan="2"]::before {
+                content: "דרך הפתרון: ";
+                display: block;
+                font-size: 0.85rem;
+                color: var(--primary-header);
+                font-weight: 800;
+                margin-bottom: 5px;
+                text-align: right;
+                text-decoration: underline;
+                text-decoration-color: var(--accent-gold);
+            }
+            
+            .final-answer-row { font-size: 1.05rem; padding: 12px; flex-direction: column; text-align: center;}
         }
     </style>
 </head>
@@ -714,7 +786,6 @@
         progWin.document.close();
     }
 
-    // כאן ביצעתי את השינוי שביקשת לחלוקת דף הנוסחאות ל-2 שכבות גיל (חט"ב ותיכון) במלואו!
     function openFormulasWindow() {
         const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
         if (!formulaWin) { alert("חוסם החלונות מונע פתיחת דף נוסחאות. אנא אשרו חלונות קופצים."); return; }
@@ -872,13 +943,15 @@
     // ניהול ניתוב דינמי וחכם לחזרה לעמוד הקודם
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
-        const gradeParam = urlParams.get('grade');
+        let rawGrade = urlParams.get('grade') || "";
+        const gradeParam = rawGrade.trim().toLowerCase();
+        
         const rawTopic = urlParams.get('topic');
         const subtopic = urlParams.get('subtopic');
         const activity = urlParams.get('activity') || "תרגול";
         
         isFinanceMode = (gradeParam === "finance");
-        isEnglishMode = (gradeParam === "english"); // הוספת דגל לאנגלית
+        isEnglishMode = (gradeParam === "english"); 
         currentTopic = rawTopic || ""; 
         
         const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582", "finance": "חינוך פיננסי", "english": "אנגלית" };
@@ -957,22 +1030,23 @@
         }
         document.getElementById('header-title').innerText = headerText;
         
-        // הניתוב האמיתי של כפתור 'חזרה לתפריט הראשי' עובד בצורה חכמה לפי המקצוע!
+        // --- התיקון הקריטי: הגדרת יעד חזרה הרמטי לכל מקצוע! ---
         const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
         
-        if (gradeParam === "finance") {
-            returnUrl = "finance.html";
-        } else if (gradeParam === "english") {
-            returnUrl = "english.html";
-        } else if (gradeParam === "hebrew") {
-            returnUrl = "hebrew.html";
-        } else if (gradeParam === "science") {
-            returnUrl = "science.html";
-        } else if (gradeParam === "arabic") {
-            returnUrl = "arabic.html";
+        if (gradeParam === 'english') {
+            returnUrl = 'english.html';
+        } else if (gradeParam === 'finance') {
+            returnUrl = 'finance.html';
+        } else if (gradeParam === 'hebrew') {
+            returnUrl = 'hebrew.html';
+        } else if (gradeParam === 'science') {
+            returnUrl = 'science.html';
+        } else if (gradeParam === 'arabic') {
+            returnUrl = 'arabic.html';
         } else {
             returnUrl = `math.html?grade=${encodeURIComponent(backMap[gradeParam] || gradeParam)}`;
         }
+        // --------------------------------------------------------
         
         // טעינת הקובץ הנכון
         const script = document.createElement('script'); 
