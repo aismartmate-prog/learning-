@@ -284,7 +284,7 @@
     </div>
 
     <div class="input-row">
-        <input type="file" id="image-upload" accept="image/*" onchange="handleImageSelection(event)">
+        <input type="file" id="image-upload" accept="image/jpeg, image/png, image/jpg, image/webp, image/heic" onchange="handleImageSelection(event)">
         <label for="image-upload" class="btn-upload" title="צלם או העלה תמונה">📷</label>
         
         <textarea id="user-input" rows="1" placeholder="הקלד הודעה..." oninput="autoResize(this)"></textarea>
@@ -380,7 +380,7 @@
                 body: JSON.stringify({
                     message: messageToSend,
                     image: imageToSend,
-                    history: chatHistory // שליחת ההיסטוריה לשרת!
+                    history: chatHistory // שליחת ההיסטוריה לשרת
                 })
             });
 
@@ -391,7 +391,7 @@
                 // הוספת תשובת ה-AI להיסטוריה
                 chatHistory.push({ role: "assistant", content: data.reply });
                 
-                // התשובה מוצגת כפי שהיא, ה-CSS יעשה את עבודת הריווח!
+                // התשובה מוצגת כפי שהיא, ה-CSS יעשה את עבודת הריווח
                 appendMessage(`<strong>מורה AI:</strong>\n${data.reply}`, 'ai');
             } else {
                 appendMessage(`<strong>מערכת:</strong> המורה לא הצליח לענות. נסה לשלוח שוב.`, 'ai');
