@@ -82,12 +82,14 @@
             max-width: 88%;
             padding: 14px 18px;
             border-radius: 18px;
-            line-height: 1.5;
+            line-height: 1.6;
             font-size: 1rem;
             position: relative;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             word-wrap: break-word;
             animation: fadeIn 0.3s ease-out;
+            /* שומר על רווחים ופסקאות מהשרת - קריטי למתמטיקה ולסדר! */
+            white-space: pre-wrap; 
         }
 
         @keyframes fadeIn {
@@ -282,7 +284,7 @@
     </div>
 
     <div class="input-row">
-        <input type="file" id="image-upload" accept="image/*" capture="environment" onchange="handleImageSelection(event)">
+        <input type="file" id="image-upload" accept="image/jpeg, image/png, image/webp, image/heic" onchange="handleImageSelection(event)">
         <label for="image-upload" class="btn-upload" title="צלם או העלה תמונה">📷</label>
         
         <textarea id="user-input" rows="1" placeholder="הקלד הודעה..." oninput="autoResize(this)"></textarea>
@@ -306,7 +308,9 @@
 
     // פונקציית סגירה - מנסה לסגור דרך דף האב אם נטען ב-Iframe
     function closeChat() {
-        if (window.parent && typeof window.parent.toggleAiChat === 'function') {
+        if (window.parent && typeof window.parent.closeAiModal === 'function') {
+            window.parent.closeAiModal();
+        } else if (window.parent && typeof window.parent.toggleAiChat === 'function') {
             window.parent.toggleAiChat();
         } else {
             window.history.back();
@@ -321,7 +325,6 @@
     function handleImageSelection(event) {
         const file = event.target.files[0];
         if (file) {
-            // אם התמונה גדולה מדי, כדאי לכווץ אותה כאן (כרגע משתמש בסיסית ב-FileReader)
             const reader = new FileReader();
             reader.onload = function(e) {
                 imgPreview.src = e.target.result;
@@ -372,9 +375,6 @@
             // הקישור הישיר ששלחת מגוגל
             const SERVER_URL = 'https://script.google.com/macros/s/AKfycbwPj1iT_s88hMHCtayOTsKGrDjGTG3BHpO-Sikl_y5bXvQUPXw-WHbDUEbAqDnUkmjW/exec'; 
 
-            // שולחים את הבקשה. הפעם נוסיף גם את chatHistory.
-            // *הערה*: תצטרך לוודא שהסקריפט בגוגל יודע לקרוא את 'history'. 
-            // אם הוא קורא רק 'message', הוא פשוט יתעלם מההיסטוריה.
             const response = await fetch(SERVER_URL, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -391,17 +391,16 @@
                 // הוספת תשובת ה-AI להיסטוריה
                 chatHistory.push({ role: "assistant", content: data.reply });
                 
-                // המרת ירידות שורה רגילות ל-HTML
-                const formattedReply = data.reply.replace(/\n/g, '<br>');
-                appendMessage(`<strong>מורה AI:</strong>${formattedReply}`, 'ai');
+                // התשובה מוצגת כפי שהיא, ה-CSS יעשה את עבודת הריווח!
+                appendMessage(`<strong>מורה AI:</strong>\n${data.reply}`, 'ai');
             } else {
-                appendMessage(`<strong>מערכת:</strong>המורה לא הצליח לענות. נסה לשלוח שוב.`, 'ai');
+                appendMessage(`<strong>מערכת:</strong> המורה לא הצליח לענות. נסה לשלוח שוב.`, 'ai');
             }
 
         } catch (error) {
             console.error('Error:', error);
             typingIndicator.style.display = 'none';
-            appendMessage(`<strong>מערכת:</strong>שגיאת תקשורת. אנא ודא שהקוד בגוגל מעודכן ושעשית "פריסה חדשה".`, 'ai');
+            appendMessage(`<strong>מערכת:</strong> שגיאת תקשורת. אנא ודא שהקוד בגוגל מעודכן ושעשית "פריסה חדשה".`, 'ai');
         }
     }
 
