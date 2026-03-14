@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>מורה פרטי AI - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-header: #0f172a;  
+            --accent-gold: #c5a059;   
+            --bg-color: #f1f5f9;      
+            --surface-color: #ffffff; 
+            --border-soft: #e2e8f0;
+            --chat-user-bg: #c7d2fe;
+            --chat-user-text: #1e3a8a;
+            --chat-ai-bg: #ffffff;
+            --chat-ai-text: #1e293b;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            /* מונע גלילה מיותרת בכל המסך, משאיר אותה רק בצ'אט */
+            overflow: hidden; 
+        }
+
+        header {
+            background: var(--primary-header);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-gold);
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex-shrink: 0; /* מונע מההדר להתכווץ */
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px;
+        }
+        
+        .back-btn { 
+            color: var(--accent-gold); 
+            text-decoration: none; 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-size: 0.95rem;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.2); }
+
+        .chat-container {
+            flex: 1;
+            padding: 20px 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background-color: var(--bg-color);
+            /* תמיכה טובה יותר בגלילה בסלולר */
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        .message {
+            max-width: 88%;
+            padding: 14px 18px;
+            border-radius: 18px;
+            line-height: 1.5;
+            font-size: 1rem;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            word-wrap: break-word;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.ai {
+            align-self: flex-start;
+            background: var(--chat-ai-bg);
+            color: var(--chat-ai-text);
+            border: 1px solid var(--border-soft);
+            border-bottom-right-radius: 4px; /* עיצוב בועה מימין לשמאל */
+        }
+        
+        .message.ai strong { color: var(--accent-gold); display: block; margin-bottom: 5px; font-size: 0.9rem;}
+
+        .message.user {
+            align-self: flex-end;
+            background: var(--chat-user-bg);
+            color: var(--chat-user-text);
+            border: 1px solid #a5b4fc;
+            border-bottom-left-radius: 4px; /* עיצוב בועה מימין לשמאל */
+        }
+
+        .message img {
+            max-width: 100%;
+            max-height: 200px; /* הגבלת גובה תמונה בצ'אט */
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* עיצוב אזור ההקלדה */
+        .input-area {
+            background: var(--surface-color);
+            padding: 15px;
+            border-top: 1px solid var(--border-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+            padding-bottom: calc(15px + env(safe-area-inset-bottom)); /* התאמה לאייפון */
+        }
+
+        .image-preview-container {
+            display: none; 
+            position: relative;
+            width: fit-content;
+            margin-right: 10px;
+        }
+
+        .image-preview {
+            max-height: 60px;
+            border-radius: 8px;
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .remove-image {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .input-row {
+            display: flex;
+            align-items: flex-end; /* יישור לתחתית כשתיבת הטקסט גדלה */
+            gap: 10px;
+            background: #f8fafc;
+            border: 1px solid var(--border-soft);
+            border-radius: 24px;
+            padding: 5px 8px;
+            transition: border-color 0.2s;
+        }
+        
+        .input-row:focus-within { border-color: var(--accent-gold); }
+
+        input[type="file"] { display: none; }
+        
+        .btn-upload {
+            background: transparent;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            color: var(--text-muted);
+            border-radius: 50%;
+            margin-bottom: 2px;
+        }
+        .btn-upload:active { background: #e2e8f0; }
+
+        textarea {
+            flex: 1;
+            border: none;
+            padding: 10px 5px;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            resize: none;
+            outline: none;
+            background: transparent;
+            min-height: 42px;
+            max-height: 120px;
+            line-height: 1.4;
+        }
+        textarea::placeholder { color: #94a3b8; }
+
+        .btn-send {
+            background: var(--primary-header);
+            color: var(--accent-gold);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            margin-bottom: 1px;
+        }
+        .btn-send:active { transform: scale(0.95); background: var(--accent-gold); color: #000; }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: var(--chat-ai-bg);
+            padding: 12px 20px;
+            border-radius: 18px;
+            border: 1px solid var(--border-soft);
+            border-bottom-right-radius: 4px;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+        .typing-indicator span { animation: blink 1.4s infinite both; font-size: 2rem; line-height: 0.1; display: inline-block; vertical-align: bottom;}
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
+        
+        /* התאמות למסכים קטנים מאוד */
+        @media (max-width: 380px) {
+            .message { max-width: 92%; font-size: 0.95rem; }
+            textarea { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>המורה האישי 🤖</h1>
+    <a onclick="closeChat()" class="back-btn">סגור ✕</a>
+</header>
+
+<div class="chat-container" id="chat-box">
+    <div class="message ai">
+        <strong>מורה AI:</strong>
+        היי! אני המורה האישי שלך. נתקעת בשיעורי הבית? לא הבנת משהו בחומר?<br><br>
+        כתוב לי שאלה, או לחץ על סמל המצלמה כדי לצלם לי את התרגיל ואעזור לך להבין את הדרך! 📚
+    </div>
+    
+    <div class="typing-indicator" id="typing-indicator">
+        <span>.</span><span>.</span><span>.</span>
+    </div>
+</div>
+
+<div class="input-area">
+    <div class="image-preview-container" id="preview-container">
+        <span class="remove-image" onclick="removeImage()">✕</span>
+        <img src="" id="img-preview" class="image-preview" alt="תצוגה מקדימה">
+    </div>
+
+    <div class="input-row">
+        <input type="file" id="image-upload" accept="image/*" capture="environment" onchange="handleImageSelection(event)">
+        <label for="image-upload" class="btn-upload" title="צלם או העלה תמונה">📷</label>
+        
+        <textarea id="user-input" rows="1" placeholder="הקלד הודעה..." oninput="autoResize(this)"></textarea>
+        
+        <button class="btn-send" id="send-btn" onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+<script>
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const imageUpload = document.getElementById('image-upload');
+    const previewContainer = document.getElementById('preview-container');
+    const imgPreview = document.getElementById('img-preview');
+    const typingIndicator = document.getElementById('typing-indicator');
+    
+    let currentImageBase64 = null;
+    
+    // מערך לשמירת היסטוריית השיחה כדי שהמורה יזכור את ההקשר
+    let chatHistory = [];
+
+    // פונקציית סגירה - מנסה לסגור דרך דף האב אם נטען ב-Iframe
+    function closeChat() {
+        if (window.parent && typeof window.parent.toggleAiChat === 'function') {
+            window.parent.toggleAiChat();
+        } else {
+            window.history.back();
+        }
+    }
+
+    function autoResize(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+
+    function handleImageSelection(event) {
+        const file = event.target.files[0];
+        if (file) {
+            // אם התמונה גדולה מדי, כדאי לכווץ אותה כאן (כרגע משתמש בסיסית ב-FileReader)
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imgPreview.src = e.target.result;
+                currentImageBase64 = e.target.result;
+                previewContainer.style.display = 'block';
+                userInput.focus(); // החזרת פוקוס להקלדה
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function removeImage() {
+        imageUpload.value = '';
+        currentImageBase64 = null;
+        imgPreview.src = '';
+        previewContainer.style.display = 'none';
+    }
+
+    async function sendMessage() {
+        const text = userInput.value.trim();
+        if (text === "" && !currentImageBase64) return;
+
+        // 1. הצגת הודעת המשתמש בצ'אט
+        let userMsgHTML = "";
+        if (currentImageBase64) userMsgHTML += `<img src="${currentImageBase64}">`;
+        if (text !== "") userMsgHTML += `<div>${text.replace(/\n/g, '<br>')}</div>`;
+        appendMessage(userMsgHTML, 'user');
+
+        const messageToSend = text;
+        const imageToSend = currentImageBase64;
+
+        // הוספה להיסטוריה המקומית
+        chatHistory.push({ role: "user", content: messageToSend });
+        // מגבילים את ההיסטוריה ל-10 ההודעות האחרונות כדי לא להעמיס על הבקשה
+        if(chatHistory.length > 10) chatHistory = chatHistory.slice(chatHistory.length - 10);
+
+        // איפוס שדות הקלט
+        userInput.value = "";
+        userInput.style.height = 'auto';
+        removeImage();
+
+        // 2. הצגת אנימציית "המורה מקליד..."
+        chatBox.appendChild(typingIndicator);
+        typingIndicator.style.display = 'block';
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        try {
+            // הקישור הישיר ששלחת מגוגל
+            const SERVER_URL = 'https://script.google.com/macros/s/AKfycbwPj1iT_s88hMHCtayOTsKGrDjGTG3BHpO-Sikl_y5bXvQUPXw-WHbDUEbAqDnUkmjW/exec'; 
+
+            // שולחים את הבקשה. הפעם נוסיף גם את chatHistory.
+            // *הערה*: תצטרך לוודא שהסקריפט בגוגל יודע לקרוא את 'history'. 
+            // אם הוא קורא רק 'message', הוא פשוט יתעלם מההיסטוריה.
+            const response = await fetch(SERVER_URL, {
+                method: 'POST',
+                body: JSON.stringify({
+                    message: messageToSend,
+                    image: imageToSend,
+                    history: chatHistory // שליחת ההיסטוריה לשרת!
+                })
+            });
+
+            const data = await response.json();
+            typingIndicator.style.display = 'none';
+
+            if (data.reply) {
+                // הוספת תשובת ה-AI להיסטוריה
+                chatHistory.push({ role: "assistant", content: data.reply });
+                
+                // המרת ירידות שורה רגילות ל-HTML
+                const formattedReply = data.reply.replace(/\n/g, '<br>');
+                appendMessage(`<strong>מורה AI:</strong>${formattedReply}`, 'ai');
+            } else {
+                appendMessage(`<strong>מערכת:</strong>המורה לא הצליח לענות. נסה לשלוח שוב.`, 'ai');
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+            typingIndicator.style.display = 'none';
+            appendMessage(`<strong>מערכת:</strong>שגיאת תקשורת. אנא ודא שהקוד בגוגל מעודכן ושעשית "פריסה חדשה".`, 'ai');
+        }
+    }
+
+    function appendMessage(content, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${sender}`;
+        msgDiv.innerHTML = content;
+        chatBox.insertBefore(msgDiv, typingIndicator);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // טיפול ב-Enter לשליחה מהירה (Shift+Enter לירידת שורה)
+    userInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+</script>
+
+</body>
+</html>

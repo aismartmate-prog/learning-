@@ -142,20 +142,7 @@
         .game-card { border-color: #6366f1; border-bottom-color: #4338ca; }
         .game-card:hover { border-color: #4f46e5; background: #e0e7ff; }
 
-        .modal-overlay { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(15, 23, 42, 0.7); 
-            backdrop-filter: blur(6px); 
-            display: none; 
-            justify-content: center; 
-            align-items: center; 
-            z-index: 2000; 
-            padding: 20px; 
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(6px); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
         
         .modal-content { 
             background: white; 
@@ -266,23 +253,51 @@
 <div class="copyright-footer">© כל הזכויות שמורות למרכז להישגים לימודיים</div>
 
 <script>
-    // מאגר נושאי לשון (אפשר להרחיב ולהתאים בעתיד)
+    // מאגר נושאי לשון המלא - מותאם למשרד החינוך מבית ספר יסודי ועד בגרות
     const hebrewData = {
+        "יסודי_כללי": {
+            name: "יסודי (ד'-ו') - יסודות הלשון",
+            subs: ["זיהוי חלקי דיבר (שם עצם, פועל, תואר)", "שורש ותבנית - היכרות", "זכר ונקבה, יחיד ורבים", "סימני פיסוק בסיסיים", "מילות קישור פשוטות", "הבנת הנקרא - טקסט מידעי וסיפורי", "מילים נרדפות והפכים"]
+        },
+        "תורת_ההגה": { 
+            name: "תורת ההגה והצורות (חט\"ב)", 
+            subs: ["עיצורים ותנועות", "הברה וטעם", "דגש חזק ודגש קל", "אותיות בגד כפת", "שווא נע ושווא נח"] 
+        },
         "פועל": { 
             name: "מערכת הפועל", 
-            subs: ["בניינים", "גזרות", "שורשים", "זמנים"] 
+            subs: ["שורשים (זיהוי וחילוץ)", "בניינים (פעיל וסביל)", "גזרות (שלמים, מרובעים)", "זמנים וגופים", "משמעויות הבניינים", "שם פועל ושם פעולה"] 
+        },
+        "גזרות_הפועל_מתקדם": {
+            name: "גזרות הפועל המורכבות (תיכון ובגרות)",
+            subs: ["גזרת חסרים (חפ\"נ, חפי\"צ)", "גזרת נחים (נל\"א, נל\"י/ה, נפי\"ו, נע\"ו/י)", "גזרת הכפולים (ע\"ע)", "גזרת המרובעים", "תרגול מעורב של כל הגזרות"]
+        },
+        "שם_העצם": { 
+            name: "שם העצם ותצורתו", 
+            subs: ["בסיס וצורן (סופי/תחילי)", "שורש ומשקל", "הלחם בסיסים", "נוטריקון (ראשי תיבות)", "שאילה מלעז", "משמעויות המשקלים"] 
         },
         "תחביר": { 
-            name: "תחביר", 
-            subs: ["חלקי המשפט", "סוגי משפטים", "סמיכות"] 
+            name: "תחביר בסיסי ומתקדם", 
+            subs: ["נושא ונשוא", "מושא ותיאור", "לוואי ותמורה", "סמיכות (צירוף סמיכות)", "צירוף שם ותוארו", "חלקי כולל (נושא כולל, נשוא כולל)"] 
         },
-        "הבנת הנקרא": { 
-            name: "הבנת הנקרא והבעה", 
-            subs: ["מאזכרים", "אמצעים רטוריים", "עובדה ודעה", "כתיבת טיעון"] 
+        "סוגי_משפטים": {
+            name: "סוגי משפטים (שחבור והמרה)",
+            subs: ["משפט פשוט", "משפט מחובר (איחוי)", "משפט מורכב (עיקרי ופסוקית)", "המרות משפטים (משחבור)", "דו משמעות תחבירית", "משפטים חסרים ומשפטים ייחודים"]
         },
-        "שם העצם": { 
-            name: "שם העצם ותצורתו", 
-            subs: ["בסיס וצורן", "הלחם בסיסים", "נוטריקון"] 
+        "מילות_יחס_וקישור": {
+            name: "מילות יחס ומילות קישור",
+            subs: ["קשרי משמעות לוגיים (סיבה, תוצאה, תכלית, ויתור, תנאי)", "הטיית מילות יחס (אלי, בשבילו)", "שימוש תקני במילות קישור", "שגיאות נפוצות (בגלל ש, למרות ש)"]
+        },
+        "הבנת_הנקרא_והבעה": { 
+            name: "הבנת הנקרא והבעה (כללי ובגרות)", 
+            subs: ["זיהוי רעיון מרכזי", "מציאת טיעונים וביסוסם", "עובדה מול דעה", "מאזכרים (למה מתייחסת המילה)", "אמצעים רטוריים", "טון כותב ומטרת הטקסט"] 
+        },
+        "כתיבה_וסקירה": {
+            name: "כתיבה וסקירה ממזגת",
+            subs: ["כתיבת פסקת טיעון", "כתיבת סיכום", "כתיבת סקירה ממזגת (טקסטים מרובים)", "השוואה בין טקסטים", "כללי ציטוט והפניה", "פיסוק נכון בכתיבה"]
+        },
+        "תקינות": {
+            name: "תקינות לשונית (שגיאות נפוצות)",
+            subs: ["שם המספר (זכר ונקבה)", "ה' הידיעה ו-ו' החיבור", "מילות יחס מוצרכות (להכיר ב, לשלוט על)", "התאמת נושא ונשוא", "מילת השעבוד 'ש' מול 'ה' הזיקה", "בלבול בין אותיות"]
         }
     };
 
@@ -314,7 +329,7 @@
         let html = `<span class="close-modal" onclick="closeModal()">✕</span><h2>${activityName}</h2>`;
 
         if (activityName === 'מבחן' || activityName === 'בגרות') {
-            html += `<div style="font-weight:700; margin-bottom:10px; font-size:1.1rem; color:var(--primary-blue);">בחר נושאים למבחן:</div><div class="checkbox-list">`;
+            html += `<div style="font-weight:700; margin-bottom:10px; font-size:1.1rem; color:var(--primary-blue);">בחר נושאים ל${activityName}:</div><div class="checkbox-list">`;
             for (let key in dataSource) {
                 html += `<label class="checkbox-item"><input type="checkbox" name="topic-check" value="${key}"> ${dataSource[key].name}</label>`;
             }
@@ -366,7 +381,7 @@
 
         if (currentActivity === 'מבחן' || currentActivity === 'בגרות') {
             const checkedTopics = document.querySelectorAll('input[name="topic-check"]:checked');
-            if (checkedTopics.length === 0) { alert("יש לבחור לפחות נושא אחד למבחן"); return; }
+            if (checkedTopics.length === 0) { alert("יש לבחור לפחות נושא אחד ל" + currentActivity); return; }
             topicParam = Array.from(checkedTopics).map(cb => cb.value).join(",");
         } else {
             const t = document.getElementById('topic-select');
@@ -380,6 +395,7 @@
             } else {
                 const s = document.getElementById('subtopic-select');
                 if (s && s.value) subtopicParam = s.value;
+                if (needsSubtopic && !subtopicParam) { alert("חובה לבחור תת נושא כדי להתחיל תרגול"); return; }
             }
         }
 
