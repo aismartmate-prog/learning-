@@ -230,7 +230,7 @@
         <div class="activity-card" onclick="openSelectionModal('מבחן', false)">
             <div class="icon">🎓</div><h3>מבחן</h3>
         </div>
-        <div class="activity-card" onclick="openSelectionModal('בגרות', false)">
+        <div class="activity-card" onclick="openSelectionModal('בגרות', true)">
             <div class="icon">📚</div><h3>הכנה לבגרות</h3>
         </div>
     </div>
@@ -257,7 +257,7 @@
     const hebrewData = {
         "יסודי_כללי": {
             name: "יסודי (ד'-ו') - יסודות הלשון",
-            subs: ["זיהוי חלקי דיבר (שם עצם, פועל, תואר)", "שורש ותבנית - היכרות", "זכר ונקבה, יחיד ורבים", "סימני פיסוק בסיסיים", "מילות קישור פשוטות", "הבנת הנקרא - טקסט מידעי וסיפורי", "מילים נרדפות והפכים"]
+            subs: ["זיהוי חלקי דיבר (שם עצם, פועל, תואר)", "שורש ותבנית - היכרות", "זכר ונקבה, יחיד ורבים", "סימני פיסוק בסיסיים", "מילות קישור פשוטות", "הבנת הנקרא - טקסט מידעי וסיפורי", "מילים נרדפות והפכים", "בניינים לכיתות ה-ו", "הבנת הנקרא (טקסטים)"]
         },
         "תורת_ההגה": { 
             name: "תורת ההגה והצורות (חט\"ב)", 
@@ -268,36 +268,44 @@
             subs: ["שורשים (זיהוי וחילוץ)", "בניינים (פעיל וסביל)", "גזרות (שלמים, מרובעים)", "זמנים וגופים", "משמעויות הבניינים", "שם פועל ושם פעולה"] 
         },
         "גזרות_הפועל_מתקדם": {
-            name: "גזרות הפועל המורכבות (תיכון ובגרות)",
-            subs: ["גזרת חסרים (חפ\"נ, חפי\"צ)", "גזרת נחים (נל\"א, נל\"י/ה, נפי\"ו, נע\"ו/י)", "גזרת הכפולים (ע\"ע)", "גזרת המרובעים", "תרגול מעורב של כל הגזרות"]
+            name: "גזרות הפועל המורכבות",
+            subs: ["גזרת חסרים (חפן, חפיצ)", "גזרת נחים (נלא, נליה, נפיו, נעוי)", "גזרת הכפולים (עע)", "גזרת המרובעים", "תרגול מעורב של כל הגזרות"]
         },
         "שם_העצם": { 
             name: "שם העצם ותצורתו", 
-            subs: ["בסיס וצורן (סופי/תחילי)", "שורש ומשקל", "הלחם בסיסים", "נוטריקון (ראשי תיבות)", "שאילה מלעז", "משמעויות המשקלים"] 
+            subs: ["בסיס וצורן (סופי תחילי)", "שורש ומשקל", "הלחם בסיסים", "נוטריקון (ראשי תיבות)", "שאילה מלעז", "משמעויות המשקלים"] 
         },
         "תחביר": { 
             name: "תחביר בסיסי ומתקדם", 
             subs: ["נושא ונשוא", "מושא ותיאור", "לוואי ותמורה", "סמיכות (צירוף סמיכות)", "צירוף שם ותוארו", "חלקי כולל (נושא כולל, נשוא כולל)"] 
         },
         "סוגי_משפטים": {
-            name: "סוגי משפטים (שחבור והמרה)",
+            name: "סוגי משפטים",
             subs: ["משפט פשוט", "משפט מחובר (איחוי)", "משפט מורכב (עיקרי ופסוקית)", "המרות משפטים (משחבור)", "דו משמעות תחבירית", "משפטים חסרים ומשפטים ייחודים"]
         },
         "מילות_יחס_וקישור": {
-            name: "מילות יחס ומילות קישור",
+            name: "מילות יחס וקישור",
             subs: ["קשרי משמעות לוגיים (סיבה, תוצאה, תכלית, ויתור, תנאי)", "הטיית מילות יחס (אלי, בשבילו)", "שימוש תקני במילות קישור", "שגיאות נפוצות (בגלל ש, למרות ש)"]
         },
         "הבנת_הנקרא_והבעה": { 
-            name: "הבנת הנקרא והבעה (כללי ובגרות)", 
-            subs: ["זיהוי רעיון מרכזי", "מציאת טיעונים וביסוסם", "עובדה מול דעה", "מאזכרים (למה מתייחסת המילה)", "אמצעים רטוריים", "טון כותב ומטרת הטקסט"] 
+            name: "הבנת הנקרא והבעה", 
+            subs: ["זיהוי רעיון מרכזי", "מציאת טיעונים וביסוסם", "עובדה מול דעה", "מאזכרים (למה מתייחסת המילה)", "אמצעים רטוריים", "טון כותב ומטרת הטקסט", "הבנת הנקרא (טקסטים)"] 
         },
         "כתיבה_וסקירה": {
             name: "כתיבה וסקירה ממזגת",
             subs: ["כתיבת פסקת טיעון", "כתיבת סיכום", "כתיבת סקירה ממזגת (טקסטים מרובים)", "השוואה בין טקסטים", "כללי ציטוט והפניה", "פיסוק נכון בכתיבה"]
         },
         "תקינות": {
-            name: "תקינות לשונית (שגיאות נפוצות)",
-            subs: ["שם המספר (זכר ונקבה)", "ה' הידיעה ו-ו' החיבור", "מילות יחס מוצרכות (להכיר ב, לשלוט על)", "התאמת נושא ונשוא", "מילת השעבוד 'ש' מול 'ה' הזיקה", "בלבול בין אותיות"]
+            name: "תקינות לשונית",
+            subs: ["שם המספר (זכר ונקבה)", "מילות יחס מוצרכות (להכיר ב, לשלוט על)", "התאמת נושא ונשוא", "מילת השעבוד ש מול ה הזיקה", "בלבול בין אותיות"]
+        }
+    };
+
+    // מבנה נפרד רק עבור הכנה לבגרות (ללא תתי נושאים)
+    const bagrutData = {
+        "bagrut_prep": {
+            name: "הכנה לבחינות בגרות",
+            subs: [] // מערך ריק אומר שאין תתי נושאים
         }
     };
 
@@ -318,26 +326,34 @@
         needsSubtopic = subtopicRequired;
         const inner = document.getElementById('modal-inner-content');
         
-        let dataSource = hebrewData;
+        // קביעת מקור הנתונים: בגרות תקבל רק את הנושא המיוחד, השאר יקבלו את המאגר המלא
+        let dataSource = (activityName === 'בגרות') ? bagrutData : hebrewData;
 
         let btnText = "התחל למידה";
         if (activityName === "תרגול") btnText = "התחל תרגול";
         else if (activityName === "בוחן") btnText = "התחל בוחן";
-        else if (activityName === "מבחן" || activityName === "בגרות") btnText = "התחל מבחן";
+        // 'בגרות' עכשיו מוגדר כתרגול, אבל נשמור את הטקסט שלו כהכנה
+        else if (activityName === "בגרות") btnText = "התחל תרגול בגרות";
+        else if (activityName === "מבחן") btnText = "התחל מבחן";
         else if (activityName === "המרדף" || activityName === "ראש בראש") btnText = "התחל משחק";
 
         let html = `<span class="close-modal" onclick="closeModal()">✕</span><h2>${activityName}</h2>`;
 
-        if (activityName === 'מבחן' || activityName === 'בגרות') {
+        // מבחן נשאר עם רשימת צ'קבוקסים
+        if (activityName === 'מבחן') {
             html += `<div style="font-weight:700; margin-bottom:10px; font-size:1.1rem; color:var(--primary-blue);">בחר נושאים ל${activityName}:</div><div class="checkbox-list">`;
             for (let key in dataSource) {
                 html += `<label class="checkbox-item"><input type="checkbox" name="topic-check" value="${key}"> ${dataSource[key].name}</label>`;
             }
             html += `</div>`;
             html += `<button class="btn-start" onclick="handleStart()">${btnText}</button>`;
-        } else {
+        } 
+        // בגרות, תרגול, בוחן מקבלים Dropdown
+        else {
             let topicOptions = '<option value="">-- בחר נושא --</option>';
-            for (let key in dataSource) { topicOptions += `<option value="${key}">${dataSource[key].name}</option>`; }
+            for (let key in dataSource) { 
+                topicOptions += `<option value="${key}">${dataSource[key].name}</option>`; 
+            }
             
             html += `<select id="topic-select" onchange="updateSubtopics()">${topicOptions}</select>`;
             html += `<div id="subtopic-container" style="display:none;"></div>`;
@@ -353,9 +369,10 @@
     function updateSubtopics() {
         const tKey = document.getElementById('topic-select').value;
         const container = document.getElementById('subtopic-container');
-        let dataSource = hebrewData;
+        
+        let dataSource = (currentActivity === 'בגרות') ? bagrutData : hebrewData;
 
-        if (tKey && dataSource[tKey]) {
+        if (tKey && dataSource[tKey] && dataSource[tKey].subs.length > 0) {
             if (currentActivity === 'בוחן') {
                 let checks = `<div style="font-weight:700; margin-bottom:8px; font-size:1.05rem; color:var(--primary-blue);">בחר תתי נושאים לבוחן:</div><div class="checkbox-list">`;
                 dataSource[tKey].subs.forEach(s => {
@@ -371,6 +388,7 @@
             }
             container.style.display = 'block';
         } else {
+            // מסתיר את מכולת התת-נושאים אם אין כאלו (כמו במקרה של הכנה לבגרות)
             container.style.display = 'none';
         }
     }
@@ -379,7 +397,7 @@
         let topicParam = "";
         let subtopicParam = "";
 
-        if (currentActivity === 'מבחן' || currentActivity === 'בגרות') {
+        if (currentActivity === 'מבחן') {
             const checkedTopics = document.querySelectorAll('input[name="topic-check"]:checked');
             if (checkedTopics.length === 0) { alert("יש לבחור לפחות נושא אחד ל" + currentActivity); return; }
             topicParam = Array.from(checkedTopics).map(cb => cb.value).join(",");
@@ -395,7 +413,15 @@
             } else {
                 const s = document.getElementById('subtopic-select');
                 if (s && s.value) subtopicParam = s.value;
-                if (needsSubtopic && !subtopicParam) { alert("חובה לבחור תת נושא כדי להתחיל תרגול"); return; }
+                
+                // בדיקת חובה לתת נושא רק אם קיימים תתי נושאים בכלל לאותו נושא
+                let dataSource = (currentActivity === 'בגרות') ? bagrutData : hebrewData;
+                let hasSubtopics = dataSource[topicParam] && dataSource[topicParam].subs.length > 0;
+                
+                if (needsSubtopic && hasSubtopics && !subtopicParam) { 
+                    alert("חובה לבחור תת נושא כדי להתחיל תרגול"); 
+                    return; 
+                }
             }
         }
 
@@ -404,7 +430,8 @@
             return;
         }
 
-        let targetFile = (currentActivity === 'תרגול') ? 'practice.html' : 'exam.html';
+        // בגרות נפתחת כעת דרך דף practice.html ולא דרך exam.html
+        let targetFile = (currentActivity === 'תרגול' || currentActivity === 'בגרות') ? 'practice.html' : 'exam.html';
         
         // צירוף המקצוע כדי שקובץ התרגול ידע לטעון את נתוני הלשון ולא המתמטיקה
         window.location.href = `${targetFile}?subject=hebrew&grade=${encodeURIComponent(grade)}&topic=${encodeURIComponent(topicParam.trim())}&subtopic=${encodeURIComponent(subtopicParam)}&activity=${encodeURIComponent(currentActivity)}`;

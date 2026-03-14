@@ -214,7 +214,7 @@
         sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
         sub { font-size: 0.7em; vertical-align: sub; }
 
-        /* --- הוספת עיצוב כפתור ההקראה --- */
+        /* --- עיצוב כפתור ההקראה --- */
         .btn-tts { 
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe); border: 2px solid #6366f1; border-radius: 40px; 
             padding: 10px 30px; font-size: 1.2rem; cursor: pointer; font-weight: 800; color: #4338ca; 
@@ -224,6 +224,29 @@
         .btn-tts:active { transform: scale(0.95); }
         .btn-tts.playing { animation: pulse-tts 1.5s infinite; border-color: #10b981; color: #059669; background: #d1fae5; }
         @keyframes pulse-tts { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
+        /* --- עיצוב כפתור חלון טקסט קריאה (פינה ימנית עליונה) --- */
+        .btn-reading-window {
+            background: linear-gradient(135deg, #fdfcf8, #f5ecd6); 
+            border: 2px solid var(--accent-gold); 
+            border-radius: 8px; 
+            padding: 8px 15px; 
+            font-size: 1rem; 
+            cursor: pointer; 
+            font-weight: 800; 
+            color: var(--primary-header); 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            transition: all 0.2s ease; 
+            box-shadow: 0 2px 5px rgba(197,160,89,0.2); 
+        }
+        .btn-reading-window:hover {
+            background: linear-gradient(135deg, #f5ecd6, #eaddba); 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 8px rgba(197,160,89,0.3); 
+        }
+        .btn-reading-window:active { transform: scale(0.95); }
 
         /* --- תוספת: כפתור מורה פרטי AI צף --- */
         .ai-tutor-fab {
@@ -256,7 +279,7 @@
         /* --- תוספת: עיצוב חלון צ'אט של המורה (בסגנון וואטסאפ מוקטן) --- */
         .ai-chat-window {
             position: fixed;
-            bottom: 75px; /* ממוקם מעל הכפתור */
+            bottom: 75px; 
             left: 15px;
             width: 350px;
             height: 500px;
@@ -480,10 +503,16 @@
         </div>
 
         <div id="quiz-area">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; width: 100%; max-width: 800px; align-self: center;">
-                <span style="font-weight: 700; color: var(--accent-gold); font-size: 1.1rem;">שאלה <span id="current-num">1</span> מתוך <span id="total-num">5</span></span>
-                <span id="status-tag" class="status-tag"></span>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; width: 100%;">
+                <div id="reading-btn-container" style="flex: 1; text-align: right;"></div>
+                <div style="flex: 1; text-align: center;">
+                    <span style="font-weight: 700; color: var(--accent-gold); font-size: 1.1rem;">שאלה <span id="current-num">1</span> מתוך <span id="total-num">5</span></span>
+                </div>
+                <div style="flex: 1; text-align: left;">
+                    <span id="status-tag" class="status-tag"></span>
+                </div>
             </div>
+            
             <div class="question-area" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
                 <div class="question-title" id="q-text">טוען שאלה...</div>
                 <div class="options-grid" id="q-options"></div>
@@ -514,6 +543,7 @@
     let timeLeft = 0; 
     let urlGrade = '', urlSubject = '', currentTopicStr = '', currentActivity = '';
     let currentSpeechText = "";
+    let currentPassage = ""; // משתנה לשמירת טקסט הקריאה
 
     // --- פונקציונליות חלון מורה פרטי AI (Chatbox) ---
     function toggleAiChat() {
@@ -529,6 +559,39 @@
             }
             chatWindow.style.display = 'flex';
         }
+    }
+    // ---------------------------------------------------
+
+    // --- חלון נפרד לטקסט קריאה ---
+    function openReadingWindow() {
+        const readingWin = window.open('', '_blank', 'width=800,height=800,scrollbars=yes');
+        if (!readingWin) { alert("חוסם החלונות מונע פתיחת טקסט קריאה. אנא אשרו פתיחת חלונות קופצים."); return; }
+        
+        // בודקים אם אנחנו במצב אנגלית כדי לשנות כיווניות של הטקסט
+        let isEnglish = (urlGrade === "english" || urlSubject === "english");
+
+        let textHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>טקסט קריאה</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; color: #0f172a; padding: 30px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
+                .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
+                .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
+                .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
+            </style>
+        </head>
+        <body>
+            <div class="header"><h1>טקסט קריאה</h1></div>
+            <div class="content ${isEnglish ? 'en-text' : ''}">${formatContent(window.currentPassage)}</div>
+        </body>
+        </html>`;
+        readingWin.document.write(textHtml);
+        readingWin.document.close();
     }
     // ---------------------------------------------------
 
@@ -671,7 +734,6 @@
         let rawGrade = p.get('grade') || "";
         const gradeParam = rawGrade.trim().toLowerCase();
         
-        // הוספנו את שליפת המקצוע (subject) כדי לדעת לאן לחזור!
         let rawSubject = p.get('subject') || "";
         const subjectParam = rawSubject.trim().toLowerCase();
         
@@ -688,7 +750,7 @@
         let displayGrade = gradeNames[gradeParam] || rawGrade; 
         
         let displayTopic = "";
-        if (currentTopicStr.includes('bagrut')) {
+        if (currentTopicStr.toLowerCase().includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
         } else {
             let topicsArray = currentTopicStr.split(',');
@@ -850,7 +912,6 @@
         }
     };
 
-    // פונקציות הניתוב החכם למניעת חזרה למתמטיקה (תיקון הבעיה שביקשת 100 פעם!)
     function goBackToSelection() { 
         if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
         
@@ -1054,7 +1115,50 @@
         
         let qTextHtml = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
         
-        if (urlGrade === "english" && q.tts_text) {
+        let isFin = (urlGrade === "finance" || urlSubject === "finance");
+        let isEng = (urlGrade === "english" || urlSubject === "english");
+        let isHeb = (urlGrade === "hebrew" || urlSubject === "hebrew");
+
+        // --- הוספת כפתור "טקסט קריאה" באנגלית ובלשון ---
+        let showReadingBtn = false;
+        let qTopic = (q.topic || "").toLowerCase();
+        let qSub = (q.subTopic || q.subtopic || "").toLowerCase();
+        
+        // באנגלית: ב-6 תתי הנושאים הראשונים (שאינם Reading Strategies)
+        if (isEng && (qTopic.includes('reading_comprehension') || qTopic.includes('הבנת הנקרא'))) {
+            if (!qSub.includes('strategies') && !qSub.includes('אסטרטגיות')) {
+                showReadingBtn = true;
+            }
+        } 
+        // בלשון: יסודי, הבנת הנקרא (טקסטים)
+        else if (isHeb && (qTopic.includes('יסודי_כללי') || q.topic === 'יסודי_כללי') && qSub.includes('הבנת הנקרא (טקסטים)')) {
+            showReadingBtn = true;
+        } 
+        // בלשון: בגרות, הבנת הנקרא (טקסטים)
+        else if (isHeb && (qTopic.includes('הבנת_הנקרא_והבעה') || q.topic === 'הבנת_הנקרא_והבעה') && qSub.includes('הבנת הנקרא (טקסטים)')) {
+            showReadingBtn = true;
+        }
+
+        // גיבוי ליתר ביטחון אם חסר topic בשאלה הספציפית
+        if (!q.topic && !q.subTopic) {
+            if (isEng && currentTopicStr.toLowerCase().includes('reading_comprehension')) {
+                showReadingBtn = true; 
+            }
+        }
+
+        if (showReadingBtn) {
+            window.currentPassage = q.passage || q.reading_text || "טקסט הקריאה טרם צורף לשאלה זו במאגר.";
+            document.getElementById('reading-btn-container').innerHTML = `
+                <button class="btn-reading-window" onclick="openReadingWindow()">
+                    <span style="font-size:1.2rem;">📖</span> <span>טקסט קריאה</span>
+                </button>
+            `;
+        } else {
+            document.getElementById('reading-btn-container').innerHTML = "";
+        }
+
+        // --- הוספת כפתור הקראה באנגלית ---
+        if (isEng && q.tts_text) {
             currentSpeechText = q.tts_text;
             qTextHtml += `
             <div style="text-align:center; margin-top:15px; margin-bottom: 20px;">
@@ -1077,13 +1181,7 @@
         const thMathExam = document.getElementById('th-math-exam');
         
         if (tableHead && thVerbalExam && thMathExam) {
-            let targetGrade = urlGrade.toLowerCase();
-            let targetSubject = urlSubject.toLowerCase();
-            
-            if (targetGrade === "finance" || targetSubject === "finance" || 
-                targetGrade === "english" || targetSubject === "english" || 
-                targetGrade === "hebrew" || targetSubject === "hebrew" || 
-                targetGrade === "arabic" || targetSubject === "arabic") {
+            if (isFin || isEng || isHeb || urlGrade === "arabic" || urlSubject === "arabic") {
                 thMathExam.style.display = 'none';
                 thVerbalExam.setAttribute('colspan', '2');
                 thVerbalExam.style.width = '100%';
@@ -1099,20 +1197,15 @@
         let finalAnswerText = "";
         if (q.solution_steps && q.solution_steps.length > 0) {
             q.solution_steps.forEach((step, index) => {
-                let verbal = step.verbal_explanation || "";
+                let verbal = step.verbal_explanation || step.explanation || "";
                 let mathText = step.math_expression || "";
                 
-                let targetGrade = urlGrade.toLowerCase();
-                let targetSubject = urlSubject.toLowerCase();
                 let verbalDir = containsHebrew(verbal) ? "rtl" : "ltr";
                 let mathDir = "ltr"; 
                 
                 const tr = document.createElement('tr');
                 
-                if (targetGrade === "finance" || targetSubject === "finance" || 
-                    targetGrade === "english" || targetSubject === "english" || 
-                    targetGrade === "hebrew" || targetSubject === "hebrew" || 
-                    targetGrade === "arabic" || targetSubject === "arabic") {
+                if (isFin || isEng || isHeb || urlGrade === "arabic" || urlSubject === "arabic") {
                     tr.innerHTML = `<td colspan="2" class="text-col" dir="${verbalDir}" style="border-left:none; text-align:right;">${formatContent(verbal)}</td>`;
                 } else {
                     mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');

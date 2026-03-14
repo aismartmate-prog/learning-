@@ -1,0 +1,156 @@
+קוד מלא למורה
+
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    var userMessage = data.message || "";
+    var imageBase64 = data.image;
+    var history = data.history || []; 
+
+    // מערך 5 המפתחות שלך - שמור במלואו ללא שינוי
+    var apiKeys = [
+      "AIzaSyABqOSrEwaEyh3WBUkcJzMF3K2wc7EK0Aw", 
+      "AIzaSyBNNA7Lkp161j9ho4dMnDMkKVBN0F8OiwI",
+      "AIzaSyAzKvnDUnaHbRex7G3sJuAgHxEQocLe9oc",
+      "AIzaSyBFCJlmroh7C6_oUitjYrQwVgT2dX6KC_Q",
+      "AIzaSyBGtia3wUGp9gpwbHd6OMdbRxvyQlONKsA"
+    ];
+    
+    var props = PropertiesService.getScriptProperties();
+    var currentIndex = parseInt(props.getProperty('API_KEY_INDEX'));
+    
+    if (isNaN(currentIndex) || currentIndex >= apiKeys.length) {
+      currentIndex = 0;
+    }
+
+    var systemPrompt = "אתה המורה הפרטי הטוב בעולם. עליך להיות תמציתי בצורה קיצונית, ברור וענייני.\n\n" +
+                       "חוקי זהב:\n" +
+                       "1. נימוס: ברך את התלמיד רק אם אין היסטוריית שיחה. אם זו המשך שיחה, גש ישר להסבר ללא גינונים.\n" +
+                       "2. סימני מתמטיקה: לכפל השתמש אך ורק בסימן × (איקס קטן). לחילוק השתמש בסימן ÷. לעולם אל תשתמש בכוכבית (*) לכפל.\n" +
+                       "3. מתמטיקה (קריטי): כל ביטוי מתמטי חייב להיות בשורה נפרדת בתוך [LTR] ו-[/LTR].\n" +
+                       "4. מבנה: הסבר מילולי קצר (RTL) -> שורת רווח -> נוסחה/חישוב בתיבת LTR -> המשך קצר.\n" +
+                       "5. כיווניות: בתוך [LTR] כתוב תמיד משמאל לימין בצורה אסתטית עם רווחים בין הסימנים.\n" +
+                       "6. חזקות: השתמש בסימן ^ (למשל x^2). המערכת תהפוך זאת לחזקה יפה.\n" +
+                       "7. איסור עיצוב: אל תשתמש ב-LaTeX ($), אל תשתמש בכוכביות הדגשה (**), ובלי קווים תחתונים.\n" +
+                       "8. מדדים: ₪ בלבד.";
+
+    var formattedContents = [];
+    
+    if (history.length > 0) {
+      for (var i = 0; i < history.length; i++) {
+        var role = history[i].role === "assistant" ? "model" : "user";
+        var textContent = history[i].content || "";
+        
+        if (i === 0 && role === "user") {
+          textContent = "הנחיות מערכת: " + systemPrompt + "\n\nהודעת התלמיד:\n" + textContent;
+        }
+        
+        var parts = [{ "text": textContent }];
+
+        if (i === history.length - 1 && imageBase64 && imageBase64.includes(",")) {
+          var base64Parts = imageBase64.split(",");
+          parts.push({
+            "inline_data": {
+              "mime_type": base64Parts[0].split(":")[1].split(";")[0],
+              "data": base64Parts[1]
+            }
+          });
+        }
+        
+        formattedContents.push({ "role": role, "parts": parts });
+      }
+    } else {
+      var fallbackParts = [{ "text": systemPrompt + "\n\nהודעת התלמיד:\n" + userMessage }];
+      if (imageBase64 && imageBase64.includes(",")) {
+        var base64Parts = imageBase64.split(",");
+        fallbackParts.push({
+          "inline_data": {
+            "mime_type": base64Parts[0].split(":")[1].split(";")[0],
+            "data": base64Parts[1]
+          }
+        });
+      }
+      formattedContents.push({ "role": "user", "parts": fallbackParts });
+    }
+
+    var payload = { "contents": formattedContents };
+    var options = {
+      "method": "post",
+      "contentType": "application/json",
+      "payload": JSON.stringify(payload),
+      "muteHttpExceptions": true
+    };
+
+    var result;
+    var isSuccess = false;
+
+    // לולאה שמנסה לעבור על המפתחות בשקט, עד למציאת מפתח שעובד
+    for (var attempt = 0; attempt < apiKeys.length; attempt++) {
+      var apiKey = apiKeys[currentIndex];
+      var apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + apiKey;
+      
+      try {
+        var response = UrlFetchApp.fetch(apiUrl, options);
+        var responseCode = response.getResponseCode();
+        
+        if (responseCode === 200) {
+          var responseText = response.getContentText();
+          var tempResult = JSON.parse(responseText);
+          
+          // מוודאים שהתשובה באמת מכילה תוכן לפני שמכריזים על הצלחה
+          if (tempResult.candidates && tempResult.candidates[0] && tempResult.candidates[0].content) {
+            result = tempResult;
+            isSuccess = true;
+            break; // הצלחה! יוצאים מהלולאה, האינדקס נשאר על המפתח המנצח
+          }
+        }
+        
+        // אם הגענו לכאן - הייתה בעיה עם המפתח (נגמרה המכסה, שגיאת שרת וכו')
+        // אנחנו מקדמים את האינדקס בשקט למפתח הבא, נותנים לנוכחי לנוח, וממשיכים בלולאה
+        currentIndex = (currentIndex + 1) % apiKeys.length;
+        props.setProperty('API_KEY_INDEX', currentIndex.toString());
+        
+      } catch (innerErr) {
+        // שגיאת רשת פנימית או בעיה אחרת שזרקה קריסה. 
+        // מדלגים בשקט למפתח הבא ומנסים שוב.
+        currentIndex = (currentIndex + 1) % apiKeys.length;
+        props.setProperty('API_KEY_INDEX', currentIndex.toString());
+      }
+    }
+
+    // אם כל הניסיונות נכשלו (כל 5 המפתחות עמוסים כרגע)
+    if (!isSuccess) {
+      return ContentService.createTextOutput(JSON.stringify({ "reply": "השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה." }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // עיבוד התשובה המוצלחת מה-AI
+    var aiReply = result.candidates[0].content.parts[0].text;
+    
+    // 1. ניקוי סימני Markdown
+    aiReply = aiReply.replace(/[\*\$\_]/g, "");
+    
+    // 2. החלפת כוכביות שנשארו בטעות בסימן כפל אסתטי ×
+    aiReply = aiReply.replace(/ \* /g, " × ").replace(/\*/g, "×");
+
+    // 3. הפיכת חזקות ל-HTML SuperScript (x²)
+    aiReply = aiReply.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+    aiReply = aiReply.replace(/\^([a-zA-Z0-9\.\+\-]+)/g, '<sup>$1</sup>');
+
+    // 4. עיצוב תיבות מתמטיקה (LTR) אסתטיות ונקיות
+    aiReply = aiReply.replace(/\[LTR\]([\s\S]*?)\[\/LTR\]/g, function(match, p1) {
+      return '<div style="direction: ltr; text-align: left; margin: 12px 0; font-family: \'Courier New\', monospace; font-size: 1.2em; background: #fdfdfd; padding: 12px; border: 1px solid #eee; border-radius: 6px; color: #1e293b; box-shadow: inset 4px 0 0 #c5a059; font-weight: bold;">' + p1.trim() + '</div>';
+    });
+
+    return ContentService.createTextOutput(JSON.stringify({ "reply": aiReply }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (err) {
+    // שגיאה קיצונית ברמת הסקריפט (נדיר מאוד) תתן גם הודעה ידידותית
+    return ContentService.createTextOutput(JSON.stringify({ "reply": "משהו קטן השתבש בחיבור 🔌 נסה לשלוח שוב את ההודעה." }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+
+https://script.google.com/u/2/home/projects/1FVJRdyMrI8smkD3XcwuHdJjc3yt-_Ex9YQ8o46S9qWdxSY4EwOAkvaLj/edit
