@@ -85,7 +85,6 @@
             z-index: 3000;
             transition: all 0.3s ease;
             border: 2px solid var(--accent-gold);
-            text-decoration: none;
         }
         .ai-tutor-fab:hover {
             transform: scale(1.05) translateY(-3px);
@@ -94,7 +93,58 @@
             box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
         }
         .ai-tutor-fab .icon { font-size: 1.4rem; }
-        /* ------------------------------------- */
+
+        /* --- תוספת: עיצוב חלון צ'אט של המורה (בסגנון וואטסאפ מוקטן) --- */
+        .ai-chat-window {
+            position: fixed;
+            bottom: 75px; /* ממוקם מעל הכפתור */
+            left: 15px;
+            width: 350px;
+            height: 500px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 2px solid var(--accent-gold);
+            display: none;
+            flex-direction: column;
+            z-index: 3000;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-chat-header {
+            background: var(--primary-header);
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+            font-weight: 700;
+        }
+        
+        .ai-chat-close {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #ffffff;
+            transition: 0.2s;
+        }
+        
+        .ai-chat-close:hover {
+            color: #ef4444;
+        }
+
+        .ai-chat-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* ---------------------------------------------------- */
 
         /* הדר עליון - עיצוב שכבתי חדש כדי למנוע צפיפות לחלוטין */
         header { 
@@ -285,6 +335,14 @@
                 padding: 8px 15px;
                 font-size: 0.95rem;
             }
+
+            /* התאמת חלון הצ'אט לנייד - יתפוס כמעט את כל המסך כמו אפליקציה */
+            .ai-chat-window {
+                width: calc(100% - 20px);
+                height: calc(100vh - 80px);
+                bottom: 60px;
+                left: 10px;
+            }
         }
     </style>
 </head>
@@ -307,9 +365,17 @@
     <button onclick="resetAcc()" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;">איפוס</button>
 </div>
 
-<div class="ai-tutor-fab" onclick="checkAccessRedirect('ai-tutor.html')" title="שאל את המורה הפרטי">
-    <span class="icon">🤖</span>
+<div class="ai-tutor-fab" onclick="handleAiClick()" title="שאל את המורה הפרטי">
     <span>מורה פרטי AI</span>
+    <span class="icon">🤖</span>
+</div>
+
+<div id="ai-chat-window" class="ai-chat-window">
+    <div class="ai-chat-header">
+        <span>שיחה עם המורה 🤖</span>
+        <span class="ai-chat-close" onclick="closeAiModal()" title="מזער חלון">✕</span>
+    </div>
+    <iframe id="ai-iframe" class="ai-chat-iframe" src=""></iframe>
 </div>
 
 <div class="edu-updates-strip">
@@ -533,6 +599,35 @@
     } catch (e) {
         console.warn('LocalStorage blocked.');
     }
+
+    // --- פונקציות מורה פרטי AI מעודכנות ---
+    function handleAiClick() {
+        if(localStorage.getItem('loggedInEmail')) {
+            openAiModal();
+        } else {
+            toggleLogin();
+        }
+    }
+
+    function openAiModal() {
+        const chatWindow = document.getElementById('ai-chat-window');
+        const iframe = document.getElementById('ai-iframe');
+        
+        if (chatWindow.style.display === 'flex') {
+            chatWindow.style.display = 'none';
+        } else {
+            // טעינה חכמה פעם אחת
+            if (!iframe.src || iframe.src === window.location.href) {
+                iframe.src = 'ai-tutor.html';
+            }
+            chatWindow.style.display = 'flex';
+        }
+    }
+
+    function closeAiModal() {
+        document.getElementById('ai-chat-window').style.display = 'none';
+    }
+    // ------------------------------------
 
     function myAlert(text) {
         document.getElementById('alert-text').innerText = text;
