@@ -229,22 +229,29 @@
             const t = document.getElementById('topic-select');
             if (!t || !t.value) { alert("אנא בחר נושא לפני ההתחלה"); return; }
             topicParam = t.value;
-            if (currentActivity === 'בוחן') {
+            
+            // תנאי לכל פעילויות הבחירה היחידנית (כולל המשחקים)
+            if (currentActivity === 'תרגול' || currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
+                const s = document.getElementById('subtopic-select');
+                if (!s || !s.value) { alert("חובה לבחור תת נושא כדי להתחיל"); return; }
+                subtopicParam = s.value;
+            } else if (currentActivity === 'בוחן') {
                 const checkedSubs = document.querySelectorAll('input[name="subtopic-check"]:checked');
                 if (checkedSubs.length === 0) { alert("חובה לבחור לפחות תת-נושא אחד לבוחן"); return; }
                 subtopicParam = Array.from(checkedSubs).map(cb => cb.value).join(",");
-            } else {
-                const s = document.getElementById('subtopic-select');
-                if (s && s.value) subtopicParam = s.value;
             }
         }
 
-        if (currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
-            alert("מצב המשחק המקוון נטען... (אפשרות זו תופעל במלואה בגרסה הבאה)"); return;
+        let targetFile = 'exam.html';
+        if (currentActivity === 'תרגול') {
+            targetFile = 'practice.html';
+        } else if (currentActivity === 'המרדף') {
+            targetFile = 'chase.html';
+        } else if (currentActivity === 'ראש בראש') {
+            targetFile = 'head2head.html';
         }
 
         // ניתוב למערכת הכללית עם Grade מוגדר כ-finance
-        let targetFile = (currentActivity === 'תרגול') ? 'practice.html' : 'exam.html';
         window.location.href = `${targetFile}?grade=finance&topic=${encodeURIComponent(topicParam)}&subtopic=${encodeURIComponent(subtopicParam)}&activity=${encodeURIComponent(currentActivity)}`;
     }
 </script>

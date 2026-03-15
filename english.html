@@ -80,7 +80,6 @@
             border-radius: 30px; font-weight: 700; cursor: pointer; width: 100%; 
             font-size: 1.25rem; transition: 0.3s; margin-top: auto; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15); flex-shrink: 0;
-            /* הוספתי שוליים למעלה ולמטה כדי לרווח את הכפתור */
             margin-top: 25px;
             margin-bottom: 5px;
         }
@@ -233,7 +232,6 @@
         currentActivity = activityName;
         needsSubtopic = subtopicRequired;
         
-        // ניתוב מיידי למצב "אנגלית מהבסיס ABC" (ללא מודל)
         if (activityName === 'ABC') {
             window.location.href = `practice.html?grade=english&topic=abc_basics&activity=אנגלית_מהבסיס_ABC`;
             return;
@@ -260,7 +258,6 @@
             html += `</div><button class="btn-start" onclick="handleStart()">${btnText}</button>`;
         } 
         else if (activityName === 'בגרות') {
-            // בחירת נושא יחיד להכנה לבגרות שפועל כמו תרגול
             html += `<select id="topic-select">`;
             html += `<option value="bagrut_prep">הכנה לבחינת בגרות</option>`;
             html += `</select>`;
@@ -277,7 +274,6 @@
         inner.innerHTML = html;
         document.getElementById('selection-modal').style.display = 'flex';
         
-        // קריאה לפונקציה כדי להסתיר את המיכל אם לא נבחר נושא
         if(activityName !== 'מבחן' && activityName !== 'בגרות') {
             updateSubtopics();
         }
@@ -326,30 +322,28 @@
             if (!t || !t.value) { alert("אנא בחר נושא לפני ההתחלה"); return; }
             topicParam = t.value;
             
-            if (currentActivity === 'בוחן') {
+            if (currentActivity === 'תרגול' || currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
+                const s = document.getElementById('subtopic-select');
+                if (!s || !s.value) { alert("חובה לבחור תת נושא כדי להתחיל"); return; }
+                subtopicParam = s.value;
+            } else if (currentActivity === 'בוחן') {
                 const checkedSubs = document.querySelectorAll('input[name="subtopic-check"]:checked');
                 if (checkedSubs.length === 0) { alert("חובה לבחור לפחות תת-נושא אחד לבוחן"); return; }
                 subtopicParam = Array.from(checkedSubs).map(cb => cb.value).join(",");
             } else if (currentActivity === 'בגרות') {
                 subtopicParam = ""; 
-            } else {
-                const s = document.getElementById('subtopic-select');
-                if (s && s.value) {
-                    subtopicParam = s.value;
-                } else {
-                    if (needsSubtopic && currentActivity !== 'בגרות') {
-                        alert("חובה לבחור תת נושא כדי להתחיל תרגול"); 
-                        return;
-                    }
-                }
             }
         }
 
-        if (currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
-            alert("מצב המשחק המקוון נטען... (אפשרות זו תופעל במלואה בגרסה הבאה)"); return;
+        let targetFile = 'exam.html';
+        if (currentActivity === 'תרגול' || currentActivity === 'בגרות') targetFile = 'practice.html';
+        else if (currentActivity === 'המרדף') targetFile = 'chase.html';
+        else if (currentActivity === 'ראש בראש') targetFile = 'head2head.html';
+
+        if (currentActivity === 'ABC') {
+            topicParam = "abc_basics";
         }
 
-        let targetFile = (currentActivity === 'תרגול' || currentActivity === 'בגרות') ? 'practice.html' : 'exam.html';
         window.location.href = `${targetFile}?grade=english&topic=${encodeURIComponent(topicParam)}&subtopic=${encodeURIComponent(subtopicParam)}&activity=${encodeURIComponent(currentActivity)}`;
     }
 </script>

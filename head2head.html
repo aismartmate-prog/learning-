@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ראש בראש - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0f172a;  
+            --board-bg: #1e293b;
+            --accent-gold: #fbbf24;
+            --player1-color: #3b82f6; 
+            --player2-color: #ef4444; 
+            --success-green: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --track-bg: #334155;
+            
+            --correct-bg: rgba(16, 185, 129, 0.2); 
+            --correct-border: #34d399; 
+            
+            --wrong-bg: rgba(239, 68, 68, 0.2); 
+            --wrong-border: #f87171; 
+        }
+        
+        body { font-family: 'Heebo', sans-serif; background-color: var(--primary-bg); color: var(--text-main); margin: 0; min-height: 100vh; display: flex; flex-direction: column; line-height: 1.3; }
+        header { background: #000000; color: white; padding: 0 25px; border-bottom: 2px solid var(--accent-gold); display: flex; justify-content: space-between; align-items: center; height: 55px; box-sizing: border-box; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
+        header h1 { margin: 0; font-size: 1.3rem; font-weight: 800; letter-spacing: 1px; }
+
+        .game-container { display: flex; flex-direction: column; max-width: 1000px; margin: 20px auto; padding: 0 15px; width: 100%; box-sizing: border-box; flex: 1; }
+
+        .overlay-screen { background: var(--board-bg); border-radius: 12px; padding: 30px 25px; text-align: center; border: 1px solid var(--track-bg); box-shadow: 0 8px 30px rgba(0,0,0,0.4); max-width: 500px; margin: 30px auto; width: 100%; box-sizing: border-box; }
+        .overlay-title { font-size: 2.2rem; color: var(--text-main); margin-bottom: 5px; font-weight: 800;}
+        .overlay-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 25px;}
+
+        .players-input-area { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
+        .player-input-group { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; background: rgba(0,0,0,0.15); padding: 12px 15px; border-radius: 8px; border-right: 3px solid; }
+        .player-input-group.p1 { border-color: var(--player1-color); }
+        .player-input-group.p2 { border-color: var(--player2-color); }
+        .player-input-group label { font-size: 0.95rem; font-weight: 600; color: var(--text-main); }
+        .player-input-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--track-bg); background: var(--primary-bg); color: white; font-family: 'Heebo'; font-size: 1rem; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+        .player-input-group input:focus { border-color: var(--accent-gold); }
+
+        .btn-action { background: linear-gradient(135deg, #fbbf24, #d97706); color: #000; border: none; padding: 12px 30px; font-size: 1.15rem; font-weight: 800; border-radius: 25px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); width: 100%; }
+        .btn-action:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
+        .btn-action:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .scoreboard { display: flex; justify-content: space-between; align-items: center; background: var(--board-bg); border-radius: 15px; padding: 15px 25px; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 1px solid var(--track-bg); }
+        .score-card { display: flex; flex-direction: column; align-items: center; padding: 10px 20px; border-radius: 10px; min-width: 120px; transition: all 0.3s ease; opacity: 0.5; transform: scale(0.95); }
+        .score-card.p1 { border-bottom: 4px solid var(--player1-color); }
+        .score-card.p2 { border-bottom: 4px solid var(--player2-color); }
+        .score-card.active-turn { opacity: 1; transform: scale(1.1); background: rgba(255,255,255,0.05); box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .score-card.p1.active-turn { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); border-color: var(--player1-color); }
+        .score-card.p2.active-turn { box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); border-color: var(--player2-color); }
+        .p-name { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        .p1 .p-name { color: var(--player1-color); }
+        .p2 .p-name { color: var(--player2-color); }
+        .p-score { font-size: 2.2rem; font-weight: 900; color: var(--text-main); line-height: 1; font-family: monospace;}
+        .vs-badge { font-size: 1.8rem; font-weight: 900; color: var(--accent-gold); text-shadow: 0 2px 10px rgba(251, 191, 36, 0.5); font-style: italic; }
+
+        .question-box { background: var(--board-bg); border-radius: 15px; padding: 30px; border: 1px solid var(--track-bg); box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-align: center; display: none; }
+        .turn-announcement { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; padding: 10px; border-radius: 8px; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .question-text { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; color: white; line-height: 1.4; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .option-btn { background: #0f172a; border: 2px solid #334155; color: #f8fafc; padding: 15px; border-radius: 10px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+        .option-btn:hover:not(:disabled) { border-color: var(--accent-gold); background: rgba(251, 191, 36, 0.1); transform: scale(1.02); }
+        .opt-correct { background: var(--correct-bg) !important; border-color: var(--correct-border) !important; color: #10b981 !important; }
+        .opt-wrong { background: var(--wrong-bg) !important; border-color: var(--wrong-border) !important; color: #ef4444 !important; }
+
+        .turn-status { margin-top: 20px; font-size: 1.2rem; font-weight: 800; height: 30px; color: var(--accent-gold); }
+        .tools-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
+        .btn-tool { background: #1e293b; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; font-family: 'Heebo';}
+        .btn-tool:hover { background: rgba(251, 191, 36, 0.1); }
+        
+        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } .question-text { font-size: 1.2rem; } .scoreboard { padding: 10px; } .score-card { min-width: 90px; padding: 5px 10px; } .p-score { font-size: 1.8rem; } .vs-badge { font-size: 1.4rem; } }
+
+        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; }
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
+        .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
+        .fraction-denominator { text-align: center; padding: 0 2px; }
+        sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
+        sub { font-size: 0.7em; vertical-align: sub; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="header-title">ראש בראש ⚔️</h1>
+    <a onclick="goBackToSelection()" style="color: var(--accent-gold); text-decoration: none; cursor: pointer; font-weight: 500; font-size: 1.05rem; transition: opacity 0.2s;">חזרה ↩</a>
+</header>
+
+<div class="game-container">
+    <div id="intro-screen" class="overlay-screen">
+        <div class="overlay-title">ראש בראש ⚔️</div>
+        <div class="overlay-subtitle" id="intro-topic-desc">טוען נתונים...</div>
+        
+        <div class="players-input-area">
+            <div class="player-input-group p1">
+                <label for="p1-name">שחקן 1 (כחול 🔵)</label>
+                <input type="text" id="p1-name" placeholder="הקלידו שם..." value="שחקן 1">
+            </div>
+            <div class="player-input-group p2">
+                <label for="p2-name">שחקן 2 (אדום 🔴)</label>
+                <input type="text" id="p2-name" placeholder="הקלידו שם..." value="שחקן 2">
+            </div>
+        </div>
+        <button class="btn-action" id="start-btn" onclick="startGame()" disabled style="opacity:0.5;">התחילו בתחרות!</button>
+    </div>
+
+    <div id="game-screen" style="display: none; width: 100%;">
+        <div class="scoreboard">
+            <div id="card-p1" class="score-card p1 active-turn"><div class="p-name" id="name-display-p1">שחקן 1</div><div class="p-score" id="score-p1">0</div></div>
+            <div class="vs-badge">VS</div>
+            <div id="card-p2" class="score-card p2"><div class="p-name" id="name-display-p2">שחקן 2</div><div class="p-score" id="score-p2">0</div></div>
+        </div>
+
+        <div class="question-box" id="question-box">
+            <div id="turn-announcement" class="turn-announcement">תור של: שחקן 1</div>
+            <div class="tools-bar" id="tools-bar"></div>
+            <div class="question-text" id="q-text"></div>
+            <div class="options-grid" id="q-options"></div>
+            <div class="turn-status" id="turn-status"></div>
+        </div>
+    </div>
+
+    <div id="end-screen" class="overlay-screen" style="display: none;">
+        <div class="overlay-title" id="end-title" style="font-size: 3.5rem;"></div>
+        <div class="overlay-subtitle" id="end-subtitle" style="font-size: 1.5rem; color: white;"></div>
+        <div id="final-scores-display" style="font-size: 1.2rem; margin-bottom: 30px; color: var(--accent-gold); font-weight: bold;"></div>
+        <button class="btn-action" onclick="window.location.reload()">משחק חוזר 🔄</button>
+        <br><br>
+        <button class="btn-action" style="background: #334155; color: white; font-size: 1rem; padding: 10px 20px; box-shadow: none; margin-top: 15px;" onclick="goBackToSelection()">בחירת נושא אחר 🗂️</button>
+    </div>
+</div>
+
+<script>
+    let pool = []; 
+    let gameQuestions = []; 
+    let currentQuestionIndex = 0;
+    let currentPlayerIndex = 0; 
+    const POINTS_PER_CORRECT = 100;
+    
+    let players = [
+        { name: "שחקן 1", score: 0, colorClass: "p1", hex: "var(--player1-color)" },
+        { name: "שחקן 2", score: 0, colorClass: "p2", hex: "var(--player2-color)" }
+    ];
+
+    let urlGrade = '', urlSubject = '', currentTopicStr = '', currentSubtopic = '';
+    let isMathMode = false, isEnglishMode = false, isArabicMode = false, isHebrewMode = false;
+    let returnUrl = 'tirgul.html';
+
+    window.allFetchedQuestions = [];
+
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let rawGrade = urlParams.get('grade') || "";
+        urlGrade = rawGrade.trim().toLowerCase();
+        
+        let rawSubject = urlParams.get('subject') || "";
+        urlSubject = rawSubject.trim().toLowerCase();
+        
+        currentTopicStr = urlParams.get('topic') || "";
+        currentSubtopic = urlParams.get('subtopic') || "";
+        
+        isFinanceMode = (urlGrade === "finance" || urlSubject === "finance");
+        isEnglishMode = (urlGrade === "english" || urlSubject === "english"); 
+        isHebrewMode = (urlGrade === "hebrew" || urlSubject === "hebrew"); 
+        isArabicMode = (urlGrade === "arabic" || urlSubject === "arabic"); 
+        isMathMode = !(isFinanceMode || isEnglishMode || isHebrewMode || isArabicMode || urlSubject === 'science' || urlGrade === 'science'); 
+
+        let safeSubtopicDisplay = currentSubtopic ? currentSubtopic.replace(/&#39;/g, "'").replace(/&quot;/g, '"') : '';
+        document.getElementById('intro-topic-desc').innerText = `הכן את עצמך לדו-קרב!`;
+
+        const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
+        if (isEnglishMode) returnUrl = 'english.html';
+        else if (isFinanceMode) returnUrl = 'finance.html';
+        else if (isHebrewMode) returnUrl = 'hebrew.html';
+        else if (isArabicMode) returnUrl = 'arabic.html';
+        else if (urlSubject === 'science' || urlGrade === 'science') returnUrl = 'science.html';
+        else returnUrl = `math.html?grade=${encodeURIComponent(backMap[urlGrade] || urlGrade)}`;
+
+        loadDataFiles();
+    };
+
+    function loadDataFiles() {
+        let filesToLoad = [];
+        let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
+        
+        if (urlGrade === "finance" || urlSubject === "finance") {
+            topicsToLoad.forEach(t => { filesToLoad.push(`data/finance_${t.trim().replace(/\s+/g, '_')}.js`); });
+        } else if (urlGrade === "bar_ilan" || urlGrade === "5_6_bar_ilan") {
+            filesToLoad.push(`data/5_6_bar_ilan.js`);
+        } else if (topicsToLoad.length > 0) {
+            topicsToLoad.forEach(t => {
+                let safeTopic = t.trim().replace(/\s+/g, '_');
+                
+                if (urlGrade === "5_6" || urlGrade === "ה-ו") filesToLoad.push(`data/5_6_${safeTopic}.js`);
+                else if (urlGrade === "35172" && safeTopic === "trigo_172") filesToLoad.push(`data/35172_trigonometry_172.js`); 
+                else if (isEnglishMode) filesToLoad.push(`data/english_${safeTopic}.js`); 
+                else if (isHebrewMode) {
+                    if(safeTopic === 'יסודי_כללי') filesToLoad.push(`data/כללי_יסודי_כללי.js`);
+                    else filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+                } 
+                else if (isArabicMode) filesToLoad.push(`data/arabic_${safeTopic}.js`);
+                else if (urlSubject === 'science' || urlGrade === 'science') filesToLoad.push(`data/science_${safeTopic}.js`);
+                else filesToLoad.push(`data/${urlGrade}_${safeTopic}.js`);
+            });
+        }
+
+        let currentFileIndex = 0;
+
+        function loadNextScript() {
+            if (currentFileIndex >= filesToLoad.length) {
+                processLoadedData();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = filesToLoad[currentFileIndex];
+            
+            script.onload = () => {
+                let rawData = [];
+                const possibleNames = [
+                    'readingTextsDB', 'questionsDB', 'questions', 'quizData', 'data',
+                    'questionsDB_grammar', 'questionsDB_syntax', 'questionsDB_part2',
+                    'questionsDB_advanced', 'questionsDB_part3', 'englishQuestions',
+                    'arabicQuestions', 'questionsList', 'qDB', 'questionsData'
+                ];
+                
+                possibleNames.forEach(name => {
+                    try {
+                        let val = eval(`typeof ${name} !== 'undefined' ? ${name} : undefined`);
+                        if (val && Array.isArray(val) && val.length > 0) {
+                            rawData = rawData.concat(val);
+                        }
+                    } catch(e) {}
+                });
+                
+                if (rawData.length > 0) {
+                    let seen = new Set(window.allFetchedQuestions.map(q => q.question || q.question_text));
+                    rawData.forEach(q => {
+                        let text = q.question || q.question_text;
+                        if (!seen.has(text)) {
+                            window.allFetchedQuestions.push(q);
+                            if (text) seen.add(text);
+                        }
+                    });
+                }
+                currentFileIndex++;
+                loadNextScript();
+            };
+            script.onerror = () => { 
+                console.error("קובץ לא נמצא: " + script.src);
+                currentFileIndex++; 
+                loadNextScript(); 
+            };
+            document.head.appendChild(script);
+        }
+
+        if (filesToLoad.length > 0) loadNextScript();
+        else processLoadedData();
+    }
+
+    function processLoadedData() {
+        let decodedSub = currentSubtopic ? currentSubtopic.replace(/&#39;/g, "'").replace(/&quot;/g, '"') : "";
+        const selectedSubs = decodedSub ? decodedSub.split(',') : [];
+        
+        let rawPool = window.allFetchedQuestions.filter(q => {
+            if (selectedSubs.length > 0) {
+                let qSub = String(q.subTopic || q.subtopic || "").trim();
+                if (!qSub) return true; 
+                
+                if (isEnglishMode) {
+                    return decodedSub.includes(qSub) || qSub.includes(decodedSub.split('(')[0].trim());
+                } else {
+                    return selectedSubs.some(sub => qSub === sub.trim() || qSub.includes(sub.trim().split('(')[0].trim()));
+                }
+            }
+            return true; 
+        });
+
+        let tempPool = [];
+        rawPool.forEach(item => {
+            if (item.questions && Array.isArray(item.questions)) {
+                let passageContent = Array.isArray(item.content) ? item.content.join('\n\n') : item.content;
+                item.questions.forEach(innerQ => {
+                    let newQ = { ...innerQ };
+                    newQ.passage = passageContent || item.passage;
+                    tempPool.push(newQ);
+                });
+            } else {
+                tempPool.push(item);
+            }
+        });
+
+        // 💥 נרמול השאלות החזק 💥
+        pool = tempPool.map(q => {
+            let normQ = { ...q };
+            if (!normQ.options) normQ.options = normQ.answers || normQ.choices || ["תשובה 1", "תשובה 2"];
+            if (normQ.correctAnswer === undefined) normQ.correctAnswer = normQ.correct_answer || 0;
+            if (!normQ.question) normQ.question = normQ.question_text || normQ.text || normQ.sentence || "שאלה חסרה";
+            return normQ;
+        });
+
+        pool = pool.sort(() => 0.5 - Math.random());
+
+        let maxQ = Math.floor(pool.length / 2) * 2; 
+        if (maxQ > 10) maxQ = 10; 
+        if (maxQ === 0 && pool.length > 0) maxQ = pool.length; 
+        
+        gameQuestions = pool.slice(0, maxQ);
+
+        const startBtn = document.getElementById('start-btn');
+        if(gameQuestions.length >= 2) {
+            startBtn.disabled = false;
+            startBtn.style.opacity = 1;
+            startBtn.innerText = "התחילו בתחרות!";
+        } else {
+            startBtn.innerText = "אין שאלות זמינות למשחק זה";
+        }
+    }
+
+    function startGame() {
+        let n1 = document.getElementById('p1-name').value.trim();
+        let n2 = document.getElementById('p2-name').value.trim();
+        if(n1) players[0].name = n1;
+        if(n2) players[1].name = n2;
+
+        document.getElementById('name-display-p1').innerText = players[0].name;
+        document.getElementById('name-display-p2').innerText = players[1].name;
+
+        document.getElementById('intro-screen').style.display = 'none';
+        document.getElementById('game-screen').style.display = 'block';
+        
+        currentQuestionIndex = 0;
+        currentPlayerIndex = 0;
+        updateScoreboardUI();
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        if (currentQuestionIndex >= gameQuestions.length) {
+            endGame();
+            return;
+        }
+        
+        const q = gameQuestions[currentQuestionIndex];
+        const player = players[currentPlayerIndex];
+
+        if (!isMathMode) {
+            q.shuffledOptions = shuffleOptions(q.options);
+        } else {
+            q.shuffledOptions = q.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+        }
+
+        const turnAnnounce = document.getElementById('turn-announcement');
+        turnAnnounce.innerText = `תור של: ${player.name}`;
+        turnAnnounce.style.color = player.hex;
+        turnAnnounce.style.borderBottom = `2px dashed ${player.hex}`;
+
+        const qText = document.getElementById('q-text');
+        const qOptions = document.getElementById('q-options');
+        const toolsBar = document.getElementById('tools-bar');
+        const turnStatus = document.getElementById('turn-status');
+        
+        qOptions.innerHTML = '';
+        toolsBar.innerHTML = '';
+        turnStatus.innerText = "";
+
+        if (isMathMode) {
+            let calcBtn = document.createElement('button');
+            calcBtn.className = 'btn-tool';
+            calcBtn.innerHTML = '🖩 מחשבון';
+            calcBtn.onclick = openCalculatorWindow;
+            toolsBar.appendChild(calcBtn);
+
+            let formBtn = document.createElement('button');
+            formBtn.className = 'btn-tool';
+            formBtn.innerHTML = '📐 דף נוסחאות';
+            formBtn.onclick = openFormulasWindow;
+            toolsBar.appendChild(formBtn);
+        }
+
+        let showReadingBtn = false;
+        let qTopic = String(q.topic || "").toLowerCase();
+        let qSub = String(q.subTopic || q.subtopic || "").toLowerCase();
+        
+        if (q.passage || q.reading_text || q.content) {
+            showReadingBtn = true;
+            window.currentPassage = q.passage || q.reading_text || q.content;
+        } else if (isEnglishMode && qTopic.includes('reading_comprehension') && !qSub.includes('strategies')) {
+            showReadingBtn = true;
+        } else if (isHebrewMode && (qTopic.includes('יסודי') || qTopic.includes('הבעה')) && qSub.includes('הבנת הנקרא')) {
+            showReadingBtn = true;
+        } else if (isArabicMode && qTopic.includes('הבנת הנקרא')) {
+            showReadingBtn = true;
+        }
+        
+        if (showReadingBtn) {
+            let btn = document.createElement('button');
+            btn.className = 'btn-tool';
+            btn.innerHTML = '📖 טקסט קריאה';
+            btn.onclick = openReadingWindow;
+            toolsBar.appendChild(btn);
+        }
+
+        // 💥 יישור משמאל לימין לאנגלית בלבד 💥
+        let qDir = isEnglishMode ? "ltr" : "rtl";
+        let qAlign = isEnglishMode ? "left" : "right";
+        qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formatContent(q.question)}</div>`;
+
+        (q.shuffledOptions || []).forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.id = `opt-${idx}`;
+            let optDir = containsHebrew(opt.text) ? "rtl" : "ltr";
+            btn.innerHTML = `<span dir="${optDir}">${formatContent(opt.text)}</span>`;
+            
+            btn.onclick = () => handleAnswer(opt.originalIndex, btn, q.correctAnswer);
+            qOptions.appendChild(btn);
+        });
+
+        document.getElementById('question-box').style.display = 'block';
+    }
+
+    function handleAnswer(selectedIndex, btnElement, correctIndex) {
+        document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+        
+        const isCorrect = (selectedIndex === correctIndex);
+        const turnStatus = document.getElementById('turn-status');
+        const player = players[currentPlayerIndex];
+
+        if (isCorrect) {
+            btnElement.classList.add('opt-correct');
+            playSound('correct');
+            turnStatus.innerText = "תשובה נכונה! +100 נקודות";
+            turnStatus.style.color = "var(--success-green)";
+            player.score += POINTS_PER_CORRECT;
+        } else {
+            btnElement.classList.add('opt-wrong');
+            playSound('wrong');
+            turnStatus.innerText = "תשובה שגויה!";
+            turnStatus.style.color = "var(--wrong-border)";
+            
+            const q = gameQuestions[currentQuestionIndex];
+            const correctOptIdx = (q.shuffledOptions || []).findIndex(o => o.originalIndex === correctIndex);
+            if(document.getElementById(`opt-${correctOptIdx}`)) {
+                document.getElementById(`opt-${correctOptIdx}`).classList.add('opt-correct');
+            }
+        }
+
+        document.getElementById(`score-${player.colorClass}`).innerText = player.score;
+
+        setTimeout(() => {
+            currentQuestionIndex++;
+            currentPlayerIndex = 1 - currentPlayerIndex; 
+            updateScoreboardUI();
+            loadQuestion();
+        }, 2000);
+    }
+
+    function updateScoreboardUI() {
+        document.getElementById('card-p1').classList.remove('active-turn');
+        document.getElementById('card-p2').classList.remove('active-turn');
+        
+        if(currentPlayerIndex === 0) {
+            document.getElementById('card-p1').classList.add('active-turn');
+        } else {
+            document.getElementById('card-p2').classList.add('active-turn');
+        }
+    }
+
+    function endGame() {
+        document.getElementById('game-screen').style.display = 'none';
+        const endScreen = document.getElementById('end-screen');
+        const title = document.getElementById('end-title');
+        const subtitle = document.getElementById('end-subtitle');
+        const scoresDisplay = document.getElementById('final-scores-display');
+        
+        endScreen.style.display = 'block';
+
+        let p1 = players[0];
+        let p2 = players[1];
+
+        scoresDisplay.innerHTML = `${p1.name}: ${p1.score} נק' <br><br> VS <br><br> ${p2.name}: ${p2.score} נק'`;
+
+        if (p1.score > p2.score) {
+            title.innerText = "ניצחון ל" + p1.name + "!";
+            title.style.color = p1.hex;
+            subtitle.innerText = "אלופה אמיתית! / אלוף אמיתי!";
+            playSound('correct'); 
+        } else if (p2.score > p1.score) {
+            title.innerText = "ניצחון ל" + p2.name + "!";
+            title.style.color = p2.hex;
+            subtitle.innerText = "אלופה אמיתית! / אלוף אמיתי!";
+            playSound('correct'); 
+        } else {
+            title.innerText = "תיקו!";
+            title.style.color = "var(--text-main)";
+            subtitle.innerText = "שניכם אלופים באותה מידה!";
+            playSound('correct'); 
+        }
+    }
+
+    function openReadingWindow() {
+        const readingWin = window.open('', '_blank', 'width=800,height=800,scrollbars=yes');
+        if (!readingWin) return;
+        let textHtml = `
+        <!DOCTYPE html>
+        <html lang="${isEnglishMode ? 'en' : 'he'}" dir="${isEnglishMode ? 'ltr' : 'rtl'}">
+        <head>
+            <meta charset="UTF-8">
+            <title>טקסט קריאה</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; color: #0f172a; padding: 30px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
+                .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
+                .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
+                .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
+            </style>
+        </head>
+        <body>
+            <div class="header"><h1>טקסט קריאה</h1></div>
+            <div class="content ${isEnglishMode ? 'en-text' : ''}">${formatContent(window.currentPassage)}</div>
+        </body>
+        </html>`;
+        readingWin.document.write(textHtml);
+        readingWin.document.close();
+    }
+
+    function openCalculatorWindow() {
+        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
+        if (!calcWin) return;
+        let calcHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="ltr">
+        <head>
+            <meta charset="UTF-8">
+            <title>מחשבון</title>
+            <style>
+                body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+                .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;}
+                .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
+                .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+                button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
+                button:hover { background: #444; }
+                .btn-op { background: #c5a059; color: #000; }
+                .btn-op:hover { background: #a38042; }
+                .btn-clear { background: #ef4444; }
+                .btn-clear:hover { background: #dc2626; }
+                .btn-eq { background: #22c55e; grid-column: span 2; color: #000;}
+                .btn-eq:hover { background: #16a34a; }
+            </style>
+        </head>
+        <body>
+            <div class="calculator">
+                <input type="text" class="display" id="display" disabled value="0">
+                <div class="buttons">
+                    <button class="btn-clear" onclick="clearDisplay()">C</button>
+                    <button onclick="append('(')">(</button>
+                    <button onclick="append(')')">)</button>
+                    <button class="btn-op" onclick="append('/')">÷</button>
+                    <button onclick="append('7')">7</button>
+                    <button onclick="append('8')">8</button>
+                    <button onclick="append('9')">9</button>
+                    <button class="btn-op" onclick="append('*')">×</button>
+                    <button onclick="append('4')">4</button>
+                    <button onclick="append('5')">5</button>
+                    <button onclick="append('6')">6</button>
+                    <button class="btn-op" onclick="append('-')">-</button>
+                    <button onclick="append('1')">1</button>
+                    <button onclick="append('2')">2</button>
+                    <button onclick="append('3')">3</button>
+                    <button class="btn-op" onclick="append('+')">+</button>
+                    <button onclick="append('0')">0</button>
+                    <button onclick="append('.')">.</button>
+                    <button class="btn-eq" onclick="calculate()">=</button>
+                </div>
+            </div>
+            <script>
+                let display = document.getElementById('display');
+                let currentVal = '';
+                function append(val) { if(currentVal === 'שגיאה') currentVal = ''; currentVal += val; updateDisplay(); }
+                function clearDisplay() { currentVal = ''; updateDisplay(); }
+                function calculate() {
+                    try { if(currentVal === '') return; let result = eval(currentVal); result = Math.round(result * 100000) / 100000; currentVal = result.toString(); updateDisplay(); } 
+                    catch(e) { currentVal = 'שגיאה'; updateDisplay(); }
+                }
+                function updateDisplay() { let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷'); display.value = show || '0'; }
+            <\/script>
+        </body>
+        </html>
+        `;
+        calcWin.document.write(calcHtml);
+        calcWin.document.close();
+    }
+
+    function openFormulasWindow() {
+        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
+        if (!formulaWin) return;
+        let formulasHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>דף נוסחאות עזר מתמטי מקיף</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.5; }
+                .hdr { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;}
+                .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+                @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
+                .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;}
+                .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
+                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;}
+                .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; }
+                .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left;}
+                sup { font-size: 0.75em; vertical-align: super; }
+            </style>
+        </head>
+        <body>
+            <div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1></div>
+            <h2 style="text-align:center;">חטיבת ביניים</h2>
+            <div class="grid-container">
+                <div class="section"><h2 class="section-title">שטחים והיקפים</h2>
+                    <div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div>
+                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div>
+                    <div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div>
+                </div>
+            </div>
+        </body>
+        </html>`;
+        formulaWin.document.write(formulasHtml);
+        formulaWin.document.close();
+    }
+
+    function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
+
+    function formatContent(text) {
+        if (text === null || text === undefined) return "";
+        let html = Array.isArray(text) ? text.join('\n') : String(text);
+        const svgs = [];
+        html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `⚿SVG⚿`; });
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
+        html = html.replace(/\*/g, '×'); 
+        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
+            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            return match; 
+        });
+        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
+        html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+        html = html.trim();
+        if (/[\?\.\!\)]$/.test(html)) { html += '&rlm;'; }
+        html = html.replace(/⚿SVG⚿/g, () => svgs.shift());
+        return html;
+    }
+
+    function shuffleOptions(options) {
+        if (!options || !Array.isArray(options)) return [];
+        let opts = options.map((opt, index) => ({ text: opt, originalIndex: index }));
+        for (let i = opts.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opts[i], opts[j]] = [opts[j], opts[i]];
+        }
+        return opts;
+    }
+
+    function playSound(type) {
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain); gain.connect(ctx.destination);
+            
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime); 
+                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); 
+                gain.gain.setValueAtTime(0.03, ctx.currentTime); 
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+                osc.start(); osc.stop(ctx.currentTime + 0.3);
+            } else {
+                osc.type = 'square'; 
+                osc.frequency.setValueAtTime(150, ctx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.3); 
+                gain.gain.setValueAtTime(0.03, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+                osc.start(); osc.stop(ctx.currentTime + 0.3);
+            }
+        } catch(e) {}
+    }
+
+    function goBackToSelection() { 
+        if (document.getElementById('game-screen').style.display === 'block' && !confirm("יציאה באמצע התחרות תוביל לאובדן המשחק. לצאת?")) return; 
+        window.location.href = returnUrl; 
+    }
+</script>
+</body>
+</html>

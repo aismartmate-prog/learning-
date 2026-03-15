@@ -368,7 +368,7 @@
             "triangle_sim_371": { name: "דמיון משולשים", subs: ["קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)", "שימוש בדמיון לחישוב אורכים", "שימוש בדמיון לחישוב זוויות"] },
             "sim_ratio_371": { name: "יחס דמיון", subs: ["יחס אורכים בדומים", "יחס שטחים בדומים", "יישומים ופתרון בעיות"] },
             "trigo_right_371": { name: "טריגונומטריה במשולש ישר זווית", subs: ["פונקציות סינוס, קוסינוס, וטנגנס", "שימוש בטבלאות טריגונומטריות", "פתרון משולש ישר זווית (חישוב זוויות וצלעות)", "חוק הסינוסים וחוק הקוסינוסים (הכרחי לשלב 3 יחידות)"] },
-            "trigo_all_triangles_371": { name: "שימוש בטריגונומטריה בכלל המשולשים", subs: ["חוק הסינוסים", "חוק הקוסינוסים", "מציאת שטח משולש באמצעות טריגונומטריה"] },
+            "trigo_all_triangles_371": { name: "שימוש בטריגונומטריה בכלל המשולשים", subs: ["חוק הסינוסים", "חוק הקוסינוסים", "mציאת שטח משולש באמצעות טריגונומטריה"] },
             "growth_decay_371": { name: "גדילה ודעיכה", subs: ["אחוזי שינוי (חיובי ושלילי)", "גדילה מעריכית ודעיכה מעריכית", "נוסחאות גדילה ודעיכה", "מודלים של אוכלוסייה וקרינה"] },
             "exp_models_371": { name: "מודלים מעריכיים", subs: ["הגדרת מודל מעריכי", "שימוש בנוסחאות מעריכיות לבעיה נתונה", "חישוב גודל בעת זמן נתון", "חיזוי שינויים על פי מודל מעריכי"] },
             "prob_stats_371": { name: "הסתברות וסטטיסטיקה", subs: ["מושגי יסוד בהסתברות (ניסוי, תוצאה, אירוע)", "חוק ההסתברות הכוללת", "הסתברות מותנית", "עצמאות בין אירועים", "עץ הסתברות", "תרגול חישובי הסתברות", "מדדי מרכז (ממוצע, חציון, שכיח)", "מדדי פיזור (טווח, שונות, סטיית תקן)", "תיאור נתונים בטבלאות וגרפים"] },
@@ -567,9 +567,9 @@
             if (!t || !t.value) { alert("אנא בחר נושא לפני ההתחלה"); return; }
             topicParam = t.value;
             
-            if (currentActivity === 'תרגול' || currentActivity === 'בר אילן') {
+            if (currentActivity === 'תרגול' || currentActivity === 'בר אילן' || currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
                 const s = document.getElementById('subtopic-select');
-                if (!s || !s.value) { alert("חובה לבחור תת נושא כדי להתחיל תרגול"); return; }
+                if (!s || !s.value) { alert("חובה לבחור תת נושא כדי להתחיל"); return; }
                 subtopicParam = s.value;
             } else if (currentActivity === 'בוחן') {
                 const checkedSubs = document.querySelectorAll('input[name="subtopic-check"]:checked');
@@ -578,12 +578,14 @@
             }
         }
 
-        if (currentActivity === 'המרדף' || currentActivity === 'ראש בראש') {
-            alert("מצב המשחק המקוון נטען... (אפשרות זו תופעל במלואה בגרסה הבאה)");
-            return;
+        let targetFile = 'exam.html';
+        if (currentActivity === 'תרגול' || currentActivity === 'בר אילן') {
+            targetFile = 'practice.html';
+        } else if (currentActivity === 'המרדף') {
+            targetFile = 'chase.html';
+        } else if (currentActivity === 'ראש בראש') {
+            targetFile = 'head2head.html';
         }
-
-        let targetFile = (currentActivity === 'תרגול' || currentActivity === 'בר אילן') ? 'practice.html' : 'exam.html';
         
         let gradeParam = "";
         if (currentActivity === 'בר אילן') {
@@ -595,7 +597,7 @@
         } else if (grade === "ט") {
             gradeParam = "grade9";
         } else if (grade === "finance") {
-            gradeParam = "finance"; // הניתוב החשוב לפיננסי!
+            gradeParam = "finance";
         } else {
             gradeParam = (grade === "ה-ו") ? "5_6" : grade;
         }

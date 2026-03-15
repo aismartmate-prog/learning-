@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>המרדף - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0f172a;  
+            --board-bg: #1e293b;
+            --accent-gold: #fbbf24;
+            --accent-blue: #3b82f6;
+            --danger-red: #ef4444;
+            --success-green: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --track-bg: #334155;
+            
+            --correct-bg: rgba(16, 185, 129, 0.2); 
+            --correct-border: #34d399; 
+            
+            --wrong-bg: rgba(239, 68, 68, 0.2); 
+            --wrong-border: #f87171; 
+        }
+        
+        body { font-family: 'Heebo', sans-serif; background-color: var(--primary-bg); color: var(--text-main); margin: 0; min-height: 100vh; display: flex; flex-direction: column; line-height: 1.3; }
+        header { background: #000000; color: white; padding: 0 25px; border-bottom: 2px solid var(--accent-blue); display: flex; justify-content: space-between; align-items: center; height: 55px; box-sizing: border-box; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
+        header h1 { margin: 0; font-size: 1.25rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+
+        .chase-container { display: flex; flex-direction: column; max-width: 1000px; margin: 20px auto; padding: 0 15px; width: 100%; box-sizing: border-box; flex: 1; }
+
+        .board { background: var(--board-bg); border: 2px solid var(--track-bg); border-radius: 15px; padding: 20px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .board-title { text-align: center; font-size: 1.1rem; color: var(--accent-gold); font-weight: 800; margin-top: 0; margin-bottom: 15px; }
+        .track { display: flex; justify-content: space-between; align-items: center; position: relative; padding: 20px 0; }
+        .track::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: var(--track-bg); z-index: 1; transform: translateY(-50%); }
+
+        .step { width: 40px; height: 40px; background: var(--primary-bg); border: 3px solid var(--track-bg); border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 2; font-weight: bold; color: var(--text-muted); position: relative; transition: all 0.3s ease; }
+        .step.start { border-color: var(--danger-red); box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+        .step.bank { border-color: var(--success-green); box-shadow: 0 0 15px rgba(16, 185, 129, 0.6); width: 50px; height: 50px; }
+
+        .token { position: absolute; font-size: 1.8rem; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: 10; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
+        .token-player { color: var(--accent-blue); top: -35px; }
+        .token-chaser { color: var(--danger-red); bottom: -35px; font-size: 2rem;}
+
+        .lifelines { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .lifeline-btn { background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid var(--accent-blue); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 1rem; transition: all 0.2s; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2); }
+        .lifeline-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, #2dd4bf, #047857); border-color: #34d399; }
+        .lifeline-btn:disabled { opacity: 0.3; cursor: not-allowed; border-color: var(--track-bg); box-shadow: none; filter: grayscale(100%); }
+
+        .question-box { background: var(--board-bg); border-radius: 15px; padding: 30px; border: 1px solid var(--track-bg); box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-align: center; display: none; }
+        .question-text { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; color: white; line-height: 1.4; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .option-btn { background: #0f172a; border: 2px solid #334155; color: #f8fafc; padding: 15px; border-radius: 10px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+        .option-btn:hover:not(:disabled):not(.hidden-opt) { border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.1); transform: scale(1.02); }
+        .option-btn.selected { border-color: var(--accent-gold); background: rgba(251, 191, 36, 0.1); }
+        .opt-correct { background: var(--correct-bg) !important; border-color: var(--correct-border) !important; color: #10b981 !important; }
+        .opt-wrong { background: var(--wrong-bg) !important; border-color: var(--wrong-border) !important; color: #ef4444 !important; }
+        .hidden-opt { visibility: hidden; }
+        .turn-status { margin-top: 20px; font-size: 1.2rem; font-weight: 800; height: 30px; color: var(--accent-gold); }
+
+        .overlay-screen { background: var(--board-bg); border-radius: 12px; padding: 30px 25px; text-align: center; border: 1px solid rgba(251, 191, 36, 0.4); box-shadow: 0 8px 30px rgba(0,0,0,0.4); max-width: 550px; margin: 30px auto; width: 100%; box-sizing: border-box; }
+        .overlay-title { font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 5px; font-weight: 800;}
+        .overlay-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 25px;}
+        .btn-action { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; border: none; padding: 12px 35px; font-size: 1.15rem; font-weight: 800; border-radius: 25px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); display: inline-block; }
+        .btn-action:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
+        .btn-action:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .tools-bar { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .btn-tool { background: #1e293b; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+        .btn-tool:hover { background: rgba(251, 191, 36, 0.1); }
+
+        #hint-display { display: none; background: rgba(250, 204, 21, 0.1); border: 1px solid var(--accent-gold); color: #fde047; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: 600; }
+
+        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } .track { padding: 30px 0; } .step { width: 30px; height: 30px; font-size: 0.8rem;} .step.bank { width: 40px; height: 40px; } .token { font-size: 1.4rem; } .token-player { top: -25px; } .token-chaser { bottom: -25px; } .lifelines { flex-wrap: wrap; } .lifeline-btn { flex: 1 1 calc(50% - 10px); justify-content: center;} .question-text { font-size: 1.2rem; } }
+
+        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; }
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
+        .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
+        .fraction-denominator { text-align: center; padding: 0 2px; }
+        sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
+        sub { font-size: 0.7em; vertical-align: sub; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="header-title">המרדף</h1>
+    <a onclick="goBackToSelection()" style="color: var(--accent-gold); text-decoration: none; cursor: pointer; font-weight: 500; font-size: 1.05rem; transition: opacity 0.2s;">חזרה ↩</a>
+</header>
+
+<div class="chase-container">
+
+    <div id="intro-screen" class="overlay-screen">
+        <div class="overlay-title">המרדף</div>
+        <div class="overlay-subtitle" id="intro-topic-desc">טוען נתונים...</div>
+        
+        <div style="text-align: right; background: rgba(0,0,0,0.2); padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; display: inline-block; border: 1px solid #334155; max-width: 100%; box-sizing: border-box; font-size: 0.95rem; line-height: 1.5;">
+            <h3 style="margin-top:0; color: #3b82f6; font-size: 1.1rem; margin-bottom: 10px;">איך משחקים?</h3>
+            <ul style="margin-bottom:0; padding-right: 20px;">
+                <li style="margin-bottom: 5px;">אתם מתחילים ביתרון של 3 צעדים. הצ'ייסר מתחיל בצעד 0.</li>
+                <li style="margin-bottom: 5px;">על כל תשובה נכונה שלכם - אתם מתקדמים צעד לעבר הבנק.</li>
+                <li style="margin-bottom: 5px;">לאחר מכן, הצ'ייסר עונה ומתקדם (הוא צודק ברוב הפעמים, אך לא תמיד!).</li>
+                <li style="margin-bottom: 5px;"><strong>היזהרו:</strong> אם הצ'ייסר תופס אתכם - המשחק נגמר.</li>
+                <li><strong>המטרה:</strong> להגיע לבנק בשלום! יש לכם 3 גלגלי הצלה בדרך.</li>
+            </ul>
+        </div>
+        <br>
+        <button class="btn-action" id="start-btn" onclick="startGame()" disabled style="opacity:0.5;">התחל במרדף!</button>
+    </div>
+
+    <div id="game-screen" style="display: none; width: 100%;">
+        
+        <div class="board">
+            <div class="board-title">מסלול הבריחה</div>
+            <div class="track" id="track-container"></div>
+        </div>
+
+        <div class="lifelines">
+            <button class="lifeline-btn" id="ll-5050" onclick="use5050()"><span>50:50</span> <span>⚖️</span></button>
+            <button class="lifeline-btn" id="ll-hint" onclick="useHint()"><span>רמז</span> <span>💡</span></button>
+            <button class="lifeline-btn" id="ll-skip" onclick="useSkip()"><span>החלף שאלה</span> <span>🔄</span></button>
+        </div>
+
+        <div class="question-box" id="question-box">
+            <div class="tools-bar" id="tools-bar"></div>
+            <div id="hint-display"></div>
+            
+            <div class="question-text" id="q-text"></div>
+            <div class="options-grid" id="q-options"></div>
+            
+            <div class="turn-status" id="turn-status">תורכם. בחרו תשובה.</div>
+        </div>
+    </div>
+
+    <div id="end-screen" class="overlay-screen" style="display: none;">
+        <div class="overlay-title" id="end-title" style="font-size: 2.2rem;"></div>
+        <div class="overlay-subtitle" id="end-subtitle" style="font-size: 1.1rem; color: white;"></div>
+        <button class="btn-action" onclick="window.location.reload()">שחקו שוב</button>
+        <br><br>
+        <button class="btn-action" style="background: #334155; color: white; font-size: 1rem; padding: 10px 20px; box-shadow: none; margin-top: 15px;" onclick="goBackToSelection()">בחירת נושא אחר</button>
+    </div>
+
+</div>
+
+<script>
+    let pool = []; 
+    let currentQuestion = null;
+    const TOTAL_STEPS = 8; 
+    let playerPos = 3;
+    let chaserPos = 0;
+    let chaserAccuracy = 0.80; 
+
+    let urlGrade = '', urlSubject = '', currentTopicStr = '', currentSubtopic = '';
+    let isMathMode = false, isEnglishMode = false, isArabicMode = false, isHebrewMode = false;
+    let returnUrl = 'tirgul.html';
+
+    const topicTranslations = {
+        "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות", "fractions": "שברים", 
+        "summary": "תרגול מסכם", "triangles": "המשולש", "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", 
+        "powers": "חזקות ושורשים", "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות", "linear_functions": "פונקציה קווית", 
+        "meitzav": "מבחני מיצ\"ב", "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות", "final_review": "תרגול מסכם", 
+        "number_theory": "תורת המספרים", "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
+        "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית", "algebra_172": "אלגברה ומשוואות", 
+        "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
+        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות", "algebraic_expr_172": "ביטויים אלגבריים", 
+        "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
+        "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים", "basic_algebra_172": "אלגברה בסיסית", 
+        "linear_func_172": "פונקציה לינארית", "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
+        "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
+        "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים", "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
+        "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה", "quad_func_372": "פונקציה ריבועית", 
+        "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
+        "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות", "normal_dist_372": "התפלגות נורמלית", 
+        "alg_frac_471": "אלגברה ושברים אלגבריים", "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית", "basic_calculus_471": "חדו\"א בסיסי", 
+        "adv_func_472": "פונקציות מתקדמות", "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות", "geom_euclid_571": "גאומטריה אוקלידית", 
+        "analytic_geom_571": "גאומטריה אנליטית", "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת", "sequences_571": "סדרות", 
+        "probability_571": "הסתברות", "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות", "sequences_572": "סדרות", 
+        "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית", "budget_consumerism": "ניהול תקציב וצרכנות נבונה", 
+        "work_and_wages": "עולם העבודה וזכויות עובדים", "banking_and_credit": "בנקאות, אשראי והלוואות", 
+        "savings_investments": "חיסכון, השקעות ושוק ההון", "insurance_risks": "ביטוח וניהול סיכונים", 
+        "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית", "vocabulary": "אוצר מילים", "grammar": "דקדוק", 
+        "reading_comprehension": "הבנת הנקרא", "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", 
+        "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)", "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
+        "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם", "סוגי_משפטים": "סוגי משפטים", 
+        "מילות_יחס_וקישור": "מילות יחס וקישור", "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", 
+        "תקינות": "תקינות לשונית"
+    };
+
+    window.allFetchedQuestions = [];
+
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let rawGrade = urlParams.get('grade') || "";
+        urlGrade = rawGrade.trim().toLowerCase();
+        
+        let rawSubject = urlParams.get('subject') || "";
+        urlSubject = rawSubject.trim().toLowerCase();
+        
+        currentTopicStr = urlParams.get('topic') || "";
+        currentSubtopic = urlParams.get('subtopic') || "";
+        
+        isFinanceMode = (urlGrade === "finance" || urlSubject === "finance");
+        isEnglishMode = (urlGrade === "english" || urlSubject === "english"); 
+        isHebrewMode = (urlGrade === "hebrew" || urlSubject === "hebrew"); 
+        isArabicMode = (urlGrade === "arabic" || urlSubject === "arabic"); 
+        isMathMode = !(isFinanceMode || isEnglishMode || isHebrewMode || isArabicMode || urlSubject === 'science' || urlGrade === 'science'); 
+
+        let displayTopic = "";
+        if (currentTopicStr.toLowerCase().includes('bagrut')) displayTopic = "הכנה לבגרות";
+        else if (currentTopicStr === 'abc_basics') displayTopic = "אנגלית מהבסיס (ABC)";
+        else {
+            let topicsArray = currentTopicStr.split(',');
+            displayTopic = topicsArray.map(t => topicTranslations[t.trim()] || t.trim()).join(', ');
+        }
+        
+        let safeSubtopicDisplay = currentSubtopic ? currentSubtopic.replace(/&#39;/g, "'").replace(/&quot;/g, '"') : '';
+        document.getElementById('intro-topic-desc').innerText = `נושא: ${displayTopic} ${safeSubtopicDisplay ? '| '+safeSubtopicDisplay : ''}`;
+
+        const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
+        if (isEnglishMode) returnUrl = 'english.html';
+        else if (isFinanceMode) returnUrl = 'finance.html';
+        else if (isHebrewMode) returnUrl = 'hebrew.html';
+        else if (isArabicMode) returnUrl = 'arabic.html';
+        else if (urlSubject === 'science' || urlGrade === 'science') returnUrl = 'science.html';
+        else returnUrl = `math.html?grade=${encodeURIComponent(backMap[urlGrade] || urlGrade)}`;
+
+        loadDataFiles();
+    };
+
+    function loadDataFiles() {
+        let filesToLoad = [];
+        let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
+        
+        if (urlGrade === "finance" || urlSubject === "finance") {
+            topicsToLoad.forEach(t => { filesToLoad.push(`data/finance_${t.trim().replace(/\s+/g, '_')}.js`); });
+        } else if (urlGrade === "bar_ilan" || urlGrade === "5_6_bar_ilan") {
+            filesToLoad.push(`data/5_6_bar_ilan.js`);
+        } else if (topicsToLoad.length > 0) {
+            topicsToLoad.forEach(t => {
+                let safeTopic = t.trim().replace(/\s+/g, '_');
+                
+                if (urlGrade === "5_6" || urlGrade === "ה-ו") filesToLoad.push(`data/5_6_${safeTopic}.js`);
+                else if (urlGrade === "35172" && safeTopic === "trigo_172") filesToLoad.push(`data/35172_trigonometry_172.js`); 
+                else if (isEnglishMode) filesToLoad.push(`data/english_${safeTopic}.js`); 
+                else if (isHebrewMode) {
+                    if(safeTopic === 'יסודי_כללי') filesToLoad.push(`data/כללי_יסודי_כללי.js`);
+                    else filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+                } 
+                else if (isArabicMode) filesToLoad.push(`data/arabic_${safeTopic}.js`);
+                else if (urlSubject === 'science' || urlGrade === 'science') filesToLoad.push(`data/science_${safeTopic}.js`);
+                else filesToLoad.push(`data/${urlGrade}_${safeTopic}.js`);
+            });
+        }
+
+        let currentFileIndex = 0;
+
+        function loadNextScript() {
+            if (currentFileIndex >= filesToLoad.length) {
+                processLoadedData();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = filesToLoad[currentFileIndex];
+            
+            script.onload = () => {
+                let rawData = [];
+                
+                // 💥 הסורק החכם - קורא כל מערך שאלות אפשרי 💥
+                const possibleNames = [
+                    'readingTextsDB', 'questionsDB', 'questions', 'quizData', 'data',
+                    'questionsDB_grammar', 'questionsDB_syntax', 'questionsDB_part2',
+                    'questionsDB_advanced', 'questionsDB_part3', 'englishQuestions',
+                    'arabicQuestions', 'questionsList', 'qDB', 'questionsData'
+                ];
+                
+                possibleNames.forEach(name => {
+                    try {
+                        let val = eval(`typeof ${name} !== 'undefined' ? ${name} : undefined`);
+                        if (val && Array.isArray(val) && val.length > 0) {
+                            rawData = rawData.concat(val);
+                        }
+                    } catch(e) {}
+                });
+                
+                if (rawData.length > 0) {
+                    let seen = new Set(window.allFetchedQuestions.map(q => q.question || q.question_text));
+                    rawData.forEach(q => {
+                        let text = q.question || q.question_text;
+                        if (!seen.has(text)) {
+                            window.allFetchedQuestions.push(q);
+                            if (text) seen.add(text);
+                        }
+                    });
+                }
+                
+                currentFileIndex++;
+                loadNextScript();
+            };
+            script.onerror = () => { 
+                console.error("קובץ לא נמצא: " + script.src);
+                currentFileIndex++; 
+                loadNextScript(); 
+            };
+            document.head.appendChild(script);
+        }
+
+        if (filesToLoad.length > 0) loadNextScript();
+        else processLoadedData();
+    }
+
+    function processLoadedData() {
+        let decodedSub = currentSubtopic ? currentSubtopic.replace(/&#39;/g, "'").replace(/&quot;/g, '"') : "";
+        const selectedSubs = decodedSub ? decodedSub.split(',') : [];
+        
+        let rawPool = window.allFetchedQuestions.filter(q => {
+            if (selectedSubs.length > 0) {
+                const qSub = String(q.subTopic || q.subtopic || "").trim();
+                if (!qSub) return true; // שומר שאלות ללא תת נושא לביטחון
+                
+                if (isEnglishMode) {
+                    return decodedSub.includes(qSub) || qSub.includes(decodedSub.split('(')[0].trim());
+                } else {
+                    return selectedSubs.some(sub => qSub === sub.trim() || qSub.includes(sub.trim().split('(')[0].trim()));
+                }
+            }
+            return true; 
+        });
+
+        let tempPool = [];
+        rawPool.forEach(item => {
+            if (item.questions && Array.isArray(item.questions)) {
+                let passageContent = Array.isArray(item.content) ? item.content.join('\n\n') : item.content;
+                item.questions.forEach(innerQ => {
+                    let newQ = { ...innerQ };
+                    newQ.passage = passageContent || item.passage;
+                    tempPool.push(newQ);
+                });
+            } else {
+                tempPool.push(item);
+            }
+        });
+
+        // 💥 נרמול השאלות החזק 💥
+        pool = tempPool.map(q => {
+            let normQ = { ...q };
+            if (!normQ.options) normQ.options = normQ.answers || normQ.choices || ["תשובה 1", "תשובה 2"];
+            if (normQ.correctAnswer === undefined) normQ.correctAnswer = normQ.correct_answer || 0;
+            if (!normQ.question) normQ.question = normQ.question_text || normQ.text || normQ.sentence || "שאלה חסרה";
+            return normQ;
+        });
+
+        pool = pool.sort(() => 0.5 - Math.random());
+
+        let maxQ = Math.floor(pool.length / 2) * 2; 
+        if (maxQ > 10) maxQ = 10; 
+        if (maxQ === 0 && pool.length > 0) maxQ = pool.length;
+        
+        gameQuestions = pool.slice(0, maxQ);
+
+        const startBtn = document.getElementById('start-btn');
+        if(gameQuestions.length >= 2) {
+            startBtn.disabled = false;
+            startBtn.style.opacity = 1;
+            startBtn.innerText = "התחילו בתחרות!";
+        } else {
+            startBtn.innerText = "אין שאלות זמינות למשחק זה";
+        }
+    }
+
+    function startGame() {
+        document.getElementById('intro-screen').style.display = 'none';
+        document.getElementById('game-screen').style.display = 'block';
+        buildTrack();
+        nextTurn();
+    }
+
+    function buildTrack() {
+        const track = document.getElementById('track-container');
+        track.innerHTML = '';
+        for(let i=0; i<=TOTAL_STEPS; i++) {
+            let stepDiv = document.createElement('div');
+            stepDiv.className = 'step';
+            stepDiv.id = `step-${i}`;
+            
+            if (i === 0) stepDiv.classList.add('start');
+            if (i === TOTAL_STEPS) {
+                stepDiv.classList.add('bank');
+                stepDiv.innerHTML = '🏦';
+            } else {
+                stepDiv.innerText = i;
+            }
+            track.appendChild(stepDiv);
+        }
+        updateTokens();
+    }
+
+    function updateTokens() {
+        document.querySelectorAll('.token').forEach(e => e.remove());
+        
+        const pStep = document.getElementById(`step-${playerPos}`);
+        if(pStep) {
+            let pToken = document.createElement('div');
+            pToken.className = 'token token-player';
+            pToken.innerText = '🏃‍♂️';
+            pStep.appendChild(pToken);
+        }
+
+        const cStep = document.getElementById(`step-${chaserPos}`);
+        if(cStep) {
+            let cToken = document.createElement('div');
+            cToken.className = 'token token-chaser';
+            cToken.innerText = '🤖';
+            cStep.appendChild(cToken);
+        }
+    }
+
+    function nextTurn() {
+        if (pool.length === 0) {
+            endGame(false, "נגמרו השאלות! הצלחתם לשרוד, אבל לא הגעתם לבנק.");
+            return;
+        }
+        
+        currentQuestion = pool.pop(); 
+        
+        if (!isMathMode) {
+            currentQuestion.shuffledOptions = shuffleOptions(currentQuestion.options);
+        } else {
+            currentQuestion.shuffledOptions = currentQuestion.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+        }
+
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        const qText = document.getElementById('q-text');
+        const qOptions = document.getElementById('q-options');
+        const toolsBar = document.getElementById('tools-bar');
+        const hintDisplay = document.getElementById('hint-display');
+        const turnStatus = document.getElementById('turn-status');
+        
+        qOptions.innerHTML = '';
+        toolsBar.innerHTML = '';
+        hintDisplay.style.display = 'none';
+        turnStatus.innerText = "תורכם. בחרו תשובה.";
+        turnStatus.style.color = "var(--accent-gold)";
+
+        if (isMathMode) {
+            let calcBtn = document.createElement('button');
+            calcBtn.className = 'btn-tool';
+            calcBtn.innerHTML = '🖩 מחשבון';
+            calcBtn.onclick = openCalculatorWindow;
+            toolsBar.appendChild(calcBtn);
+
+            let formBtn = document.createElement('button');
+            formBtn.className = 'btn-tool';
+            formBtn.innerHTML = '📐 דף נוסחאות';
+            formBtn.onclick = openFormulasWindow;
+            toolsBar.appendChild(formBtn);
+        }
+
+        let showReadingBtn = false;
+        let qTopic = String(currentQuestion.topic || "").toLowerCase();
+        let qSub = String(currentQuestion.subTopic || currentQuestion.subtopic || "").toLowerCase();
+        
+        if (currentQuestion.passage || currentQuestion.reading_text || currentQuestion.content) {
+            showReadingBtn = true;
+            window.currentPassage = currentQuestion.passage || currentQuestion.reading_text || currentQuestion.content;
+        } else if (isEnglishMode && qTopic.includes('reading_comprehension') && !qSub.includes('strategies')) {
+            showReadingBtn = true;
+        } else if (isHebrewMode && (qTopic.includes('יסודי') || qTopic.includes('הבעה')) && qSub.includes('הבנת הנקרא')) {
+            showReadingBtn = true;
+        } else if (isArabicMode && qTopic.includes('הבנת הנקרא')) {
+            showReadingBtn = true;
+        }
+        
+        if (showReadingBtn) {
+            let btn = document.createElement('button');
+            btn.className = 'btn-tool';
+            btn.innerHTML = '📖 טקסט קריאה';
+            btn.onclick = openReadingWindow;
+            toolsBar.appendChild(btn);
+        }
+
+        let qDir = isEnglishMode ? "ltr" : "rtl";
+        let qAlign = isEnglishMode ? "left" : "right";
+        qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formatContent(currentQuestion.question)}</div>`;
+
+        (currentQuestion.shuffledOptions || []).forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.id = `opt-${idx}`;
+            let optDir = containsHebrew(opt.text) ? "rtl" : "ltr";
+            btn.innerHTML = `<span dir="${optDir}">${formatContent(opt.text)}</span>`;
+            
+            btn.onclick = () => handleAnswer(opt.originalIndex, btn);
+            qOptions.appendChild(btn);
+        });
+
+        document.getElementById('question-box').style.display = 'block';
+    }
+
+    function handleAnswer(selectedIndex, btnElement) {
+        document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+        
+        const isCorrect = (selectedIndex === currentQuestion.correctAnswer);
+        const turnStatus = document.getElementById('turn-status');
+
+        if (isCorrect) {
+            btnElement.classList.add('opt-correct');
+            playSound('correct');
+            turnStatus.innerText = "תשובה נכונה! אתם מתקדמים צעד.";
+            turnStatus.style.color = "var(--success-green)";
+            playerPos++;
+        } else {
+            btnElement.classList.add('opt-wrong');
+            playSound('wrong');
+            turnStatus.innerText = "תשובה שגויה. אתם נשארים במקום.";
+            turnStatus.style.color = "var(--danger-red)";
+            
+            const correctIdx = (currentQuestion.shuffledOptions || []).findIndex(o => o.originalIndex === currentQuestion.correctAnswer);
+            if(document.getElementById(`opt-${correctIdx}`)) {
+                document.getElementById(`opt-${correctIdx}`).classList.add('opt-correct');
+            }
+        }
+
+        updateTokens();
+
+        setTimeout(() => {
+            chaserTurn();
+        }, 1500);
+    }
+
+    function chaserTurn() {
+        const turnStatus = document.getElementById('turn-status');
+        turnStatus.innerText = "הצ'ייסר חושב...";
+        turnStatus.style.color = "white";
+        
+        setTimeout(() => {
+            const isChaserCorrect = Math.random() <= chaserAccuracy;
+            if (isChaserCorrect) {
+                turnStatus.innerText = "הצ'ייסר צדק! הוא מתקדם צעד.";
+                turnStatus.style.color = "var(--danger-red)";
+                chaserPos++;
+            } else {
+                turnStatus.innerText = "הצ'ייסר טעה! הוא נשאר במקום.";
+                turnStatus.style.color = "var(--success-green)";
+            }
+            
+            updateTokens();
+
+            setTimeout(() => {
+                checkGameState();
+            }, 1500);
+
+        }, 1500); 
+    }
+
+    function checkGameState() {
+        if (chaserPos >= playerPos) {
+            endGame(false, "הצ'ייסר תפס אתכם! המשחק נגמר.");
+        } else if (playerPos >= TOTAL_STEPS) {
+            endGame(true, "כל הכבוד! הגעתם לבנק והבטחתם את מקומכם.");
+        } else {
+            nextTurn(); 
+        }
+    }
+
+    function endGame(isWin, message) {
+        document.getElementById('game-screen').style.display = 'none';
+        const endScreen = document.getElementById('end-screen');
+        const title = document.getElementById('end-title');
+        
+        endScreen.style.display = 'block';
+        document.getElementById('end-subtitle').innerText = message;
+
+        if (isWin) {
+            title.innerText = "ניצחון! 🏆";
+            title.style.color = "var(--success-green)";
+            playSound('correct'); 
+        } else {
+            title.innerText = "נתפסתם! 💥";
+            title.style.color = "var(--danger-red)";
+            playSound('wrong'); 
+        }
+    }
+
+    function use5050() {
+        document.getElementById('ll-5050').disabled = true;
+        let hiddenCount = 0;
+        const optionsDivs = document.querySelectorAll('.option-btn');
+        
+        (currentQuestion.shuffledOptions || []).forEach((opt, index) => {
+            if (opt.originalIndex !== currentQuestion.correctAnswer && hiddenCount < 2) {
+                if(optionsDivs[index]) {
+                    optionsDivs[index].classList.add('hidden-opt');
+                    hiddenCount++;
+                }
+            }
+        });
+    }
+
+    function useHint() {
+        document.getElementById('ll-hint').disabled = true;
+        const hintBox = document.getElementById('hint-display');
+        hintBox.innerHTML = `<b>רמז:</b> ${formatContent(currentQuestion.hint || "נסו לחשוב על הכללים שלמדנו.")}`;
+        hintBox.style.display = 'block';
+    }
+
+    function useSkip() {
+        document.getElementById('ll-skip').disabled = true;
+        document.getElementById('turn-status').innerText = "השאלה הוחלפה...";
+        setTimeout(() => {
+            nextTurn();
+        }, 500);
+    }
+
+    function openReadingWindow() {
+        const readingWin = window.open('', '_blank', 'width=800,height=800,scrollbars=yes');
+        if (!readingWin) return;
+        let textHtml = `
+        <!DOCTYPE html>
+        <html lang="${isEnglishMode ? 'en' : 'he'}" dir="${isEnglishMode ? 'ltr' : 'rtl'}">
+        <head>
+            <meta charset="UTF-8">
+            <title>טקסט קריאה</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; color: #0f172a; padding: 30px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
+                .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
+                .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
+                .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
+            </style>
+        </head>
+        <body>
+            <div class="header"><h1>טקסט קריאה</h1></div>
+            <div class="content ${isEnglishMode ? 'en-text' : ''}">${formatContent(window.currentPassage)}</div>
+        </body>
+        </html>`;
+        readingWin.document.write(textHtml);
+        readingWin.document.close();
+    }
+
+    function openCalculatorWindow() {
+        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
+        if (!calcWin) return;
+        let calcHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="ltr">
+        <head>
+            <meta charset="UTF-8">
+            <title>מחשבון</title>
+            <style>
+                body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+                .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;}
+                .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
+                .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+                button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
+                button:hover { background: #444; }
+                .btn-op { background: #c5a059; color: #000; }
+                .btn-op:hover { background: #a38042; }
+                .btn-clear { background: #ef4444; }
+                .btn-clear:hover { background: #dc2626; }
+                .btn-eq { background: #22c55e; grid-column: span 2; color: #000;}
+                .btn-eq:hover { background: #16a34a; }
+            </style>
+        </head>
+        <body>
+            <div class="calculator">
+                <input type="text" class="display" id="display" disabled value="0">
+                <div class="buttons">
+                    <button class="btn-clear" onclick="clearDisplay()">C</button>
+                    <button onclick="append('(')">(</button>
+                    <button onclick="append(')')">)</button>
+                    <button class="btn-op" onclick="append('/')">÷</button>
+                    <button onclick="append('7')">7</button>
+                    <button onclick="append('8')">8</button>
+                    <button onclick="append('9')">9</button>
+                    <button class="btn-op" onclick="append('*')">×</button>
+                    <button onclick="append('4')">4</button>
+                    <button onclick="append('5')">5</button>
+                    <button onclick="append('6')">6</button>
+                    <button class="btn-op" onclick="append('-')">-</button>
+                    <button onclick="append('1')">1</button>
+                    <button onclick="append('2')">2</button>
+                    <button onclick="append('3')">3</button>
+                    <button class="btn-op" onclick="append('+')">+</button>
+                    <button onclick="append('0')">0</button>
+                    <button onclick="append('.')">.</button>
+                    <button class="btn-eq" onclick="calculate()">=</button>
+                </div>
+            </div>
+            <script>
+                let display = document.getElementById('display');
+                let currentVal = '';
+                function append(val) { if(currentVal === 'שגיאה') currentVal = ''; currentVal += val; updateDisplay(); }
+                function clearDisplay() { currentVal = ''; updateDisplay(); }
+                function calculate() {
+                    try { if(currentVal === '') return; let result = eval(currentVal); result = Math.round(result * 100000) / 100000; currentVal = result.toString(); updateDisplay(); } 
+                    catch(e) { currentVal = 'שגיאה'; updateDisplay(); }
+                }
+                function updateDisplay() { let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷'); display.value = show || '0'; }
+            <\/script>
+        </body>
+        </html>
+        `;
+        calcWin.document.write(calcHtml);
+        calcWin.document.close();
+    }
+
+    function openFormulasWindow() {
+        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
+        if (!formulaWin) return;
+        let formulasHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>דף נוסחאות עזר מתמטי מקיף</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.5; }
+                .hdr { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;}
+                .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+                @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
+                .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;}
+                .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
+                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;}
+                .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; }
+                .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left;}
+                sup { font-size: 0.75em; vertical-align: super; }
+            </style>
+        </head>
+        <body>
+            <div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1></div>
+            <h2 style="text-align:center;">חטיבת ביניים</h2>
+            <div class="grid-container">
+                <div class="section"><h2 class="section-title">שטחים והיקפים</h2>
+                    <div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div>
+                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div>
+                    <div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div>
+                </div>
+            </div>
+        </body>
+        </html>`;
+        formulaWin.document.write(formulasHtml);
+        formulaWin.document.close();
+    }
+
+    function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
+
+    function formatContent(text) {
+        if (text === null || text === undefined) return "";
+        let html = Array.isArray(text) ? text.join('\n') : String(text);
+        const svgs = [];
+        html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `⚿SVG⚿`; });
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
+        html = html.replace(/\*/g, '×'); 
+        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
+            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            return match; 
+        });
+        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
+        html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+        html = html.trim();
+        if (/[\?\.\!\)]$/.test(html)) { html += '&rlm;'; }
+        html = html.replace(/⚿SVG⚿/g, () => svgs.shift());
+        return html;
+    }
+
+    function shuffleOptions(options) {
+        if (!options || !Array.isArray(options)) return [];
+        let opts = options.map((opt, index) => ({ text: opt, originalIndex: index }));
+        for (let i = opts.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [opts[i], opts[j]] = [opts[j], opts[i]];
+        }
+        return opts;
+    }
+
+    function playSound(type) {
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain); gain.connect(ctx.destination);
+            
+            if (type === 'correct') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(523.25, ctx.currentTime); 
+                osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); 
+                gain.gain.setValueAtTime(0.03, ctx.currentTime); 
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+                osc.start(); osc.stop(ctx.currentTime + 0.3);
+            } else {
+                osc.type = 'square'; 
+                osc.frequency.setValueAtTime(150, ctx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.3); 
+                gain.gain.setValueAtTime(0.03, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+                osc.start(); osc.stop(ctx.currentTime + 0.3);
+            }
+        } catch(e) {}
+    }
+
+    function goBackToSelection() { 
+        if (document.getElementById('game-screen').style.display === 'block' && !confirm("יציאה באמצע התחרות תוביל לאובדן המשחק. לצאת?")) return; 
+        window.location.href = returnUrl; 
+    }
+</script>
+</body>
+</html>

@@ -457,6 +457,7 @@
         
         <button class="btn-side btn-finish btn-disabled-gray" id="finish-btn" onclick="confirmFinish()" disabled>הגשת המבחן</button>
         <button class="btn-side btn-disabled-gray" id="formulas-btn" onclick="openFormulasWindow()" disabled>דף נוסחאות 📐</button>
+        <button class="btn-side btn-disabled-gray" id="calc-btn" onclick="openCalculatorWindow()" disabled>מחשבון 🖩</button>
         <button class="btn-side btn-disabled-gray" id="hint-btn" onclick="toggleBox('hint-box')" disabled>הצג רמז 💡</button>
         <button class="btn-side btn-disabled-gray" id="sol-btn" onclick="toggleBox('sol-box')" disabled>פתרון מלא 📝</button>
         
@@ -544,6 +545,11 @@
     let urlGrade = '', urlSubject = '', currentTopicStr = '', currentActivity = '';
     let currentSpeechText = "";
     let currentPassage = ""; // משתנה לשמירת טקסט הקריאה
+    let isFinanceMode = false;
+    let isEnglishMode = false; 
+    let isHebrewMode = false; 
+    let isArabicMode = false;
+    let isMathMode = false;
 
     // --- פונקציונליות חלון מורה פרטי AI (Chatbox) ---
     function toggleAiChat() {
@@ -582,6 +588,7 @@
                 .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
                 h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
                 .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
+                /* לטקסט באנגלית יופעל עיצוב משמאל לימין */
                 .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
             </style>
         </head>
@@ -640,328 +647,99 @@
         window.speechSynthesis.speak(msg);
     };
 
-    // מילון תרגום לשמות נושאים בעברית
-    const topicNamesHe = {
-        "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
-        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
-        "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
-        "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
-        "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
-        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
-        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
-        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
-        "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
-        "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
-        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
-        "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
-        "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
-        "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
-        "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות",
-        "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
-        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות",
-        "algebraic_expr_172": "ביטויים אלגבריים", "algebraic_frac_172": "שברים אלגבריים",
-        "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
-        "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
-        "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
-        "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
-        "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון",
-        "trigo_right_371": "טריגונומטריה במשולש ישר זווית", "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים",
-        "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
-        "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה",
-        "quad_func_372": "פונקציה ריבועית", "func_investigation_372": "חקירת פונקציה",
-        "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
-        "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות",
-        "normal_dist_372": "התפלגות נורמלית", "alg_frac_471": "אלגברה ושברים אלגבריים",
-        "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
-        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
-        "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
-        "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
-        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
-        "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
-        "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
-        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
-        "sequences_571": "סדרות", "probability_571": "הסתברות",
-        "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
-        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
-        "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
-        "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
-        "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
-        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
-        "bagrut_prep": "הכנה לבגרות", "abc_basics": "אנגלית מהבסיס (ABC)",
-        "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
-        "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
-        "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)"
-    };
-
-    function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
-
-    function formatContent(text) {
-        if (!text) return "";
-        let html = text.replace(/<svg[\s\S]*?<\/svg>/gi, m => m); 
-        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
-        html = html.replace(/\*/g, '×'); 
-
-        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
-            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
-            return match; 
-        });
-
-        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
-        html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+    function openCalculatorWindow() {
+        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
+        if (!calcWin) { alert("חוסם החלונות מונע פתיחת מחשבון. אנא אשרו חלונות קופצים."); return; }
         
-        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
-        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
-
-        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
-
-        return html.trim();
-    }
-
-    function shuffleOptions(options) {
-        let optionsWithOriginalIndices = options.map((opt, index) => ({ text: opt, originalIndex: index }));
-        for (let i = optionsWithOriginalIndices.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [optionsWithOriginalIndices[i], optionsWithOriginalIndices[j]] = [optionsWithOriginalIndices[j], optionsWithOriginalIndices[i]];
-        }
-        return optionsWithOriginalIndices;
-    }
-
-    window.allFetchedQuestions = [];
-
-    window.onload = function() {
-        const p = new URLSearchParams(window.location.search);
-        let rawGrade = p.get('grade') || "";
-        const gradeParam = rawGrade.trim().toLowerCase();
-        
-        let rawSubject = p.get('subject') || "";
-        const subjectParam = rawSubject.trim().toLowerCase();
-        
-        const topicsParam = p.get('topic');
-        const subtopicsParam = p.get('subtopic');
-        const act = p.get('activity') || "מבחן";
-        
-        urlGrade = gradeParam;
-        urlSubject = subjectParam;
-        currentTopicStr = topicsParam || "";
-        currentActivity = act;
-        
-        const gradeNames = { "english": "אנגלית", "hebrew": "לשון והבעה", "science": "מדעים", "arabic": "ערבית", "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
-        let displayGrade = gradeNames[gradeParam] || rawGrade; 
-        
-        let displayTopic = "";
-        if (currentTopicStr.toLowerCase().includes('bagrut')) {
-            displayTopic = "הכנה לבגרות";
-        } else {
-            let topicsArray = currentTopicStr.split(',');
-            let translatedTopics = topicsArray.map(t => topicNamesHe[t.trim()] || t.trim());
-            displayTopic = translatedTopics.join(', ');
-        }
-        
-        let isFin = (gradeParam === "finance" || subjectParam === "finance");
-        let isEng = (gradeParam === "english" || subjectParam === "english");
-        let isHeb = (gradeParam === "hebrew" || subjectParam === "hebrew");
-
-        let headerText = "";
-        if (isFin) {
-            headerText = `חינוך פיננסי`;
-        } else if (isEng) {
-            headerText = `אנגלית`;
-        } else if (isHeb) {
-            headerText = `לשון והבעה`;
-        } else {
-            headerText = `${act} | כיתה ${displayGrade}`;
-        }
-        
-        if (displayTopic) headerText += ` | ${displayTopic}`;
-        if (subtopicsParam && subtopicsParam.trim() !== "") {
-            headerText += ` | ${subtopicsParam}`;
-        }
-        document.getElementById('header-title').innerText = headerText;
-        
-        document.getElementById('intro-main-title').innerText = `ברוכים הבאים ל${act}`;
-        document.getElementById('intro-act-type').innerText = act;
-
-        if (act === 'מבחן' || act === 'בגרות') {
-            document.getElementById('new-exam-btn').innerHTML = "מבחן חדש 🔄";
-        } else {
-            document.getElementById('new-exam-btn').innerHTML = "בוחן חדש 🔄";
-        }
-
-        let isExamMode = (act === 'מבחן' || act === 'בגרות');
-        let examMinutes = isExamMode ? 60 : 45;
-        timeLeft = examMinutes * 60;
-        document.getElementById('intro-time-limit').innerText = examMinutes;
-        document.getElementById('timer-text').innerText = `${examMinutes}:00`;
-
-        let topicsForIntro = [];
-        let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
-        
-        topicsToLoad.forEach(t => {
-            topicsForIntro.push(topicNamesHe[t.trim()] || t.trim());
-        });
-        
-        let introTopicsText = topicsForIntro.join(", ");
-        if(subtopicsParam && subtopicsParam.trim() !== "") {
-            introTopicsText += ` (${subtopicsParam.split(',').join(', ')})`;
-        }
-        document.getElementById('intro-topics').innerText = introTopicsText;
-
-        const startBtn = document.querySelector('.btn-start-exam');
-
-        let filesToLoad = [];
-        
-        if (gradeParam === "finance" || subjectParam === "finance") {
-            topicsToLoad.forEach(t => {
-                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
-                filesToLoad.push(`data/finance_${safeTopic}.js`);
-            });
-        } else if (gradeParam === "bar_ilan" || gradeParam === "5_6_bar_ilan") {
-            filesToLoad.push(`data/5_6_bar_ilan.js`);
-        } else if (topicsToLoad.length > 0) {
-            topicsToLoad.forEach(t => {
-                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
-                if (gradeParam === "5_6" || gradeParam === "ה-ו") {
-                    filesToLoad.push(`data/5_6_${safeTopic}.js`);
-                } else if (gradeParam === "35172" && safeTopic === "trigo_172") {
-                    filesToLoad.push(`data/35172_trigonometry_172.js`);
-                } else if (gradeParam === "english" || subjectParam === "english") {
-                    filesToLoad.push(`data/english_${safeTopic}.js`);
-                } else if (gradeParam === "hebrew" || subjectParam === "hebrew") {
-                    if(safeTopic === 'יסודי_כללי') {
-                        filesToLoad.push(`data/כללי_יסודי_כללי.js`);
-                    } else {
-                        filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+        let calcHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>מחשבון</title>
+            <style>
+                body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+                .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;}
+                .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
+                .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+                button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
+                button:hover { background: #444; }
+                .btn-op { background: #c5a059; color: #000; }
+                .btn-op:hover { background: #a38042; }
+                .btn-clear { background: #ef4444; }
+                .btn-clear:hover { background: #dc2626; }
+                .btn-eq { background: #22c55e; grid-column: span 2; color: #000;}
+                .btn-eq:hover { background: #16a34a; }
+            </style>
+        </head>
+        <body>
+            <div class="calculator">
+                <input type="text" class="display" id="display" disabled value="0">
+                <div class="buttons">
+                    <button class="btn-clear" onclick="clearDisplay()">C</button>
+                    <button onclick="append('(')">(</button>
+                    <button onclick="append(')')">)</button>
+                    <button class="btn-op" onclick="append('/')">÷</button>
+                    
+                    <button onclick="append('7')">7</button>
+                    <button onclick="append('8')">8</button>
+                    <button onclick="append('9')">9</button>
+                    <button class="btn-op" onclick="append('*')">×</button>
+                    
+                    <button onclick="append('4')">4</button>
+                    <button onclick="append('5')">5</button>
+                    <button onclick="append('6')">6</button>
+                    <button class="btn-op" onclick="append('-')">-</button>
+                    
+                    <button onclick="append('1')">1</button>
+                    <button onclick="append('2')">2</button>
+                    <button onclick="append('3')">3</button>
+                    <button class="btn-op" onclick="append('+')">+</button>
+                    
+                    <button onclick="append('0')">0</button>
+                    <button onclick="append('.')">.</button>
+                    <button class="btn-eq" onclick="calculate()">=</button>
+                </div>
+            </div>
+            <script>
+                let display = document.getElementById('display');
+                let currentVal = '';
+                function append(val) {
+                    if(currentVal === 'שגיאה') currentVal = '';
+                    currentVal += val;
+                    updateDisplay();
+                }
+                function clearDisplay() {
+                    currentVal = '';
+                    updateDisplay();
+                }
+                function calculate() {
+                    try {
+                        if(currentVal === '') return;
+                        let result = eval(currentVal);
+                        result = Math.round(result * 100000) / 100000; 
+                        currentVal = result.toString();
+                        updateDisplay();
+                    } catch(e) {
+                        currentVal = 'שגיאה';
+                        updateDisplay();
                     }
-                } else if (gradeParam === "science" || subjectParam === "science") {
-                    filesToLoad.push(`data/science_${safeTopic}.js`);
-                } else if (gradeParam === "arabic" || subjectParam === "arabic") {
-                    filesToLoad.push(`data/arabic_${safeTopic}.js`);
-                } else {
-                    filesToLoad.push(`data/${gradeParam}_${safeTopic}.js`);
                 }
-            });
-        }
-
-        let currentFileIndex = 0;
-
-        function loadNextScript() {
-            if (currentFileIndex >= filesToLoad.length) {
-                processLoadedQuestions();
-                return;
-            }
-
-            const script = document.createElement('script');
-            script.src = filesToLoad[currentFileIndex];
-            
-            script.onload = () => {
-                if (typeof questionsDB !== 'undefined') {
-                    window.allFetchedQuestions = window.allFetchedQuestions.concat(questionsDB);
-                    window.questionsDB = undefined; 
+                function updateDisplay() {
+                    let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷');
+                    display.value = show || '0';
                 }
-                currentFileIndex++;
-                loadNextScript();
-            };
-            
-            script.onerror = () => {
-                console.error("שגיאה בטעינת הקובץ: " + script.src);
-                document.getElementById('intro-topics').innerHTML += `<br><span style="color:red; font-size:0.9rem;">לא נמצא קובץ: ${script.src}</span>`;
-                currentFileIndex++;
-                loadNextScript();
-            };
-            
-            document.head.appendChild(script);
-        }
-
-        if (filesToLoad.length > 0) {
-            loadNextScript();
-        } else {
-            processLoadedQuestions();
-        }
-
-        function processLoadedQuestions() {
-            const pParams = new URLSearchParams(window.location.search);
-            const subsParam = pParams.get('subtopic');
-            const selectedSubs = subsParam ? subsParam.split(',') : [];
-            
-            let pool = window.allFetchedQuestions.filter(q => {
-                if (selectedSubs.length > 0) return selectedSubs.includes(q.subTopic.trim());
-                return true; 
-            });
-
-            let targetNum = isExamMode ? 10 : 5;
-            questions = pool.sort(() => 0.5 - Math.random()).slice(0, targetNum);
-            
-            questions.forEach(q => {
-                q.shuffledOptions = shuffleOptions(q.options);
-            });
-
-            answers = new Array(questions.length).fill(null);
-            
-            document.getElementById('total-num').innerText = questions.length;
-            document.getElementById('intro-q-count').innerText = questions.length;
-            
-            if(questions.length > 0) {
-                startBtn.disabled = false;
-                startBtn.innerText = "התחל בחינה עכשיו";
-                startBtn.style.opacity = 1;
-                loadQuestion(); 
-            } else {
-                startBtn.innerText = "אין שאלות זמינות";
-            }
-        }
-    };
-
-    function goBackToSelection() { 
-        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
-        
-        let targetGrade = urlGrade.toLowerCase();
-        let targetSubject = urlSubject.toLowerCase();
-
-        if (targetGrade === "finance" || targetSubject === "finance") { window.location.href = "finance.html"; return; }
-        if (targetGrade === "english" || targetSubject === "english") { window.location.href = "english.html"; return; }
-        if (targetGrade === "hebrew" || targetSubject === "hebrew") { window.location.href = "hebrew.html"; return; }
-        if (targetGrade === "science" || targetSubject === "science") { window.location.href = "science.html"; return; }
-        if (targetGrade === "arabic" || targetSubject === "arabic") { window.location.href = "arabic.html"; return; }
-        
-        let returnGrade = (targetGrade === '5_6') ? 'ה-ו' : (targetGrade === 'grade7' ? 'ז' : targetGrade === 'grade8' ? 'ח' : targetGrade === 'grade9' ? 'ט' : targetGrade); 
-        window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
-    }
-    
-    function goHome() { 
-        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("יציאה לדף הבית? ההתקדמות תאבד.")) return; 
-        window.location.href = 'tirgul.html'; 
-    }
-
-    function startExam() {
-        document.getElementById('intro-screen').style.display = 'none';
-        document.getElementById('quiz-area').style.display = 'flex';
-        
-        document.getElementById('finish-btn').disabled = false;
-        document.getElementById('finish-btn').classList.remove('btn-disabled-gray');
-        document.getElementById('formulas-btn').disabled = false;
-        document.getElementById('formulas-btn').classList.remove('btn-disabled-gray');
-        document.getElementById('hint-btn').disabled = false;
-        document.getElementById('hint-btn').classList.remove('btn-disabled-gray');
-        
-        const prevBtn = document.getElementById('btn-prev');
-        const nextBtn = document.getElementById('btn-next-side');
-        if (currentIndex === 0) { prevBtn.classList.add('btn-disabled-gray'); prevBtn.disabled = true; } 
-        else { prevBtn.classList.remove('btn-disabled-gray'); prevBtn.disabled = false; }
-        if (currentIndex === questions.length - 1) { nextBtn.classList.add('btn-disabled-gray'); nextBtn.disabled = true; } 
-        else { nextBtn.classList.remove('btn-disabled-gray'); nextBtn.disabled = false; }
-
-        timer = setInterval(() => { 
-            timeLeft--; 
-            let m = Math.floor(timeLeft / 60), s = timeLeft % 60; 
-            document.getElementById('timer-text').innerText = `${m}:${s < 10 ? '0' : ''}${s}`; 
-            if (timeLeft <= 0) finishExam(); 
-        }, 1000); 
+            <\/script>
+        </body>
+        </html>
+        `;
+        calcWin.document.write(calcHtml);
+        calcWin.document.close();
     }
 
     function openFormulasWindow() {
         const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
-        if (!formulaWin) { alert("חוסם החלונות מופעל. אנא אשרו חלונות קופצים."); return; }
+        if (!formulaWin) { alert("חוסם החלונות מונע פתיחת דף נוסחאות. אנא אשרו חלונות קופצים."); return; }
         
         let formulasHtml = `
         <!DOCTYPE html>
@@ -1101,10 +879,416 @@
                     <div class="item"><span class="desc">מרחק ממישור</span><span class="math">d = |Ax<sub>0</sub> + By<sub>0</sub> + Cz<sub>0</sub> + D| / &radic;(A<sup>2</sup>+B<sup>2</sup>+C<sup>2</sup>)</span></div>
                 </div>
             </div>
+            <div style="text-align: center; margin-top: 30px; font-weight: 600; color: #94a3b8; font-size: 0.9rem;">נכתב והותאם במיוחד עבור המרכז להישגים לימודיים.</div>
         </body>
         </html>`;
         formulaWin.document.write(formulasHtml);
         formulaWin.document.close();
+    }
+
+    // מילון תרגום לשמות נושאים בעברית
+    const topicNamesHe = {
+        "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
+        "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
+        "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
+        "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
+        "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
+        "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
+        "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
+        "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
+        "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
+        "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות",
+        "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
+        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות",
+        "algebraic_expr_172": "ביטויים אלגבריים", "algebraic_frac_172": "שברים אלגבריים",
+        "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
+        "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
+        "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
+        "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
+        "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון",
+        "trigo_right_371": "טריגונומטריה במשולש ישר זווית", "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים",
+        "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
+        "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה",
+        "quad_func_372": "פונקציה ריבועית", "func_investigation_372": "חקירת פונקציה",
+        "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
+        "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות",
+        "normal_dist_372": "התפלגות נורמלית", "alg_frac_471": "אלגברה ושברים אלגבריים",
+        "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
+        "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
+        "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+        "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
+        "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
+        "sequences_571": "סדרות", "probability_571": "הסתברות",
+        "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
+        "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
+        "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
+        "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
+        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
+        "vocabulary": "אוצר מילים", "grammar": "דקדוק", "reading_comprehension": "הבנת הנקרא",
+        "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)",
+        "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
+        "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם",
+        "סוגי_משפטים": "סוגי משפטים", "מילות_יחס_וקישור": "מילות יחס וקישור",
+        "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", "תקינות": "תקינות לשונית",
+        "bagrut_prep": "הכנה לבגרות", "abc_basics": "אנגלית מהבסיס (ABC)",
+        "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
+        "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
+        "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)"
+    };
+
+    function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
+
+    function formatContent(text) {
+        if (!text) return "";
+        let html = text.replace(/<svg[\s\S]*?<\/svg>/gi, m => m); 
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
+        html = html.replace(/\*/g, '×'); 
+
+        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
+            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            return match; 
+        });
+
+        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
+        html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+        
+        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+
+        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+
+        return html.trim();
+    }
+
+    function shuffleOptions(options) {
+        let optionsWithOriginalIndices = options.map((opt, index) => ({ text: opt, originalIndex: index }));
+        for (let i = optionsWithOriginalIndices.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [optionsWithOriginalIndices[i], optionsWithOriginalIndices[j]] = [optionsWithOriginalIndices[j], optionsWithOriginalIndices[i]];
+        }
+        return optionsWithOriginalIndices;
+    }
+
+    window.allFetchedQuestions = [];
+
+    window.onload = function() {
+        const p = new URLSearchParams(window.location.search);
+        let rawGrade = p.get('grade') || "";
+        const gradeParam = rawGrade.trim().toLowerCase();
+        
+        let rawSubject = p.get('subject') || "";
+        const subjectParam = rawSubject.trim().toLowerCase();
+        
+        const topicsParam = p.get('topic');
+        const subtopicsParam = p.get('subtopic');
+        const act = p.get('activity') || "מבחן";
+        
+        urlGrade = gradeParam;
+        urlSubject = subjectParam;
+        currentTopicStr = topicsParam || "";
+        currentActivity = act;
+        
+        const gradeNames = { "english": "אנגלית", "hebrew": "לשון והבעה", "science": "מדעים", "arabic": "ערבית", "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
+        let displayGrade = gradeNames[gradeParam] || rawGrade; 
+        
+        let displayTopic = "";
+        if (currentTopicStr.toLowerCase().includes('bagrut')) {
+            displayTopic = "הכנה לבגרות";
+        } else {
+            let topicsArray = currentTopicStr.split(',');
+            let translatedTopics = topicsArray.map(t => topicNamesHe[t.trim()] || t.trim());
+            displayTopic = translatedTopics.join(', ');
+        }
+        
+        let isFin = (gradeParam === "finance" || subjectParam === "finance");
+        let isEng = (gradeParam === "english" || subjectParam === "english");
+        let isHeb = (gradeParam === "hebrew" || subjectParam === "hebrew");
+        let isArabicMode = (gradeParam === "arabic" || subjectParam === "arabic");
+        
+        // הגדרת משתנה גלובלי לבדיקת מתמטיקה לעומת שאר המקצועות
+        isMathMode = !(isFin || isEng || isHeb || isArabicMode || subjectParam === 'science' || gradeParam === 'science'); 
+
+        // הסתרת כפתור דף נוסחאות למקצועות שאינם מתמטיקה
+        if (!isMathMode) { 
+            const btnFormulas = document.getElementById('formulas-btn');
+            if (btnFormulas) btnFormulas.style.display = 'none';
+            
+            // הסתרת כפתור מחשבון למקצועות שאינם מתמטיקה
+            const btnCalculator = document.getElementById('calc-btn');
+            if (btnCalculator) btnCalculator.style.display = 'none';
+        }
+
+        let headerText = "";
+        if (isFin) {
+            headerText = `חינוך פיננסי`;
+        } else if (isEng) {
+            headerText = `אנגלית`;
+        } else if (isHeb) {
+            headerText = `לשון והבעה`;
+        } else if (isArabicMode) {
+            headerText = `ערבית`;
+        } else {
+            headerText = `${act} | כיתה ${displayGrade}`;
+        }
+        
+        if (displayTopic) headerText += ` | ${displayTopic}`;
+        if (subtopicsParam && subtopicsParam.trim() !== "") {
+            headerText += ` | ${subtopicsParam}`;
+        }
+        document.getElementById('header-title').innerText = headerText;
+        
+        document.getElementById('intro-main-title').innerText = `ברוכים הבאים ל${act}`;
+        document.getElementById('intro-act-type').innerText = act;
+
+        if (act === 'מבחן' || act === 'בגרות') {
+            document.getElementById('new-exam-btn').innerHTML = "מבחן חדש 🔄";
+        } else {
+            document.getElementById('new-exam-btn').innerHTML = "בוחן חדש 🔄";
+        }
+
+        let isExamMode = (act === 'מבחן' || act === 'בגרות');
+        let examMinutes = isExamMode ? 60 : 45;
+        timeLeft = examMinutes * 60;
+        document.getElementById('intro-time-limit').innerText = examMinutes;
+        document.getElementById('timer-text').innerText = `${examMinutes}:00`;
+
+        let topicsForIntro = [];
+        let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
+        
+        topicsToLoad.forEach(t => {
+            topicsForIntro.push(topicNamesHe[t.trim()] || t.trim());
+        });
+        
+        let introTopicsText = topicsForIntro.join(", ");
+        if(subtopicsParam && subtopicsParam.trim() !== "") {
+            introTopicsText += ` (${subtopicsParam.split(',').join(', ')})`;
+        }
+        document.getElementById('intro-topics').innerText = introTopicsText;
+
+        const startBtn = document.querySelector('.btn-start-exam');
+
+        let filesToLoad = [];
+        
+        if (gradeParam === "finance" || subjectParam === "finance") {
+            topicsToLoad.forEach(t => {
+                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
+                filesToLoad.push(`data/finance_${safeTopic}.js`);
+            });
+        } else if (gradeParam === "bar_ilan" || gradeParam === "5_6_bar_ilan") {
+            filesToLoad.push(`data/5_6_bar_ilan.js`);
+        } else if (topicsToLoad.length > 0) {
+            topicsToLoad.forEach(t => {
+                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
+                if (gradeParam === "5_6" || gradeParam === "ה-ו") {
+                    filesToLoad.push(`data/5_6_${safeTopic}.js`);
+                } else if (gradeParam === "35172" && safeTopic === "trigo_172") {
+                    filesToLoad.push(`data/35172_trigonometry_172.js`);
+                } else if (gradeParam === "english" || subjectParam === "english") {
+                    filesToLoad.push(`data/english_${safeTopic}.js`);
+                } else if (gradeParam === "hebrew" || subjectParam === "hebrew") {
+                    if(safeTopic === 'יסודי_כללי') {
+                        filesToLoad.push(`data/כללי_יסודי_כללי.js`);
+                    } else {
+                        filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+                    }
+                } else if (gradeParam === "science" || subjectParam === "science") {
+                    filesToLoad.push(`data/science_${safeTopic}.js`);
+                } else if (gradeParam === "arabic" || subjectParam === "arabic") {
+                    filesToLoad.push(`data/arabic_${safeTopic}.js`);
+                } else {
+                    filesToLoad.push(`data/${gradeParam}_${safeTopic}.js`);
+                }
+            });
+        }
+
+        let currentFileIndex = 0;
+
+        function loadNextScript() {
+            if (currentFileIndex >= filesToLoad.length) {
+                processLoadedQuestions();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = filesToLoad[currentFileIndex];
+            
+            script.onload = () => {
+                // 1. אוספים את הנתונים מהקבצים למערך אחד
+                if (typeof readingTextsDB !== 'undefined') {
+                    window.allFetchedQuestions = window.allFetchedQuestions.concat(readingTextsDB);
+                    window.readingTextsDB = undefined; 
+                } 
+                if (typeof questionsDB !== 'undefined') {
+                    window.allFetchedQuestions = window.allFetchedQuestions.concat(questionsDB);
+                    window.questionsDB = undefined; 
+                }
+                
+                // במקרה של קבצי המשך
+                if (typeof questionsDB_grammar !== 'undefined') {
+                    window.allFetchedQuestions = window.allFetchedQuestions.concat(questionsDB_grammar);
+                    window.questionsDB_grammar = undefined;
+                }
+                if (typeof questionsDB_syntax !== 'undefined') {
+                    window.allFetchedQuestions = window.allFetchedQuestions.concat(questionsDB_syntax);
+                    window.questionsDB_syntax = undefined;
+                }
+                if (typeof questionsDB_part2 !== 'undefined') {
+                    window.allFetchedQuestions = window.allFetchedQuestions.concat(questionsDB_part2);
+                    window.questionsDB_part2 = undefined;
+                }
+                
+                currentFileIndex++;
+                loadNextScript();
+            };
+            
+            script.onerror = () => {
+                console.error("שגיאה בטעינת הקובץ: " + script.src);
+                document.getElementById('intro-topics').innerHTML += `<br><span style="color:red; font-size:0.9rem;">לא נמצא קובץ: ${script.src}</span>`;
+                currentFileIndex++;
+                loadNextScript();
+            };
+            
+            document.head.appendChild(script);
+        }
+
+        if (filesToLoad.length > 0) {
+            loadNextScript();
+        } else {
+            processLoadedQuestions();
+        }
+
+        function processLoadedQuestions() {
+            const pParams = new URLSearchParams(window.location.search);
+            const subsParam = pParams.get('subtopic');
+            const selectedSubs = subsParam ? subsParam.split(',') : [];
+            
+            let relevantItems = window.allFetchedQuestions.filter(q => {
+                if (selectedSubs.length === 0) return true;
+                const qSub = (q.subTopic || q.subtopic || "").trim();
+                return selectedSubs.some(currSub => {
+                    currSub = currSub.trim();
+                    return qSub === currSub || currSub.includes(qSub) || qSub.includes(currSub.split('(')[0].trim());
+                });
+            });
+
+            // --- התיקון לקריאת טקסטים בבחינה ---
+            let allQuestionsFlat = [];
+            
+            if (relevantItems.length > 0 && relevantItems[0].questions && Array.isArray(relevantItems[0].questions)) {
+                // זהו קובץ של הבנת הנקרא - נשטח את כל הטקסטים
+                relevantItems.forEach(textObj => {
+                    let passageContent = Array.isArray(textObj.content) ? textObj.content.join('\n\n') : textObj.content;
+                    
+                    textObj.questions.forEach(q => {
+                        let newQ = { ...q };
+                        newQ.passage = passageContent; 
+                        allQuestionsFlat.push(newQ); 
+                    });
+                });
+            } else {
+                allQuestionsFlat = relevantItems;
+            }
+
+            let targetNum = isExamMode ? 10 : 5;
+            
+            // בטקסטים לא מערבבים כדי לשמור על סדר השאלות של הטקסט, אחרת שולפים שאלות אקראיות
+            if (relevantItems.length > 0 && relevantItems[0].questions && Array.isArray(relevantItems[0].questions)) {
+                 questions = allQuestionsFlat.slice(0, targetNum); 
+            } else {
+                 questions = allQuestionsFlat.sort(() => 0.5 - Math.random()).slice(0, targetNum);
+            }
+            
+            questions.forEach(q => {
+                if (!isMathMode) {
+                    q.shuffledOptions = shuffleOptions(q.options);
+                } else {
+                    // במתמטיקה התשובות לא יעורבבו
+                    q.shuffledOptions = q.options.map((opt, index) => ({ text: opt, originalIndex: index }));
+                }
+            });
+
+            answers = new Array(questions.length).fill(null);
+            
+            document.getElementById('total-num').innerText = questions.length;
+            document.getElementById('intro-q-count').innerText = questions.length;
+            
+            if(questions.length > 0) {
+                startBtn.disabled = false;
+                startBtn.innerText = "התחל בחינה עכשיו";
+                startBtn.style.opacity = 1;
+                loadQuestion(); 
+            } else {
+                startBtn.innerText = "אין שאלות זמינות";
+            }
+        }
+    };
+
+    function goBackToSelection() { 
+        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("חזרה לבחירת נושא? ההתקדמות במבחן תאבד.")) return; 
+        
+        let targetGrade = urlGrade.toLowerCase();
+        let targetSubject = urlSubject.toLowerCase();
+
+        if (targetGrade === "finance" || targetSubject === "finance") { window.location.href = "finance.html"; return; }
+        if (targetGrade === "english" || targetSubject === "english") { window.location.href = "english.html"; return; }
+        if (targetGrade === "hebrew" || targetSubject === "hebrew") { window.location.href = "hebrew.html"; return; }
+        if (targetGrade === "science" || targetSubject === "science") { window.location.href = "science.html"; return; }
+        if (targetGrade === "arabic" || targetSubject === "arabic") { window.location.href = "arabic.html"; return; }
+        
+        let returnGrade = (targetGrade === '5_6') ? 'ה-ו' : (targetGrade === 'grade7' ? 'ז' : targetGrade === 'grade8' ? 'ח' : targetGrade === 'grade9' ? 'ט' : targetGrade); 
+        window.location.href = `math.html?grade=${encodeURIComponent(returnGrade)}`; 
+    }
+    
+    function goHome() { 
+        if (!isFinished && document.getElementById('quiz-area').style.display === 'flex' && !confirm("יציאה לדף הבית? ההתקדמות תאבד.")) return; 
+        window.location.href = 'tirgul.html'; 
+    }
+
+    function startExam() {
+        document.getElementById('intro-screen').style.display = 'none';
+        document.getElementById('quiz-area').style.display = 'flex';
+        
+        document.getElementById('finish-btn').disabled = false;
+        document.getElementById('finish-btn').classList.remove('btn-disabled-gray');
+        
+        const btnFormulas = document.getElementById('formulas-btn');
+        if (btnFormulas && isMathMode) {
+            btnFormulas.disabled = false;
+            btnFormulas.classList.remove('btn-disabled-gray');
+        }
+        
+        const btnCalc = document.getElementById('calc-btn');
+        if (btnCalc && isMathMode) {
+            btnCalc.disabled = false;
+            btnCalc.classList.remove('btn-disabled-gray');
+        }
+        
+        document.getElementById('hint-btn').disabled = false;
+        document.getElementById('hint-btn').classList.remove('btn-disabled-gray');
+        
+        const prevBtn = document.getElementById('btn-prev');
+        const nextBtn = document.getElementById('btn-next-side');
+        if (currentIndex === 0) { prevBtn.classList.add('btn-disabled-gray'); prevBtn.disabled = true; } 
+        else { prevBtn.classList.remove('btn-disabled-gray'); prevBtn.disabled = false; }
+        if (currentIndex === questions.length - 1) { nextBtn.classList.add('btn-disabled-gray'); nextBtn.disabled = true; } 
+        else { nextBtn.classList.remove('btn-disabled-gray'); nextBtn.disabled = false; }
+
+        timer = setInterval(() => { 
+            timeLeft--; 
+            let m = Math.floor(timeLeft / 60), s = timeLeft % 60; 
+            document.getElementById('timer-text').innerText = `${m}:${s < 10 ? '0' : ''}${s}`; 
+            if (timeLeft <= 0) finishExam(); 
+        }, 1000); 
     }
 
     function loadQuestion() {
@@ -1118,36 +1302,44 @@
         let isFin = (urlGrade === "finance" || urlSubject === "finance");
         let isEng = (urlGrade === "english" || urlSubject === "english");
         let isHeb = (urlGrade === "hebrew" || urlSubject === "hebrew");
+        let isArabicModeInner = (urlGrade === "arabic" || urlSubject === "arabic");
 
-        // --- הוספת כפתור "טקסט קריאה" באנגלית ובלשון ---
+        // --- הוספת כפתור "טקסט קריאה" באנגלית, לשון וערבית ---
         let showReadingBtn = false;
         let qTopic = (q.topic || "").toLowerCase();
         let qSub = (q.subTopic || q.subtopic || "").toLowerCase();
         
-        // באנגלית: ב-6 תתי הנושאים הראשונים (שאינם Reading Strategies)
-        if (isEng && (qTopic.includes('reading_comprehension') || qTopic.includes('הבנת הנקרא'))) {
-            if (!qSub.includes('strategies') && !qSub.includes('אסטרטגיות')) {
+        // אם יש לשאלה טקסט ספציפי משלה, נציג אותו
+        if (q.passage || q.reading_text) {
+            showReadingBtn = true;
+            window.currentPassage = q.passage || q.reading_text;
+        }
+        else {
+            // באנגלית: ב-6 תתי הנושאים הראשונים (שאינם Reading Strategies)
+            if (isEng && (qTopic.includes('reading_comprehension') || qTopic.includes('הבנת הנקרא'))) {
+                if (!qSub.includes('strategies') && !qSub.includes('אסטרטגיות')) {
+                    showReadingBtn = true;
+                }
+            } 
+            // בלשון: יסודי, הבנת הנקרא (טקסטים)
+            else if (isHeb && (qTopic.includes('יסודי_כללי') || q.topic === 'יסודי_כללי') && qSub.includes('הבנת הנקרא (טקסטים)')) {
+                showReadingBtn = true;
+            } 
+            // בלשון: בגרות, הבנת הנקרא (טקסטים)
+            else if (isHeb && (qTopic.includes('הבנת_הנקרא_והבעה') || q.topic === 'הבנת_הנקרא_והבעה') && qSub.includes('הבנת הנקרא (טקסטים)')) {
                 showReadingBtn = true;
             }
-        } 
-        // בלשון: יסודי, הבנת הנקרא (טקסטים)
-        else if (isHeb && (qTopic.includes('יסודי_כללי') || q.topic === 'יסודי_כללי') && qSub.includes('הבנת הנקרא (טקסטים)')) {
-            showReadingBtn = true;
-        } 
-        // בלשון: בגרות, הבנת הנקרא (טקסטים)
-        else if (isHeb && (qTopic.includes('הבנת_הנקרא_והבעה') || q.topic === 'הבנת_הנקרא_והבעה') && qSub.includes('הבנת הנקרא (טקסטים)')) {
-            showReadingBtn = true;
-        }
-
-        // גיבוי ליתר ביטחון אם חסר topic בשאלה הספציפית
-        if (!q.topic && !q.subTopic) {
-            if (isEng && currentTopicStr.toLowerCase().includes('reading_comprehension')) {
-                showReadingBtn = true; 
+            // בערבית: הבנת הנקרא
+            else if (isArabicModeInner && qTopic.includes('הבנת הנקרא')) {
+                showReadingBtn = true;
+            }
+            
+            if (showReadingBtn && !window.currentPassage) {
+                window.currentPassage = "טקסט הקריאה טרם צורף לשאלה זו במאגר.";
             }
         }
 
         if (showReadingBtn) {
-            window.currentPassage = q.passage || q.reading_text || "טקסט הקריאה טרם צורף לשאלה זו במאגר.";
             document.getElementById('reading-btn-container').innerHTML = `
                 <button class="btn-reading-window" onclick="openReadingWindow()">
                     <span style="font-size:1.2rem;">📖</span> <span>טקסט קריאה</span>
@@ -1181,7 +1373,7 @@
         const thMathExam = document.getElementById('th-math-exam');
         
         if (tableHead && thVerbalExam && thMathExam) {
-            if (isFin || isEng || isHeb || urlGrade === "arabic" || urlSubject === "arabic") {
+            if (isFin || isEng || isHeb || isArabicModeInner || urlGrade === "science" || urlSubject === "science") {
                 thMathExam.style.display = 'none';
                 thVerbalExam.setAttribute('colspan', '2');
                 thVerbalExam.style.width = '100%';
@@ -1205,7 +1397,7 @@
                 
                 const tr = document.createElement('tr');
                 
-                if (isFin || isEng || isHeb || urlGrade === "arabic" || urlSubject === "arabic") {
+                if (isFin || isEng || isHeb || isArabicModeInner || urlGrade === "science" || urlSubject === "science") {
                     tr.innerHTML = `<td colspan="2" class="text-col" dir="${verbalDir}" style="border-left:none; text-align:right;">${formatContent(verbal)}</td>`;
                 } else {
                     mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
@@ -1240,7 +1432,7 @@
             if (q.final_answer) finalAnswerText = q.final_answer;
         } else if (q.solution) {
              const tr = document.createElement('tr');
-             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl" style="border-left:none; text-align:right;">${formatContent(q.solution)}</td>`;
+             tr.innerHTML = `<td colspan="2" class="text-col" dir="rtl" style="border-left:none; text-align:right; padding:15px;">${formatContent(q.solution)}</td>`;
              tbody.appendChild(tr);
              if (q.final_answer) finalAnswerText = q.final_answer;
         }
