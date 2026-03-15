@@ -275,7 +275,6 @@
             script.onload = () => {
                 let rawData = [];
                 
-                // 💥 הסורק החכם - קורא כל מערך שאלות אפשרי 💥
                 const possibleNames = [
                     'readingTextsDB', 'questionsDB', 'questions', 'quizData', 'data',
                     'questionsDB_grammar', 'questionsDB_syntax', 'questionsDB_part2',
@@ -350,7 +349,6 @@
             }
         });
 
-        // 💥 נרמול השאלות החזק 💥
         pool = tempPool.map(q => {
             let normQ = { ...q };
             if (!normQ.options) normQ.options = normQ.answers || normQ.choices || ["תשובה 1", "תשובה 2"];
@@ -361,17 +359,10 @@
 
         pool = pool.sort(() => 0.5 - Math.random());
 
-        let maxQ = Math.floor(pool.length / 2) * 2; 
-        if (maxQ > 10) maxQ = 10; 
-        if (maxQ === 0 && pool.length > 0) maxQ = pool.length;
-        
-        gameQuestions = pool.slice(0, maxQ);
-
         const startBtn = document.getElementById('start-btn');
-        if(gameQuestions.length >= 2) {
+        if(pool.length > 0) {
             startBtn.disabled = false;
             startBtn.style.opacity = 1;
-            startBtn.innerText = "התחילו בתחרות!";
         } else {
             startBtn.innerText = "אין שאלות זמינות למשחק זה";
         }
@@ -432,6 +423,7 @@
         
         currentQuestion = pool.pop(); 
         
+        // 💥 ערבוב התשובות בכל טעינת שאלה 💥
         if (!isMathMode) {
             currentQuestion.shuffledOptions = shuffleOptions(currentQuestion.options);
         } else {
@@ -453,20 +445,6 @@
         hintDisplay.style.display = 'none';
         turnStatus.innerText = "תורכם. בחרו תשובה.";
         turnStatus.style.color = "var(--accent-gold)";
-
-        if (isMathMode) {
-            let calcBtn = document.createElement('button');
-            calcBtn.className = 'btn-tool';
-            calcBtn.innerHTML = '🖩 מחשבון';
-            calcBtn.onclick = openCalculatorWindow;
-            toolsBar.appendChild(calcBtn);
-
-            let formBtn = document.createElement('button');
-            formBtn.className = 'btn-tool';
-            formBtn.innerHTML = '📐 דף נוסחאות';
-            formBtn.onclick = openFormulasWindow;
-            toolsBar.appendChild(formBtn);
-        }
 
         let showReadingBtn = false;
         let qTopic = String(currentQuestion.topic || "").toLowerCase();
@@ -649,113 +627,6 @@
         </html>`;
         readingWin.document.write(textHtml);
         readingWin.document.close();
-    }
-
-    function openCalculatorWindow() {
-        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
-        if (!calcWin) return;
-        let calcHtml = `
-        <!DOCTYPE html>
-        <html lang="he" dir="ltr">
-        <head>
-            <meta charset="UTF-8">
-            <title>מחשבון</title>
-            <style>
-                body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-                .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;}
-                .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
-                .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-                button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
-                button:hover { background: #444; }
-                .btn-op { background: #c5a059; color: #000; }
-                .btn-op:hover { background: #a38042; }
-                .btn-clear { background: #ef4444; }
-                .btn-clear:hover { background: #dc2626; }
-                .btn-eq { background: #22c55e; grid-column: span 2; color: #000;}
-                .btn-eq:hover { background: #16a34a; }
-            </style>
-        </head>
-        <body>
-            <div class="calculator">
-                <input type="text" class="display" id="display" disabled value="0">
-                <div class="buttons">
-                    <button class="btn-clear" onclick="clearDisplay()">C</button>
-                    <button onclick="append('(')">(</button>
-                    <button onclick="append(')')">)</button>
-                    <button class="btn-op" onclick="append('/')">÷</button>
-                    <button onclick="append('7')">7</button>
-                    <button onclick="append('8')">8</button>
-                    <button onclick="append('9')">9</button>
-                    <button class="btn-op" onclick="append('*')">×</button>
-                    <button onclick="append('4')">4</button>
-                    <button onclick="append('5')">5</button>
-                    <button onclick="append('6')">6</button>
-                    <button class="btn-op" onclick="append('-')">-</button>
-                    <button onclick="append('1')">1</button>
-                    <button onclick="append('2')">2</button>
-                    <button onclick="append('3')">3</button>
-                    <button class="btn-op" onclick="append('+')">+</button>
-                    <button onclick="append('0')">0</button>
-                    <button onclick="append('.')">.</button>
-                    <button class="btn-eq" onclick="calculate()">=</button>
-                </div>
-            </div>
-            <script>
-                let display = document.getElementById('display');
-                let currentVal = '';
-                function append(val) { if(currentVal === 'שגיאה') currentVal = ''; currentVal += val; updateDisplay(); }
-                function clearDisplay() { currentVal = ''; updateDisplay(); }
-                function calculate() {
-                    try { if(currentVal === '') return; let result = eval(currentVal); result = Math.round(result * 100000) / 100000; currentVal = result.toString(); updateDisplay(); } 
-                    catch(e) { currentVal = 'שגיאה'; updateDisplay(); }
-                }
-                function updateDisplay() { let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷'); display.value = show || '0'; }
-            <\/script>
-        </body>
-        </html>
-        `;
-        calcWin.document.write(calcHtml);
-        calcWin.document.close();
-    }
-
-    function openFormulasWindow() {
-        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
-        if (!formulaWin) return;
-        let formulasHtml = `
-        <!DOCTYPE html>
-        <html lang="he" dir="rtl">
-        <head>
-            <meta charset="UTF-8">
-            <title>דף נוסחאות עזר מתמטי מקיף</title>
-            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
-            <style>
-                body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.5; }
-                .hdr { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; }
-                h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;}
-                .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-                @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
-                .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;}
-                .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
-                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;}
-                .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; }
-                .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left;}
-                sup { font-size: 0.75em; vertical-align: super; }
-            </style>
-        </head>
-        <body>
-            <div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1></div>
-            <h2 style="text-align:center;">חטיבת ביניים</h2>
-            <div class="grid-container">
-                <div class="section"><h2 class="section-title">שטחים והיקפים</h2>
-                    <div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div>
-                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div>
-                    <div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div>
-                </div>
-            </div>
-        </body>
-        </html>`;
-        formulaWin.document.write(formulasHtml);
-        formulaWin.document.close();
     }
 
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }

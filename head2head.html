@@ -294,7 +294,6 @@
             }
         });
 
-        // 💥 נרמול השאלות החזק 💥
         pool = tempPool.map(q => {
             let normQ = { ...q };
             if (!normQ.options) normQ.options = normQ.answers || normQ.choices || ["תשובה 1", "תשובה 2"];
@@ -405,7 +404,6 @@
             toolsBar.appendChild(btn);
         }
 
-        // 💥 יישור משמאל לימין לאנגלית בלבד 💥
         let qDir = isEnglishMode ? "ltr" : "rtl";
         let qAlign = isEnglishMode ? "left" : "right";
         qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formatContent(q.question)}</div>`;
