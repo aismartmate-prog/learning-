@@ -207,8 +207,8 @@
         
         .copyright-footer { text-align: center; font-size: 0.75rem; color: #94a3b8; padding-top: 10px; margin-top: auto; border-top: 1px dashed var(--border-soft); width: 100%; }
 
-        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; }
-        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
+        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; font-weight: bold; white-space: nowrap;}
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; font-family: Arial, Helvetica, sans-serif;}
         .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
         .fraction-denominator { text-align: center; padding: 0 2px; }
         sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
@@ -329,8 +329,8 @@
         /* ---------------------------------------------------- */
 
         /* ==========================================================================
-           רספונסיביות מלאה (סלולר וטאבלט) - התאמה מושלמת למסכים קטנים ופתרונות
-           ========================================================================== */
+            רספונסיביות מלאה (סלולר וטאבלט) - התאמה מושלמת למסכים קטנים ופתרונות
+            ========================================================================== */
         @media (max-width: 1000px) {
             body { overflow: auto; }
             .practice-layout { flex-direction: column; overflow: visible; height: auto; padding: 10px; margin: 0; }
@@ -544,12 +544,17 @@
     let timeLeft = 0; 
     let urlGrade = '', urlSubject = '', currentTopicStr = '', currentActivity = '';
     let currentSpeechText = "";
-    let currentPassage = ""; // משתנה לשמירת טקסט הקריאה
+    let currentPassage = ""; 
     let isFinanceMode = false;
     let isEnglishMode = false; 
     let isHebrewMode = false; 
     let isArabicMode = false;
     let isMathMode = false;
+
+    // מילון תרגום מתמטיקה
+    const mathTranslationsDict = {
+        "Isosceles Trapezoid": "טרפז שווה שוקיים", "Isosceles_Trapezoid": "טרפז שווה שוקיים", "General case": "מקרה כללי", "General": "כללי", "case": "מקרה", "True": "נכון", "False": "שגוי", "Isosceles": "שווה שוקיים", "Trapezoid": "טרפז", "Rectangle": "מלבן", "Rhombus": "מעוין", "Midsegment": "קטע אמצעים", "Base": "בסיס", "Leg": "שוק", "Tangent": "משיק", "Tangents": "משיקים", "Chords": "מיתרים", "Chord": "מיתר", "Lines": "ישרים", "Line": "ישר", "inscribed": "חסום", "Ratio": "יחס", "Fraction": "שבר", "Arc": "קשת", "Area": "שטח", "Perimeter": "היקף", "Radius": "רדיוס", "Diameter": "קוטר", "inner": "פנימי", "outer": "חיצוני", "small": "קטן", "large": "גדול", "original": "מקורי", "new": "חדש", "Total": "סהכ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה", "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד", "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום", "Max / Min": "מקסימום או מינימום", "Invalid": "לא חוקי", "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים", "Kite": "דלתון", "Hexagon": "משושה", "Square": "ריבוע", "Triangle": "משולש", "Right": "ישר זווית", "Acute": "חד זווית", "Obtuse": "קהה זווית", "Equilateral": "שווה צלעות", "Parallel": "מקביל", "Perpendicular": "מאונך", "Bisector": "חוצה", "Median": "תיכון", "Altitude": "גובה", "Diagonal": "אלכסון", "Intersection": "נקודת חיתוך", "Point": "נקודה", "Angle": "זווית", "Degree": "מעלה", "Circumference": "היקף מעגל", "G_is_midpoint": "היא אמצע הקטע G"
+    };
 
     // --- פונקציונליות חלון מורה פרטי AI (Chatbox) ---
     function toggleAiChat() {
@@ -573,7 +578,6 @@
         const readingWin = window.open('', '_blank', 'width=800,height=800,scrollbars=yes');
         if (!readingWin) { alert("חוסם החלונות מונע פתיחת טקסט קריאה. אנא אשרו פתיחת חלונות קופצים."); return; }
         
-        // בודקים אם אנחנו במצב אנגלית כדי לשנות כיווניות של הטקסט
         let isEnglish = (urlGrade === "english" || urlSubject === "english");
 
         let textHtml = `
@@ -588,7 +592,6 @@
                 .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
                 h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
                 .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
-                /* לטקסט באנגלית יופעל עיצוב משמאל לימין */
                 .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
             </style>
         </head>
@@ -600,293 +603,34 @@
         readingWin.document.write(textHtml);
         readingWin.document.close();
     }
-    // ---------------------------------------------------
 
-    // טעינת הקולות מראש להקראה באנגלית
     if (window.speechSynthesis) {
-        window.speechSynthesis.onvoiceschanged = function() {
-            window.speechSynthesis.getVoices();
-        };
+        window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); };
     }
     
     window.playTTS = function() {
-        if (!currentSpeechText) return;
-        window.speechSynthesis.cancel(); 
+        if (!currentSpeechText) return; window.speechSynthesis.cancel(); 
+        const msg = new SpeechSynthesisUtterance(currentSpeechText); let btnLabel = isArabicMode ? "השמע בערבית" : "השמע באנגלית";
+        if (isArabicMode) { msg.lang = 'ar-SA'; msg.rate = 0.8; msg.pitch = 1.1; const voices = window.speechSynthesis.getVoices(); const preferredVoice = voices.find(voice => voice.lang.startsWith('ar') || voice.name.toLowerCase().includes('arabic') || voice.name.includes('Tarik') || voice.name.includes('Laila') || voice.name.includes('Maged')); if (preferredVoice) { msg.voice = preferredVoice; } } 
+        else { msg.lang = 'en-US'; msg.rate = 0.8; msg.pitch = 1.1; const voices = window.speechSynthesis.getVoices(); const preferredVoice = voices.find(voice => voice.name.includes('Google US English') || voice.name.includes('Samantha') || voice.name.includes('Victoria') || voice.name.includes('Alex')); if (preferredVoice) { msg.voice = preferredVoice; } }
         
-        const msg = new SpeechSynthesisUtterance(currentSpeechText);
-        msg.lang = 'en-US';
-        msg.rate = 0.8; 
-        msg.pitch = 1.1; 
-        
-        const voices = window.speechSynthesis.getVoices();
-        const preferredVoice = voices.find(voice => 
-            voice.name.includes('Google US English') || 
-            voice.name.includes('Samantha') || 
-            voice.name.includes('Victoria') ||
-            voice.name.includes('Alex')
-        );
-        if (preferredVoice) {
-            msg.voice = preferredVoice;
-        }
-
         const btn = document.getElementById('tts-button-element');
-        if (btn) {
-            btn.classList.add('playing');
-            btn.innerHTML = '<span>מקריא עכשיו...</span> <span style="font-size:1.4rem;">🎶</span>';
-            
-            msg.onend = function() {
-                btn.classList.remove('playing');
-                btn.innerHTML = '<span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>';
-            };
-            msg.onerror = function() {
-                btn.classList.remove('playing');
-                btn.innerHTML = '<span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>';
-            };
-        }
-        
+        if (btn) { btn.classList.add('playing'); btn.innerHTML = '<span>מקריא עכשיו...</span> <span style="font-size:1.4rem;">🎶</span>'; msg.onend = function() { btn.classList.remove('playing'); btn.innerHTML = `<span>${btnLabel}</span> <span style="font-size:1.4rem;">🔊</span>`; }; msg.onerror = function() { btn.classList.remove('playing'); btn.innerHTML = `<span>${btnLabel}</span> <span style="font-size:1.4rem;">🔊</span>`; }; }
         window.speechSynthesis.speak(msg);
     };
 
     function openCalculatorWindow() {
-        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
-        if (!calcWin) { alert("חוסם החלונות מונע פתיחת מחשבון. אנא אשרו חלונות קופצים."); return; }
-        
-        let calcHtml = `
-        <!DOCTYPE html>
-        <html lang="he" dir="rtl">
-        <head>
-            <meta charset="UTF-8">
-            <title>מחשבון</title>
-            <style>
-                body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-                .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;}
-                .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
-                .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-                button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
-                button:hover { background: #444; }
-                .btn-op { background: #c5a059; color: #000; }
-                .btn-op:hover { background: #a38042; }
-                .btn-clear { background: #ef4444; }
-                .btn-clear:hover { background: #dc2626; }
-                .btn-eq { background: #22c55e; grid-column: span 2; color: #000;}
-                .btn-eq:hover { background: #16a34a; }
-            </style>
-        </head>
-        <body>
-            <div class="calculator">
-                <input type="text" class="display" id="display" disabled value="0">
-                <div class="buttons">
-                    <button class="btn-clear" onclick="clearDisplay()">C</button>
-                    <button onclick="append('(')">(</button>
-                    <button onclick="append(')')">)</button>
-                    <button class="btn-op" onclick="append('/')">÷</button>
-                    
-                    <button onclick="append('7')">7</button>
-                    <button onclick="append('8')">8</button>
-                    <button onclick="append('9')">9</button>
-                    <button class="btn-op" onclick="append('*')">×</button>
-                    
-                    <button onclick="append('4')">4</button>
-                    <button onclick="append('5')">5</button>
-                    <button onclick="append('6')">6</button>
-                    <button class="btn-op" onclick="append('-')">-</button>
-                    
-                    <button onclick="append('1')">1</button>
-                    <button onclick="append('2')">2</button>
-                    <button onclick="append('3')">3</button>
-                    <button class="btn-op" onclick="append('+')">+</button>
-                    
-                    <button onclick="append('0')">0</button>
-                    <button onclick="append('.')">.</button>
-                    <button class="btn-eq" onclick="calculate()">=</button>
-                </div>
-            </div>
-            <script>
-                let display = document.getElementById('display');
-                let currentVal = '';
-                function append(val) {
-                    if(currentVal === 'שגיאה') currentVal = '';
-                    currentVal += val;
-                    updateDisplay();
-                }
-                function clearDisplay() {
-                    currentVal = '';
-                    updateDisplay();
-                }
-                function calculate() {
-                    try {
-                        if(currentVal === '') return;
-                        let result = eval(currentVal);
-                        result = Math.round(result * 100000) / 100000; 
-                        currentVal = result.toString();
-                        updateDisplay();
-                    } catch(e) {
-                        currentVal = 'שגיאה';
-                        updateDisplay();
-                    }
-                }
-                function updateDisplay() {
-                    let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷');
-                    display.value = show || '0';
-                }
-            <\/script>
-        </body>
-        </html>
-        `;
-        calcWin.document.write(calcHtml);
-        calcWin.document.close();
+        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no'); if (!calcWin) { alert("חוסם החלונות מונע פתיחת מחשבון. אנא אשרו חלונות קופצים."); return; }
+        let calcHtml = `<!DOCTYPE html><html lang="he" dir="ltr"><head><meta charset="UTF-8"><title>מחשבון</title><style>body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;} .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;} .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; } button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;} button:hover { background: #444; } .btn-op { background: #c5a059; color: #000; } .btn-op:hover { background: #a38042; } .btn-clear { background: #ef4444; } .btn-clear:hover { background: #dc2626; } .btn-eq { background: #22c55e; grid-column: span 2; color: #000;} .btn-eq:hover { background: #16a34a; }</style></head><body><div class="calculator"><input type="text" class="display" id="display" disabled value="0"><div class="buttons"><button class="btn-clear" onclick="clearDisplay()">C</button><button onclick="append('(')">(</button><button onclick="append(')')">)</button><button class="btn-op" onclick="append('/')">÷</button><button onclick="append('7')">7</button><button onclick="append('8')">8</button><button onclick="append('9')">9</button><button class="btn-op" onclick="append('*')">×</button><button onclick="append('4')">4</button><button onclick="append('5')">5</button><button onclick="append('6')">6</button><button class="btn-op" onclick="append('-')">-</button><button onclick="append('1')">1</button><button onclick="append('2')">2</button><button onclick="append('3')">3</button><button class="btn-op" onclick="append('+')">+</button><button onclick="append('0')">0</button><button onclick="append('.')">.</button><button class="btn-eq" onclick="calculate()">=</button></div></div><script>let display = document.getElementById('display'); let currentVal = ''; function append(val) { if(currentVal === 'שגיאה') currentVal = ''; currentVal += val; updateDisplay(); } function clearDisplay() { currentVal = ''; updateDisplay(); } function calculate() { try { if(currentVal === '') return; let result = eval(currentVal); result = Math.round(result * 100000) / 100000; currentVal = result.toString(); updateDisplay(); } catch(e) { currentVal = 'שגיאה'; updateDisplay(); } } function updateDisplay() { let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷'); display.value = show || '0'; } <\/script></body></html>`;
+        calcWin.document.write(calcHtml); calcWin.document.close();
     }
 
     function openFormulasWindow() {
-        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
-        if (!formulaWin) { alert("חוסם החלונות מונע פתיחת דף נוסחאות. אנא אשרו חלונות קופצים."); return; }
-        
-        let formulasHtml = `
-        <!DOCTYPE html>
-        <html lang="he" dir="rtl">
-        <head>
-            <meta charset="UTF-8">
-            <title>דף נוסחאות עזר</title>
-            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
-            <style>
-                body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.6;}
-                .hdr { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
-                h1 { color: #000; margin: 0 0 5px 0; font-size: 1.8rem; }
-                .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-                @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
-                .sec { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); height: fit-content;}
-                .sec h2 { color: #c5a059; margin-top: 0; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; font-size: 1.3rem;}
-                .it { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9; align-items:center; gap: 15px;}
-                .it:last-child { border-bottom: none; }
-                .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; }
-                .math { font-size: 1.15rem; font-weight: 800; direction: ltr; background: #f8fafc; padding: 4px 12px; border-radius: 4px; border: 1px solid #e2e8f0; text-align: left; min-width: 150px;}
-                sup { font-size: 0.75em; vertical-align: super; }
-                sub { font-size: 0.75em; vertical-align: sub; }
-            </style>
-        </head>
-        <body>
-            <div class="hdr"><h1>דף נוסחאות עזר מתמטי מקיף (ה'-י"ב)</h1><p>כל הנוסחאות לשימוש במהלך הבחינה</p></div>
-            
-            <h2 style="text-align:center; color: #0f172a; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-top: 30px;">חטיבת ביניים (יסודי עד ט')</h2>
-            <div class="grid-container">
-                <div class="section"><h2 class="section-title">שטחים והיקפים</h2>
-                    <div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div>
-                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div>
-                    <div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div>
-                    <div class="item"><span class="desc">היקף מעגל</span><span class="math">P = 2 &middot; &pi; &middot; r</span></div>
-                    <div class="item"><span class="desc">שטח טרפז</span><span class="math">S = ((a + b) &middot; h) / 2</span></div>
-                    <div class="item"><span class="desc">שטח מעוין / דלתון</span><span class="math">S = (d<sub>1</sub> &middot; d<sub>2</sub>) / 2</span></div>
-                </div>
-                
-                <div class="section"><h2 class="section-title">נפחים וגופים</h2>
-                    <div class="item"><span class="desc">נפח תיבה / קובייה</span><span class="math">V = a &middot; b &middot; c</span></div>
-                    <div class="item"><span class="desc">נפח גליל</span><span class="math">V = &pi; &middot; r<sup>2</sup> &middot; h</span></div>
-                    <div class="item"><span class="desc">נפח חרוט</span><span class="math">V = (&pi; &middot; r<sup>2</sup> &middot; h) / 3</span></div>
-                    <div class="item"><span class="desc">נפח פירמידה</span><span class="math">V = (S<sub>base</sub> &middot; h) / 3</span></div>
-                    <div class="item"><span class="desc">נפח כדור</span><span class="math">V = (4 &middot; &pi; &middot; r<sup>3</sup>) / 3</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">אחוזים, יחס ותנועה</h2>
-                    <div class="item"><span class="desc">חישוב אחוז</span><span class="math">(X / 100) &middot; Y</span></div>
-                    <div class="item"><span class="desc">הספק</span><span class="math">W = P &middot; t</span></div>
-                    <div class="item"><span class="desc">דרך, מהירות, זמן</span><span class="math">S = v &middot; t</span></div>
-                    <div class="item"><span class="desc">משפט פיתגורס</span><span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></div>
-                </div>
-                
-                <div class="section"><h2 class="section-title">אלגברה בסיסית</h2>
-                    <div class="item"><span class="desc">כפל חזקות (בסיס זהה)</span><span class="math">a<sup>n</sup> &middot; a<sup>m</sup> = a<sup>n+m</sup></span></div>
-                    <div class="item"><span class="desc">חילוק חזקות</span><span class="math">a<sup>n</sup> / a<sup>m</sup> = a<sup>n-m</sup></span></div>
-                    <div class="item"><span class="desc">כפל מקוצר: הפרש ריבועים</span><span class="math">a<sup>2</sup> - b<sup>2</sup> = (a - b)(a + b)</span></div>
-                    <div class="item"><span class="desc">כפל מקוצר: דו-איבר בריבוע</span><span class="math">(a &plusmn; b)<sup>2</sup> = a<sup>2</sup> &plusmn; 2ab + b<sup>2</sup></span></div>
-                </div>
-            </div>
-
-            <h2 style="text-align:center; color: #0f172a; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-top: 40px;">תיכון (י' - י"ב)</h2>
-            <div class="grid-container">
-                <div class="section"><h2 class="section-title">אלגברה ומשוואות</h2>
-                    <div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b &plusmn; &radic;(b<sup>2</sup> - 4ac)) / 2a</span></div>
-                    <div class="item"><span class="desc">קודקוד פרבולה</span><span class="math">x = -b / 2a</span></div>
-                    <div class="item"><span class="desc">סכום/הפרש בשלישית</span><span class="math">a<sup>3</sup> &plusmn; b<sup>3</sup> = (a &plusmn; b)(a<sup>2</sup> &#8723; ab + b<sup>2</sup>)</span></div>
-                    <div class="item"><span class="desc">דו-איבר בשלישית</span><span class="math">(a &plusmn; b)<sup>3</sup> = a<sup>3</sup> &plusmn; 3a<sup>2</sup>b + 3ab<sup>2</sup> &plusmn; b<sup>3</sup></span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">חזקות ושורשים מתקדמים</h2>
-                    <div class="item"><span class="desc">חזקה של חזקה</span><span class="math">(a<sup>n</sup>)<sup>m</sup> = a<sup>n&middot;m</sup></span></div>
-                    <div class="item"><span class="desc">חזקת מכפלה ומנה</span><span class="math">(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup> &nbsp;|&nbsp; (a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup></span></div>
-                    <div class="item"><span class="desc">מעריך שלילי ואפס</span><span class="math">a<sup>-n</sup> = 1 / a<sup>n</sup> &nbsp;|&nbsp; a<sup>0</sup> = 1</span></div>
-                    <div class="item"><span class="desc">חזקת שבר (שורש)</span><span class="math">a<sup>n/m</sup> = <sup>m</sup>&radic;(a<sup>n</sup>)</span></div>
-                    <div class="item"><span class="desc">כפל וחילוק שורשים</span><span class="math">&radic;a &middot; &radic;b = &radic;(ab)</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">לוגריתמים</h2>
-                    <div class="item"><span class="desc">הגדרת הלוגריתם</span><span class="math">log<sub>a</sub>x = b &nbsp;&#10132;&nbsp; a<sup>b</sup> = x</span></div>
-                    <div class="item"><span class="desc">סכום והפרש</span><span class="math">log<sub>a</sub>x &plusmn; log<sub>a</sub>y = log<sub>a</sub>(x &middot;/ y)</span></div>
-                    <div class="item"><span class="desc">הוצאת מעריך</span><span class="math">log<sub>a</sub>(x<sup>n</sup>) = n &middot; log<sub>a</sub>x</span></div>
-                    <div class="item"><span class="desc">מעבר בסיס</span><span class="math">log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">סדרות</h2>
-                    <div class="item"><span class="desc">איבר כללי (חשבונית)</span><span class="math">a<sub>n</sub> = a<sub>1</sub> + (n-1)d</span></div>
-                    <div class="item"><span class="desc">סכום (חשבונית)</span><span class="math">S<sub>n</sub> = (n/2)[2a<sub>1</sub> + (n-1)d]</span></div>
-                    <div class="item"><span class="desc">איבר כללי (הנדסית)</span><span class="math">a<sub>n</sub> = a<sub>1</sub> &middot; q<sup>n-1</sup></span></div>
-                    <div class="item"><span class="desc">סכום (הנדסית)</span><span class="math">S<sub>n</sub> = a<sub>1</sub>(q<sup>n</sup> - 1) / (q - 1)</span></div>
-                    <div class="item"><span class="desc">סכום הנדסית אינסופית</span><span class="math">S = a<sub>1</sub> / (1 - q)</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">גאומטריה אנליטית</h2>
-                    <div class="item"><span class="desc">מרחק בין נקודות</span><span class="math">d = &radic;((x<sub>2</sub>-x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub>-y<sub>1</sub>)<sup>2</sup>)</span></div>
-                    <div class="item"><span class="desc">נקודת אמצע קטע</span><span class="math">M = ((x<sub>1</sub>+x<sub>2</sub>)/2 , (y<sub>1</sub>+y<sub>2</sub>)/2)</span></div>
-                    <div class="item"><span class="desc">שיפוע ישר</span><span class="math">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</span></div>
-                    <div class="item"><span class="desc">משוואת ישר</span><span class="math">y - y<sub>1</sub> = m(x - x<sub>1</sub>)</span></div>
-                    <div class="item"><span class="desc">משוואת מעגל</span><span class="math">(x - a)<sup>2</sup> + (y - b)<sup>2</sup> = R<sup>2</sup></span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">טריגונומטריה</h2>
-                    <div class="item"><span class="desc">זהויות יסוד</span><span class="math">sin<sup>2</sup>&alpha; + cos<sup>2</sup>&alpha; = 1 &nbsp;|&nbsp; tan&alpha; = sin&alpha;/cos&alpha;</span></div>
-                    <div class="item"><span class="desc">זווית כפולה - סינוס</span><span class="math">sin(2&alpha;) = 2sin&alpha;cos&alpha;</span></div>
-                    <div class="item"><span class="desc">זווית כפולה - קוסינוס</span><span class="math">cos(2&alpha;) = cos<sup>2</sup>&alpha; - sin<sup>2</sup>&alpha;</span></div>
-                    <div class="item"><span class="desc">משפט הסינוסים</span><span class="math">a / sin&alpha; = b / sin&beta; = 2R</span></div>
-                    <div class="item"><span class="desc">משפט הקוסינוסים</span><span class="math">c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab&middot;cos&gamma;</span></div>
-                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = &frac12; a&middot;b&middot;sin&gamma;</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">חשבון דיפרנציאלי (נגזרות)</h2>
-                    <div class="item"><span class="desc">נגזרת חזקה</span><span class="math">(x<sup>n</sup>)' = n&middot;x<sup>n-1</sup></span></div>
-                    <div class="item"><span class="desc">נגזרת מכפלה</span><span class="math">(u&middot;v)' = u'v + uv'</span></div>
-                    <div class="item"><span class="desc">נגזרת מנה</span><span class="math">(u/v)' = (u'v - uv') / v<sup>2</sup></span></div>
-                    <div class="item"><span class="desc">פונקציה מורכבת</span><span class="math">[f(g(x))]' = f'(g(x)) &middot; g'(x)</span></div>
-                    <div class="item"><span class="desc">טריגונומטריות</span><span class="math">(sin x)' = cos x &nbsp;|&nbsp; (cos x)' = -sin x</span></div>
-                    <div class="item"><span class="desc">מעריכיות ולוגריתמיות</span><span class="math">(e<sup>x</sup>)' = e<sup>x</sup> &nbsp;|&nbsp; (ln x)' = 1/x</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">חשבון אינטגרלי</h2>
-                    <div class="item"><span class="desc">אינטגרל חזקה</span><span class="math">&int; x<sup>n</sup> dx = x<sup>n+1</sup> / (n+1) + C</span></div>
-                    <div class="item"><span class="desc">פונקציה רציונלית</span><span class="math">&int; (1/x) dx = ln|x| + C</span></div>
-                    <div class="item"><span class="desc">מעריכית</span><span class="math">&int; e<sup>kx</sup> dx = e<sup>kx</sup> / k + C</span></div>
-                    <div class="item"><span class="desc">טריגונומטרי</span><span class="math">&int; sin(x) dx = -cos(x) + C</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">הסתברות וסטטיסטיקה</h2>
-                    <div class="item"><span class="desc">הסתברות מותנית</span><span class="math">P(A|B) = P(A &cap; B) / P(B)</span></div>
-                    <div class="item"><span class="desc">נוסחת ברנולי</span><span class="math">P<sub>n</sub>(k) = (n! / (k!(n-k)!)) &middot; p<sup>k</sup> &middot; (1-p)<sup>n-k</sup></span></div>
-                    <div class="item"><span class="desc">התפלגות נורמלית</span><span class="math">Z = (x - x&#772;) / s</span></div>
-                </div>
-
-                <div class="section"><h2 class="section-title">מרוכבים ווקטורים</h2>
-                    <div class="item"><span class="desc">הצגה קוטבית</span><span class="math">z = r(cos&theta; + i&middot;sin&theta;) = r&middot;cis&theta;</span></div>
-                    <div class="item"><span class="desc">משפט דה-מואבר</span><span class="math">z<sup>n</sup> = r<sup>n</sup> &middot; cis(n&theta;)</span></div>
-                    <div class="item"><span class="desc">מכפלה סקלרית</span><span class="math">u &middot; v = |u|&middot;|v|&middot;cos&alpha;</span></div>
-                    <div class="item"><span class="desc">מרחק ממישור</span><span class="math">d = |Ax<sub>0</sub> + By<sub>0</sub> + Cz<sub>0</sub> + D| / &radic;(A<sup>2</sup>+B<sup>2</sup>+C<sup>2</sup>)</span></div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 30px; font-weight: 600; color: #94a3b8; font-size: 0.9rem;">נכתב והותאם במיוחד עבור המרכז להישגים לימודיים.</div>
-        </body>
-        </html>`;
-        formulaWin.document.write(formulasHtml);
-        formulaWin.document.close();
+        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes'); if (!formulaWin) { alert("חוסם החלונות מונע פתיחת דף נוסחאות. אנא אשרו חלונות קופצים."); return; }
+        let formulasHtml = `<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="UTF-8"><title>דף נוסחאות עזר מתמטי מקיף</title><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet"><style>body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.5; } .hdr { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; } h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;} .subtitle { font-size: 1.1rem; color: #475569; margin: 0; } .instructions { background: #fdfcf8; padding: 12px; border-radius: 6px; border-right: 4px solid #c5a059; font-weight: 600; margin-bottom: 25px; font-size:1rem;} .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } } .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;} .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; } .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;} .item:last-child { border-bottom: none; } .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; } .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left; min-width: 150px;} sup { font-size: 0.75em; vertical-align: super; } sub { font-size: 0.75em; vertical-align: sub; }</style></head><body><div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1></div><h2 style="text-align:center;">חטיבת ביניים</h2><div class="grid-container"><div class="section"><h2 class="section-title">שטחים והיקפים</h2><div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div><div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div><div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div><div class="item"><span class="desc">היקף מעגל</span><span class="math">P = 2 &middot; &pi; &middot; r</span></div><div class="item"><span class="desc">שטח טרפז</span><span class="math">S = ((a + b) &middot; h) / 2</span></div><div class="item"><span class="desc">שטח מעוין / דלתון</span><span class="math">S = (d<sub>1</sub> &middot; d<sub>2</sub>) / 2</span></div></div><div class="section"><h2 class="section-title">נפחים וגופים</h2><div class="item"><span class="desc">נפח תיבה / קובייה</span><span class="math">V = a &middot; b &middot; c</span></div><div class="item"><span class="desc">נפח גליל</span><span class="math">V = &pi; &middot; r<sup>2</sup> &middot; h</span></div><div class="item"><span class="desc">נפח חרוט</span><span class="math">V = (&pi; &middot; r<sup>2</sup> &middot; h) / 3</span></div><div class="item"><span class="desc">נפח פירמידה</span><span class="math">V = (S<sub>base</sub> &middot; h) / 3</span></div><div class="item"><span class="desc">נפח כדור</span><span class="math">V = (4 &middot; &pi; &middot; r<sup>3</sup>) / 3</span></div></div></div><h2 style="text-align:center; color: #0f172a; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-top: 40px;">תיכון (י' - י"ב)</h2><div class="grid-container"><div class="section"><h2 class="section-title">אלגברה ומשוואות</h2><div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b &plusmn; &radic;(b<sup>2</sup> - 4ac)) / 2a</span></div><div class="item"><span class="desc">קודקוד פרבולה</span><span class="math">x = -b / 2a</span></div></div></div><div style="text-align: center; margin-top: 30px; font-weight: 600; color: #94a3b8; font-size: 0.9rem;">נכתב והותאם במיוחד עבור המרכז להישגים לימודיים.</div></body></html>`;
+        formulaWin.document.write(formulasHtml); formulaWin.document.close();
     }
 
-    // מילון תרגום לשמות נושאים בעברית
     const topicNamesHe = {
         "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
         "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
@@ -947,27 +691,75 @@
 
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
 
+    // פונקציה מוגנת נקייה המעבדת מתמטיקה בסיסית ללא התערבות כיוונית אגרסיבית
     function formatContent(text) {
         if (!text) return "";
-        let html = text.replace(/<svg[\s\S]*?<\/svg>/gi, m => m); 
-        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
-        html = html.replace(/\*/g, '×'); 
-
-        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
-            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
-            return match; 
+        let html = Array.isArray(text) ? text.join('\n') : String(text);
+        
+        // --- יישור קו של כל סוגי המקפים למינוס תקני (מונע תקלות של פונטים ומעבדי תמלילים) ---
+        html = html.replace(/[\u2013\u2014\u2212]/g, '-');
+        
+        // --- תיקוני הקלדה ורווחים אוטומטיים ---
+        html = html.replace(/\s+([.,?!])/g, '$1'); 
+        html = html.replace(/(^|\s)([משהכלבו])\s+(\d+)\s*\-/g, '$1$2-$3'); 
+        html = html.replace(/(^|\s)([משהכלבו])\s*\-\s*([a-zA-Z0-9])/g, '$1$2-$3'); 
+        
+        // --- הגנה על אותיות יחס עם מספרים או אותיות אנגלית (מונע היפוך למתמטיקה) ---
+        const protectedHeb = [];
+        html = html.replace(/([\u0590-\u05FF])\-([a-zA-Z0-9])/g, function(match) {
+            protectedHeb.push(match);
+            return `⚿מגן${protectedHeb.length - 1}⚿`;
         });
-
+        
+        const svgs = [];
+        html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `⚿תמונה⚿`; });
+        
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*/g, '&times;'); 
+        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+        
         const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
         html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
         
-        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
-        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
-
         html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+        
+        if (isMathMode) {
+            // הוספת בועת כיווניות נקודתית - מזהה מתמטיקה אך מתעלם ממקפים בסוף משפט (כמו " - משמש")
+            html = html.replace(/([a-zA-Z\=\<\>\-][a-zA-Z0-9\=\+\-\*\/\(\)\[\]\{\}\.\,\:\^\<\>\"\'\;\&\#\s\|\%\_]*|[\(\[\{]\s*\-?[a-zA-Z0-9][a-zA-Z0-9\=\+\-\*\/\(\)\[\]\{\}\.\,\:\^\<\>\"\'\;\&\#\s\|\%\_]*|\d+\s*[\+\-\*\/xX]\s*\-?\d+[a-zA-Z0-9\=\+\-\*\/\(\)\[\]\{\}\.\,\:\^\<\>\"\'\;\&\#\s\|\%\_]*|\d+\s*\,\s*\-?\d+[a-zA-Z0-9\=\+\-\*\/\(\)\[\]\{\}\.\,\:\^\<\>\"\'\;\&\#\s\|\%\_]*)/g, function(match) {
+                if (/^[\s\,\.\:\;\!\?\-]+$/.test(match)) return match; // דילוג על סתם רווחים, פסיקים ומקפים
+                
+                // מנקה רווחים, פסיקים ומקפים מיותרים מקצוות כדי לא לעטוף אותם במתמטיקה ולשבש כיוון
+                let m = match.match(/^([\s\:\,\.]*)(.*?)([\s\:\,\.\-]*)$/);
+                if (!m) return match;
+                
+                let before = m[1], core = m[2], after = m[3];
+                // עוטף את "ליבת" המתמטיקה בספאן נקי וברור
+                return `${before}<span class="math-bdi" dir="ltr">${core}</span>${after}`;
+            });
+        }
+        
+        html = html.trim();
+        if (/[\?\.\!\)]$/.test(html)) { html += '&rlm;'; }
+        
+        // --- שחזור הטקסטים המוגנים חזרה לעברית רגילה ---
+        html = html.replace(/⚿מגן(\d+)⚿/g, (match, i) => protectedHeb[parseInt(i, 10)]);
+        html = html.replace(/⚿תמונה⚿/g, () => svgs.shift());
+        
+        return html;
+    }
 
-        return html.trim();
+    function applyMathTranslations(text) {
+        let processedText = text.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
+        const sortedKeys = Object.keys(mathTranslationsDict).sort((a, b) => b.length - a.length);
+        for (const eng of sortedKeys) {
+            const heb = mathTranslationsDict[eng];
+            const escapedEng = eng.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            const regex = new RegExp("(^|[^a-zA-Z])(" + escapedEng + ")(?=[^a-zA-Z]|$)", "gi");
+            processedText = processedText.replace(regex, "$1" + heb);
+        }
+        processedText = processedText.replace(/([a-zA-Zא-ת]+)_\{?([0-9a-zA-Zא-ת\s]+)\}?/g, '$1<sub>$2</sub>');
+        return processedText;
     }
 
     function shuffleOptions(options) {
@@ -1013,10 +805,10 @@
         let isFin = (gradeParam === "finance" || subjectParam === "finance");
         let isEng = (gradeParam === "english" || subjectParam === "english");
         let isHeb = (gradeParam === "hebrew" || subjectParam === "hebrew");
-        let isArabicMode = (gradeParam === "arabic" || subjectParam === "arabic");
+        let isArabicModeInner = (gradeParam === "arabic" || subjectParam === "arabic");
         
         // הגדרת משתנה גלובלי לבדיקת מתמטיקה לעומת שאר המקצועות
-        isMathMode = !(isFin || isEng || isHeb || isArabicMode || subjectParam === 'science' || gradeParam === 'science'); 
+        isMathMode = !(isFin || isEng || isHeb || isArabicModeInner || subjectParam === 'science' || gradeParam === 'science'); 
 
         // הסתרת כפתור דף נוסחאות למקצועות שאינם מתמטיקה
         if (!isMathMode) { 
@@ -1035,7 +827,7 @@
             headerText = `אנגלית`;
         } else if (isHeb) {
             headerText = `לשון והבעה`;
-        } else if (isArabicMode) {
+        } else if (isArabicModeInner) {
             headerText = `ערבית`;
         } else {
             headerText = `${act} | כיתה ${displayGrade}`;
@@ -1210,11 +1002,13 @@
             
             questions.forEach(q => {
                 if (!isMathMode) {
-                    q.shuffledOptions = shuffleOptions(q.options);
+                    q.shuffledOptions = shuffleOptions(q.options || q.answers || q.choices);
                 } else {
                     // במתמטיקה התשובות לא יעורבבו
-                    q.shuffledOptions = q.options.map((opt, index) => ({ text: opt, originalIndex: index }));
+                    let opts = q.options || q.answers || q.choices;
+                    q.shuffledOptions = opts.map((opt, index) => ({ text: opt, originalIndex: index }));
                 }
+                if (q.correctAnswer === undefined) q.correctAnswer = q.correct_answer || 0;
             });
 
             answers = new Array(questions.length).fill(null);
@@ -1297,7 +1091,28 @@
         
         document.getElementById('current-num').innerText = currentIndex + 1;
         
-        let qTextHtml = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
+        let qTextHtml = `<div dir="rtl" style="width: 100%; text-align: center;">`;
+        let rawQText = q.question_text || q.question || "";
+        
+        let normalizedText = rawQText.replace(/<br\s*[\/]?>/gi, '\n');
+        let qTextParts = normalizedText.split('\n');
+        
+        let formattedQText = qTextParts.map(part => {
+            let trimmed = part.trim();
+            if (trimmed === '') return '';
+            
+            if (trimmed.includes('<svg')) { 
+                return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; width: 100%; text-align: center; margin-top: 15px; margin-bottom: 15px;">${trimmed}</div>`; 
+            }
+            
+            if (isMathMode && !/[\u0590-\u05FF]/.test(trimmed)) {
+                return `<div dir="ltr" class="math-bdi" style="display: block; width: 100%; text-align: center; font-size: 1.5rem; margin: 15px 0; font-weight: 800; color: #000000;">${formatContent(trimmed)}</div>`;
+            }
+            
+            return `<div dir="rtl" style="direction: rtl; unicode-bidi: isolate; margin-bottom: 15px; font-size: 1.3rem; line-height: 1.6;">${formatContent(trimmed)}</div>`;
+        }).join('');
+
+        qTextHtml += `${formattedQText}</div>`;
         
         let isFin = (urlGrade === "finance" || urlSubject === "finance");
         let isEng = (urlGrade === "english" || urlSubject === "english");
@@ -1309,27 +1124,22 @@
         let qTopic = (q.topic || "").toLowerCase();
         let qSub = (q.subTopic || q.subtopic || "").toLowerCase();
         
-        // אם יש לשאלה טקסט ספציפי משלה, נציג אותו
         if (q.passage || q.reading_text) {
             showReadingBtn = true;
             window.currentPassage = q.passage || q.reading_text;
         }
         else {
-            // באנגלית: ב-6 תתי הנושאים הראשונים (שאינם Reading Strategies)
             if (isEng && (qTopic.includes('reading_comprehension') || qTopic.includes('הבנת הנקרא'))) {
                 if (!qSub.includes('strategies') && !qSub.includes('אסטרטגיות')) {
                     showReadingBtn = true;
                 }
             } 
-            // בלשון: יסודי, הבנת הנקרא (טקסטים)
             else if (isHeb && (qTopic.includes('יסודי_כללי') || q.topic === 'יסודי_כללי') && qSub.includes('הבנת הנקרא (טקסטים)')) {
                 showReadingBtn = true;
             } 
-            // בלשון: בגרות, הבנת הנקרא (טקסטים)
             else if (isHeb && (qTopic.includes('הבנת_הנקרא_והבעה') || q.topic === 'הבנת_הנקרא_והבעה') && qSub.includes('הבנת הנקרא (טקסטים)')) {
                 showReadingBtn = true;
             }
-            // בערבית: הבנת הנקרא
             else if (isArabicModeInner && qTopic.includes('הבנת הנקרא')) {
                 showReadingBtn = true;
             }
@@ -1350,12 +1160,13 @@
         }
 
         // --- הוספת כפתור הקראה באנגלית ---
-        if (isEng && q.tts_text) {
-            currentSpeechText = q.tts_text;
+        if ((isEng || isArabicModeInner) && q.tts_text) {
+            currentSpeechText = q.tts_text.replace(/<[^>]*>?/gm, '');
+            let btnLabel = isArabicModeInner ? "השמע בערבית" : "השמע באנגלית";
             qTextHtml += `
             <div style="text-align:center; margin-top:15px; margin-bottom: 20px;">
                 <button id="tts-button-element" class="btn-tts" onclick="playTTS()">
-                    <span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>
+                    <span>${btnLabel}</span> <span style="font-size:1.4rem;">🔊</span>
                 </button>
             </div>`;
         }
@@ -1373,7 +1184,7 @@
         const thMathExam = document.getElementById('th-math-exam');
         
         if (tableHead && thVerbalExam && thMathExam) {
-            if (isFin || isEng || isHeb || isArabicModeInner || urlGrade === "science" || urlSubject === "science") {
+            if (!isMathMode) {
                 thMathExam.style.display = 'none';
                 thVerbalExam.setAttribute('colspan', '2');
                 thVerbalExam.style.width = '100%';
@@ -1397,37 +1208,14 @@
                 
                 const tr = document.createElement('tr');
                 
-                if (isFin || isEng || isHeb || isArabicModeInner || urlGrade === "science" || urlSubject === "science") {
+                if (!isMathMode) {
                     tr.innerHTML = `<td colspan="2" class="text-col" dir="${verbalDir}" style="border-left:none; text-align:right;">${formatContent(verbal)}</td>`;
                 } else {
-                    mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
-                    const translations = {
-                        "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
-                        "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", 
-                        "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", 
-                        "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", 
-                        "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", 
-                        "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", 
-                        "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה",
-                        "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד",
-                        "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום",
-                        "Max / Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
-                        "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים"
-                    };
-                    
-                    for (const [eng, heb] of Object.entries(translations)) {
-                        const regex = new RegExp("\\b" + eng + "\\b", "gi");
-                        mathText = mathText.replace(regex, heb);
-                    }
-
-                    mathText = mathText.replace(/([a-zA-Z])_([0-9a-zA-Z]+)/g, '$1<sub>$2</sub>');
-                    mathText = mathText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<bdi dir="rtl">$1</bdi>');
-
+                    mathText = applyMathTranslations(mathText);
                     tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
                 }
                 
                 tbody.appendChild(tr);
-                if (index === q.solution_steps.length - 1) finalAnswerText = step.math_expression;
             });
             if (q.final_answer) finalAnswerText = q.final_answer;
         } else if (q.solution) {
@@ -1438,8 +1226,11 @@
         }
 
         if (finalAnswerText) {
-            let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
-            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block;">${formatContent(finalAnswerText)}</span></div>`;
+            let processedFinalAnswer = isMathMode ? applyMathTranslations(finalAnswerText) : finalAnswerText;
+            let ansDir = containsHebrew(processedFinalAnswer) ? "rtl" : "ltr";
+            if (isMathMode && !containsHebrew(processedFinalAnswer)) { ansDir = "ltr"; }
+            let ansFont = (ansDir === "ltr") ? "Arial, Helvetica, sans-serif" : "inherit";
+            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <bdi dir="${ansDir}" style="display:inline-block; font-family: ${ansFont}; font-weight: bold;">${formatContent(processedFinalAnswer)}</bdi></div>`;
             finalAnsContainer.style.display = 'flex';
         }
 
@@ -1471,11 +1262,18 @@
 
         const box = document.getElementById('q-options'); box.innerHTML = '';
         
-        q.shuffledOptions.forEach((shuffledOpt, displayIdx) => {
+        q.shuffledOptions.forEach((shuffledOpt) => {
             const btn = document.createElement('button'); 
             btn.className = 'btn-option'; 
-            let optDir = containsHebrew(shuffledOpt.text) ? "rtl" : "ltr";
-            btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(shuffledOpt.text)}</span>`;
+            
+            let processedOpt = isMathMode ? applyMathTranslations(shuffledOpt.text) : shuffledOpt.text;
+            let optDir = containsHebrew(processedOpt) ? "rtl" : "ltr";
+            
+            if (isMathMode && !containsHebrew(processedOpt)) {
+                 btn.innerHTML = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: Arial, Helvetica, sans-serif; font-size: 1.3rem; font-weight: bold; text-align: center;">${formatContent(processedOpt)}</bdi>`;
+            } else {
+                 btn.innerHTML = `<bdi dir="${optDir}" style="width:100%; display:inline-block; font-size: 1.2rem; text-align: center;">${formatContent(processedOpt)}</bdi>`;
+            }
             
             if (!isFinished) { 
                 if (answers[currentIndex] === shuffledOpt.originalIndex) btn.classList.add('selected'); 

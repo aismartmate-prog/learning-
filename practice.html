@@ -31,7 +31,7 @@
             --hint-text: #713f12; 
             --hint-border: #fde047;          
             
-            --sol-bg: rgba(34, 197, 94, 0.08); /* ירוק בהיר שקוף לפתרון */
+            --sol-bg: rgba(34, 197, 94, 0.08); 
             --sol-text: #14532d; 
             --sol-border: #4ade80;              
             
@@ -168,10 +168,10 @@
         .question-title { 
             font-size: 1.3rem; 
             font-weight: 700; 
-            margin-bottom: 15px; 
+            margin-bottom: 25px; 
             color: #000000; 
             text-align: center; 
-            line-height: 1.4; 
+            line-height: 1.6; 
         }
 
         /* --- עיצוב כפתור ההקראה --- */
@@ -209,7 +209,7 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
         
-        /* --- עיצוב כפתור חלון טקסט קריאה (פינה ימנית עליונה) --- */
+        /* --- עיצוב כפתור חלון טקסט קריאה --- */
         .btn-reading-window {
             background: linear-gradient(135deg, #fdfcf8, #f5ecd6); 
             border: 2px solid var(--accent-gold); 
@@ -231,12 +231,11 @@
             transform: translateY(-2px); 
             box-shadow: 0 4px 8px rgba(197,160,89,0.3); 
         }
-        .btn-reading-window:active { transform: scale(0.95); }
 
         .info-box { 
             display: none; 
             border-radius: 8px; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             border: 1.5px solid; 
             width: 100%; 
             box-shadow: 0 2px 8px rgba(0,0,0,0.02); 
@@ -260,24 +259,24 @@
         .solution-table th { 
             background: rgba(34, 197, 94, 0.15); 
             color: #14532d; 
-            padding: 10px; 
+            padding: 12px; 
             border-bottom: 2px solid var(--sol-border); 
-            font-size: 1.05rem; 
+            font-size: 1.1rem; 
             font-weight: 700;
             text-align: center; 
             width: 50%; 
         }
         
         .solution-table td { 
-            padding: 8px 12px; 
+            padding: 15px 12px; 
             border-bottom: 1px solid rgba(34, 197, 94, 0.2); 
             vertical-align: middle; 
-            line-height: 1.4; 
             text-align: center; 
+            line-height: 1.5;
         }
         
         .text-col { 
-            font-size: 1.05rem; 
+            font-size: 1.1rem; 
             border-left: 1.5px solid rgba(34, 197, 94, 0.2); 
             color: #166534; 
             font-weight: 500;
@@ -285,48 +284,51 @@
         }
         
         .math-col { 
-            font-size: 1.2rem; 
+            font-size: 1.25rem; 
             font-weight: 800; 
             color: #064e3b; 
             direction: ltr; 
+            unicode-bidi: isolate;
+            font-family: Arial, Helvetica, sans-serif;
             word-break: break-word;
+            text-align: left !important;
         }
 
         .final-answer-row { 
-            margin: 10px; 
-            padding: 10px; 
+            margin: 15px; 
+            padding: 15px; 
             background: rgba(255,255,255,0.7); 
             border: 2px solid #4ade80; 
             border-radius: 6px; 
             text-align: center; 
             font-weight: 800; 
-            font-size: 1.2rem; 
+            font-size: 1.25rem; 
             color: #14532d; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            gap: 10px; 
+            gap: 12px; 
             flex-wrap: wrap; 
-            width: calc(100% - 20px);
+            width: calc(100% - 30px);
             box-sizing: border-box;
         }
         
         .options-grid { 
             display: grid; 
             grid-template-columns: 1fr 1fr; 
-            gap: 10px; 
+            gap: 15px; 
             width: 100%; 
             max-width: 800px; 
             align-self: center; 
-            margin-bottom: 15px; 
+            margin-bottom: 25px; 
         }
         
         .btn-option { 
             background: var(--surface-color); 
             border: 1.5px solid var(--border-soft); 
-            padding: 12px; 
+            padding: 16px; 
             border-radius: 8px; 
-            font-size: 1.15rem; 
+            font-size: 1.2rem; 
             font-weight: 600; 
             color: var(--text-main);
             cursor: pointer; 
@@ -335,6 +337,7 @@
             justify-content: center; 
             align-items: center; 
             text-align: center;
+            line-height: 1.4;
         }
         
         .btn-option:hover { 
@@ -344,11 +347,11 @@
         }
 
         #feedback-text { 
-            padding: 10px; 
+            padding: 12px; 
             border-radius: 6px; 
             text-align: center; 
             font-weight: 800; 
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             margin-bottom: 15px; 
             display: none; 
             width: 100%; 
@@ -360,17 +363,17 @@
             background: var(--primary-header); 
             color: white; 
             display: none; 
-            padding: 10px 40px; 
+            padding: 12px 45px; 
             border: 1px solid var(--accent-gold); 
-            border-radius: 20px; 
+            border-radius: 25px; 
             font-weight: 700; 
             cursor: pointer; 
             align-self: center; 
-            margin-top: 10px; 
-            margin-bottom: 15px; 
-            font-size: 1.1rem; 
+            margin-top: 15px; 
+            margin-bottom: 20px; 
+            font-size: 1.15rem; 
             transition: all 0.2s ease; 
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         .btn-next-main:hover {
@@ -380,16 +383,26 @@
 
         .copyright-footer {
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: #94a3b8;
             margin-top: auto;
-            padding-top: 10px;
+            padding-top: 15px;
             border-top: 1px dashed #e2e8f0;
             width: 100%;
         }
-        
-        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; white-space: nowrap; }
-        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
+
+        /* הגדרות קריטיות לבידוד מתמטיקה (BDI) */
+        .math-bdi { 
+            display: inline-block; 
+            direction: ltr; 
+            unicode-bidi: isolate; 
+            margin: 0 5px; 
+            font-family: Arial, Helvetica, sans-serif; 
+            white-space: nowrap; 
+            font-weight: bold;
+        }
+
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; font-family: Arial, Helvetica, sans-serif;}
         .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
         .fraction-denominator { text-align: center; padding: 0 2px; }
         sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
@@ -476,19 +489,9 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: 0.2s;
         }
-        .ai-modal-close:hover {
-            background: #ef4444;
-            transform: scale(1.1);
-        }
-        .ai-modal-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .ai-modal-close:hover { background: #ef4444; transform: scale(1.1); }
+        .ai-modal-iframe { width: 100%; height: 100%; border: none; }
 
-        /* ==========================================================================
-           רספונסיביות מלאה (סלולר וטאבלט)
-           ========================================================================== */
         @media (max-width: 1000px) {
             .practice-layout { flex-direction: column; padding: 10px; }
             .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; position: static; gap:6px;}
@@ -498,104 +501,26 @@
 
         @media (max-width: 600px) {
             .btn-side { flex: 1 1 calc(50% - 10px); } 
-            .options-grid { grid-template-columns: 1fr; gap: 8px; } 
-            
-            .ai-tutor-fab {
-                padding: 8px 15px;
-                font-size: 0.95rem;
-            }
-
-            #ai-tutor-modal {
-                bottom: 65px;
-                left: 10px;
-                width: calc(100vw - 20px);
-                height: 70vh;
-            }
-            
-            /* התאמת השורה העליונה לסלולר */
-            .top-bar-container {
-                flex-direction: column;
-                gap: 12px;
-                margin-bottom: 20px;
-            }
-            .reading-btn-wrapper, .q-number-wrapper, .spacer-wrapper {
-                text-align: center !important;
-                flex: auto !important;
-                width: 100%;
-            }
+            .options-grid { grid-template-columns: 1fr; gap: 10px; } 
+            .ai-tutor-fab { padding: 8px 15px; font-size: 0.95rem; }
+            #ai-tutor-modal { bottom: 65px; left: 10px; width: calc(100vw - 20px); height: 70vh; }
+            .top-bar-container { flex-direction: column; gap: 12px; margin-bottom: 20px; }
+            .reading-btn-wrapper, .q-number-wrapper, .spacer-wrapper { text-align: center !important; flex: auto !important; width: 100%; }
             .spacer-wrapper { display: none; }
-            .btn-reading-window {
-                width: 100%;
-                padding: 12px 15px;
-                font-size: 1.1rem;
-                justify-content: center;
-            }
+            .btn-reading-window { width: 100%; padding: 12px 15px; font-size: 1.1rem; justify-content: center; }
             
             #th-verbal, #th-math { display: none !important; } 
-            .solution-table, .solution-table tbody, .solution-table tr, .solution-table td {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .solution-table tr {
-                margin-bottom: 15px;
-                border: 1px solid var(--border-soft);
-                border-radius: 8px;
-                background: #fff;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-                overflow: hidden;
-            }
-            .solution-table td {
-                border: none;
-                padding: 12px;
-                text-align: right;
-            }
-            .solution-table td.text-col {
-                border-bottom: 1px solid #e2e8f0;
-                border-left: none;
-                font-size: 1rem;
-            }
-            .solution-table td.math-col {
-                text-align: left;
-                background: #f8fafc;
-                font-size: 1.1rem;
-                overflow-x: auto; 
-            }
+            .solution-table, .solution-table tbody, .solution-table tr, .solution-table td { display: block; width: 100%; box-sizing: border-box; }
+            .solution-table tr { margin-bottom: 15px; border: 1px solid var(--border-soft); border-radius: 8px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden; }
+            .solution-table td { border: none; padding: 12px; text-align: right; }
+            .solution-table td.text-col { border-bottom: 1px solid #e2e8f0; border-left: none; font-size: 1.05rem; }
+            .solution-table td.math-col { text-align: left; background: #f8fafc; font-size: 1.2rem; overflow-x: auto; }
             
-            .solution-table td.text-col::before {
-                content: "הסבר מילולי: ";
-                display: block;
-                font-size: 0.85rem;
-                color: var(--primary-header);
-                font-weight: 800;
-                margin-bottom: 5px;
-                text-decoration: underline;
-                text-decoration-color: var(--accent-gold);
-            }
-            .solution-table td.math-col::before {
-                content: " :ביטוי מתמטי";
-                display: block;
-                font-size: 0.85rem;
-                color: var(--primary-header);
-                font-weight: 800;
-                margin-bottom: 5px;
-                text-align: right;
-                text-decoration: underline;
-                text-decoration-color: var(--accent-gold);
-            }
-            .solution-table td[colspan="2"]::before {
-                content: "דרך הפתרון: ";
-                display: block;
-                font-size: 0.85rem;
-                color: var(--primary-header);
-                font-weight: 800;
-                margin-bottom: 5px;
-                text-align: right;
-                text-decoration: underline;
-                text-decoration-color: var(--accent-gold);
-            }
+            .solution-table td.text-col::before { content: "הסבר מילולי: "; display: block; font-size: 0.85rem; color: var(--primary-header); font-weight: 800; margin-bottom: 5px; text-decoration: underline; text-decoration-color: var(--accent-gold); }
+            .solution-table td.math-col::before { content: " :ביטוי מתמטי"; display: block; font-size: 0.85rem; color: var(--primary-header); font-weight: 800; margin-bottom: 5px; text-align: right; text-decoration: underline; text-decoration-color: var(--accent-gold); }
+            .solution-table td[colspan="2"]::before { content: "דרך הפתרון: "; display: block; font-size: 0.85rem; color: var(--primary-header); font-weight: 800; margin-bottom: 5px; text-align: right; text-decoration: underline; text-decoration-color: var(--accent-gold); }
             
-            .final-answer-row { font-size: 1.05rem; padding: 12px; flex-direction: column; text-align: center;}
+            .final-answer-row { font-size: 1.1rem; padding: 12px; flex-direction: column; text-align: center;}
         }
     </style>
 </head>
@@ -653,7 +578,7 @@
         <div class="options-grid" id="q-options"></div>
         <div id="feedback-text"></div>
         
-        <div id="hint-box" class="info-box" style="padding:15px; background:var(--hint-bg); border-color:var(--hint-border); font-size:1.1rem;"></div>
+        <div id="hint-box" class="info-box" style="padding:15px; background:var(--hint-bg); border-color:var(--hint-border); font-size:1.15rem;"></div>
         
         <div id="solution-box" class="info-box solution-box">
             <table class="solution-table">
@@ -686,6 +611,101 @@
     let isMathMode = false;
     let currentSpeechText = ""; 
     window.currentPassage = ""; 
+
+    // מילון תרגום במקרה הצורך
+    const mathTranslationsDict = {
+        "Isosceles Trapezoid": "טרפז שווה שוקיים",
+        "Isosceles_Trapezoid": "טרפז שווה שוקיים",
+        "General case": "מקרה כללי",
+        "General": "כללי",
+        "case": "מקרה",
+        "True": "נכון",
+        "False": "שגוי",
+        "Isosceles": "שווה שוקיים",
+        "Trapezoid": "טרפז",
+        "Rectangle": "מלבן",
+        "Rhombus": "מעוין",
+        "Midsegment": "קטע אמצעים",
+        "Base": "בסיס",
+        "Leg": "שוק",
+        "Tangent": "משיק",
+        "Tangents": "משיקים",
+        "Chords": "מיתרים",
+        "Chord": "מיתר",
+        "Lines": "ישרים",
+        "Line": "ישר",
+        "inscribed": "חסום",
+        "Ratio": "יחס",
+        "Fraction": "שבר",
+        "Arc": "קשת",
+        "Area": "שטח",
+        "Perimeter": "היקף",
+        "Radius": "רדיוס",
+        "Diameter": "קוטר",
+        "inner": "פנימי",
+        "outer": "חיצוני",
+        "small": "קטן",
+        "large": "גדול",
+        "original": "מקורי",
+        "new": "חדש",
+        "Total": "סהכ",
+        "Known": "ידוע",
+        "Success": "הצלחה",
+        "Fail": "כישלון",
+        "Miss": "החטאה",
+        "Defect": "פגום",
+        "Independent": "בלתי תלוי",
+        "Dependent": "תלוי",
+        "Yes": "כן",
+        "No": "לא",
+        "Distance": "מרחק",
+        "Equal": "שווים",
+        "Smaller": "קטן יותר",
+        "Return": "החזרה",
+        "or": "או",
+        "and": "וגם",
+        "units": "יחידות",
+        "Day": "יום",
+        "Week": "שבוע",
+        "years": "שנים",
+        "year": "שנה",
+        "left": "נותרו",
+        "once": "פעם אחת",
+        "hr": "שעה",
+        "Top": "שיא",
+        "Center": "מרכז",
+        "Medium": "אמצע",
+        "Symmetry": "סימטריה",
+        "Line Overlaps Segment": "הישר משיק לקטע",
+        "Vertex": "קודקוד",
+        "Infinite Solutions": "אינסוף פתרונות",
+        "Minimize": "מינימום",
+        "Max / Min": "מקסימום או מינימום",
+        "Invalid": "לא חוקי",
+        "Feasible Region": "תחום הפתרונות",
+        "Integer": "שלם",
+        "Integer Programming": "תכנון בשלמים",
+        "Kite": "דלתון",
+        "Hexagon": "משושה",
+        "Square": "ריבוע",
+        "Triangle": "משולש",
+        "Right": "ישר זווית",
+        "Acute": "חד זווית",
+        "Obtuse": "קהה זווית",
+        "Equilateral": "שווה צלעות",
+        "Parallel": "מקביל",
+        "Perpendicular": "מאונך",
+        "Bisector": "חוצה",
+        "Median": "תיכון",
+        "Altitude": "גובה",
+        "Diagonal": "אלכסון",
+        "Intersection": "נקודת חיתוך",
+        "Point": "נקודה",
+        "Angle": "זווית",
+        "Degree": "מעלה",
+        "Circumference": "היקף מעגל",
+        "G_is_midpoint": "היא אמצע הקטע G"
+    };
 
     function openAiTutorModal() {
         const modal = document.getElementById('ai-tutor-modal');
@@ -769,16 +789,14 @@
         return /[\u0590-\u05FF]/.test(str); 
     }
 
-    // הוחזר הקוד המקורי, הבטוח, ללא מניפולציות LTR אגרסיביות ששברו את ה-HTML
     function formatContent(text) {
         if (!text) return "";
         let html = Array.isArray(text) ? text.join('\n') : String(text);
 
         const svgs = [];
-        html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `⚿SVG⚿`; });
+        html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
 
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
         html = html.replace(/\*/g, '&times;'); 
 
         html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
@@ -795,9 +813,14 @@
         html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
         html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
 
+        // פתרון מקיף לבעיית המספרים השליליים (המינוס קופץ לימין): 
+        // אנו מוצאים מינוס שצמוד למספר, ועוטפים אותו בתגית LTR.
+        html = html.replace(/(^|[\s\(\[\{=\>])(-\d+(?:\.\d+)?)/g, '$1<span dir="ltr" style="unicode-bidi: isolate; font-family: Arial, Helvetica, sans-serif;">$2</span>');
+
         html = html.trim();
         if (/[\?\.\!\)]$/.test(html)) { html += '&rlm;'; }
-        html = html.replace(/⚿SVG⚿/g, () => svgs.shift());
+
+        html = html.replace(/___SVG___/g, () => svgs.shift());
 
         return html;
     }
@@ -1462,6 +1485,23 @@
         document.head.appendChild(script);
     };
 
+    function applyMathTranslations(text) {
+        let processedText = text.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
+        const sortedKeys = Object.keys(mathTranslationsDict).sort((a, b) => b.length - a.length);
+        
+        for (const eng of sortedKeys) {
+            const heb = mathTranslationsDict[eng];
+            const escapedEng = eng.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            const regex = new RegExp("(^|[^a-zA-Z])(" + escapedEng + ")(?=[^a-zA-Z]|$)", "gi");
+            processedText = processedText.replace(regex, "$1" + heb);
+        }
+        
+        processedText = processedText.replace(/([a-zA-Zא-ת]+)_\{?([0-9a-zA-Zא-ת\s]+)\}?/g, '$1<sub>$2</sub>');
+        processedText = processedText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<span dir="rtl" style="unicode-bidi: isolate; margin: 0 4px; font-family: \'Heebo\', sans-serif;">$1</span>');
+        
+        return processedText;
+    }
+
     function loadQuestion() {
         if (!filteredQuestions || filteredQuestions.length === 0) return;
         const q = filteredQuestions[displayIndex % filteredQuestions.length];
@@ -1484,7 +1524,27 @@
         
         document.getElementById('q-number-display').innerText = `שאלה ${displayIndex + 1}`;
         
-        let qTextHtml = `<div dir="rtl">${formatContent(q.question_text || q.question)}</div>`;
+        let rawQText = q.question_text || q.question || "";
+        let normalizedText = rawQText.replace(/<br\s*[\/]?>/gi, '₪').replace(/\n/g, '₪');
+        let qTextParts = normalizedText.split('₪');
+        
+        let formattedQText = qTextParts.map(part => {
+            if (part.trim() === '') return '';
+            
+            if (part.includes('<svg')) {
+                return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; width: 100%; text-align: center; margin-top: 15px; margin-bottom: 15px;">${part}</div>`;
+            }
+            
+            // עוטף רק את השורות שאין בהן עברית כלל כדי למנוע היפוכים,
+            // משאיר משפטים בעברית כמו שהם.
+            if (isMathMode && !containsHebrew(part)) {
+                return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 1.4rem; margin: 15px 0; font-weight: 800; color: #000000;">${formatContent(part)}</div>`;
+            }
+            
+            return `<div dir="rtl" style="direction: rtl; unicode-bidi: isolate; margin-bottom: 12px; font-size: 1.25rem; line-height: 1.6;">${formatContent(part)}</div>`;
+        }).join('');
+
+        let qTextHtml = `<div style="width: 100%;">${formattedQText}</div>`;
 
         let showReadingBtn = false;
         let qTopic = (q.topic || "").toLowerCase();
@@ -1560,28 +1620,8 @@
                 if (!isMathMode) { 
                     tr.innerHTML = `<td class="text-col" colspan="2" dir="${verbalDir}" style="border-left:none; text-align:right; padding:15px;">${formatContent(verbal)}</td>`;
                 } else {
-                    mathText = mathText.replace(/dir=['"]rtl['"]/gi, 'dir="ltr"');
-                    const translations = {
-                        "Total": "סה\"כ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", 
-                        "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", 
-                        "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", 
-                        "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", 
-                        "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", 
-                        "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", 
-                        "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה",
-                        "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד",
-                        "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום",
-                        "Max \/ Min": "מקסימום / מינימום", "Invalid": "לא חוקי",
-                        "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים"
-                    };
-                    for (const [eng, heb] of Object.entries(translations)) {
-                        const regex = new RegExp("\\b" + eng + "\\b", "gi");
-                        mathText = mathText.replace(regex, heb);
-                    }
-                    mathText = mathText.replace(/([a-zA-Z])_([0-9a-zA-Z]+)/g, '$1<sub>$2</sub>');
-                    mathText = mathText.replace(/([א-ת]+(?: [א-ת]+)*)/g, '<bdi dir="rtl">$1</bdi>');
-
-                    tr.innerHTML = `<td class="text-col" dir="${verbalDir}">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}">${formatContent(mathText)}</td>`;
+                    mathText = applyMathTranslations(mathText);
+                    tr.innerHTML = `<td class="text-col" dir="${verbalDir}" style="padding: 12px; line-height: 1.5;">${formatContent(verbal)}</td><td class="math-col" dir="${mathDir}" style="direction: ltr; unicode-bidi: isolate; font-family: Arial, Helvetica, sans-serif; padding: 12px;">${formatContent(mathText)}</td>`;
                 }
                 tbody.appendChild(tr);
             });
@@ -1594,10 +1634,13 @@
         }
 
         if (finalAnswerText) {
-            let ansDir = containsHebrew(finalAnswerText) ? "rtl" : "ltr";
-            // כאן הוספתי יישור משמאל לימין לכל התשובה הסופית במתמטיקה למניעת בלבול
-            if (isMathMode && !containsHebrew(finalAnswerText)) { ansDir = "ltr"; }
-            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block; direction:ltr; unicode-bidi:bidi-override;">${formatContent(finalAnswerText)}</span></div>`;
+            let processedFinalAnswer = finalAnswerText;
+            if (isMathMode) {
+                processedFinalAnswer = applyMathTranslations(processedFinalAnswer);
+            }
+            let ansDir = containsHebrew(processedFinalAnswer) ? "rtl" : "ltr";
+            if (isMathMode && !containsHebrew(processedFinalAnswer)) { ansDir = "ltr"; }
+            finalAnsContainer.innerHTML = `<div class="final-answer-row" dir="rtl"><span style="color:#166534; margin-left:10px;">תשובה סופית:</span> <span dir="${ansDir}" style="display:inline-block; direction:${ansDir}; unicode-bidi:isolate; font-family: Arial, Helvetica, sans-serif;">${formatContent(processedFinalAnswer)}</span></div>`;
             finalAnsContainer.style.display = 'flex';
         }
 
@@ -1617,12 +1660,17 @@
                 const btn = document.createElement('button'); 
                 btn.className = 'btn-option';
                 
-                let optDir = containsHebrew(opt) ? "rtl" : "ltr";
-                // עוטף את התשובה בבסיס כיווניות מתמטי, אבל לא מתערב באותיות HTML
-                if (isMathMode && !containsHebrew(opt)) {
-                     btn.innerHTML = `<span dir="ltr" style="width:100%; display:inline-block; direction:ltr; unicode-bidi:bidi-override;">${formatContent(opt)}</span>`;
+                let processedOpt = opt;
+                if (isMathMode) {
+                    processedOpt = applyMathTranslations(processedOpt);
+                }
+                
+                let optDir = containsHebrew(processedOpt) ? "rtl" : "ltr";
+                
+                if (isMathMode && !containsHebrew(processedOpt)) {
+                     btn.innerHTML = `<span dir="ltr" style="width:100%; display:inline-block; direction:ltr; unicode-bidi:isolate; font-family: Arial, Helvetica, sans-serif; font-size: 1.25rem;">${formatContent(processedOpt)}</span>`;
                 } else {
-                     btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block;">${formatContent(opt)}</span>`;
+                     btn.innerHTML = `<span dir="${optDir}" style="width:100%; display:inline-block; direction:${optDir}; unicode-bidi:isolate; font-size: 1.15rem;">${formatContent(processedOpt)}</span>`;
                 }
                 
                 btn.onclick = () => {

@@ -4,20 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>המרכז להישגים לימודיים | לומדים חכם, מצליחים בגדול</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
+            /* צבעי ליבה מקוריים ויוקרתיים */
             --primary-blue: #0f172a;
             --secondary-blue: #1e293b;
             --accent-green: #10b981;
             --accent-gold: #c5a059;
-            --text-dark: #334155;
+            --accent-gold-light: #eaddc0;
+            --text-dark: #1e293b;
             --text-light: #64748b;
             --bg-light: #f8fafc;
             --bg-gray: #f1f5f9;
             --white: #ffffff;
+            
+            /* מעברי צבע מודרניים */
+            --gradient-gold: linear-gradient(135deg, #c5a059 0%, #d9b87a 100%);
+            --gradient-blue: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            
+            /* צלליות מודרניות ועדינות יותר */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 15px 30px rgba(15, 23, 42, 0.08);
+            --shadow-gold: 0 8px 20px rgba(197, 160, 89, 0.2);
         }
 
         * {
@@ -25,6 +37,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Heebo', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -34,63 +47,91 @@
             line-height: 1.6;
         }
 
-        /* ----- כפתורים ----- */
+        /* ----- כפתורים מעוצבים (הוקטנו לפרופורציה נורמלית) ----- */
         .btn {
-            display: inline-block;
-            padding: 14px 35px;
-            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border: none;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-green {
             background-color: var(--accent-green);
             color: var(--white);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
-
         .btn-green:hover {
             background-color: #059669;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: var(--primary-blue);
+            box-shadow: var(--shadow-gold);
+        }
+        .btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.3);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.1);
             color: var(--white);
             border: 2px solid var(--white);
+            padding: 10px 24px;
+            backdrop-filter: blur(5px);
         }
-
         .btn-outline:hover {
             background-color: var(--white);
             color: var(--primary-blue);
+            transform: translateY(-2px);
         }
 
-        /* ----- תפריט ניווט ----- */
+        /* ----- תפריט ניווט עם Glassmorphism ----- */
         nav {
             background-color: var(--primary-blue);
             padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+        }
+        
+        nav.scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 10px 5%;
+            box-shadow: var(--shadow-lg);
         }
 
         .logo {
             color: var(--white);
-            font-size: 1.6rem;
-            font-weight: 900;
+            font-size: 1.5rem;
+            font-weight: 800;
             text-decoration: none;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+        .logo i { color: var(--accent-gold); font-size: 1.6rem;}
         .logo span { color: var(--accent-gold); }
 
         .nav-links {
@@ -105,67 +146,100 @@
             font-weight: 500;
             font-size: 1rem;
             transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--white);
+            position: relative;
         }
         
-        /* תפריט המבורגר למובייל */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .nav-links a.btn { color: var(--white); }
+        .nav-links a.btn::after { display: none; }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             cursor: pointer;
         }
 
-        /* ----- אזור ראשי (Hero) ----- */
+        /* ----- אזור ראשי (Hero) משופר ומעודן ----- */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             color: var(--white);
-            padding: 100px 5% 140px;
+            padding: 120px 5% 120px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
+        
+        .hero::before {
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(197,160,89,0.08) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+        }
+        
+        .hero::after {
+            content: ''; position: absolute; bottom: -50px; left: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(16,185,129,0.04) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+        }
 
         .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            line-height: 1.15;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
         }
-        .hero h1 span { color: var(--accent-gold); }
+        .hero h1 span { 
+            color: var(--accent-gold); 
+            display: block;
+        }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.15rem;
             font-weight: 400;
-            margin-bottom: 40px;
-            max-width: 800px;
+            margin-bottom: 35px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            color: #e2e8f0;
+            color: #cbd5e1;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* גל הפרדה תחתון */
         .custom-shape-divider-bottom {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
+            position: absolute; bottom: -1px; left: 0; width: 100%;
+            overflow: hidden; line-height: 0; transform: rotate(180deg);
         }
 
         .custom-shape-divider-bottom svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 70px;
+            position: relative; display: block; width: calc(100% + 1.3px); height: 50px;
         }
 
         .custom-shape-divider-bottom .shape-fill { fill: var(--bg-light); }
@@ -175,200 +249,375 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 50px;
-            padding: 40px 5%;
+            gap: 40px;
+            padding: 25px 5%;
             background-color: var(--white);
-            margin: -60px auto 40px;
+            margin: -50px auto 50px;
             position: relative;
             z-index: 10;
-            max-width: 1100px;
+            max-width: 900px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow-md);
             text-align: center;
         }
 
-        .stat-item h3 { font-size: 2.5rem; color: var(--primary-blue); font-weight: 900; margin-bottom: 5px; line-height: 1;}
-        .stat-item p { font-size: 1.1rem; color: var(--text-light); font-weight: 500; }
-        .stat-item i { color: var(--accent-gold); font-size: 1.5rem; margin-bottom: 10px;}
+        .stat-item { padding: 10px; transition: transform 0.3s ease; }
+        .stat-item:hover { transform: translateY(-3px); }
+        .stat-item h3 { font-size: 2rem; color: var(--primary-blue); font-weight: 800; margin-bottom: 5px; line-height: 1;}
+        .stat-item p { font-size: 1rem; color: var(--text-light); font-weight: 500; }
+        .stat-item i { color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 10px;}
 
-        /* ----- מקצועות (בלונים) ----- */
-        .section-padding { padding: 80px 5%; }
-        .section-title { font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 50px; color: var(--primary-blue); }
-        .section-subtitle { text-align: center; font-size: 1.2rem; color: var(--text-light); margin-top: -40px; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto;}
+        /* ----- מחלקות כלליות ----- */
+        .section-padding { padding: 70px 5%; }
+        .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 15px; color: var(--primary-blue); }
+        .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 45px; max-width: 650px; margin-left: auto; margin-right: auto;}
 
-        .subjects-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ----- אזור אודות / אמינות מורחב ----- */
+        .about-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-soft);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
+            align-items: center;
         }
 
-        .subject-blob {
-            width: 170px;
-            height: 170px;
-            background-color: var(--white);
-            border: 2px solid var(--border-soft);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
+        .about-content h3 {
             color: var(--primary-blue);
-            transition: all 0.4s ease;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+        
+        .about-content h3 i { color: var(--accent-gold); font-size: 1.4rem; }
+        
+        .about-content p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            background: var(--bg-gray);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-image i {
+            font-size: 6rem;
+            color: var(--primary-blue);
+            opacity: 0.05;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .about-image-content {
+            position: relative;
+            z-index: 2;
+            color: var(--primary-blue);
+        }
+
+        /* ----- מקצועות (בלונים מעודנים) ----- */
+        .subjects-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
+        .subject-blob {
+            width: 140px; height: 140px; background-color: var(--white);
+            border: 1.5px solid var(--border-soft); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-decoration: none;
+            color: var(--primary-blue); transition: all 0.4s ease;
             border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            box-shadow: var(--shadow-sm);
         }
 
         .subject-blob:hover {
-            transform: scale(1.05) translateY(-10px);
-            background-color: var(--primary-blue);
+            transform: scale(1.05) translateY(-5px);
+            background: var(--gradient-blue);
             color: var(--white);
-            border-color: var(--primary-blue);
+            border-color: transparent;
             border-radius: 50% 50% 30% 70% / 60% 30% 70% 40%;
-            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2);
+            box-shadow: var(--shadow-md);
         }
 
-        .subject-blob i { font-size: 3rem; margin-bottom: 10px; color: var(--accent-gold); transition: 0.4s; }
-        .subject-blob h3 { font-size: 1.2rem; font-weight: 700; }
+        .subject-blob i { font-size: 2.2rem; margin-bottom: 10px; color: var(--accent-gold); transition: 0.4s; }
+        .subject-blob:hover i { transform: scale(1.1); color: var(--white); }
+        .subject-blob h3 { font-size: 1rem; font-weight: 700; }
 
-        /* ----- למה אנחנו (מתודולוגיה) ----- */
+        /* ----- למה אנחנו ----- */
         .methodology { background-color: var(--white); }
-        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .method-card { padding: 30px; border-radius: 16px; background: var(--bg-light); border: 1px solid var(--border-soft); text-align: right; }
-        .method-card i { font-size: 2.5rem; color: var(--accent-green); margin-bottom: 15px; }
-        .method-card h3 { font-size: 1.4rem; color: var(--primary-blue); margin-bottom: 10px; }
+        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .method-card { 
+            padding: 30px 20px; border-radius: 16px; background: var(--bg-gray); 
+            border: 1px solid var(--border-soft); text-align: right; transition: all 0.3s ease;
+        }
+        .method-card:hover {
+            background: var(--white); box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold); transform: translateY(-4px);
+        }
+        .method-card i { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 15px; }
+        .method-card h3 { font-size: 1.25rem; color: var(--primary-blue); margin-bottom: 10px; font-weight: 800; }
+        .method-card p { font-size: 0.95rem; color: var(--text-light); }
+
+        /* ----- חבילת רכישה ----- */
+        .pricing-section { background: linear-gradient(to bottom, var(--bg-light), var(--bg-gray)); }
+        .pricing-card-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
+        .pricing-card {
+            background: var(--white); border-radius: 20px; box-shadow: var(--shadow-lg);
+            overflow: hidden; display: flex; flex-direction: column; border: 1.5px solid var(--accent-gold);
+            position: relative;
+        }
+        .pricing-ribbon {
+            background: var(--accent-gold); color: #000; position: absolute; top: 15px; right: -30px;
+            transform: rotate(45deg); padding: 5px 35px; font-weight: 800; font-size: 0.85rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10;
+        }
+        .pricing-header {
+            background: var(--primary-blue); color: var(--white); padding: 30px;
+            text-align: center; border-bottom: 3px solid var(--accent-gold);
+        }
+        .pricing-header h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 5px; }
+        .pricing-price { font-size: 3rem; font-weight: 800; color: var(--accent-gold); line-height: 1; display: flex; justify-content: center; align-items: baseline; gap: 5px; margin-bottom: 5px;}
+        .pricing-price span { font-size: 1.1rem; color: #cbd5e1; font-weight: 500; }
+        .pricing-commitment { font-size: 0.95rem; color: #94a3b8; }
+
+        .pricing-body { padding: 35px 30px; display: flex; flex-wrap: wrap; gap: 30px; }
+        .pricing-features { flex: 1; min-width: 260px; }
+        .pricing-features ul { list-style: none; }
+        .pricing-features li { 
+            display: flex; align-items: center; gap: 10px; font-size: 1rem; 
+            font-weight: 500; margin-bottom: 12px; color: var(--text-dark);
+        }
+        .pricing-features li i { 
+            color: var(--accent-green); font-size: 1.1rem; background: rgba(16, 185, 129, 0.1);
+            width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 50%;
+        }
+
+        .pricing-action {
+            flex: 1; min-width: 260px; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; background: var(--bg-light); padding: 25px; border-radius: 12px; text-align: center;
+        }
+        .pricing-action h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-blue); font-weight: 700; }
+        .pricing-action p { margin-bottom: 15px; color: var(--text-light); font-size: 0.9rem; }
+        .secure-badges { display: flex; gap: 10px; margin-top: 15px; color: #64748b; font-size: 1.4rem;}
 
         /* ----- המלצות ----- */
         .testimonials { background-color: var(--primary-blue); color: var(--white); }
         .testimonials .section-title { color: var(--white); }
-        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .testi-card { background: var(--secondary-blue); padding: 35px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: right; position: relative; border-top: 4px solid var(--accent-gold);}
-        .testi-card::before { content: "\f10e"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; top: 25px; left: 25px; font-size: 2.5rem; color: rgba(255,255,255,0.05); }
-        .testi-text { font-size: 1.15rem; margin-bottom: 25px; line-height: 1.6; font-style: italic; }
-        .testi-author { font-weight: 700; color: var(--white); font-size: 1.1rem;}
-        .verified-badge { display: inline-flex; align-items: center; gap: 5px; color: var(--accent-green); font-size: 0.85rem; font-weight: 700; margin-top: 5px;}
+        .testimonials .section-subtitle { color: #cbd5e1; }
+        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .testi-card { background: var(--secondary-blue); padding: 25px; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-align: right; position: relative; border-top: 3px solid var(--accent-gold); transition: transform 0.3s ease;}
+        .testi-card:hover { transform: translateY(-4px); }
+        .testi-card::before { content: "\f10e"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; top: 15px; left: 15px; font-size: 2rem; color: rgba(255,255,255,0.05); }
+        .testi-text { font-size: 1rem; margin-bottom: 15px; line-height: 1.5; font-style: italic; }
+        .testi-author { font-weight: 700; color: var(--white); font-size: 1.05rem;}
+        .verified-badge { display: inline-flex; align-items: center; gap: 5px; color: var(--accent-green); font-size: 0.85rem; font-weight: 600; margin-top: 5px;}
 
         /* ----- שאלות נפוצות ----- */
-        .faq-section { max-width: 800px; margin: 0 auto; }
-        details { background: var(--white); border: 1px solid var(--border-soft); border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
-        summary { padding: 20px; font-size: 1.2rem; font-weight: 700; color: var(--primary-blue); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq-section { max-width: 750px; margin: 0 auto; }
+        details { background: var(--white); border: 1px solid var(--border-soft); border-radius: 12px; margin-bottom: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.3s ease;}
+        details:hover { box-shadow: var(--shadow-md); }
+        summary { padding: 16px 20px; font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
         summary::-webkit-details-marker { display: none; }
-        summary::after { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--accent-gold); transition: 0.3s; }
+        summary::after { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--accent-gold); transition: transform 0.3s ease; }
         details[open] summary::after { transform: rotate(180deg); }
-        .faq-content { padding: 0 20px 20px 20px; color: var(--text-light); font-size: 1.05rem; line-height: 1.6; border-top: 1px solid var(--border-soft); margin-top: 10px; padding-top: 15px;}
+        .faq-content { padding: 0 20px 20px 20px; color: var(--text-light); font-size: 1rem; line-height: 1.6; border-top: 1px solid var(--bg-gray); margin-top: 5px; padding-top: 15px;}
 
         /* ----- צור קשר וכתובת ----- */
         .contact-section { background-color: var(--white); }
-        .contact-wrapper { display: flex; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; background: var(--bg-gray); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05);}
-        .contact-info { flex: 1; min-width: 300px; background: var(--primary-blue); color: var(--white); padding: 50px; }
-        .contact-info h3 { font-size: 2rem; margin-bottom: 20px; color: var(--accent-gold); }
-        .contact-info p { margin-bottom: 30px; font-size: 1.1rem; color: #cbd5e1;}
-        .info-line { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 1.1rem; }
-        .info-line i { color: var(--accent-gold); font-size: 1.4rem; width: 25px; text-align: center; }
+        .contact-wrapper { display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; background: var(--bg-gray); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);}
+        .contact-info { flex: 1; min-width: 280px; background: var(--gradient-blue); color: var(--white); padding: 40px; position: relative;}
+        .contact-info::after { content: '\f086'; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; bottom: -20px; left: -20px; font-size: 12rem; color: rgba(255,255,255,0.03); }
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-gold); font-weight: 800;}
+        .contact-info p { margin-bottom: 30px; font-size: 1.05rem; color: #cbd5e1;}
+        .info-line { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; font-size: 1.05rem; font-weight: 500;}
+        .info-line i { color: var(--accent-gold); font-size: 1.3rem; width: 25px; text-align: center; }
         
-        .contact-form { flex: 1.5; min-width: 300px; padding: 50px; background: var(--white);}
+        .contact-form { flex: 1.5; min-width: 280px; padding: 40px; background: var(--white);}
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--primary-blue); }
-        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid var(--border-soft); border-radius: 8px; font-size: 1rem; font-family: inherit; transition: 0.3s;}
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-gold); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 700; color: var(--primary-blue); font-size: 0.95rem;}
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 2px solid var(--bg-gray); border-radius: 8px; font-size: 1rem; font-family: inherit; transition: 0.3s; background: var(--bg-light);}
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-gold); background: var(--white); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
 
-        /* ----- שיתופי פעולה וחותמות אמינות ----- */
-        .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border-soft); }
+        /* ----- שיתופי פעולה ----- */
+        .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-soft); }
         .badge { text-align: center; color: var(--text-light); }
-        .badge i { font-size: 2.5rem; color: #cbd5e1; margin-bottom: 10px; }
-        .badge span { display: block; font-weight: 700; font-size: 0.9rem; }
+        .badge i { font-size: 2.2rem; color: #cbd5e1; margin-bottom: 10px; transition: color 0.3s ease;}
+        .badge:hover i { color: var(--accent-gold); }
+        .badge span { display: block; font-weight: 800; font-size: 0.9rem; color: var(--primary-blue);}
 
         /* ----- פוטר ----- */
-        footer { background-color: var(--primary-blue); color: #cbd5e1; text-align: center; padding: 30px; border-top: 4px solid var(--accent-gold); }
+        footer { background-color: var(--primary-blue); color: #cbd5e1; text-align: center; padding: 25px 15px; border-top: 3px solid var(--accent-gold); font-size: 0.95rem;}
+        footer i { color: #ef4444; margin: 0 3px;}
+
+        /* ----- חלון הרשמה וסליקה סימטרי ונקי ----- */
+        .checkout-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px);
+            z-index: 3000; display: none; justify-content: center; align-items: center;
+            padding: 15px; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .checkout-overlay.active { display: flex; opacity: 1; }
+        .checkout-modal {
+            background: var(--white); width: 100%; max-width: 550px; border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); overflow: hidden; position: relative;
+            transform: translateY(20px); transition: transform 0.3s ease; max-height: 90vh; display: flex; flex-direction: column;
+        }
+        .checkout-overlay.active .checkout-modal { transform: translateY(0); }
+        .checkout-header { background: var(--primary-blue); color: var(--white); padding: 20px; text-align: center; border-bottom: 3px solid var(--accent-gold); position: relative; flex-shrink: 0;}
+        .checkout-header h2 { font-size: 1.4rem; font-weight: 800;}
+        .checkout-header p { color: #cbd5e1; margin-top: 5px; font-size: 0.9rem; }
+        .close-checkout {
+            position: absolute; top: 15px; left: 15px; color: var(--white); font-size: 1.3rem; cursor: pointer;
+            background: rgba(255,255,255,0.1); width: 30px; height: 30px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; transition: 0.2s;
+        }
+        .close-checkout:hover { background: #ef4444; }
+        .checkout-body { padding: 25px; overflow-y: auto; }
+        
+        .form-section-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 12px; border-bottom: 2px solid var(--bg-gray); padding-bottom: 5px; display: flex; align-items: center; gap: 8px; }
+        .form-section-title i { color: var(--accent-gold); }
+        
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        
+        .checkout-form label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark); text-align: right;}
+        .checkout-form input {
+            width: 100%; padding: 10px 12px; border: 1px solid var(--border-soft); border-radius: 6px;
+            font-size: 0.95rem; font-family: inherit; background: #f8fafc; transition: all 0.3s ease;
+            box-sizing: border-box; text-align: right;
+        }
+        
+        /* סידור שדות באנגלית שיהיו מיושרים לשמאל, אך הכותרת נשארת לימין */
+        .checkout-form input[type="email"], 
+        .checkout-form input[type="tel"], 
+        .checkout-form input[type="password"], 
+        .checkout-form input.cc-num {
+            direction: ltr; text-align: left;
+        }
+        
+        .checkout-form input:focus { outline: none; border-color: var(--accent-gold); background: var(--white); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
+        
+        /* עיצוב הצ'קבוקסים המשפטיים של התקנון */
+        .terms-container { background: #fdfcf8; border: 1px solid var(--accent-gold); border-radius: 8px; padding: 12px; margin-bottom: 20px; }
+        .checkbox-item.align-top { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+        .checkbox-item.align-top input { width: 16px; height: 16px; margin-top: 4px; cursor: pointer; accent-color: var(--primary-header); flex-shrink: 0;}
+        .terms-text { font-size: 0.85rem; color: var(--text-dark); line-height: 1.4; text-align: right;}
+        
+        .order-summary { background: var(--bg-gray); padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px dashed var(--border-soft); }
+        .summary-row { display: flex; justify-content: space-between; font-size: 1rem; margin-bottom: 8px;}
+        .summary-total { display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 800; color: var(--primary-blue); border-top: 2px solid #cbd5e1; padding-top: 8px; margin-top: 8px;}
+
+        .secure-notice { display: flex; align-items: center; justify-content: center; gap: 6px; color: #15803d; font-size: 0.85rem; font-weight: 600; margin-top: 12px; }
+        
+        .processing-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.95); display: none; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 10;
+        }
+        .spinner {
+            width: 50px; height: 50px; border: 4px solid var(--bg-gray);
+            border-top: 4px solid var(--accent-gold); border-radius: 50%;
+            animation: spin 1s linear infinite; margin-bottom: 15px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* ========================================================
-           התאמות מושלמות למובייל וטאבלט (Responsive Design)
+           התאמות למובייל וטאבלט
            ======================================================== */
         @media (max-width: 900px) {
             .nav-links {
-                display: none; /* תפריט מוסתר במובייל עד שלוחצים עליו */
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-blue);
-                flex-direction: column;
-                gap: 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                display: none; position: absolute; top: 100%; left: 0; width: 100%;
+                background-color: var(--primary-blue); flex-direction: column; gap: 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1);
             }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.1rem; }
+            .nav-links a::after { display: none; }
+            .nav-links .btn { margin: 15px; width: calc(100% - 30px); }
+            .mobile-menu-btn { display: block; }
             
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links a {
-                padding: 15px;
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-            }
-            
-            /* הכפתור בתפריט מובייל נראה אחרת קצת */
-            .nav-links .btn-outline {
-                margin: 15px;
-                width: calc(100% - 30px);
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero { padding: 60px 5% 100px; }
+            .hero { padding: 100px 5% 80px; }
             .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1.1rem; }
+            .hero p { font-size: 1.05rem; }
+            .hero .btn-group { flex-direction: column; padding: 0 15px;}
             
-            .section-title { font-size: 2rem; margin-bottom: 30px; }
+            .section-title { font-size: 1.8rem; margin-bottom: 25px; }
             .section-padding { padding: 50px 5%; }
             
-            .trust-stats { gap: 20px; padding: 20px; margin-top: -40px;}
-            .stat-item { flex: 1 1 calc(50% - 20px); } /* 2 בעמודה בטאבלט, יתכווץ במובייל קטן */
+            .trust-stats { gap: 15px; padding: 20px 15px; margin-top: -30px;}
+            .stat-item { flex: 1 1 calc(50% - 15px); } 
             
+            .about-wrapper { grid-template-columns: 1fr; gap: 20px; padding: 30px 20px;}
             .contact-wrapper { flex-direction: column; }
             .contact-info, .contact-form { padding: 30px 20px; }
+            
+            .pricing-body { padding: 25px 20px; }
+            .pricing-header h3 { font-size: 1.5rem; }
+            .pricing-price { font-size: 2.8rem; }
         }
 
         @media (max-width: 480px) {
-            .stat-item { flex: 1 1 100%; } /* עמודה אחת במובייל ממש קטן */
-            .subjects-grid { gap: 20px; }
-            .subject-blob { width: 140px; height: 140px; }
-            .subject-blob i { font-size: 2.2rem; }
-            .subject-blob h3 { font-size: 1.1rem; }
+            .stat-item { flex: 1 1 100%; } 
+            .subjects-grid { gap: 15px; }
+            .subject-blob { width: 120px; height: 120px; }
+            .subject-blob i { font-size: 2rem; }
+            .subject-blob h3 { font-size: 0.95rem; }
             
-            .testi-card { padding: 25px 20px; }
+            .testi-card { padding: 20px 15px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .checkout-body { padding: 15px; }
+            
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">המרכז <span>להישגים לימודיים</span></a>
+    <nav id="navbar">
+        <a href="#" class="logo"><i class="fa-solid fa-graduation-cap"></i> המרכז <span>להישגים לימודיים</span></a>
         
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
             <i class="fa-solid fa-bars"></i>
         </button>
 
         <div class="nav-links" id="navLinks">
-            <a href="#about" onclick="toggleMobileMenu()">השיטה שלנו</a>
+            <a href="#about-us" onclick="toggleMobileMenu()">הסיפור שלנו</a>
+            <a href="#about" onclick="toggleMobileMenu()">השיטה</a>
             <a href="#subjects" onclick="toggleMobileMenu()">מקצועות</a>
+            <a href="#pricing" onclick="toggleMobileMenu()">מסלולים</a>
             <a href="#testimonials" onclick="toggleMobileMenu()">המלצות</a>
-            <a href="#faq" onclick="toggleMobileMenu()">שאלות נפוצות</a>
             <a href="#contact" onclick="toggleMobileMenu()">צור קשר</a>
-            <a href="tirgul.html" class="btn btn-outline">כניסה לאתר התרגולים</a>
+            <a href="tirgul.html" class="btn btn-outline">כניסה למערכת</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>הדרך הבטוחה להצלחה <span>מכיתה ה' ועד לבגרות.</span></h1>
-        <p>מערכת הלמידה והתרגול המתקדמת בישראל, המלווה את התלמידים מבית הספר היסודי ועד ההכנה המלאה לבגרויות בתיכון. מותאמת ב-100% לתוכנית משרד החינוך ומחזירה את הביטחון העצמי לתלמידים.</p>
-        
-        <a href="tirgul.html" class="btn btn-green" style="font-size: 1.3rem;">
-            התחילו לתרגל עכשיו <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i>
-        </a>
+        <div class="fade-in">
+            <h1>הדרך הבטוחה להצלחה <span>מכיתה ה' ועד לבגרות.</span></h1>
+            <p>מערכת הלמידה והתרגול המתקדמת בישראל. מותאמת ב-100% לתוכנית הלימודים של משרד החינוך, מבוססת בינה מלאכותית, ומחזירה את הביטחון העצמי לתלמידים.</p>
+            
+            <div class="btn-group">
+                <a href="#pricing" class="btn btn-gold">
+                    הצטרפו עכשיו <i class="fa-solid fa-crown"></i>
+                </a>
+                <a href="tirgul.html" class="btn btn-green">
+                    התחילו לתרגל (למנויים) <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
 
         <div class="custom-shape-divider-bottom">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -377,212 +626,352 @@
         </div>
     </header>
 
-    <section class="trust-stats">
+    <section class="trust-stats fade-in">
         <div class="stat-item">
             <i class="fa-solid fa-star"></i>
             <h3>98%</h3>
-            <p>שביעות רצון תלמידים</p>
+            <p>שביעות רצון</p>
         </div>
         <div class="stat-item">
             <i class="fa-solid fa-database"></i>
-            <h3>50,000+</h3>
-            <p>תרגילים פתורים</p>
+            <h3>50K+</h3>
+            <p>תרגילים ופתרונות</p>
         </div>
         <div class="stat-item">
             <i class="fa-solid fa-bullseye"></i>
             <h3>100%</h3>
-            <p>מיקוד בתוכנית הלימודים</p>
+            <p>מיקוד בבגרויות</p>
         </div>
         <div class="stat-item">
             <i class="fa-solid fa-shield-halved"></i>
             <h3>24/7</h3>
-            <p>למידה מאובטחת מכל מכשיר</p>
+            <p>זמינות ומורה AI</p>
+        </div>
+    </section>
+
+    <section id="about-us" class="section-padding" style="background-color: var(--bg-light); padding-top: 10px;">
+        <div class="fade-in">
+            <h2 class="section-title">הסיפור שלנו</h2>
+            <p class="section-subtitle">קצת עלינו, על החזון שלנו, ואיך הפכנו לפלטפורמת הלמידה המובילה בישראל.</p>
+            
+            <div class="about-wrapper">
+                <div class="about-content">
+                    <h3><i class="fa-solid fa-bullseye"></i> החזון שלנו</h3>
+                    <p>הקמנו את המרכז להישגים לימודיים מתוך אמונה שלכל תלמיד בישראל מגיעה הזדמנות שווה להצליח. זיהינו את הפער בין הלמידה בכיתה לבין הצורך בתרגול ממוקד ואיכותי בבית, ויצרנו פלטפורמה חכמה, נגישה ומקצועית שמגשרת על הפער הזה.</p>
+                    
+                    <h3><i class="fa-solid fa-chalkboard-user"></i> צוות המומחים</h3>
+                    <p>התוכן במערכת נכתב ונבדק בקפידה על ידי צוות מורים בכירים, רכזי מקצוע וכותבי בחינות מנוסים. כל שאלה, רמז ופתרון מותאמים באופן מדויק לרוח משרד החינוך, כדי להבטיח הכנה מושלמת לבגרויות ולמבחני המיצ"ב.</p>
+                    
+                    <h3><i class="fa-solid fa-microchip"></i> טכנולוגיה בשירות החינוך</h3>
+                    <p style="margin-bottom: 0;">אנו משלבים את הכלים הטכנולוגיים המתקדמים ביותר, כולל בינה מלאכותית (AI) המדמה מורה פרטי, ולמידה משחקית (Gamification), כדי להפוך את הלמידה מאתגר מלחיץ לחוויה מעצימה ומהנה.</p>
+                </div>
+                
+                <div class="about-image">
+                    <i class="fa-solid fa-medal"></i>
+                    <div class="about-image-content">
+                        <h4 style="font-size: 1.6rem; margin-bottom: 10px; font-weight: 900;">לומדים חכם, מצליחים בגדול</h4>
+                        <p style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">הצטרפו לאלפי תלמידים שכבר עשו את הצעד בדרך למצוינות.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="about" class="section-padding methodology">
-        <h2 class="section-title">למה התלמידים שלנו מצליחים יותר?</h2>
-        <p class="section-subtitle">פיתחנו פלטפורמה שנועדה לא רק לבחון, אלא ללמד את הדרך הנכונה לפתרון.</p>
-        
-        <div class="method-grid">
-            <div class="method-card">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h3>תאימות מוחלטת למשרד החינוך</h3>
-                <p>כל התרגילים והמבחנים מעודכנים למיקוד של שנת הלימודים הנוכחית. אין הפתעות, אתם מתרגלים בדיוק את מה שיופיע בבחינות בבית הספר.</p>
-            </div>
-            <div class="method-card">
-                <i class="fa-solid fa-list-check"></i>
-                <h3>פתרונות מלאים צעד-אחר-צעד</h3>
-                <p>טעיתם בתשובה? המערכת שלנו מציגה הסבר מילולי מתמטי מפורט לכל שאלה, כדי שתלמדו מהטעות ולא תחזרו עליה שוב.</p>
-            </div>
-            <div class="method-card">
-                <i class="fa-solid fa-brain"></i>
-                <h3>סביבת למידה נקייה</h3>
-                <p>ללא פרסומות, ללא הסחות דעת. המערכת שלנו בנויה פסיכולוגית כדי לאפשר ריכוז מקסימלי, עם ממשק נקי וטיימר מובנה לסימולציות אמת.</p>
-            </div>
-            <div class="method-card">
-                <i class="fa-solid fa-gamepad"></i>
-                <h3>תרגולים משחקיים</h3>
-                <p>מי אמר שללמוד זה משעמם? שילבנו משחקי למידה חווייתיים (כמו "המרדף" ו"ראש בראש") שהופכים את התרגול לתחרותי, מהנה ואפקטיבי הרבה יותר.</p>
+        <div class="fade-in">
+            <h2 class="section-title">למה התלמידים שלנו מצליחים יותר?</h2>
+            <p class="section-subtitle">פיתחנו פלטפורמה טכנולוגית שנועדה לא רק לבחון, אלא ללמד את הדרך הנכונה לפתרון.</p>
+            
+            <div class="method-grid">
+                <div class="method-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>תאימות מוחלטת</h3>
+                    <p>כל התרגילים והמבחנים מעודכנים למיקוד של משרד החינוך. אין הפתעות, מתרגלים בדיוק את מה שיופיע בבחינות.</p>
+                </div>
+                <div class="method-card">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h3>פתרונות מלאים</h3>
+                    <p>המערכת מציגה הסבר מילולי ומתמטי מפורט לכל שאלה, כדי שתבינו את הרציונל ותלמדו מהטעות.</p>
+                </div>
+                <div class="method-card">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>מורה פרטי מבוסס AI</h3>
+                    <p>נתקעתם ב-11 בלילה? מורה ה-AI שלנו זמין 24/7 ללוות אתכם שלב אחרי שלב עד להבנה מלאה.</p>
+                </div>
+                <div class="method-card">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>למידה מבוססת משחק</h3>
+                    <p>שילבנו משחקי למידה חווייתיים שהופכים את התרגול לתחרותי, מרתק ואפקטיבי הרבה יותר.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="subjects" class="section-padding">
-        <h2 class="section-title">הכנה מושלמת בכל המקצועות</h2>
-        
-        <div class="subjects-grid">
-            <a href="tirgul.html" class="subject-blob">
-                <i class="fa-solid fa-calculator"></i>
-                <h3>מתמטיקה</h3>
-            </a>
-            <a href="tirgul.html" class="subject-blob">
-                <i class="fa-solid fa-spell-check"></i>
-                <h3>לשון והבעה</h3>
-            </a>
-            <a href="tirgul.html" class="subject-blob">
-                <i class="fa-solid fa-a"></i>
-                <h3>אנגלית</h3>
-            </a>
-            <a href="tirgul.html" class="subject-blob">
-                <i class="fa-solid fa-language"></i>
-                <h3>ערבית</h3>
-            </a>
-            <a href="tirgul.html" class="subject-blob">
-                <i class="fa-solid fa-flask"></i>
-                <h3>מדעים</h3>
-            </a>
-            <a href="tirgul.html" class="subject-blob">
-                <i class="fa-solid fa-coins"></i>
-                <h3>חינוך פיננסי</h3>
-            </a>
+    <section id="subjects" class="section-padding" style="background-color: var(--bg-light);">
+        <div class="fade-in">
+            <h2 class="section-title">מעטפת לימודים שלמה</h2>
+            <p class="section-subtitle">גישה מלאה לכל מקצועות הליבה תחת מנוי אחד בלבד.</p>
+            
+            <div class="subjects-grid">
+                <a href="tirgul.html" class="subject-blob">
+                    <i class="fa-solid fa-calculator"></i>
+                    <h3>מתמטיקה</h3>
+                </a>
+                <a href="tirgul.html" class="subject-blob">
+                    <i class="fa-solid fa-spell-check"></i>
+                    <h3>לשון והבעה</h3>
+                </a>
+                <a href="tirgul.html" class="subject-blob">
+                    <i class="fa-solid fa-a"></i>
+                    <h3>אנגלית</h3>
+                </a>
+                <a href="tirgul.html" class="subject-blob">
+                    <i class="fa-solid fa-language"></i>
+                    <h3>ערבית</h3>
+                </a>
+                <a href="tirgul.html" class="subject-blob">
+                    <i class="fa-solid fa-flask"></i>
+                    <h3>מדעים</h3>
+                </a>
+                <a href="tirgul.html" class="subject-blob">
+                    <i class="fa-solid fa-coins"></i>
+                    <h3>חינוך פיננסי</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section-padding pricing-section">
+        <div class="fade-in">
+            <h2 class="section-title">מסלול פרימיום - השקעה בעתיד</h2>
+            <p class="section-subtitle">במקום לשלם אלפי שקלים בחודש למורים פרטיים, קבלו את הכל במערכת אחת מתקדמת.</p>
+            
+            <div class="pricing-card-wrapper">
+                <div class="pricing-card">
+                    <div class="pricing-ribbon">המשתלם ביותר</div>
+                    
+                    <div class="pricing-header">
+                        <h3>רישיון למידה מקיף לשנתיים</h3>
+                        <div class="pricing-price"><span>₪</span>300 <span>/ לחודש</span></div>
+                        <div class="pricing-commitment">התחייבות למשך 24 חודשים - שקט נפשי מלא לטווח ארוך</div>
+                    </div>
+                    
+                    <div class="pricing-body">
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> פתיחת כל המקצועות מ-ה' ועד בגרות</li>
+                                <li><i class="fa-solid fa-check"></i> מורה פרטי מבוסס AI זמין 24/7</li>
+                                <li><i class="fa-solid fa-check"></i> פתרונות מלאים מוסברים צעד-אחר-צעד</li>
+                                <li><i class="fa-solid fa-check"></i> גישה למשחקי הלמידה והסימולציות</li>
+                                <li><i class="fa-solid fa-check"></i> דוחות מעקב התקדמות חכמים</li>
+                                <li><i class="fa-solid fa-check"></i> סביבה נקייה 100% ללא פרסומות</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="pricing-action">
+                            <h4 style="font-size: 1.2rem;">מוכנים להקפיץ את הציונים?</h4>
+                            <p style="font-size: 0.9rem;">תהליך ההרשמה מאובטח לחלוטין ולוקח דקה. המנוי יופעל מיידית.</p>
+                            <button onclick="openCheckoutModal()" class="btn btn-gold" style="width: 100%;">
+                                הרשמה ותשלום <i class="fa-solid fa-credit-card"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="testimonials" class="section-padding testimonials">
-        <h2 class="section-title">תוצאות מוכחות בשטח</h2>
-        
-        <div class="testi-grid">
-            <div class="testi-card">
-                <p class="testi-text">"הילד שלי היה מתוסכל ממתמטיקה וכבר חשב לרדת ל-3 יחידות. המערכת סידרה לו את הראש, ההסברים ברורים מאוד, והיום הוא ניגש ל-4 יחידות בביטחון מלא וקיבל 88 במגן."</p>
-                <div class="testi-author">מיכל אהרוני, אמא של יונתן</div>
-                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> הורה מאומת</div>
-            </div>
+        <div class="fade-in">
+            <h2 class="section-title">תוצאות מוכחות בשטח</h2>
+            <p class="section-subtitle">מה אומרים ההורים והתלמידים שכבר לומדים איתנו</p>
             
-            <div class="testi-card">
-                <p class="testi-text">"התרגול באנגלית ממש הציל אותי לקראת ה-Unseen. יש המון טקסטים לתרגול ברמה גבוהה. מה שהכי אהבתי זה שאפשר לתרגל מכל מקום, גם מהטלפון כשאני באוטובוס."</p>
-                <div class="testi-author">דניאל כהן, תלמיד י"ב</div>
-                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> תלמיד מאומת</div>
-            </div>
-
-            <div class="testi-card">
-                <p class="testi-text">"כמורה, אני ממליצה לתלמידים שלי על המרכז. השילוב של שאלות בגרות ומיצ"ב אמיתיות עם פתרונות מידיים חוסך להם כסף על מורים פרטיים, ולי זה חוסך זמן בכיתה."</p>
-                <div class="testi-author">שרון ד., מורה למדעים ולשון</div>
-                <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> צוות הוראה</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="section-padding" style="background-color: var(--bg-light);">
-        <h2 class="section-title">שאלות נפוצות</h2>
-        
-        <div class="faq-section">
-            <details>
-                <summary>האם החומר באתר מעודכן לתוכנית הלימודים הנוכחית?</summary>
-                <div class="faq-content">
-                    בהחלט. אנו עובדים בצמוד למיקודים ולעדכונים של משרד החינוך. צוות המורים שלנו מוודא שכל שאלה וכל מבחן רלוונטיים בדיוק לשנת הלימודים הנוכחית.
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <p class="testi-text">"הילד שלי היה מתוסכל ממתמטיקה וכבר חשב לרדת ל-3 יחידות. המערכת סידרה לו את הראש, ההסברים ברורים מאוד, והיום הוא ניגש ל-4 יחידות בביטחון מלא וקיבל 88 במגן."</p>
+                    <div class="testi-author">מיכל א., אמא של יונתן</div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> לקוחה מאומתת</div>
                 </div>
-            </details>
-            <details>
-                <summary>מה קורה אם אני לא מבין את התשובה?</summary>
-                <div class="faq-content">
-                    בניגוד לספרים או אתרים אחרים, המערכת שלנו מספקת פתרון מדורג. לכל שאלה יש "רמז" שעוזר להתקדם מבלי לחשוף את התשובה, ולאחר מכן פתרון מלא הכולל הסבר מילולי לצד הנוסחה המתמטית.
-                </div>
-            </details>
-            <details>
-                <summary>האם זה מתאים גם לחטיבת ביניים וליסודי?</summary>
-                <div class="faq-content">
-                    כן! המערכת שלנו מחולקת לפי שכבות גיל, מכיתות ה'-ו' (יסודי) ועד להכנה מלאה לשאלוני הבגרות (3, 4 ו-5 יח"ל) בתיכון. כל תלמיד בוחר את הרמה המתאימה לו ולומד בקצב שלו.
-                </div>
-            </details>
-            <details>
-                <summary>האם אפשר להשתמש במערכת דרך הטלפון הנייד?</summary>
-                <div class="faq-content">
-                    כן, המערכת שלנו רספונסיבית לחלוטין ומותאמת ללמידה מכל מכשיר - מחשב נייח, טאבלט או טלפון נייד.
-                </div>
-            </details>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding contact-section">
-        <h2 class="section-title">אנחנו כאן בשבילכם</h2>
-        
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>נשמח לעזור</h3>
-                <p>יש לכם שאלה? צריכים ייעוץ לגבי מסלול הלמידה המתאים לכם? הצוות שלנו זמין לכל פנייה.</p>
                 
-                <div class="info-line">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span><strong>הכתובת שלנו:</strong> רחוב ההשכלה 10, קריית המדע, תל אביב</span>
+                <div class="testi-card">
+                    <p class="testi-text">"התרגול באנגלית ממש הציל אותי לקראת ה-Unseen. יש המון טקסטים לתרגול ברמה גבוהה. מה שהכי אהבתי זה שאפשר לתרגל מכל מקום, גם מהטלפון כשאני באוטובוס, והמשחקים ממש כיפיים."</p>
+                    <div class="testi-author">דניאל כהן, תלמיד י"ב</div>
+                    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> תלמיד מאומת</div>
                 </div>
-                <div class="info-line">
-                    <i class="fa-solid fa-phone"></i>
-                    <span><strong>טלפון:</strong> 077-1234567</span>
-                </div>
-                <div class="info-line">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span><strong>אימייל:</strong> support@edu-center.co.il</span>
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <form onsubmit="event.preventDefault(); alert('הפנייה נשלחה בהצלחה! נחזור אליך בהקדם.');">
-                    <div class="form-group">
-                        <label for="name">שם מלא</label>
-                        <input type="text" id="name" required placeholder="הכנס את שמך">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">מספר טלפון</label>
-                        <input type="tel" id="phone" required placeholder="לדוגמה: 050-1234567">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">תוכן הפנייה</label>
-                        <textarea id="message" rows="4" required placeholder="כיצד נוכל לעזור?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-green" style="width: 100%;">שלח פנייה <i class="fa-regular fa-paper-plane"></i></button>
-                </form>
-            </div>
-        </div>
-
-        <div class="trust-badges">
-            <div class="badge">
-                <i class="fa-solid fa-lock"></i>
-                <span>רכישה מאובטחת</span>
-            </div>
-            <div class="badge">
-                <i class="fa-solid fa-ban"></i>
-                <span>100% נקי מפרסומות</span>
-            </div>
-            <div class="badge">
-                <i class="fa-solid fa-handshake-angle"></i>
-                <span>תמיכה פדגוגית</span>
-            </div>
-            <div class="badge">
-                <i class="fa-solid fa-check-double"></i>
-                <span>מומלץ ע"י מורים</span>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 המרכז להישגים לימודיים. פלטפורמת הלמידה המובילה בישראל. כל הזכויות שמורות.</p>
+        <p>&copy; 2026 המרכז להישגים לימודיים. כל הזכויות שמורות.</p>
+        <p style="margin-top: 5px;">פותח באהבה למען תלמידי ישראל <i class="fa-solid fa-heart"></i></p>
     </footer>
+
+    <div id="checkout-modal" class="checkout-overlay">
+        <div class="checkout-modal">
+            <div class="checkout-header">
+                <span class="close-checkout" onclick="closeCheckoutModal()"><i class="fa-solid fa-xmark"></i></span>
+                <h2>הרשמה ורכישת מנוי פרימיום</h2>
+                <p>השלימו את הפרטים כדי לקבל גישה מלאה למערכת</p>
+            </div>
+            
+            <div class="checkout-body">
+                <div id="processing-overlay" class="processing-overlay">
+                    <div class="spinner"></div>
+                    <h3 style="color: var(--primary-blue); font-weight: 800;">מעבד תשלום...</h3>
+                    <p style="color: var(--text-light); margin-top: 10px;">נא לא לסגור את החלון או לרענן את הדף</p>
+                </div>
+
+                <form class="checkout-form" id="payment-form" onsubmit="handlePayment(event)">
+                    
+                    <div class="form-section-title"><i class="fa-solid fa-user"></i> פרטי התלמיד (ליצירת המשתמש)</div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>שם פרטי</label>
+                            <input type="text" required placeholder="שם פרטי">
+                        </div>
+                        <div class="form-group">
+                            <label>שם משפחה</label>
+                            <input type="text" required placeholder="שם משפחה">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>כתובת אימייל (שם משתמש)</label>
+                            <input type="email" required placeholder="example@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label>סיסמה רצויה</label>
+                            <input type="password" id="reg-pwd" required placeholder="מינימום 6 תווים" minlength="6">
+                        </div>
+                        <div class="form-group">
+                            <label>אימות סיסמה</label>
+                            <input type="password" id="reg-pwd-confirm" required placeholder="הקלידו שוב">
+                        </div>
+                    </div>
+
+                    <div class="form-section-title" style="margin-top: 10px;"><i class="fa-solid fa-credit-card"></i> פרטי תשלום מאובטח</div>
+                    <div class="form-grid">
+                        <div class="form-group full-width">
+                            <label>מספר כרטיס אשראי</label>
+                            <div style="position: relative;">
+                                <input type="text" class="cc-num" required placeholder="0000 0000 0000 0000" maxlength="19" onkeyup="formatCC(this)">
+                                <i class="fa-brands fa-cc-visa" style="position: absolute; left: 15px; top: 12px; color: #cbd5e1; font-size: 1.2rem;"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>תוקף (MM/YY)</label>
+                            <input type="text" required placeholder="12/26" maxlength="5" dir="ltr" style="text-align: left;">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" required placeholder="123" maxlength="4" dir="ltr" style="text-align: left;">
+                        </div>
+                        <div class="form-group full-width">
+                            <label>תעודת זהות של בעל הכרטיס (משלם)</label>
+                            <input type="text" required placeholder="מספר ת.ז (9 ספרות)" maxlength="9" dir="ltr" style="text-align: left;">
+                        </div>
+                    </div>
+
+                    <div class="form-section-title" style="margin-top: 10px;"><i class="fa-solid fa-file-contract"></i> אישורים ותקנון</div>
+                    <div class="form-group full-width terms-container">
+                        <label class="checkbox-item align-top">
+                            <input type="checkbox" required id="terms-agree">
+                            <span class="terms-text">
+                                קראתי ואישרתי את תקנון האתר. ידוע לי כי המנוי מקנה גישה לתוכן דיגיטלי. בהתאם לחוק הגנת הצרכן, התשמ"א-1981, סעיף 14ג(ד), זכות הביטול אינה חלה על "מידע" וכן על "טובין הניתנים להקלטה, לשעתוק או לשכפול". יחד עם זאת, החברה מאפשרת ביטול עסקה בתוך 14 ימים מיום עשייתה, בהתאם ובכפוף להוראות חוק הגנת הצרכן.
+                            </span>
+                        </label>
+                        <label class="checkbox-item align-top" style="margin-top: 12px;">
+                            <input type="checkbox" id="marketing-agree">
+                            <span class="terms-text">
+                                אני מסכים/ה לקבלת חומר שיווקי, מבצעים ופרסומים מהמרכז להישגים לימודיים ו/או משותפיו העסקיים, לרבות בדואר אלקטרוני ובמסרונים (ניתן להסיר את ההסכמה בכל עת).
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-row"><span>מסלול פרימיום (חודשי)</span><span>₪300</span></div>
+                        <div class="summary-row" style="font-size: 0.95rem; color: var(--text-light);"><span>משך התחייבות</span><span>24 חודשים</span></div>
+                        <div class="summary-total"><span>סך הכל חיוב חודשי:</span><span>₪300</span></div>
+                    </div>
+                    
+                    <p style="color: #15803d; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 15px; background: rgba(21, 128, 61, 0.1); padding: 10px; border-radius: 8px;">* בתום ההרשמה והתשלום יישלח אליכם מייל אוטומטי עם פרטי ההתחברות למערכת.</p>
+
+                    <button type="submit" class="btn btn-green" style="width: 100%; border-radius: 12px; font-size: 1.15rem;">
+                        השלם רכישה מאובטחת <i class="fa-solid fa-lock"></i>
+                    </button>
+                    
+                    <div class="secure-notice">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        מוצפן ומאובטח בתקן המחמיר PCI-DSS
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script>
         function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => { appearOnScroll.observe(fader); });
+
+        const modal = document.getElementById('checkout-modal');
+        function openCheckoutModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeCheckoutModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        window.onclick = function(event) { if (event.target == modal) closeCheckoutModal(); }
+
+        function formatCC(input) {
+            let val = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let matches = val.match(/\d{4,16}/g);
+            let match = matches && matches[0] || '';
+            let parts = [];
+            for (let i=0, len=match.length; i<len; i+=4) parts.push(match.substring(i, i+4));
+            input.value = parts.length ? parts.join(' ') : val;
+        }
+
+        function handlePayment(e) {
+            e.preventDefault();
+            
+            const pwd = document.getElementById('reg-pwd').value;
+            const pwdConfirm = document.getElementById('reg-pwd-confirm').value;
+            
+            if (pwd !== pwdConfirm) {
+                alert("הסיסמאות שהזנת אינן תואמות. אנא בדוק ונסה שוב.");
+                return;
+            }
+
+            const overlay = document.getElementById('processing-overlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                closeCheckoutModal();
+                alert("תשלום עבר בהצלחה! הרגע שלחנו לך מייל אוטומטי עם פרטי הגישה למערכת. ברוכים הבאים למרכז להישגים לימודיים!");
+                document.getElementById('payment-form').reset();
+                window.location.href = "tirgul.html";
+            }, 2500);
         }
     </script>
 </body>
