@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>המרכז להישגים לימודיים | לומדים חכם, מצליחים בגדול</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -45,6 +45,7 @@
             color: var(--text-dark);
             overflow-x: hidden;
             line-height: 1.6;
+            -webkit-tap-highlight-color: transparent; /* מונע הבהוב כחול בלחיצה במובייל */
         }
 
         /* ----- כפתורים מעוצבים (הוקטנו לפרופורציה נורמלית) ----- */
@@ -64,6 +65,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            z-index: 10; /* מבטיח שהכפתורים יהיו לחיצים */
         }
 
         .btn-green {
@@ -110,7 +112,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1000;
+            z-index: 2000; /* הוגדל כדי שלא יוסתר */
             transition: all 0.4s ease;
         }
         
@@ -130,6 +132,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            z-index: 2001;
         }
         .logo i { color: var(--accent-gold); font-size: 1.6rem;}
         .logo span { color: var(--accent-gold); }
@@ -168,11 +171,13 @@
 
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: transparent;
             border: none;
             color: white;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            z-index: 2002;
+            padding: 5px; /* שטח לחיצה גדול יותר בסלולר */
         }
 
         /* ----- אזור ראשי (Hero) משופר ומעודן ----- */
@@ -183,6 +188,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
         
         .hero::before {
@@ -190,6 +196,7 @@
             width: 400px; height: 400px;
             background: radial-gradient(circle, rgba(197,160,89,0.08) 0%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
+            z-index: 0;
         }
         
         .hero::after {
@@ -197,6 +204,12 @@
             width: 500px; height: 500px;
             background: radial-gradient(circle, rgba(16,185,129,0.04) 0%, rgba(0,0,0,0) 70%);
             border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero .fade-in {
+            position: relative;
+            z-index: 10; /* מבטיח שהתוכן יהיה מעל אפקטי הרקע ויהיה לחיץ */
         }
 
         .hero h1 {
@@ -205,8 +218,6 @@
             margin-bottom: 15px;
             line-height: 1.2;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 2;
         }
         .hero h1 span { 
             color: var(--accent-gold); 
@@ -221,8 +232,6 @@
             margin-left: auto;
             margin-right: auto;
             color: #cbd5e1;
-            position: relative;
-            z-index: 2;
         }
         
         .hero .btn-group {
@@ -230,12 +239,13 @@
             justify-content: center;
             gap: 15px;
             position: relative;
-            z-index: 2;
+            z-index: 20; /* חשוב מאוד כדי שהכפתורים יהיו לחיצים */
         }
 
         .custom-shape-divider-bottom {
             position: absolute; bottom: -1px; left: 0; width: 100%;
             overflow: hidden; line-height: 0; transform: rotate(180deg);
+            z-index: 5;
         }
 
         .custom-shape-divider-bottom svg {
@@ -254,7 +264,7 @@
             background-color: var(--white);
             margin: -50px auto 50px;
             position: relative;
-            z-index: 10;
+            z-index: 15;
             max-width: 900px;
             border-radius: 16px;
             box-shadow: var(--shadow-md);
@@ -268,7 +278,7 @@
         .stat-item i { color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 10px;}
 
         /* ----- מחלקות כלליות ----- */
-        .section-padding { padding: 70px 5%; }
+        .section-padding { padding: 70px 5%; position: relative; z-index: 5;}
         .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 15px; color: var(--primary-blue); }
         .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 45px; max-width: 650px; margin-left: auto; margin-right: auto;}
 
@@ -373,7 +383,7 @@
 
         /* ----- חבילת רכישה ----- */
         .pricing-section { background: linear-gradient(to bottom, var(--bg-light), var(--bg-gray)); }
-        .pricing-card-wrapper { max-width: 800px; margin: 0 auto; position: relative; }
+        .pricing-card-wrapper { max-width: 800px; margin: 0 auto; position: relative; z-index: 10;}
         .pricing-card {
             background: var(--white); border-radius: 20px; box-shadow: var(--shadow-lg);
             overflow: hidden; display: flex; flex-direction: column; border: 1.5px solid var(--accent-gold);
@@ -408,6 +418,7 @@
         .pricing-action {
             flex: 1; min-width: 260px; display: flex; flex-direction: column; justify-content: center;
             align-items: center; background: var(--bg-light); padding: 25px; border-radius: 12px; text-align: center;
+            z-index: 15; /* מוודא שכפתור הרכישה לחיץ */
         }
         .pricing-action h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-blue); font-weight: 700; }
         .pricing-action p { margin-bottom: 15px; color: var(--text-light); font-size: 0.9rem; }
@@ -459,7 +470,7 @@
         .badge span { display: block; font-weight: 800; font-size: 0.9rem; color: var(--primary-blue);}
 
         /* ----- פוטר ----- */
-        footer { background-color: var(--primary-blue); color: #cbd5e1; text-align: center; padding: 25px 15px; border-top: 3px solid var(--accent-gold); font-size: 0.95rem;}
+        footer { background-color: var(--primary-blue); color: #cbd5e1; text-align: center; padding: 25px 15px; border-top: 3px solid var(--accent-gold); font-size: 0.95rem; z-index: 10; position: relative;}
         footer i { color: #ef4444; margin: 0 3px;}
 
         /* ----- חלון הרשמה וסליקה סימטרי ונקי ----- */
@@ -483,6 +494,7 @@
             position: absolute; top: 15px; left: 15px; color: var(--white); font-size: 1.3rem; cursor: pointer;
             background: rgba(255,255,255,0.1); width: 30px; height: 30px; border-radius: 50%;
             display: flex; justify-content: center; align-items: center; transition: 0.2s;
+            z-index: 3010;
         }
         .close-checkout:hover { background: #ef4444; }
         .checkout-body { padding: 25px; overflow-y: auto; }
@@ -535,38 +547,48 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* ========================================================
-           התאמות למובייל וטאבלט
+           התאמות מושלמות למובייל וטאבלט (רספונסיביות מורחבת)
            ======================================================== */
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .nav-links {
                 display: none; position: absolute; top: 100%; left: 0; width: 100%;
                 background-color: var(--primary-blue); flex-direction: column; gap: 0;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.2); border-top: 1px solid rgba(255,255,255,0.1);
+                max-height: 80vh; overflow-y: auto;
             }
             .nav-links.active { display: flex; }
-            .nav-links a { padding: 15px; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.1rem; }
+            .nav-links a { padding: 18px; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 1.15rem; }
             .nav-links a::after { display: none; }
-            .nav-links .btn { margin: 15px; width: calc(100% - 30px); }
-            .mobile-menu-btn { display: block; }
+            .nav-links .btn { margin: 15px auto; width: 90%; }
             
-            .hero { padding: 100px 5% 80px; }
-            .hero h1 { font-size: 2.2rem; }
+            .mobile-menu-btn { display: block; z-index: 2002; padding: 10px; cursor: pointer; outline: none; pointer-events: auto;}
+            
+            .hero { padding: 120px 5% 80px; }
+            .hero h1 { font-size: 2.6rem; }
+            
+            .about-wrapper { grid-template-columns: 1fr; gap: 30px; }
+            .contact-wrapper { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.1rem; }
             .hero p { font-size: 1.05rem; }
-            .hero .btn-group { flex-direction: column; padding: 0 15px;}
+            .hero .btn-group { flex-direction: column; align-items: stretch; padding: 0 20px; }
+            .hero .btn-group .btn { width: 100%; margin-bottom: 10px; }
             
-            .section-title { font-size: 1.8rem; margin-bottom: 25px; }
-            .section-padding { padding: 50px 5%; }
-            
-            .trust-stats { gap: 15px; padding: 20px 15px; margin-top: -30px;}
+            .trust-stats { gap: 15px; padding: 20px 15px; margin-top: -30px; }
             .stat-item { flex: 1 1 calc(50% - 15px); } 
             
-            .about-wrapper { grid-template-columns: 1fr; gap: 20px; padding: 30px 20px;}
-            .contact-wrapper { flex-direction: column; }
-            .contact-info, .contact-form { padding: 30px 20px; }
+            .section-title { font-size: 1.8rem; }
+            .section-padding { padding: 50px 5%; }
             
-            .pricing-body { padding: 25px 20px; }
-            .pricing-header h3 { font-size: 1.5rem; }
-            .pricing-price { font-size: 2.8rem; }
+            .pricing-body { flex-direction: column; padding: 20px; }
+            .pricing-header h3 { font-size: 1.4rem; }
+            .pricing-price { font-size: 2.5rem; }
+            
+            .form-grid { grid-template-columns: 1fr; }
+            
+            .about-content h3 { font-size: 1.2rem; }
         }
 
         @media (max-width: 480px) {
@@ -577,10 +599,10 @@
             .subject-blob h3 { font-size: 0.95rem; }
             
             .testi-card { padding: 20px 15px; }
-            .form-grid { grid-template-columns: 1fr; }
+            .checkout-modal { border-radius: 12px; width: 95%; max-height: 95vh;}
+            .checkout-header { padding: 15px; }
             .checkout-body { padding: 15px; }
-            
-            .hero h1 { font-size: 1.8rem; }
+            .close-checkout { top: 10px; left: 10px; }
         }
     </style>
 </head>
@@ -610,9 +632,9 @@
             <p>מערכת הלמידה והתרגול המתקדמת בישראל. מותאמת ב-100% לתוכנית הלימודים של משרד החינוך, מבוססת בינה מלאכותית, ומחזירה את הביטחון העצמי לתלמידים.</p>
             
             <div class="btn-group">
-                <a href="#pricing" class="btn btn-gold">
+                <button onclick="openCheckoutModal()" class="btn btn-gold">
                     הצטרפו עכשיו <i class="fa-solid fa-crown"></i>
-                </a>
+                </button>
                 <a href="tirgul.html" class="btn btn-green">
                     התחילו לתרגל (למנויים) <i class="fa-solid fa-arrow-left"></i>
                 </a>
@@ -802,6 +824,51 @@
         </div>
     </section>
 
+    <section id="contact" class="section-padding contact-section">
+        <div class="fade-in">
+            <h2 class="section-title">כאן בשבילכם לכל שאלה</h2>
+            <p class="section-subtitle">צוות המרכז ישמח לעזור לכם בכל בקשה, בעיה או התייעצות.</p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>נשמח לשמוע מכם</h3>
+                    <p>אנו זמינים בימים א'-ה' בין השעות 09:00-18:00</p>
+                    <div class="info-line"><i class="fa-solid fa-phone"></i> 054-1234567</div>
+                    <div class="info-line"><i class="fa-solid fa-envelope"></i> support@h-limud.co.il</div>
+                    <div class="info-line"><i class="fa-solid fa-location-dot"></i> רחוב ההשכלה 10, תל אביב</div>
+                </div>
+                
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('הפנייה נשלחה בהצלחה! נחזור אליך בהקדם.'); this.reset();">
+                    <div class="form-group">
+                        <label>שם מלא</label>
+                        <input type="text" required placeholder="הזן את שמך המלא">
+                    </div>
+                    <div class="form-group">
+                        <label>אימייל לחזרה</label>
+                        <input type="email" required placeholder="example@gmail.com" dir="ltr" style="text-align: left;">
+                    </div>
+                    <div class="form-group">
+                        <label>נושא הפנייה</label>
+                        <input type="text" required placeholder="באיזה נושא נוכל לעזור?">
+                    </div>
+                    <div class="form-group">
+                        <label>תוכן ההודעה</label>
+                        <textarea rows="4" required placeholder="פרט כאן את שאלתך..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-blue" style="background-color: var(--primary-blue); color: white; width: 100%;">
+                        שליחת הודעה <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="trust-badges">
+                <div class="badge"><i class="fa-brands fa-cc-visa"></i><span>תשלום מאובטח</span></div>
+                <div class="badge"><i class="fa-solid fa-user-shield"></i><span>פרטיות מובטחת</span></div>
+                <div class="badge"><i class="fa-solid fa-headset"></i><span>תמיכה מלאה</span></div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 המרכז להישגים לימודיים. כל הזכויות שמורות.</p>
         <p style="margin-top: 5px;">פותח באהבה למען תלמידי ישראל <i class="fa-solid fa-heart"></i></p>
@@ -876,7 +943,7 @@
                         <label class="checkbox-item align-top">
                             <input type="checkbox" required id="terms-agree">
                             <span class="terms-text">
-                                קראתי ואישרתי את תקנון האתר. ידוע לי כי המנוי מקנה גישה לתוכן דיגיטלי. בהתאם לחוק הגנת הצרכן, התשמ"א-1981, סעיף 14ג(ד), זכות הביטול אינה חלה על "מידע" וכן על "טובין הניתנים להקלטה, לשעתוק או לשכפול". יחד עם זאת, החברה מאפשרת ביטול עסקה בתוך 14 ימים מיום עשייתה, בהתאם ובכפוף להוראות חוק הגנת הצרכן.
+                                קראתי ואישרתי את תקנון האתר. ידוע לי כי המנוי מקנה גישה לתוכן דיגיטלי. בהתאם לחוק הגנת הצרכן, התשמ"א-1981, זכות הביטול אינה חלה על "מידע" ועל "טובין הניתנים להקלטה, לשעתוק או לשכפול". עם זאת, החברה מאפשרת ביטול עסקה תוך 14 ימים מיום עשייתה, בהתאם לחוק.
                             </span>
                         </label>
                         <label class="checkbox-item align-top" style="margin-top: 12px;">
@@ -895,7 +962,7 @@
                     
                     <p style="color: #15803d; font-size: 0.95rem; font-weight: bold; text-align: center; margin-bottom: 15px; background: rgba(21, 128, 61, 0.1); padding: 10px; border-radius: 8px;">* בתום ההרשמה והתשלום יישלח אליכם מייל אוטומטי עם פרטי ההתחברות למערכת.</p>
 
-                    <button type="submit" class="btn btn-green" style="width: 100%; border-radius: 12px; font-size: 1.15rem;">
+                    <button type="submit" class="btn btn-green" style="width: 100%; border-radius: 12px; font-size: 1.15rem; z-index: 20;">
                         השלם רכישה מאובטחת <i class="fa-solid fa-lock"></i>
                     </button>
                     
@@ -909,16 +976,28 @@
     </div>
 
     <script>
+        // תפריט המובייל (המבורגר)
         function toggleMobileMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
+        
+        // סגירת התפריט בלחיצה בחוץ (לא יפריע לכפתור ההמבורגר בעצמו)
+        document.addEventListener('click', function(e) {
+            const nav = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            if(nav.classList.contains('active') && !nav.contains(e.target) && !menuBtn.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
 
+        // שינוי עיצוב ה-Nav בעת גלילה
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) nav.classList.add('scrolled');
             else nav.classList.remove('scrolled');
         });
 
+        // אנימציות Fade-In בכניסה לאלמנט
         const faders = document.querySelectorAll('.fade-in');
         const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -931,6 +1010,7 @@
 
         faders.forEach(fader => { appearOnScroll.observe(fader); });
 
+        // מודל ההרשמה - פתיחה וסגירה בטוחה
         const modal = document.getElementById('checkout-modal');
         function openCheckoutModal() {
             modal.classList.add('active');
@@ -940,17 +1020,23 @@
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
-        window.onclick = function(event) { if (event.target == modal) closeCheckoutModal(); }
+        
+        // סגירת המודל בלחיצה על הרקע הכהה
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeCheckoutModal();
+            }
+        });
 
+        // עיצוב אוטומטי למספר כרטיס אשראי (כל 4 ספרות רווח)
         function formatCC(input) {
             let val = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-            let matches = val.match(/\d{4,16}/g);
-            let match = matches && matches[0] || '';
-            let parts = [];
-            for (let i=0, len=match.length; i<len; i+=4) parts.push(match.substring(i, i+4));
-            input.value = parts.length ? parts.join(' ') : val;
+            let matches = val.match(/\d{1,4}/g); // Changed to {1,4} so it formats as you type smoothly
+            let match = matches ? matches.join(' ') : val;
+            input.value = match;
         }
 
+        // טיפול בשליחת טופס התשלום
         function handlePayment(e) {
             e.preventDefault();
             
@@ -965,6 +1051,7 @@
             const overlay = document.getElementById('processing-overlay');
             overlay.style.display = 'flex';
             
+            // סימולציה של סליקה (2.5 שניות) ואז מעבר למערכת
             setTimeout(() => {
                 overlay.style.display = 'none';
                 closeCheckoutModal();
