@@ -1,930 +1,974 @@
 const questionsDB = [
     // =====================================================================
-    // תת-נושא 1: תחום הגדרה (מכנה שונה מאפס) (12 שאלות)
+    // תת-נושא 1: תחום הגדרה (מכנה שונה מאפס) (10 שאלות)
     // =====================================================================
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מהו תחום ההגדרה של הפונקציה הרציונלית הבאה?<br>f(x) = 5 / (x - 7)",
+        question: "מהו תחום ההגדרה של הפונקציה הרציונלית הבאה?<br>f(x) = 4 / (x - 5)",
         options: [
-            "x &ne; 7",
-            "x &gt; 7",
-            "x &ne; -7",
+            "x &ne; 5",
+            "x &ne; -5",
+            "x > 5",
             "כל x"
         ],
+        hint: "בפונקציית שבר, אסור שהמכנה יהיה שווה לאפס. קחו את המכנה (x - 5), בדקו מתי הוא מתאפס, והוציאו את המספר הזה מהתחום.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "פונקציה רציונלית (שבר) אינה מוגדרת כאשר המכנה שלה שווה לאפס. לכן, נדרוש שהמכנה יהיה שונה מאפס.", math_expression: "x - 7 &ne; 0" },
-            { verbal_explanation: "נעביר את המספר לאגף הימני (בשינוי סימן) כדי לבודד את המשתנה x.", math_expression: "x &ne; 7" }
+            { verbal_explanation: "כדי למצוא את תחום ההגדרה, נבדוק אילו ערכים גורמים למכנה להתאפס, שכן חלוקה באפס אינה מוגדרת.", math_expression: "x - 5 = 0" },
+            { verbal_explanation: "נעביר את המספר חמש לאגף הימני.", math_expression: "x = 5" },
+            { verbal_explanation: "מכאן שהפונקציה מוגדרת לכל מספר, פרט למספר חמש.", math_expression: "x &ne; 5" }
         ],
-        final_answer: "x &ne; 7"
+        final_answer: "x &ne; 5"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מצאו את תחום ההגדרה של הפונקציה:<br>f(x) = 3x / (2x + 6)",
+        question: "מצאו את תחום ההגדרה של הפונקציה הבאה:<br>y = (x + 2) / (2x + 8)",
         options: [
-            "x &ne; -3",
-            "x &ne; 3",
-            "x &ne; 0",
-            "כל x"
+            "x &ne; -4",
+            "x &ne; 4",
+            "x &ne; -2",
+            "x &ne; -8"
         ],
+        hint: "השוו את המכנה לאפס (2x + 8 = 0) ופתרו את המשוואה. התוצאה היא המספר שאסור להציב.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא את תחום ההגדרה, נבדוק עבור אילו ערכים המכנה מתאפס.", math_expression: "2x + 6 = 0" },
-            { verbal_explanation: "נעביר את המספר החופשי לאגף ימין.", math_expression: "2x = -6" },
-            { verbal_explanation: "נחלק את המשוואה בשתיים כדי למצוא את הערך הבעייתי.", math_expression: "x = -3" },
-            { verbal_explanation: "תחום ההגדרה כולל את כל המספרים מלבד זה שמאפס את המכנה.", math_expression: "x &ne; -3" }
+            { verbal_explanation: "ניקח את המכנה ונשווה אותו לאפס כדי לגלות מה עלינו לפסול.", math_expression: "2x + 8 = 0" },
+            { verbal_explanation: "נעביר את המספר שמונה לאגף ימין בסימן שלילי.", math_expression: "2x = -8" },
+            { verbal_explanation: "נחלק בשתיים לקבלת המספר המאפס.", math_expression: "x = -4" },
+            { verbal_explanation: "לכן, איקס לא יכול להיות שווה למינוס ארבע.", math_expression: "x &ne; -4" }
         ],
-        final_answer: "x &ne; -3"
+        final_answer: "x &ne; -4"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מהו תחום ההגדרה של הפונקציה:<br>f(x) = (x + 1) / (x<sup>2</sup> - 16)",
+        question: "מהו תחום ההגדרה של הפונקציה y = 7 / (x<sup>2</sup> - 16)?",
         options: [
             "x &ne; 4 , x &ne; -4",
-            "x &ne; 4",
             "x &ne; 16",
+            "x &ne; 4",
             "כל x"
         ],
+        hint: "במכנה יש משוואה ריבועית. השוו x² - 16 לאפס. כשהוציאו שורש ל-16, זכרו שיש שני פתרונות (חיובי ושלילי).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "הפונקציה אינה מוגדרת כאשר המכנה שלה מתאפס. ניקח את המכנה ונשווה לאפס.", math_expression: "x<sup>2</sup> - 16 = 0" },
-            { verbal_explanation: "נעביר את המספר ימינה.", math_expression: "x<sup>2</sup> = 16" },
-            { verbal_explanation: "נוציא שורש ריבועי. מאחר והמעריך זוגי, נקבל שתי תוצאות (חיובית ושלילית).", math_expression: "x = 4 , x = -4" },
-            { verbal_explanation: "תחום ההגדרה דורש שהמשתנה יהיה שונה משני הערכים הללו.", math_expression: "x &ne; 4 , x &ne; -4" }
+            { verbal_explanation: "נשווה את המכנה לאפס.", math_expression: "x^2 - 16 = 0" },
+            { verbal_explanation: "נעביר את המספר שש-עשרה ימינה.", math_expression: "x^2 = 16" },
+            { verbal_explanation: "נוציא שורש. לשורש ריבועי יש תמיד פתרון חיובי ופתרון שלילי.", math_expression: "x = 4 , x = -4" },
+            { verbal_explanation: "נפסול את שני הערכים הללו מתחום ההגדרה.", math_expression: "x &ne; 4 , x &ne; -4" }
         ],
         final_answer: "x &ne; 4 , x &ne; -4"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מהו תחום ההגדרה של הפונקציה המורכבת מטרינום במכנה?<br>f(x) = (2x - 5) / (x<sup>2</sup> - 7x + 10)",
-        options: [
-            "x &ne; 2 , x &ne; 5",
-            "x &ne; 10",
-            "x &ne; -2 , x &ne; -5",
-            "x &ne; 2.5"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נדרוש שהמכנה יהיה שונה מאפס. נשווה אותו לאפס כדי למצוא את הנקודות שיש להוציא מהתחום.", math_expression: "x<sup>2</sup> - 7x + 10 = 0" },
-            { verbal_explanation: "נפתור את המשוואה הריבועית בעזרת פירוק לטרינום (שני מספרים שמכפלתם 10 וסכומם 7-).", math_expression: "(x - 2)(x - 5) = 0" },
-            { verbal_explanation: "נחלץ את הפתרונות המאפסים את כל אחד מהגורמים.", math_expression: "x = 2 , x = 5" },
-            { verbal_explanation: "תחום ההגדרה הוא כל מספר ממשי פרט לשני הערכים האלו.", math_expression: "x &ne; 2 , x &ne; 5" }
-        ],
-        final_answer: "x &ne; 2 , x &ne; 5"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פ פונקציות רציונליות",
-        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מהו תחום ההגדרה של הפונקציה הבאה?<br>f(x) = 8x / (x<sup>2</sup> + 9)",
+        question: "מצאו את תחום ההגדרה של הפונקציה הבאה:<br>y = x / (x<sup>2</sup> + 9)",
         options: [
             "כל x",
             "x &ne; 3 , x &ne; -3",
             "x &ne; -9",
-            "x &gt; 0"
+            "x > 0"
         ],
+        hint: "השוו את המכנה לאפס. תקבלו x² = -9. האם יש מספר שכשמעלים אותו בריבוע מקבלים מספר שלילי?",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נבדוק מתי המכנה עלול להתאפס.", math_expression: "x<sup>2</sup> + 9 = 0" },
-            { verbal_explanation: "נעביר את המספר תשעה לאגף הימני.", math_expression: "x<sup>2</sup> = -9" },
-            { verbal_explanation: "מספר ממשי המועלה בריבוע לעולם אינו יכול להיות שלילי. לכן, למשוואה זו אין פתרון, והמכנה תמיד חיובי.", math_expression: "&empty;" },
-            { verbal_explanation: "מסקנה: אין אף מספר שיאפס את המכנה, ולכן הפונקציה מוגדרת תמיד.", math_expression: "-\u221E < x < \u221E" }
+            { verbal_explanation: "ננסה למצוא מאפסים למכנה על ידי השוואתו לאפס.", math_expression: "x^2 + 9 = 0" },
+            { verbal_explanation: "נעביר את התשע ימינה.", math_expression: "x^2 = -9" },
+            { verbal_explanation: "מספר ממשי בריבוע לא יכול להיות שלילי. לכן, אין אף מספר שיאפס את המכנה. הפונקציה מוגדרת תמיד.", math_expression: "x^2 &ge; 0" }
         ],
         final_answer: "כל x"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מצאו את תחום ההגדרה של הפונקציה הבאה בעזרת הוצאת גורם משותף:<br>f(x) = 1 / (x<sup>3</sup> - x)",
+        question: "מהו תחום ההגדרה של הפונקציה f(x) = 5x / (x<sup>2</sup> - 7x + 10)?",
         options: [
-            "x &ne; 0 , x &ne; 1 , x &ne; -1",
-            "x &ne; 0",
-            "x &ne; 1 , x &ne; -1",
-            "x &ne; 0 , x &ne; 1"
+            "x &ne; 2 , x &ne; 5",
+            "x &ne; -2 , x &ne; -5",
+            "x &ne; 10",
+            "x &ne; 0"
         ],
+        hint: "פתרו את המשוואה הריבועית שבמכנה בעזרת טרינום או נוסחת שורשים. חפשו שני מספרים שסכומם 7- ומכפלתם 10.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נשווה את המכנה המעוקב לאפס למציאת הנקודות האסורות.", math_expression: "x<sup>3</sup> - x = 0" },
-            { verbal_explanation: "נוציא איקס כגורם משותף מחוץ לסוגריים.", math_expression: "x(x<sup>2</sup> - 1) = 0" },
-            { verbal_explanation: "נשתמש בנוסחת כפל מקוצר (הפרש ריבועים) כדי לפרק את הסוגריים עד הסוף.", math_expression: "x(x - 1)(x + 1) = 0" },
-            { verbal_explanation: "המשוואה מתאפסת אם כל אחד משלושת הגורמים מתאפס. נרשום את הפתרונות.", math_expression: "x = 0 , x = 1 , x = -1" },
-            { verbal_explanation: "תחום ההגדרה פוסל את כל שלושת הערכים הללו.", math_expression: "x &ne; 0 , x &ne; 1 , x &ne; -1" }
+            { verbal_explanation: "נשווה את המכנה לאפס (זוהי משוואה ריבועית).", math_expression: "x^2 - 7x + 10 = 0" },
+            { verbal_explanation: "נפרק לטרינום לפי סכום ומכפלה.", math_expression: "(x - 2)(x - 5) = 0" },
+            { verbal_explanation: "נקבל שני פתרונות המאפסים את המכנה. נפסול את שניהם.", math_expression: "x = 2 , x = 5" }
+        ],
+        final_answer: "x &ne; 2 , x &ne; 5"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
+        question: "מהו תחום ההגדרה של הפונקציה y = 1 / (x<sup>2</sup> + 5x)?",
+        options: [
+            "x &ne; 0 , x &ne; -5",
+            "x &ne; 5",
+            "x &ne; -5",
+            "x > 0"
+        ],
+        hint: "במכנה ניתן להוציא גורם משותף x. תקבלו x(x + 5) = 0. הפרידו לשני פתרונות.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נשווה את המכנה לאפס.", math_expression: "x^2 + 5x = 0" },
+            { verbal_explanation: "נוציא את המשתנה איקס כגורם משותף.", math_expression: "x(x + 5) = 0" },
+            { verbal_explanation: "כאשר מכפלה שווה לאפס, לפחות אחד מהגורמים שלה שווה לאפס.", math_expression: "x = 0" },
+            { verbal_explanation: "הגורם השני מספק לנו את הפתרון השני. יש לפסול את שניהם.", math_expression: "x + 5 = 0 => x = -5" }
+        ],
+        final_answer: "x &ne; 0 , x &ne; -5"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
+        question: "מצאו את תחום ההגדרה של הפונקציה הרציונלית y = (2x + 1) / (3x - 1).",
+        options: [
+            "x &ne; 1/3",
+            "x &ne; -1/3",
+            "x &ne; 3",
+            "x &ne; -1/2"
+        ],
+        hint: "השוו את המכנה (3x - 1) לאפס ופתרו למציאת השבר הפשוט שאסור להציב.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נבדוק מתי המכנה שווה לאפס.", math_expression: "3x - 1 = 0" },
+            { verbal_explanation: "נעביר את האחד ימינה.", math_expression: "3x = 1" },
+            { verbal_explanation: "נחלק בשלוש ונקבל את הערך האסור.", math_expression: "x = 1/3" }
+        ],
+        final_answer: "x &ne; 1/3"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
+        question: "מהו תחום ההגדרה של הפונקציה f(x) = 9 / (100 - x<sup>2</sup>)?",
+        options: [
+            "x &ne; 10 , x &ne; -10",
+            "x &ne; 100",
+            "x &ne; 10",
+            "כל x"
+        ],
+        hint: "השוו 100 פחות x² לאפס. העבירו את איקס בריבוע לאגף השני והוציאו שורש. זכרו את הפתרון השלילי.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נשווה את המכנה לאפס.", math_expression: "100 - x^2 = 0" },
+            { verbal_explanation: "נעביר את המשתנה ימינה כדי שיהיה חיובי.", math_expression: "100 = x^2" },
+            { verbal_explanation: "נוציא שורש לשני האגפים. נקבל שתי תוצאות.", math_expression: "x = 10 , x = -10" }
+        ],
+        final_answer: "x &ne; 10 , x &ne; -10"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
+        question: "מהו תחום ההגדרה של הפונקציה ממעלה שלישית במכנה: y = x<sup>2</sup> / (x<sup>3</sup> - x)?",
+        options: [
+            "x &ne; 0 , x &ne; 1 , x &ne; -1",
+            "x &ne; 0 , x &ne; 1",
+            "x &ne; 1 , x &ne; -1",
+            "x &ne; 0"
+        ],
+        hint: "השוו לאפס, הוציאו x גורם משותף ותקבלו: x כפול (x² - 1). מכאן תקבלו שלושה פתרונות שיש לפסול.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נשווה את המכנה לאפס.", math_expression: "x^3 - x = 0" },
+            { verbal_explanation: "נוציא משתנה אחד כגורם משותף מחוץ לסוגריים.", math_expression: "x(x^2 - 1) = 0" },
+            { verbal_explanation: "הפתרון הראשון מגיע מהאיקס שמחוץ לסוגריים.", math_expression: "x = 0" },
+            { verbal_explanation: "שני הפתרונות הנוספים מגיעים מפתרון המשוואה שבתוך הסוגריים.", math_expression: "x^2 - 1 = 0 => x = 1 , x = -1" }
         ],
         final_answer: "x &ne; 0 , x &ne; 1 , x &ne; -1"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "נתונה הפונקציה עם הפרמטר a:<br>f(x) = x<sup>2</sup> / (ax - 15)<br>ידוע שהפונקציה אינה מוגדרת בנקודה שבה x = 5. מצאו את ערכו של הפרמטר a.",
+        question: "מהו תחום ההגדרה של הפונקציה הבאה?<br>y = 14 / (2x<sup>2</sup> + 18)",
         options: [
-            "3",
-            "5",
-            "15",
-            "-3"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "אם הפונקציה אינה מוגדרת בנקודה מסוימת, המשמעות היא שהמכנה שווה לאפס כאשר מציבים את אותו איקס.", math_expression: "ax - 15 = 0" },
-            { verbal_explanation: "נציב במכנה את הערך הנתון (חמש).", math_expression: "a(5) - 15 = 0" },
-            { verbal_explanation: "נסדר את המשוואה ונעביר את המספר ימינה.", math_expression: "5a = 15" },
-            { verbal_explanation: "נחלק בחמש כדי לחלץ את הפרמטר.", math_expression: "a = 3" }
-        ],
-        final_answer: "3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מהו תחום ההגדרה של פונקציה המורכבת מחיבור של שני שברים?<br>f(x) = 3 / (x - 2) + 4 / (x + 4)",
-        options: [
-            "x &ne; 2 , x &ne; -4",
-            "x &ne; 2",
-            "x &ne; -4",
+            "כל x",
+            "x &ne; 3 , x &ne; -3",
+            "x &ne; -9",
             "x &ne; 0"
         ],
+        hint: "השוו לאפס. תקבלו 2x² = -18. לאחר חלוקה בשתיים תקבלו x² = -9. לזה אין פתרון ממשי.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "בפונקציה המורכבת ממספר שברים, כל אחד מהמכנים בנפרד חייב להיות שונה מאפס במקביל. נבדוק את המכנה הראשון.", math_expression: "x - 2 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 2" },
-            { verbal_explanation: "נבדוק מתי המכנה השני מתאפס.", math_expression: "x + 4 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = -4" },
-            { verbal_explanation: "תחום ההגדרה המשותף פוסל את שני הערכים שמצאנו, שכן הצבה של כל אחד מהם תגרום לאחד השברים להיות בלתי מוגדר.", math_expression: "x &ne; 2 , x &ne; -4" }
+            { verbal_explanation: "ננסה למצוא מאפסים על ידי השוואת המכנה לאפס.", math_expression: "2x^2 + 18 = 0" },
+            { verbal_explanation: "נעביר את המספר ימינה ונחלק בשתיים.", math_expression: "2x^2 = -18 => x^2 = -9" },
+            { verbal_explanation: "כיוון שמספר בריבוע חייב להיות חיובי או אפס, לא קיים פתרון. המכנה לעולם לא יתאפס.", math_expression: "x^2 &ge; 0" }
         ],
-        final_answer: "x &ne; 2 , x &ne; -4"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מצאו את תחום ההגדרה של הפונקציה הבאה, בה יש גורם משותף במונה ובמכנה:<br>f(x) = (x - 4) / (x<sup>2</sup> - 4x)",
-        options: [
-            "x &ne; 0 , x &ne; 4",
-            "x &ne; 0",
-            "x &ne; 4",
-            "כל x"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "חשוב לזכור: תחום הגדרה נקבע תמיד לפי הפונקציה המקורית, לפני כל פעולה של צמצום. לכן נשווה את המכנה המקורי לאפס.", math_expression: "x<sup>2</sup> - 4x = 0" },
-            { verbal_explanation: "נוציא גורם משותף איקס.", math_expression: "x(x - 4) = 0" },
-            { verbal_explanation: "נחלץ את הנקודות האסורות.", math_expression: "x = 0 , x = 4" },
-            { verbal_explanation: "אף על פי שהגורם (איקס פחות ארבע) מופיע גם במונה וניתן לצמצום, הפונקציה המקורית אינה מוגדרת בו, ולכן הוא נפסל.", math_expression: "x &ne; 0 , x &ne; 4" }
-        ],
-        final_answer: "x &ne; 0 , x &ne; 4"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "נתונה הפונקציה: f(x) = 1 / (x<sup>2</sup> + kx + 9)<br>ידוע כי תחום ההגדרה של הפונקציה הוא כל ערכי x, פרט לערך בעייתי אחד בלבד.<br>מצאו את הערך החיובי של הפרמטר k.",
-        options: [
-            "6",
-            "3",
-            "9",
-            "18"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי שתהיה רק נקודה אחת שבה המכנה מתאפס, המשוואה הריבועית במכנה חייבת להיות בעלת פתרון ממשי יחיד.", math_expression: "x<sup>2</sup> + kx + 9 = 0" },
-            { verbal_explanation: "משוואה ריבועית מקבלת פתרון יחיד רק כאשר הדיסקרימיננטה (הדלתא מתחת לשורש) שווה בדיוק לאפס.", math_expression: "b<sup>2</sup> - 4ac = 0" },
-            { verbal_explanation: "נציב את המקדמים של המכנה לתוך הנוסחה.", math_expression: "k<sup>2</sup> - 4(1)(9) = 0" },
-            { verbal_explanation: "נחשב את המכפלה.", math_expression: "k<sup>2</sup> - 36 = 0" },
-            { verbal_explanation: "נעביר אגף ונוציא שורש כדי לקבל שני ערכים אפשריים.", math_expression: "k<sup>2</sup> = 36 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; k = 6 , k = -6" },
-            { verbal_explanation: "מכיוון שהשאלה ביקשה את הערך החיובי של הפרמטר, נבחר בפתרון המתאים.", math_expression: "k = 6" }
-        ],
-        final_answer: "6"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "בכמה נקודות שונות הפונקציה הבאה אינה מוגדרת?<br>f(x) = (x + 3) / (x(x + 1)(x - 2))",
-        options: [
-            "3",
-            "2",
-            "4",
-            "1"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המכנה של הפונקציה מוצג כמכפלה של מספר גורמים נפרדים.", math_expression: "x(x + 1)(x - 2) = 0" },
-            { verbal_explanation: "כדי שמכפלה תתאפס, מספיק שאחד מהגורמים יתאפס. נבדוק כל גורם בנפרד למציאת ערכי איקס.", math_expression: "x = 0" },
-            { verbal_explanation: "מהגורם השני נקבל:", math_expression: "x + 1 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = -1" },
-            { verbal_explanation: "מהגורם השלישי נקבל:", math_expression: "x - 2 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 2" },
-            { verbal_explanation: "סך הכל, קיבלנו 3 ערכים שונים שכל אחד מהם בנפרד מאפס את המכנה וגורם לפונקציה להיות בלתי מוגדרת.", math_expression: "3" }
-        ],
-        final_answer: "3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "תחום הגדרה (מכנה שונה מאפס)",
-        question: "מהו תחום ההגדרה של הפונקציה הבאה?<br>f(x) = 1 / ((x - 1)<sup>2</sup> - 4)",
-        options: [
-            "x &ne; 3 , x &ne; -1",
-            "x &ne; 1 , x &ne; 4",
-            "x &ne; 5 , x &ne; -3",
-            "x &ne; 2 , x &ne; -2"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשווה את המכנה השלם לאפס.", math_expression: "(x - 1)<sup>2</sup> - 4 = 0" },
-            { verbal_explanation: "ניתן לפתוח סוגריים, אך קל יותר להעביר את המספר ימינה ולהוציא שורש לשני האגפים.", math_expression: "(x - 1)<sup>2</sup> = 4" },
-            { verbal_explanation: "נוציא שורש ריבועי. זכרו שהשורש יכול להיות חיובי או שלילי.", math_expression: "x - 1 = 2 &nbsp;&nbsp;,&nbsp;&nbsp; x - 1 = -2" },
-            { verbal_explanation: "נפתור את המשוואה הראשונה.", math_expression: "x = 2 + 1 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 3" },
-            { verbal_explanation: "נפתור את המשוואה השנייה.", math_expression: "x = -2 + 1 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = -1" },
-            { verbal_explanation: "אלו הם שני הערכים המאפסים את המכנה, ולכן הם מחוץ לתחום ההגדרה.", math_expression: "x &ne; 3 , x &ne; -1" }
-        ],
-        final_answer: "x &ne; 3 , x &ne; -1"
+        final_answer: "כל x"
     },
 
     // =====================================================================
-    // תת-נושא 2: אסימפטוטות אנכיות ואופקיות (12 שאלות)
+    // תת-נושא 2: אסימפטוטות אנכיות ואופקיות (10 שאלות)
     // =====================================================================
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "מהי משוואת האסימפטוטה האופקית של הפונקציה הבאה?<br>f(x) = (4x - 1) / (2x + 5)",
+        question: "מהן האסימפטוטות (האנכית והאופקית) של הפונקציה y = 3x / (x - 2)?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 100,0 L 100,150' fill='none' stroke='#94a3b8' stroke-width='2'/><path d='M 0,75 L 200,75' fill='none' stroke='#94a3b8' stroke-width='2'/><line x1='140' y1='0' x2='140' y2='150' stroke='#ef4444' stroke-width='2' stroke-dasharray='5,5'/><line x1='0' y1='40' x2='200' y2='40' stroke='#3b82f6' stroke-width='2' stroke-dasharray='5,5'/><text x='150' y='140' font-size='12' fill='#ef4444'>x=2</text><text x='10' y='30' font-size='12' fill='#3b82f6'>y=3</text></svg>",
         options: [
-            "y = 2",
-            "y = -0.5",
-            "y = 4",
-            "y = 0"
+            "x = 2 , y = 3",
+            "x = -2 , y = 3",
+            "x = 2 , y = 0",
+            "x = 3 , y = 2"
         ],
+        hint: "אסימפטוטה אנכית מאפסת את המכנה (x - 2 = 0). אסימפטוטה אופקית: כאשר החזקות הגבוהות שוות במונה ובמכנה (שניהם x בחזקת 1), מחלקים את המקדמים שלהם (3 חלקי 1).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא אסימפטוטה אופקית, נבדוק את החזקה הגבוהה ביותר של איקס גם במונה וגם במכנה. בשניהם זו חזקת אחת (תואר שווה).", math_expression: "n = m = 1" },
-            { verbal_explanation: "כאשר דרגות הפולינומים שוות, ערך האסימפטוטה האופקית שווה למנת המקדמים המובילים (המקדמים של החזקה הגבוהה ביותר).", math_expression: "y = 4 / 2" },
-            { verbal_explanation: "נצמצם את השבר ונקבל את משוואת הישר האופקי.", math_expression: "y = 2" }
+            { verbal_explanation: "אסימפטוטה אנכית מתקבלת מערך שמאפס את המכנה (אך לא את המונה).", math_expression: "x - 2 = 0 => x = 2" },
+            { verbal_explanation: "עבור אסימפטוטה אופקית, נבדוק את החזקה הגבוהה ביותר במונה ובמכנה. בשניהם זו חזקת אחת.", math_expression: "x^1" },
+            { verbal_explanation: "כאשר החזקות שוות, האסימפטוטה היא מנת המקדמים שלהן.", math_expression: "y = 3 / 1 = 3" }
         ],
-        final_answer: "y = 2"
+        final_answer: "x = 2 , y = 3"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "מצאו את כל האסימפטוטות (האנכיות והאופקיות) של הפונקציה:<br>f(x) = (3x<sup>2</sup> + x) / (x<sup>2</sup> - 4)",
-        options: [
-            "y = 3, x = 2, x = -2",
-            "y = 0, x = 2, x = -2",
-            "y = 3, x = 4",
-            "y = 1, x = 2, x = -2"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נתחיל באסימפטוטה אופקית. החזקה הגדולה ביותר במונה היא 2, וכך גם במכנה. הדרגות שוות.", math_expression: "n = m = 2" },
-            { verbal_explanation: "נחלק את המקדם המוביל של המונה במקדם של המכנה למציאת האסימפטוטה האופקית.", math_expression: "y = 3 / 1 = 3" },
-            { verbal_explanation: "כדי למצוא אסימפטוטות אנכיות, נשווה את המכנה לאפס (לאחר שווידאנו שאין צמצום עם המונה).", math_expression: "x<sup>2</sup> - 4 = 0" },
-            { verbal_explanation: "נפתור עבור איקס. אלו הם הישרים האנכיים.", math_expression: "x<sup>2</sup> = 4 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 2 , x = -2" }
-        ],
-        final_answer: "y = 3, x = 2, x = -2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "מהי משוואת האסימפטוטה האופקית של הפונקציה שבה דרגת המכנה גדולה מדרגת המונה?<br>f(x) = 5x / (x<sup>2</sup> + 1)",
+        question: "מהי האסימפטוטה ה<b>אופקית</b> של הפונקציה הבאה?<br>f(x) = 5 / (x - 4)",
         options: [
             "y = 0",
             "y = 5",
             "אין אסימפטוטה אופקית",
             "y = 1"
         ],
+        hint: "הביטו על החזקה הגבוהה ביותר. במונה יש מספר קבוע (שזה כמו x בחזקת 0). במכנה יש x בחזקת 1. כשהחזקה הגבוהה במכנה גדולה יותר, האסימפטוטה האופקית היא תמיד y=0.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נבחן את דרגות הפולינומים. במונה החזקה הגדולה היא 1, ובמכנה החזקה הגדולה היא 2.", math_expression: "n = 1 &nbsp;,&nbsp; m = 2" },
-            { verbal_explanation: "מכיוון שדרגת הפולינום במכנה גדולה מדרגת הפולינום במונה, המכנה גדל הרבה יותר מהר מהמונה כאשר איקס שואף לאינסוף.", math_expression: "m > n" },
-            { verbal_explanation: "כלל מתמטי קובע שבמצב כזה, השבר שואף לאפס, ולכן ציר ה-x הוא האסימפטוטה האופקית.", math_expression: "y = 0" }
+            { verbal_explanation: "נשווה את מעריך החזקה הגבוהה ביותר במונה למעריך במכנה.", math_expression: "0 < 1" },
+            { verbal_explanation: "מכיוון שהחזקה במכנה גדולה יותר, ככל שאיקס יגדל, המכנה יגדל הרבה יותר מהמונה, והשבר ישאף לאפס.", math_expression: "y = 0" }
         ],
         final_answer: "y = 0"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "האם לפונקציה הבאה קיימת אסימפטוטה אופקית? אם כן, מהי משוואתה?<br>f(x) = (x<sup>3</sup> - 1) / (2x<sup>2</sup> + x)",
+        question: "מהי האסימפטוטה ה<b>אופקית</b> של הפונקציה הבאה?<br>y = 4x<sup>2</sup> / (2x<sup>2</sup> + 1)",
         options: [
-            "אין אסימפטוטה אופקית",
-            "y = 0.5",
+            "y = 2",
+            "y = 4",
             "y = 0",
-            "y = 1"
+            "y = 1/2"
         ],
+        hint: "החזקה הגבוהה ביותר במונה היא ריבועית (x²). גם במכנה היא ריבועית. מכיוון שהן שוות, חלקו את המקדם שבמונה במקדם שבמכנה (4 חלקי 2).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נבדוק את הדרגות. במונה החזקה היא 3, ובמכנה החזקה היא 2.", math_expression: "n = 3 &nbsp;,&nbsp; m = 2" },
-            { verbal_explanation: "כאשר דרגת הפולינום במונה גדולה מדרגת הפולינום במכנה, המונה שואף לאינסוף מהר יותר, והפונקציה אינה מתכנסת לערך מספרי סופי.", math_expression: "n > m" },
-            { verbal_explanation: "במצב זה, נהוג לומר שאין לפונקציה אסימפטוטה אופקית (קיימת אסימפטוטה משופעת, אך לא אופקית).", math_expression: "None" }
+            { verbal_explanation: "החזקה המקסימלית במונה היא שתיים. גם במכנה החזקה המקסימלית היא שתיים. נחלק את המקדמים של איברים אלו.", math_expression: "4 / 2" },
+            { verbal_explanation: "נבצע את פעולת החילוק למציאת האסימפטוטה האופקית.", math_expression: "y = 2" }
+        ],
+        final_answer: "y = 2"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "אסימפטוטות אנכיות ואופקיות",
+        question: "מהי האסימפטוטה ה<b>אופקית</b> של הפונקציה הבאה?<br>y = (x<sup>2</sup> - 1) / (x<sup>3</sup> + 2)",
+        options: [
+            "y = 0",
+            "אין אסימפטוטה אופקית",
+            "y = 1",
+            "y = -1/2"
+        ],
+        hint: "במונה החזקה הגבוהה היא 2. במכנה החזקה הגבוהה היא 3. כשהחזקה של המכנה מנצחת, הפונקציה שואפת לאפס.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נבחן את מעלות הפולינומים. במונה המעלה היא שתיים. במכנה המעלה היא שלוש.", math_expression: "2 < 3" },
+            { verbal_explanation: "כאשר המכנה חזק ומהיר יותר מהמונה, ערך השבר כולו שואף לאפס באינסוף.", math_expression: "y = 0" }
+        ],
+        final_answer: "y = 0"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "אסימפטוטות אנכיות ואופקיות",
+        question: "מהן שתי האסימפטוטות של הפונקציה f(x) = (6x + 1) / (2x - 8)?",
+        options: [
+            "x = 4 , y = 3",
+            "x = -4 , y = 3",
+            "x = 8 , y = 6",
+            "x = 4 , y = 0"
+        ],
+        hint: "אנכית: מתי המכנה שווה 0? (פתרו 2x - 8 = 0). אופקית: חלוקת מקדמים של ה-x (6 חלקי 2).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "לאסימפטוטה אנכית, נבדוק התאפסות של המכנה.", math_expression: "2x - 8 = 0 => 2x = 8 => x = 4" },
+            { verbal_explanation: "לאסימפטוטה אופקית, נחלק את מקדמי האיקסים מאחר והחזקות שוות.", math_expression: "6 / 2 = 3 => y = 3" }
+        ],
+        final_answer: "x = 4 , y = 3"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "אסימפטוטות אנכיות ואופקיות",
+        question: "מהי האסימפטוטה ה<b>אופקית</b> של הפונקציה y = (x<sup>2</sup> + 5) / (x - 1)?",
+        options: [
+            "אין אסימפטוטה אופקית",
+            "y = 0",
+            "y = 1",
+            "y = 5"
+        ],
+        hint: "במונה החזקה הגבוהה היא 2. במכנה החזקה הגבוהה היא 1. כשהחזקה של המונה מנצחת, הפונקציה בורחת לאינסוף ואין קו אופקי שעוצר אותה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נבדוק את החזקה הגבוהה במונה ובמכנה.", math_expression: "2 > 1" },
+            { verbal_explanation: "כאשר המונה חזק יותר מהמכנה, הפונקציה שואפת לאינסוף (או למינוס אינסוף) ואין לה גבול אופקי קבוע.", math_expression: "None" }
         ],
         final_answer: "אין אסימפטוטה אופקית"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "נתונה פונקציה עם פרמטר a:<br>f(x) = (ax<sup>2</sup> + 5) / (3x<sup>2</sup> - x)<br>ידוע שמשוואת האסימפטוטה האופקית של הפונקציה היא y = 2. מהו ערכו של הפרמטר a?",
+        question: "מצאו את כל האסימפטוטות (אנכיות ואופקית) של הפונקציה f(x) = 7x<sup>2</sup> / (x<sup>2</sup> - 9).",
         options: [
-            "6",
-            "3",
-            "2",
-            "1.5"
+            "x = 3 , x = -3 , y = 7",
+            "x = 9 , y = 7",
+            "x = 3 , x = -3 , y = 0",
+            "x = 3 , y = 7"
         ],
+        hint: "אנכיות: השוו את המכנה (x² - 9) לאפס וגלו שני פתרונות (שורש מ-9). אופקית: החזקות שוות (x²), לכן חלקו את המקדמים 7 ו-1.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "מכיוון שהחזקות הגבוהות ביותר במונה ובמכנה שוות (שתיים), האסימפטוטה האופקית מוגדרת כיחס בין המקדמים שלהן.", math_expression: "y = a / 3" },
-            { verbal_explanation: "נשווה את היחס הזה לערך האסימפטוטה שנתון לנו בשאלה (שתיים).", math_expression: "a / 3 = 2" },
-            { verbal_explanation: "נכפיל את שני אגפי המשוואה בשלוש כדי לחלץ את הפרמטר.", math_expression: "a = 6" }
+            { verbal_explanation: "לאסימפטוטות אנכיות, נשווה מכנה לאפס ונוציא שורש לשני הפתרונות.", math_expression: "x^2 - 9 = 0 => x^2 = 9 => x = 3 , x = -3" },
+            { verbal_explanation: "לאסימפטוטה אופקית, החזקות זהות (בריבוע). נחלק מקדם עליון בתחתון.", math_expression: "7 / 1 = 7 => y = 7" }
         ],
-        final_answer: "6"
+        final_answer: "x = 3 , x = -3 , y = 7"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "מצאו את משוואות האסימפטוטות האנכיות של הפונקציה הבאה (שימו לב לצמצומים אפשריים):<br>f(x) = (x + 1) / (x<sup>2</sup> - 4x + 3)",
+        question: "כמה אסימפטוטות <b>אנכיות</b> יש לפונקציה y = 2x / (x<sup>2</sup> + 4)?",
         options: [
-            "x = 1 , x = 3",
-            "x = 4 , x = -1",
-            "x = -1 , x = -3",
-            "x = 1"
+            "אפס (אין אסימפטוטות אנכיות)",
+            "אחת (x = 0)",
+            "שתיים (x = 2, x = -2)",
+            "אחת (x = -4)"
         ],
+        hint: "נסו להשוות את המכנה לאפס: x² = -4. האם קיים מספר שמרובעו הוא שלילי?",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "אסימפטוטה אנכית נוצרת כאשר המכנה מתאפס אך המונה שונה מאפס באותה נקודה. תחילה, נשווה את המכנה לאפס.", math_expression: "x<sup>2</sup> - 4x + 3 = 0" },
-            { verbal_explanation: "נשתמש בטרינום כדי למצוא את המאפסים.", math_expression: "(x - 1)(x - 3) = 0" },
-            { verbal_explanation: "הנקודות החשודות הן:", math_expression: "x = 1 , x = 3" },
-            { verbal_explanation: "נציב נקודות אלו במונה הפונקציה המקורית (x+1) כדי לוודא שהוא אינו מתאפס, מה שיעיד על אסימפטוטה ולא חור.", math_expression: "1 + 1 = 2 &ne; 0 &nbsp;&nbsp;|&nbsp;&nbsp; 3 + 1 = 4 &ne; 0" },
-            { verbal_explanation: "מכיוון שהמונה לא התאפס עבור אף אחת מהן, שתיהן אכן מהוות אסימפטוטות אנכיות.", math_expression: "x = 1 , x = 3" }
+            { verbal_explanation: "ננסה למצוא מאפסים למכנה.", math_expression: "x^2 + 4 = 0" },
+            { verbal_explanation: "נעביר אגף.", math_expression: "x^2 = -4" },
+            { verbal_explanation: "אין פתרון ממשי. המכנה חיובי תמיד ולכן אין אסימפטוטות אנכיות.", math_expression: "None" }
         ],
-        final_answer: "x = 1 , x = 3"
+        final_answer: "אפס (אין אסימפטוטות אנכיות)"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "נתונה הפונקציה עם הפרמטר b:<br>f(x) = 5x / (x<sup>2</sup> - bx + 10)<br>ידוע שהישר x = 2 הוא אסימפטוטה אנכית של הפונקציה. מצאו את ערכו של הפרמטר b.",
-        options: [
-            "7",
-            "5",
-            "2",
-            "10"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כאשר ישר אנכי מסוים הוא אסימפטוטה, הצבת ערך ה-x שלו במכנה מאפסת אותו (והמונה אינו מתאפס שם).", math_expression: "x<sup>2</sup> - bx + 10 = 0" },
-            { verbal_explanation: "נציב במכנה את הערך הנתון שתיים במקום איקס.", math_expression: "2<sup>2</sup> - b(2) + 10 = 0" },
-            { verbal_explanation: "נחשב את הריבוע.", math_expression: "4 - 2b + 10 = 0" },
-            { verbal_explanation: "נכנס איברים חופשיים ונעביר את המשתנה אגף.", math_expression: "14 = 2b" },
-            { verbal_explanation: "נחלק בשתיים לקבלת ערך הפרמטר.", math_expression: "b = 7" }
-        ],
-        final_answer: "7"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "נתונה הפונקציה: f(x) = (2x<sup>2</sup> + 4x) / (x<sup>2</sup> + 1)<br>מצאו את שיעור ה-x של נקודת החיתוך בין גרף הפונקציה לבין האסימפטוטה האופקית שלה.",
-        options: [
-            "0.5",
-            "2",
-            "-0.5",
-            "0"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "השלב הראשון הוא למצוא את האסימפטוטה האופקית. החזקות שוות, ולכן נחלק מקדמים מובילים.", math_expression: "y = 2 / 1 = 2" },
-            { verbal_explanation: "כדי למצוא את נקודת החיתוך, נשווה את הפונקציה עצמה לערך האסימפטוטה שמצאנו.", math_expression: "(2x<sup>2</sup> + 4x) / (x<sup>2</sup> + 1) = 2" },
-            { verbal_explanation: "נכפיל את המשוואה במכנה.", math_expression: "2x<sup>2</sup> + 4x = 2(x<sup>2</sup> + 1)" },
-            { verbal_explanation: "נפתח את הסוגריים בצד ימין.", math_expression: "2x<sup>2</sup> + 4x = 2x<sup>2</sup> + 2" },
-            { verbal_explanation: "נחסר שני איקס בריבוע משני האגפים. המונח הריבועי מתבטל לחלוטין.", math_expression: "4x = 2" },
-            { verbal_explanation: "נחלק בארבע למציאת שיעור החיתוך.", math_expression: "x = 2 / 4 = 0.5" }
-        ],
-        final_answer: "0.5"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "על פי הגרף שלפניכם, מהן משוואות האסימפטוטות של הפונקציה (אנכית ואופקית)?<br><svg viewBox='0 0 200 200' width='160' height='160' style='display:block; margin: 15px auto;'><line x1='10' y1='100' x2='190' y2='100' stroke='#94a3b8' stroke-width='2'/><line x1='100' y1='10' x2='100' y2='190' stroke='#94a3b8' stroke-width='2'/><line x1='140' y1='10' x2='140' y2='190' stroke='#ef4444' stroke-width='2' stroke-dasharray='5,5'/><line x1='10' y1='80' x2='190' y2='80' stroke='#ef4444' stroke-width='2' stroke-dasharray='5,5'/><path d='M 10,95 Q 120,95 135,10' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 145,190 Q 155,65 190,65' fill='none' stroke='#3b82f6' stroke-width='3'/><text x='145' y='180' font-size='14' fill='#b91c1c' font-weight='bold'>A</text><text x='20' y='70' font-size='14' fill='#b91c1c' font-weight='bold'>B</text></svg>",
-        options: [
-            "x = 2 , y = 1",
-            "x = 1 , y = 2",
-            "x = -2 , y = -1",
-            "x = 0 , y = 0"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נתבונן באסימפטוטה האנכית (מסומנת בקו מקווקו אדום). הישר מקביל לציר ה-y וחוצה את ציר ה-x בצד החיובי שלו, במרחק שנראה כמו 2 יחידות מהראשית.", math_expression: "x = 2" },
-            { verbal_explanation: "נתבונן באסימפטוטה האופקית. זהו ישר המקביל לציר ה-x, והוא חוצה את ציר ה-y מעט מעל הראשית, בערך שמתאים ליחידה אחת חיובית.", math_expression: "y = 1" }
-        ],
-        final_answer: "x = 2 , y = 1"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "נתונה פונקציה המורכבת ממספר שלם ושבר רציונלי:<br>f(x) = 3 + 2 / (x - 4)<br>מהן משוואות האסימפטוטה האנכית והאופקית שלה?",
-        options: [
-            "אנכית: x = 4 , אופקית: y = 3",
-            "אנכית: x = -4 , אופקית: y = 3",
-            "אנכית: x = 4 , אופקית: y = 2",
-            "אנכית: x = 2 , אופקית: y = 4"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "האסימפטוטה האנכית נובעת מהמכנה של חלק השבר בפונקציה. נשווה אותו לאפס.", math_expression: "x - 4 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 4" },
-            { verbal_explanation: "כדי למצוא אסימפטוטה אופקית, נבדוק מה קורה לפונקציה כאשר איקס שואף לאינסוף. חלק השבר שואף לאפס מכיוון שהמכנה גדל ללא הגבלה.", math_expression: "2 / \u221E &rarr; 0" },
-            { verbal_explanation: "לכן, ערך הפונקציה הכולל ישאף פשוט למספר הקבוע שנותר בביטוי.", math_expression: "y = 3 + 0 = 3" }
-        ],
-        final_answer: "אנכית: x = 4 , אופקית: y = 3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "נתונה הפונקציה עם הפרמטרים a ו-c:<br>f(x) = (ax + 2) / (cx - 6)<br>ידוע שלאסימפטוטה האופקית שלה יש משוואה y = 4, ולאסימפטוטה האנכית שלה יש משוואה x = 3.<br>מהם הערכים של הפרמטרים a ו-c?",
-        options: [
-            "a = 8 , c = 2",
-            "a = 4 , c = 3",
-            "a = 2 , c = 8",
-            "a = -8 , c = -2"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "האסימפטוטה האנכית מאפסת את המכנה. נציב את המשוואה האנכית (x=3) במכנה ונשווה לאפס.", math_expression: "c(3) - 6 = 0" },
-            { verbal_explanation: "נחלץ את המשתנה.", math_expression: "3c = 6 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; c = 2" },
-            { verbal_explanation: "האסימפטוטה האופקית מוגדרת על ידי חלוקת המקדמים המובילים (כיוון שחזקות האיקס שוות בשני הצדדים).", math_expression: "y = a / c" },
-            { verbal_explanation: "נציב את משוואת האופקית שניתנה (4) ואת המקדם שמצאנו במשוואה.", math_expression: "4 = a / 2" },
-            { verbal_explanation: "נכפיל בשתיים ונקבל את ערכו של הפרמטר השני.", math_expression: "a = 8" }
-        ],
-        final_answer: "a = 8 , c = 2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "אסימפטוטות אנכיות ואופקיות",
-        question: "מהי משוואת האסימפטוטה האופקית של הפונקציה עם המקדמים השליליים?<br>f(x) = (-10x<sup>4</sup> + x) / (5x<sup>4</sup> - 2)",
+        question: "מהי האסימפטוטה ה<b>אופקית</b> של הפונקציה הבאה (שימו לב לסדר האיברים)?<br>y = (x - 8x<sup>2</sup>) / (4x<sup>2</sup> + 2)",
         options: [
             "y = -2",
-            "y = 2",
-            "y = -10",
+            "y = 1/4",
+            "y = -8",
             "y = 0"
         ],
+        hint: "אל תתבלבלו עם האיבר הראשון. חפשו את החזקה הגבוהה ביותר במונה (-8x²) וחלקו במקדם החזקה הגבוהה במכנה (4x²).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "תחילה נבדוק את דרגות הפולינומים. גם במונה וגם במכנה החזקה הגבוהה ביותר היא 4.", math_expression: "n = m = 4" },
-            { verbal_explanation: "מכיוון שהדרגות שוות, האסימפטוטה מחושבת על ידי יחס המקדמים של איקס בחזקת ארבע. נשמור היטב על סימני המינוס.", math_expression: "y = -10 / 5" },
-            { verbal_explanation: "נבצע את החלוקה ונקבל את משוואת הישר.", math_expression: "y = -2" }
+            { verbal_explanation: "נזהה את האיברים המובילים (בעלי החזקה הגבוהה ביותר) במונה ובמכנה.", math_expression: "-8x^2 , 4x^2" },
+            { verbal_explanation: "נחלק את המקדמים שלהם כדי למצוא את גבול הפונקציה באינסוף.", math_expression: "-8 / 4 = -2" },
+            { verbal_explanation: "התוצאה היא האסימפטוטה.", math_expression: "y = -2" }
         ],
         final_answer: "y = -2"
-    },// =====================================================================
-    // תת-נושא 3: נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה) (12 שאלות)
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "אסימפטוטות אנכיות ואופקיות",
+        question: "מהן האסימפטוטות של הפונקציה הבאה (מכנה פריש)?<br>f(x) = x / (x<sup>2</sup> - x - 6)",
+        options: [
+            "x = 3 , x = -2 , y = 0",
+            "x = -3 , x = 2 , y = 1",
+            "x = 6 , x = -1 , y = 0",
+            "x = 3 , x = -2 , אין אסימפטוטה אופקית"
+        ],
+        hint: "אנכיות: פתרו את המשוואה הריבועית במכנה (טרינום: שני מספרים שסכומם מינוס 1 ומכפלתם מינוס 6). אופקית: חזקת מכנה גבוהה מחזקת מונה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נמצא אסימפטוטות אנכיות בעזרת פירוק המכנה הריבועי (טרינום).", math_expression: "x^2 - x - 6 = 0" },
+            { verbal_explanation: "המספרים שיתאימו הם מינוס שלוש ופלוס שתיים.", math_expression: "(x - 3)(x + 2) = 0" },
+            { verbal_explanation: "נחלץ את הפתרונות המאפסים את המכנה.", math_expression: "x = 3 , x = -2" },
+            { verbal_explanation: "לאסימפטוטה אופקית, חזקת המכנה (2) גדולה מחזקת המונה (1), ולכן השבר שואף לאפס.", math_expression: "y = 0" }
+        ],
+        final_answer: "x = 3 , x = -2 , y = 0"
+    },
+
+    // =====================================================================
+    // תת-נושא 3: נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה) (10 שאלות)
     // =====================================================================
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה הרציונלית: f(x) = (x<sup>2</sup> - 4x + 3) / (x - 2)<br>מצאו את נקודת החיתוך של הפונקציה עם ציר ה-y.",
+        question: "מהי נקודת החיתוך עם ציר ה-y של הפונקציה הבאה?<br>f(x) = (2x + 6) / (x - 2)",
         options: [
-            "(0, -1.5)",
-            "(0, 1.5)",
+            "(0, -3)",
             "(0, 3)",
-            "(0, -3)"
+            "(-3, 0)",
+            "(0, -6)"
         ],
+        hint: "חיתוך עם ציר y מתקבל תמיד כאשר מציבים x = 0 בפונקציה. הציבו וחשבו את המונה חלקי המכנה.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא את נקודת החיתוך עם ציר ה-y, עלינו להציב אפס במקום המשתנה x בתוך הפונקציה.", math_expression: "f(0) = (0<sup>2</sup> - 4(0) + 3) / (0 - 2)" },
-            { verbal_explanation: "נחשב את המונה ואת המכנה בנפרד.", math_expression: "f(0) = 3 / -2" },
-            { verbal_explanation: "נבצע את פעולת החילוק לקבלת שיעור ה-y.", math_expression: "f(0) = -1.5" },
-            { verbal_explanation: "נרשום את התשובה כנקודה במישור.", math_expression: "(0, -1.5)" }
+            { verbal_explanation: "בנקודת חיתוך עם הציר האנכי, ערך האיקס הוא אפס.", math_expression: "x = 0" },
+            { verbal_explanation: "נציב אפס בפונקציה.", math_expression: "f(0) = (2(0) + 6) / (0 - 2)" },
+            { verbal_explanation: "נחשב את השבר הפשוט.", math_expression: "6 / -2 = -3" },
+            { verbal_explanation: "נרשום כנקודה.", math_expression: "(0, -3)" }
         ],
-        final_answer: "(0, -1.5)"
+        final_answer: "(0, -3)"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה: f(x) = (x<sup>2</sup> - 9) / (x<sup>2</sup> + 1)<br>מצאו את נקודות החיתוך של הפונקציה עם ציר ה-x.",
+        question: "מצאו את נקודת החיתוך עם ציר ה-x של הפונקציה y = (x - 4) / (x + 1).",
+        options: [
+            "(4, 0)",
+            "(-4, 0)",
+            "(0, -4)",
+            "(1, 0)"
+        ],
+        hint: "כדי למצוא חיתוך עם ציר x מציבים y=0. בפונקציית שבר, מספיק לבדוק מתי המונה מתאפס (בתנאי שזה לא מאפס את המכנה).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "כדי שהשבר יהיה שווה לאפס, רק המונה צריך להתאפס.", math_expression: "x - 4 = 0" },
+            { verbal_explanation: "נמצא את ערכו של איקס.", math_expression: "x = 4" },
+            { verbal_explanation: "נבדוק שערך זה לא מאפס את המכנה (4+1=5 שזה תקין), ונרשום כנקודה.", math_expression: "(4, 0)" }
+        ],
+        final_answer: "(4, 0)"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
+        question: "מהן נקודות החיתוך (עם שני הצירים) של הפונקציה y = (x + 3) / (x - 1)?",
+        options: [
+            "(-3, 0) , (0, -3)",
+            "(3, 0) , (0, 3)",
+            "(-3, 0) , (0, 1)",
+            "(1, 0) , (0, -3)"
+        ],
+        hint: "ציר y: הציבו x=0 ותקבלו 3 לחלק למינוס 1. ציר x: השוו מונה לאפס (x + 3 = 0).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "חיתוך עם ציר איקס: השוואת מונה לאפס.", math_expression: "x + 3 = 0 => x = -3 => (-3, 0)" },
+            { verbal_explanation: "חיתוך עם ציר וואי: הצבת אפס במקום איקס.", math_expression: "y(0) = (0 + 3) / (0 - 1) = 3 / -1 = -3 => (0, -3)" }
+        ],
+        final_answer: "(-3, 0) , (0, -3)"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
+        question: "מצאו את כל נקודות החיתוך עם ציר ה-x של הפונקציה הבאה:<br>f(x) = (x<sup>2</sup> - 9) / (x<sup>2</sup> + 1)",
         options: [
             "(3, 0) , (-3, 0)",
             "(9, 0) , (-9, 0)",
-            "(3, 0)",
+            "(3, 0) רק",
             "אין נקודות חיתוך"
         ],
+        hint: "השוו את המונה לאפס: x² - 9 = 0. העבירו את ה-9 והוציאו שורש. המכנה לא יכול להתאפס ולכן הפתרונות חוקיים.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא את נקודות החיתוך עם ציר ה-x, עלינו להשוות את הפונקציה כולה לאפס.<br><br>בשבר, מספיק להשוות רק את המונה לאפס (בתנאי שהמכנה לא מתאפס באותה נקודה).", math_expression: "x<sup>2</sup> - 9 = 0" },
-            { verbal_explanation: "נעביר את המספר תשע לאגף הימני.", math_expression: "x<sup>2</sup> = 9" },
-            { verbal_explanation: "נוציא שורש ריבועי. נקבל שני פתרונות אפשריים.", math_expression: "x = 3 , x = -3" },
-            { verbal_explanation: "נוודא שהמכנה אינו מתאפס עבור ערכים אלו (המכנה תמיד חיובי כאן). לכן נרשום את הנקודות.", math_expression: "(3, 0) , (-3, 0)" }
+            { verbal_explanation: "להתאפסות הפונקציה, מספיק לאפס את המונה בלבד.", math_expression: "x^2 - 9 = 0" },
+            { verbal_explanation: "נעביר את המספר ימינה.", math_expression: "x^2 = 9" },
+            { verbal_explanation: "נוציא שורש ונזכור לקחת את שני הסימנים.", math_expression: "x = 3 , x = -3" },
+            { verbal_explanation: "נרשום כשתי נקודות נפרדות.", math_expression: "(3, 0) , (-3, 0)" }
         ],
         final_answer: "(3, 0) , (-3, 0)"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה: f(x) = (x<sup>2</sup> - 5x + 6) / (x - 3)<br>כמה נקודות חיתוך יש לפונקציה עם ציר ה-x?",
+        question: "לפונקציה הבאה יש 'חור' (נקודת אי-רציפות סליקה). באיזה ערך של x הוא נמצא?<br>y = (x<sup>2</sup> - 4) / (x - 2)<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 20,130 L 90,60' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 110,40 L 180,-30' fill='none' stroke='#3b82f6' stroke-width='3'/><circle cx='100' cy='50' r='8' fill='#ffffff' stroke='#ef4444' stroke-width='3'/><line x1='100' y1='150' x2='100' y2='60' stroke='#94a3b8' stroke-dasharray='4,4'/><text x='105' y='140' font-size='12' font-weight='bold'>x=2</text></svg>",
         options: [
-            "נקודה אחת בלבד",
-            "שתי נקודות",
-            "אין נקודות חיתוך",
-            "שלוש נקודות"
+            "x = 2",
+            "x = -2",
+            "x = 4",
+            "אין חור, יש אסימפטוטה"
         ],
+        hint: "חור נוצר כאשר מספר מאפס גם את המונה וגם את המכנה, והגורם הבעייתי מצטמצם. המונה מתפרק ל- (x-2)(x+2). הגורם (x-2) מאפס גם וגם.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "תחילה נבדוק מהו תחום ההגדרה של הפונקציה. המכנה חייב להיות שונה מאפס.", math_expression: "x - 3 &ne; 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x &ne; 3" },
-            { verbal_explanation: "כעת נשווה את המונה לאפס למציאת נקודות החיתוך עם ציר ה-x.", math_expression: "x<sup>2</sup> - 5x + 6 = 0" },
-            { verbal_explanation: "נפרק לטרינום (שני מספרים שמכפלתם 6 וסכומם מינוס 5).", math_expression: "(x - 2)(x - 3) = 0" },
-            { verbal_explanation: "נחלץ את שני הפתרונות של המונה.", math_expression: "x = 2 , x = 3" },
-            { verbal_explanation: "הפתרון 3 נפסל מכיוון שהוא מחוץ לתחום ההגדרה (מאפס את המכנה). לכן נשארה רק נקודה אחת.", math_expression: "x = 2" }
+            { verbal_explanation: "נבדוק מתי המכנה מתאפס.", math_expression: "x - 2 = 0 => x = 2" },
+            { verbal_explanation: "נבדוק האם ערך זה מאפס גם את המונה.", math_expression: "2^2 - 4 = 4 - 4 = 0" },
+            { verbal_explanation: "מכיוון שאיקס שווה שתיים מאפס מונה ומכנה יחדיו, נבדוק צמצום בעזרת נוסחת כפל מקוצר במונה.", math_expression: "(x - 2)(x + 2) / (x - 2)" },
+            { verbal_explanation: "הגורם הבעייתי מצטמצם, ולכן בנקודה זו יש חור (נקודה חסרה) ולא אסימפטוטה.", math_expression: "x = 2" }
         ],
-        final_answer: "נקודה אחת בלבד"
+        final_answer: "x = 2"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה: f(x) = (x<sup>2</sup> - 16) / (x - 4)<br>מהו שיעור ה-x של נקודת החור (אי-רציפות סליקה) בפונקציה זו?",
+        question: "לפונקציה y = (x<sup>2</sup> - 1) / (x - 1) יש חור ב- x=1. מהו <b>ערך ה-y</b> של החור הזה (שיעור הנקודה המדויק)?",
         options: [
-            "4",
-            "-4",
-            "16",
-            "אין נקודת חור"
+            "y = 2",
+            "y = 1",
+            "y = 0",
+            "לא ניתן לחשב"
         ],
+        hint: "פרקו את המונה ל- (x-1)(x+1) וצמצמו את המכנה. תישארו עם הפונקציה החדשה המצומצמת y = x+1. עכשיו הציבו בה x=1 כדי 'למלא' את החור.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נקודת חור נוצרת כאשר גורם זהה מאפס גם את המונה וגם את המכנה. נמצא את מאפס המכנה.", math_expression: "x - 4 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 4" },
-            { verbal_explanation: "נפרק את המונה לפי נוסחת כפל מקוצר של הפרש ריבועים.", math_expression: "(x - 4)(x + 4) / (x - 4)" },
-            { verbal_explanation: "נצמצם את הגורם המשותף המופיע במונה ובמכנה.", math_expression: "x + 4" },
-            { verbal_explanation: "כאשר אנו מצמצמים גורם שמתאפס, הנקודה אינה אסימפטוטה אנכית אלא 'חור' (נקודת אי-רציפות סליקה).", math_expression: "x = 4" }
+            { verbal_explanation: "נפרק את המונה לפי הפרש ריבועים לקראת צמצום.", math_expression: "(x - 1)(x + 1)" },
+            { verbal_explanation: "נצמצם את הביטוי הזהה במונה ובמכנה לקבלת פונקציה חליפית ורציפה.", math_expression: "(x - 1)(x + 1) / (x - 1) = x + 1" },
+            { verbal_explanation: "נציב את הערך של החור בתוך הפונקציה המצומצמת כדי לגלות מה היה הגובה בנקודה זו אלמלא החור.", math_expression: "y(1) = 1 + 1 = 2" }
         ],
-        final_answer: "4"
+        final_answer: "y = 2"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "בהמשך לשאלה הקודמת, הפונקציה היא f(x) = (x<sup>2</sup> - 16) / (x - 4).<br>מהו שיעור ה-y של נקודת החור?",
-        options: [
-            "8",
-            "0",
-            "4",
-            "-4"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "ראינו קודם שניתן לצמצם את הפונקציה ולקבל פונקציה מפושטת זהה לכל x בתחום ההגדרה.", math_expression: "y = x + 4" },
-            { verbal_explanation: "שיעור ה-x של נקודת החור שמצאנו היה ארבע.", math_expression: "x = 4" },
-            { verbal_explanation: "כדי למצוא את שיעור ה-y של החור, נציב את שיעור ה-x אל תוך הפונקציה המפושטת (לאחר הצמצום).", math_expression: "y = 4 + 4 = 8" }
-        ],
-        final_answer: "8"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה: f(x) = (x - 2) / (x<sup>2</sup> - 4x + 4)<br>מהו סוג אי-הרציפות בנקודה שבה x = 2?",
-        options: [
-            "אסימפטוטה אנכית",
-            "נקודת חור (סליקה)",
-            "הפונקציה רציפה שם",
-            "נקודת קיצון"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נבדוק את המכנה ונפרק אותו לגורמים בעזרת כפל מקוצר או טרינום.", math_expression: "x<sup>2</sup> - 4x + 4 = (x - 2)<sup>2</sup>" },
-            { verbal_explanation: "נרשום את הפונקציה מחדש עם המכנה המפורק.", math_expression: "f(x) = (x - 2) / (x - 2)<sup>2</sup>" },
-            { verbal_explanation: "נצמצם את הגורם המשותף מהמונה ומהמכנה.", math_expression: "f(x) = 1 / (x - 2)" },
-            { verbal_explanation: "לאחר הצמצום, המכנה עדיין מתאפס עבור x = 2. לכן, זו אינה נקודת חור אלא אסימפטוטה אנכית של הפונקציה המפושטת.", math_expression: "1 / 0 &rarr; \u221E" }
-        ],
-        final_answer: "אסימפטוטה אנכית"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה עם הפרמטר a:  f(x) = (x<sup>2</sup> + ax - 10) / (x - 2)<br>ידוע שלפונקציה יש נקודת חור. מצאו את ערכו של הפרמטר a.",
-        options: [
-            "3",
-            "5",
-            "-3",
-            "2"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נקודת חור מתקבלת כאשר המונה מתאפס בדיוק באותו ערך איקס שמאפס את המכנה. המכנה מתאפס בשתיים.", math_expression: "x - 2 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 2" },
-            { verbal_explanation: "לכן, נדרוש שגם המונה יתאפס כאשר נציב בו שתיים.", math_expression: "2<sup>2</sup> + a(2) - 10 = 0" },
-            { verbal_explanation: "נחשב את המספרים ונסדר את המשוואה.", math_expression: "4 + 2a - 10 = 0" },
-            { verbal_explanation: "נכנס איברים חופשיים.", math_expression: "2a - 6 = 0" },
-            { verbal_explanation: "נעביר את שש לאגף הימני ונחלק בשתיים למציאת הפרמטר.", math_expression: "2a = 6 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = 3" }
-        ],
-        final_answer: "3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה הרציונלית: f(x) = 4x / (x + 1)<br>מצאו את שיעור ה-x של הנקודה שעליה ערך הפונקציה שווה ל-2.",
-        options: [
-            "1",
-            "2",
-            "-1",
-            "4"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשווה את הפונקציה לערך המבוקש (שתיים).", math_expression: "4x / (x + 1) = 2" },
-            { verbal_explanation: "נכפיל את שני אגפי המשוואה במכנה.", math_expression: "4x = 2(x + 1)" },
-            { verbal_explanation: "נפתח סוגריים באגף ימין.", math_expression: "4x = 2x + 2" },
-            { verbal_explanation: "נעביר את האיקסים לצד שמאל על ידי חיסור.", math_expression: "2x = 2" },
-            { verbal_explanation: "נחלק בשתיים כדי למצוא את התשובה.", math_expression: "x = 1" }
-        ],
-        final_answer: "1"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "כמה נקודות חיתוך עם ציר ה-x יש לפונקציה: f(x) = 5 / (x<sup>2</sup> - 4)?",
+        question: "כמה נקודות חיתוך עם ציר ה-x יש לפונקציה f(x) = (x<sup>2</sup> + 4) / (x - 3)?",
         options: [
             "אין נקודות חיתוך",
-            "1",
-            "2",
-            "3"
+            "אחת",
+            "שתיים",
+            "שלוש"
         ],
+        hint: "השוו את המונה לאפס (x² + 4 = 0). האם אפשר להוציא שורש למספר שלילי?",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא חיתוך עם ציר ה-x נשווה את המונה לאפס.", math_expression: "5 = 0" },
-            { verbal_explanation: "התקבל פסוק שקר מתמטי, שלא תלוי בכלל במשתנה איקס.", math_expression: "5 &ne; 0" },
-            { verbal_explanation: "המסקנה היא שאין אף ערך של איקס שבו המונה יכול להתאפס, ולכן הגרף לא יחתוך לעולם את ציר האיקס (ציר האיקס הוא למעשה אסימפטוטה אופקית).", math_expression: "0" }
+            { verbal_explanation: "כדי למצוא חיתוך עם הציר האופקי, נשווה את המונה לאפס.", math_expression: "x^2 + 4 = 0" },
+            { verbal_explanation: "נעביר אגף.", math_expression: "x^2 = -4" },
+            { verbal_explanation: "אין פתרון ממשי למשוואה זו, לכן הפונקציה לעולם אינה חותכת את הציר.", math_expression: "None" }
         ],
         final_answer: "אין נקודות חיתוך"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה: f(x) = (x<sup>2</sup> - 8x + 12) / (x<sup>2</sup> + 1)<br>מהו המרחק הגיאומטרי בין שתי נקודות החיתוך של הפונקציה עם ציר ה-x?",
+        question: "מצאו את נקודות החיתוך עם ציר ה-x של הפונקציה (מונה דורש טרינום):<br>y = (x<sup>2</sup> - 5x + 6) / (x + 1)",
         options: [
-            "4",
-            "6",
-            "2",
-            "8"
+            "(2, 0) , (3, 0)",
+            "(-2, 0) , (-3, 0)",
+            "(6, 0) , (1, 0)",
+            "(-1, 0) רק"
         ],
+        hint: "השוו את המונה לאפס: x² - 5x + 6 = 0. אילו שני מספרים מכפלתם 6 וסכומם מינוס 5? אלו יהיו 2 ו-3.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נשווה את המונה לאפס למציאת נקודות החיתוך.", math_expression: "x<sup>2</sup> - 8x + 12 = 0" },
-            { verbal_explanation: "נפרק לטרינום (שני מספרים שמכפלתם 12 וסכומם מינוס שמונה).", math_expression: "(x - 2)(x - 6) = 0" },
-            { verbal_explanation: "נחלץ את שני הפתרונות המהווים את נקודות החיתוך.", math_expression: "x = 2 , x = 6" },
-            { verbal_explanation: "המרחק בין שתי נקודות על ציר ה-x הוא ההפרש ביניהן (הגדול פחות הקטן).", math_expression: "6 - 2 = 4" }
+            { verbal_explanation: "נשווה את הפולינום שבמונה לאפס.", math_expression: "x^2 - 5x + 6 = 0" },
+            { verbal_explanation: "נפרק לטרינום לפי סכום ומכפלה.", math_expression: "(x - 2)(x - 3) = 0" },
+            { verbal_explanation: "נחלץ את שני הפתרונות החיוביים.", math_expression: "x = 2 , x = 3" },
+            { verbal_explanation: "שניהם לא מאפסים את המכנה, ולכן שניהם תקינים.", math_expression: "(2, 0) , (3, 0)" }
         ],
-        final_answer: "4"
+        final_answer: "(2, 0) , (3, 0)"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "לפניכם גרף של פונקציה רציונלית עם חור (נקודה ריקה) בנקודה (2, 4). איזו מבין הפונקציות הבאות עשויה לייצג גרף זה?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><line x1='10' y1='100' x2='190' y2='100' stroke='#334155' stroke-width='2'/><line x1='60' y1='10' x2='60' y2='140' stroke='#334155' stroke-width='2'/><path d='M 10,130 L 190,20' stroke='#3b82f6' stroke-width='3' fill='none'/><circle cx='100' cy='75' r='5' fill='#fff' stroke='#3b82f6' stroke-width='2'/><text x='110' y='65' font-weight='bold'>x=2</text></svg>",
+        question: "לפונקציה f(x) = (x - 3) / (x<sup>2</sup> - 9) יש נקודות אי-הגדרה ב- x=3 וב- x=-3. מה טיבן של נקודות אלו?",
         options: [
-            "y = (x<sup>2</sup> - 4) / (x - 2)",
-            "y = 1 / (x - 2)",
-            "y = (x - 2) / (x<sup>2</sup> - 4)",
-            "y = x + 2"
+            "חור ב- x=3, אסימפטוטה אנכית ב- x=-3",
+            "אסימפטוטה אנכית בשתיהן",
+            "חור בשתיהן",
+            "אסימפטוטה ב- x=3, חור ב- x=-3"
         ],
+        hint: "המכנה מתפרק ל- (x-3)(x+3). הגורם שמתבטל (מצטמצם) מול המונה הוא החור. הגורם שנשאר במכנה הוא האסימפטוטה האנכית.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "גרף שמכיל חור ב- x=2 מעיד על כך שהמכנה של הפונקציה מתאפס באותה נקודה.", math_expression: "x - 2 = 0" },
-            { verbal_explanation: "בנוסף, כדי שייווצר חור ולא אסימפטוטה, גם המונה חייב להתאפס באותה נקודה ולהצטמצם עם המכנה.", math_expression: "2<sup>2</sup> - 4 = 0" },
-            { verbal_explanation: "נבדוק את הפונקציה הראשונה. נפרק את המונה שלה לגורמים.", math_expression: "(x - 2)(x + 2) / (x - 2)" },
-            { verbal_explanation: "היא מצטמצמת לישר לינארי בעל חור, שזה בדיוק מה שרואים בגרף.", math_expression: "y = x + 2 &nbsp;&nbsp;(x &ne; 2)" }
+            { verbal_explanation: "נפרק את המכנה לגורמים כדי לראות מה מצטמצם.", math_expression: "x^2 - 9 = (x - 3)(x + 3)" },
+            { verbal_explanation: "נרשום את השבר המלא כדי לראות את הצמצום.", math_expression: "(x - 3) / [(x - 3)(x + 3)]" },
+            { verbal_explanation: "הגורם שמאפס את 3 מצטמצם, ולכן בנקודה זו קיים חור.", math_expression: "Hole: x = 3" },
+            { verbal_explanation: "הגורם שמאפס את מינוס 3 נשאר במכנה, לכן הוא יוצר אסימפטוטה אנכית (קיר).", math_expression: "Asymptote: x = -3" }
         ],
-        final_answer: "y = (x<sup>2</sup> - 4) / (x - 2)"
+        final_answer: "חור ב- x=3, אסימפטוטה אנכית ב- x=-3"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "נקודות חיתוך עם הצירים ונקודות חור (אי-רציפות סליקה)",
-        question: "נתונה הפונקציה: f(x) = (x<sup>2</sup> - a) / (x - 1)<br>ידוע שהפונקציה חותכת את ציר ה-x בנקודה שבה x = 5. מצאו את ערכו של הפרמטר a.",
+        question: "מהי נקודת החיתוך עם ציר ה-y של הפונקציה הבאה?<br>f(x) = 5 / (x<sup>2</sup> - 1)",
         options: [
-            "25",
-            "5",
-            "10",
-            "1"
+            "(0, -5)",
+            "(0, 5)",
+            "(0, 1)",
+            "אין חיתוך עם ציר ה-y"
         ],
+        hint: "הציבו x=0 בפונקציה. במונה יישאר 5, במכנה יישאר מינוס 1. חשבו את התוצאה.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "אם הפונקציה חותכת את ציר ה-x בנקודה שבה איקס שווה לחמש, אזי המונה של הפונקציה מתאפס כאשר נציב בו חמש.", math_expression: "x<sup>2</sup> - a = 0" },
-            { verbal_explanation: "נציב את הערך הנתון למשוואה.", math_expression: "5<sup>2</sup> - a = 0" },
-            { verbal_explanation: "נחשב את הריבוע.", math_expression: "25 - a = 0" },
-            { verbal_explanation: "נעביר אגף ונמצא את הפרמטר.", math_expression: "a = 25" }
+            { verbal_explanation: "כדי למצוא את החיתוך על הציר האנכי נציב איקס שווה לאפס במשוואה.", math_expression: "x = 0" },
+            { verbal_explanation: "נציב ונחשב את המחנה.", math_expression: "f(0) = 5 / (0^2 - 1) = 5 / -1" },
+            { verbal_explanation: "נבצע חלוקה לקבלת הערך הסופי של הנקודה.", math_expression: "-5 => (0, -5)" }
         ],
-        final_answer: "25"
+        final_answer: "(0, -5)"
     },
-
     // =====================================================================
-    // תת-נושא 4: חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות) (12 שאלות)
+    // תת-נושא 4: חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות) (10 שאלות)
     // =====================================================================
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "מצאו את הנגזרת של הפונקציה: f(x) = x<sup>2</sup> / (x - 2)",
+        question: "מצאו את שיעורי ה-x של נקודות הקיצון של הפונקציה הבאה:<br>f(x) = x + 16 / x",
         options: [
-            "(x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup>",
-            "2x / 1",
-            "(3x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup>",
-            "(x<sup>2</sup> + 4x) / (x - 2)<sup>2</sup>"
+            "x = 4 , x = -4",
+            "x = 16 , x = -16",
+            "x = 4",
+            "אין נקודות קיצון"
         ],
+        hint: "גזרו את הפונקציה. הנגזרת של x היא 1. הנגזרת של 16 חלקי x היא מינוס 16 חלקי x². השוו ל-0 ופתרו.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה הרציונלית בעזרת כלל המנה.", math_expression: "f'(x) = (2x(x - 2) - x<sup>2</sup> &times; 1) / (x - 2)<sup>2</sup>" },
-            { verbal_explanation: "נפתח את הסוגריים במונה הנגזרת.", math_expression: "f'(x) = (2x<sup>2</sup> - 4x - x<sup>2</sup>) / (x - 2)<sup>2</sup>" },
-            { verbal_explanation: "נכנס איברים דומים (חיסור הריבועים) לקבלת הביטוי הסופי.", math_expression: "f'(x) = (x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup>" }
+            { verbal_explanation: "נגזור את הפונקציה. איבר ראשון הוא איקס (נגזרתו אחת), איבר שני הוא שבר.", math_expression: "f'(x) = 1 - 16 / x^2" },
+            { verbal_explanation: "נשווה את הנגזרת לאפס למציאת קיצון.", math_expression: "1 - 16 / x^2 = 0" },
+            { verbal_explanation: "נעביר את השבר השלילי לאגף ימין.", math_expression: "1 = 16 / x^2" },
+            { verbal_explanation: "נכפיל במכנה ונוציא שורש כדי למצוא את שני המאפסים.", math_expression: "x^2 = 16 => x = 4 , x = -4" }
         ],
-        final_answer: "(x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup>"
+        final_answer: "x = 4 , x = -4"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "בהמשך לשאלה הקודמת, עבור הפונקציה f(x) = x<sup>2</sup> / (x - 2) שנגזרתה f'(x) = (x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup>.<br>מצאו את שיעורי ה-x של הנקודות החשודות כקיצון.",
+        question: "מהו תחום ה<b>ירידה</b> של הפונקציה f(x) = 1 / x ?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto; background:#f8fafc; border-radius:8px;'><path d='M 100,0 L 100,150' stroke='#cbd5e1' stroke-width='2'/><path d='M 0,75 L 200,75' stroke='#cbd5e1' stroke-width='2'/><path d='M 105,10 Q 105,70 190,70' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 10,80 Q 95,80 95,140' fill='none' stroke='#3b82f6' stroke-width='3'/></svg>",
         options: [
-            "0 , 4",
-            "2 , 4",
-            "0 , 2",
-            "0 , -4"
+            "x < 0 או x > 0 (יורדת תמיד בתחומה)",
+            "x > 0 רק",
+            "x < 0 רק",
+            "היא עולה תמיד"
         ],
+        hint: "הנגזרת של 1/x היא מינוס 1 חלקי x². המכנה (x²) תמיד חיובי, והמונה שלילי תמיד. לכן הנגזרת כולה תמיד שלילית.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא נקודות החשודות כקיצון, נשווה את המונה של הנגזרת לאפס.", math_expression: "x<sup>2</sup> - 4x = 0" },
-            { verbal_explanation: "נוציא גורם משותף.", math_expression: "x(x - 4) = 0" },
-            { verbal_explanation: "נחלץ את שני הפתרונות המאפסים את המונה.", math_expression: "x = 0 , x = 4" }
+            { verbal_explanation: "נמצא את פונקציית הנגזרת.", math_expression: "f'(x) = -1 / x^2" },
+            { verbal_explanation: "נבדוק את סימן הנגזרת. המונה הוא מספר שלילי קבוע. המכנה הוא ריבוע, ולכן הוא תמיד חיובי.", math_expression: "x^2 > 0" },
+            { verbal_explanation: "חלוקה של מספר שלילי במספר חיובי נותנת תוצאה שלילית תמיד. כלומר, השיפוע תמיד יורד.", math_expression: "f'(x) < 0" }
         ],
-        final_answer: "0 , 4"
+        final_answer: "x < 0 , x > 0"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "סווגו את נקודות הקיצון שמצאנו לפונקציה f(x) = x<sup>2</sup> / (x - 2) בשיעורים x = 0 ו- x = 4.",
+        question: "מצאו את הנקודות שבהן הנגזרת מתאפסת עבור הפונקציה הבאה (היעזרו בכלל מנה):<br>y = x / (x<sup>2</sup> + 4)",
         options: [
-            "x=0 מקסימום, x=4 מינימום",
-            "x=0 מינימום, x=4 מקסימום",
-            "שתי הנקודות הן מינימום",
-            "שתי הנקודות הן מקסימום"
+            "x = 2 , x = -2",
+            "x = 4 , x = -4",
+            "x = 0",
+            "אין נקודות כאלה"
         ],
+        hint: "כלל מנה: נגזרת מונה (1) כפול מכנה, פחות מונה כפול נגזרת מכנה (2x). השוו את המונה החדש לאפס.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נשתמש במבחן הנגזרת הראשונה (בדיקת סימנים לפני ואחרי כל נקודה). נציב ערכים במונה הנגזרת שכן המכנה תמיד חיובי. עבור איקס שווה לאפס, נבדוק במינוס אחת ואחת.", math_expression: "f'(-1) = (-1)<sup>2</sup> - 4(-1) = 5 > 0" },
-            { verbal_explanation: "לפני אפס הפונקציה עולה. נציב אחת.", math_expression: "f'(1) = 1<sup>2</sup> - 4(1) = -3 < 0" },
-            { verbal_explanation: "אחרי אפס הפונקציה יורדת. מעבר מעלייה לירידה מגדיר מקסימום.", math_expression: "Max: x = 0" },
-            { verbal_explanation: "כעת נבדוק עבור איקס שווה ארבע. נציב שלוש וחמש. ב-3 כבר ראינו שהמגמה היא ירידה.", math_expression: "f'(3) = 3<sup>2</sup> - 4(3) = 9 - 12 = -3 < 0" },
-            { verbal_explanation: "נציב חמש במונה.", math_expression: "f'(5) = 5<sup>2</sup> - 4(5) = 25 - 20 = 5 > 0" },
-            { verbal_explanation: "אחרי ארבע הפונקציה עולה. מעבר מירידה לעלייה מגדיר מינימום.", math_expression: "Min: x = 4" }
+            { verbal_explanation: "נגזור לפי כלל המנה.", math_expression: "y' = [1(x^2 + 4) - x(2x)] / (x^2 + 4)^2" },
+            { verbal_explanation: "נפשט את המונה של הנגזרת.", math_expression: "y' = [x^2 + 4 - 2x^2] / (x^2 + 4)^2" },
+            { verbal_explanation: "נכנס איברים במונה (ארבע פחות איקס בריבוע).", math_expression: "y' = (4 - x^2) / (x^2 + 4)^2" },
+            { verbal_explanation: "נשווה את המונה של הנגזרת לאפס.", math_expression: "4 - x^2 = 0 => x^2 = 4" },
+            { verbal_explanation: "נוציא שורש לקבלת הפתרונות.", math_expression: "x = 2 , x = -2" }
         ],
-        final_answer: "x=0 מקסימום, x=4 מינימום"
+        final_answer: "x = 2 , x = -2"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "באיזה מהתחומים הבאים פונקציית הנגזרת f'(x) = (x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup> מקבלת ערכים חיוביים (ולכן הפונקציה עולה)?",
+        question: "מהו סוג הקיצון בנקודה x = 0 עבור הפונקציה f(x) = 1 / (x<sup>2</sup> + 1)?",
         options: [
-            "x &lt; 0  או  x &gt; 4",
-            "0 &lt; x &lt; 4",
-            "x &gt; 4",
-            "x &lt; 0"
+            "מקסימום (Max)",
+            "מינימום (Min)",
+            "נקודת פיתול",
+            "זו לא נקודת קיצון"
         ],
+        hint: "גזרו והציבו מספר קצת לפני אפס (למשל 1-) ומספר קצת אחרי אפס (למשל 1) כדי לבדוק האם השיפוע עולה ואז יורד (מקסימום) או יורד ואז עולה (מינימום).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נדרוש שהנגזרת תהיה גדולה מאפס.", math_expression: "(x<sup>2</sup> - 4x) / (x - 2)<sup>2</sup> > 0" },
-            { verbal_explanation: "מכיוון שהמכנה מועלה בריבוע, הוא תמיד חיובי (עבור איקס השונה משתיים). לכן סימן השבר נקבע רק על ידי המונה.", math_expression: "x<sup>2</sup> - 4x > 0" },
-            { verbal_explanation: "זוהי פרבולה מחייכת עם שורשים באפס וארבע. היא חיובית (מעל ציר האיקס) מחוץ לשורשים שלה.", math_expression: "x < 0 , x > 4" }
+            { verbal_explanation: "נמצא את הנגזרת בעזרת כלל מנה או שרשרת.", math_expression: "f'(x) = -2x / (x^2 + 1)^2" },
+            { verbal_explanation: "נציב ערך שלילי (לפני אפס) בנגזרת. מכיוון שיש מינוס במונה, המינוסים מתבטלים והתוצאה חיובית (עלייה).", math_expression: "x < 0 => f'(x) > 0" },
+            { verbal_explanation: "נציב ערך חיובי (אחרי אפס). המונה נשאר שלילי, ולכן הנגזרת שלילית (ירידה).", math_expression: "x > 0 => f'(x) < 0" },
+            { verbal_explanation: "מעבר משיפוע חיובי לשלילי (עלייה ואז ירידה) יוצר פסגה.", math_expression: "Max" }
         ],
-        final_answer: "x < 0  או  x > 4"
+        final_answer: "Max"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "מהו תחום הירידה המדויק של הפונקציה f(x) = x<sup>2</sup> / (x - 2)?<br>(זכרו להתחשב בתחום ההגדרה).",
+        question: "עבור אילו ערכי x הפונקציה f(x) = -1 / x קעורה כלפי מטה ('בוכה')?",
         options: [
-            "0 &lt; x &lt; 2  או  2 &lt; x &lt; 4",
-            "0 &lt; x &lt; 4",
-            "x &lt; 0  או  x &gt; 4",
-            "2 &lt; x &lt; 4"
+            "x < 0",
+            "x > 0",
+            "לכל x",
+            "היא קעורה כלפי מעלה תמיד"
         ],
+        hint: "כדי לבדוק קעירות, צריכים את הנגזרת השנייה. הנגזרת הראשונה היא 1/x². גזרו שוב, ותקבלו -2/x³. מתי הביטוי הזה שלילי?",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "תחום הירידה הוא התחום שבו המונה של הנגזרת שלילי. כלומר בין השורשים אפס וארבע.", math_expression: "0 < x < 4" },
-            { verbal_explanation: "אולם, הפונקציה והנגזרת שלה אינן מוגדרות בנקודה שמאפסת את המכנה המקורי.", math_expression: "x &ne; 2" },
-            { verbal_explanation: "לכן, עלינו לפצל את התחום הרציף שמצאנו לשני תתי-תחומים, תוך דילוג על הנקודה הבעייתית.", math_expression: "0 < x < 2 , 2 < x < 4" }
+            { verbal_explanation: "נגזור פעם ראשונה כדי לקבל את פונקציית השיפוע.", math_expression: "f'(x) = 1 / x^2 = x^{-2}" },
+            { verbal_explanation: "נגזור שוב לקבלת הנגזרת השנייה שאחראית על הקעירות.", math_expression: "f''(x) = -2x^{-3} = -2 / x^3" },
+            { verbal_explanation: "אנו מחפשים קעירות מטה, כלומר מתי הנגזרת השנייה קטנה מאפס.", math_expression: "-2 / x^3 < 0" },
+            { verbal_explanation: "המונה כבר שלילי. כדי שהתוצאה תישאר שלילית, המכנה חייב להיות חיובי.", math_expression: "x^3 > 0 => x > 0" }
         ],
-        final_answer: "0 < x < 2  או  2 < x < 4"
+        final_answer: "x > 0"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "נתונה הפונקציה: f(x) = 2x / (x - 1)<br>כמה נקודות קיצון יש לפונקציה זו?",
-        options: [
-            "אין נקודות קיצון",
-            "נקודה אחת",
-            "שתי נקודות",
-            "שלוש נקודות"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי למצוא נקודות קיצון, נגזור את הפונקציה לפי כלל המנה.", math_expression: "f'(x) = (2(x - 1) - 2x &times; 1) / (x - 1)<sup>2</sup>" },
-            { verbal_explanation: "נפשט את המונה של הנגזרת.", math_expression: "f'(x) = (2x - 2 - 2x) / (x - 1)<sup>2</sup>" },
-            { verbal_explanation: "האיקסים במונה מתבטלים ואנו מקבלים מספר קבוע ושלילי.", math_expression: "f'(x) = -2 / (x - 1)<sup>2</sup>" },
-            { verbal_explanation: "כאשר נשווה את הנגזרת לאפס, נקבל פסוק שקר. המונה לעולם אינו מתאפס.", math_expression: "-2 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; &empty;" },
-            { verbal_explanation: "מכיוון שהנגזרת אינה מתאפסת לעולם, לפונקציה זו אין נקודות קיצון כלל.", math_expression: "0" }
-        ],
-        final_answer: "אין נקודות קיצון"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "נתונה הפונקציה: f(x) = x + 4/x (עבור x &gt; 0).<br>מהו ערך ה-y של נקודת המינימום של הפונקציה?",
-        options: [
-            "4",
-            "2",
-            "0",
-            "8"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "זוהי פונקציה רציונלית פשוטה. נגזור את הפונקציה. הנגזרת של מספר חלקי איקס היא מינוס המספר חלקי איקס בריבוע.", math_expression: "f'(x) = 1 - 4 / x<sup>2</sup>" },
-            { verbal_explanation: "נשווה את הנגזרת לאפס.", math_expression: "1 - 4 / x<sup>2</sup> = 0" },
-            { verbal_explanation: "נעביר אגף.", math_expression: "1 = 4 / x<sup>2</sup>" },
-            { verbal_explanation: "נכפיל באיקס בריבוע ונוציא שורש. נבחר את הפתרון החיובי לפי התחום הנתון.", math_expression: "x<sup>2</sup> = 4 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 2" },
-            { verbal_explanation: "נציב את שיעור האיקס של נקודת הקיצון אל תוך הפונקציה המקורית למציאת ערך ה-y.", math_expression: "f(2) = 2 + 4 / 2" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "f(2) = 2 + 2 = 4" }
-        ],
-        final_answer: "4"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
-        subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "נתונה הפונקציה עם הפרמטר a:  f(x) = x / (x<sup>2</sup> + a)<br>ידוע שלפונקציה יש נקודת קיצון (מקסימום) בשיעור x = 3.<br>מהו ערכו של הפרמטר a?",
+        question: "לפונקציה y = x + a / x יש נקודת מינימום בדיוק כאשר x = 3. מהו ערכו של הפרמטר a?",
         options: [
             "9",
             "3",
-            "6",
+            "1",
             "-9"
         ],
+        hint: "גזרו את הפונקציה כשהפרמטר נשאר כמות שהוא: 1 פחות a/x². מכיוון שיש קיצון ב-3, הנגזרת שווה לאפס שם. הציבו 3 בנגזרת ומצאו את a.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה בעזרת כלל המנה, תוך השארת הפרמטר.", math_expression: "f'(x) = (1(x<sup>2</sup> + a) - x(2x)) / (x<sup>2</sup> + a)<sup>2</sup>" },
-            { verbal_explanation: "נפשט את המונה של הנגזרת.", math_expression: "f'(x) = (x<sup>2</sup> + a - 2x<sup>2</sup>) / (x<sup>2</sup> + a)<sup>2</sup> = (a - x<sup>2</sup>) / (x<sup>2</sup> + a)<sup>2</sup>" },
-            { verbal_explanation: "כדי למצוא את הפרמטר, נציב את הנקודה שבה הנגזרת מתאפסת (באיקס שווה לשלוש).", math_expression: "a - 3<sup>2</sup> = 0" },
-            { verbal_explanation: "נחשב את הריבוע ונעביר אגף.", math_expression: "a - 9 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = 9" }
+            { verbal_explanation: "נגזור את הפונקציה עם הפרמטר.", math_expression: "y' = 1 - a / x^2" },
+            { verbal_explanation: "כיוון שידוע שיש נקודת קיצון באיקס שווה שלוש, הנגזרת שם שווה לאפס.", math_expression: "1 - a / 3^2 = 0" },
+            { verbal_explanation: "נחשב את החזקה.", math_expression: "1 - a / 9 = 0" },
+            { verbal_explanation: "נעביר את השבר ימינה ונכפיל בתשע.", math_expression: "1 = a / 9 => a = 9" }
         ],
         final_answer: "9"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "על פי מאפייני חקירת פונקציה מסוימת, ידוע כי: יש לה אסימפטוטה אנכית ב-x=2, אסימפטוטה אופקית ב-y=1, נקודת מינימום ב-x=4 ונקודת מקסימום ב-x=0.<br>איזה מהגרפים הבאים עשוי לייצג את הפונקציה?",
+        question: "באיזו נקודה קיים <b>חור</b> (ולא אסימפטוטה) בפונקציה f(x) = (x<sup>2</sup> - 25) / (x - 5)?",
         options: [
-            "גרף היורד משמאל לאפס, עולה עד x=2, ומ-2 יורד עד 4 ואז עולה שוב",
-            "גרף העולה משמאל לאפס, יורד עד 2, יורד מ-2 עד 4, ואז עולה",
-            "גרף פרבולה",
-            "גרף בעל משיק אופקי יחיד ב-x=0"
+            "(5, 10)",
+            "(-5, 0)",
+            "(5, 5)",
+            "אין חור"
         ],
-        correctAnswer: 1,
+        hint: "פרקו מונה: (x-5)(x+5). צמצמו את הבעיה (x-5). הפונקציה המצומצמת היא y = x+5. הציבו בה את האיקס הבעייתי (5) כדי לגלות את הגובה.",
+        correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "ננתח את הנתונים משמאל לימין. נקודת מקסימום ב-x=0 משמעותה שהפונקציה עולה לפני אפס, ואז מתחילה לרדת אחריה.", math_expression: "x < 0 &rArr; Up &nbsp;,&nbsp; 0 < x < 2 &rArr; Down" },
-            { verbal_explanation: "ב-x=2 יש אסימפטוטה אנכית (שבר או קטיעה).", math_expression: "x = 2 &rArr; Asymptote" },
-            { verbal_explanation: "מצדה השני של האסימפטוטה, הפונקציה צריכה להגיע לנקודת מינימום ב-x=4. כלומר, היא יורדת מימין לאסימפטוטה עד x=4, ולאחר מכן מתחילה לעלות חזרה.", math_expression: "2 < x < 4 &rArr; Down &nbsp;,&nbsp; x > 4 &rArr; Up" },
-            { verbal_explanation: "התיאור שמשלב את כל המגמות הללו כרונולוגית תואם בדיוק לתיאור השני.", math_expression: "Correct Match" }
+            { verbal_explanation: "הנקודה הבעייתית שמאפסת את המכנה ואת המונה היא חמש.", math_expression: "x = 5" },
+            { verbal_explanation: "נצמצם את הפונקציה המקורית בעזרת פירוק המונה למכפלה.", math_expression: "[(x - 5)(x + 5)] / (x - 5)" },
+            { verbal_explanation: "הפונקציה המצומצמת שנותרה.", math_expression: "y = x + 5" },
+            { verbal_explanation: "נציב איקס שווה חמש כדי למצוא את הגובה שאמור היה להיות בחור.", math_expression: "y(5) = 5 + 5 = 10 => (5, 10)" }
         ],
-        final_answer: "גרף העולה משמאל לאפס, יורד עד 2, יורד מ-2 עד 4, ואז עולה"
+        final_answer: "(5, 10)"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "האם לפונקציה f(x) = 1 / x יש נקודת פיתול כלשהי בתחום הגדרתה?",
+        question: "מה קורה בנקודה x = 0 עבור הפונקציה f(x) = 1 / x<sup>2</sup>?",
         options: [
-            "לא, אין לה נקודות פיתול כלל",
-            "כן, ב-x=0",
-            "כן, ב-x=1",
-            "לא ניתן לדעת"
+            "אסימפטוטה אנכית",
+            "נקודת מינימום",
+            "נקודת חיתוך עם ציר y",
+            "נקודת פיתול"
         ],
+        hint: "האם מותר להציב 0 במכנה? כשהמונה מספר קבוע והמכנה מתאפס, נוצר קיר דמיוני שהפונקציה לא יכולה לעבור.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי למצוא נקודת פיתול, נגזור פעמיים. תחילה נכתוב את הפונקציה כחזקה שלילית ואז נגזור.", math_expression: "f(x) = x<sup>-1</sup> &nbsp;&nbsp;&rArr;&nbsp;&nbsp; f'(x) = -1x<sup>-2</sup>" },
-            { verbal_explanation: "נגזור פעם נוספת.", math_expression: "f''(x) = 2x<sup>-3</sup> = 2 / x<sup>3</sup>" },
-            { verbal_explanation: "נשווה את הנגזרת השנייה לאפס.", math_expression: "2 / x<sup>3</sup> = 0" },
-            { verbal_explanation: "מונה השבר (2) לעולם אינו מתאפס, ולכן המשוואה היא קבוצת ריקה. הנגזרת השנייה לא מתאפסת לעולם, ולכן אין נקודות פיתול.", math_expression: "2 = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; &empty;" }
+            { verbal_explanation: "הצבת אפס גורמת לחלוקה באפס.", math_expression: "x = 0 => 1 / 0" },
+            { verbal_explanation: "מאחר והמונה שונה מאפס והמכנה שווה לאפס, מדובר באסימפטוטה (שאיפה לאינסוף).", math_expression: "Asymptote" }
         ],
-        final_answer: "לא, אין לה נקודות פיתול כלל"
+        final_answer: "אסימפטוטה אנכית"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "עבור הפונקציה f(x) = 1 / (x<sup>2</sup> - 4), באיזה מהתחומים הבאים הפונקציה עולה?",
+        question: "הפונקציה y = x<sup>2</sup> / (x - 2) מוגדרת לכל x שאינו 2. מצאו את נקודות הקיצון שלה.",
         options: [
-            "x &lt; -2  או  -2 &lt; x &lt; 0",
-            "0 &lt; x &lt; 2  או  x &gt; 2",
-            "x &gt; 0",
-            "x &lt; 0"
+            "x = 0 , x = 4",
+            "x = 2 , x = -2",
+            "x = 0 בלבד",
+            "אין נקודות קיצון"
         ],
+        hint: "כלל מנה: במונה של הנגזרת תקבלו (x-2)2x - x²(1) שזה יוצא x² - 4x. השוו זאת לאפס.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה על ידי כלל המנה (עם מונה קבוע).", math_expression: "f'(x) = (0 - 1 &times; 2x) / (x<sup>2</sup> - 4)<sup>2</sup> = -2x / (x<sup>2</sup> - 4)<sup>2</sup>" },
-            { verbal_explanation: "כדי שהפונקציה תעלה, הנגזרת צריכה להיות חיובית.", math_expression: "-2x / (x<sup>2</sup> - 4)<sup>2</sup> > 0" },
-            { verbal_explanation: "המכנה תמיד חיובי (בריבוע). כדי שהשבר כולו יהיה חיובי, המונה חייב להיות גם הוא חיובי.", math_expression: "-2x > 0" },
-            { verbal_explanation: "נחלק במינוס שתיים, ונזכור להפוך את סימן אי-השוויון.", math_expression: "x < 0" },
-            { verbal_explanation: "אולם, יש להוציא מהתחום את נקודות אי-ההגדרה של המכנה (פלוס/מינוס שתיים).", math_expression: "x &ne; -2" },
-            { verbal_explanation: "לכן, התחום מפוצל לשניים, תוך דילוג על הנקודה הבעייתית.", math_expression: "x < -2 , -2 < x < 0" }
+            { verbal_explanation: "נגזור לפי מנה ונשווה רק את המונה של הנגזרת לאפס.", math_expression: "2x(x - 2) - 1(x^2) = 0" },
+            { verbal_explanation: "נפתח סוגריים.", math_expression: "2x^2 - 4x - x^2 = 0" },
+            { verbal_explanation: "נכנס איברים למשוואה פשוטה.", math_expression: "x^2 - 4x = 0" },
+            { verbal_explanation: "נוציא גורם משותף ונמצא את שתי הנקודות המאפסות.", math_expression: "x(x - 4) = 0 => x = 0 , x = 4" }
         ],
-        final_answer: "x < -2  או  -2 < x < 0"
+        final_answer: "x = 0 , x = 4"
     },
     {
         topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
         subTopic: "חקירה מלאה (קיצון, עלייה/ירידה, פיתול, קעירות)",
-        question: "גרף הפונקציה f(x) חותך את ציר ה-x רק בנקודה שבה x=0, ויש לו נקודת קיצון יחידה (מינימום) בנקודה שבה x=3. כמו כן יש לפונקציה אסימפטוטה אנכית ב-x=1.<br>איך ייראה גרף הנגזרת שלה, f'(x)?",
+        question: "מהו תחום ה<b>עלייה</b> של הפונקציה f(x) = -4 / x ?",
         options: [
-            "יחתוך את ציר ה-x ב-x=3, ותהיה לו אסימפטוטה ב-x=1",
-            "יחתוך את ציר ה-x ב-x=0, ותהיה לו אסימפטוטה ב-x=1",
-            "יהיה קו ישר העובר בראשית",
-            "יהיה פרבולה"
+            "x < 0 , x > 0 (עולה תמיד בתחומה)",
+            "רק עבור x חיוביים",
+            "רק עבור x שליליים",
+            "היא פונקציה יורדת"
         ],
+        hint: "הנגזרת של -4 חלקי x היא +4 חלקי x². המונה חיובי, המכנה (בריבוע) חיובי. חיובי חלקי חיובי הוא תמיד חיובי.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נקודת המינימום של הפונקציה מתרחשת כאשר שיעור ה-x הוא שלוש. בנקודה זו, הנגזרת מתאפסת.", math_expression: "f'(3) = 0" },
-            { verbal_explanation: "התאפסות הנגזרת משמעותה חיתוך עם ציר ה-x בגרף הנגזרת.", math_expression: "(3, 0)" },
-            { verbal_explanation: "האסימפטוטה האנכית של הפונקציה המקורית נשארת כנקודת אי-הגדרה גם עבור פונקציית הנגזרת (היא לא יכולה להיות גזירה במקום שאינה מוגדרת).", math_expression: "x = 1" }
+            { verbal_explanation: "נמצא את הנגזרת.", math_expression: "f'(x) = 4 / x^2" },
+            { verbal_explanation: "המכנה מועלה בריבוע, ולכן חיובי תמיד. המונה הוא מספר חיובי. לכן השבר כולו חיובי.", math_expression: "f'(x) > 0" },
+            { verbal_explanation: "נגזרת חיובית מעידה על פונקציה הנמצאת בעלייה תמידית בכל התחום בו היא מוגדרת.", math_expression: "Upwards" }
         ],
-        final_answer: "יחתוך את ציר ה-x ב-x=3, ותהיה לו אסימפטוטה ב-x=1"
+        final_answer: "x < 0 , x > 0 (עולה תמיד בתחומה)"
+    },
+
+    // =====================================================================
+    // תת-נושא 5: שרטוט סקיצה של פונקציה רציונלית (10 שאלות)
+    // =====================================================================
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "איזה מהגרפים הבאים מתאים בצורה הטובה ביותר לפונקציה y = 1 / x ?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto; background:#f8fafc; border-radius:8px;'><path d='M 100,0 L 100,150' stroke='#cbd5e1' stroke-width='2'/><path d='M 0,75 L 200,75' stroke='#cbd5e1' stroke-width='2'/><path d='M 105,10 Q 105,70 190,70' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 10,80 Q 95,80 95,140' fill='none' stroke='#3b82f6' stroke-width='3'/></svg>",
+        options: [
+            "גרף המורכב משתי עקומות: ברביע הראשון וברביע השלישי",
+            "גרף המורכב משתי עקומות: ברביע הראשון וברביע השני",
+            "פרבולה 'מחייכת'",
+            "קו ישר שיורד משמאל לימין"
+        ],
+        hint: "כש-x חיובי, y חיובי (רביע 1: למעלה וימינה). כש-x שלילי, y שלילי (רביע 3: למטה ושמאלה).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "כאשר מציבים איקס חיובי, התוצאה חיובית. לכן חלק מהגרף נמצא ברביע העליון הימני.", math_expression: "x > 0 => y > 0" },
+            { verbal_explanation: "כאשר מציבים איקס שלילי, התוצאה שלילית. חלק זה נמצא ברביע התחתון השמאלי.", math_expression: "x < 0 => y < 0" }
+        ],
+        final_answer: "גרף המורכב משתי עקומות: ברביע הראשון וברביע השלישי"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "איזה מהתיאורים הבאים מתאים לגרף של הפונקציה y = 1 / x<sup>2</sup> ?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto; background:#f8fafc; border-radius:8px;'><path d='M 100,0 L 100,150' stroke='#cbd5e1' stroke-width='2'/><path d='M 0,110 L 200,110' stroke='#cbd5e1' stroke-width='2'/><path d='M 105,10 Q 105,105 190,105' fill='none' stroke='#10b981' stroke-width='3'/><path d='M 95,10 Q 95,105 10,105' fill='none' stroke='#10b981' stroke-width='3'/></svg>",
+        options: [
+            "שתי עקומות ששתיהן מעל ציר ה-x (חיוביות תמיד)",
+            "עקומה אחת ברביע הראשון ואחת ברביע השלישי",
+            "פרבולה 'בוכה'",
+            "עקומה יחידה החותכת את ציר ה-y"
+        ],
+        hint: "מכיוון שהמשתנה במכנה מועלה בריבוע, הערך של הפונקציה כולה חייב להיות תמיד חיובי, גם אם מציבים x שלילי. לכן הכל מעל הציר.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשתנה במכנה נמצא תחת חזקה זוגית. חזקה זוגית הופכת כל מספר (חיובי או שלילי) למספר חיובי.", math_expression: "x^2 > 0" },
+            { verbal_explanation: "לכן, פונקציה זו מחזירה תמיד ערכי Y חיובים. הגרף כולו נמצא 'באוויר' מעל ציר האיקס.", math_expression: "y > 0" }
+        ],
+        final_answer: "שתי עקומות ששתיהן מעל ציר ה-x (חיוביות תמיד)"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "בפונקציה f(x) = (x - 2) / (x<sup>2</sup> - 4x + 4), נמצא שתיאור הגרף מכיל אסימפטוטה. היכן היא ממוקמת?",
+        options: [
+            "x = 2",
+            "y = 2",
+            "x = 4",
+            "אין אסימפטוטה, רק חור"
+        ],
+        hint: "המכנה מתפרק לכפל מקוצר של (x-2) בריבוע. כלומר, במכנה יש פעמיים x-2 ובמונה פעם אחת. אם נצמצם אחד, יישאר במכנה עוד אחד. לכן זו אסימפטוטה ולא חור.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נפרק את המכנה בעזרת נוסחת כפל מקוצר.", math_expression: "(x - 2)^2" },
+            { verbal_explanation: "נרשום את השבר ואת הצמצום עם המונה.", math_expression: "(x - 2) / (x - 2)^2 = 1 / (x - 2)" },
+            { verbal_explanation: "מכיוון שעדיין נשאר לנו משתנה במכנה לאחר הצמצום, הנקודה לא נסלקה לגמרי אלא יוצרת אסימפטוטה.", math_expression: "x = 2" }
+        ],
+        final_answer: "x = 2"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "התבוננו בנתונים: לפונקציה אין נקודות חיתוך עם ציר x, יש לה אסימפטוטה אופקית y=1 ואנכית x=0. <br>איזו מהפונקציות תואמת לתיאור?",
+        options: [
+            "y = (x^2 + 1) / x^2",
+            "y = (x + 1) / x",
+            "y = x^2 / (x^2 + 1)",
+            "y = 1 / x"
+        ],
+        hint: "בדקו פונקציה שבה המונה אינו מתאפס אף פעם (אין חיתוך), החזקות שוות (כדי שיהיה y=1), והמכנה מתאפס ב-0.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "אסימפטוטה אופקית אחת דורשת חזקות שוות במונה ובמכנה.", math_expression: "x^2 / x^2 = 1" },
+            { verbal_explanation: "אסימפטוטה אנכית באפס דורשת מכנה שמתאפס באפס.", math_expression: "x^2 = 0 => x = 0" },
+            { verbal_explanation: "אין חיתוך עם ציר איקס דורש מונה שלעולם אינו מתאפס.", math_expression: "x^2 + 1 = 0 => None" },
+            { verbal_explanation: "הפונקציה הראשונה מקיימת את כל התנאים.", math_expression: "y = (x^2 + 1) / x^2" }
+        ],
+        final_answer: "y = (x^2 + 1) / x^2"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "איך ייראה בערך הגרף של פונקציה שהנגזרת שלה שלילית תמיד בתחום x > 3 וחיובית תמיד בתחום x < 3, עם אסימפטוטה ב x=3?",
+        options: [
+            "עולה משמאל לאסימפטוטה ויורדת מימינה (כמו הר גזור)",
+            "יורדת משמאל לאסימפטוטה ועולה מימינה (כמו קערה גזורה)",
+            "עולה תמיד",
+            "יורדת תמיד"
+        ],
+        hint: "לפני 3 (x < 3) הנגזרת חיובית = הפונקציה עולה ומתקרבת לקיר מהשמאל. אחרי 3 (x > 3) הנגזרת שלילית = הפונקציה יורדת ומתרחקת מהקיר מימין.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נגזרת חיובית שווה לעלייה. לפני האסימפטוטה הגרף מטפס.", math_expression: "x < 3 => Upwards" },
+            { verbal_explanation: "נגזרת שלילית שווה לירידה. אחרי האסימפטוטה הגרף צונח מטה.", math_expression: "x > 3 => Downwards" }
+        ],
+        final_answer: "עולה משמאל לאסימפטוטה ויורדת מימינה (כמו הר גזור)"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "פונקציה שואפת לאסימפטוטה האופקית y=0 גם כש-x שואף לאינסוף חיובי וגם לשלילי.<br>מה ניתן להסיק לגבי החזקות של הפונקציה הרציונלית שלה?",
+        options: [
+            "החזקה הגבוהה ביותר נמצאת במכנה",
+            "החזקה הגבוהה ביותר נמצאת במונה",
+            "החזקות הגבוהות שוות",
+            "זו לא פונקציה רציונלית"
+        ],
+        hint: "הכלל אומר: כאשר המכנה חזק יותר מהמונה (חזקה גדולה יותר), המכנה גדל מהר יותר והשבר הופך קטן יותר ושואף לאפס.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "כדי שהפונקציה תשאף לאפס, הערך התחתון של השבר צריך להיות גדול ומשמעותי בהרבה מהערך העליון.", math_expression: "Denominator > Numerator" },
+            { verbal_explanation: "תנאי זה מתקיים רק כאשר חזקת המכנה גדולה יותר.", math_expression: "y = 0" }
+        ],
+        final_answer: "החזקה הגבוהה ביותר נמצאת במכנה"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "נתון הגרף של פונקציה y = x / (x<sup>2</sup> - 1). באילו אסימפטוטות <b>אנכיות</b> נעזר השרטוט כדי 'להיקרע' לשלושה חלקים?",
+        options: [
+            "x = 1 , x = -1",
+            "x = 0",
+            "y = 1 , y = -1",
+            "x = 1 בלבד"
+        ],
+        hint: "הגרף נחתך היכן שהמכנה שווה לאפס. x² - 1 = 0 נותן שתי תוצאות חיובית ושלילית.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המכנה קובע את הקרעים בגרף (האסימפטוטות האנכיות).", math_expression: "x^2 - 1 = 0" },
+            { verbal_explanation: "נוציא שורש למציאת שני הקירות האנכיים.", math_expression: "x = 1 , x = -1" }
+        ],
+        final_answer: "x = 1 , x = -1"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "בשרטוט של פונקציה מסוימת מתגלה 'חור' על ציר ה-x (כלומר, ב-y=0). מהו התנאי המתמטי שאפשר ליצור חור כזה?",
+        options: [
+            "ערך x המאפס את המונה ואת המכנה יחד",
+            "ערך x המאפס רק את המונה",
+            "ערך x המאפס רק את המכנה",
+            "אין דבר כזה חור על ציר ה-x"
+        ],
+        hint: "חור נוצר מהתאפסות כפולה של מונה ומכנה (והימצאות על ציר x נובעת מכך שהמונה היה מתאפס שם אם היינו מצמצמים).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "התנאי הבסיסי לקיום נקודת חור (אי רציפות סליקה) הוא שמספר מאפס גם את החלק העליון וגם את התחתון באותו הזמן.", math_expression: "Numerator = 0 , Denominator = 0" }
+        ],
+        final_answer: "ערך x המאפס את המונה ואת המכנה יחד"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "איך תזהו בשרטוט אם הנקודה (3,4) היא נקודת מקסימום או נקודת מינימום?",
+        options: [
+            "מקסימום נראה כמו פסגה של הר, מינימום נראה כמו תחתית של עמק",
+            "מקסימום חותך את האסימפטוטה",
+            "מינימום נמצא תמיד מתחת לציר ה-x",
+            "מקסימום תמיד גבוה יותר מנקודת מינימום בגרף (לא נכון לפונקציות רציונליות!)"
+        ],
+        hint: "קלאסי! מקסימום הוא מעבר מעלייה לירידה (כיפה). שימו לב שברציונליות, נקודת מינימום של ענף עליון יכולה להיות גבוהה מספרית ממקסימום של ענף תחתון.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "מקסימום נוצר מעלייה ואחריה ירידה, ולכן יוצר צורה של כיפה או הר.", math_expression: "Upwards => Downwards" },
+            { verbal_explanation: "מינימום נוצר מירידה ואחריה עלייה, ולכן יוצר צורה של קערה או עמק.", math_expression: "Downwards => Upwards" }
+        ],
+        final_answer: "מקסימום נראה כמו פסגה של הר, מינימום נראה כמו תחתית של עמק"
+    },
+    {
+        topic: "חשבון דיפרנציאלי - פונקציות רציונליות",
+        subTopic: "שרטוט סקיצה של פונקציה רציונלית",
+        question: "לפניכם נתוני חקירה: אסימפטוטה x=0. קיצון מינימום ב- x=2. קיצון מקסימום ב- x=-2.<br>איזו מבין הפונקציות הבאות מתאימה לנתונים?",
+        options: [
+            "y = x + 4 / x",
+            "y = x - 4 / x",
+            "y = x^2 / (x - 2)",
+            "y = 1 / x"
+        ],
+        hint: "בדקו את הפונקציה הראשונה. הנגזרת היא 1 פחות 4 חלקי x². אם נשווה לאפס, נקבל x²=4, שזה נותן לנו בדיוק את הקיצון ב-2 ובמינוס 2! האסימפטוטה באפס (חלוקה באפס).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "אסימפטוטה באפס קיימת בפונקציה הראשונה כי יש בה שבר שהמכנה שלו הוא איקס בודד.", math_expression: "x = 0" },
+            { verbal_explanation: "נגזור את הפונקציה הראשונה ונשווה לאפס כדי לאמת את הקיצון.", math_expression: "y' = 1 - 4 / x^2 = 0" },
+            { verbal_explanation: "נעביר אגף ונפתור.", math_expression: "1 = 4 / x^2 => x^2 = 4" },
+            { verbal_explanation: "נקבל בדיוק את הערכים שהובאו בנתוני החקירה.", math_expression: "x = 2 , x = -2" }
+        ],
+        final_answer: "y = x + 4 / x"
     }
 ];

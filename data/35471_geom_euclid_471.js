@@ -1,1868 +1,1614 @@
 const questionsDB = [
     // =====================================================================
-    // תת-נושא 1: משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו) (12 שאלות)
+    // תת-נושא 1: משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו) (10 שאלות)
     // =====================================================================
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "במשולש ABC מועבר קטע DE המקביל לצלע BC (הנקודה D על AB והנקודה E על AC). נתון: AD = 4 ס\"מ, DB = 6 ס\"מ, AE = 8 ס\"מ. לפי משפט תאלס, מהו אורך הקטע EC?",
+        question: "במשולש ABC עובר קטע DE המקביל לצלע BC.<br>נתון:<br>AD = 6 , DB = 3 , AE = 8<br>חשבו את אורך הקטע EC (נסמנו ב-x) לפי משפט תאלס הרגיל.<br><svg viewBox='0 0 200 150' width='180' height='135' style='display:block; margin: 15px auto;'><polygon points='100,20 40,130 160,130' fill='#f8fafc' stroke='#3b82f6' stroke-width='2'/><line x1='60' y1='93' x2='140' y2='93' stroke='#ef4444' stroke-width='2'/><text x='100' y='15' text-anchor='middle' font-weight='bold'>A</text><text x='25' y='140' font-weight='bold'>B</text><text x='165' y='140' font-weight='bold'>C</text><text x='45' y='90' font-weight='bold'>D</text><text x='145' y='90' font-weight='bold'>E</text><text x='70' y='55' font-size='12'>6</text><text x='125' y='55' font-size='12'>8</text><text x='40' y='115' font-size='12'>3</text><text x='155' y='115' font-size='12'>x</text></svg>",
         options: [
-            "12 ס\"מ",
-            "10 ס\"מ",
-            "16 ס\"מ",
-            "8 ס\"מ"
+            "4",
+            "5",
+            "3",
+            "6"
         ],
+        hint: "משפט תאלס קובע שישר המקביל לצלע במשולש מקצה על שתי הצלעות האחרות קטעים פרופורציוניים. לכן: AD / DB = AE / EC.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "לפי משפט תאלס הבסיסי, ישר המקביל לצלע במשולש חותך את שתי הצלעות האחרות בקטעים פרופורציונליים.", math_expression: "AD / DB = AE / EC" },
-            { verbal_explanation: "נציב את הנתונים הידועים לתוך הפרופורציה.", math_expression: "4 / 6 = 8 / x" },
-            { verbal_explanation: "נבצע כפל בהצלבה כדי לחלץ את הנעלם.", math_expression: "4 &times; x = 6 &times; 8" },
-            { verbal_explanation: "נחשב את המכפלה באגף ימין.", math_expression: "4 &times; x = 48" },
-            { verbal_explanation: "נחלק בארבע כדי למצוא את אורך הקטע המבוקש.", math_expression: "x = 12" }
-        ],
-        final_answer: "12"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "נתונים שני ישרים מקבילים AB ו-CD. שני ישרים חותכים אותם ונפגשים בנקודה O שביניהם (נוצרת צורת 'שעון חול'). נתון: AO = 3 ס\"מ, OC = 9 ס\"מ, ואורך AB הוא 5 ס\"מ. לפי הרחבת משפט תאלס (או דמיון משולשים), מהו אורך הקטע CD?",
-        options: [
-            "15 ס\"מ",
-            "12 ס\"מ",
-            "18 ס\"מ",
-            "20 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "צורת 'שעון חול' בין ישרים מקבילים יוצרת משולשים דומים, והיחס בין חלקי החותך שווה ליחס בין הבסיסים המקבילים.", math_expression: "AO / OC = AB / CD" },
-            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "3 / 9 = 5 / x" },
-            { verbal_explanation: "נצמצם את השבר באגף שמאל (נחלק מונה ומכנה בשלוש).", math_expression: "1 / 3 = 5 / x" },
-            { verbal_explanation: "נבצע כפל בהצלבה.", math_expression: "1 &times; x = 3 &times; 5" },
-            { verbal_explanation: "נחשב את התוצאה הסופית.", math_expression: "x = 15" }
-        ],
-        final_answer: "15"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "שני משולשים דומים זה לזה. יחס הדמיון הקווי (יחס הצלעות) בין המשולש הקטן למשולש הגדול הוא 1:4. אם שטח המשולש הקטן הוא 5 סמ\"ר, מהו שטח המשולש הגדול?",
-        options: [
-            "80 סמ\"ר",
-            "20 סמ\"ר",
-            "40 סמ\"ר",
-            "100 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במשולשים דומים, יחס השטחים שווה לריבוע יחס הדמיון הקווי.", math_expression: "S_1 / S_2 = k<sup>2</sup>" },
-            { verbal_explanation: "יחס הדמיון הנתון הוא רבע.", math_expression: "k = 1 / 4" },
-            { verbal_explanation: "נעלה את יחס הדמיון בריבוע כדי למצוא את יחס השטחים.", math_expression: "k<sup>2</sup> = (1 / 4)<sup>2</sup> = 1 / 16" },
-            { verbal_explanation: "נציב את שטח המשולש הקטן אל תוך משוואת יחס השטחים.", math_expression: "5 / S_2 = 1 / 16" },
-            { verbal_explanation: "נכפיל בהצלבה כדי למצוא את שטח המשולש הגדול.", math_expression: "S_2 = 5 &times; 16 = 80" }
-        ],
-        final_answer: "80"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "במשולש ABC, הקטע AD חוצה את זווית A (הנקודה D נמצאת על BC). נתון: AB = 10 ס\"מ, AC = 15 ס\"מ, ו-BD = 4 ס\"מ. על פי משפט חוצה הזווית, מהו אורך הקטע DC?",
-        options: [
-            "6 ס\"מ",
-            "8 ס\"מ",
-            "5 ס\"מ",
-            "10 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "לפי משפט חוצה זווית פנימית, היחס בין קטעי הצלע שממול שווה ליחס הצלעות הכולאות את הזווית.", math_expression: "AB / AC = BD / DC" },
-            { verbal_explanation: "נציב את הנתונים הידועים.", math_expression: "10 / 15 = 4 / x" },
-            { verbal_explanation: "נצמצם את השבר השמאלי על ידי חלוקה בחמש.", math_expression: "2 / 3 = 4 / x" },
-            { verbal_explanation: "נבצע כפל בהצלבה.", math_expression: "2 &times; x = 3 &times; 4" },
-            { verbal_explanation: "נחשב ונחלק בשתיים.", math_expression: "2x = 12 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 6" }
-        ],
-        final_answer: "6"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "במשולש ישר זווית ABC (הזווית הקודקודית היא 90&deg;), מורידים גובה ליתר. נתון כי היטל הניצב הראשון על היתר הוא 4 ס\"מ, והיטל הניצב השני על היתר הוא 9 ס\"מ. מהו אורך הגובה?",
-        options: [
-            "6 ס\"מ",
-            "13 ס\"מ",
-            "36 ס\"מ",
-            "5 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במשולש ישר זווית, הגובה ליתר בריבוע שווה למכפלת היטלי הניצבים על היתר.", math_expression: "h<sup>2</sup> = x &times; y" },
-            { verbal_explanation: "נציב את אורכי ההיטלים הידועים.", math_expression: "h<sup>2</sup> = 4 &times; 9" },
-            { verbal_explanation: "נחשב את המכפלה.", math_expression: "h<sup>2</sup> = 36" },
-            { verbal_explanation: "נוציא שורש ריבועי כדי למצוא את האורך של הגובה.", math_expression: "h = 6" }
-        ],
-        final_answer: "6"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "שני משולשים דומים. היקף המשולש הראשון הוא 20 ס\"מ והיקף המשולש השני הוא 60 ס\"מ. אם אורך צלע במשולש הקטן הוא 5 ס\"מ, מהו אורך הצלע המתאימה במשולש הגדול?",
-        options: [
-            "15 ס\"מ",
-            "20 ס\"מ",
-            "10 ס\"מ",
-            "30 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במשולשים דומים, יחס ההיקפים שווה ליחס הדמיון הקווי.", math_expression: "k = P_1 / P_2 = 20 / 60" },
-            { verbal_explanation: "נצמצם את השבר כדי למצוא את יחס הדמיון המדויק.", math_expression: "k = 1 / 3" },
-            { verbal_explanation: "יחס הדמיון הקווי חל על כל זוג צלעות מתאימות.", math_expression: "a / b = 1 / 3" },
-            { verbal_explanation: "נציב את אורך הצלע הידועה.", math_expression: "5 / b = 1 / 3" },
-            { verbal_explanation: "נכפיל בהצלבה כדי למצוא את אורך הצלע הגדולה.", math_expression: "b = 5 &times; 3 = 15" }
-        ],
-        final_answer: "15"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "במשולש ABC, נקודה D על AB ונקודה E על AC כך ש-DE מקביל לבסיס BC. לפי משפט תאלס המורחב, נתון: AD = 3, AB (הצלע המלאה) = 9, ואורך הקטע המקביל DE = 4. מהו אורך הבסיס BC?",
-        options: [
-            "12",
-            "16",
-            "10",
-            "27"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "משפט תאלס המורחב קובע שהיחס בין קטע צדדי עליון לצלע השלמה, שווה ליחס בין שני הישרים המקבילים.", math_expression: "AD / AB = DE / BC" },
-            { verbal_explanation: "נציב את הנתונים הידועים למשוואה.", math_expression: "3 / 9 = 4 / x" },
-            { verbal_explanation: "נצמצם את השבר משמאל לשליש.", math_expression: "1 / 3 = 4 / x" },
-            { verbal_explanation: "נבצע כפל בהצלבה.", math_expression: "1 &times; x = 4 &times; 3" },
-            { verbal_explanation: "נחשב את אורך הבסיס המלא.", math_expression: "x = 12" }
-        ],
-        final_answer: "12"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "נתונים שני משולשים חופפים. במשולש הראשון, שתי זוויות שוות ל-40&deg; ו-60&deg;. מהי הזווית השלישית במשולש השני?",
-        options: [
-            "80&deg;",
-            "100&deg;",
-            "60&deg;",
-            "40&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "סכום הזוויות בכל משולש הוא תמיד 180 מעלות. נחשב את הזווית השלישית במשולש הראשון.", math_expression: "&alpha; = 180 - (40 + 60)" },
-            { verbal_explanation: "נחבר את הזוויות שבסוגריים.", math_expression: "&alpha; = 180 - 100" },
-            { verbal_explanation: "נחשב את ההפרש.", math_expression: "&alpha; = 80" },
-            { verbal_explanation: "במשולשים חופפים, כל הזוויות המתאימות שוות. לכן הזווית השלישית במשולש השני היא זהה.", math_expression: "&beta; = 80" }
-        ],
-        final_answer: "80"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "במשולש ישר זווית, הורידו גובה ליתר. אורך היתר כולו הוא 25 ס\"מ, וההיטל של הניצב על היתר הוא 9 ס\"מ. על פי המשפט שניצב בריבוע שווה למכפלת היתר כולו בהיטל של אותו הניצב, מהו אורך הניצב?",
-        options: [
-            "15 ס\"מ",
-            "20 ס\"מ",
-            "12 ס\"מ",
-            "16 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשתמש במשפט ההיטלים במשולש ישר זווית: ניצב בריבוע שווה למכפלת היתר בהיטל של אותו ניצב.", math_expression: "a<sup>2</sup> = c &times; x" },
-            { verbal_explanation: "נציב את הנתונים הידועים.", math_expression: "a<sup>2</sup> = 25 &times; 9" },
-            { verbal_explanation: "נחשב את המכפלה.", math_expression: "a<sup>2</sup> = 225" },
-            { verbal_explanation: "נוציא שורש ריבועי כדי למצוא את אורך הניצב.", math_expression: "a = 15" }
-        ],
-        final_answer: "15"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "במשולש שווה שוקיים, זווית הראש שווה ל-50&deg;. מה גודלה של כל אחת מזוויות הבסיס?",
-        options: [
-            "65&deg;",
-            "50&deg;",
-            "130&deg;",
-            "60&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "סכום כל הזוויות במשולש הוא 180 מעלות. נחסר את זווית הראש מהסכום הכולל כדי למצוא את סכום שתי זוויות הבסיס.", math_expression: "x + y = 180 - 50" },
-            { verbal_explanation: "במשולש שווה שוקיים, שתי זוויות הבסיס שוות זו לזו.", math_expression: "x + x = 130" },
-            { verbal_explanation: "נחלק את הסכום בשתיים.", math_expression: "2x = 130 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 65" }
-        ],
-        final_answer: "65"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "בשני משולשים דומים, ידוע כי יחס השטחים הוא 1:25. אם היקף המשולש הקטן הוא 12 ס\"מ, מהו היקף המשולש הגדול?",
-        options: [
-            "60 ס\"מ",
-            "300 ס\"מ",
-            "120 ס\"מ",
-            "24 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "אנו יודעים כי יחס השטחים שווה לריבוע יחס הדמיון (היחס הקווי).", math_expression: "k<sup>2</sup> = 1 / 25" },
-            { verbal_explanation: "נוציא שורש כדי למצוא את יחס הדמיון הקווי.", math_expression: "k = 1 / 5" },
-            { verbal_explanation: "יחס הדמיון תקף גם ליחס שבין היקפי המשולשים.", math_expression: "P_1 / P_2 = 1 / 5" },
-            { verbal_explanation: "נציב את היקף המשולש הקטן במשוואה.", math_expression: "12 / P_2 = 1 / 5" },
-            { verbal_explanation: "נכפיל בהצלבה כדי למצוא את היקף המשולש הגדול.", math_expression: "P_2 = 12 &times; 5 = 60" }
-        ],
-        final_answer: "60"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
-        question: "שני קטעים נחתכים בנקודה ויוצרים שני משולשים צמודים קודקוד. נתון: צלע אחת 4 וסמוכה 8 במשולש א'. במשולש ב': צלע מתאימה 5 וסמוכה 10. הזווית ביניהן קודקודית ולכן שווה. מהו יחס הדמיון בין המשולש הקטן לגדול?",
-        options: [
-            "1:2",
-            "1:4",
-            "4:5",
-            "הם אינם דומים"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נבדוק את יחס הצלעות הכולאות את הזווית הקודקודית במשולש הראשון ביחס למשולש השני.", math_expression: "a / b = 4 / 8 = 1 / 2" },
-            { verbal_explanation: "נבדוק את יחס הזוג השני של הצלעות.", math_expression: "c / d = 5 / 10 = 1 / 2" },
-            { verbal_explanation: "מכיוון ששני יחסי הצלעות שווים, והזווית הכלואה ביניהן שווה (קודקודית), המשולשים דומים, ויחס הדמיון הוא החלוקה שקיבלנו.", math_expression: "k = 1 / 2" }
-        ],
-        final_answer: "1:2"
-    },
-
-    // =====================================================================
-    // תת-נושא 2: משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון (12 שאלות)
-    // =====================================================================
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "במקבילית, ידוע כי זווית אחת שווה ל-75&deg;. מהו גודלה של הזווית הסמוכה לה?",
-        options: [
-            "105&deg;",
-            "75&deg;",
-            "15&deg;",
-            "180&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במקבילית, הצלעות הנגדיות מקבילות זו לזו. לכן, סכום כל שתי זוויות סמוכות הוא 180 מעלות.", math_expression: "x + y = 180" },
-            { verbal_explanation: "נציב את הזווית הידועה למשוואה.", math_expression: "75 + y = 180" },
-            { verbal_explanation: "נחסר 75 משני אגפי המשוואה.", math_expression: "y = 180 - 75" },
-            { verbal_explanation: "נחשב את התוצאה הסופית.", math_expression: "y = 105" }
-        ],
-        final_answer: "105"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "במלבן, אלכסון אחד מחולק לשני חצאים שווים על ידי נקודת המפגש. אם אורך חצי האלכסון הוא 8 ס\"מ, מהו אורך האלכסון השני כולו?",
-        options: [
-            "16 ס\"מ",
-            "8 ס\"מ",
-            "32 ס\"מ",
-            "4 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במלבן, האלכסונים חוצים זה את זה. לכן אורך אלכסון שלם שווה לפעמיים החצי שלו.", math_expression: "d_1 = 2 &times; 8 = 16" },
-            { verbal_explanation: "בנוסף, תכונה של מלבן היא שהאלכסונים שווים זה לזה באורכם.", math_expression: "d_2 = d_1" },
-            { verbal_explanation: "מכאן שאורך האלכסון השני שווה בדיוק לאורך האלכסון שחושב.", math_expression: "d_2 = 16" }
-        ],
-        final_answer: "16"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "במעוין, אורכי האלכסונים הם 10 ס\"מ ו-24 ס\"מ. מהו אורך צלע המעוין?",
-        options: [
-            "13 ס\"מ",
-            "17 ס\"מ",
-            "12 ס\"מ",
-            "26 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במעוין, האלכסונים חוצים זה את זה ומאונכים זה לזה. הם מחלקים את המעוין לארבעה משולשים ישרי זווית. נחשב את הניצבים של משולש כזה.", math_expression: "x = 10 / 2 = 5 &nbsp;,&nbsp; y = 24 / 2 = 12" },
-            { verbal_explanation: "נשתמש במשפט פיתגורס כדי למצוא את היתר, שהוא צלע המעוין.", math_expression: "a<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup>" },
-            { verbal_explanation: "נציב את ערכי הניצבים.", math_expression: "a<sup>2</sup> = 5<sup>2</sup> + 12<sup>2</sup>" },
-            { verbal_explanation: "נעלה בריבוע ונחבר.", math_expression: "a<sup>2</sup> = 25 + 144 = 169" },
-            { verbal_explanation: "נוציא שורש ריבועי כדי למצוא את אורך הצלע.", math_expression: "a = 13" }
-        ],
-        final_answer: "13"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "מהו שטחו של מעוין שאורכי אלכסוניו הם 10 ס\"מ ו-24 ס\"מ?",
-        options: [
-            "120 סמ\"ר",
-            "240 סמ\"ר",
-            "60 סמ\"ר",
-            "13 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הנוסחה לחישוב שטח מעוין היא מחצית ממכפלת שני האלכסונים.", math_expression: "S = (d_1 &times; d_2) / 2" },
-            { verbal_explanation: "נציב את אורכי האלכסונים בנוסחה.", math_expression: "S = (10 &times; 24) / 2" },
-            { verbal_explanation: "נבצע את הכפל במונה.", math_expression: "S = 240 / 2" },
-            { verbal_explanation: "נחלק בשתיים לקבלת השטח הסופי.", math_expression: "S = 120" }
-        ],
-        final_answer: "120"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "בריבוע, אורך הצלע הוא 5 ס\"מ. מהו אורך אלכסון הריבוע?",
-        options: [
-            "5&radic;2 ס\"מ",
-            "10 ס\"מ",
-            "25 ס\"מ",
-            "5&radic;3 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "האלכסון מחלק את הריבוע למשולש ישר זווית ושווה שוקיים. נשתמש במשפט פיתגורס.", math_expression: "d<sup>2</sup> = a<sup>2</sup> + a<sup>2</sup>" },
-            { verbal_explanation: "נציב את אורך הצלע במשוואה.", math_expression: "d<sup>2</sup> = 5<sup>2</sup> + 5<sup>2</sup>" },
-            { verbal_explanation: "נחשב את הריבועים.", math_expression: "d<sup>2</sup> = 25 + 25 = 50" },
-            { verbal_explanation: "נוציא שורש. נפשט אותו על ידי הוצאת גורם שהוא ריבוע שלם החוצה מהשורש.", math_expression: "d = &radic;50 = &radic;(25 &times; 2) = 5&radic;2" }
-        ],
-        final_answer: "5&radic;2"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "בטרפז שווה שוקיים, ידוע כי זווית בסיס אחת היא 65&deg;. מה גודלה של הזווית הצמודה לה על אותה שוק (הזווית שעל הבסיס המקביל)?",
-        options: [
-            "115&deg;",
-            "65&deg;",
-            "180&deg;",
-            "25&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "בטרפז, שני הבסיסים מקבילים. לכן, שתי הזוויות הסמוכות לאותה שוק הן זוויות חד-צדדיות, וסכומן הוא תמיד 180 מעלות.", math_expression: "x + y = 180" },
-            { verbal_explanation: "נציב את הזווית הידועה.", math_expression: "65 + y = 180" },
-            { verbal_explanation: "נחסר 65 משני האגפים.", math_expression: "y = 180 - 65" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "y = 115" }
-        ],
-        final_answer: "115"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "בדלתון, אורך האלכסון הראשי הוא 15 ס\"מ, ואורך האלכסון המשני הוא 8 ס\"מ. מהו שטח הדלתון?",
-        options: [
-            "60 סמ\"ר",
-            "120 סמ\"ר",
-            "30 סמ\"ר",
-            "46 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נוסחת שטח דלתון היא מחצית ממכפלת שני האלכסונים (כיוון שהם מאונכים זה לזה).", math_expression: "S = (d_1 &times; d_2) / 2" },
-            { verbal_explanation: "נציב את אורכי האלכסונים הנתונים.", math_expression: "S = (15 &times; 8) / 2" },
-            { verbal_explanation: "נבצע את הכפל במונה.", math_expression: "S = 120 / 2" },
-            { verbal_explanation: "נחלק בשתיים לקבלת השטח.", math_expression: "S = 60" }
-        ],
-        final_answer: "60"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "איזו מהתכונות הבאות מתקיימת תמיד באלכסונים של דלתון?",
-        options: [
-            "הם מאונכים זה לזה",
-            "הם חוצים זה את זה",
-            "הם שווים באורכם",
-            "הם מקבילים זה לזה"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "בדלתון, האלכסון הראשי הוא ציר סימטריה ומהווה אנך אמצעי לאלכסון המשני.", math_expression: "d_1 &perp; d_2" },
-            { verbal_explanation: "המשמעות הגיאומטרית של סימון זה היא שהאלכסונים תמיד מאונכים ויוצרים זווית ישרה.", math_expression: "&ang; = 90&deg;" }
-        ],
-        final_answer: "הם מאונכים זה לזה"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "במקבילית נתון כי צלע אחת ארוכה ב-5 ס\"מ מהצלע הסמוכה לה. היקף המקבילית הוא 50 ס\"מ. מהו אורך הצלע הקצרה?",
-        options: [
-            "10 ס\"מ",
-            "15 ס\"מ",
-            "20 ס\"מ",
-            "25 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגדיר את אורך הצלע הקצרה כנעלם, ואת הצלע הארוכה כנעלם ועוד חמש.", math_expression: "a = x &nbsp;,&nbsp; b = x + 5" },
-            { verbal_explanation: "היקף מקבילית שווה לפעמיים סכום צלעות סמוכות.", math_expression: "P = 2(a + b)" },
-            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "50 = 2(x + x + 5)" },
-            { verbal_explanation: "נחלק את המשוואה בשתיים ונכנס איברים.", math_expression: "25 = 2x + 5" },
-            { verbal_explanation: "נעביר אגף.", math_expression: "20 = 2x" },
-            { verbal_explanation: "נחלק בשתיים למציאת אורך הצלע הקצרה.", math_expression: "x = 10" }
-        ],
-        final_answer: "10"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "שטחו של מלבן הוא 48 סמ\"ר ואורך אחת מצלעותיו הוא 6 ס\"מ. מהו היקף המלבן?",
-        options: [
-            "28 ס\"מ",
-            "14 ס\"מ",
-            "48 ס\"מ",
-            "36 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נוסחת שטח מלבן היא אורך כפול רוחב.", math_expression: "S = a &times; b" },
-            { verbal_explanation: "נציב את הנתונים הידועים כדי למצוא את הצלע השנייה.", math_expression: "48 = 6 &times; b" },
-            { verbal_explanation: "נחלק בשש ונקבל את אורך הצלע השנייה.", math_expression: "b = 8" },
-            { verbal_explanation: "היקף מלבן מחושב כפעמיים סכום הצלעות הסמוכות.", math_expression: "P = 2(a + b)" },
-            { verbal_explanation: "נציב את אורכי הצלעות לחישוב ההיקף.", math_expression: "P = 2(6 + 8) = 2 &times; 14 = 28" }
-        ],
-        final_answer: "28"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "במעוין, האלכסון חוצה את זווית הקודקוד. נתון כי הזווית שיוצר האלכסון עם צלע המעוין היא 30&deg;. מה גודלה של הזווית הקהה (הגדולה) במעוין זה?",
-        options: [
-            "120&deg;",
-            "150&deg;",
-            "60&deg;",
-            "90&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במעוין, אלכסונים הם גם חוצי זוויות. לכן הזווית השלמה של הקודקוד שווה לפעמיים הזווית שיוצר האלכסון.", math_expression: "x = 2 &times; 30 = 60" },
-            { verbal_explanation: "מעוין הוא מקבילית, ולכן סכום שתי זוויות סמוכות משלים תמיד למאה שמונים מעלות.", math_expression: "x + y = 180" },
-            { verbal_explanation: "נציב את הזווית שמצאנו כדי לחשב את הזווית הקהה.", math_expression: "60 + y = 180" },
-            { verbal_explanation: "נחסר 60 ונמצא את התשובה.", math_expression: "y = 120" }
-        ],
-        final_answer: "120"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
-        question: "בטרפז נתון כי הבסיס הקטן שווה ל-10 ס\"מ, הבסיס הגדול שווה ל-16 ס\"מ, וגובה הטרפז הוא 5 ס\"מ. מהו שטחו של הטרפז?",
-        options: [
-            "65 סמ\"ר",
-            "130 סמ\"ר",
-            "50 סמ\"ר",
-            "80 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נוסחת שטח טרפז היא סכום הבסיסים כפול הגובה, לחלק בשתיים.", math_expression: "S = ((a + b) &times; h) / 2" },
-            { verbal_explanation: "נציב את הנתונים לנוסחה.", math_expression: "S = ((10 + 16) &times; 5) / 2" },
-            { verbal_explanation: "נחבר את הערכים בתוך הסוגריים.", math_expression: "S = (26 &times; 5) / 2" },
-            { verbal_explanation: "נבצע את פעולת הכפל במונה.", math_expression: "S = 130 / 2" },
-            { verbal_explanation: "נחלק בשתיים לקבלת השטח הסופי.", math_expression: "S = 65" }
-        ],
-        final_answer: "65"
-    },
-
-    // =====================================================================
-    // תת-נושא 3: קטע אמצעים במשולש ובטרפז (12 שאלות)
-    // =====================================================================
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "במשולש שבו אורך הבסיס הוא 14 ס\"מ, מעבירים קטע אמצעים המקביל לבסיס זה. מהו אורך קטע האמצעים?",
-        options: [
-            "7 ס\"מ",
-            "14 ס\"מ",
-            "28 ס\"מ",
-            "3.5 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "על פי משפט גיאומטרי יסודי, קטע אמצעים במשולש שווה למחצית הבסיס אליו הוא מקביל.", math_expression: "x = y / 2" },
-            { verbal_explanation: "נציב את אורך הבסיס במשוואה.", math_expression: "x = 14 / 2" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "x = 7" }
-        ],
-        final_answer: "7"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "בטרפז נתונים אורכי שני הבסיסים: הבסיס הקטן הוא 10 ס\"מ והבסיס הגדול הוא 20 ס\"מ. מהו אורך קטע האמצעים בטרפז?",
-        options: [
-            "15 ס\"מ",
-            "30 ס\"מ",
-            "10 ס\"מ",
-            "5 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קטע אמצעים בטרפז שווה לממוצע החשבוני של שני הבסיסים המקבילים שלו.", math_expression: "M = (a + b) / 2" },
-            { verbal_explanation: "נציב את אורכי הבסיסים הידועים.", math_expression: "M = (10 + 20) / 2" },
-            { verbal_explanation: "נחבר את הערכים במונה.", math_expression: "M = 30 / 2" },
-            { verbal_explanation: "נחלק ונקבל את התוצאה הסופית.", math_expression: "M = 15" }
-        ],
-        final_answer: "15"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "במשולש הגדול מעבירים קטע אמצעים כך שנוצר משולש קטן יותר בחלקו העליון. אם היקף המשולש הגדול הוא 24 ס\"מ, מהו היקפו של המשולש הקטן?",
-        options: [
-            "12 ס\"מ",
-            "6 ס\"מ",
-            "24 ס\"מ",
-            "8 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קטע אמצעים חוצה את שתי שוקי המשולש, ושווה למחצית הבסיס. משמעות הדבר היא שכל אחת מצלעות המשולש הקטן שווה למחצית מהצלע המתאימה לה במשולש הגדול.", math_expression: "a_1 = a_2 / 2 , b_1 = b_2 / 2 , c_1 = c_2 / 2" },
-            { verbal_explanation: "מכאן נובע כי ההיקף הכולל של המשולש הקטן הוא בדיוק מחצית מהיקף המשולש הגדול.", math_expression: "P_1 = P_2 / 2" },
-            { verbal_explanation: "נציב את הנתון הידוע.", math_expression: "P_1 = 24 / 2" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "P_1 = 12" }
-        ],
-        final_answer: "12"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "אורכו של קטע האמצעים בטרפז הוא 15 ס\"מ. ידוע שאורך הבסיס הקטן הוא 10 ס\"מ. מהו אורך הבסיס הגדול בטרפז?",
-        options: [
-            "20 ס\"מ",
-            "25 ס\"מ",
-            "5 ס\"מ",
-            "30 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נוסחת קטע האמצעים בטרפז מתבססת על ממוצע הבסיסים.", math_expression: "M = (a + b) / 2" },
-            { verbal_explanation: "נציב את קטע האמצעים ואת הבסיס הקטן הנתון למשוואה.", math_expression: "15 = (10 + b) / 2" },
-            { verbal_explanation: "נכפיל את המשוואה בשתיים כדי לבטל את המכנה.", math_expression: "30 = 10 + b" },
-            { verbal_explanation: "נחסר עשר משני האגפים כדי לבודד את הבסיס הגדול.", math_expression: "b = 30 - 10 = 20" }
-        ],
-        final_answer: "20"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "במשולש מסוים, השטח הכולל הוא 40 סמ\"ר. העבירו קטע אמצעים המקביל לבסיס כך שנוצר משולש קטן. מהו שטחו של המשולש הקטן שנוצר?",
-        options: [
-            "10 סמ\"ר",
-            "20 סמ\"ר",
-            "5 סמ\"ר",
-            "30 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המשולש הקטן שנוצר על ידי קטע אמצעים דומה למשולש הגדול ביחס דמיון קווי של 1:2.", math_expression: "k = 1 / 2" },
-            { verbal_explanation: "יחס השטחים של משולשים דומים תמיד שווה לריבוע יחס הדמיון.", math_expression: "S_1 / S_2 = k<sup>2</sup> = 1 / 4" },
-            { verbal_explanation: "מכאן נובע ששטח המשולש הקטן הוא רבע משטח המשולש הגדול.", math_expression: "S_1 = S_2 / 4" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "S_1 = 40 / 4 = 10" }
-        ],
-        final_answer: "10"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "בתוך משולש ששטחו 60 סמ\"ר חיברו את כל שלוש נקודות האמצע של הצלעות, כך שנוצר משולש פנימי. מהו שטח המשולש הפנימי שנוצר?",
-        options: [
-            "15 סמ\"ר",
-            "20 סמ\"ר",
-            "30 סמ\"ר",
-            "10 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "חיבור שלוש נקודות האמצע במשולש מחלק את המשולש לארבעה משולשים קטנים, שכולם חופפים זה לזה.", math_expression: "S_1 = S_2 = S_3 = S_4" },
-            { verbal_explanation: "לכן, שטח המשולש הפנימי שווה בדיוק לרבע מהשטח הכולל.", math_expression: "S_1 = S / 4" },
-            { verbal_explanation: "נציב את השטח הכולל הנתון.", math_expression: "S_1 = 60 / 4" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "S_1 = 15" }
-        ],
-        final_answer: "15"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "בטרפז מעבירים קטע אמצעים. בנוסף, מעבירים אלכסון לטרפז. האלכסון חותך את קטע האמצעים בנקודה מסוימת. מה ניתן לומר על נקודת החיתוך הזו ביחס לאלכסון?",
-        options: [
-            "היא אמצע האלכסון",
-            "היא נמצאת בשליש האלכסון",
-            "היא אינה קשורה לאמצע האלכסון",
-            "היא מחלקת את האלכסון ביחס 1:3"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קטע האמצעים בטרפז מקביל לבסיסים.", math_expression: "M &parallel; a" },
-            { verbal_explanation: "החלק של קטע האמצעים שנמצא בתוך משולש יוצא מאמצע שוק ומקביל לבסיס.", math_expression: "M &parallel; b" },
-            { verbal_explanation: "לפי המשפט ההפוך לקטע אמצעים במשולש, ישר היוצא מאמצע צלע ומקביל לבסיס, בהכרח חוצה את הצלע השלישית. לכן הנקודה חוצה את האלכסון.", math_expression: "x = y" }
-        ],
-        final_answer: "היא אמצע האלכסון"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "במשולש ישר זווית מעבירים קטע אמצעים המקביל לאחד הניצבים. איזה קשר מתקיים בין קטע אמצעים זה לבין הניצב השני?",
-        options: [
-            "הוא מאונך לניצב השני",
-            "הוא מקביל לניצב השני",
-            "הוא חוצה את הניצב השני",
-            "הוא שווה באורכו לניצב השני"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נתון שקטע האמצעים מקביל לאחד הניצבים.", math_expression: "M &parallel; a" },
-            { verbal_explanation: "במשולש ישר זווית, שני הניצבים מאונכים זה לזה.", math_expression: "a &perp; b" },
-            { verbal_explanation: "מכיוון שקטע האמצעים מקביל לניצב הראשון, זוויות מתאימות שוות, ולכן הוא יוצר זווית ישרה (90 מעלות) עם הניצב השני.", math_expression: "M &perp; b" }
-        ],
-        final_answer: "הוא מאונך לניצב השני"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "בטרפז נתון כי קטע האמצעים שווה ל-18 ס\"מ. היחס בין הבסיס הקטן לבסיס הגדול הוא 1:2. מהו אורך הבסיס הקטן?",
-        options: [
-            "12 ס\"מ",
-            "24 ס\"מ",
-            "9 ס\"מ",
-            "6 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגדיר את הבסיסים על פי היחס הנתון.", math_expression: "a = x &nbsp;,&nbsp; b = 2x" },
-            { verbal_explanation: "נציב את הנתונים לנוסחת קטע האמצעים של טרפז.", math_expression: "M = (a + b) / 2" },
-            { verbal_explanation: "נכפיל את המשוואה בשתיים ונכנס איברים במונה.", math_expression: "18 = (x + 2x) / 2" },
-            { verbal_explanation: "נחלץ את המשתנה x המייצג את הבסיס הקטן.", math_expression: "36 = 3x &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 12" }
-        ],
-        final_answer: "12"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "מה קובע המשפט היסודי לגבי קטע אמצעים במשולש?",
-        options: [
-            "הוא מקביל לצלע השלישית ושווה למחציתה",
-            "הוא מאונך לצלע השלישית",
-            "הוא חוצה את הזווית שממנה יצא",
-            "הוא תיכון לצלע השלישית"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קטע אמצעים מוגדר כקטע המחבר את האמצעים של שתי צלעות במשולש.", math_expression: "x = y , z = w" },
-            { verbal_explanation: "על פי ההוכחה הגיאומטרית, התכונות העיקריות שלו הן הקבלה לצלע הנותרת ויחס אורך של חצי ממנה.", math_expression: "M &parallel; a , M = a / 2" }
-        ],
-        final_answer: "הוא מקביל לצלע השלישית ושווה למחציתה"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "בטרפז שווה שוקיים, קטע האמצעים הוא באורך 20 ס\"מ, ואורך שוק אחת הוא 10 ס\"מ. מהו היקף הטרפז כולו?",
-        options: [
-            "60 ס\"מ",
-            "50 ס\"מ",
-            "40 ס\"מ",
-            "70 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קטע האמצעים שווה למחצית סכום הבסיסים. לכן, סכום שני הבסיסים יחדיו שווה לפעמיים קטע האמצעים.", math_expression: "a + b = 2 &times; M" },
-            { verbal_explanation: "נחשב את סכום הבסיסים.", math_expression: "a + b = 2 &times; 20 = 40" },
-            { verbal_explanation: "הטרפז הוא שווה שוקיים, לכן שתי השוקיים שוות, ואורכן הכולל כפול.", math_expression: "c + d = 10 + 10 = 20" },
-            { verbal_explanation: "היקף הטרפז הוא סכום הבסיסים בתוספת סכום השוקיים.", math_expression: "P = 40 + 20 = 60" }
-        ],
-        final_answer: "60"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "קטע אמצעים במשולש ובטרפז",
-        question: "בטרפז נתון כי הבסיס הקטן שווה ל-x, הבסיס הגדול שווה ל-x+4, וקטע האמצעים הוא x+2. היקף הטרפז הוא 28 ס\"מ. סכום שתי השוקיים הוא 12 ס\"מ. מהו אורך קטע האמצעים M?",
-        options: [
-            "8",
-            "10",
-            "6",
-            "12"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נרכיב את משוואת היקף הטרפז כסכום ארבע צלעותיו.", math_expression: "P = a + b + c + d" },
-            { verbal_explanation: "נציב את הביטויים הידועים.", math_expression: "x + (x + 4) + 12 = 28" },
-            { verbal_explanation: "נכנס איברים באגף השמאלי.", math_expression: "2x + 16 = 28" },
-            { verbal_explanation: "נחסר 16 משני אגפי המשוואה ונחלק כדי למצוא את המשתנה.", math_expression: "2x = 12 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 6" },
-            { verbal_explanation: "נציב את הערך שמצאנו בביטוי של קטע האמצעים.", math_expression: "M = x + 2 = 6 + 2 = 8" }
-        ],
-        final_answer: "8"
-    },// =====================================================================
-    // תת-נושא 4: מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית (12 שאלות)
-    // =====================================================================
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "במעגל, זווית מרכזית הנשענת על קשת AB שווה ל-84&deg;. מהו גודלה של הזווית ההיקפית הנשענת על אותה הקשת?<br><svg viewBox=\"0 0 200 200\" width=\"160\" height=\"160\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"#f8fafc\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 100,100 L 40,150 A 80 80 0 0 0 160,150 Z\" fill=\"#bfdbfe\" opacity=\"0.5\"/><line x1=\"100\" y1=\"100\" x2=\"40\" y2=\"150\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"100\" y1=\"100\" x2=\"160\" y2=\"150\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"100\" y1=\"20\" x2=\"40\" y2=\"150\" stroke=\"#ef4444\" stroke-width=\"2\"/><line x1=\"100\" y1=\"20\" x2=\"160\" y2=\"150\" stroke=\"#ef4444\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"100\" r=\"4\" fill=\"#0f172a\"/><text x=\"90\" y=\"135\" font-size=\"14\" fill=\"#1d4ed8\" font-weight=\"bold\">84&deg;</text><text x=\"95\" y=\"45\" font-size=\"14\" fill=\"#b91c1c\" font-weight=\"bold\">?</text><text x=\"20\" y=\"165\" font-size=\"14\">A</text><text x=\"170\" y=\"165\" font-size=\"14\">B</text><text x=\"95\" y=\"90\" font-size=\"14\">O</text></svg>",
-        options: [
-            "42&deg;",
-            "84&deg;",
-            "168&deg;",
-            "21&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "על פי משפט יסודי במעגל, זווית היקפית שווה בדיוק למחצית הזווית המרכזית הנשענת על אותה קשת.", math_expression: "&alpha; = &beta; / 2" },
-            { verbal_explanation: "נציב את גודל הזווית המרכזית הנתונה למשוואה.", math_expression: "&alpha; = 84 / 2" },
-            { verbal_explanation: "נבצע את פעולת החילוק בשתיים לקבלת הזווית ההיקפית.", math_expression: "&alpha; = 42" }
-        ],
-        final_answer: "42"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "שתי זוויות היקפיות, C ו-D, נשענות על אותה קשת AB במעגל. אם ידוע שזווית C שווה ל-55&deg;, מה גודלה של זווית D?<br><svg viewBox=\"0 0 200 200\" width=\"160\" height=\"160\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 40,150 A 80 80 0 0 0 160,150\" fill=\"none\" stroke=\"#f59e0b\" stroke-width=\"4\"/><line x1=\"100\" y1=\"20\" x2=\"40\" y2=\"150\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"100\" y1=\"20\" x2=\"160\" y2=\"150\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"180\" y1=\"100\" x2=\"40\" y2=\"150\" stroke=\"#10b981\" stroke-width=\"2\"/><line x1=\"180\" y1=\"100\" x2=\"160\" y2=\"150\" stroke=\"#10b981\" stroke-width=\"2\"/><text x=\"85\" y=\"45\" font-size=\"14\" fill=\"#1d4ed8\" font-weight=\"bold\">55&deg;</text><text x=\"155\" y=\"110\" font-size=\"14\" fill=\"#047857\" font-weight=\"bold\">?</text><text x=\"25\" y=\"165\" font-size=\"14\">A</text><text x=\"165\" y=\"165\" font-size=\"14\">B</text><text x=\"95\" y=\"12\" font-size=\"14\">C</text><text x=\"188\" y=\"105\" font-size=\"14\">D</text></svg>",
-        options: [
-            "55&deg;",
-            "110&deg;",
-            "27.5&deg;",
-            "125&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המשפט הגיאומטרי קובע כי כל הזוויות ההיקפיות הנשענות על אותה הקשת, מאותו הצד, שוות זו לזו.", math_expression: "x = y" },
-            { verbal_explanation: "נציב את גודל הזווית C הנתונה לתוך השוויון.", math_expression: "x = 55" }
-        ],
-        final_answer: "55"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "קטע AB הוא קוטר במעגל. נקודה C נמצאת על היקף המעגל. מהו גודלה של הזווית &ang;ACB?",
-        options: [
-            "90&deg;",
-            "180&deg;",
-            "45&deg;",
-            "60&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קוטר מחלק את המעגל לשתי קשתות שוות של 180 מעלות. הזווית המרכזית הנשענת על הקוטר היא זווית שטוחה.", math_expression: "&alpha; = 180" },
-            { verbal_explanation: "זווית היקפית שווה למחצית הזווית המרכזית הנשענת על אותה קשת.", math_expression: "&beta; = &alpha; / 2" },
-            { verbal_explanation: "נציב ונחשב (מכאן הכלל: זווית היקפית הנשענת על קוטר היא זווית ישרה).", math_expression: "&beta; = 180 / 2 = 90" }
-        ],
-        final_answer: "90"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "רדיוס מעגל הוא 13 ס\"מ. במעגל זה שורטט מיתר שאורכו 24 ס\"מ. מהו מרחק המיתר ממרכז המעגל?<br><svg viewBox=\"0 0 200 200\" width=\"160\" height=\"160\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"150\" x2=\"160\" y2=\"150\" stroke=\"#8b5cf6\" stroke-width=\"3\"/><line x1=\"100\" y1=\"100\" x2=\"100\" y2=\"150\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"5,5\"/><line x1=\"100\" y1=\"100\" x2=\"160\" y2=\"150\" stroke=\"#10b981\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"100\" r=\"3\" fill=\"#000\"/><text x=\"105\" y=\"130\" font-size=\"12\" fill=\"#b91c1c\">d</text><text x=\"135\" y=\"120\" font-size=\"12\" fill=\"#047857\">13</text><text x=\"100\" y=\"168\" font-size=\"12\" fill=\"#6d28d9\">24</text></svg>",
-        options: [
-            "5 ס\"מ",
-            "10 ס\"מ",
-            "12 ס\"מ",
-            "7 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המרחק ממרכז המעגל למיתר הוא אנך. האנך ממרכז המעגל למיתר חוצה אותו לשני חצאים שווים.", math_expression: "x = 24 / 2 = 12" },
-            { verbal_explanation: "נוצר משולש ישר זווית שבו היתר הוא הרדיוס, ניצב אחד הוא חצי המיתר, והניצב השני הוא המרחק המבוקש. נשתמש במשפט פיתגורס.", math_expression: "d<sup>2</sup> + x<sup>2</sup> = R<sup>2</sup>" },
-            { verbal_explanation: "נציב את הנתונים הידועים במשוואה.", math_expression: "d<sup>2</sup> + 12<sup>2</sup> = 13<sup>2</sup>" },
-            { verbal_explanation: "נעלה את המספרים בריבוע.", math_expression: "d<sup>2</sup> + 144 = 169" },
-            { verbal_explanation: "נחסר 144 משני אגפי המשוואה.", math_expression: "d<sup>2</sup> = 169 - 144 = 25" },
-            { verbal_explanation: "נוציא שורש ריבועי כדי למצוא את המרחק הרצוי.", math_expression: "d = 5" }
-        ],
-        final_answer: "5"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "שני מיתרים AB ו-CD נחתכים בנקודה E בתוך המעגל. נתון: AE = 4 ס\"מ, EB = 9 ס\"מ, CE = 6 ס\"מ. מהו אורך הקטע ED?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"30\" y1=\"60\" x2=\"170\" y2=\"140\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"40\" y1=\"150\" x2=\"150\" y2=\"30\" stroke=\"#ef4444\" stroke-width=\"2\"/><circle cx=\"107\" cy=\"104\" r=\"3\" fill=\"#000\"/><text x=\"60\" y=\"70\" font-size=\"12\">4</text><text x=\"135\" y=\"140\" font-size=\"12\">9</text><text x=\"65\" y=\"140\" font-size=\"12\">6</text><text x=\"140\" y=\"75\" font-size=\"12\" fill=\"#b91c1c\">x</text><text x=\"108\" y=\"120\" font-size=\"14\">E</text></svg>",
-        options: [
-            "6 ס\"מ",
-            "12 ס\"מ",
-            "5 ס\"מ",
-            "8 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "לפי משפט המיתרים הנחתכים במעגל: מכפלת קטעי מיתר אחד שווה למכפלת קטעי המיתר השני.", math_expression: "a &times; b = c &times; d" },
-            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "4 &times; 9 = 6 &times; x" },
-            { verbal_explanation: "נחשב את המכפלה באגף שמאל.", math_expression: "36 = 6 &times; x" },
-            { verbal_explanation: "נחלק בשש כדי למצוא את אורך הקטע החסר.", math_expression: "x = 36 / 6 = 6" }
-        ],
-        final_answer: "6"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "במעגל, נתונים שני מיתרים מקבילים. אורך הקשת הכלואה ביניהם מצד ימין הוא 30 ס\"מ. מהו אורך הקשת הכלואה ביניהם מצד שמאל?",
-        options: [
-            "30 ס\"מ",
-            "15 ס\"מ",
-            "60 ס\"מ",
-            "לא ניתן לדעת"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "משפט יסודי בגיאומטריה קובע: שני מיתרים מקבילים במעגל כולאים ביניהם קשתות שוות באורכן.", math_expression: "L_1 = L_2" },
-            { verbal_explanation: "מכיוון שנתון אורך קשת אחת, אורך הקשת השנייה חייב להיות זהה לחלוטין.", math_expression: "L_2 = 30" }
-        ],
-        final_answer: "30"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "במעגל שרדיוסו 10 ס\"מ, נתונים שני מיתרים שהקשתות שלהם שוות זו לזו. אורך המיתר הראשון הוא 8 ס\"מ. מהו אורך המיתר השני?",
-        options: [
-            "8 ס\"מ",
-            "16 ס\"מ",
-            "4 ס\"מ",
-            "10 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "משפט במעגל קובע: קשתות שוות נשענות על מיתרים שווים באורכם.", math_expression: "Arc_1 = Arc_2 &nbsp;&rArr;&nbsp; a = b" },
-            { verbal_explanation: "לכן, אורך המיתר השני זהה לאורך המיתר הראשון הנתון.", math_expression: "b = 8" }
-        ],
-        final_answer: "8"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "זווית מרכזית במעגל נשענת על קשת שמהווה שליש (1/3) מהיקף המעגל כולו. מהו גודלה של הזווית המרכזית הזו במעלות?",
-        options: [
-            "120&deg;",
-            "60&deg;",
-            "90&deg;",
-            "180&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המעגל השלם מהווה 360 מעלות. הזווית המרכזית של המעגל כולו היא 360 מעלות.", math_expression: "&alpha; = 360" },
-            { verbal_explanation: "יחס הקשתות במעגל שווה ליחס הזוויות המרכזיות הנשענות עליהן. נכפיל את המעגל בשליש.", math_expression: "&beta; = 360 / 3" },
-            { verbal_explanation: "נבצע את החילוק לקבלת הזווית המרכזית המתאימה.", math_expression: "&beta; = 120" }
-        ],
-        final_answer: "120"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "מיתר AB שאורכו 16 ס\"מ נמצא במרחק 6 ס\"מ ממרכז המעגל O. מהו אורך הרדיוס של מעגל זה?",
-        options: [
-            "10 ס\"מ",
-            "8 ס\"מ",
-            "14 ס\"מ",
-            "12 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "האנך ממרכז המעגל למיתר חוצה את המיתר. נחשב את מחצית המיתר.", math_expression: "x = 16 / 2 = 8" },
-            { verbal_explanation: "המרחק ממרכז המעגל (האנך) הוא ניצב שני במשולש ישר זווית. הרדיוס הוא היתר. נציב במשפט פיתגורס.", math_expression: "R<sup>2</sup> = x<sup>2</sup> + d<sup>2</sup>" },
-            { verbal_explanation: "נציב את הנתונים.", math_expression: "R<sup>2</sup> = 8<sup>2</sup> + 6<sup>2</sup>" },
-            { verbal_explanation: "נעלה בריבוע ונחבר.", math_expression: "R<sup>2</sup> = 64 + 36 = 100" },
-            { verbal_explanation: "נוציא שורש למציאת הרדיוס.", math_expression: "R = 10" }
-        ],
-        final_answer: "10"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "במעגל, שתי זוויות היקפיות נשענות על אותה קשת. זווית אחת שווה ל- x + 20 מעלות, והזווית השנייה שווה ל- 2x - 10 מעלות. מצאו את ערכו של x.",
-        options: [
-            "30",
-            "10",
-            "40",
-            "50"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "על פי המשפט הגיאומטרי: כל הזוויות ההיקפיות הנשענות על אותה הקשת מאותו צד, שוות זו לזו בגודלן.", math_expression: "&alpha; = &beta;" },
-            { verbal_explanation: "נשווה בין שני הביטויים הנתונים.", math_expression: "x + 20 = 2x - 10" },
-            { verbal_explanation: "נעביר את המשתנה x לאגף ימין ואת המספרים לאגף שמאל.", math_expression: "20 + 10 = 2x - x" },
-            { verbal_explanation: "נכנס איברים ונקבל את התוצאה.", math_expression: "30 = x" }
-        ],
-        final_answer: "30"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "שני חותכים יוצאים מנקודה P מחוץ למעגל. הראשון עובר דרך הנקודות A ו-B כך שהחלק החיצוני PA שווה ל-4 ס\"מ והחלק הפנימי AB שווה ל-5 ס\"מ (כלומר PB=9). החותך השני עובר דרך הנקודות C ו-D כך שהחלק החיצוני PC שווה ל-3 ס\"מ. מהו אורכו הכולל של החותך השני PD?",
-        options: [
-            "12 ס\"מ",
-            "15 ס\"מ",
-            "9 ס\"מ",
-            "16 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "לפי משפט שני חותכים היוצאים מנקודה אחת מחוץ למעגל: מכפלת חותך אחד בשלמותו בחלקו החיצוני שווה למכפלת החותך השני בחלקו החיצוני.", math_expression: "PB &times; PA = PD &times; PC" },
-            { verbal_explanation: "נציב את הנתונים למשוואה. החותך הראשון אורכו 9 (4+5).", math_expression: "9 &times; 4 = y &times; 3" },
-            { verbal_explanation: "נחשב את המכפלה משמאל.", math_expression: "36 = 3y" },
-            { verbal_explanation: "נחלק בשלוש למציאת אורכו הכולל של החותך השני.", math_expression: "y = 36 / 3 = 12" }
-        ],
-        final_answer: "12"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
-        question: "זווית הפנימית במעגל (שקודקודה בתוך המעגל אך לא במרכז) נוצרת על ידי חיתוך של שני מיתרים. הקשת מולה שווה ל-80&deg; והקשת הנגדית (מאחוריה) שווה ל-40&deg;. מה גודלה של הזווית?",
-        options: [
-            "60&deg;",
-            "40&deg;",
-            "120&deg;",
-            "20&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "זווית פנימית במעגל הכלואה בין שני מיתרים נחתכים שווה למחצית סכום שתי הקשתות הכלואות ביניהם.", math_expression: "&alpha; = (x + y) / 2" },
-            { verbal_explanation: "נציב את ערכי הקשתות הנתונות למשוואה.", math_expression: "&alpha; = (80 + 40) / 2" },
-            { verbal_explanation: "נחבר את המונה.", math_expression: "&alpha; = 120 / 2" },
-            { verbal_explanation: "נחלק בשתיים לקבלת הזווית הפנימית.", math_expression: "&alpha; = 60" }
-        ],
-        final_answer: "60"
-    },
-
-    // =====================================================================
-    // תת-נושא 5: משיק למעגל וזווית בין משיק למיתר (12 שאלות)
-    // =====================================================================
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "ישר משיק למעגל בנקודה T. רדיוס המעגל OT מועבר לנקודת ההשקה. מה גודל הזווית הנוצרת בין המשיק לרדיוס?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"80\" r=\"60\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"20\" y1=\"140\" x2=\"180\" y2=\"140\" stroke=\"#3b82f6\" stroke-width=\"3\"/><line x1=\"100\" y1=\"80\" x2=\"100\" y2=\"140\" stroke=\"#ef4444\" stroke-width=\"2\"/><rect x=\"100\" y=\"130\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"1.5\"/><circle cx=\"100\" cy=\"80\" r=\"3\" fill=\"#000\"/><text x=\"108\" y=\"155\" font-size=\"14\">T</text><text x=\"108\" y=\"75\" font-size=\"14\">O</text></svg>",
-        options: [
-            "90&deg;",
-            "180&deg;",
-            "45&deg;",
-            "60&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "משפט גיאומטרי יסודי קובע: רדיוס (או קוטר) העובר בנקודת ההשקה של מעגל מאונך לישר המשיק באותה נקודה.", math_expression: "R &perp; a" },
-            { verbal_explanation: "מאונך משמעותו יצירת זווית ישרה של תשעים מעלות.", math_expression: "&alpha; = 90" }
-        ],
-        final_answer: "90"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "מנקודה P הנמצאת מחוץ למעגל יוצאים שני משיקים למעגל, הנוגעים בו בנקודות A ו-B. אורך המשיק PA הוא 14 ס\"מ. מהו אורך המשיק PB?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"130\" cy=\"100\" r=\"50\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"20\" y1=\"100\" x2=\"100\" y2=\"60\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"20\" y1=\"100\" x2=\"100\" y2=\"140\" stroke=\"#3b82f6\" stroke-width=\"2\"/><text x=\"10\" y=\"105\" font-size=\"14\">P</text><text x=\"95\" y=\"50\" font-size=\"14\">A</text><text x=\"95\" y=\"160\" font-size=\"14\">B</text><text x=\"50\" y=\"70\" font-size=\"12\" fill=\"#1d4ed8\">14</text><text x=\"50\" y=\"140\" font-size=\"12\" fill=\"#1d4ed8\">x</text></svg>",
-        options: [
-            "14 ס\"מ",
-            "7 ס\"מ",
-            "28 ס\"מ",
-            "תלוי ברדיוס המעגל"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "משפט יסודי: שני משיקים למעגל היוצאים מאותה נקודה חיצונית, שווים זה לזה באורכם עד נקודת ההשקה.", math_expression: "PA = PB" },
-            { verbal_explanation: "מכיוון שנתון משיק אחד באורך ארבע עשרה, אורך המשיק השני שווה לו בדיוק.", math_expression: "PB = 14" }
-        ],
-        final_answer: "14"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "ישר משיק למעגל בנקודה A. מיתר AB יוצא מנקודת ההשקה. הזווית הנוצרת בין המשיק למיתר היא 50&deg;. מהו גודל הזווית ההיקפית הנשענת על המיתר AB מצידו השני (בתוך הקשת הגדולה)?",
-        options: [
-            "50&deg;",
-            "100&deg;",
-            "25&deg;",
-            "130&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "לפי המשפט: הזווית הכלואה בין משיק למיתר העובר בנקודת ההשקה שווה לזווית ההיקפית הנשענת על אותו מיתר מצידו השני (כלומר נשענת על הקשת הכלואה בזווית).", math_expression: "&alpha; = &beta;" },
-            { verbal_explanation: "נציב את ערך הזווית שבין המשיק למיתר שנתונה לנו.", math_expression: "&alpha; = 50" },
-            { verbal_explanation: "לכן, גם הזווית ההיקפית תהיה באותו הגודל.", math_expression: "&beta; = 50" }
-        ],
-        final_answer: "50"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "מנקודה P מחוץ למעגל יוצאים משיק PT (T נקודת ההשקה) וחותך החותך את המעגל בנקודות A ו-B. אורך החלק החיצוני של החותך PA הוא 4 ס\"מ, ואורך החלק הפנימי AB הוא 5 ס\"מ (כלומר אורך החותך כולו PB הוא 9 ס\"מ). לפי משפט חותך ומשיק, מהו אורך המשיק PT?",
-        options: [
-            "6 ס\"מ",
-            "36 ס\"מ",
-            "13 ס\"מ",
-            "12 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "לפי משפט חותך ומשיק היוצאים מאותה נקודה: ריבוע המשיק שווה למכפלת החותך השלם בחלקו החיצוני.", math_expression: "PT<sup>2</sup> = PB &times; PA" },
-            { verbal_explanation: "נציב את הנתונים, כאשר החותך השלם הוא תשע (ארבע ועוד חמש).", math_expression: "x<sup>2</sup> = 9 &times; 4" },
-            { verbal_explanation: "נחשב את המכפלה.", math_expression: "x<sup>2</sup> = 36" },
-            { verbal_explanation: "נוציא שורש כדי לקבל את אורך המשיק.", math_expression: "x = 6" }
-        ],
-        final_answer: "6"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "מנקודה P יוצאים שני משיקים למעגל בנקודות A ו-B. מרכז המעגל הוא O. זווית AOB (הזווית המרכזית הכלואה בין שני הרדיוסים לנקודות ההשקה) שווה ל-130&deg;. מה גודל הזווית APB הכלואה בין שני המשיקים?",
-        options: [
-            "50&deg;",
-            "130&deg;",
-            "65&deg;",
-            "25&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המרובע OAPB הנוצר מורכב משני רדיוסים ושני משיקים. הזוויות בין הרדיוסים למשיקים הן 90 מעלות כל אחת. לכן סכום שתי הזוויות הנותרות הוא 180 מעלות.", math_expression: "x + y = 180" },
-            { verbal_explanation: "נציב את הזווית המרכזית הידועה.", math_expression: "x + 130 = 180" },
-            { verbal_explanation: "נחסר 130 משני האגפים.", math_expression: "x = 180 - 130" },
-            { verbal_explanation: "נחשב את הזווית בין המשיקים.", math_expression: "x = 50" }
-        ],
-        final_answer: "50"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "ישר משיק למעגל בנקודה C. מיתר CD נמתח מנקודת ההשקה. נתון כי הזווית בין המשיק למיתר היא 40&deg;. מה גודלה של הזווית המרכזית הנשענת על המיתר CD?",
-        options: [
-            "80&deg;",
-            "40&deg;",
-            "20&deg;",
-            "100&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הזווית בין משיק למיתר שווה לזווית ההיקפית הנשענת על אותו המיתר.", math_expression: "&alpha; = 40" },
-            { verbal_explanation: "הזווית המרכזית הנשענת על קשת מסוימת שווה תמיד לפעמיים הזווית ההיקפית הנשענת על אותה קשת.", math_expression: "&beta; = 2 &times; &alpha;" },
-            { verbal_explanation: "נציב ונחשב.", math_expression: "&beta; = 2 &times; 40 = 80" }
-        ],
-        final_answer: "80"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "ישר משיק למעגל שמרכזו O בנקודה T. מנקודה P על המשיק נמתח ישר למרכז המעגל O. אם רדיוס המעגל הוא 5 ס\"מ, ואורך קטע המשיק PT הוא 12 ס\"מ, מהו אורך הקטע PO?",
-        options: [
-            "13 ס\"מ",
-            "17 ס\"מ",
-            "7 ס\"מ",
-            "109 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הרדיוס מאונך למשיק בנקודת ההשקה, לכן המשולש PTO הוא משולש ישר זווית, בו הקטע PO הוא היתר.", math_expression: "x<sup>2</sup> = R<sup>2</sup> + d<sup>2</sup>" },
-            { verbal_explanation: "נציב את הנתונים למשפט פיתגורס.", math_expression: "x<sup>2</sup> = 5<sup>2</sup> + 12<sup>2</sup>" },
-            { verbal_explanation: "נעלה את המספרים בריבוע.", math_expression: "x<sup>2</sup> = 25 + 144" },
-            { verbal_explanation: "נחבר את התוצאות.", math_expression: "x<sup>2</sup> = 169" },
-            { verbal_explanation: "נוציא שורש למציאת היתר.", math_expression: "x = 13" }
-        ],
-        final_answer: "13"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "שני מעגלים משיקים זה לזה מבחוץ. רדיוס המעגל האחד הוא 8 ס\"מ, ורדיוס המעגל השני הוא 5 ס\"מ. מהו המרחק בין מרכזי שני המעגלים?",
-        options: [
-            "13 ס\"מ",
-            "3 ס\"מ",
-            "40 ס\"מ",
-            "לא ניתן לדעת"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כאשר שני מעגלים משיקים זה לזה מבחוץ, קטע המרכזים (הישר המחבר את מרכזיהם) עובר דרך נקודת ההשקה המשותפת.", math_expression: "d = R_1 + R_2" },
-            { verbal_explanation: "לכן, המרחק בין המרכזים שווה בדיוק לסכום שני הרדיוסים. נציב את הנתונים.", math_expression: "d = 8 + 5" },
-            { verbal_explanation: "נחשב את הסכום.", math_expression: "d = 13" }
-        ],
-        final_answer: "13"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "מנקודה P מחוץ למעגל יוצאים משיק PT וחותך PAB. אורך המשיק PT הוא 8 ס\"מ. אורך החלק הפנימי של החותך AB הוא 12 ס\"מ. נסמן את החלק החיצוני PA ב-x. מצאו את x.",
-        options: [
-            "4 ס\"מ",
-            "2 ס\"מ",
-            "8 ס\"מ",
-            "6 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשתמש במשפט משיק וחותך למעגל: ריבוע המשיק שווה למכפלת החותך בשלמותו בחלקו החיצוני.", math_expression: "PT<sup>2</sup> = PB &times; PA" },
-            { verbal_explanation: "אורך החותך המלא הוא סכום חלקיו. נציב הכל במשוואה.", math_expression: "8<sup>2</sup> = (x + 12) &times; x" },
-            { verbal_explanation: "נעלה בריבוע ונפתח סוגריים ליצירת משוואה ריבועית.", math_expression: "64 = x<sup>2</sup> + 12x" },
-            { verbal_explanation: "נסדר את המשוואה.", math_expression: "x<sup>2</sup> + 12x - 64 = 0" },
-            { verbal_explanation: "נפרק לטרינום (מספרים שכפלם -64 וסכומם 12 הם 16 ומינוס 4).", math_expression: "(x + 16)(x - 4) = 0" },
-            { verbal_explanation: "אורך חייב להיות חיובי, ולכן נבחר בפתרון החיובי.", math_expression: "x = 4" }
+            { verbal_explanation: "על פי משפט תאלס המקורי, ישר המקביל לבסיס מחלק את שוקי המשולש באותו יחס. נרשום את הפרופורציה.", math_expression: "AD / DB = AE / EC" },
+            { verbal_explanation: "נציב את הנתונים הידועים מתוך השאלה אל תוך הפרופורציה.", math_expression: "6 / 3 = 8 / x" },
+            { verbal_explanation: "נחשב את אגף שמאל (שש חלקי שלוש).", math_expression: "2 = 8 / x" },
+            { verbal_explanation: "נכפיל את שני האגפים במשתנה כדי לחלץ אותו מהמכנה.", math_expression: "2x = 8" },
+            { verbal_explanation: "נחלק בשתיים לקבלת האורך החסר.", math_expression: "x = 4" }
         ],
         final_answer: "4"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "במשולש ישר זווית, רדיוס המעגל החסום במשולש יוצר ריבוע עם שני ניצבי המשולש בקודקוד הזווית הישרה. מה התכונה של נקודות ההשקה הללו המאפשרת זאת?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "במשולש נתון ישר המקביל לבסיס. נשתמש בהרחבה א' של משפט תאלס (משולשים דומים).<br>נתון:<br>AD = 5 , AB = 15 , DE = 4<br>מהו אורכו של הבסיס BC (נסמנו ב-x)?",
         options: [
-            "הרדיוס מאונך למשיק בנקודת ההשקה",
-            "הרדיוס מקביל ליתר",
-            "הרדיוס חוצה את הניצבים",
-            "הרדיוס שווה למחצית היתר"
+            "12",
+            "10",
+            "8",
+            "15"
         ],
+        hint: "הרחבה א' של משפט תאלס משווה בין צלעות המשולש הקטן לצלעות המשולש הגדול: AD / AB = DE / BC.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "ניצבי המשולש ישר הזווית מהווים משיקים למעגל החסום בתוכו.", math_expression: "Lines = Tangents" },
-            { verbal_explanation: "הרדיוסים המחברים את מרכז המעגל לנקודות ההשקה מאונכים לצלעות אלו.", math_expression: "R &perp; Tangent" },
-            { verbal_explanation: "בגלל שיש כבר זווית ישרה בין הניצבים, נוצר מרובע עם שלוש זוויות ישרות, שהוא בהכרח מלבן. מכיוון ששתי צלעות סמוכות בו הן רדיוסים שווים, זהו ריבוע.", math_expression: "&alpha; = 90" }
+            { verbal_explanation: "הרחבה א' של משפט תאלס מתבססת על דמיון המשולש הקטן (העליון) למשולש הגדול (כולו). היחס בין הצלעות נשמר.", math_expression: "AD / AB = DE / BC" },
+            { verbal_explanation: "נציב את נתוני אורכי הצלעות לתוך משוואת היחס.", math_expression: "5 / 15 = 4 / x" },
+            { verbal_explanation: "נצמצם את השבר השמאלי לשליש כדי להקל על החישוב.", math_expression: "1 / 3 = 4 / x" },
+            { verbal_explanation: "נבצע כפל בהצלבה.", math_expression: "1 &times; x = 3 &times; 4" },
+            { verbal_explanation: "נחשב את המכפלה כדי למצוא את אורך הבסיס הגדול.", math_expression: "x = 12" }
         ],
-        final_answer: "הרדיוס מאונך למשיק בנקודת ההשקה"
+        final_answer: "12"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "מנקודה P מחוץ למעגל יוצאים שני משיקים PA ו-PB. נתון כי הזווית בין המשיקים &ang;APB היא 60&deg;. כמו כן, רדיוס המעגל אינו ידוע אך אורך המיתר המחבר את נקודות ההשקה, AB, הוא 10 ס\"מ. מהו אורך המשיק PA?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "בצורה של 'שעון חול' (משפט תאלס מורחב ב'), הישר AB מקביל לישר CD. הישרים נחתכים בנקודה O.<br>נתון:<br>AO = 4 , OC = 8 , AB = 5<br>חשבו את אורך הקטע CD (נסמנו ב-x).<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><line x1='50' y1='20' x2='150' y2='20' stroke='#3b82f6' stroke-width='2'/><line x1='30' y1='130' x2='170' y2='130' stroke='#3b82f6' stroke-width='2'/><line x1='50' y1='20' x2='170' y2='130' stroke='#1e293b' stroke-width='2'/><line x1='150' y1='20' x2='30' y2='130' stroke='#1e293b' stroke-width='2'/><text x='100' y='65' font-weight='bold'>O</text><text x='40' y='15' font-weight='bold'>A</text><text x='160' y='15' font-weight='bold'>B</text><text x='20' y='145' font-weight='bold'>C</text><text x='180' y='145' font-weight='bold'>D</text></svg>",
         options: [
-            "10 ס\"מ",
-            "5 ס\"מ",
-            "15 ס\"מ",
-            "20 ס\"מ"
+            "10",
+            "12",
+            "15",
+            "8"
         ],
+        hint: "במשפט תאלס מורחב ב' (שעון חול), המשולשים דומים זה לזה. לכן, יחס הצלעות המתאימות שווה: AO / OC = AB / CD.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "שני משיקים היוצאים מאותה נקודה שווים באורכם, לכן נוצר משולש שווה שוקיים PAB.", math_expression: "PA = PB" },
-            { verbal_explanation: "במשולש שווה שוקיים שבו זווית הראש היא 60 מעלות, גם זוויות הבסיס חייבות להיות 60 מעלות, ולכן המשולש הוא שווה צלעות.", math_expression: "&alpha; = (180 - 60) / 2 = 60" },
-            { verbal_explanation: "במשולש שווה צלעות, כל הצלעות שוות באורכן. לכן המשיק שווה לאורך המיתר הנתון.", math_expression: "PA = AB = 10" }
+            { verbal_explanation: "במצב של ישרים מקבילים הנחתכים (שעון חול), נוצרים שני משולשים דומים, והפרופורציה נשמרת.", math_expression: "AO / OC = AB / CD" },
+            { verbal_explanation: "נציב את הנתונים המספריים מתוך השאלה.", math_expression: "4 / 8 = 5 / x" },
+            { verbal_explanation: "נצמצם את השבר השמאלי לחצי.", math_expression: "1 / 2 = 5 / x" },
+            { verbal_explanation: "נבצע כפל בהצלבה למציאת המשתנה.", math_expression: "x = 2 &times; 5 = 10" }
         ],
         final_answer: "10"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "משיק למעגל וזווית בין משיק למיתר",
-        question: "זווית בין משיק למיתר העובר בנקודת ההשקה היא 45&deg;. מהו אורך הקשת שהמיתר קובע (הקשת הקטנה הכלואה בזווית), אם היקף המעגל כולו הוא 40&pi; ס\"מ?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "שני משולשים דומים זה לזה. היחס בין שטח המשולש הקטן לשטח המשולש הגדול הוא 16:25.<br>אורך אחת הצלעות במשולש הקטן הוא 8 ס\"מ.<br>מהו אורך הצלע המתאימה לה במשולש הגדול?",
         options: [
-            "10&pi; ס\"מ",
-            "20&pi; ס\"מ",
-            "5&pi; ס\"מ",
-            "15&pi; ס\"מ"
+            "10",
+            "12",
+            "12.5",
+            "15"
         ],
+        hint: "יחס השטחים של משולשים דומים שווה לריבוע יחס הצלעות (יחס הדמיון הקווי). הוציאו שורש מיחס השטחים כדי למצוא את יחס הצלעות.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "הזווית ההיקפית הנשענת על הקשת שווה לזווית שבין המשיק למיתר.", math_expression: "&alpha; = 45" },
-            { verbal_explanation: "הזווית המרכזית הנשענת על הקשת היא כפולה מהזווית ההיקפית.", math_expression: "&beta; = 2 &times; 45 = 90" },
-            { verbal_explanation: "קשת של 90 מעלות מהווה רבע ממעגל שלם (360 מעלות).", math_expression: "Fraction = 90 / 360 = 1 / 4" },
-            { verbal_explanation: "נכפיל את היקף המעגל הכולל ברבע כדי למצוא את אורך הקשת.", math_expression: "L = (1 / 4) &times; 40&pi; = 10&pi;" }
-        ],
-        final_answer: "10&pi; ס\"מ"
-    },
-    // =====================================================================
-    // תת-נושא 6: מרובע חסום וחוסם מעגל (12 שאלות)
-    // =====================================================================
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "מרובע ABCD חסום במעגל. נתון כי גודל הזווית הקודקודית &ang;A הוא 110&deg;. מהו גודל הזווית הנגדית לה, &ang;C?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 50,40 L 160,60 L 140,165 L 40,140 Z\" fill=\"none\" stroke=\"#8b5cf6\" stroke-width=\"2\"/><text x=\"30\" y=\"35\" font-size=\"14\">A</text><text x=\"165\" y=\"55\" font-size=\"14\">B</text><text x=\"145\" y=\"180\" font-size=\"14\">C</text><text x=\"20\" y=\"150\" font-size=\"14\">D</text><text x=\"45\" y=\"65\" font-size=\"12\" fill=\"#1d4ed8\">110&deg;</text></svg>",
-        options: [
-            "70&deg;",
-            "110&deg;",
-            "90&deg;",
-            "80&deg;"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי שמרובע ייחסם במעגל, סכום כל זוג זוויות נגדיות בו חייב להיות 180 מעלות.", math_expression: "&ang;A + &ang;C = 180" },
-            { verbal_explanation: "נציב את ערך הזווית הנתונה למשוואה.", math_expression: "110 + &ang;C = 180" },
-            { verbal_explanation: "נחסר 110 משני האגפים למציאת הזווית הנגדית.", math_expression: "&ang;C = 180 - 110" },
-            { verbal_explanation: "נחשב את התוצאה הסופית.", math_expression: "&ang;C = 70" }
-        ],
-        final_answer: "70&deg;"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "מרובע חוסם מעגל (כל צלעותיו משיקות למעגל). נתון כי אורך צלע אחת הוא 7 ס\"מ ואורך הצלע הנגדית לה הוא 11 ס\"מ. אורך צלע שלישית הוא 8 ס\"מ. מהו אורך הצלע הרביעית?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"60\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 20,40 L 180,40 L 140,160 L 40,160 Z\" fill=\"none\" stroke=\"#10b981\" stroke-width=\"2\"/><text x=\"100\" y=\"30\" font-size=\"14\">7</text><text x=\"100\" y=\"180\" font-size=\"14\">11</text><text x=\"15\" y=\"100\" font-size=\"14\">8</text><text x=\"170\" y=\"100\" font-size=\"14\" fill=\"#b91c1c\">x</text></svg>",
-        options: [
-            "10 ס\"מ",
-            "8 ס\"מ",
-            "18 ס\"מ",
-            "14 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במרובע חוסם מעגל, סכום כל שתי צלעות נגדיות שווה לסכום שתי הצלעות הנגדיות האחרות.", math_expression: "a + c = b + d" },
-            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "7 + 11 = 8 + x" },
-            { verbal_explanation: "נחבר את האיברים באגף שמאל.", math_expression: "18 = 8 + x" },
-            { verbal_explanation: "נחסר שמונה כדי לבודד את המשתנה x.", math_expression: "x = 18 - 8 = 10" }
+            { verbal_explanation: "נסמן את יחס הדמיון הקווי (יחס הצלעות) באות k. יחס השטחים שווה לחזקה השנייה של k.", math_expression: "k<sup>2</sup> = 16 / 25" },
+            { verbal_explanation: "נוציא שורש ריבועי כדי למצוא את יחס הדמיון הקווי עצמו.", math_expression: "k = &radic;(16 / 25) = 4 / 5" },
+            { verbal_explanation: "נרכיב משוואה המציגה את היחס בין הצלע הקטנה (8) לצלע הגדולה הנעלמת.", math_expression: "8 / x = 4 / 5" },
+            { verbal_explanation: "נבצע כפל בהצלבה.", math_expression: "4x = 40" },
+            { verbal_explanation: "נחלק בארבע למציאת הצלע הגדולה.", math_expression: "x = 10" }
         ],
         final_answer: "10"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "איזה טרפז מבין הטרפזים הבאים ניתן לחסום במעגל?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "במשולש ABC העבירו את הקטע AD החוצה את זווית A.<br>נתון:<br>AB = 12 , AC = 18 , BD = 4<br>לפי משפט חוצה הזווית, חשבו את אורך הקטע DC (נסמנו ב-x).",
         options: [
-            "טרפז שווה שוקיים",
-            "טרפז ישר זווית",
-            "כל טרפז",
-            "אף טרפז אינו בר חסימה"
+            "6",
+            "5",
+            "8",
+            "9"
         ],
+        hint: "משפט חוצה הזווית קובע שחוצה זווית במשולש מחלק את הצלע שמול הזווית לשני קטעים, שהיחס ביניהם שווה ליחס בין שתי הצלעות הכולאות את הזווית: AB / AC = BD / DC.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "כדי שמרובע ייחסם במעגל, סכום זוויות נגדיות בו חייב להיות שווה ל-180 מעלות.", math_expression: "&alpha; + &gamma; = 180" },
-            { verbal_explanation: "בטרפז, סכום זוויות סמוכות על שוק שווה ל-180 (ישרים מקבילים). על מנת שגם זווית נגדית תשלים ל-180, זווית הבסיס חייבת להיות שווה לזווית הבסיס השנייה.", math_expression: "&alpha; = &beta;" },
-            { verbal_explanation: "הטרפז היחיד שבו זוויות הבסיס שוות זו לזו הוא טרפז שווה שוקיים.", math_expression: "AD = BC" }
+            { verbal_explanation: "נרשום את הפרופורציה הנובעת ממשפט חוצה הזווית (יחס הצלעות הכולאות שווה ליחס חלקי הצלע הנגדית).", math_expression: "AB / AC = BD / DC" },
+            { verbal_explanation: "נציב את הנתונים אל תוך הפרופורציה.", math_expression: "12 / 18 = 4 / x" },
+            { verbal_explanation: "נצמצם את השבר השמאלי (חלוקה בשש) כדי לפשט את המשוואה.", math_expression: "2 / 3 = 4 / x" },
+            { verbal_explanation: "נבצע כפל בהצלבה.", math_expression: "2x = 12" },
+            { verbal_explanation: "נחלק בשתיים למציאת אורך הקטע החסר.", math_expression: "x = 6" }
         ],
-        final_answer: "טרפז שווה שוקיים"
+        final_answer: "6"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "אם מקבילית כלשהי חוסמת מעגל (כל צלעותיה משיקות לו), איזו צורה היא בהכרח?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "נתונים שני משולשים חופפים. צלע במשולש הראשון מסומנת על ידי הביטוי האפיין:<br>3x - 2<br>הצלע המתאימה לה במשולש השני מסומנת על ידי:<br>x + 8<br>מהו ערכו של x?",
         options: [
-            "מעוין",
-            "מלבן",
-            "טרפז",
-            "דלתון"
+            "5",
+            "4",
+            "3",
+            "6"
         ],
+        hint: "במשולשים חופפים, צלעות מתאימות שוות זו לזו באורכן. פשוט השוו בין שני הביטויים ופתרו את המשוואה.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "במרובע חוסם, סכום זוג צלעות נגדיות שווה לסכום הזוג השני.", math_expression: "a + c = b + d" },
-            { verbal_explanation: "במקבילית, צלעות נגדיות שוות זו לזו.", math_expression: "a = c &nbsp;,&nbsp; b = d" },
-            { verbal_explanation: "נציב את השוויונים במשוואה הראשונה.", math_expression: "a + a = b + b" },
-            { verbal_explanation: "נפשט ונצמצם בשתיים. המסקנה היא שכל הצלעות הסמוכות שוות.", math_expression: "2a = 2b &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = b" },
-            { verbal_explanation: "מקבילית שבה כל ארבע הצלעות שוות מוגדרת כמעוין.", math_expression: "a = b = c = d" }
+            { verbal_explanation: "מכיוון שהמשולשים חופפים לחלוטין, הצלעות המתאימות שוות זו לזו. נבנה משוואת שוויון.", math_expression: "3x - 2 = x + 8" },
+            { verbal_explanation: "נעביר את המשתנים שמאלה ואת המספרים החופשיים ימינה.", math_expression: "3x - x = 8 + 2" },
+            { verbal_explanation: "נכנס איברים בשני האגפים.", math_expression: "2x = 10" },
+            { verbal_explanation: "נחלק בשתיים למציאת הנעלם.", math_expression: "x = 5" }
         ],
-        final_answer: "מעוין"
+        final_answer: "5"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "אם מקבילית כלשהי חסומה במעגל (כל קודקודיה על ההיקף), איזו צורה היא בהכרח?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "במשולש, ישר מקביל לבסיס יוצר פרופורציה לפי משפט תאלס.<br>נתונים הקטעים על השוקיים:<br>AD = x , DB = 2 , AE = x + 3 , EC = 3<br>מצאו את ערכו של x.",
         options: [
-            "מלבן",
-            "מעוין",
-            "דלתון",
-            "ריבוע"
+            "6",
+            "5",
+            "4",
+            "3"
         ],
+        hint: "בנו את משוואת הפרופורציה של תאלס (עליון חלקי תחתון): x / 2 = (x + 3) / 3, ובצעו כפל בהצלבה.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "במרובע חסום, סכום זוויות נגדיות שווה תמיד ל-180 מעלות.", math_expression: "&ang;A + &ang;C = 180" },
-            { verbal_explanation: "במקבילית, זוויות נגדיות שוות זו לזו.", math_expression: "&ang;A = &ang;C" },
-            { verbal_explanation: "נציב את השוויון למשוואה.", math_expression: "&ang;A + &ang;A = 180" },
-            { verbal_explanation: "נחלק בשתיים לקבלת גודל הזווית. מקבילית עם זוויות ישרות היא מלבן.", math_expression: "2&ang;A = 180 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; &ang;A = 90&deg;" }
+            { verbal_explanation: "נציב את הביטויים האלגבריים אל תוך משוואת הפרופורציה של משפט תאלס הרגיל.", math_expression: "x / 2 = (x + 3) / 3" },
+            { verbal_explanation: "נשתמש בכפל בהצלבה כדי להיפטר מהשברים.", math_expression: "3 &times; x = 2(x + 3)" },
+            { verbal_explanation: "נפתח את הסוגריים באגף הימני.", math_expression: "3x = 2x + 6" },
+            { verbal_explanation: "נעביר אגף ונחסר לקבלת התוצאה הסופית המיידית.", math_expression: "x = 6" }
         ],
-        final_answer: "מלבן"
+        final_answer: "6"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "מרובע חוסם מעגל. סכום שתי צלעותיו הנגדיות הוא 20 ס\"מ. מהו היקף המרובע כולו?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "משולש א' דומה למשולש ב'. יחס הדמיון הקווי ביניהם (הקטן לגדול) הוא 1:2.<br>שטחו של המשולש הגדול הוא 24 סמ\"ר.<br>מהו שטחו של המשולש הקטן (נסמנו ב-x)?",
         options: [
-            "40 ס\"מ",
-            "20 ס\"מ",
-            "80 ס\"מ",
-            "10 ס\"מ"
+            "6",
+            "12",
+            "8",
+            "4"
         ],
+        hint: "יחס השטחים אינו כיחס הצלעות! יחס השטחים הוא יחס הצלעות (k) מועלה בריבוע. אם יחס הצלעות הוא חצי, מהו יחס השטחים?",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "היקף מרובע מוגדר כסכום אורכי כל ארבע צלעותיו.", math_expression: "P = a + b + c + d" },
-            { verbal_explanation: "במרובע חוסם מעגל, סכום זוג צלעות נגדיות שווה לסכום הזוג השני.", math_expression: "a + c = b + d" },
-            { verbal_explanation: "נתון שסכום הזוג הראשון הוא 20. לכן גם סכום הזוג השני הוא 20.", math_expression: "a + c = 20 &nbsp;,&nbsp; b + d = 20" },
-            { verbal_explanation: "נציב למשוואת ההיקף ונחבר את הסכומים.", math_expression: "P = 20 + 20 = 40" }
+            { verbal_explanation: "נזהה את יחס הדמיון הקווי הנתון.", math_expression: "k = 1 / 2" },
+            { verbal_explanation: "נחשב את יחס השטחים, שהוא יחס הדמיון הקווי מועלה בריבוע.", math_expression: "k<sup>2</sup> = (1 / 2)<sup>2</sup> = 1 / 4" },
+            { verbal_explanation: "נבנה משוואה: השטח הקטן (הנעלם) חלקי השטח הגדול הידוע לנו שווה ליחס השטחים.", math_expression: "x / 24 = 1 / 4" },
+            { verbal_explanation: "נכפיל בעשרים וארבע את שני האגפים כדי לחלץ את השטח המבוקש.", math_expression: "x = 24 / 4 = 6" }
         ],
-        final_answer: "40"
+        final_answer: "6"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "מרובע ABCD חסום במעגל. היחס בין הזווית &ang;A לזווית הנגדית לה &ang;C הוא 2:3. מה גודלה של הזווית הקטנה מביניהן?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "בשרטוט של 'שעון חול' נוצרים משולשים דומים בעקבות ישרים מקבילים.<br>ידועות הפרופורציות הבאות (ראו שרטוט מנטלי):<br>AO = x , OC = x + 2 , BO = 3 , OD = 4<br>מהו ערכו של x?",
         options: [
-            "72&deg;",
-            "108&deg;",
-            "60&deg;",
-            "120&deg;"
+            "6",
+            "5",
+            "4",
+            "8"
         ],
+        hint: "היחס בין קטעים הנמצאים על ישר אחד שווה ליחס בין הקטעים על הישר השני (AO/OC = BO/OD).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נגדיר את שתי הזוויות באמצעות משתנה עזר ליחס.", math_expression: "&ang;A = 2x &nbsp;,&nbsp; &ang;C = 3x" },
-            { verbal_explanation: "במרובע חסום, סכום זוויות נגדיות הוא 180 מעלות.", math_expression: "2x + 3x = 180" },
-            { verbal_explanation: "נכנס איברים.", math_expression: "5x = 180" },
-            { verbal_explanation: "נחלק בחמש למציאת היחס הבסיסי.", math_expression: "x = 36" },
-            { verbal_explanation: "נחשב את הזווית הקטנה (המורכבת מפעמיים x).", math_expression: "&ang;A = 2 &times; 36 = 72" }
+            { verbal_explanation: "על פי הדמיון בשעון החול, היחס בין הקטעים על אלכסון אחד שווה ליחס בין הקטעים על האלכסון השני.", math_expression: "AO / OC = BO / OD" },
+            { verbal_explanation: "נציב את הביטויים והערכים למשוואה.", math_expression: "x / (x + 2) = 3 / 4" },
+            { verbal_explanation: "נבצע כפל בהצלבה על מנת לבטל את המכנים.", math_expression: "4x = 3(x + 2)" },
+            { verbal_explanation: "נפתח את הסוגריים.", math_expression: "4x = 3x + 6" },
+            { verbal_explanation: "נעביר את משתנה האיקס שמאלה כדי לחלץ את התשובה.", math_expression: "x = 6" }
+        ],
+        final_answer: "6"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משולשים: משפטי חפיפה, דמיון ופרופורציה (משפט תאלס והרחבותיו)",
+        question: "שני משולשים דומים זה לזה ביחס דמיון קווי של 2:3 (הקטן לגדול).<br>היקפו של המשולש הקטן הוא 20 ס\"מ.<br>מהו היקפו של המשולש הגדול (נסמנו ב-x)?",
+        options: [
+            "30",
+            "40",
+            "45",
+            "25"
+        ],
+        hint: "בניגוד לשטחים (שעולים בריבוע), היחס בין היקפים של צורות דומות שווה בדיוק ליחס הדמיון הקווי הרגיל.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "היקף מתנהג כמו כל צלע חד-ממדית. היחס בין היקפים שווה ליחס הדמיון הקווי עצמו.", math_expression: "P_1 / P_2 = k" },
+            { verbal_explanation: "נציב את ההיקף הידוע ואת יחס הדמיון בתוך המשוואה.", math_expression: "20 / x = 2 / 3" },
+            { verbal_explanation: "נבצע כפל בהצלבה למציאת המשתנה.", math_expression: "2x = 60" },
+            { verbal_explanation: "נחלק בשתיים לקבלת ההיקף הגדול.", math_expression: "x = 30" }
+        ],
+        final_answer: "30"
+    },
+
+    // =====================================================================
+    // תת-נושא 2: משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון (10 שאלות)
+    // =====================================================================
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "במקבילית, ידועות שתי זוויות סמוכות (הנמצאות על אותה צלע):<br>הזווית האחת שווה ל-2x.<br>הזווית השנייה שווה ל-3x.<br>מהו גודלה (במעלות) של הזווית הקטנה יותר במקבילית?",
+        options: [
+            "72",
+            "36",
+            "108",
+            "60"
+        ],
+        hint: "בכל מקבילית, סכום של כל שתי זוויות סמוכות הוא תמיד 180 מעלות. חברו אותן, מצאו את x, ואז חשבו את הזווית הקטנה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "סכום זוויות סמוכות במקבילית הוא תמיד זווית שטוחה.", math_expression: "2x + 3x = 180" },
+            { verbal_explanation: "נכנס איברים למציאת הערך של המשתנה.", math_expression: "5x = 180" },
+            { verbal_explanation: "נחלק בחמש.", math_expression: "x = 36" },
+            { verbal_explanation: "השאלה מבקשת את הזווית הקטנה, שהיא פעמיים איקס. נציב ונחשב.", math_expression: "2 &times; 36 = 72" }
         ],
         final_answer: "72"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "במרובע החסום במעגל, הזווית החיצונית הצמודה לאחד מקודקודי המרובע שווה ל-85&deg;. מה גודלה של הזווית הפנימית הנגדית (הנמצאת ממול לקודקוד זה בתוך המרובע)?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "במלבן, האלכסונים נחתכים בנקודה O.<br>אורכו של חצי אלכסון אחד מיוצג על ידי: 4x - 5<br>אורכו של חצי האלכסון השני מיוצג על ידי: 2x + 7<br>מהו אורכו השלם של אחד האלכסונים במלבן זה?<br><svg viewBox='0 0 200 120' width='160' height='96' style='display:block; margin: 15px auto;'><rect x='30' y='20' width='140' height='80' fill='#f8fafc' stroke='#3b82f6' stroke-width='2'/><line x1='30' y1='20' x2='170' y2='100' stroke='#ef4444' stroke-width='2'/><line x1='170' y1='20' x2='30' y2='100' stroke='#ef4444' stroke-width='2'/><text x='100' y='55' font-size='10' text-anchor='middle'>4x-5</text><text x='100' y='80' font-size='10' text-anchor='middle'>2x+7</text></svg>",
         options: [
-            "85&deg;",
-            "95&deg;",
-            "180&deg;",
-            "105&deg;"
+            "38",
+            "19",
+            "6",
+            "24"
         ],
+        hint: "במלבן, כל האלכסונים שווים זה לזה וחוצים זה את זה, ולכן כל חצאי האלכסונים שווים. השוו את הביטויים, מצאו את x, חשבו את החצי והכפילו ב-2.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "הזווית החיצונית משלימה את הזווית הפנימית הצמודה לה ל-180 מעלות (זוויות צמודות).", math_expression: "&alpha; + &beta; = 180" },
-            { verbal_explanation: "זווית פנימית נגדית במרובע חסום משלימה גם היא את אותה זווית פנימית ל-180 מעלות.", math_expression: "&gamma; + &beta; = 180" },
-            { verbal_explanation: "מכאן נובע שזווית חיצונית למרובע חסום תמיד שווה לזווית הפנימית הנגדית לה.", math_expression: "&alpha; = &gamma;" },
-            { verbal_explanation: "הצבת הערך הנתון מגלה את התשובה ישירות.", math_expression: "&gamma; = 85" }
+            { verbal_explanation: "תכונת המלבן קובעת שאלכסוניו שווים וחוצים זה את זה, כך שכל חצאי האלכסונים זהים באורכם. נשווה את הביטויים.", math_expression: "4x - 5 = 2x + 7" },
+            { verbal_explanation: "נעביר את המשתנים שמאלה ואת המספרים ימינה.", math_expression: "4x - 2x = 7 + 5" },
+            { verbal_explanation: "נכנס איברים.", math_expression: "2x = 12" },
+            { verbal_explanation: "נחלק בשתיים למציאת הנעלם.", math_expression: "x = 6" },
+            { verbal_explanation: "נציב את המשתנה באחד הביטויים כדי למצוא את אורך חצי האלכסון.", math_expression: "4(6) - 5 = 24 - 5 = 19" },
+            { verbal_explanation: "האלכסון השלם מורכב משני חצאים. נכפיל בשתיים.", math_expression: "19 &times; 2 = 38" }
         ],
-        final_answer: "85"
+        final_answer: "38"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "טרפז שווה שוקיים חוסם מעגל. אורך הבסיס הקטן הוא 4 ס\"מ, ואורך הבסיס הגדול הוא 16 ס\"מ. מהו אורך שוק הטרפז?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "במעוין, אורכו של אלכסון אחד הוא 10 ס\"מ, ואורכו של האלכסון השני הוא 24 ס\"מ.<br>מהו אורך הצלע של המעוין?",
         options: [
-            "10 ס\"מ",
-            "20 ס\"מ",
-            "12 ס\"מ",
-            "8 ס\"מ"
+            "13",
+            "17",
+            "12",
+            "26"
         ],
+        hint: "במעוין, האלכסונים מאונכים זה לזה וחוצים זה את זה. הם מחלקים את המעוין ל-4 משולשים ישרי זווית. הניצבים הם חצאי האלכסונים (5 ו-12). הצלע היא היתר.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "במרובע חוסם מעגל, סכום הבסיסים שווה לסכום השוקיים.", math_expression: "a + b = c + d" },
-            { verbal_explanation: "נציב את הנתונים אודות הבסיסים. הטרפז שווה שוקיים, לכן שתי השוקיים שוות בגודלן.", math_expression: "4 + 16 = x + x" },
-            { verbal_explanation: "נחבר את האיברים בכל צד.", math_expression: "20 = 2x" },
-            { verbal_explanation: "נחלק בשתיים למציאת אורך שוק בודדת.", math_expression: "x = 10" }
+            { verbal_explanation: "אלכסוני המעוין חוצים זה את זה. נחשב את אורכי חצאי האלכסונים, אשר משמשים כניצבים במשולש ישר זווית פנימי.", math_expression: "a = 10 / 2 = 5 &nbsp;,&nbsp; b = 24 / 2 = 12" },
+            { verbal_explanation: "אלכסוני המעוין מאונכים. נשתמש במשפט פיתגורס למציאת היתר, שהוא בעצם צלע המעוין המבוקשת.", math_expression: "c<sup>2</sup> = 5<sup>2</sup> + 12<sup>2</sup>" },
+            { verbal_explanation: "נחשב את הריבועים.", math_expression: "c<sup>2</sup> = 25 + 144 = 169" },
+            { verbal_explanation: "נוציא שורש למציאת הצלע.", math_expression: "c = &radic;169 = 13" }
+        ],
+        final_answer: "13"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "במקבילית, שתי צלעות נגדיות מתוארות על ידי הביטויים:<br>5x - 4<br>2x + 11<br>מהו אורכה של הצלע (בס\"מ)?",
+        options: [
+            "21",
+            "5",
+            "16",
+            "10"
+        ],
+        hint: "במקבילית כל זוג צלעות נגדיות שוות באורכן. בנו משוואה, מצאו את x, ואז הציבו באחד הביטויים.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "התכונה המרכזית של מקבילית היא שצלעות נגדיות מקבילות ושוות. נשווה את הביטויים.", math_expression: "5x - 4 = 2x + 11" },
+            { verbal_explanation: "נעביר אגפים ונכנס איברים.", math_expression: "3x = 15" },
+            { verbal_explanation: "נחלק בשלוש למציאת הערך של המשתנה.", math_expression: "x = 5" },
+            { verbal_explanation: "השאלה מבקשת את אורך הצלע עצמה, ולכן נציב את איקס באחד הביטויים המקוריים.", math_expression: "5(5) - 4 = 25 - 4 = 21" }
+        ],
+        final_answer: "21"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "בטרפז שווה שוקיים, הבסיס הקטן הוא 10 ס\"מ והבסיס הגדול הוא 20 ס\"מ.<br>היקף הטרפז הוא 56 ס\"מ.<br>מהו אורכה של אחת השוקיים (x)?",
+        options: [
+            "13",
+            "16",
+            "26",
+            "10"
+        ],
+        hint: "בטרפז שווה שוקיים, שתי השוקיים שוות. בנו משוואת היקף: בסיס עליון + בסיס תחתון + פעמיים השוק (2x) שווה ל-56.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נרשום משוואה עבור היקף הטרפז. ההיקף מורכב מסכום שני הבסיסים ומשתי השוקיים שהן שוות באורכן.", math_expression: "10 + 20 + 2x = 56" },
+            { verbal_explanation: "נחבר את המספרים באגף השמאלי.", math_expression: "30 + 2x = 56" },
+            { verbal_explanation: "נחסר שלושים משני האגפים.", math_expression: "2x = 26" },
+            { verbal_explanation: "נחלק בשתיים למציאת אורך שוק בודדת.", math_expression: "x = 13" }
+        ],
+        final_answer: "13"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "בדלתון, אורך הצלע הקצרה מסומן כ-x, ואורך הצלע הארוכה כ-(x + 4).<br>היקף הדלתון הוא 40 ס\"מ.<br>מהו אורך הצלע הקצרה?",
+        options: [
+            "8",
+            "10",
+            "12",
+            "16"
+        ],
+        hint: "לדלתון יש שני זוגות של צלעות סמוכות שוות (שתי קצרות ושתי ארוכות). היקף = פעמיים הקצרה + פעמיים הארוכה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נרכיב משוואת היקף. בדלתון יש שתי צלעות קצרות זהות ושתי צלעות ארוכות זהות.", math_expression: "2x + 2(x + 4) = 40" },
+            { verbal_explanation: "נפתח את הסוגריים בחלק השני של המשוואה.", math_expression: "2x + 2x + 8 = 40" },
+            { verbal_explanation: "נכנס איברים ונעביר את השמונה לאגף ימין.", math_expression: "4x = 32" },
+            { verbal_explanation: "נחלק בארבע למציאת הצלע הקצרה (המיוצגת על ידי איקס).", math_expression: "x = 8" }
+        ],
+        final_answer: "8"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "שטחו של ריבוע הוא 50 סמ\"ר.<br>מהו אורך האלכסון של הריבוע (d)?",
+        options: [
+            "10",
+            "5",
+            "15",
+            "&radic;50"
+        ],
+        hint: "ריבוע הוא סוג של מעוין, ולכן ניתן לחשב את שטחו על ידי מכפלת האלכסונים (שהם שווים בריבוע) חלקי 2. כלומר, שטח = d² / 2.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "אחת הדרכים הנוחות לחשב שטח ריבוע היא להתייחס אליו כאל מעוין (מחצית מכפלת האלכסונים). מכיוון שבריבוע האלכסונים שווים, נקבל ביטוי עם חזקה.", math_expression: "S = (d &times; d) / 2 = d<sup>2</sup> / 2" },
+            { verbal_explanation: "נציב את השטח הנתון אל תוך הנוסחה.", math_expression: "d<sup>2</sup> / 2 = 50" },
+            { verbal_explanation: "נכפיל את המשוואה בשתיים למציאת הריבוע.", math_expression: "d<sup>2</sup> = 100" },
+            { verbal_explanation: "נוציא שורש כדי למצוא את אורך האלכסון.", math_expression: "d = 10" }
         ],
         final_answer: "10"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "ריבוע חסום במעגל שרדיוסו R = 5&radic;2 ס\"מ. מהו אורך צלע הריבוע?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "היקפו של מעוין הוא 40 ס\"מ, ואורך הגובה שלו (האנך היורד מקודקוד לצלע) הוא 8 ס\"מ.<br>מהו שטחו של המעוין?",
         options: [
-            "10 ס\"מ",
-            "5 ס\"מ",
-            "20 ס\"מ",
-            "10&radic;2 ס\"מ"
+            "80",
+            "160",
+            "40",
+            "100"
         ],
+        hint: "כל הצלעות במעוין שוות. חלקו את ההיקף ב-4 כדי למצוא צלע. לאחר מכן, זכרו שמעוין הוא מקבילית, ושטחו ניתן לחישוב פשוט כצלע כפול הגובה שלה.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "בריבוע החסום במעגל, אלכסון הריבוע מהווה קוטר במעגל. לכן האלכסון שווה לפעמיים הרדיוס.", math_expression: "d = 2R" },
-            { verbal_explanation: "נחשב את אורך האלכסון.", math_expression: "d = 2 &times; 5&radic;2 = 10&radic;2" },
-            { verbal_explanation: "נשתמש במשפט פיתגורס על המשולש ישר הזווית הנוצר מהאלכסון וצלעות הריבוע השוות.", math_expression: "a<sup>2</sup> + a<sup>2</sup> = d<sup>2</sup>" },
-            { verbal_explanation: "נציב את האלכסון בריבוע למשוואה.", math_expression: "2a<sup>2</sup> = (10&radic;2)<sup>2</sup>" },
-            { verbal_explanation: "נחשב את הריבוע (מאה כפול שתיים).", math_expression: "2a<sup>2</sup> = 200" },
-            { verbal_explanation: "נחלק בשתיים ונוציא שורש כדי למצוא את אורך הצלע.", math_expression: "a<sup>2</sup> = 100 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = 10" }
+            { verbal_explanation: "המעוין שווה צלעות, לכן אפשר למצוא את אורך הצלע על ידי חלוקת ההיקף בארבע.", math_expression: "a = 40 / 4 = 10" },
+            { verbal_explanation: "כיוון שמעוין הוא משפחה של מקביליות, ניתן לחשב את שטחו על ידי מכפלת הצלע (הבסיס) בגובה היורד אליה.", math_expression: "S = a &times; h" },
+            { verbal_explanation: "נציב את הנתונים שמצאנו.", math_expression: "S = 10 &times; 8 = 80" }
         ],
-        final_answer: "10"
+        final_answer: "80"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "מלבן חוסם מעגל והיקפו 24 ס\"מ. מהו אורך כל אחת מצלעותיו?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "במלבן, האורך גדול מרוחבו (x) ב-2 ס\"מ. שטח המלבן הוא 48 סמ\"ר.<br>מהו רוחב המלבן?",
         options: [
-            "6 ס\"מ",
-            "12 ס\"מ",
-            "4 ס\"מ ו-8 ס\"מ",
-            "3 ס\"מ ו-9 ס\"מ"
+            "6",
+            "8",
+            "4",
+            "12"
         ],
+        hint: "האורך הוא (x+2). שטח הוא אורך כפול רוחב. פתרו את המשוואה הריבועית הנוצרת.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "מלבן שחוסם מעגל חייב לקיים את התנאי שסכום צלעות נגדיות שווה.", math_expression: "a + c = b + d" },
-            { verbal_explanation: "מכיוון שבמלבן הצלעות הנגדיות שוות ממילא, השוויון מראה שכל הצלעות הסמוכות חייבות להיות שוות, ולכן הוא ריבוע.", math_expression: "a = b = c = d" },
-            { verbal_explanation: "היקף ריבוע שווה לארבע פעמים הצלע.", math_expression: "P = 4a" },
-            { verbal_explanation: "נציב את ההיקף ונחלק בארבע.", math_expression: "24 = 4a &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = 6" }
+            { verbal_explanation: "נרשום את אורך המלבן באמצעות המשתנה של הרוחב כפי שתואר בשאלה.", math_expression: "Length = x + 2" },
+            { verbal_explanation: "נבנה משוואת שטח (אורך כפול רוחב שווה לשטח הנתון).", math_expression: "x(x + 2) = 48" },
+            { verbal_explanation: "נפתח את הסוגריים.", math_expression: "x<sup>2</sup> + 2x = 48" },
+            { verbal_explanation: "נעביר את המספר שמאלה לקבלת משוואה ריבועית.", math_expression: "x<sup>2</sup> + 2x - 48 = 0" },
+            { verbal_explanation: "נפרק בעזרת טרינום (סכום 2, מכפלה מינוס 48).", math_expression: "(x + 8)(x - 6) = 0" },
+            { verbal_explanation: "אורך של צלע חייב להיות חיובי, ולכן נפסול את התשובה השלילית ונבחר בחיובית.", math_expression: "x = 6" }
         ],
         final_answer: "6"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "מרובע חסום וחוסם מעגל",
-        question: "במרובע ABCD החסום במעגל, האלכסונים AC ו-BD נחתכים בנקודה O. מהו הקשר המתמטי הנוצר בין קטעי האלכסונים לפי משפט המיתרים הנחתכים?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משפחת המרובעים: מקבילית, מלבן, מעוין, ריבוע, טרפז, דלתון",
+        question: "בטרפז, אורך הבסיס העליון הוא 8 ס\"מ ואורך הבסיס התחתון הוא 12 ס\"מ.<br>הגובה של הטרפז הוא 5 ס\"מ. <br>מהו שטח הטרפז (בסמ\"ר)?",
         options: [
-            "AO &times; OC = BO &times; OD",
-            "AO + OC = BO + OD",
-            "AO / OC = BO / OD",
-            "AO &times; BO = CO &times; DO"
+            "50",
+            "100",
+            "40",
+            "60"
         ],
+        hint: "נוסחת שטח טרפז היא סכום הבסיסים, כפול הגובה, חלקי 2.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "האלכסונים במרובע חסום נמתחים מקצה אחד של המעגל לשני, לכן הם למעשה מיתרים הנחתכים בתוך המעגל.", math_expression: "AC &perp; BD &ne; True &nbsp;&nbsp; (General case)" },
-            { verbal_explanation: "על פי משפט המיתרים הנחתכים, מכפלת קטעי מיתר אחד שווה למכפלת קטעי המיתר השני.", math_expression: "x_1 &times; x_2 = y_1 &times; y_2" },
-            { verbal_explanation: "נציב את שמות הקטעים של האלכסונים לפי הנקודה O.", math_expression: "AO &times; OC = BO &times; OD" }
+            { verbal_explanation: "נכתוב את הנוסחה הכללית לחישוב שטחו של טרפז.", math_expression: "S = ((a + b) &times; h) / 2" },
+            { verbal_explanation: "נציב את נתוני הבסיסים והגובה אל תוך הנוסחה.", math_expression: "S = ((8 + 12) &times; 5) / 2" },
+            { verbal_explanation: "נחבר את סכום הבסיסים בסוגריים.", math_expression: "S = (20 &times; 5) / 2" },
+            { verbal_explanation: "נכפיל ונחלק לקבלת השטח הכולל.", math_expression: "S = 100 / 2 = 50" }
         ],
-        final_answer: "AO &times; OC = BO &times; OD"
+        final_answer: "50"
     },
 
     // =====================================================================
-    // תת-נושא 7: פרופורציה במעגל (משפט חותכים ומשיק) (12 שאלות)
+    // תת-נושא 3: קטע אמצעים במשולש ובטרפז (10 שאלות)
     // =====================================================================
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "בתוך מעגל נחתכים שני מיתרים AB ו-CD בנקודה E. נתון: AE = 3 ס\"מ, EB = 8 ס\"מ, ו-CE = 4 ס\"מ. על פי משפט המיתרים הנחתכים, מהו אורך הקטע ED?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"30\" y1=\"60\" x2=\"170\" y2=\"140\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"40\" y1=\"150\" x2=\"150\" y2=\"30\" stroke=\"#ef4444\" stroke-width=\"2\"/><circle cx=\"107\" cy=\"104\" r=\"4\" fill=\"#000\"/><text x=\"60\" y=\"75\" font-size=\"14\">3</text><text x=\"135\" y=\"140\" font-size=\"14\">8</text><text x=\"65\" y=\"140\" font-size=\"14\">4</text><text x=\"135\" y=\"75\" font-size=\"14\" fill=\"#b91c1c\">x</text><text x=\"108\" y=\"125\" font-size=\"16\" font-weight=\"bold\">E</text></svg>",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "במשולש נתון בסיס שאורכו 24 ס\"מ.<br>מהו אורכו של קטע האמצעים המקביל לבסיס זה?",
         options: [
-            "6 ס\"מ",
-            "5 ס\"מ",
-            "8 ס\"מ",
-            "4 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "על פי משפט המיתרים הנחתכים במעגל, מכפלת קטעי המיתר הראשון שווה למכפלת קטעי המיתר השני.", math_expression: "AE &times; EB = CE &times; ED" },
-            { verbal_explanation: "נציב את אורכי הקטעים הידועים לתוך המשוואה.", math_expression: "3 &times; 8 = 4 &times; x" },
-            { verbal_explanation: "נחשב את המכפלה באגף שמאל.", math_expression: "24 = 4x" },
-            { verbal_explanation: "נחלק בארבע כדי לבודד את הנעלם.", math_expression: "x = 24 / 4 = 6" }
-        ],
-        final_answer: "6"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "מנקודה P מחוץ למעגל יוצאים שני חותכים: חותך PAB (A הנקודה הקרובה) וחותך PCD (C הקרובה). נתון: PA = 4, AB = 5, PC = 3. מהו אורך הקטע CD בתוך המעגל?",
-        options: [
-            "9",
             "12",
             "6",
+            "48",
             "8"
         ],
+        hint: "התכונה המרכזית של קטע אמצעים במשולש היא שהוא שווה בדיוק למחצית מאורך הצלע שאליה הוא מקביל.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "אורך החותך הראשון כולו שווה לסכום חלקיו (החיצוני והפנימי).", math_expression: "PB = 4 + 5 = 9" },
-            { verbal_explanation: "לפי משפט שני חותכים היוצאים מאותה נקודה: מכפלת חותך בחלקו החיצוני שווה למכפלת החותך השני בחלקו החיצוני.", math_expression: "PA &times; PB = PC &times; PD" },
-            { verbal_explanation: "נציב את הנתונים למשוואה כדי למצוא את אורך החותך השני כולו (PD).", math_expression: "4 &times; 9 = 3 &times; PD" },
-            { verbal_explanation: "נחשב את אגף שמאל.", math_expression: "36 = 3 &times; PD" },
-            { verbal_explanation: "נחלק בשלוש למציאת החותך המלא.", math_expression: "PD = 12" },
-            { verbal_explanation: "הקטע הפנימי המבוקש הוא החותך השלם פחות החלק החיצוני.", math_expression: "CD = 12 - 3 = 9" }
-        ],
-        final_answer: "9"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "מנקודה P יוצאים משיק PT (T על המעגל) וחותך PAB (B הנקודה הרחוקה). נתון: PA = 2 ס\"מ, AB = 6 ס\"מ. מהו אורך המשיק PT?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"130\" cy=\"100\" r=\"60\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"10\" y1=\"30\" x2=\"100\" y2=\"48\" stroke=\"#10b981\" stroke-width=\"2\"/><line x1=\"10\" y1=\"30\" x2=\"185\" y2=\"125\" stroke=\"#8b5cf6\" stroke-width=\"2\"/><circle cx=\"10\" cy=\"30\" r=\"3\" fill=\"#000\"/><text x=\"5\" y=\"20\" font-size=\"14\">P</text><text x=\"100\" y=\"40\" font-size=\"14\">T</text><text x=\"75\" y=\"80\" font-size=\"14\">A</text><text x=\"190\" y=\"140\" font-size=\"14\">B</text><text x=\"40\" y=\"55\" font-size=\"12\">2</text><text x=\"130\" y=\"100\" font-size=\"12\">6</text><text x=\"50\" y=\"35\" font-size=\"12\" fill=\"#10b981\">x</text></svg>",
-        options: [
-            "4 ס\"מ",
-            "8 ס\"מ",
-            "12 ס\"מ",
-            "16 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נחשב תחילה את אורכו המלא של החותך PAB.", math_expression: "PB = 2 + 6 = 8" },
-            { verbal_explanation: "לפי משפט חותך ומשיק: ריבוע המשיק שווה למכפלת החותך המלא בחלקו החיצוני.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
-            { verbal_explanation: "נציב את הערכים למשוואה.", math_expression: "PT<sup>2</sup> = 2 &times; 8" },
-            { verbal_explanation: "נחשב את המכפלה.", math_expression: "PT<sup>2</sup> = 16" },
-            { verbal_explanation: "נוציא שורש ריבועי למציאת אורך המשיק החיובי.", math_expression: "PT = 4" }
-        ],
-        final_answer: "4"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "מנקודה P מחוץ למעגל יוצאים משיק PT באורך 12 ס\"מ, וחותך PAB שהחלק החיצוני שלו PA שווה ל-8 ס\"מ. מהו אורך המיתר הפנימי AB?",
-        options: [
-            "10 ס\"מ",
-            "18 ס\"מ",
-            "8 ס\"מ",
-            "12 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "לפי משפט חותך ומשיק היוצאים מאותה נקודה.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
-            { verbal_explanation: "נציב את הנתונים הידועים למשוואה.", math_expression: "12<sup>2</sup> = 8 &times; PB" },
-            { verbal_explanation: "נעלה את המשיק בריבוע.", math_expression: "144 = 8 &times; PB" },
-            { verbal_explanation: "נחלק בשמונה כדי למצוא את החותך השלם.", math_expression: "PB = 144 / 8 = 18" },
-            { verbal_explanation: "הקטע הפנימי שווה לחותך השלם פחות החלק החיצוני.", math_expression: "AB = 18 - 8 = 10" }
-        ],
-        final_answer: "10"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "שני מיתרים AB ו-CD נחתכים בנקודה E בתוך המעגל. אורכי הקטעים הם: AE = x, EB = x+2, CE = x-1, ED = x+4. מהו ערכו של x?",
-        options: [
-            "4",
-            "2",
-            "3",
-            "5"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "ניישם את משפט המיתרים הנחתכים: מכפלת חלקי המיתר הראשון שווה למכפלת חלקי המיתר השני.", math_expression: "AE &times; EB = CE &times; ED" },
-            { verbal_explanation: "נציב את הביטויים האלגבריים.", math_expression: "x(x + 2) = (x - 1)(x + 4)" },
-            { verbal_explanation: "נפתח את הסוגריים משני צידי המשוואה.", math_expression: "x<sup>2</sup> + 2x = x<sup>2</sup> + 4x - x - 4" },
-            { verbal_explanation: "נכנס איברים באגף ימין.", math_expression: "x<sup>2</sup> + 2x = x<sup>2</sup> + 3x - 4" },
-            { verbal_explanation: "האיבר הריבועי מופיע בשני האגפים ולכן מתבטל. נעביר אגפים למציאת הנעלם.", math_expression: "2x = 3x - 4 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; 4 = x" }
-        ],
-        final_answer: "4"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "מנקודה P מחוץ למעגל יוצאים שני חותכים: PAB ו-PCD. נתון: PA = 5, PB = 12, PC = 6. מהו אורכו הכולל של החותך השני PD?",
-        options: [
-            "10",
-            "12",
-            "8",
-            "15"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשתמש במשפט חותכים למעגל.", math_expression: "PA &times; PB = PC &times; PD" },
-            { verbal_explanation: "נציב את הנתונים ישירות למשוואה.", math_expression: "5 &times; 12 = 6 &times; PD" },
-            { verbal_explanation: "נחשב את אגף שמאל.", math_expression: "60 = 6 &times; PD" },
-            { verbal_explanation: "נחלק בשש כדי לבודד את הנעלם.", math_expression: "PD = 60 / 6 = 10" }
-        ],
-        final_answer: "10"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "משיק PT וחותך PAB יוצאים מנקודה P אל המעגל. נתון שאורך המשיק הוא 10 ס\"מ, ושאורך הקטע הפנימי במעגל AB גדול פי 3 מאורך הקטע החיצוני PA. מצאו את אורכו של הקטע החיצוני PA.",
-        options: [
-            "5 ס\"מ",
-            "10 ס\"מ",
-            "15 ס\"מ",
-            "20 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגדיר את הקטע החיצוני כנעלם.", math_expression: "PA = x" },
-            { verbal_explanation: "לפי הנתון, הקטע הפנימי גדול פי שלושה.", math_expression: "AB = 3x" },
-            { verbal_explanation: "אורכו של החותך המלא הוא סכום שני חלקיו.", math_expression: "PB = x + 3x = 4x" },
-            { verbal_explanation: "נציב למשפט משיק וחותך.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
-            { verbal_explanation: "נציב את הביטויים והערכים.", math_expression: "10<sup>2</sup> = x &times; 4x" },
-            { verbal_explanation: "נעלה בריבוע ונכפיל.", math_expression: "100 = 4x<sup>2</sup>" },
-            { verbal_explanation: "נחלק בארבע ונוציא שורש חיובי.", math_expression: "x<sup>2</sup> = 25 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 5" }
-        ],
-        final_answer: "5"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "שני מיתרים נחתכים בתוך מעגל. המיתר הראשון נחצה לשני חצאים שווים (נסמן כל חצי ב-x). המיתר השני מחולק לקטעים שאורכם 4 ס\"מ ו-9 ס\"מ. מהו אורכו הכולל של המיתר הראשון?",
-        options: [
-            "12 ס\"מ",
-            "6 ס\"מ",
-            "18 ס\"מ",
-            "15 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשתמש במשפט המיתרים הנחתכים.", math_expression: "x &times; x = 4 &times; 9" },
-            { verbal_explanation: "נחשב את המכפלה.", math_expression: "x<sup>2</sup> = 36" },
-            { verbal_explanation: "נוציא שורש כדי למצוא חצי מיתר.", math_expression: "x = 6" },
-            { verbal_explanation: "המיתר המלא מורכב משני חצאים כאלו.", math_expression: "L = 6 + 6 = 12" }
+            { verbal_explanation: "על פי המשפט הגיאומטרי, אורך קטע האמצעים במשולש שווה למחצית מאורך הבסיס שהוא מקביל אליו.", math_expression: "Midsegment = Base / 2" },
+            { verbal_explanation: "נציב את הנתון מהשאלה ונחשב.", math_expression: "24 / 2 = 12" }
         ],
         final_answer: "12"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "מנקודה P מחוץ למעגל נמתחים משיק PT באורך 6 ס\"מ, וחותך PAB. נסמן את הקטע החיצוני PA כ-x, ונתון כי הקטע הפנימי AB הוא 5 ס\"מ. מהו אורך הקטע PA?",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "בטרפז, אורך הבסיס הקטן הוא 14 ס\"מ ואורך הבסיס הגדול הוא 26 ס\"מ.<br>מהו אורכו של קטע האמצעים בטרפז?",
         options: [
-            "4 ס\"מ",
-            "9 ס\"מ",
-            "3 ס\"מ",
-            "5 ס\"מ"
+            "20",
+            "12",
+            "40",
+            "15"
         ],
+        hint: "קטע אמצעים בטרפז מחושב על ידי ממוצע חשבוני של שני הבסיסים (סכום הבסיסים חלקי 2).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "החותך המלא שווה לחיבור חלקיו.", math_expression: "PB = x + 5" },
-            { verbal_explanation: "ניישם את משפט חותך ומשיק.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
-            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "6<sup>2</sup> = x(x + 5)" },
-            { verbal_explanation: "נפתח סוגריים ונסדר כמשוואה ריבועית.", math_expression: "36 = x<sup>2</sup> + 5x &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x<sup>2</sup> + 5x - 36 = 0" },
-            { verbal_explanation: "נפרק לטרינום (מספרים שמכפלתם מינוס 36 וסכומם חמש).", math_expression: "(x + 9)(x - 4) = 0" },
-            { verbal_explanation: "אורך חייב להיות חיובי, ולכן נפסול את הפתרון השלילי.", math_expression: "x = 4" }
+            { verbal_explanation: "קטע אמצעים בטרפז מקביל לבסיסים, ואורכו שווה למחצית מסכומם.", math_expression: "Midsegment = (a + b) / 2" },
+            { verbal_explanation: "נציב את אורכי הבסיסים הידועים במונה.", math_expression: "(14 + 26) / 2" },
+            { verbal_explanation: "נחבר את המספרים.", math_expression: "40 / 2" },
+            { verbal_explanation: "נבצע חלוקה סופית לקבלת האורך.", math_expression: "20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "במשולש העבירו קטע אמצעים שאורכו x + 3. הצלע המקבילה לו היא באורך 4x - 2.<br>מהו ערכו של x?",
+        options: [
+            "4",
+            "5",
+            "2",
+            "6"
+        ],
+        hint: "קטע האמצעים קטן פי 2 מהצלע, לכן קל יותר לכפול את קטע האמצעים פי 2 ולהשוות לצלע: 2 כפול (x+3) שווה ל- (4x-2).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "מכיוון שהבסיס גדול פי שתיים מקטע האמצעים, נכפיל את קטע האמצעים כדי להשוות ביניהם במשוואה.", math_expression: "2(x + 3) = 4x - 2" },
+            { verbal_explanation: "נפתח את הסוגריים.", math_expression: "2x + 6 = 4x - 2" },
+            { verbal_explanation: "נעביר את המשתנים לאגף אחד ואת המספרים לאגף שני.", math_expression: "6 + 2 = 4x - 2x" },
+            { verbal_explanation: "נכנס איברים.", math_expression: "8 = 2x" },
+            { verbal_explanation: "נחלק בשתיים לקבלת ערך המשתנה.", math_expression: "x = 4" }
         ],
         final_answer: "4"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "בטרפז נתון קטע אמצעים שאורכו 15 ס\"מ. הבסיס העליון מסומן ב-x, והבסיס התחתון מסומן ב-x + 8.<br>מהו אורך הבסיס העליון (x)?",
+        options: [
+            "11",
+            "15",
+            "7",
+            "19"
+        ],
+        hint: "היעזרו בנוסחה לממוצע: סכום הבסיסים (x פלוס x+8) חלקי 2 שווה לקטע האמצעים (15).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נבנה משוואה על בסיס נוסחת קטע האמצעים בטרפז.", math_expression: "(x + (x + 8)) / 2 = 15" },
+            { verbal_explanation: "נכנס איברים במונה ונכפיל את המשוואה בשתיים כדי לבטל את השבר.", math_expression: "2x + 8 = 30" },
+            { verbal_explanation: "נעביר את המספר אגף.", math_expression: "2x = 22" },
+            { verbal_explanation: "נחלק בשתיים כדי לחשוף את אורך הבסיס הקטן.", math_expression: "x = 11" }
+        ],
+        final_answer: "11"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "משולש בנוי מ-3 צלעות שאורכיהן: 10 ס\"מ, 14 ס\"מ ו-18 ס\"מ. מחברים את שלושת אמצעי הצלעות ליצירת משולש פנימי קטן.<br>מהו היקף המשולש הפנימי שנוצר?",
+        options: [
+            "21",
+            "42",
+            "10.5",
+            "84"
+        ],
+        hint: "המשולש הפנימי בנוי מ-3 קטעי אמצעים. כל אחד מהם שווה לחצי מהצלע שהוא מקביל אליה. לכן, ההיקף שלו יהיה בדיוק חצי מהיקף המשולש הגדול.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשולש הפנימי מורכב משלושה קטעי אמצעים. כל קטע אמצעים שווה למחצית הצלע אליה הוא מקביל. נחשב את אורכי הצלעות של המשולש הפנימי.", math_expression: "a_1 = 10 / 2 = 5 &nbsp;,&nbsp; a_2 = 14 / 2 = 7 &nbsp;,&nbsp; a_3 = 18 / 2 = 9" },
+            { verbal_explanation: "נחבר את הצלעות החדשות כדי למצוא את היקף המשולש הפנימי (שהוא, למעשה, בדיוק מחצית מהיקף המשולש המקורי).", math_expression: "P = 5 + 7 + 9 = 21" }
+        ],
+        final_answer: "21"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "בטרפז, אורך הבסיס הקטן הוא 8 ס\"מ, ואורכו של קטע האמצעים הוא 12 ס\"מ.<br>מהו אורך הבסיס הגדול בטרפז זה?",
+        options: [
+            "16",
+            "20",
+            "10",
+            "24"
+        ],
+        hint: "סכום הבסיסים חלקי 2 שווה ל-12. לכן סכומם חייב להיות 24. חסרו מ-24 את הבסיס הידוע ותמצאו את השני.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נרכיב משוואת קטע אמצעים בטרפז, כשהפעם הבסיס התחתון הוא הנעלם.", math_expression: "(8 + x) / 2 = 12" },
+            { verbal_explanation: "נכפיל פי שתיים משני צידי המשוואה.", math_expression: "8 + x = 24" },
+            { verbal_explanation: "נחסר שמונה כדי לבודד את הנעלם ולמצוא את אורך הבסיס.", math_expression: "x = 16" }
+        ],
+        final_answer: "16"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "במשולש שגובהו הוא 10 ס\"מ, מעבירים קטע אמצעים (שמקביל לבסיס שעליו יורד הגובה).<br>הגובה חותך את קטע האמצעים לשני חלקים. מהו אורך החלק העליון של הגובה (מהקודקוד ועד לקטע האמצעים)?",
+        options: [
+            "5",
+            "10",
+            "2.5",
+            "לא ניתן לדעת"
+        ],
+        hint: "קטע אמצעים במשולש חוצה כל קטע שיוצא מהקודקוד אל הבסיס (לרבות גובה, תיכון וחוצה זווית) בדיוק באמצעו.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "משפט שימושי בגיאומטריה קובע שקטע אמצעים במשולש חוצה כל קטע שיורד מהקודקוד שמולו אל הבסיס (לרבות את הגובה). כלומר, הוא מחלק את הגובה לשני חצאים שווים.", math_expression: "h_{top} = h_{total} / 2" },
+            { verbal_explanation: "נציב את הגובה הידוע ונחשב את המחצית.", math_expression: "10 / 2 = 5" }
+        ],
+        final_answer: "5"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "במשולש ישר זווית, אורך היתר הוא 20 ס\"מ. מנקודת האמצע של אחד הניצבים מעבירים קטע המקביל ליתר, אשר חותך את הניצב השני בנקודת האמצע שלו.<br>מהו אורך קטע זה?",
+        options: [
+            "10",
+            "20",
+            "5",
+            "15"
+        ],
+        hint: "קטע היוצא מאמצע צלע אחת, ומקביל לצלע אחרת (או חוצה את הצלע השנייה באמצע), הוא בהכרח קטע אמצעים במשולש.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "קטע שמחבר אמצעי שתי צלעות הוא קטע אמצעים בהגדרה. הוא תמיד מקביל לצלע השלישית (במקרה זה, היתר) ושווה למחציתה.", math_expression: "Midsegment = Hypotenuse / 2" },
+            { verbal_explanation: "נחשב את אורך הקטע על פי הנתון.", math_expression: "20 / 2 = 10" }
+        ],
+        final_answer: "10"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "במשולש, מעבירים קטע אמצעים המקביל לבסיס, ונוצר משולש קטן בחלקו העליון.<br>ידוע ששטח המשולש הגדול המקורי הוא 40 סמ\"ר. מהו שטח המשולש הקטן?",
+        options: [
+            "10",
+            "20",
+            "5",
+            "15"
+        ],
+        hint: "קטע אמצעים יוצר משולש עליון שדומה למשולש הגדול ביחס צלעות של 1:2. יחס השטחים הוא ריבוע יחס הצלעות (כלומר 1:4).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "קטע אמצעים יוצר משולש קטן הדומה למשולש הגדול. יחס הצלעות הוא 1:2 מכיוון שכל צלע במשולש הקטן שווה למחצית הצלע המתאימה בגדול.", math_expression: "k = 1 / 2" },
+            { verbal_explanation: "יחס השטחים הוא ריבועו של יחס הצלעות הקווי.", math_expression: "k<sup>2</sup> = (1 / 2)<sup>2</sup> = 1 / 4" },
+            { verbal_explanation: "לכן, שטח המשולש הקטן מהווה רבע משטח המשולש השלם. נחשב בהתאם.", math_expression: "S_{small} = 40 / 4 = 10" }
+        ],
+        final_answer: "10"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "קטע אמצעים במשולש ובטרפז",
+        question: "בטרפז, אורך קטע האמצעים מיוצג על ידי הביטוי: 2x.<br>סכום שני הבסיסים של הטרפז מיוצג על ידי הביטוי: x + 18.<br>מהו ערכו של x?",
+        options: [
+            "6",
+            "9",
+            "4",
+            "12"
+        ],
+        hint: "היעזרו בנוסחת הקשר הישיר: סכום הבסיסים = פעמיים קטע האמצעים. או לחלופין, (סכום הבסיסים) חלקי 2 = קטע אמצעים.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נוסחת קטע האמצעים קובעת כי סכום הבסיסים חלקי שתיים שווה לקטע האמצעים. במילים אחרות, סכום הבסיסים שווה לפעמיים קטע האמצעים.", math_expression: "Sum_{bases} = 2 &times; Midsegment" },
+            { verbal_explanation: "נציב את הביטויים הנתונים במשוואה זו.", math_expression: "x + 18 = 2(2x)" },
+            { verbal_explanation: "נפשט את המכפלה באגף ימין.", math_expression: "x + 18 = 4x" },
+            { verbal_explanation: "נעביר את האיקס שמאלה בחיסור למציאת הערך.", math_expression: "18 = 3x" },
+            { verbal_explanation: "נחלק בשלוש ונקבל את התשובה הסופית.", math_expression: "x = 6" }
+        ],
+        final_answer: "6"
+    },
+    // =====================================================================
+    // תת-נושא 4: מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית (10 שאלות)
+    // =====================================================================
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "במעגל שמרכזו O, הזווית ההיקפית הנשענת על הקשת AB שווה ל-35&deg;.<br>מהו גודלה של הזווית המרכזית (2x) הנשענת על אותה הקשת?<br><svg viewBox='0 0 200 200' width='160' height='160' style='display:block; margin: 15px auto;'><circle cx='100' cy='100' r='80' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 40,150 L 100,100 L 160,150' fill='none' stroke='#ef4444' stroke-width='2'/><path d='M 40,150 L 100,20 L 160,150' fill='none' stroke='#10b981' stroke-width='2'/><circle cx='100' cy='100' r='4' fill='#0f172a'/><text x='100' y='90' font-weight='bold' text-anchor='middle'>O</text><text x='100' y='50' font-weight='bold' text-anchor='middle'>35&deg;</text><text x='100' y='125' font-weight='bold' text-anchor='middle'>2x</text></svg>",
+        options: [
+            "70",
+            "35",
+            "17.5",
+            "140"
+        ],
+        hint: "זווית מרכזית במעגל תמיד גדולה פי 2 מהזווית ההיקפית הנשענת על אותה הקשת בדיוק.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "על פי המשפט הגיאומטרי, זווית מרכזית שווה לפעמיים הזווית ההיקפית הנשענת על אותה קשת.", math_expression: "&alpha;_{center} = 2 &times; &alpha;_{inscribed}" },
+            { verbal_explanation: "נציב את הנתונים שבשאלה אל תוך הנוסחה.", math_expression: "2x = 2 &times; 35" },
+            { verbal_explanation: "נחשב את המכפלה כדי למצוא את גודל הזווית המרכזית.", math_expression: "2x = 70" }
+        ],
+        final_answer: "70"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "שתי זוויות היקפיות נשענות על אותה הקשת במעגל.<br>הזווית הראשונה מיוצגת על ידי הביטוי 3x - 10, והזווית השנייה מיוצגת על ידי x + 30.<br>מהו ערכו של x?",
+        options: [
+            "20",
+            "15",
+            "25",
+            "10"
+        ],
+        hint: "כל הזוויות ההיקפיות הנשענות על אותה קשת (או על קשתות שוות) שוות זו לזו. השוו בין שני הביטויים ופתרו את המשוואה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשפט קובע שזוויות היקפיות הנשענות על אותה קשת שוות ביניהן. נרכיב משוואת שוויון.", math_expression: "3x - 10 = x + 30" },
+            { verbal_explanation: "נעביר את המשתנה מאגף ימין לאגף שמאל, ואת המספר לצד ימין.", math_expression: "3x - x = 30 + 10" },
+            { verbal_explanation: "נכנס איברים דומים בשני האגפים.", math_expression: "2x = 40" },
+            { verbal_explanation: "נחלק בשתיים למציאת הערך של המשתנה.", math_expression: "x = 20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "משולש חסום במעגל כך שאחת מצלעותיו היא קוטר המעגל. הזווית שמול הקוטר שווה ל-9x.<br>מהו ערכו של x?",
+        options: [
+            "10",
+            "9",
+            "20",
+            "15"
+        ],
+        hint: "זווית היקפית הנשענת על קוטר שווה תמיד ל-90 מעלות (זווית ישרה).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשפט קובע שזווית היקפית הנשענת על קוטר היא זווית ישרה. לכן, גודלה הוא בדיוק 90 מעלות.", math_expression: "9x = 90" },
+            { verbal_explanation: "נחלק את המשוואה בתשע כדי לחלץ את ערכו של המשתנה.", math_expression: "x = 10" }
+        ],
+        final_answer: "10"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "במעגל שרדיוסו 13 ס\"מ, נתון מיתר שמרחקו ממרכז המעגל הוא 5 ס\"מ. <br>מהו אורך המיתר כולו?<br><svg viewBox='0 0 200 200' width='160' height='160' style='display:block; margin: 15px auto;'><circle cx='100' cy='100' r='80' fill='none' stroke='#3b82f6' stroke-width='2'/><line x1='40' y1='150' x2='160' y2='150' stroke='#1e293b' stroke-width='3'/><line x1='100' y1='100' x2='100' y2='150' stroke='#ef4444' stroke-width='2' stroke-dasharray='4,4'/><line x1='100' y1='100' x2='160' y2='150' stroke='#10b981' stroke-width='2'/><circle cx='100' cy='100' r='3' fill='#000'/><text x='110' y='130' font-size='12'>5</text><text x='140' y='120' font-size='12'>13</text><text x='130' y='165' font-size='12'>x</text></svg>",
+        options: [
+            "24",
+            "12",
+            "26",
+            "10"
+        ],
+        hint: "האנך ממרכז המעגל למיתר (המרחק) חוצה את המיתר. נוצר משולש ישר זווית שבו היתר הוא הרדיוס (13), ניצב אחד הוא המרחק (5) והניצב השני הוא חצי המיתר.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "האנך ממרכז המעגל למיתר יוצר משולש ישר זווית וחוצה את המיתר. נסמן את חצי המיתר כ-x ונשתמש במשפט פיתגורס.", math_expression: "x<sup>2</sup> + 5<sup>2</sup> = 13<sup>2</sup>" },
+            { verbal_explanation: "נחשב את הריבועים של המספרים.", math_expression: "x<sup>2</sup> + 25 = 169" },
+            { verbal_explanation: "נעביר את העשרים וחמש לאגף ימין בחיסור.", math_expression: "x<sup>2</sup> = 144" },
+            { verbal_explanation: "נוציא שורש כדי למצוא את אורך חצי המיתר.", math_expression: "x = 12" },
+            { verbal_explanation: "המיתר השלם מורכב משני חצאים שווים. נכפיל בשתיים.", math_expression: "12 &times; 2 = 24" }
+        ],
+        final_answer: "24"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "שני מיתרים מקבילים, AB ו-CD, חסומים במעגל. <br>הקשת שביניהם (AC) שווה ל-50&deg;. מיתר שלישי, AD, יוצר זווית היקפית ADC. מהו גודלה של הזווית ההיקפית ADC?",
+        options: [
+            "25",
+            "50",
+            "100",
+            "130"
+        ],
+        hint: "מיתרים מקבילים במעגל כולאים ביניהם קשתות שוות. זווית היקפית שווה למחצית הקשת שעליה היא נשענת.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "משפט קובע שמיתרים מקבילים במעגל כולאים ביניהם קשתות שוות בגודלן. לכן קשת BD שווה גם היא לקשת AC.", math_expression: "Arc_{AC} = Arc_{BD} = 50" },
+            { verbal_explanation: "הזווית ההיקפית ADC נשענת בדיוק על הקשת AC. גודל זווית היקפית הוא מחצית מהקשת שעליה היא נשענת.", math_expression: "&alpha; = Arc_{AC} / 2" },
+            { verbal_explanation: "נציב את ערך הקשת ונחלק בשתיים למציאת הזווית המבוקשת.", math_expression: "50 / 2 = 25" }
+        ],
+        final_answer: "25"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "שני מיתרים נחתכים בתוך מעגל ויוצרים זווית של 60&deg; ביניהם.<br>הקשת הכלואה מול זווית זו היא בת 80&deg;. <br>מהו גודלה של הקשת הכלואה הנגדית לה (נסמנה ב-x)?",
+        options: [
+            "40",
+            "60",
+            "80",
+            "20"
+        ],
+        hint: "זווית בין שני מיתרים הנחתכים בתוך מעגל שווה למחצית סכום הקשתות הכלואות ביניהם. משוואה: (80 + x) / 2 = 60.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "הנוסחה לזווית פנימית הנוצרת מחיתוך שני מיתרים היא ממוצע שתי הקשתות הכלואות.", math_expression: "(80 + x) / 2 = 60" },
+            { verbal_explanation: "נכפיל את שני אגפי המשוואה בשתיים כדי לבטל את השבר.", math_expression: "80 + x = 120" },
+            { verbal_explanation: "נחסר שמונים למציאת הקשת הנגדית.", math_expression: "x = 40" }
+        ],
+        final_answer: "40"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "שני חותכים יוצאים מנקודה אחת מחוץ למעגל. הזווית שביניהם היא 30&deg;.<br>הקשת הגדולה הכלואה בין החותכים היא 100&deg;. מהי מידת הקשת הקטנה (x)?",
+        options: [
+            "40",
+            "70",
+            "20",
+            "60"
+        ],
+        hint: "זווית בין שני חותכים הנפגשים מחוץ למעגל שווה למחצית ההפרש בין הקשת הגדולה לקשת הקטנה הכלואות ביניהם. (100 פחות x) חלקי 2 שווה 30.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "הנוסחה לזווית חיצונית הנוצרת על ידי שני חותכים היא מחצית ההפרש בין הקשתות.", math_expression: "(100 - x) / 2 = 30" },
+            { verbal_explanation: "נכפיל בשתיים את המשוואה.", math_expression: "100 - x = 60" },
+            { verbal_explanation: "נעביר את האיקס ימינה (כדי שיהיה חיובי) ואת השישים שמאלה בחיסור.", math_expression: "100 - 60 = x" },
+            { verbal_explanation: "נחשב את החיסור.", math_expression: "x = 40" }
+        ],
+        final_answer: "40"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "מרובע ABCD חסום במעגל.<br>הזווית A מיוצגת על ידי 3x והזווית הנגדית לה (זווית C) מיוצגת על ידי 2x.<br>מהו ערכו של x?",
+        options: [
+            "36",
+            "72",
+            "18",
+            "45"
+        ],
+        hint: "במרובע החסום במעגל, סכום כל שתי זוויות נגדיות הוא תמיד 180 מעלות.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "התנאי הגיאומטרי למרובע החסום במעגל הוא שסכום כל שתי זוויות נגדיות מסתכם למאה ושמונים מעלות.", math_expression: "3x + 2x = 180" },
+            { verbal_explanation: "נכנס איברים דומים באגף השמאלי.", math_expression: "5x = 180" },
+            { verbal_explanation: "נחלק בחמש כדי למצוא את המשתנה המבוקש.", math_expression: "x = 36" }
+        ],
+        final_answer: "36"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "במעגל, מיתר AB שווה באורכו למיתר CD. <br>הזווית המרכזית הנשענת על מיתר AB שווה ל- 4x + 10.<br>הזווית המרכזית הנשענת על מיתר CD שווה ל- 3x + 35.<br>מהו ערכו של x?",
+        options: [
+            "25",
+            "15",
+            "30",
+            "20"
+        ],
+        hint: "במעגל, מיתרים שווים נשענים על קשתות שוות, שעליהן נשענות זוויות מרכזיות שוות. השוו את הביטויים של הזוויות.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "לפי המשפט, מיתרים שווים כורתים קשתות שוות, ולכן הזוויות המרכזיות הנשענות עליהם שוות זו לזו.", math_expression: "4x + 10 = 3x + 35" },
+            { verbal_explanation: "נעביר את משתנה האיקס הקטן לאגף שמאל, ואת המספר החופשי ימינה.", math_expression: "4x - 3x = 35 - 10" },
+            { verbal_explanation: "נכנס איברים ונקבל ישירות את התשובה.", math_expression: "x = 25" }
+        ],
+        final_answer: "25"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מעגל: תכונות מיתרים, קשתות וזווית מרכזית והיקפית",
+        question: "במעגל, אורך הקשת כולה הוא 360 מעלות. נתונות שתי קשתות המהוות יחד חצי מעגל.<br>קשת אחת מיוצגת על ידי 5x והקשת השנייה על ידי 4x.<br>מהי המידה של הקשת הגדולה מביניהן (במעלות)?",
+        options: [
+            "100",
+            "80",
+            "90",
+            "120"
+        ],
+        hint: "חצי מעגל שווה ל-180 מעלות. חברו את שתי הקשתות ל-180, מצאו את x, ואז הציבו אותו בקשת הגדולה (5x).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "קשתות המרכיבות חצי מעגל מסתכמות למאה ושמונים מעלות. נרכיב משוואה.", math_expression: "5x + 4x = 180" },
+            { verbal_explanation: "נכנס איברים באגף שמאל.", math_expression: "9x = 180" },
+            { verbal_explanation: "נחלק בתשע.", math_expression: "x = 20" },
+            { verbal_explanation: "כדי למצוא את מידת הקשת הגדולה, נציב את איקס בביטוי של הקשת הגדולה מבין השתיים.", math_expression: "5 &times; 20 = 100" }
+        ],
+        final_answer: "100"
+    },
+
+    // =====================================================================
+    // תת-נושא 5: משיק למעגל וזווית בין משיק למיתר (10 שאלות)
+    // =====================================================================
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "למעגל שמרכזו O מעבירים משיק מהנקודה החיצונית P, המשיק למעגל בנקודה T.<br>במשולש OTP שנוצר, הזווית בקודקוד O היא 40&deg;. הזווית בקודקוד P מסומנת ב-x.<br>מהו ערכו של x?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><circle cx='50' cy='75' r='40' fill='none' stroke='#3b82f6' stroke-width='2'/><path d='M 50,75 L 50,35 L 170,75 Z' fill='none' stroke='#1e293b' stroke-width='2'/><circle cx='50' cy='35' r='3' fill='#ef4444'/><circle cx='50' cy='75' r='3' fill='#000'/><circle cx='170' cy='75' r='3' fill='#000'/><text x='35' y='80' font-weight='bold'>O</text><text x='45' y='25' font-weight='bold'>T</text><text x='175' y='80' font-weight='bold'>P</text></svg>",
+        options: [
+            "50",
+            "40",
+            "90",
+            "60"
+        ],
+        hint: "הרדיוס (OT) מאונך תמיד למשיק (TP) בנקודת ההשקה. המשולש הוא ישר זווית, וסכום כל זוויותיו הוא 180 מעלות.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "משפט יסודי קובע שהרדיוס מאונך למשיק בנקודת ההשקה. כלומר, הזווית המשותפת להם היא 90 מעלות.", math_expression: "T = 90" },
+            { verbal_explanation: "סכום הזוויות הפנימיות בכל משולש הוא מאה ושמונים מעלות. נרכיב משוואה עם שלוש הזוויות.", math_expression: "x + 40 + 90 = 180" },
+            { verbal_explanation: "נחבר את המספרים באגף השמאלי.", math_expression: "x + 130 = 180" },
+            { verbal_explanation: "נחסר לקבלת הזווית הנותרת.", math_expression: "x = 50" }
+        ],
+        final_answer: "50"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "מנקודה P מחוץ למעגל יוצאים שני משיקים למעגל, הנוגעים בו בנקודות A ו-B.<br>אורך המשיק PA מיוצג על ידי: 3x - 5<br>אורך המשיק PB מיוצג על ידי: x + 15<br>מהו אורך המשיק PA?",
+        options: [
+            "25",
+            "10",
+            "20",
+            "30"
+        ],
+        hint: "שני משיקים היוצאים מאותה נקודה מחוץ למעגל ונוגעים בו - שווים זה לזה באורכם. השוו את הביטויים.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשפט קובע ששני משיקים למעגל היוצאים מאותה נקודה חיצונית שווים זה לזה באורכם. נשווה את הביטויים.", math_expression: "3x - 5 = x + 15" },
+            { verbal_explanation: "נעביר את האיקסים לצד שמאל ואת המספרים לצד ימין.", math_expression: "3x - x = 15 + 5" },
+            { verbal_explanation: "נכנס איברים דומים.", math_expression: "2x = 20" },
+            { verbal_explanation: "נחלק בשתיים למציאת המשתנה.", math_expression: "x = 10" },
+            { verbal_explanation: "השאלה מבקשת את האורך של המשיק עצמו. נציב את הערך באחד מהביטויים.", math_expression: "PA = 10 + 15 = 25" }
+        ],
+        final_answer: "25"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "הזווית הכלואה בין משיק למיתר הנפגשים בנקודת ההשקה היא 50&deg;.<br>הזווית ההיקפית במעגל, הנשענת על אותו מיתר בדיוק מצידו השני, שווה ל- 2x.<br>מהו ערכו של x?",
+        options: [
+            "25",
+            "50",
+            "100",
+            "75"
+        ],
+        hint: "משפט 'זווית בין משיק למיתר' קובע שהיא שווה בדיוק לזווית ההיקפית הנשענת על המיתר מצידו השני. לכן 2x שווה ל-50.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "לפי המשפט, הזווית הכלואה בין משיק למיתר שווה בגודלה לזווית ההיקפית הנשענת על אותו המיתר. נרכיב משוואה.", math_expression: "2x = 50" },
+            { verbal_explanation: "נחלק בשתיים למציאת הערך.", math_expression: "x = 25" }
+        ],
+        final_answer: "25"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "הזווית בין משיק למיתר היא 45&deg;.<br>הזווית המרכזית הנשענת על קשת המיתר מסומנת ב-x.<br>מהו ערכו של x?",
+        options: [
+            "90",
+            "45",
+            "22.5",
+            "135"
+        ],
+        hint: "הזווית בין משיק למיתר שווה לזווית ההיקפית. וזווית היקפית שווה למחצית הזווית המרכזית. מסקנה: זווית בין משיק למיתר היא חצי מהזווית המרכזית.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "הזווית בין המשיק למיתר שווה למחצית מהזווית המרכזית הנשענת על אותה קשת (כי היא שווה לזווית ההיקפית).", math_expression: "x / 2 = 45" },
+            { verbal_explanation: "נכפיל את שני האגפים בשתיים כדי לבודד את הזווית המרכזית החסרה.", math_expression: "x = 90" }
+        ],
+        final_answer: "90"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "מנקודה P יוצאים שני משיקים למעגל (בנקודות A ו-B). מרכז המעגל הוא O. <br>הזווית APB שווה ל-60&deg;. מהו גודלה של הזווית המרכזית AOB?",
+        options: [
+            "120",
+            "60",
+            "90",
+            "180"
+        ],
+        hint: "המרובע OAPB מורכב משתי זוויות ישרות (90 מעלות כל אחת) במפגש הרדיוסים והמשיקים. סכום הזוויות במרובע הוא 360, לכן שתי הזוויות הנותרות (במרכז ובנקודה החיצונית) תמיד משלימות ל-180.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "במרובע הנוצר על ידי שני משיקים ושני רדיוסים, שתי זוויות ההשקה הן 90 מעלות כל אחת. לכן, סכום שתי הזוויות הנותרות (המשיקית והמרכזית) חייב להיות 180 מעלות.", math_expression: "x + 60 = 180" },
+            { verbal_explanation: "נחסר את הזווית הידועה ממאה ושמונים למציאת הזווית במרכז המעגל.", math_expression: "x = 120" }
+        ],
+        final_answer: "120"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "מיתר AB שווה באורכו לרדיוס המעגל (R). מעבירים משיק למעגל בנקודה A.<br>מהו גודלה של הזווית בין המשיק לבין המיתר AB?",
+        options: [
+            "30",
+            "60",
+            "45",
+            "90"
+        ],
+        hint: "אם המיתר שווה לרדיוס, נוצר משולש שווה צלעות בין המרכז ושני קצות המיתר (כל הזוויות 60). הזווית המרכזית היא 60. הזווית בין המשיק למיתר היא חצי ממנה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "מכיוון שהמיתר שווה לרדיוסים הנוגעים בקצותיו, נוצר משולש שווה צלעות. לכן, הזווית המרכזית שמול המיתר היא 60 מעלות.", math_expression: "&alpha;_{center} = 60" },
+            { verbal_explanation: "גודל הזווית שבין משיק למיתר שווה למחצית מהזווית המרכזית הנשענת על המיתר.", math_expression: "&alpha;_{tangent} = 60 / 2" },
+            { verbal_explanation: "נבצע את החלוקה ונקבל את הזווית המבוקשת.", math_expression: "&alpha; = 30" }
+        ],
+        final_answer: "30"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "הזווית ההיקפית במעגל היא 70&deg;. הזווית בין משיק למיתר, הנשענת על אותה קשת, מסומנת ב- 2x - 10.<br>מהו ערכו של x?",
+        options: [
+            "40",
+            "35",
+            "80",
+            "45"
+        ],
+        hint: "זווית בין משיק למיתר שווה לזווית ההיקפית הנשענת על המיתר מצידו השני. לכן הביטוי שווה ל-70.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נשווה בין הזווית ההיקפית לזווית בין המשיק למיתר, כי הן שוות על פי המשפט.", math_expression: "2x - 10 = 70" },
+            { verbal_explanation: "נעביר את המספר ימינה ונוסיף אותו.", math_expression: "2x = 80" },
+            { verbal_explanation: "נחלק בשתיים למציאת הערך הנדרש.", math_expression: "x = 40" }
+        ],
+        final_answer: "40"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "שני משיקים יוצאים מהנקודה P ופוגעים במעגל בנקודות A ו-B, ויוצרים משולש PAB. הזווית בנקודה P היא 40&deg;.<br>מהו גודלה של הזווית הפנימית PAB?",
+        options: [
+            "70",
+            "40",
+            "140",
+            "60"
+        ],
+        hint: "שני המשיקים שווים באורכם, לכן משולש PAB הוא משולש שווה שוקיים. חשבו את זוויות הבסיס לפי סכום זוויות 180.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשולש הנוצר משני המשיקים הוא שווה שוקיים, כיוון שהמשיקים שווים. לכן, זוויות הבסיס שלו שוות. נרכיב משוואה לסכום הזוויות.", math_expression: "2x + 40 = 180" },
+            { verbal_explanation: "נחסר ארבעים משני הצדדים.", math_expression: "2x = 140" },
+            { verbal_explanation: "נחלק בשתיים כדי למצוא את גודל זווית הבסיס המבוקשת.", math_expression: "x = 70" }
+        ],
+        final_answer: "70"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "משיק למעגל בנקודה A מקביל למיתר BC. <br>במשולש ABC שנוצר, הזווית B מיוצגת על ידי 5x והזווית C מיוצגת על ידי x + 40.<br>מהו ערכו של x?",
+        options: [
+            "10",
+            "15",
+            "8",
+            "12"
+        ],
+        hint: "משיק המקביל למיתר 'כורת' קשתות שוות בין נקודת ההשקה לבין המיתר. זה הופך את המשולש שנוצר (ABC) למשולש שווה שוקיים (AB = AC), ולכן גם הזוויות מולן שוות.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "ישר המקביל למיתר ומשיק למעגל יוצר שתי קשתות שוות ביניהם. מכך נגזר שהמשולש הנוצר הוא שווה שוקיים, ולכן זוויות הבסיס שלו שוות.", math_expression: "5x = x + 40" },
+            { verbal_explanation: "נעביר את משתנה האיקס שמאלה בחיסור.", math_expression: "4x = 40" },
+            { verbal_explanation: "נחלק בארבע לקבלת הערך המדויק.", math_expression: "x = 10" }
+        ],
+        final_answer: "10"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "משיק למעגל וזווית בין משיק למיתר",
+        question: "מנקודה חיצונית יוצא חותך למעגל שמחולק לשני קטעים: חלק חיצוני באורך 4, וחלק פנימי (המיתר) באורך x. מהנקודה יוצא גם משיק לאותו מעגל שאורכו 6.<br>מהו ערכו של x?",
+        options: [
+            "5",
+            "9",
+            "4",
+            "6"
+        ],
+        hint: "משפט המשיק והחותך: ריבוע המשיק שווה למכפלת החותך כולו (x + 4) בחלקו החיצוני (4). לכן, 6 בריבוע = 4 כפול (x + 4).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "לפי המשפט, ריבוע המשיק שווה למכפלת החותך השלם בחלקו החיצוני. נרכיב את המשוואה.", math_expression: "6<sup>2</sup> = 4(x + 4)" },
+            { verbal_explanation: "נחשב את אגף שמאל (שש בריבוע).", math_expression: "36 = 4(x + 4)" },
+            { verbal_explanation: "נחלק את שני האגפים בארבע כדי לפשט את המשוואה טרם פתיחת הסוגריים.", math_expression: "9 = x + 4" },
+            { verbal_explanation: "נחסר ארבע כדי למצוא את אורך החלק הפנימי של החותך.", math_expression: "x = 5" }
+        ],
+        final_answer: "5"
+    },
+
+    // =====================================================================
+    // תת-נושא 6: מרובע חסום וחוסם מעגל (10 שאלות)
+    // =====================================================================
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "מרובע ABCD חסום במעגל.<br>הזווית A שווה ל- 4x, והזווית C (הנגדית לה) שווה ל- 5x.<br>מהו ערכו של x?",
+        options: [
+            "20",
+            "30",
+            "18",
+            "25"
+        ],
+        hint: "במרובע החסום במעגל (Cyclic Quadrilateral), סכום כל זוג זוויות נגדיות הוא בדיוק 180 מעלות.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "התנאי הבלעדי למרובע החסום במעגל הוא שסכום כל שתי זוויות נגדיות שווה למאה ושמונים מעלות.", math_expression: "4x + 5x = 180" },
+            { verbal_explanation: "נכנס איברים כדי למצוא את הסכום הכולל של המשתנה.", math_expression: "9x = 180" },
+            { verbal_explanation: "נחלק בתשע.", math_expression: "x = 20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "מרובע חוסם מעגל (כלומר המעגל נמצא בתוכו ומשיק לכל ארבע צלעותיו).<br>אורכי הצלעות לפי סדר הקפי הן: <br>AB = 10 , BC = x , CD = 14 , AD = 8<br>מהו אורכה של הצלע BC (הצלע x)?",
+        options: [
+            "16",
+            "12",
+            "14",
+            "10"
+        ],
+        hint: "במרובע החוסם מעגל, סכום שתי צלעות נגדיות שווה לסכום שתי הצלעות הנגדיות האחרות. לכן: AB + CD = BC + AD.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "המשפט קובע שבמרובע חוסם מעגל, סכום כל שתי צלעות נגדיות זהה לסכום השתיים האחרות. נרכיב משוואה המבוססת על השוויון הזה.", math_expression: "10 + 14 = x + 8" },
+            { verbal_explanation: "נחשב את הסכום בצד השמאלי.", math_expression: "24 = x + 8" },
+            { verbal_explanation: "נחסר שמונה משני האגפים כדי לחשוף את אורך הצלע הנותרת.", math_expression: "x = 16" }
+        ],
+        final_answer: "16"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "במרובע החסום במעגל, הזווית החיצונית לאחד הקודקודים שווה ל-80&deg;.<br>הזווית הפנימית הנגדית לה (בקודקוד ממול) מסומנת כ-2x.<br>מהו ערכו של x?",
+        options: [
+            "40",
+            "80",
+            "50",
+            "100"
+        ],
+        hint: "במרובע חסום במעגל, כל זווית חיצונית שווה בדיוק לזווית הפנימית הנגדית לה במרובע.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "מכיוון שזווית פנימית וחיצונית משלימות ל-180, וזוויות נגדיות במרובע חסום משלימות ל-180, הזווית החיצונית שווה בדיוק לזווית הפנימית הנגדית לה.", math_expression: "2x = 80" },
+            { verbal_explanation: "נחלק בשתיים למציאת הערך הנדרש.", math_expression: "x = 40" }
+        ],
+        final_answer: "40"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "מרובע חוסם מעגל. היקף המרובע הוא 40 ס\"מ.<br>מהו סכום אורכן של שתי צלעות נגדיות כלשהן במרובע זה (AB + CD)?",
+        options: [
+            "20",
+            "10",
+            "40",
+            "15"
+        ],
+        hint: "היקף הוא סכום 4 הצלעות. במרובע חוסם, סכום כל זוג צלעות נגדיות שווה למחצית מן ההיקף הכולל.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "במרובע חוסם מעגל, סכום כל שתי צלעות נגדיות שווה לזוג השני. מכיוון שההיקף מורכב משני הזוגות הללו יחד, סכום כל זוג שווה בדיוק לחצי מההיקף הכולל.", math_expression: "(AB + CD) = P / 2" },
+            { verbal_explanation: "נציב את ההיקף הנתון ונחלק בשתיים.", math_expression: "40 / 2 = 20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "טרפז חסום במעגל. אחת מזוויות הבסיס שלו היא 70&deg;.<br>מהו גודלה של הזווית הנגדית לה?",
+        options: [
+            "110",
+            "70",
+            "140",
+            "180"
+        ],
+        hint: "טרפז שחסום במעגל חייב להיות טרפז שווה שוקיים. מעבר לכך, כמו כל מרובע חסום, סכום הזוויות הנגדיות הוא 180.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "על פי משפט, כל טרפז שניתן לחסום במעגל הוא בהכרח טרפז שווה שוקיים. מעבר לכך, כבכל מרובע חסום, סכום זוויות נגדיות מסתכם ל-180 מעלות.", math_expression: "x + 70 = 180" },
+            { verbal_explanation: "נחסר שבעים כדי למצוא את הזווית הנגדית (שבמקרה זה גם שווה לזווית הבסיס השנייה, באותו הגובה).", math_expression: "x = 110" }
+        ],
+        final_answer: "110"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "מרובע צלעות חוסם מעגל. אורכי צלעותיו הרצופים הם:<br>x , 15 , x + 4 , 11<br>מהו ערכו של x?",
+        options: [
+            "11",
+            "12",
+            "15",
+            "10"
+        ],
+        hint: "סכום הצלעות הנגדיות (הראשונה והשלישית) שווה לסכום הזוג השני (השנייה והרביעית).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נשווה את סכום הצלעות הנגדיות (האיבר הראשון והשלישי ברצף) לסכום הזוג השני.", math_expression: "x + (x + 4) = 15 + 11" },
+            { verbal_explanation: "נכנס איברים ונסכום את אגף ימין.", math_expression: "2x + 4 = 26" },
+            { verbal_explanation: "נחסר ארבע.", math_expression: "2x = 22" },
+            { verbal_explanation: "נחלק בשתיים לקבלת האורך הלא ידוע.", math_expression: "x = 11" }
+        ],
+        final_answer: "11"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "מלבן חסום במעגל (קודקודיו על שפת המעגל). אורך אחד מאלכסוני המלבן הוא 10 ס\"מ.<br>מהו רדיוס המעגל?",
+        options: [
+            "5",
+            "10",
+            "20",
+            "2.5"
+        ],
+        hint: "כל זווית פנימית במלבן היא 90 מעלות. מכיוון שזווית היקפית של 90 מעלות נשענת תמיד על קוטר, הרי שאלכסון המלבן הוא בדיוק קוטר המעגל.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "זווית המלבן (90 מעלות) נשענת על האלכסון. זווית היקפית ישרה נשענת תמיד על הקוטר, ולכן אלכסון המלבן משמש כקוטר המעגל השלם.", math_expression: "D = 10" },
+            { verbal_explanation: "רדיוס הוא מחצית מהקוטר. נחלק בשתיים.", math_expression: "R = 10 / 2 = 5" }
+        ],
+        final_answer: "5"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "טרפז שווה שוקיים חוסם מעגל. ידוע שאורך קטע האמצעים בטרפז הוא 12 ס\"מ.<br>מהו היקף הטרפז הכולל (סכום 4 הצלעות)?",
+        options: [
+            "48",
+            "24",
+            "36",
+            "72"
+        ],
+        hint: "סכום הבסיסים כפול מלקטע האמצעים (24). במרובע חוסם, סכום הבסיסים שווה לסכום השוקיים. היקף הטרפז הוא פעמיים סכום הבסיסים.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "קטע אמצעים שווה למחצית סכום הבסיסים. מכאן שסכום שני הבסיסים שווה לפעמיים קטע האמצעים.", math_expression: "Bases = 12 &times; 2 = 24" },
+            { verbal_explanation: "מכיוון שהטרפז חוסם מעגל, סכום שני הבסיסים שווה בדיוק לסכום שתי השוקיים.", math_expression: "Legs = 24" },
+            { verbal_explanation: "היקף הטרפז הוא סכום הבסיסים בתוספת סכום השוקיים.", math_expression: "P = 24 + 24 = 48" }
+        ],
+        final_answer: "48"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "טרפז ישר זווית חוסם מעגל. רדיוס המעגל החסום הוא 4 ס\"מ.<br>מהו אורכה של השוק האנכית בטרפז (השוק שיוצרת 90 מעלות)?",
+        options: [
+            "8",
+            "4",
+            "16",
+            "2"
+        ],
+        hint: "בטרפז ישר זווית שחוסם מעגל, השוק האנכית לבסיסים מקבילה לקוטר המעגל המאונך להם, ושווה לו באורכה.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "בטרפז ישר זווית, השוק הישרה מהווה את גובה הטרפז. כאשר מעגל חסום בטרפז כזה, גובה הטרפז שווה במדויק לקוטר המעגל.", math_expression: "h = D = 2R" },
+            { verbal_explanation: "נכפיל את הרדיוס הנתון בשתיים למציאת הקוטר והגובה כאחד.", math_expression: "h = 2 &times; 4 = 8" }
+        ],
+        final_answer: "8"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "מרובע חסום וחוסם מעגל",
+        question: "מרובע ABCD חסום במעגל. זווית B מיוצגת על ידי 3x + 10 וזווית D מיוצגת על ידי 2x + 20.<br>מהו גודלה של הזווית B (במעלות)?",
+        options: [
+            "100",
+            "80",
+            "30",
+            "90"
+        ],
+        hint: "זווית B וזווית D הן נגדיות וסכומן הוא 180. חברו אותן, מצאו את x והציבו בחזרה בביטוי של זווית B.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "במרובע החסום במעגל, זוויות נגדיות משלימות זו את זו לזווית שטוחה של מאה ושמונים מעלות.", math_expression: "(3x + 10) + (2x + 20) = 180" },
+            { verbal_explanation: "נכנס את כל האיברים באגף שמאל.", math_expression: "5x + 30 = 180" },
+            { verbal_explanation: "נחסר שלושים משני האגפים.", math_expression: "5x = 150" },
+            { verbal_explanation: "נחלק בחמש למציאת המשתנה.", math_expression: "x = 30" },
+            { verbal_explanation: "כדי למצוא את הזווית המבוקשת, נציב את הערך לתוך הביטוי של הזווית הראשונה.", math_expression: "3(30) + 10 = 90 + 10 = 100" }
+        ],
+        final_answer: "100"
+    },
+    // =====================================================================
+    // תת-נושא 7: פרופורציה במעגל (משפט חותכים ומשיק) (10 שאלות)
+    // =====================================================================
+    {
+        topic: "גאומטריה אוקלידית",
         subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "מנקודה P יוצאים שני חותכים למעגל, PAB ו-PCD. נתון: PA = 2, PB = x+2. חותך שני: PC = 3, PD = x. מהו ערכו של x?",
+        question: "במעגל נתונים שני מיתרים AB ו-CD הנחתכים בנקודה P בתוך המעגל.<br>נתון:<br>AP = 4 , PB = 6 , CP = 3<br>מהו אורך הקטע PD (נסמנו ב-x)?",
+        options: [
+            "8",
+            "10",
+            "12",
+            "6"
+        ],
+        hint: "לפי משפט המיתרים הנחתכים במעגל, מכפלת קטעי מיתר אחד שווה למכפלת קטעי המיתר השני: AP &times; PB = CP &times; PD.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נשתמש במשפט המיתרים הנחתכים, הקובע כי מכפלות חלקי המיתרים שוות זו לזו.", math_expression: "AP &times; PB = CP &times; PD" },
+            { verbal_explanation: "נציב את הנתונים הידועים לנו מהשאלה לתוך המשוואה.", math_expression: "4 &times; 6 = 3 &times; x" },
+            { verbal_explanation: "נחשב את המכפלה באגף השמאלי.", math_expression: "24 = 3x" },
+            { verbal_explanation: "נחלק בשלוש כדי לחלץ את אורך הקטע המבוקש.", math_expression: "x = 8" }
+        ],
+        final_answer: "8"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "שני מיתרים נחתכים בנקודה P בתוך מעגל.<br>אורכי הקטעים של המיתר הראשון הם: AP = x , PB = x + 2<br>אורכי הקטעים של המיתר השני הם: CP = 3 , PD = 8<br>מהו ערכו של x (אורך בהכרח חיובי)?",
         options: [
             "4",
             "6",
             "2",
             "8"
         ],
+        hint: "הכפילו את קטעי המיתר הראשון (x כפול (x+2)) והשוו למכפלת קטעי המיתר השני (3 כפול 8). פתרו משוואה ריבועית.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "ניישם את המשפט עבור שני חותכים היוצאים מאותה נקודה.", math_expression: "PA &times; PB = PC &times; PD" },
-            { verbal_explanation: "נציב את הביטויים הידועים למשוואה.", math_expression: "2(x + 2) = 3 &times; x" },
-            { verbal_explanation: "נפתח את הסוגריים באגף השמאלי.", math_expression: "2x + 4 = 3x" },
-            { verbal_explanation: "נעביר אגפים ונבודד את הנעלם.", math_expression: "x = 4" }
+            { verbal_explanation: "נרכיב משוואה לפי משפט המיתרים הנחתכים (מכפלת חלקי מיתר אחד שווה למכפלת חלקי המיתר השני).", math_expression: "x(x + 2) = 3 &times; 8" },
+            { verbal_explanation: "נפתח את הסוגריים באגף שמאל, ונחשב את המכפלה באגף ימין.", math_expression: "x<sup>2</sup> + 2x = 24" },
+            { verbal_explanation: "נעביר את המספר שמאלה לקבלת משוואה ריבועית קלאסית.", math_expression: "x<sup>2</sup> + 2x - 24 = 0" },
+            { verbal_explanation: "נפרק לטרינום. אנו מחפשים שני מספרים שמכפלתם מינוס 24 וסכומם 2.", math_expression: "(x + 6)(x - 4) = 0" },
+            { verbal_explanation: "נקבל שני פתרונות. מכיוון ש-x מייצג אורך של קטע בגיאומטריה, נבחר רק בפתרון החיובי.", math_expression: "x = 4" }
         ],
         final_answer: "4"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "אורכו של משיק למעגל PT הוא 15 ס\"מ. חותך PAB יוצא מאותה נקודה P, כך שהחלק החיצוני PA ארוך 9 ס\"מ. מהו אורכו של החלק הפנימי AB?",
+        question: "מנקודה P מחוץ למעגל יוצאים שני חותכים למעגל. החותך הראשון חותך בנקודות A ו-B, והשני ב-C ו-D (כאשר A ו-C קרובות ל-P).<br>נתון:<br>PA = 3 , AB = 5<br>PC = 4 , CD = x<br>מהו ערכו של x?",
         options: [
-            "16 ס\"מ",
-            "25 ס\"מ",
-            "9 ס\"מ",
-            "15 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "ניעזר במשפט המשיק והחותך.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
-            { verbal_explanation: "נציב את הערכים.", math_expression: "15<sup>2</sup> = 9 &times; PB" },
-            { verbal_explanation: "נחשב את הריבוע.", math_expression: "225 = 9 &times; PB" },
-            { verbal_explanation: "נחלק בתשע כדי למצוא את החותך השלם.", math_expression: "PB = 225 / 9 = 25" },
-            { verbal_explanation: "נחסר את החלק החיצוני כדי לקבל את הקטע הפנימי המבוקש.", math_expression: "AB = 25 - 9 = 16" }
-        ],
-        final_answer: "16"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
-        question: "שני מיתרים AB ו-CD נחתכים בנקודה P בתוך המעגל. נתון כי AP = 6, PB = 10. המיתר השני מחולק כך ש-CP = x, ו-PD = x + 4. מהו אורך הקטע CP?",
-        options: [
-            "6",
-            "10",
+            "2",
             "4",
+            "6",
             "8"
         ],
+        hint: "משפט החותכים: החלק החיצוני (PA) כפול החותך כולו (PB) שווה לחלק החיצוני השני (PC) כפול החותך כולו (PD). שימו לב ש-PB שווה ל-PA+AB.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נשתמש במשפט המיתרים הנחתכים.", math_expression: "AP &times; PB = CP &times; PD" },
-            { verbal_explanation: "נציב את הנתונים וניצור משוואה.", math_expression: "6 &times; 10 = x(x + 4)" },
-            { verbal_explanation: "נפתח סוגריים ונסדר משוואה ריבועית.", math_expression: "60 = x<sup>2</sup> + 4x &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x<sup>2</sup> + 4x - 60 = 0" },
-            { verbal_explanation: "נפרק לטרינום (מכפלה -60, סכום 4).", math_expression: "(x + 10)(x - 6) = 0" },
-            { verbal_explanation: "נפסול את התוצאה השלילית.", math_expression: "x = 6" }
+            { verbal_explanation: "לפי משפט החותכים, מכפלת החלק החיצוני בחותך כולו שווה למכפלת החלק החיצוני השני בחותך כולו.", math_expression: "PA &times; PB = PC &times; PD" },
+            { verbal_explanation: "נחשב את האורך הכולל של שני החותכים על ידי חיבור החלקים.", math_expression: "PB = 3 + 5 = 8 &nbsp;,&nbsp; PD = 4 + x" },
+            { verbal_explanation: "נציב את הערכים אל תוך נוסחת משפט החותכים.", math_expression: "3 &times; 8 = 4(4 + x)" },
+            { verbal_explanation: "נחשב את הצד השמאלי.", math_expression: "24 = 4(4 + x)" },
+            { verbal_explanation: "נחלק את שני האגפים בארבע כדי לפשט את המשוואה.", math_expression: "6 = 4 + x" },
+            { verbal_explanation: "נחסר ארבע למציאת אורך הקטע הפנימי.", math_expression: "x = 2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "מנקודה P מחוץ למעגל יוצאים שני חותכים.<br>אורך החלק החיצוני של החותך הראשון הוא 5, והחותך כולו (PB) הוא 12.<br>אורך החלק החיצוני של החותך השני הוא 6, ואורך החותך כולו (PD) מסומן ב-x.<br>מהו אורך החותך כולו (x)?",
+        options: [
+            "10",
+            "12",
+            "8",
+            "14"
+        ],
+        hint: "הציבו ישירות במשפט: חותך חיצוני כפול חותך שלם שווה לחותך חיצוני שני כפול חותך שלם שני. 5 כפול 12 שווה 6 כפול x.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נרשום את משפט החותכים. הפעם נתונים לנו האורכים הכוללים של החותכים (PB ו-PD), מה שמקל על ההצבה.", math_expression: "PA &times; PB = PC &times; PD" },
+            { verbal_explanation: "נציב את הנתונים ישירות למשוואה.", math_expression: "5 &times; 12 = 6 &times; x" },
+            { verbal_explanation: "נחשב את המכפלה באגף השמאלי.", math_expression: "60 = 6x" },
+            { verbal_explanation: "נחלק בשש כדי למצוא את האורך השלם של החותך השני.", math_expression: "x = 10" }
+        ],
+        final_answer: "10"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "מנקודה P מחוץ למעגל יוצאים משיק PT וחותך PAB (A הנקודה הקרובה).<br>נתון שאורך המשיק הוא PT = 6.<br>אורך החלק החיצוני של החותך הוא PA = 4.<br>מהו אורכו של החותך כולו (PB)?",
+        options: [
+            "9",
+            "8",
+            "12",
+            "10"
+        ],
+        hint: "משפט המשיק והחותך: ריבוע המשיק שווה למכפלת החלק החיצוני של החותך באורך החותך כולו. 6 בריבוע שווה ל-4 כפול PB.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "משפט המשיק והחותך קובע כי ריבוע המשיק שווה למכפלת החותך השלם בחלקו החיצוני.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
+            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "6<sup>2</sup> = 4 &times; PB" },
+            { verbal_explanation: "נחשב את ריבוע המשיק באגף שמאל.", math_expression: "36 = 4 &times; PB" },
+            { verbal_explanation: "נחלק בארבע למציאת אורכו של החותך המלא.", math_expression: "PB = 9" }
+        ],
+        final_answer: "9"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "מנקודה P מחוץ למעגל יוצאים משיק PT וחותך PAB.<br>אורך החלק החיצוני של החותך הוא PA = 2, ואורך החלק הפנימי (המיתר AB) הוא 16.<br>מהו אורך המשיק PT (נסמנו ב-x)?",
+        options: [
+            "6",
+            "8",
+            "12",
+            "36"
+        ],
+        hint: "אורך החותך כולו (PB) הוא החיבור של החלק החיצוני (2) והפנימי (16). לאחר מכן, השתמשו במשפט: x² = PA * PB.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "תחילה נחשב את אורכו של החותך השלם, שהוא סכום החלק החיצוני והחלק הפנימי (המיתר).", math_expression: "PB = 2 + 16 = 18" },
+            { verbal_explanation: "נשתמש במשפט המשיק והחותך.", math_expression: "PT<sup>2</sup> = PA &times; PB" },
+            { verbal_explanation: "נציב את האורכים למשוואה.", math_expression: "x<sup>2</sup> = 2 &times; 18" },
+            { verbal_explanation: "נחשב את המכפלה.", math_expression: "x<sup>2</sup> = 36" },
+            { verbal_explanation: "נוציא שורש. כיוון שמדובר באורך, התשובה היא בהכרח חיובית.", math_expression: "x = 6" }
         ],
         final_answer: "6"
     },
-
-    // =====================================================================
-    // תת-נושא 8: הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים (12 שאלות)
-    // =====================================================================
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "משולש ישר זווית חסום במעגל שרדיוסו R = 5 ס\"מ. אורך אחד הניצבים במשולש הוא 6 ס\"מ. מהו שטחו של משולש זה?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"#f8fafc\" stroke=\"#0f172a\" stroke-width=\"2\"/><polygon points=\"20,100 180,100 144.7,34.1\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#ef4444\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"100\" r=\"4\" fill=\"#000\"/><text x=\"165\" y=\"60\" font-size=\"14\">6</text><text x=\"100\" y=\"120\" font-size=\"14\">R=5</text></svg>",
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "שני מיתרים נחתכים בתוך מעגל. <br>המיתר הראשון מחולק לקטעים באורך 4 ו-2.<br>המיתר השני מחולק לקטעים באורך x ו- 2x.<br>מהו ערכו של החלק הקצר יותר (x) במיתר השני?",
         options: [
-            "24 סמ\"ר",
-            "48 סמ\"ר",
-            "30 סמ\"ר",
-            "60 סמ\"ר"
+            "2",
+            "4",
+            "8",
+            "1"
         ],
+        hint: "מכפלת חלקי המיתר הראשון שווה למכפלת חלקי המיתר השני. לכן, 4 כפול 2 שווה ל-x כפול 2x.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "במשולש ישר זווית החסום במעגל, היתר של המשולש תמיד מתלכד עם קוטר המעגל.", math_expression: "c = 2R = 2 &times; 5 = 10" },
-            { verbal_explanation: "נשתמש במשפט פיתגורס כדי למצוא את הניצב השני.", math_expression: "a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>" },
-            { verbal_explanation: "נציב את הערכים הידועים.", math_expression: "6<sup>2</sup> + b<sup>2</sup> = 100" },
-            { verbal_explanation: "נחשב ונעביר אגפים.", math_expression: "36 + b<sup>2</sup> = 100 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; b<sup>2</sup> = 64" },
-            { verbal_explanation: "נוציא שורש כדי למצוא את אורך הניצב השני.", math_expression: "b = 8" },
-            { verbal_explanation: "נחשב את שטח המשולש (מחצית מכפלת הניצבים).", math_expression: "S = (6 &times; 8) / 2 = 24" }
+            { verbal_explanation: "נרשום את משוואת הפרופורציה של מיתרים נחתכים.", math_expression: "4 &times; 2 = x &times; 2x" },
+            { verbal_explanation: "נחשב את שני האגפים.", math_expression: "8 = 2x<sup>2</sup>" },
+            { verbal_explanation: "נחלק בשתיים.", math_expression: "4 = x<sup>2</sup>" },
+            { verbal_explanation: "נוציא שורש לקבלת הערך החיובי של המשתנה.", math_expression: "x = 2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "אורך משיק למעגל מנקודה P הוא 8 ס\"מ.<br>מאותה נקודה P יוצא חותך. אורך החלק החיצוני של החותך מסומן ב-x, ואורך המיתר הפנימי הוא x + 12.<br>מהו ערכו של x (אורך החלק החיצוני)?",
+        options: [
+            "4",
+            "8",
+            "6",
+            "2"
+        ],
+        hint: "החותך כולו שווה ל- x + (x + 12), כלומר 2x + 12. משפט המשיק והחותך אומר: 8 בריבוע שווה ל- x כפול (2x + 12). פתרו משוואה ריבועית.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נבטא את אורך החותך המלא על ידי חיבור החלק החיצוני והפנימי.", math_expression: "PB = x + (x + 12) = 2x + 12" },
+            { verbal_explanation: "נציב במשפט המשיק והחותך.", math_expression: "8<sup>2</sup> = x(2x + 12)" },
+            { verbal_explanation: "נחשב את הריבוע ונפתח סוגריים באגף הימני.", math_expression: "64 = 2x<sup>2</sup> + 12x" },
+            { verbal_explanation: "נעביר את המספר אגף וניצור משוואה ריבועית שווה לאפס.", math_expression: "2x<sup>2</sup> + 12x - 64 = 0" },
+            { verbal_explanation: "נחלק בשתיים כדי לפשט.", math_expression: "x<sup>2</sup> + 6x - 32 = 0" },
+            { verbal_explanation: "נפרק את המשוואה. הפתרון החיובי שמתקבל יהיה אורך הקטע.", math_expression: "(x - 4)(x + 10) = 0 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 4" }
+        ],
+        final_answer: "4"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "שני חותכים למעגל יוצאים מנקודה אחת P.<br>החותך הראשון מורכב מחלק חיצוני באורך x ומאורך כולל של x + 5.<br>החותך השני מורכב מחלק חיצוני באורך x - 1 ומאורך כולל של x + 7.<br>מהו ערכו של x?",
+        options: [
+            "7",
+            "5",
+            "8",
+            "6"
+        ],
+        hint: "הציבו את הנתונים במשפט שני החותכים: חלק חיצוני כפול חותך שלם שווה לחלק חיצוני כפול חותך שלם. x(x+5) = (x-1)(x+7).",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "נרכיב משוואה המבוססת על משפט החותכים במעגל.", math_expression: "x(x + 5) = (x - 1)(x + 7)" },
+            { verbal_explanation: "נפתח את הסוגריים בשני האגפים.", math_expression: "x<sup>2</sup> + 5x = x<sup>2</sup> + 7x - 1x - 7" },
+            { verbal_explanation: "נכנס איברים דומים. שימו לב שהאיברים הריבועיים מתבטלים.", math_expression: "5x = 6x - 7" },
+            { verbal_explanation: "נעביר את המשתנה ימינה (או את המספר שמאלה) למציאת התשובה.", math_expression: "7 = x" }
+        ],
+        final_answer: "7"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "פרופורציה במעגל (משפט חותכים ומשיק)",
+        question: "שני מיתרים נחתכים בתוך מעגל.<br>המיתר הראשון חתוך לקטעים באורך 12 ו-3.<br>המיתר השני חתוך לקטעים באורך 9 ו-x.<br>מהו ערכו של x?",
+        options: [
+            "4",
+            "6",
+            "3",
+            "9"
+        ],
+        hint: "משוואה פשוטה: 12 כפול 3 שווה 9 כפול x.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "משפט המיתרים קובע שמכפלת החלקים שווה.", math_expression: "12 &times; 3 = 9 &times; x" },
+            { verbal_explanation: "נחשב את אגף שמאל.", math_expression: "36 = 9x" },
+            { verbal_explanation: "נחלק בתשע.", math_expression: "x = 4" }
+        ],
+        final_answer: "4"
+    },
+
+    // =====================================================================
+    // תת-נושא 8: הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים (10 שאלות)
+    // =====================================================================
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
+        question: "במשולש ישר זווית, אורך היתר הוא 10 ס\"מ, ואורך אחד הניצבים הוא 6 ס\"מ.<br>מהו שטח המשולש (בסמ\"ר)?",
+        options: [
+            "24",
+            "48",
+            "30",
+            "60"
+        ],
+        hint: "מצאו קודם את הניצב השני בעזרת משפט פיתגורס (10 בריבוע פחות 6 בריבוע). שטח משולש ישר זווית שווה למכפלת הניצבים חלקי 2.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא שטח של משולש ישר זווית, אנו זקוקים לשני הניצבים. נשתמש במשפט פיתגורס למציאת הניצב החסר.", math_expression: "a<sup>2</sup> + 6<sup>2</sup> = 10<sup>2</sup>" },
+            { verbal_explanation: "נחשב את החזקות ונעביר את המספר ימינה.", math_expression: "a<sup>2</sup> + 36 = 100 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a<sup>2</sup> = 64" },
+            { verbal_explanation: "נוציא שורש.", math_expression: "a = 8" },
+            { verbal_explanation: "שטח המשולש הוא מחצית מכפלת הניצבים (הבסיס והגובה).", math_expression: "S = (6 &times; 8) / 2" },
+            { verbal_explanation: "נחשב.", math_expression: "S = 48 / 2 = 24" }
         ],
         final_answer: "24"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "טרפז שווה שוקיים ABCD חסום במעגל. אורך הבסיס הקטן הוא 10 ס\"מ, ואורך הבסיס הגדול (שהוא גם קוטר המעגל) הוא 26 ס\"מ. מהו שטח הטרפז?",
+        question: "במשולש שווה שוקיים, אורך הבסיס הוא 10 ס\"מ, ואורך כל אחת משתי השוקיים הוא 13 ס\"מ.<br>מהו שטח המשולש?",
         options: [
-            "216 סמ\"ר",
-            "432 סמ\"ר",
-            "200 סמ\"ר",
-            "108 סמ\"ר"
+            "60",
+            "120",
+            "65",
+            "30"
         ],
+        hint: "הורידו גובה לבסיס. במשולש שווה שוקיים הגובה גם חוצה את הבסיס (ל-5 ו-5). חשבו את הגובה בעזרת פיתגורס, ואז חשבו את שטח המשולש השלם.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "הבסיס הגדול הוא קוטר, לכן רדיוס המעגל הוא מחציתו.", math_expression: "R = 26 / 2 = 13" },
-            { verbal_explanation: "מרכז המעגל ממוקם על הבסיס הגדול. נוריד אנך מהמרכז לבסיס הקטן. האנך חוצה את הבסיס הקטן לחצאים בני חמישה סנטימטרים.", math_expression: "x = 10 / 2 = 5" },
-            { verbal_explanation: "האנך יוצר משולש ישר זווית יחד עם חצי הבסיס הקטן ורדיוס המעגל (כיתר). נחשב את גובה הטרפז בעזרת פיתגורס.", math_expression: "h<sup>2</sup> + 5<sup>2</sup> = 13<sup>2</sup>" },
-            { verbal_explanation: "נחשב ונבודד את הגובה.", math_expression: "h<sup>2</sup> + 25 = 169 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; h<sup>2</sup> = 144 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; h = 12" },
-            { verbal_explanation: "נציב את הנתונים בנוסחת שטח טרפז.", math_expression: "S = ((a + b) &times; h) / 2" },
-            { verbal_explanation: "נחשב את התוצאה הסופית.", math_expression: "S = ((10 + 26) &times; 12) / 2 = 216" }
-        ],
-        final_answer: "216"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "שטחו של מעוין הוא 96 סמ\"ר. היחס בין אורכי אלכסוניו הוא 3:4. מהו היקף המעוין?",
-        options: [
-            "40 ס\"מ",
-            "20 ס\"מ",
-            "60 ס\"מ",
-            "48 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגדיר את האלכסונים באמצעות יחס משותף.", math_expression: "d_1 = 3x &nbsp;,&nbsp; d_2 = 4x" },
-            { verbal_explanation: "נציב בנוסחת השטח של מעוין.", math_expression: "S = (3x &times; 4x) / 2 = 96" },
-            { verbal_explanation: "נפשט את המשוואה ונוציא שורש כדי למצוא את המשתנה.", math_expression: "6x<sup>2</sup> = 96 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x<sup>2</sup> = 16 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 4" },
-            { verbal_explanation: "נחשב את אורכי האלכסונים השלמים.", math_expression: "d_1 = 12 &nbsp;,&nbsp; d_2 = 16" },
-            { verbal_explanation: "אלכסוני מעוין חוצים ומאונכים, לכן יוצרים משולש ישר זווית שניצביו הם חצאי האלכסונים (6 ו-8). נשתמש בפיתגורס למציאת הצלע.", math_expression: "a<sup>2</sup> = 6<sup>2</sup> + 8<sup>2</sup> = 100 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = 10" },
-            { verbal_explanation: "היקף מעוין הוא כפולה של ארבע פעמים הצלע.", math_expression: "P = 40" }
-        ],
-        final_answer: "40"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "מעגל חסום בתוך מעוין. ידוע כי אלכסוני המעוין הם 12 ס\"מ ו-16 ס\"מ. מהו רדיוס המעגל החסום?",
-        options: [
-            "4.8 ס\"מ",
-            "5 ס\"מ",
-            "2.4 ס\"מ",
-            "9.6 ס\"מ"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נחשב תחילה את צלע המעוין בעזרת חצאי האלכסונים ומשפט פיתגורס.", math_expression: "a = &radic;(6<sup>2</sup> + 8<sup>2</sup>) = 10" },
-            { verbal_explanation: "נחשב את שטח המעוין בעזרת האלכסונים.", math_expression: "S = (12 &times; 16) / 2 = 96" },
-            { verbal_explanation: "שטח מעוין ניתן לחישוב גם כמכפלת הצלע בגובה המעוין. נחלץ את הגובה.", math_expression: "S = a &times; h &nbsp;&nbsp;&rArr;&nbsp;&nbsp; 96 = 10h &nbsp;&nbsp;&rArr;&nbsp;&nbsp; h = 9.6" },
-            { verbal_explanation: "במעוין החוסם מעגל, גובה המעוין שווה בדיוק לקוטר המעגל החסום (פעמיים הרדיוס).", math_expression: "2R = 9.6" },
-            { verbal_explanation: "נחלק בשתיים לקבלת הרדיוס.", math_expression: "R = 4.8" }
-        ],
-        final_answer: "4.8"
-    },
-    {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
-        subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "במשולש שווה שוקיים ABC, אורך השוקיים הוא 13 ס\"מ, ואורך הבסיס הוא 10 ס\"מ. מהו שטח המשולש?",
-        options: [
-            "60 סמ\"ר",
-            "120 סמ\"ר",
-            "65 סמ\"ר",
-            "30 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "במשולש שווה שוקיים, הגובה לבסיס חוצה את הבסיס. כך נוצר משולש ישר זווית שהניצב שלו שווה לחמש (מחצית הבסיס).", math_expression: "x = 10 / 2 = 5" },
+            { verbal_explanation: "הגובה לבסיס במשולש שווה שוקיים גם חוצה אותו. לכן נוצר משולש ישר זווית בו הניצב התחתון הוא מחצית מהבסיס.", math_expression: "Base_{half} = 10 / 2 = 5" },
             { verbal_explanation: "נשתמש במשפט פיתגורס למציאת הגובה.", math_expression: "h<sup>2</sup> + 5<sup>2</sup> = 13<sup>2</sup>" },
-            { verbal_explanation: "נחשב ונעביר אגפים.", math_expression: "h<sup>2</sup> + 25 = 169 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; h<sup>2</sup> = 144" },
-            { verbal_explanation: "נוציא שורש כדי למצוא את הגובה.", math_expression: "h = 12" },
-            { verbal_explanation: "נציב בנוסחת השטח למשולש הכללי (מחצית מכפלת בסיס וגובה).", math_expression: "S = (10 &times; 12) / 2 = 60" }
+            { verbal_explanation: "נחשב חזקות ונחסר.", math_expression: "h<sup>2</sup> + 25 = 169 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; h<sup>2</sup> = 144" },
+            { verbal_explanation: "נוציא שורש ריבועי.", math_expression: "h = 12" },
+            { verbal_explanation: "נחשב את שטח המשולש המקורי כולו: בסיס שלם כפול גובה, חלקי שתיים.", math_expression: "S = (10 &times; 12) / 2 = 120 / 2 = 60" }
         ],
         final_answer: "60"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "מלבן חסום במעגל שרדיוסו 10 ס\"מ. היחס בין צלעות המלבן הוא 3:4. מהו שטח המלבן?<br><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" style=\"display:block; margin: 15px auto;\"><circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><rect x=\"36\" y=\"52\" width=\"128\" height=\"96\" fill=\"#e0e7ff\" stroke=\"#3b82f6\" stroke-width=\"2\"/><line x1=\"36\" y1=\"52\" x2=\"164\" y2=\"148\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"4,4\"/><circle cx=\"100\" cy=\"100\" r=\"3\" fill=\"#000\"/><text x=\"100\" y=\"90\" font-size=\"12\" fill=\"#b91c1c\">20</text><text x=\"100\" y=\"165\" font-size=\"14\" font-weight=\"bold\">4x</text><text x=\"15\" y=\"105\" font-size=\"14\" font-weight=\"bold\">3x</text></svg>",
+        question: "במקבילית, אורכי הצלעות הסמוכות הם 10 ס\"מ ו-8 ס\"מ. הזווית הכלואה ביניהן היא 30&deg;.<br>מהו שטח המקבילית?",
         options: [
-            "192 סמ\"ר",
-            "96 סמ\"ר",
-            "300 סמ\"ר",
-            "400 סמ\"ר"
+            "40",
+            "80",
+            "20",
+            "40&radic;3"
         ],
+        hint: "שטח מקבילית ניתן לחשב גם על ידי מכפלת שתי צלעות סמוכות כפול סינוס הזווית שביניהן. (sin 30 שווה לחצי).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "במלבן החסום במעגל, האלכסון עובר דרך המרכז ולכן מהווה קוטר במעגל.", math_expression: "d = 2R = 20" },
-            { verbal_explanation: "נשתמש במשפט פיתגורס תוך הצבת היחס כמשתנה.", math_expression: "(3x)<sup>2</sup> + (4x)<sup>2</sup> = 20<sup>2</sup>" },
-            { verbal_explanation: "נעלה בריבוע ונחבר.", math_expression: "9x<sup>2</sup> + 16x<sup>2</sup> = 400 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; 25x<sup>2</sup> = 400" },
-            { verbal_explanation: "נחלק בעשרים וחמש ונוציא שורש.", math_expression: "x<sup>2</sup> = 16 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 4" },
-            { verbal_explanation: "נחשב את אורכי צלעות המלבן.", math_expression: "a = 12 &nbsp;,&nbsp; b = 16" },
-            { verbal_explanation: "שטח המלבן הוא מכפלת הצלעות.", math_expression: "S = 12 &times; 16 = 192" }
+            { verbal_explanation: "נוסחה טריגונומטרית שימושית לשטח מקבילית היא מכפלת שתי צלעות סמוכות כפול סינוס הזווית שביניהן.", math_expression: "S = a &times; b &times; sin(&alpha;)" },
+            { verbal_explanation: "נציב את הנתונים אל תוך הנוסחה.", math_expression: "S = 10 &times; 8 &times; sin(30&deg;)" },
+            { verbal_explanation: "סינוס של 30 מעלות שווה בדיוק לחצי.", math_expression: "S = 80 &times; 0.5" },
+            { verbal_explanation: "נחשב את המכפלה הסופית.", math_expression: "S = 40" }
         ],
-        final_answer: "192"
+        final_answer: "40"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "בתוך משולש ישר זווית שאורכי ניצביו הם 9 ס\"מ ו-12 ס\"מ, חסום מעגל. מהו אורך הרדיוס של המעגל החסום במשולש זה?",
+        question: "היקפו של מעוין הוא 40 ס\"מ. אורך אחד מאלכסוניו הוא 12 ס\"מ.<br>מהו שטחו של המעוין?",
         options: [
-            "3 ס\"מ",
-            "6 ס\"מ",
-            "4.5 ס\"מ",
-            "2.5 ס\"מ"
+            "96",
+            "48",
+            "192",
+            "120"
         ],
+        hint: "היקף 40 אומר שכל צלע היא 10. האלכסונים במעוין חוצים ומאונכים, לכן נוצר משולש ישר זווית עם יתר 10 וניצב 6. מצאו את הניצב השני (חצי האלכסון השני) וכפלו הכל למציאת השטח.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "תחילה, נחשב את היתר של המשולש בעזרת משפט פיתגורס.", math_expression: "c = &radic;(9<sup>2</sup> + 12<sup>2</sup>) = 15" },
-            { verbal_explanation: "נשתמש בנוסחה הייעודית למציאת רדיוס מעגל החסום במשולש ישר זווית, המבוססת על סכום הניצבים פחות היתר, חלקי שתיים.", math_expression: "r = (a + b - c) / 2" },
-            { verbal_explanation: "נציב את הנתונים למשוואה.", math_expression: "r = (9 + 12 - 15) / 2" },
-            { verbal_explanation: "נחשב את התוצאה במונה, ונחלק.", math_expression: "r = 6 / 2 = 3" }
+            { verbal_explanation: "במעוין כל ארבע הצלעות שוות. לכן אורך הצלע שווה לרבע מההיקף.", math_expression: "a = 40 / 4 = 10" },
+            { verbal_explanation: "אלכסוני המעוין חוצים זה את זה ומאונכים. חצי מהאלכסון הנתון שווה ל-6. נפעיל פיתגורס למציאת חצי האלכסון השני.", math_expression: "x<sup>2</sup> + 6<sup>2</sup> = 10<sup>2</sup>" },
+            { verbal_explanation: "נחשב את הריבועים ונעביר אגף (שלשה פיתגורית מוכרת).", math_expression: "x<sup>2</sup> + 36 = 100 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x<sup>2</sup> = 64 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; x = 8" },
+            { verbal_explanation: "חצי האלכסון השני הוא 8, ולכן האלכסון המלא שווה ל-16.", math_expression: "d_2 = 8 &times; 2 = 16" },
+            { verbal_explanation: "שטח מעוין הוא מכפלת האלכסונים חלקי שתיים.", math_expression: "S = (12 &times; 16) / 2" },
+            { verbal_explanation: "נחשב את התוצאה הסופית.", math_expression: "S = 192 / 2 = 96" }
         ],
-        final_answer: "3"
+        final_answer: "96"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "שטחו של משולש שווה צלעות הוא 9&radic;3 סמ\"ר (תשע שורש שלוש). מהו היקפו של משולש זה?",
+        question: "היקפו של מעגל הוא 20&pi; ס\"מ.<br>מהו שטח המעגל (מחולק ב- &pi;)?<br>(לדוגמה, אם השטח הוא 50&pi;, התשובה היא 50).",
         options: [
-            "18 ס\"מ",
-            "27 ס\"מ",
-            "36 ס\"מ",
-            "12 ס\"מ"
+            "100",
+            "50",
+            "400",
+            "20"
         ],
+        hint: "נוסחת היקף מעגל היא 2 * pi * R. מצאו את הרדיוס מההיקף. אחר כך הציבו את הרדיוס בנוסחת השטח (pi * R²).",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "נוסחת השטח למשולש שווה צלעות תלויה בצלע אחת בלבד.", math_expression: "S = (a<sup>2</sup>&radic;3) / 4" },
-            { verbal_explanation: "נשווה את הנוסחה לנתון בשאלה.", math_expression: "(a<sup>2</sup>&radic;3) / 4 = 9&radic;3" },
-            { verbal_explanation: "הביטוי שורש שלוש מופיע בשני האגפים ולכן מצטמצם.", math_expression: "a<sup>2</sup> / 4 = 9" },
-            { verbal_explanation: "נכפיל בארבע ונוציא שורש חיובי למציאת הצלע.", math_expression: "a<sup>2</sup> = 36 &nbsp;&nbsp;&rArr;&nbsp;&nbsp; a = 6" },
-            { verbal_explanation: "במשולש שווה צלעות יש שלוש צלעות זהות, לכן נכפיל בשלוש לקבלת ההיקף.", math_expression: "P = 3 &times; 6 = 18" }
+            { verbal_explanation: "נוסחת היקף המעגל מאפשרת לנו לחלץ את הרדיוס.", math_expression: "2&pi;R = 20&pi;" },
+            { verbal_explanation: "נצמצם פאי משני הצדדים ונחלק בשתיים.", math_expression: "R = 10" },
+            { verbal_explanation: "כעת נציב את הרדיוס בנוסחה לחישוב שטח מעגל.", math_expression: "S = &pi;R<sup>2</sup> = &pi; &times; 10<sup>2</sup>" },
+            { verbal_explanation: "השטח הוא 100 פאי. נתבקשנו למסור רק את המקדם המספרי.", math_expression: "S = 100&pi;" }
         ],
-        final_answer: "18"
+        final_answer: "100"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "בטרפז, אורך קטע האמצעים הוא 14 ס\"מ, וגובה הטרפז הוא 8 ס\"מ. מהו שטחו של הטרפז?",
+        question: "בטרפז, אורך הבסיס התחתון הוא 12 ס\"מ, ואורך הבסיס העליון הוא 8 ס\"מ. שטח הטרפז הוא 50 סמ\"ר.<br>מהו גובה הטרפז?",
         options: [
-            "112 סמ\"ר",
-            "56 סמ\"ר",
-            "224 סמ\"ר",
-            "140 סמ\"ר"
+            "5",
+            "10",
+            "2.5",
+            "4"
         ],
+        hint: "הציבו הכל בנוסחת השטח: 50 = (8 + 12) * h / 2. חברו את הבסיסים ופתרו משוואה פשוטה עבור h.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "קטע אמצעים בטרפז מוגדר כממוצע החשבוני של הבסיסים.", math_expression: "M = (a + b) / 2 = 14" },
-            { verbal_explanation: "נוסחת השטח הרגילה של טרפז שקולה להכפלת קטע האמצעים בגובה ישירות.", math_expression: "S = M &times; h" },
-            { verbal_explanation: "נציב את הנתונים ונחשב.", math_expression: "S = 14 &times; 8 = 112" }
+            { verbal_explanation: "נכתוב את משוואת השטח עבור טרפז, תוך הצבת כל הנתונים הידועים.", math_expression: "50 = ((8 + 12) &times; h) / 2" },
+            { verbal_explanation: "נחבר את סכום הבסיסים בתוך הסוגריים.", math_expression: "50 = (20 &times; h) / 2" },
+            { verbal_explanation: "נצמצם את העשרים בשתיים.", math_expression: "50 = 10h" },
+            { verbal_explanation: "נחלק בעשר לקבלת הגובה המבוקש.", math_expression: "h = 5" }
         ],
-        final_answer: "112"
+        final_answer: "5"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "בדלתון, אורך האלכסון הראשי הוא 24 ס\"מ, ואורך האלכסון המשני הוא 10 ס\"מ. מהו שטח הדלתון?",
+        question: "משולש שווה צלעות הוא בעל היקף של 18 ס\"מ.<br>מהו שטח המשולש?",
         options: [
-            "120 סמ\"ר",
-            "240 סמ\"ר",
-            "60 סמ\"ר",
-            "100 סמ\"ר"
+            "9&radic;3",
+            "18&radic;3",
+            "36",
+            "18"
         ],
+        hint: "אורך כל צלע הוא שליש מההיקף (6). שטח משולש שווה צלעות ניתן לחישוב עם הנוסחה המהירה: (צלע בריבוע * שורש 3) חלקי 4.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "אלכסוני הדלתון מאונכים זה לזה. לכן, שטח הדלתון מחושב באופן זהה לשטח מעוין.", math_expression: "S = (d_1 &times; d_2) / 2" },
-            { verbal_explanation: "נציב את אורכי האלכסונים למשוואה.", math_expression: "S = (10 &times; 24) / 2" },
-            { verbal_explanation: "נחשב את אגף ימין לקבלת התוצאה.", math_expression: "S = 240 / 2 = 120" }
+            { verbal_explanation: "כל הצלעות שוות במשולש שווה צלעות, ולכן אורך צלע אחת הוא שליש מההיקף.", math_expression: "a = 18 / 3 = 6" },
+            { verbal_explanation: "נשתמש בנוסחה הישירה לשטח משולש שווה צלעות.", math_expression: "S = (a<sup>2</sup>&radic;3) / 4" },
+            { verbal_explanation: "נציב את הצלע שמצאנו בתוך הנוסחה.", math_expression: "S = (6<sup>2</sup>&radic;3) / 4" },
+            { verbal_explanation: "נחשב את הריבוע (36) ונחלק בארבע.", math_expression: "S = (36&radic;3) / 4 = 9&radic;3" }
         ],
-        final_answer: "120"
+        final_answer: "9&radic;3"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "משושה משוכלל (רגיל) חסום בתוך מעגל שרדיוסו 6 ס\"מ. מהו שטח המשושה כולו?",
+        question: "במעגל בעל רדיוס של 6 ס\"מ, שורטטה גזרה (חלק ממעגל כמו משולש פיצה) שהזווית המרכזית שלה היא 60&deg;.<br>מהו שטח הגזרה הזו (מחולק ב- &pi;)?",
         options: [
-            "54&radic;3 סמ\"ר",
-            "36&radic;3 סמ\"ר",
-            "108&radic;3 סמ\"ר",
-            "72&radic;3 סמ\"ר"
+            "6",
+            "36",
+            "12",
+            "3"
         ],
+        hint: "שטח גזרה הוא שטח המעגל כולו (pi * R²) כפול החלק היחסי של הגזרה (זווית מרכזית חלקי 360). 60 מעלות הם בדיוק שישית ממעגל.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "משושה משוכלל החסום במעגל מורכב משישה משולשים שווי צלעות חופפים, שאורך צלעם שווה בדיוק לרדיוס המעגל.", math_expression: "a = R = 6" },
-            { verbal_explanation: "נחשב תחילה שטח של משולש שווה צלעות אחד כזה.", math_expression: "S_1 = (a<sup>2</sup>&radic;3) / 4" },
-            { verbal_explanation: "נציב את ערך הרדיוס בנוסחה למשולש.", math_expression: "S_1 = (36&radic;3) / 4 = 9&radic;3" },
-            { verbal_explanation: "נכפיל את השטח הבודד בשש כדי לקבל את השטח הכולל.", math_expression: "S = 6 &times; S_1 = 54&radic;3" }
+            { verbal_explanation: "תחילה נחשב את שטחו המלא של המעגל לפי הנוסחה.", math_expression: "S_{full} = &pi;R<sup>2</sup> = &pi; &times; 6<sup>2</sup> = 36&pi;" },
+            { verbal_explanation: "כדי למצוא את שטח הגזרה, נכפיל את השטח המלא ביחס של הזווית המרכזית מתוך 360 מעלות.", math_expression: "S_{sector} = 36&pi; &times; (60 / 360)" },
+            { verbal_explanation: "היחס הוא בדיוק שישית. נחלק.", math_expression: "S_{sector} = 36&pi; &times; (1 / 6) = 6&pi;" },
+            { verbal_explanation: "התבקשנו למסור את המקדם ללא הפאי.", math_expression: "6" }
         ],
-        final_answer: "54&radic;3"
+        final_answer: "6"
     },
     {
-        topic: "גאומטריה אוקלידית (הנדסת המישור)",
+        topic: "גאומטריה אוקלידית",
         subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
-        question: "במעגל שרדיוסו 12 ס\"מ, נתונה גזרה מעגלית שהזווית המרכזית שלה היא 60&deg;. מהו שטח גזרה זו?",
+        question: "מלבן חסום במעגל. אורכי צלעות המלבן הם 6 ס\"מ ו-8 ס\"מ.<br>מהו שטח המעגל החוסם (מחולק ב- &pi;)?",
         options: [
-            "24&pi; סמ\"ר",
-            "12&pi; סמ\"ר",
-            "48&pi; סמ\"ר",
-            "36&pi; סמ\"ר"
+            "25",
+            "100",
+            "50",
+            "48"
         ],
+        hint: "האלכסון של מלבן החסום במעגל הוא הקוטר של המעגל. מצאו את האלכסון בעזרת פיתגורס על צלעות המלבן, מצאו את הרדיוס וחשבו שטח.",
         correctAnswer: 0,
         solution_steps: [
-            { verbal_explanation: "הנוסחה לשטח גזרה מעגלית מבוססת על היחס שבין הזווית המרכזית למעגל שלם, כפול שטח המעגל הכולל.", math_expression: "S = &pi;R<sup>2</sup> &times; (&alpha; / 360)" },
-            { verbal_explanation: "נציב את הרדיוס והזווית הנתונים בנוסחה.", math_expression: "S = &pi; &times; 12<sup>2</sup> &times; (60 / 360)" },
-            { verbal_explanation: "נחשב את החזקה ואת יחס השבר (המהווה שישית).", math_expression: "S = &pi; &times; 144 &times; (1 / 6)" },
-            { verbal_explanation: "נחלק בשש ונקבל את התשובה עם פאי.", math_expression: "S = 24&pi;" }
+            { verbal_explanation: "אלכסון המלבן משמש כקוטר המעגל. נחשב אותו על ידי הפעלת משפט פיתגורס על צלעות המלבן.", math_expression: "D<sup>2</sup> = 6<sup>2</sup> + 8<sup>2</sup>" },
+            { verbal_explanation: "נחשב את הסכום.", math_expression: "D<sup>2</sup> = 36 + 64 = 100" },
+            { verbal_explanation: "נוציא שורש לקבלת הקוטר המלא.", math_expression: "D = 10" },
+            { verbal_explanation: "נחלק בשתיים למציאת הרדיוס.", math_expression: "R = 5" },
+            { verbal_explanation: "שטח המעגל הוא פאי כפול הרדיוס בריבוע.", math_expression: "S = &pi; &times; 5<sup>2</sup> = 25&pi;" }
         ],
-        final_answer: "24&pi;"
+        final_answer: "25"
+    },
+    {
+        topic: "גאומטריה אוקלידית",
+        subTopic: "הוכחות גיאומטריות מורכבות וחישובי שטחים/היקפים",
+        question: "בדלתון, אורכו של האלכסון הראשי הוא 14 ס\"מ, ואורכו של האלכסון המשני הוא 10 ס\"מ.<br>מהו שטח הדלתון?",
+        options: [
+            "70",
+            "140",
+            "35",
+            "100"
+        ],
+        hint: "בדיוק כמו במעוין (שהוא מקרה פרטי של דלתון), גם בדלתון רגיל האלכסונים מאונכים זה לזה. לכן, שטחו מחושב כמכפלת האלכסונים חלקי 2.",
+        correctAnswer: 0,
+        solution_steps: [
+            { verbal_explanation: "כיוון שבכל דלתון האלכסונים תמיד מאונכים זה לזה, ניתן לחשב את השטח באמצעות הנוסחה של מכפלת האלכסונים חלקי שתיים.", math_expression: "S = (d_1 &times; d_2) / 2" },
+            { verbal_explanation: "נציב את הנתונים שלנו לתוך הנוסחה.", math_expression: "S = (14 &times; 10) / 2" },
+            { verbal_explanation: "נכפיל את המונה.", math_expression: "S = 140 / 2" },
+            { verbal_explanation: "נחלק לקבלת התוצאה הסופית המייצגת את שטח הצורה.", math_expression: "S = 70" }
+        ],
+        final_answer: "70"
     }
 ];
