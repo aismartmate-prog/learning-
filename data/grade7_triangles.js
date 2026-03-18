@@ -1,636 +1,544 @@
+// ========================================================================
+// נושא: המשולש
+// 3 תתי נושאים | 36 שאלות סה"כ 
+// איורים צבעוניים מרהיבים מוטמעים, פתרונות בשלבים מלאים.
+// כתיבה נקייה ובטוחה: שימוש ב- × לכפל, ב- : לחילוק, ובשברים פשוטים. אין LaTeX!
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: סכום זוויות במשולש (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: סכום זוויות במשולש (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Low",
-        "question_text": "במשולש נתונות שתי זוויות: 50° ו-70°. מהו גודלה של <strong>הזווית השלישית</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='120'><polygon points='30,100 150,100 80,30' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/><text x='50' y='95' font-size='12' fill='#1e293b'>50°</text><text x='115' y='95' font-size='12' fill='#1e293b'>70°</text><text x='80' y='50' font-size='12' fill='red'>?</text></svg></div>",
-        "hint": "זכרו שסכום כל שלוש הזוויות בכל משולש הוא תמיד 180 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "נחבר את שתי הזוויות הידועות לנו.", "math_expression": "50 + 70 = 120" },
-            { "verbal_explanation": "נחסיר את הסכום שמצאנו מתוך סך המעלות במשולש (180).", "math_expression": "180 - 120 = 60" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "במשולש נתונות שתי זוויות: 50 מעלות ו-70 מעלות. מהו גודלה של הזווית השלישית?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><polygon points='20,80 180,80 80,20' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><text x='50' y='75' font-family='Arial' font-size='12' fill='#0f172a'>50°</text><text x='140' y='75' font-family='Arial' font-size='12' fill='#0f172a'>70°</text><text x='85' y='40' font-family='Arial' font-size='12' fill='#ef4444' font-weight='bold'>x</text></svg></div>",
+        options: ["60 מעלות", "90 מעלות", "80 מעלות", "70 מעלות"],
+        correctAnswer: 0,
+        hint: "סכום שלוש הזוויות בכל משולש הוא תמיד 180 מעלות. חברו את הזוויות הידועות וחסרו מ-180.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סכום שתי הזוויות הידועות לנו.&rlm;", math_expression: "50 + 70 = 120" },
+            { verbal_explanation: "שלב ב': נחסר את הסכום מסכום הזוויות הכולל במשולש (180 מעלות).&rlm;", math_expression: "180 - 120 = 60" },
+            { verbal_explanation: "הזווית השלישית היא בת 60 מעלות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "60°",
-        "options": ["50°", "60°", "70°", "80°"],
-        "correctAnswer": 1
+        final_answer: "60 מעלות"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Medium",
-        "question_text": "במשולש שווה שוקיים, זווית הראש היא 40°. מהו הגודל של <strong>כל אחת מזוויות הבסיס</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='120'><polygon points='90,20 40,100 140,100' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/><text x='90' y='45' font-size='12' text-anchor='middle'>40°</text><text x='55' y='95' font-size='12'>?</text><text x='120' y='95' font-size='12'>?</text></svg></div>",
-        "hint": "במשולש שווה שוקיים זוויות הבסיס שוות זו לזו. החסירו את זווית הראש מ-180 וחלקו ב-2.",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את סכום שתי זוויות הבסיס יחד.", "math_expression": "180 - 40 = 140" },
-            { "verbal_explanation": "מכיוון שזוויות הבסיס שוות, נחלק את הסכום ל-2.", "math_expression": "140 ÷ 2 = 70" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "במשולש ישר זווית, אחת הזוויות החדות היא בת 35 מעלות. מה גודלה של הזווית החדה השנייה?&rlm;",
+        options: ["55 מעלות", "65 מעלות", "45 מעלות", "145 מעלות"],
+        correctAnswer: 0,
+        hint: "במשולש ישר זווית יש זווית אחת של 90 מעלות. לכן, סכום שתי הזוויות החדות הנותרות חייב להיות גם הוא 90 מעלות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': זווית אחת היא 90 מעלות. זווית שנייה היא 35 מעלות. יחד הן 125 מעלות.&rlm;", math_expression: "90 + 35 = 125" },
+            { verbal_explanation: "שלב ב': נחסר מ-180 כדי למצוא את הזווית השלישית (או פשוט נחסר 35 מ-90).&rlm;", math_expression: "180 - 125 = 55" }
         ],
-        "final_answer": "70°",
-        "options": ["40°", "70°", "140°", "100°"],
-        "correctAnswer": 1
+        final_answer: "55 מעלות"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "במשולש, זווית אחת גדולה פי 2 מהשנייה, והזווית השלישית גדולה פי 3 מהשנייה. מהו גודלה של <strong>הזווית הקטנה ביותר</strong>?",
-        "hint": "סמנו את הזווית הקטנה ב-X. שאר הזוויות יהיו 2X ו-3X. חברו הכל ל-180.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את הזוויות באמצעות X.", "math_expression": "x, 2x, 3x" },
-            { "verbal_explanation": "נחבר את כל הזוויות למשוואה אחת השווה ל-180.", "math_expression": "x + 2x + 3x = 180 \u2192 6x = 180" },
-            { "verbal_explanation": "נחלק ב-6 כדי למצוא את X (הזווית הקטנה).", "math_expression": "180 ÷ 6 = 30" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "במשולש שווה שוקיים, זווית הראש (הזווית שבין השוקיים השוות) היא בת 40 מעלות. מהו גודלה של כל אחת מזוויות הבסיס?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 150' width='100%' height='150' style='max-width:150px;'><polygon points='100,20 40,130 160,130' fill='#dcfce7' stroke='#16a34a' stroke-width='2'/><text x='100' y='50' font-family='Arial' font-size='12' fill='#0f172a' text-anchor='middle'>40°</text><text x='60' y='120' font-family='Arial' font-size='12' fill='#16a34a' font-weight='bold'>x</text><text x='140' y='120' font-family='Arial' font-size='12' fill='#16a34a' font-weight='bold'>x</text></svg></div>",
+        options: ["70 מעלות", "140 מעלות", "40 מעלות", "60 מעלות"],
+        correctAnswer: 0,
+        hint: "במשולש שווה שוקיים, זוויות הבסיס שוות זו לזו. חסרו את זווית הראש מ-180, וחלקו את השארית שווה בשווה ל-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחסר את זווית הראש מסכום הזוויות הכולל.&rlm;", math_expression: "180 - 40 = 140" },
+            { verbal_explanation: "שלב ב': שתי זוויות הבסיס שוות. לכן נחלק את הסכום הנותר ב-2.&rlm;", math_expression: "140 : 2 = 70" }
         ],
-        "final_answer": "30°",
-        "options": ["20°", "30°", "60°", "90°"],
-        "correctAnswer": 1
+        final_answer: "70 מעלות"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Medium",
-        "question_text": "במשולש ישר זווית, אחת הזוויות החדות היא 35°. מהו גודלה של <strong>הזווית החדה השנייה</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='150' height='100'><polygon points='20,20 20,80 120,80' fill='#f8fafc' stroke='#b09151' stroke-width='3'/><rect x='20' y='70' width='10' height='10' fill='none' stroke='#b09151'/><text x='100' y='75' font-size='11'>35°</text><text x='25' y='35' font-size='12' fill='red'>?</text></svg></div>",
-        "hint": "במשולש ישר זווית יש זווית אחת של 90°. שתי הזוויות האחרות חייבות להשלים יחד ל-90°.",
-        "solution_steps": [
-            { "verbal_explanation": "הזווית הישרה היא 90°. לכן שתי הזוויות האחרות סכומן 90°.", "math_expression": "180 - 90 = 90" },
-            { "verbal_explanation": "נחסיר את הזווית הידועה מ-90°.", "math_expression": "90 - 35 = 55" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "במשולש שווה שוקיים, אחת מזוויות הבסיס היא בת 50 מעלות. מהו גודלה של זווית הראש?&rlm;",
+        options: ["80 מעלות", "50 מעלות", "130 מעלות", "100 מעלות"],
+        correctAnswer: 0,
+        hint: "זוויות הבסיס שוות, ולכן יש שתי זוויות של 50 מעלות. חברו אותן וחסרו מ-180.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': במשולש שווה שוקיים יש שתי זוויות בסיס שוות. לכן יש שתי זוויות של 50° בניסוח זה.&rlm;", math_expression: "50 + 50 = 100" },
+            { verbal_explanation: "שלב ב': נחסר את סכום שתי זוויות הבסיס מ-180 כדי למצוא את זווית הראש.&rlm;", math_expression: "180 - 100 = 80" }
         ],
-        "final_answer": "55°",
-        "options": ["55°", "65°", "45°", "90°"],
-        "correctAnswer": 0
+        final_answer: "80 מעלות"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "נתון משולש שבו זוויות הבסיס הן X ו- X+20. זווית הראש היא 80°. מצאו את <strong>ערכו של X</strong>.",
-        "hint": "חברו את שלוש הזוויות (X, X+20, 80) והשוו ל-180.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה עבור סכום הזוויות.", "math_expression": "x + (x + 20) + 80 = 180" },
-            { "verbal_explanation": "נכנס איברים דומים: 2X ועוד 100 שווה 180.", "math_expression": "2x + 100 = 180" },
-            { "verbal_explanation": "נעביר אגפים ונחלק ב-2.", "math_expression": "2x = 80 \u2192 x = 40" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "האם ייתכן משולש שבו כל שלוש הזוויות הן בנות 60 מעלות?&rlm;",
+        options: ["כן, זהו משולש שווה צלעות", "לא, כי הסכום אינו 180", "כן, זהו משולש ישר זווית", "לא, חייבת להיות זווית קהה"],
+        correctAnswer: 0,
+        hint: "בדקו מה סכום הזוויות: 60 ועוד 60 ועוד 60.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחבר את שלוש הזוויות יחד.&rlm;", math_expression: "60 + 60 + 60 = 180" },
+            { verbal_explanation: "שלב ב': מכיוון שהסכום הוא בדיוק 180°, המשולש אפשרי וזהו משולש שווה צלעות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "40",
-        "options": ["30", "40", "50", "60"],
-        "correctAnswer": 1
+        final_answer: "כן, זהו משולש שווה צלעות"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Medium",
-        "question_text": "במשולש שווה צלעות, מהו הגודל של <strong>כל זווית</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='100'><polygon points='60,10 10,90 110,90' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/><line x1='30' y1='50' x2='40' y2='50' stroke='#b09151' stroke-width='2'/><line x1='80' y1='50' x2='90' y2='50' stroke='#b09151' stroke-width='2'/><line x1='55' y1='95' x2='65' y2='95' stroke='#b09151' stroke-width='2'/></svg></div>",
-        "hint": "במשולש שווה צלעות, כל שלוש הזוויות שוות זו לזו.",
-        "solution_steps": [
-            { "verbal_explanation": "סכום הזוויות הוא 180 מעלות.", "math_expression": "180" },
-            { "verbal_explanation": "נחלק את הסכום ב-3 זוויות שוות.", "math_expression": "180 ÷ 3 = 60" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "היחס בין שלוש הזוויות במשולש הוא 1:2:3. מה גודלה של הזווית הגדולה ביותר?&rlm;",
+        options: ["90 מעלות", "60 מעלות", "100 מעלות", "120 מעלות"],
+        correctAnswer: 0,
+        hint: "חברו את חלקי היחס (1+2+3). חלקו את 180 בסכום החלקים, ואת התוצאה הכפילו בחלק הגדול ביותר (3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סך כל החלקים ביחס.&rlm;", math_expression: "1 + 2 + 3 = 6" },
+            { verbal_explanation: "שלב ב': נחלק 180 מעלות ב-6 כדי למצוא ערך של חלק אחד.&rlm;", math_expression: "180 : 6 = 30" },
+            { verbal_explanation: "שלב ג': הזווית הגדולה מיוצגת על ידי 3 חלקים. נכפיל ב-30.&rlm;", math_expression: "3 × 30 = 90" }
         ],
-        "final_answer": "60°",
-        "options": ["60°", "90°", "45°", "180°"],
-        "correctAnswer": 0
+        final_answer: "90 מעלות"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "זווית אחת במשולש גדולה ב-20° מהשנייה וב-40° מהשלישית. מהו גודל <strong>הזווית הגדולה ביותר</strong>?",
-        "hint": "סמנו את הזווית הגדולה ב-X. השנייה תהיה X-20 והשלישית X-40.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה: x + (x-20) + (x-40) = 180.", "math_expression": "3x - 60 = 180" },
-            { "verbal_explanation": "נעביר אגף: 3X = 240.", "math_expression": "3x = 240" },
-            { "verbal_explanation": "נחלק ב-3 למציאת הזווית הגדולה.", "math_expression": "x = 80" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "במשולש מסוים, זווית אחת גדולה ב-20 מעלות מזווית שנייה, והזווית השלישית היא בת 60 מעלות. מה גודלה של הזווית הקטנה ביותר במשולש?&rlm;",
+        options: ["50 מעלות", "70 מעלות", "40 מעלות", "60 מעלות"],
+        correctAnswer: 0,
+        hint: "הורידו 60 מ-180. הסכום של שתי הזוויות הנותרות הוא 120. סמנו אחת ב-x והשנייה ב-x+20.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סכום שתי הזוויות הבלתי ידועות הוא 180 פחות 60.&rlm;", math_expression: "180 - 60 = 120" },
+            { verbal_explanation: "שלב ב': נסמן זווית אחת ב-x, והשנייה x+20.&rlm;", math_expression: "x + (x + 20) = 120" },
+            { verbal_explanation: "שלב ג': נכנס איברים (2x) ונחסר 20 משני האגפים.&rlm;", math_expression: "2x = 100" },
+            { verbal_explanation: "שלב ד': נחלק ב-2 למציאת הזווית הקטנה.&rlm;", math_expression: "x = 50" }
         ],
-        "final_answer": "80°",
-        "options": ["60°", "80°", "100°", "70°"],
-        "correctAnswer": 1
+        final_answer: "50 מעלות"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Low",
-        "question_text": "האם קיים משולש שזוויותיו הן: 40°, 60°, 90°?",
-        "hint": "בדקו האם סכום המספרים נותן בדיוק 180.",
-        "solution_steps": [
-            { "verbal_explanation": "נחבר את שלוש הזוויות.", "math_expression": "40 + 60 + 90 = 190" },
-            { "verbal_explanation": "מכיוון שהסכום גדול מ-180, משולש כזה אינו יכול להתקיים.", "math_expression": "190 \u2260 180" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "האם ייתכן משולש שבו יש שתי זוויות קהות (זוויות שגדולות מ-90 מעלות)?&rlm;",
+        options: ["לא, כי סכומן יעבור את 180 מעלות", "כן, אם זוויות אלה שוות בדיוק", "כן, במשולש שווה שוקיים", "לא, כי משולש מכיל רק זוויות חדות"],
+        correctAnswer: 0,
+        hint: "זווית קהה גדולה מ-90 מעלות. אם יהיו שתיים כאלה, מה יהיה הסכום שלהן?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': זווית קהה היא זווית הגדולה מ-90°.&rlm;", math_expression: "a > 90 , b > 90" },
+            { verbal_explanation: "שלב ב': אם נחבר שתי זוויות שכל אחת גדולה מ-90, נקבל סכום שגדול מ-180.&rlm;", math_expression: "a + b > 180" },
+            { verbal_explanation: "מאחר שסכום כל 3 הזוויות חייב להיות בדיוק 180, לא ייתכנו שתי זוויות קהות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "לא, הסכום גדול מדי",
-        "options": ["כן", "לא, הסכום גדול מדי", "רק אם הוא שווה שוקיים", "רק בגיאומטריה מיוחדת"],
-        "correctAnswer": 1
+        final_answer: "לא, כי סכומן יעבור את 180 מעלות"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Medium",
-        "question_text": "במשולש שווה שוקיים, זווית בסיס אחת היא 55°. מהו גודל <strong>זווית הראש</strong>?",
-        "hint": "זכרו שיש שתי זוויות בסיס שוות. חברו אותן והחסירו מ-180.",
-        "solution_steps": [
-            { "verbal_explanation": "סכום שתי זוויות הבסיס.", "math_expression": "55 + 55 = 110" },
-            { "verbal_explanation": "נחסיר מהסך הכל (180) כדי למצוא את הראש.", "math_expression": "180 - 110 = 70" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "משולש ישר זווית הוא גם שווה שוקיים. מהן מידות הזוויות החדות שלו?&rlm;",
+        options: ["45 מעלות כל אחת", "60 ו-30 מעלות", "40 ו-50 מעלות", "לא ייתכן משולש כזה"],
+        correctAnswer: 0,
+        hint: "זווית אחת היא 90 (ישר זווית). שתי החדות נשארו עם סכום של 90, ומכיוון שהמשולש שווה שוקיים, הן חייבות להיות שוות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הזווית הישרה היא 90°. לכן סכום שתי הזוויות הנותרות הוא 90°.&rlm;", math_expression: "180 - 90 = 90" },
+            { verbal_explanation: "שלב ב': במשולש שווה שוקיים, מול שוקיים שוות נמצאות זוויות שוות. לכן נחלק 90 ל-2.&rlm;", math_expression: "90 : 2 = 45" }
         ],
-        "final_answer": "70°",
-        "options": ["55°", "70°", "110°", "125°"],
-        "correctAnswer": 1
+        final_answer: "45 מעלות כל אחת"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "היחס בין זוויות המשולש הוא 1:2:3. מהן <strong>שלוש הזוויות</strong>?",
-        "hint": "חלקו את 180 ל-6 יחידות יחס (1+2+3).",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את הערך של יחידת יחס אחת (X).", "math_expression": "180 ÷ (1+2+3) = 180 ÷ 6 = 30" },
-            { "verbal_explanation": "נכפיל את יחידת היחס בערכי היחס הנתונים.", "math_expression": "30\u00d71, 30\u00d72, 30\u00d73" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "זווית אחת במשולש היא x, הזווית השנייה היא 2x, והזווית השלישית היא 3x. מצאו את ערכו של x.&rlm;",
+        options: ["30", "60", "20", "45"],
+        correctAnswer: 0,
+        hint: "הסכום של x + 2x + 3x חייב להיות 180.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבנה משוואה המייצגת את סכום הזוויות במשולש.&rlm;", math_expression: "x + 2x + 3x = 180" },
+            { verbal_explanation: "שלב ב': נכנס איברים דומים (סך הכל 6 פעמים x).&rlm;", math_expression: "6x = 180" },
+            { verbal_explanation: "שלב ג': נחלק ב-6 למציאת x.&rlm;", math_expression: "x = 30" }
         ],
-        "final_answer": "30°, 60°, 90°",
-        "options": ["30, 60, 90", "20, 40, 60", "40, 80, 60", "10, 20, 30"],
-        "correctAnswer": 0
+        final_answer: "30"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "זווית חיצונית למשולש היא 120°. אחת הזוויות הפנימיות שאינה צמודה לה היא 50°. מהו גודלה של <strong>הזווית הפנימית השלישית</strong>?",
-        "hint": "משפט: זווית חיצונית שווה לסכום שתי הזוויות הפנימיות שאינן צמודות לה.",
-        "solution_steps": [
-            { "verbal_explanation": "לפי המשפט: זווית חיצונית (120) = זווית פנימית א (50) + זווית פנימית ב.", "math_expression": "120 = 50 + x" },
-            { "verbal_explanation": "נחסיר 50 מ-120.", "math_expression": "120 - 50 = 70" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "במשולש נתון שהזווית החיצונית לאחד הקודקודים היא 110 מעלות. גודל הזווית הפנימית הצמודה לה הוא...&rlm;",
+        options: ["70 מעלות", "110 מעלות", "180 מעלות", "55 מעלות"],
+        correctAnswer: 0,
+        hint: "זווית פנימית וזווית חיצונית צמודה לה יושבות על קו ישר, ולכן סכומן יחד הוא תמיד 180 מעלות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': זווית חיצונית וזווית פנימית צמודה משלימות לזווית שטוחה (180°).&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחסר את הזווית החיצונית מ-180.&rlm;", math_expression: "180 - 110 = 70" }
         ],
-        "final_answer": "70°",
-        "options": ["50°", "70°", "60°", "110°"],
-        "correctAnswer": 1
+        final_answer: "70 מעלות"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Medium",
-        "question_text": "במשולש ישר זווית שווה שוקיים, מהו גודל <strong>זוויות הבסיס</strong>?",
-        "hint": "הזווית הישרה היא 90°. שתי האחרות שוות ומשלימות ל-180.",
-        "solution_steps": [
-            { "verbal_explanation": "נוריד את ה-90° מהסך הכל.", "math_expression": "180 - 90 = 90" },
-            { "verbal_explanation": "נחלק את הנותר ל-2 זוויות שוות.", "math_expression": "90 ÷ 2 = 45" }
+        topic: "triangles",
+        subTopic: "סכום זוויות במשולש",
+        question_text: "משולש מונח על קו ישר (זווית שטוחה). שתיים מזוויות המשולש הן 40 ו-80 מעלות. מה תהיה הזווית החיצונית הסמוכה לזווית השלישית של המשולש?&rlm;",
+        options: ["120 מעלות", "60 מעלות", "140 מעלות", "100 מעלות"],
+        correctAnswer: 0,
+        hint: "חשבו את הזווית השלישית של המשולש, ואז חסרו מ-180 כדי למצוא את החיצונית (או השתמשו בכלל: זווית חיצונית שווה לסכום שתי הפנימיות שאינן צמודות לה).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': נמצא את הזווית השלישית. 180 פחות (80+40).&rlm;", math_expression: "180 - 120 = 60" },
+            { verbal_explanation: "הזווית החיצונית צמודה לה ומשלימה ל-180.&rlm;", math_expression: "180 - 60 = 120" },
+            { verbal_explanation: "דרך ב' מהירה: זווית חיצונית שווה לסכום שתי הפנימיות האחרות.&rlm;", math_expression: "40 + 80 = 120" }
         ],
-        "final_answer": "45°",
-        "options": ["45°", "30°", "60°", "90°"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 13,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "במשולש ABC, זווית A היא X, זווית B גדולה ב-10° מזווית A, וזווית C גדולה ב-10° מזווית B. מצאו את <strong>זווית B</strong>.",
-        "hint": "הזוויות הן: X, X+10, X+20.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה: x + (x+10) + (x+20) = 180.", "math_expression": "3x + 30 = 180" },
-            { "verbal_explanation": "נפתור עבור X: 3X = 150, לכן X = 50.", "math_expression": "x = 50" },
-            { "verbal_explanation": "זווית B היא X+10.", "math_expression": "50 + 10 = 60" }
-        ],
-        "final_answer": "60°",
-        "options": ["50°", "60°", "70°", "40°"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "Low",
-        "question_text": "אם נחבר שתי זוויות של משולש ונקבל 110°, מה גודל <strong>הזווית הנותרת</strong>?",
-        "hint": "השתמשו ישירות בהגדרה של סכום הזוויות.",
-        "solution_steps": [
-            { "verbal_explanation": "נחסיר את סכום שתי הזוויות מ-180.", "math_expression": "180 - 110 = 70" }
-        ],
-        "final_answer": "70°",
-        "options": ["70°", "110°", "90°", "180°"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 15,
-        "subTopic": "סכום זוויות במשולש",
-        "difficulty": "High",
-        "question_text": "נתון משולש ABC. זווית A שווה לזווית B. זווית C קטנה ב-30° מזווית A. מהו גודל <strong>זווית C</strong>?",
-        "hint": "סמנו A=X, B=X, C=X-30.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה: x + x + (x-30) = 180.", "math_expression": "3x = 210 \u2192 x = 70" },
-            { "verbal_explanation": "נמצא את זווית C (שהיא X-30).", "math_expression": "70 - 30 = 40" }
-        ],
-        "final_answer": "40°",
-        "options": ["70°", "40°", "110°", "30°"],
-        "correctAnswer": 1
+        final_answer: "120 מעלות"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: שטח משולש (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: שטח משולש (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "שטח משולש",
-        "difficulty": "Low",
-        "question_text": "מהו <strong>שטח</strong> משולש שבסיסו 12 ס\"מ והגובה שלו הוא 8 ס\"מ?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100'><polygon points='20,80 140,80 100,20' fill='#f8fafc' stroke='#b09151' stroke-width='3'/><line x1='100' y1='20' x2='100' y2='80' stroke='#94a3b8' stroke-width='2' stroke-dasharray='4'/><text x='80' y='95' font-size='12'>12</text><text x='105' y='50' font-size='12'>8</text></svg></div>",
-        "hint": "נוסחת שטח משולש: (בסיס × גובה) ÷ 2.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל את אורך הבסיס בגובה.", "math_expression": "12 × 8 = 96" },
-            { "verbal_explanation": "נחלק את התוצאה ב-2.", "math_expression": "96 ÷ 2 = 48" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "מהו שטחו של המשולש שלפניכם? (אורך הבסיס 10 ס\"מ, הגובה 6 ס\"מ)&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 120' width='100%' height='120' style='max-width:200px;'><polygon points='20,100 180,100 100,20' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><line x1='100' y1='20' x2='100' y2='100' stroke='#ca8a04' stroke-width='2' stroke-dasharray='5,5'/><text x='100' y='115' font-family='Arial' font-size='14' font-weight='bold' fill='#0f172a' text-anchor='middle'>10</text><text x='115' y='65' font-family='Arial' font-size='14' font-weight='bold' fill='#ef4444' text-anchor='middle'>h=6</text></svg></div>",
+        options: ["30 סמ\"ר", "60 סמ\"ר", "16 סמ\"ר", "15 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "נוסחת שטח משולש: (בסיס כפול גובה) לחלק ל-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה נתונים: בסיס = 10, גובה = 6.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נכפול את הבסיס בגובה.&rlm;", math_expression: "10 × 6 = 60" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 כי זה משולש.&rlm;", math_expression: "60 : 2 = 30" }
         ],
-        "final_answer": "48 סמ\"ר",
-        "options": ["96 סמ\"ר", "48 סמ\"ר", "24 סמ\"ר", "20 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "30 סמ\"ר"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "שטח משולש",
-        "difficulty": "Medium",
-        "question_text": "שטח משולש הוא 35 סמ\"ר. אורך הבסיס הוא 10 ס\"מ. מהו אורך <strong>הגובה</strong>?",
-        "hint": "השתמשו בנוסחה ההפוכה: גובה = (2 × שטח) ÷ בסיס.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל את השטח ב-2.", "math_expression": "35 × 2 = 70" },
-            { "verbal_explanation": "נחלק באורך הבסיס.", "math_expression": "70 ÷ 10 = 7" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "במשולש ישר זווית, אורכי הניצבים (הצלעות המרכיבות את הזווית הישרה) הם 8 ס\"מ ו-5 ס\"מ. אורך היתר (הצלע הארוכה) הוא 9.4 ס\"מ. מהו שטח המשולש?&rlm;",
+        options: ["20 סמ\"ר", "40 סמ\"ר", "47 סמ\"ר", "23.5 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "במשולש ישר זווית, הניצבים הם גם הבסיס והגובה. אין צורך להשתמש באורך היתר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': במשולש ישר זווית הניצבים משמשים כבסיס וכגובה. לכן: בסיס = 8, גובה = 5.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נכפול אותם ונחלק ב-2.&rlm;", math_expression: "(8 × 5) : 2" },
+            { verbal_explanation: "40 לחלק ל-2 שווה ל-20.&rlm;", math_expression: "20" }
         ],
-        "final_answer": "7 ס\"מ",
-        "options": ["3.5 ס\"מ", "7 ס\"מ", "10 ס\"מ", "5 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "20 סמ\"ר"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "במשולש ישר זווית, אורך ניצב אחד הוא 6 ס\"מ והשטח הוא 24 סמ\"ר. מהו אורך <strong>הניצב השני</strong>?",
-        "hint": "במשולש ישר זווית הניצבים משמשים כבסיס וגובה זה לזה.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל את השטח ב-2.", "math_expression": "24 × 2 = 48" },
-            { "verbal_explanation": "נחלק בניצב הידוע.", "math_expression": "48 ÷ 6 = 8" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "שטחו של משולש הוא 48 סמ\"ר. גובה המשולש הוא 8 ס\"מ. מהו אורך הבסיס אליו יורד הגובה?&rlm;",
+        options: ["12 ס\"מ", "6 ס\"מ", "24 ס\"מ", "16 ס\"מ"],
+        correctAnswer: 0,
+        hint: "בגלל שחילקנו ב-2 כדי למצוא את השטח, הכפילו את השטח פי 2 (48 כפול 2 = 96). איזה מספר כפול 8 שווה 96?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': לפי הנוסחה, בסיס כפול גובה שווה לפעמיים השטח.&rlm;", math_expression: "b × 8 = 48 × 2" },
+            { verbal_explanation: "שלב ב': 48 כפול 2 שווה 96.&rlm;", math_expression: "b × 8 = 96" },
+            { verbal_explanation: "שלב ג': נחלק 96 ב-8 כדי למצוא את הבסיס.&rlm;", math_expression: "b = 12" }
         ],
-        "final_answer": "8 ס\"מ",
-        "options": ["4 ס\"מ", "8 ס\"מ", "12 ס\"מ", "10 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "12 ס\"מ"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "נתון מלבן במידות 10 ס\"מ על 6 ס\"מ. בתוכו חסום משולש כך שבסיסו על צלע המלבן וקודקודו על הצלע המקבילה. מהו <strong>שטח המשולש</strong>?",
-        "hint": "שטח משולש כזה הוא תמיד חצי משטח המלבן שעוטף אותו.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את שטח המלבן.", "math_expression": "10 × 6 = 60" },
-            { "verbal_explanation": "נחלק ב-2 למציאת שטח המשולש.", "math_expression": "60 ÷ 2 = 30" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "משולש קהה זווית מונח על בסיס שאורכו 6 ס\"מ. הגובה שיורד אל *המשך* הבסיס הוא באורך 5 ס\"מ. מהו השטח?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><polygon points='80,80 180,80 20,20' fill='#bae6fd' stroke='#0284c7' stroke-width='2'/><line x1='20' y1='80' x2='80' y2='80' stroke='#0284c7' stroke-width='2' stroke-dasharray='5,5'/><line x1='20' y1='20' x2='20' y2='80' stroke='#ef4444' stroke-width='2' stroke-dasharray='5,5'/><text x='130' y='95' font-family='Arial' font-size='12' fill='#0f172a'>6 ס\"מ</text><text x='10' y='55' font-family='Arial' font-size='12' fill='#ef4444'>h=5</text></svg></div>",
+        options: ["15 סמ\"ר", "30 סמ\"ר", "11 סמ\"ר", "7.5 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "במשולש קהה זווית, הגובה נופל מחוץ למשולש. עם זאת, נוסחת השטח נשארת אותה נוסחה: בסיס (החלק הממשי של המשולש) כפול גובה, חלקי 2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הבסיס הוא הצלע הפיזית של המשולש בלבד, כלומר 6.&rlm;", math_expression: "b = 6" },
+            { verbal_explanation: "שלב ב': הגובה החיצוני הוא 5.&rlm;", math_expression: "h = 5" },
+            { verbal_explanation: "שלב ג': נכפול ונחלק ב-2.&rlm;", math_expression: "(6 × 5) : 2 = 15" }
         ],
-        "final_answer": "30 סמ\"ר",
-        "options": ["60 סמ\"ר", "30 סמ\"ר", "15 סמ\"ר", "לא ניתן לדעת"],
-        "correctAnswer": 1
+        final_answer: "15 סמ\"ר"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "שטח משולש",
-        "difficulty": "Medium",
-        "question_text": "משולש א' וב' הם בעלי אותו בסיס. הגובה של משולש א' גדול פי 2 מהגובה של משולש ב'. פי כמה גדול <strong>שטח משולש א'</strong>?",
-        "hint": "השטח תלוי ביחס ישר בגובה כאשר הבסיס קבוע.",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את הנוסחה: אם הגובה (h) מוכפל פי 2, גם כל המכפלה תוכפל פי 2.", "math_expression": "Area \u221d h" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "קיר בצורת מלבן שמידותיו 10 מטרים על 4 מטרים צבוע כך שחציו התחתון באלכסון (יוצר משולש) צבוע בכחול, והחצי העליון לבן. מהו שטח החלק הכחול (במ\"ר)?&rlm;",
+        options: ["20", "40", "14", "10"],
+        correctAnswer: 0,
+        hint: "האלכסון מחלק את המלבן לשני משולשים ישרי זווית חופפים ושווים בשטחם. חשבו את שטח המלבן וחלקו ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את שטחו הכולל של הקיר المלבני.&rlm;", math_expression: "10 × 4 = 40" },
+            { verbal_explanation: "שלב ב': האלכסון מחלק את השטח בדיוק לחצי.&rlm;", math_expression: "40 : 2 = 20" }
         ],
-        "final_answer": "פי 2",
-        "options": ["פי 2", "פי 4", "השטחים שווים", "פי 1.5"],
-        "correctAnswer": 0
+        final_answer: "20"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "שטח משולש",
-        "difficulty": "Low",
-        "question_text": "במשולש ישר זווית הניצבים הם 10 ו-10. מהו <strong>השטח</strong>?",
-        "hint": "אל תשכחו לחלק ב-2 בסוף!",
-        "solution_steps": [
-            { "verbal_explanation": "מכפלת הניצבים.", "math_expression": "10 × 10 = 100" },
-            { "verbal_explanation": "חלוקה ב-2.", "math_expression": "100 ÷ 2 = 50" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "נתונים שני משולשים. למשולש א' יש בסיס של 8 וגובה 5. למשולש ב' יש בסיס של 10. איזה גובה נדרש למשולש ב' כדי ששני המשולשים יהיו שווים בשטחם?&rlm;",
+        options: ["4", "5", "8", "10"],
+        correctAnswer: 0,
+        hint: "מצאו את השטח של משולש א'. לאחר מכן, הציבו את השטח שמצאתם בנוסחה של משולש ב' עם הבסיס 10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את שטח משולש א'.&rlm;", math_expression: "(8 × 5) : 2 = 20" },
+            { verbal_explanation: "שלב ב': שטח משולש ב' חייב להיות 20. כלומר מכפלת בסיס וגובה חייבת להיות 40.&rlm;", math_expression: "10 × h = 40" },
+            { verbal_explanation: "שלב ג': נחלק 40 ב-10.&rlm;", math_expression: "h = 4" }
         ],
-        "final_answer": "50",
-        "options": ["100", "50", "20", "200"],
-        "correctAnswer": 1
+        final_answer: "4"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "נתון משולש קהה זווית שבסיסו 6 ס\"מ והגובה החיצוני אליו הוא 4 ס\"מ. מהו <strong>השטח</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100'><polygon points='40,80 100,80 140,20' fill='#f8fafc' stroke='#b09151' stroke-width='3'/><line x1='140' y1='20' x2='140' y2='80' stroke='gray' stroke-dasharray='3'/><line x1='100' y1='80' x2='140' y2='80' stroke='gray' stroke-dasharray='3'/><text x='70' y='95' font-size='11'>6</text><text x='150' y='50' font-size='11'>4</text></svg></div>",
-        "hint": "גם כשהגובה מחוץ למשולש, נוסחת השטח נשארת (בסיס × גובה) ÷ 2.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל את הבסיס האמיתי (6) בגובה החיצוני (4).", "math_expression": "6 × 4 = 24" },
-            { "verbal_explanation": "נחלק ב-2.", "math_expression": "24 ÷ 2 = 12" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "למשולש שווה שוקיים יש בסיס באורך 10 ס\"מ, ואורך השוק הוא 13 ס\"מ. הגובה לבסיס הוא 12 ס\"מ. מהו שטח המשולש?&rlm;",
+        options: ["60 סמ\"ר", "65 סמ\"ר", "130 סמ\"ר", "120 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "יש לכם נתון מיותר (אורך השוק). בחרו רק את הבסיס ואת הגובה שיורד אליו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הנתונים הרלוונטיים לשטח הם רק הבסיס והגובה היורד אליו.&rlm;", math_expression: "b = 10 , h = 12" },
+            { verbal_explanation: "שלב ב': נכפול את הבסיס בגובה ונחלק ב-2.&rlm;", math_expression: "(10 × 12) : 2" },
+            { verbal_explanation: "120 חלקי 2 שווה 60.&rlm;", math_expression: "60" }
         ],
-        "final_answer": "12",
-        "options": ["24", "12", "10", "48"],
-        "correctAnswer": 1
+        final_answer: "60 סמ\"ר"
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "שטח משולש",
-        "difficulty": "Medium",
-        "question_text": "אם נגדיל את הבסיס של משולש פי 2 ואת הגובה שלו פי 2, <strong>פי כמה יגדל השטח</strong>?",
-        "hint": "חשבו: (2*בסיס) כפול (2*גובה) חלקי 2.",
-        "solution_steps": [
-            { "verbal_explanation": "בנוסחה המקורית יש בסיס פעם אחת וגובה פעם אחת. כאן שניהם הוכפלו.", "math_expression": "2 × 2 = 4" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "בתוך ריבוע שצלעו 6 ס\"מ ציירו משולש. בסיס המשולש מונח במלואו על הצלע התחתונה של הריבוע, והקודקוד העליון שלו נוגע בצלע העליונה של הריבוע. מהו שטח המשולש?&rlm;",
+        options: ["18 סמ\"ר", "36 סמ\"ר", "9 סמ\"ר", "12 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "בסיס המשולש זהה לצלע הריבוע (6). גובה המשולש שווה גם הוא לצלע הריבוע (6).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': בסיס המשולש חופף לצלע הריבוע, לכן אורכו 6.&rlm;", math_expression: "b = 6" },
+            { verbal_explanation: "שלב ב': הגובה יורד מקצה לקצה בריבוע, לכן גם הוא 6.&rlm;", math_expression: "h = 6" },
+            { verbal_explanation: "שלב ג': נחשב את השטח.&rlm;", math_expression: "(6 × 6) : 2 = 18" }
         ],
-        "final_answer": "פי 4",
-        "options": ["פי 2", "פי 4", "פי 8", "לא ישתנה"],
-        "correctAnswer": 1
+        final_answer: "18 סמ\"ר"
     },
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "שטח משולש הוא 12X. אם הגובה הוא 6, מהו <strong>אורך הבסיס</strong>?",
-        "hint": "הציבו בנוסחה: (בסיס * 6) / 2 = 12X.",
-        "solution_steps": [
-            { "verbal_explanation": "נפשט את הביטוי: 3 כפול בסיס שווה 12X.", "math_expression": "3 \u00d7 base = 12x" },
-            { "verbal_explanation": "נחלק ב-3 למציאת הבסיס.", "math_expression": "12x ÷ 3 = 4x" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "גובה של משולש קטן פי 2 מאורך הבסיס שלו. אם אורך הבסיס הוא 10 ס\"מ, מהו שטח המשולש?&rlm;",
+        options: ["25 סמ\"ר", "50 סמ\"ר", "100 סמ\"ר", "12.5 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "מצאו קודם את הגובה (חצי מ-10), ואז השתמשו בנוסחה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': אורך הבסיס הוא 10. הגובה קטן פי 2, ולכן הוא 5.&rlm;", math_expression: "h = 10 : 2 = 5" },
+            { verbal_explanation: "שלב ב': נחשב את השטח על ידי הכפלתם וחלוקה ב-2.&rlm;", math_expression: "(10 × 5) : 2" },
+            { verbal_explanation: "50 לחלק ל-2 שווה 25.&rlm;", math_expression: "25" }
         ],
-        "final_answer": "4X",
-        "options": ["2X", "4X", "6X", "X"],
-        "correctAnswer": 1
+        final_answer: "25 סמ\"ר"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "שטח משולש",
-        "difficulty": "Medium",
-        "question_text": "מהו שטח המשולש שקודקודיו בנקודות (0,0), (8,0) ו-(0,6) במערכת צירים?",
-        "hint": "הבסיס הוא 8 (על ציר X) והגובה הוא 6 (על ציר Y). זהו משולש ישר זווית.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל בסיס בגובה.", "math_expression": "8 × 6 = 48" },
-            { "verbal_explanation": "נחלק ב-2.", "math_expression": "48 ÷ 2 = 24" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "מה יקרה לשטח של משולש אם נגדיל רק את הגובה שלו פי 3 (נשאיר את הבסיס כפי שהוא)?&rlm;",
+        options: ["השטח יגדל פי 3", "השטח יגדל פי 6", "השטח לא ישתנה", "השטח יגדל פי 1.5"],
+        correctAnswer: 0,
+        hint: "שטח משולש עומד ביחס ישר לגובה שלו. אם מכפילים גורם אחד, התוצאה מוכפלת באותו המספר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נוסחת השטח המקורית היא בסיס כפול גובה חלקי 2.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': אם נחליף את 'גובה' ב-'3 כפול גובה', התוצאה כולה תוכפל ב-3.&rlm;", math_expression: "" }
         ],
-        "final_answer": "24",
-        "options": ["48", "24", "14", "10"],
-        "correctAnswer": 1
+        final_answer: "השטח יגדל פי 3"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "במשולש שווה שוקיים שבסיסו 12 ס\"מ, השטח הוא 48 סמ\"ר. מהו <strong>אורך הגובה</strong> לבסיס?",
-        "hint": "השתמשו בנוסחה: גובה = (2 * שטח) / בסיס.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל את השטח ב-2.", "math_expression": "48 × 2 = 96" },
-            { "verbal_explanation": "נחלק בבסיס 12.", "math_expression": "96 ÷ 12 = 8" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "לפניכם צורה המורכבת ממלבן ומשולש הצמוד אליו. אורך המלבן 8 ורוחבו 4. המשולש יושב על צלע הרוחב של המלבן והגובה שלו (היוצא מהמלבן החוצה) הוא 3. מהו השטח הכולל של הצורה המורכבת?&rlm;",
+        options: ["38", "44", "32", "56"],
+        correctAnswer: 0,
+        hint: "חשבו בנפרד: שטח המלבן הוא 8x4. שטח המשולש מבוסס על רוחב המלבן (4) והגובה הנתון (3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב שטח המלבן.&rlm;", math_expression: "8 × 4 = 32" },
+            { verbal_explanation: "שלב ב': בסיס המשולש הוא צלע המלבן (4) והגובה 3. נחשב שטח משולש.&rlm;", math_expression: "(4 × 3) : 2 = 6" },
+            { verbal_explanation: "שלב ג': נחבר את שני השטחים.&rlm;", math_expression: "32 + 6 = 38" }
         ],
-        "final_answer": "8",
-        "options": ["4", "8", "6", "10"],
-        "correctAnswer": 1
+        final_answer: "38"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "שטח משולש",
-        "difficulty": "Low",
-        "question_text": "איזה מהנתונים הבאים <strong>לא נדרש</strong> כדי לחשב שטח משולש?",
-        "hint": "חשבו על נוסחת השטח.",
-        "solution_steps": [
-            { "verbal_explanation": "בנוסחה יש צורך רק בבסיס ובגובה.", "math_expression": "(b \u00d7 h)/2" }
+        topic: "triangles",
+        subTopic: "שטח משולש",
+        question_text: "קבלן צריך לרצף גינה משולשת שהבסיס שלה 20 מטרים וגובהה 10 מטרים. מחיר הריצוף הוא 50 שקלים למ\"ר. כמה יעלה לרצף את הגינה כולה?&rlm;",
+        options: ["5,000 שקלים", "10,000 שקלים", "2,500 שקלים", "1,000 שקלים"],
+        correctAnswer: 0,
+        hint: "תחילה מצאו את שטח המשולש במ\"ר. לאחר מכן כפלו את השטח במחיר למטר מרובע.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את שטח הגינה במ\"ר.&rlm;", math_expression: "(20 × 10) : 2 = 200 : 2 = 100" },
+            { verbal_explanation: "שלב ב': נכפול את השטח (100) במחיר לכל מטר (50).&rlm;", math_expression: "100 × 50 = 5000" }
         ],
-        "final_answer": "אורך השוקיים",
-        "options": ["אורך הבסיס", "אורך הגובה", "אורך השוקיים", "חלוקה ב-2"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 28,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "במשולש ששטחו 50, הבסיס והגובה שווים זה לזה. מהו <strong>אורך הבסיס</strong>?",
-        "hint": "X כפול X חלקי 2 שווה 50. לכן X בריבוע שווה 100.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה: X\u00b2 / 2 = 50.", "math_expression": "x\u00b2 = 100" },
-            { "verbal_explanation": "נוציא שורש.", "math_expression": "x = 10" }
-        ],
-        "final_answer": "10",
-        "options": ["5", "10", "25", "50"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 29,
-        "subTopic": "שטח משולש",
-        "difficulty": "High",
-        "question_text": "נתון משולש ABC שבו הגובה לצלע BC הוא 10. אם נגדיל את הצלע BC ב-4 ס\"מ, ב<strong>כמה סמ\"ר יגדל השטח</strong>?",
-        "hint": "התוספת לשטח היא בעצם שטח של משולש קטן שבסיסו 4 וגובהו 10.",
-        "solution_steps": [
-            { "verbal_explanation": "הגובה קבוע (10). התוספת לבסיס היא 4.", "math_expression": "4 \u00d7 10 = 40" },
-            { "verbal_explanation": "נחלק ב-2 כדי למצוא את תוספת השטח.", "math_expression": "40 ÷ 2 = 20" }
-        ],
-        "final_answer": "ב-20 סמ\"ר",
-        "options": ["ב-4 סמ\"ר", "ב-20 סמ\"ר", "ב-40 סמ\"ר", "לא ניתן לדעת"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 30,
-        "subTopic": "שטח משולש",
-        "difficulty": "Medium",
-        "question_text": "במשולש ישר זווית, הניצבים הם 3 ס\"מ ו-4 ס\"מ והיתר הוא 5 ס\"מ. מהו <strong>שטח</strong> המשולש?",
-        "hint": "השתמשו רק בניצבים לחישוב השטח. היתר אינו רלוונטי לנוסחה זו.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפיל את הניצבים.", "math_expression": "3 × 4 = 12" },
-            { "verbal_explanation": "נחלק ב-2.", "math_expression": "12 ÷ 2 = 6" }
-        ],
-        "final_answer": "6",
-        "options": ["6", "10", "7.5", "12"],
-        "correctAnswer": 0
+        final_answer: "5,000 שקלים"
     },
 
-    // ==============================================================
-    // --- תת נושא 3: סוגי משולשים (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: סוגי משולשים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 31,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Low",
-        "question_text": "איך נקרא משולש שבו <strong>כל הצלעות שוות</strong> זו לזו?<br><div style='text-align:center; margin:15px 0;'><svg width='100' height='100'><polygon points='50,10 10,90 90,90' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/></svg></div>",
-        "hint": "במשולש כזה גם כל הזוויות שוות (60 מעלות).",
-        "solution_steps": [
-            { "verbal_explanation": "מכיוון שכל הצלעות שוות, השם נגזר מכך.", "math_expression": "Equilateral" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "איזה מהמשפטים הבאים מתאר משולש שווה שוקיים?&rlm;",
+        options: ["משולש שיש לו לפחות שתי צלעות השוות באורכן.", "משולש שכל צלעותיו שוות זו לזו.", "משולש שיש לו זווית ישרה אחת.", "משולש שבו כל צלע באורך שונה."],
+        correctAnswer: 0,
+        hint: "המילה 'שוקיים' ברבים (זוג) מעידה על שתי צלעות המהוות זוג שווה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "משולש שווה שוקיים מוגדר כמשולש בעל (לפחות) שתי צלעות שוות. (הערה: גם משולש שווה צלעות הוא סוג מיוחד של משולש שווה שוקיים).&rlm;", math_expression: "" }
         ],
-        "final_answer": "משולש שווה צלעות",
-        "options": ["משולש שווה שוקיים", "משולש שווה צלעות", "משולש שונה צלעות", "משולש ישר זווית"],
-        "correctAnswer": 1
+        final_answer: "משולש שיש לו לפחות שתי צלעות השוות באורכן."
     },
+    // שאלה 26
     {
-        "id": 32,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Medium",
-        "question_text": "משולש שזוויותיו הן 30°, 60° ו-90° הוא משולש:<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='100'><polygon points='20,10 20,90 80,90' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/><rect x='20' y='80' width='10' height='10' fill='none' stroke='#b09151'/></svg></div>",
-        "hint": "הסתכלו על הזווית של ה-90 מעלות. היא זו שקובעת את שם המשולש לפי זוויות.",
-        "solution_steps": [
-            { "verbal_explanation": "זווית של 90 מעלות נקראת זווית ישרה.", "math_expression": "90° = Right angle" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "משולש בעל זוויות 40°, 60° ו-80° נקרא...&rlm;",
+        options: ["משולש חד זווית", "משולש ישר זווית", "משולש קהה זווית", "משולש שווה שוקיים"],
+        correctAnswer: 0,
+        hint: "בדקו את הזווית הגדולה ביותר. האם היא קטנה מ-90, בדיוק 90, או גדולה מ-90?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבחן את כל הזוויות: כולן קטנות מ-90 מעלות.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': משולש שבו כל הזוויות קטנות מ-90 מעלות נקרא משולש חד זווית.&rlm;", math_expression: "" }
         ],
-        "final_answer": "ישר זווית",
-        "options": ["חד זווית", "קהה זווית", "ישר זווית", "שווה שוקיים"],
-        "correctAnswer": 2
+        final_answer: "משולש חד זווית"
     },
+    // שאלה 27
     {
-        "id": 33,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Low",
-        "question_text": "במשולש <strong>שווה שוקיים</strong>, כמה צלעות שוות יש לפחות?",
-        "hint": "השם מעיד על כך שיש 'שוקיים' (זוג).",
-        "solution_steps": [
-            { "verbal_explanation": "ההגדרה של משולש שווה שוקיים היא משולש שיש לו לפחות שתי צלעות שוות.", "math_expression": "2" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "במשולש שווה צלעות...&rlm;",
+        options: ["כל הזוויות שוות ל-60 מעלות.", "יש זווית אחת ישרה ושתים של 45 מעלות.", "יש זווית אחת קהה.", "אחת הצלעות גדולה מסכום שתי האחרות."],
+        correctAnswer: 0,
+        hint: "אם כל 3 הצלעות שוות, הרי שגם כל 3 הזוויות חייבות להיות שוות. חלקו 180 ב-3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "במשולש שווה צלעות, יש שלוש זוויות שוות.&rlm;", math_expression: "" },
+            { verbal_explanation: "סכום הזוויות הוא 180. לכן נחלק 180 ל-3 ונקבל 60 מעלות לכל זווית.&rlm;", math_expression: "180 : 3 = 60" }
         ],
-        "final_answer": "2",
-        "options": ["1", "2", "3", "אף אחת"],
-        "correctAnswer": 1
+        final_answer: "כל הזוויות שוות ל-60 מעלות."
     },
+    // שאלה 28
     {
-        "id": 34,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Medium",
-        "question_text": "משולש שבו זווית אחת היא 110° נקרא משולש:<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='80'><polygon points='20,60 160,60 60,20' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/><text x='65' y='55' font-size='10'>110°</text></svg></div>",
-        "hint": "זווית שגדולה מ-90 מעלות נקראת זווית קהה.",
-        "solution_steps": [
-            { "verbal_explanation": "מכיוון שיש זווית אחת הגדולה מ-90, המשולש מוגדר לפי הזווית הזו.", "math_expression": "110 > 90" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "האם משולש יכול להיות גם קהה זווית וגם שווה שוקיים באותו הזמן?&rlm;",
+        options: ["כן, בהחלט", "לא, זה בלתי אפשרי", "רק אם הוא שווה צלעות", "רק אם סכום צלעותיו גדול מ-100"],
+        correctAnswer: 0,
+        hint: "נסו לדמיין משולש שבו זווית הראש היא 120 מעלות, ושתי זוויות הבסיס שוות ל-30 מעלות כל אחת.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "משולש קהה זווית מכיל זווית אחת הגדולה מ-90. לדוגמה: 100°.&rlm;", math_expression: "" },
+            { verbal_explanation: "אם הזווית הקהה היא 'זווית הראש', נשארו 80 מעלות לשתי הזוויות הנותרות. ניתן לחלק אותן שווה בשווה (40° ו-40°). במצב זה המשולש הוא גם שווה שוקיים וגם קהה זווית.&rlm;", math_expression: "" }
         ],
-        "final_answer": "קהה זווית",
-        "options": ["חד זווית", "ישר זווית", "קהה זווית", "שווה צלעות"],
-        "correctAnswer": 2
+        final_answer: "כן, בהחלט"
     },
+    // שאלה 29
     {
-        "id": 35,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "High",
-        "question_text": "האם ייתכן משולש שהוא גם <strong>ישר זווית</strong> וגם <strong>שווה צלעות</strong>?",
-        "hint": "חשבו מה גודל הזוויות במשולש שווה צלעות, והאם אחת מהן יכולה להיות 90.",
-        "solution_steps": [
-            { "verbal_explanation": "במשולש שווה צלעות כל הזוויות הן תמיד 60 מעלות.", "math_expression": "60, 60, 60" },
-            { "verbal_explanation": "במשולש ישר זווית חייבת להיות זווית של 90 מעלות. לכן זה בלתי אפשרי.", "math_expression": "90 \u2260 60" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "משולש שבו אורכי הצלעות הם 5 ס\"מ, 7 ס\"מ ו-9 ס\"מ מוגדר כ...&rlm;",
+        options: ["משולש שונה צלעות", "משולש שווה שוקיים", "משולש שווה צלעות", "משולש ישר זווית"],
+        correctAnswer: 0,
+        hint: "הביטו באורכי הצלעות: האם יש שתיים שוות? לא. לכן הוא אינו שווה שוקיים. האם כולם שוות? לא.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "מכיוון שכל שלוש הצלעות הן באורכים שונים לחלוטין (5, 7, 9), המשולש מוגדר כמשולש שונה צלעות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "לא, זה בלתי אפשרי",
-        "options": ["כן", "לא, זה בלתי אפשרי", "רק אם הצלעות גדולות מאוד", "רק אם הוא גם שווה שוקיים"],
-        "correctAnswer": 1
+        final_answer: "משולש שונה צלעות"
     },
+    // שאלה 30
     {
-        "id": 36,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Medium",
-        "question_text": "איך נקרא משולש שבו אורכי הצלעות הם 5 ס\"מ, 7 ס\"מ ו-9 ס\"מ?",
-        "hint": "בדקו האם יש צלעות שוות.",
-        "solution_steps": [
-            { "verbal_explanation": "כל שלוש הצלעות באורכים שונים.", "math_expression": "5 \u2260 7 \u2260 9" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "במשולש ישר זווית יש זווית אחת של 90°. האם ייתכן שמשולש כזה יהיה משולש שווה צלעות?&rlm;",
+        options: ["לא, כי במשולש שווה צלעות כל הזוויות הן 60°", "כן, אם הצלעות הן 3, 4, 5", "כן, זה תלוי באורך היתר", "לא, כי במשולש שווה צלעות הזווית חייבת להיות 180°"],
+        correctAnswer: 0,
+        hint: "משולש שווה צלעות מכתיב שכל הזוויות שוות (60). אם יש זווית של 90, לא כולן יכולות להיות שוות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי שמשולש יהיה שווה צלעות, חובה שכל זוויותיו יהיו שוות ל-60°.&rlm;", math_expression: "" },
+            { verbal_explanation: "מכיוון שבמשולש ישר זווית יש זווית של 90°, הוא לעולם לא יוכל להיות שווה צלעות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "משולש שונה צלעות",
-        "options": ["שווה שוקיים", "שווה צלעות", "שונה צלעות", "ישר זווית"],
-        "correctAnswer": 2
+        final_answer: "לא, כי במשולש שווה צלעות כל הזוויות הן 60°"
     },
+    // שאלה 31
     {
-        "id": 37,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "High",
-        "question_text": "נתון משולש שווה שוקיים שבו זווית הראש היא 90°. מהו שמו הנוסף של משולש זה?",
-        "hint": "הוא משלב שתי תכונות: שוויון שוקיים וזווית ישרה.",
-        "solution_steps": [
-            { "verbal_explanation": "מכיוון שיש לו זווית ישרה הוא 'ישר זווית'. מכיוון שיש לו שוקיים שוות הוא 'שווה שוקיים'.", "math_expression": "Right + Isosceles" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "המשפט 'הצלע הארוכה ביותר במשולש נמצאת תמיד מול הזווית הגדולה ביותר' הוא...&rlm;",
+        options: ["נכון תמיד", "נכון רק במשולש ישר זווית", "שגוי", "נכון רק במשולש שווה צלעות"],
+        correctAnswer: 0,
+        hint: "חישבו על משולש קהה זווית: מול הזווית הקהה (הכי גדולה) תמיד תמצאו את הצלע הארוכה ביותר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "זהו משפט בסיסי בגיאומטריה: במשולש, מול הצלע הגדולה מונחת הזווית הגדולה, ולהיפך.&rlm;", math_expression: "" },
+            { verbal_explanation: "המשפט הזה נכון תמיד לכל סוגי המשולשים.&rlm;", math_expression: "" }
         ],
-        "final_answer": "משולש ישר זווית ושווה שוקיים",
-        "options": ["משולש שווה צלעות", "משולש קהה זווית", "משולש ישר זווית ושווה שוקיים", "משולש חד זווית"],
-        "correctAnswer": 2
+        final_answer: "נכון תמיד"
     },
+    // שאלה 32
     {
-        "id": 38,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Low",
-        "question_text": "במשולש חד זווית, כמה זוויות חדות (קטנות מ-90°) יש?",
-        "hint": "במשולש כזה, כל הזוויות חייבות להיות קטנות מ-90.",
-        "solution_steps": [
-            { "verbal_explanation": "לפי ההגדרה, כל שלוש הזוויות הן חדות.", "math_expression": "3" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "אי-שוויון המשולש קובע שסכום כל שתי צלעות במשולש חייב להיות גדול מהצלע השלישית. האם ייתכן משולש שצלעותיו הן 2 ס\"מ, 3 ס\"מ ו-8 ס\"מ?&rlm;",
+        options: ["לא, כי 2+3 קטן מ-8", "כן, זה משולש שונה צלעות", "כן, זה משולש קהה זווית", "לא, כי אין בו זווית ישרה"],
+        correctAnswer: 0,
+        hint: "חברו את שתי הצלעות הקצרות. אם הסכום קטן מהצלע הארוכה, אי אפשר לסגור את המשולש!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את התנאי: נחבר את שתי הצלעות הקצרות (2 ו-3).&rlm;", math_expression: "2 + 3 = 5" },
+            { verbal_explanation: "הסכום 5 קטן מהצלע השלישית 8. הקווים לא ייפגשו ולכן לא יווצר משולש.&rlm;", math_expression: "5 < 8" }
         ],
-        "final_answer": "3",
-        "options": ["1", "2", "3", "אף אחת"],
-        "correctAnswer": 2
+        final_answer: "לא, כי 2+3 קטן מ-8"
     },
+    // שאלה 33
     {
-        "id": 39,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "High",
-        "question_text": "האם קיים משולש שבו יש <strong>שתי זוויות ישרות</strong>?",
-        "hint": "חשבו מה יהיה סכום הזוויות אם היו שתי זוויות של 90 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "נחבר שתי זוויות ישרות: 90 + 90 = 180.", "math_expression": "180" },
-            { "verbal_explanation": "מכיוון שסכום שתי זוויות כבר הגיע ל-180, לא נשאר מקום לזווית שלישית (היא תצטרך להיות 0), ולכן לא יכול להיווצר משולש.", "math_expression": "Sum > 180" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "איזה סוג משולש מתואר באיור שלפניכם?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><polygon points='20,80 140,80 180,20' fill='#f3e8ff' stroke='#a855f7' stroke-width='2'/><path d='M 120,80 A 20,20 0 0,0 157,40' fill='none' stroke='#a855f7' stroke-width='1.5'/><text x='110' y='65' font-family='Arial' font-size='12' fill='#a855f7'>110°</text></svg></div>",
+        options: ["משולש קהה זווית", "משולש ישר זווית", "משולש חד זווית", "משולש שווה צלעות"],
+        correctAnswer: 0,
+        hint: "הביטו בזווית המסומנת (110 מעלות). האם היא חדה, ישרה או קהה?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "האיור מציג זווית של 110 מעלות.&rlm;", math_expression: "" },
+            { verbal_explanation: "מכיוון ש-110 מעלות גדול מ-90 מעלות, זוהי זווית קהה.&rlm;", math_expression: "" },
+            { verbal_explanation: "משולש בעל זווית קהה אחת נקרא משולש קהה זווית.&rlm;", math_expression: "" }
         ],
-        "final_answer": "לא, זה בלתי אפשרי",
-        "options": ["כן", "לא, זה בלתי אפשרי", "רק אם הוא גדול מאוד", "רק במרובע"],
-        "correctAnswer": 1
+        final_answer: "משולש קהה זווית"
     },
+    // שאלה 34
     {
-        "id": 40,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Medium",
-        "question_text": "משולש שבו שתי זוויות הן בנות 45° הוא משולש:<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='120'><polygon points='20,20 20,100 100,100' fill='#fdfbf7' stroke='#b09151' stroke-width='3'/><text x='25' y='45' font-size='11'>45°</text><text x='70' y='95' font-size='11'>45°</text></svg></div>",
-        "hint": "חשבו קודם את הזווית השלישית (180 פחות 45 פחות 45).",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את הזווית השלישית.", "math_expression": "180 - (45 + 45) = 90" },
-            { "verbal_explanation": "מכיוון שיש זווית של 90 מעלות ושתי זוויות שוות, הוא ישר זווית ושווה שוקיים.", "math_expression": "Right Isosceles" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "במשולש שווה שוקיים ישר זווית (זווית אחת היא 90°), מה יהיה תמיד גודלן של שתי הזוויות האחרות?&rlm;",
+        options: ["45° כל אחת", "60° ו-30°", "50° ו-40°", "אי אפשר לדעת, זה תלוי באורך הצלעות"],
+        correctAnswer: 0,
+        hint: "אם זווית אחת היא 90°, נשארו 90° להתחלק שווה בשווה בין שתי זוויות הבסיס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "סכום הזוויות הוא 180°. נחסר את הזווית הישרה (90°).&rlm;", math_expression: "180 - 90 = 90" },
+            { verbal_explanation: "מכיוון שהוא שווה שוקיים, שתי הזוויות הנותרות שוות. נחלק ב-2.&rlm;", math_expression: "90 : 2 = 45" }
         ],
-        "final_answer": "ישר זווית ושווה שוקיים",
-        "options": ["חד זווית", "שווה צלעות", "ישר זווית ושווה שוקיים", "קהה זווית"],
-        "correctAnswer": 2
+        final_answer: "45° כל אחת"
     },
+    // שאלה 35
     {
-        "id": 41,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Low",
-        "question_text": "איזה משולש הוא תמיד <strong>חד זווית</strong>?",
-        "hint": "חשבו על משולש שבו כל הזוויות הן 60 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "במשולש שווה צלעות כל הזוויות הן תמיד 60 מעלות, ו-60 היא זווית חדה.", "math_expression": "60 < 90" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "אם במשולש שתי זוויות שוות ל-60°, איזה סוג משולש זה בוודאות?&rlm;",
+        options: ["משולש שווה צלעות", "משולש ישר זווית", "משולש קהה זווית", "משולש שונה צלעות"],
+        correctAnswer: 0,
+        hint: "חשבו מהי הזווית השלישית (180 פחות 60 פחות 60).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחשב את הזווית השלישית במשולש.&rlm;", math_expression: "180 - 60 - 60 = 60" },
+            { verbal_explanation: "קיבלנו שכל שלוש הזוויות שוות ל-60°. משולש שבו כל הזוויות שוות הוא בהכרח משולש שווה צלעות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "משולש שווה צלעות",
-        "options": ["משולש שווה שוקיים", "משולש שווה צלעות", "משולש ישר זווית", "אף אחד מהם"],
-        "correctAnswer": 1
+        final_answer: "משולש שווה צלעות"
     },
+    // שאלה 36
     {
-        "id": 42,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Medium",
-        "question_text": "במשולש שווה שוקיים, זווית הראש היא 120°. איזה סוג משולש זה לפי זוויותיו?",
-        "hint": "הסתכלו על זווית הראש - היא גדולה מ-90.",
-        "solution_steps": [
-            { "verbal_explanation": "זווית של 120 מעלות היא זווית קהה. לכן המשולש הוא קהה זווית.", "math_expression": "120 > 90" }
+        topic: "triangles",
+        subTopic: "סוגי משולשים",
+        question_text: "מה מייחד 'יתר' במשולש ישר זווית?&rlm;",
+        options: ["היא תמיד הצלע הארוכה ביותר ונמצאת מול הזווית הישרה.", "היא תמיד הצלע הקצרה ביותר.", "היא תמיד אחת מהשוקיים במשולש שווה שוקיים.", "היא הצלע שנוגעת בזווית הישרה."],
+        correctAnswer: 0,
+        hint: "היתר הוא הצלע הנשענת מול הזווית של ה-90 מעלות. זכרו את המשפט: מול הזווית הגדולה נמצאת הצלע הארוכה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "במשולש ישר זווית, הזווית הגדולה ביותר היא תמיד הזווית הישרה (90°).&rlm;", math_expression: "" },
+            { verbal_explanation: "הצלע שמול הזווית הגדולה ביותר היא הצלע הארוכה ביותר. צלע זו נקראת 'יתר'.&rlm;", math_expression: "" }
         ],
-        "final_answer": "קהה זווית",
-        "options": ["חד זווית", "ישר זווית", "קהה זווית", "שווה צלעות"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 43,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "High",
-        "question_text": "אם במשולש שווה שוקיים אחת מזוויות הבסיס היא 60°, איזה סוג משולש זה <strong>בפועל</strong>?",
-        "hint": "חשבו את כל שלוש הזוויות.",
-        "solution_steps": [
-            { "verbal_explanation": "זוויות הבסיס שוות, לכן שתיהן 60°.", "math_expression": "60, 60" },
-            { "verbal_explanation": "נמצא את זווית הראש.", "math_expression": "180 - (60 + 60) = 60" },
-            { "verbal_explanation": "מכיוון שכל הזוויות הן 60°, המשולש הוא שווה צלעות.", "math_expression": "Equilateral" }
-        ],
-        "final_answer": "שווה צלעות",
-        "options": ["שווה שוקיים בלבד", "ישר זווית", "שווה צלעות", "קהה זווית"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 44,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "High",
-        "question_text": "במשולש ישר זווית, אחת הזוויות החדות היא 45°. מהו הקשר בין <strong>ניצבי</strong> המשולש?",
-        "hint": "מצאו את הזווית החדה השנייה.",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את הזווית השלישית: 180 - 90 - 45 = 45.", "math_expression": "45" },
-            { "verbal_explanation": "מכיוון שיש שתי זוויות שוות (45), המשולש הוא שווה שוקיים. לכן הניצבים שווים.", "math_expression": "Sides are equal" }
-        ],
-        "final_answer": "הניצבים שווים זה לזה",
-        "options": ["הניצבים שווים זה לזה", "ניצב אחד כפול מהשני", "אין קשר", "היתר שווה לניצב"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 45,
-        "subTopic": "סוגי משולשים",
-        "difficulty": "Medium",
-        "question_text": "מה ניתן לומר על משולש שבו זווית אחת גדולה מסכום שתי הזוויות האחרות?",
-        "hint": "אם סכום שתי זוויות קטן מ-90, אז השלישית חייבת להיות גדולה מ-90.",
-        "solution_steps": [
-            { "verbal_explanation": "נניח ששתי זוויות הן A ו-B והשלישית C. נתון ש- C > A+B.", "math_expression": "C > A + B" },
-            { "verbal_explanation": "ידוע ש- A + B + C = 180. לכן 2C > 180, מה שאומר ש- C > 90.", "math_expression": "C > 90" },
-            { "verbal_explanation": "מכאן שהזווית C היא קהה.", "math_expression": "Obtuse" }
-        ],
-        "final_answer": "הוא משולש קהה זווית",
-        "options": ["הוא משולש חד זווית", "הוא משולש ישר זווית", "הוא משולש קהה זווית", "לא ניתן לדעת"],
-        "correctAnswer": 2
+        final_answer: "היא תמיד הצלע הארוכה ביותר ונמצאת מול הזווית הישרה."
     }
+
 ];

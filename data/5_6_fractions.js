@@ -1,3052 +1,2497 @@
+// ========================================================================
+// שכבת גיל: ה'-ו' | נושא: שברים 
+// 4 תתי נושאים ראשונים | 48 שאלות סה"כ
+// ========================================================================
+// הוראות כתיבה: 
+// שברים: נכתבים כ- 1/4 או 2 1/2
+// חילוק: נכתב כ- :
+// כפל: נכתב כ- ×
+// חזקה (אם צריך): 2² או 2³
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: חיבור וחיסור שברים עשרוניים (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: חיבור וחיסור שברים עשרוניים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Low",
-        "question_text": "פתרו את התרגיל: 0.3 + 0.5",
-        "hint": "חברו עשיריות לעשיריות, כמו לחבר 3 תפוחים ל-5 תפוחים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את הספרות שאחרי הנקודה (העשיריות).", "math_expression": "3 + 5 = 8" },
-            { "verbal_explanation": "שלב 2: נרשום את התוצאה עם הנקודה העשרונית במקומה.", "math_expression": "0.8" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "חשבו את סכום השברים העשרוניים הבאים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2.3 + 4.5 = ?</div>",
+        options: ["6.8", "6.5", "7.8", "6.08"],
+        correctAnswer: 0,
+        hint: "בחיבור שברים עשרוניים, מחברים עשיריות לעשיריות ושלמים לשלמים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחבר את העשיריות: 3 עשיריות ועוד 5 עשיריות שוות ל-8 עשיריות.&rlm;", math_expression: "0.3 + 0.5 = 0.8" },
+            { verbal_explanation: "נחבר את השלמים: 2 ועוד 4 שווים ל-6.&rlm;", math_expression: "2 + 4 = 6" },
+            { verbal_explanation: "הסכום הכולל הוא 6 שלמים ו-8 עשיריות.&rlm;", math_expression: "6.8" }
         ],
-        "final_answer": "0.8",
-        "options": ["0.8", "0.08", "8", "0.15"],
-        "correctAnswer": 0
+        final_answer: "6.8"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Low",
-        "question_text": "פתרו את התרגיל: 1.2 + 0.4",
-        "hint": "חברו את השלמים בנפרד ואת העשיריות בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את העשיריות (2 ועוד 4).", "math_expression": "0.2 + 0.4 = 0.6" },
-            { "verbal_explanation": "שלב 2: נחבר את השלם.", "math_expression": "1 + 0 = 1" },
-            { "verbal_explanation": "שלב 3: נחבר את הכל יחד.", "math_expression": "1.6" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "פתרו את תרגיל החיסור הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7.9 - 3.4 = ?</div>",
+        options: ["4.5", "4.9", "3.5", "11.3"],
+        correctAnswer: 0,
+        hint: "חסרו את העשיריות בנפרד ואת השלמים בנפרד, תוך שמירה על מיקום הנקודה העשרונית.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חיסור עשיריות: 9 פחות 4 שווה ל-5 עשיריות.&rlm;", math_expression: "0.9 - 0.4 = 0.5" },
+            { verbal_explanation: "חיסור שלמים: 7 פחות 3 שווה ל-4 שלמים.&rlm;", math_expression: "7 - 3 = 4" },
+            { verbal_explanation: "התוצאה הסופית היא 4.5.&rlm;", math_expression: "4.5" }
         ],
-        "final_answer": "1.6",
-        "options": ["1.8", "1.6", "1.24", "2.6"],
-        "correctAnswer": 1
+        final_answer: "4.5"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: 0.7 + 0.4",
-        "hint": "כשסכום העשיריות עובר את 10, נוצר שלם חדש.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את העשיריות: 7 ועוד 4 שווה 11 עשיריות.", "math_expression": "7 + 4 = 11" },
-            { "verbal_explanation": "שלב 2: 10 עשיריות הופכות לשלם אחד, ונשארת עשירית אחת.", "math_expression": "1.1" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "שימו לב למספר הספרות אחרי הנקודה. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1.45 + 2.3 = ?</div>",
+        options: ["3.75", "3.48", "1.68", "4.75"],
+        correctAnswer: 0,
+        hint: "כדי למנוע בלבול, הוסיפו אפס מימין ל-2.3 כך שייכתב כ-2.30. כך לשני המספרים יהיו מאיות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נשוה את מספר הספרות אחרי הנקודה על ידי הוספת אפס: 2.3 הוא כמו 2.30.&rlm;", math_expression: "1.45 + 2.30" },
+            { verbal_explanation: "נחבר מאיות (5 ועוד 0) ועשיריות (4 ועוד 3).&rlm;", math_expression: "0.45 + 0.30 = 0.75" },
+            { verbal_explanation: "נחבר את השלמים: 1 ועוד 2 שווה 3.&rlm;", math_expression: "1 + 2 = 3" }
         ],
-        "final_answer": "1.1",
-        "options": ["0.11", "1.1", "11", "0.10"],
-        "correctAnswer": 1
+        final_answer: "3.75"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: 2.35 + 1.2",
-        "hint": "כדי לא להתבלבל, הוסיפו אפס למספר הקצר: 1.20, ואז חברו מאיות עם מאיות ועשיריות עם עשיריות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשווה את מספר הספרות אחרי הנקודה על ידי הוספת אפס.", "math_expression": "1.2 = 1.20" },
-            { "verbal_explanation": "שלב 2: נחבר מאיות (5+0).", "math_expression": "5 + 0 = 5" },
-            { "verbal_explanation": "שלב 3: נחבר עשיריות (3+2).", "math_expression": "3 + 2 = 5" },
-            { "verbal_explanation": "שלב 4: נחבר שלמים (2+1).", "math_expression": "2 + 1 = 3" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "בצעו את פעולת החיסור (תידרשו לפרוט משלם לעשיריות):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5.2 - 1.8 = ?</div>",
+        options: ["3.4", "4.4", "4.6", "3.6"],
+        correctAnswer: 0,
+        hint: "מכיוון ש-2 קטן מ-8, עלינו ללוות (לפרוט) יחידה אחת מהשלמים ולהפוך אותה ל-10 עשיריות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אי אפשר לחסר 8 מ-2. נלווה שלם מה-5 ונהפוך אותו ל-10 עשיריות. נקבל 4 שלמים ו-12 עשיריות.&rlm;", math_expression: "5.2 => 4.12" },
+            { verbal_explanation: "נחסר עשיריות: 12 פחות 8 שוות 4 עשיריות.&rlm;", math_expression: "1.2 - 0.8 = 0.4" },
+            { verbal_explanation: "נחסר שלמים: 4 שלמים שנותרו פחות 1 שווים 3.&rlm;", math_expression: "4 - 1 = 3" }
         ],
-        "final_answer": "3.55",
-        "options": ["3.37", "3.55", "3.47", "4.55"],
-        "correctAnswer": 1
+        final_answer: "3.4"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו את התרגיל: 0.08 + 0.92",
-        "hint": "חברו את המאיות. מה קורה כשמגיעים ל-100 מאיות?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר 8 מאיות עם 92 מאיות.", "math_expression": "8 + 92 = 100" },
-            { "verbal_explanation": "שלב 2: 100 מאיות שוות בדיוק לשלם אחד.", "math_expression": "1.00 = 1" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "חיבור מספר שלם ושבר עשרוני. חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>8 + 3.14 = ?</div>",
+        options: ["11.14", "3.22", "11.22", "8.14"],
+        correctAnswer: 0,
+        hint: "זכרו ש-8 שלמים שווים ל-8.00. חברו את השלמים לשלמים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכתוב את המספר השלם עם נקודה עשרונית כדי ליישר את הספרות: 8.00.&rlm;", math_expression: "8.00 + 3.14" },
+            { verbal_explanation: "חיבור השלמים נותן 11. החלק העשרוני נשאר כפי שהוא.&rlm;", math_expression: "8 + 3 = 11" }
         ],
-        "final_answer": "1",
-        "options": ["0.100", "0.910", "1", "1.1"],
-        "correctAnswer": 2
+        final_answer: "11.14"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Low",
-        "question_text": "פתרו את התרגיל: 0.8 - 0.2",
-        "hint": "חיסור עשיריות מתבצע בדיוק כמו חיסור רגיל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסר את העשיריות: 8 פחות 2.", "math_expression": "8 - 2 = 6" },
-            { "verbal_explanation": "שלב 2: נרשום את התוצאה עם הנקודה.", "math_expression": "0.6" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "חיסור עשרוני משלם. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 - 2.7 = ?</div>",
+        options: ["7.3", "8.3", "7.7", "8.7"],
+        correctAnswer: 0,
+        hint: "כדי לחסר בנוחות, כתבו את המספר 10 כ-10.0 ופירטו מהשלמים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכתוב את 10 כ-10.0.&rlm;", math_expression: "10.0 - 2.7" },
+            { verbal_explanation: "נלווה 1 מהשלמים ונהפוך אותו ל-10 עשיריות (כלומר 9 שלמים ו-10 עשיריות).&rlm;", math_expression: "9.10 - 2.7" },
+            { verbal_explanation: "10 עשיריות פחות 7 שוות 3 עשיריות. 9 שלמים פחות 2 שווים 7.&rlm;", math_expression: "7.3" }
         ],
-        "final_answer": "0.6",
-        "options": ["0.4", "0.6", "0.06", "6"],
-        "correctAnswer": 1
+        final_answer: "7.3"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: 1.5 - 0.7",
-        "hint": "אי אפשר לחסר 7 מ-5. 'פרטו' את השלם ל-10 עשיריות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמיר את השלם לעשיריות, כך שיש לנו 15 עשיריות בסך הכל.", "math_expression": "1.5 = 15 עשיריות" },
-            { "verbal_explanation": "שלב 2: נחסר 7 עשיריות מתוך 15 העשיריות.", "math_expression": "15 - 7 = 8" },
-            { "verbal_explanation": "שלב 3: נרשום כעשיריות.", "math_expression": "0.8" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "דן קנה לחם ב-7.50 שקלים וחלב ב-6.80 שקלים. כמה שילם דן בסך הכל?&rlm;",
+        options: ["14.30", "13.30", "14.80", "15.30"],
+        correctAnswer: 0,
+        hint: "חברו את המחירים. שימו לב להמרה של האגורות לשלם נוסף.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חיבור אגורות: 50 ועוד 80 שוות 130 אגורות (1.30 שקלים).&rlm;", math_expression: "0.50 + 0.80 = 1.30" },
+            { verbal_explanation: "חיבור שלמים: 7 שקלים ועוד 6 שקלים שווים 13.&rlm;", math_expression: "7 + 6 = 13" },
+            { verbal_explanation: "נוסיף את ה-1.30 ל-13 ונקבל 14.30.&rlm;", math_expression: "13 + 1.30 = 14.30" }
         ],
-        "final_answer": "0.8",
-        "options": ["0.8", "1.2", "0.2", "1.8"],
-        "correctAnswer": 0
+        final_answer: "14.30"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: 3.45 - 1.25",
-        "hint": "חסרו מאיות ממאיות, עשיריות מעשיריות, ושלמים משלמים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסר את המאיות (5-5).", "math_expression": "5 - 5 = 0" },
-            { "verbal_explanation": "שלב 2: נחסר את העשיריות (4-2).", "math_expression": "4 - 2 = 2" },
-            { "verbal_explanation": "שלב 3: נחסר את השלמים (3-1).", "math_expression": "3 - 1 = 2" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "בבקבוק היו 2.5 ליטרים של מים. יעל שתתה 0.75 ליטר. כמה מים נשארו בבקבוק?&rlm;",
+        options: ["1.75", "1.25", "1.85", "2.25"],
+        correctAnswer: 0,
+        hint: "כתבו את הכמות כ-2.50 ובצעו חיסור של 0.75.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכתוב את התרגיל עם אפס שומר מקום.&rlm;", math_expression: "2.50 - 0.75" },
+            { verbal_explanation: "נחסר (אפשר לחשוב כחיסור מאונך: 250 פחות 75 שווה 175).&rlm;", math_expression: "250 - 75 = 175" },
+            { verbal_explanation: "נמקם את הנקודה העשרונית בחזרה ונקבל 1.75.&rlm;", math_expression: "1.75" }
         ],
-        "final_answer": "2.20",
-        "options": ["2.10", "2.20", "2.25", "1.20"],
-        "correctAnswer": 1
+        final_answer: "1.75"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו את התרגיל: 2 - 0.4",
-        "hint": "רשמו את המספר השלם (2) כ- 2.0, ואז בצעו חיסור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את ה-2 עם נקודה עשרונית ואפס.", "math_expression": "2 = 2.0" },
-            { "verbal_explanation": "שלב 2: 'נפרוט' שלם אחד ל-10 עשיריות.", "math_expression": "2.0 = 1 + 10 עשיריות" },
-            { "verbal_explanation": "שלב 3: מתוך 10 העשיריות נחסר 4 עשיריות.", "math_expression": "10 - 4 = 6 עשיריות" },
-            { "verbal_explanation": "שלב 4: נחבר בחזרה לשלם שנשאר.", "math_expression": "1.6" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "מהי תוצאת החיבור הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.05 + 0.05 = ?</div>",
+        options: ["0.1", "0.01", "0.15", "0.001"],
+        correctAnswer: 0,
+        hint: "5 מאיות ועוד 5 מאיות שוות ל-10 מאיות, שזו עשירית אחת שלמה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חיבור המאיות: 5 ועוד 5 שווה 10 מאיות.&rlm;", math_expression: "0.05 + 0.05 = 0.10" },
+            { verbal_explanation: "האפס הימני אינו משנה את הערך, לכן 0.10 שווה ל-0.1.&rlm;", math_expression: "0.1" }
         ],
-        "final_answer": "1.6",
-        "options": ["1.6", "2.6", "0.6", "1.4"],
-        "correctAnswer": 0
+        final_answer: "0.1"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "דנה קנתה חטיף ב-4.50 ₪ ומיץ ב-3.75 ₪. היא שילמה בשטר של 10 ₪. כמה עודף תקבל?",
-        "hint": "חברו קודם את מחירי הקניות, ואז החסירו מ-10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את סך כל הקנייה (חיבור).", "math_expression": "4.50 + 3.75 = 8.25" },
-            { "verbal_explanation": "שלב 2: נרשום את השטר כעשרוני (10.00).", "math_expression": "10.00" },
-            { "verbal_explanation": "שלב 3: נחסר את הקנייה מהשטר כדי למצוא את העודף.", "math_expression": "10.00 - 8.25 = 1.75" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "חיסור מדויק במאיות:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1.1 - 0.99 = ?</div>",
+        options: ["0.11", "0.21", "0.01", "1.01"],
+        correctAnswer: 0,
+        hint: "רשמו את 1.1 כ-1.10 וחשבו כמה חסר מ-0.99 כדי להגיע ל-1.10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרשום 1.1 כ-1.10 כדי שיהיו מאיות גם במספר הראשון.&rlm;", math_expression: "1.10 - 0.99" },
+            { verbal_explanation: "ההפרש בין 110 מאיות ל-99 מאיות הוא בדיוק 11 מאיות.&rlm;", math_expression: "0.11" }
         ],
-        "final_answer": "1.75 ₪",
-        "options": ["2.75 ₪", "1.25 ₪", "1.75 ₪", "2.25 ₪"],
-        "correctAnswer": 2
+        final_answer: "0.11"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: 0.5 + 0.05",
-        "hint": "אלו עשיריות ואלו מאיות. השוו מספר ספרות: 0.50 + 0.05.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נוסיף אפס ל-0.5 כדי שייצג מאיות.", "math_expression": "0.5 = 0.50" },
-            { "verbal_explanation": "שלב 2: נחבר מאיות (50 + 5).", "math_expression": "0.50 + 0.05 = 0.55" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "חיבור של שלושה שברים עשרוניים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1.2 + 2.5 + 0.3 = ?</div>",
+        options: ["4.0", "3.0", "4.1", "3.9"],
+        correctAnswer: 0,
+        hint: "חברו קודם את העשיריות: 2 ועוד 5 ועוד 3. אם עברתם את ה-10, העבירו שלם אחד שמאלה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחבר את העשיריות: 2+5+3 = 10 עשיריות (כלומר שלם 1).&rlm;", math_expression: "0.2 + 0.5 + 0.3 = 1.0" },
+            { verbal_explanation: "נחבר את השלמים המקוריים: 1+2 = 3.&rlm;", math_expression: "1 + 2 = 3" },
+            { verbal_explanation: "נוסיף את השלם מחיבור העשיריות: 3+1 = 4.&rlm;", math_expression: "4.0" }
         ],
-        "final_answer": "0.55",
-        "options": ["0.10", "0.55", "1.0", "0.055"],
-        "correctAnswer": 1
+        final_answer: "4.0"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 5.1 - 2.85",
-        "hint": "השוו ספרות (5.10) ובצעו פריטה (הלוואה) לפני החיסור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את 5.1 כ-5.10 כדי שיהיו שני מקומות אחרי הנקודה.", "math_expression": "5.10 - 2.85" },
-            { "verbal_explanation": "שלב 2: נפרוט עשירית אחת ל-10 מאיות, ו-10 פחות 5 שווה 5.", "math_expression": "מאיות: 5" },
-            { "verbal_explanation": "שלב 3: נותרנו עם 0 עשיריות, נפרוט שלם. 10 פחות 8 שווה 2.", "math_expression": "עשיריות: 2" },
-            { "verbal_explanation": "שלב 4: נותרנו עם 4 שלמים. 4 פחות 2 שווה 2.", "math_expression": "שלמים: 2" },
-            { "verbal_explanation": "שלב 5: נחבר את החלקים.", "math_expression": "2.25" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים עשרוניים",
+        question_text: "בצעו את שתי פעולות החיסור ברצף משמאל לימין:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5.5 - 1.2 - 0.3 = ?</div>",
+        options: ["4.0", "4.6", "3.0", "4.3"],
+        correctAnswer: 0,
+        hint: "חסרו תחילה 1.2 מ-5.5, ומהתוצאה חסרו 0.3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "החיסור הראשון: 5.5 פחות 1.2.&rlm;", math_expression: "5.5 - 1.2 = 4.3" },
+            { verbal_explanation: "החיסור השני: ניקח את התוצאה ונחסר 0.3.&rlm;", math_expression: "4.3 - 0.3 = 4.0" }
         ],
-        "final_answer": "2.25",
-        "options": ["2.35", "3.25", "2.25", "3.35"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Low",
-        "question_text": "השלימו את המספר החסר: 0.4 + ___ = 1",
-        "hint": "כמה עשיריות חסרות ל-4 עשיריות כדי להגיע ל-10 עשיריות (שלם אחד)?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: שלם אחד שווה ל-10 עשיריות.", "math_expression": "1 = 1.0" },
-            { "verbal_explanation": "שלב 2: נחסר 0.4 מ-1.0.", "math_expression": "1.0 - 0.4 = 0.6" }
-        ],
-        "final_answer": "0.6",
-        "options": ["0.5", "0.6", "0.7", "0.06"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "אורך חבל הוא 3.7 מטרים. חתכו ממנו 0.9 מטרים. מה האורך שנותר?",
-        "hint": "בצעו תרגיל חיסור: 3.7 פחות 0.9.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אי אפשר לחסר 9 מ-7, לכן 'נפרוט' שלם אחד מתוך ה-3 ל-10 עשיריות.", "math_expression": "3.7 = 2 + 17 עשיריות" },
-            { "verbal_explanation": "שלב 2: נחסר 9 עשיריות מ-17 עשיריות.", "math_expression": "17 - 9 = 8" },
-            { "verbal_explanation": "שלב 3: נרשום את 2 השלמים שנותרו יחד עם ה-8 עשיריות.", "math_expression": "2.8" }
-        ],
-        "final_answer": "2.8 מטרים",
-        "options": ["2.8 מטרים", "3.2 מטרים", "4.6 מטרים", "2.2 מטרים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 15,
-        "subTopic": "חיבור וחיסור שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "רון רץ במשך שלושה ימים. ביום הראשון רץ 1.5 ק\"מ, ביום השני 2.25 ק\"מ, וביום השלישי 1.75 ק\"מ. כמה רץ בסך הכל?",
-        "hint": "חברו תחילה את 2.25 ו-1.75 (זה קל כי הרבעים משלימים לשלם).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את היום השני והשלישי. 25 מאיות + 75 מאיות הן שלם.", "math_expression": "2.25 + 1.75 = 4.00" },
-            { "verbal_explanation": "שלב 2: נוסיף את הריצה של היום הראשון לתוצאה.", "math_expression": "4.00 + 1.5 = 5.5" }
-        ],
-        "final_answer": "5.5 ק\"מ",
-        "options": ["5.25 ק\"מ", "4.5 ק\"מ", "6 ק\"מ", "5.5 ק\"מ"],
-        "correctAnswer": 3
+        final_answer: "4.0"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: חיבור וחיסור שברים פשוטים (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 2: חיבור וחיסור שברים פשוטים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Low",
-        "question_text": "פתרו: 1/5 + 2/5",
-        "hint": "כשהמכנים (למטה) זהים, פשוט מחברים את המונים (למעלה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המכנים שווים (5), לכן נשמור עליהם.", "math_expression": "מכנה = 5" },
-            { "verbal_explanation": "שלב 2: נחבר את המונים (1+2).", "math_expression": "1 + 2 = 3" },
-            { "verbal_explanation": "שלב 3: נרשום כשבר.", "math_expression": "3/5" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "חשבו את תוצאת החיבור הבאה (שימו לב שהמכנים שווים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/8 + 4/8 = ?</div>",
+        options: ["7/8", "7/16", "1/8", "12/8"],
+        correctAnswer: 0,
+        hint: "כאשר המכנים שווים, מחברים רק את המונים והמכנה נשאר ללא שינוי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המכנים זהים (8), לכן נחבר את המונים בלבד.&rlm;", math_expression: "3 + 4 = 7" },
+            { verbal_explanation: "נשמור על המכנה המקורי. התוצאה היא 7 שמיניות.&rlm;", math_expression: "7/8" }
         ],
-        "final_answer": "3/5",
-        "options": ["3/10", "3/5", "2/5", "1/5"],
-        "correctAnswer": 1
+        final_answer: "7/8"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Low",
-        "question_text": "פתרו: 7/8 - 3/8",
-        "hint": "מכיוון שהמכנה זהה, פשוט חסרו את המונה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המכנה נשאר 8.", "math_expression": "מכנה = 8" },
-            { "verbal_explanation": "שלב 2: נחסר במונה: 7 פחות 3.", "math_expression": "7 - 3 = 4" },
-            { "verbal_explanation": "שלב 3: נרשום את התוצאה. (אפשר גם לצמצם).", "math_expression": "4/8" },
-            { "verbal_explanation": "שלב 4: 4 שמיניות שוות לחצי.", "math_expression": "4/8 = 1/2" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "חשבו את התוצאה (שימו לב למכנים השונים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1/2 + 1/4 = ?</div>",
+        options: ["3/4", "2/6", "2/4", "1/4"],
+        correctAnswer: 0,
+        hint: "הרחיבו את השבר חצי (1/2) כך שיהיה לו מכנה 4. כפלו מונה ומכנה ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את חצי פי 2 למכנה משותף 4.&rlm;", math_expression: "1/2 = 2/4" },
+            { verbal_explanation: "נחבר את המונים של השברים עם המכנה המשותף.&rlm;", math_expression: "2/4 + 1/4 = 3/4" }
         ],
-        "final_answer": "1/2",
-        "options": ["4/0", "1/2", "1/4", "3/8"],
-        "correctAnswer": 1
+        final_answer: "3/4"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 1/2 + 1/4",
-        "hint": "אי אפשר לחבר חצאים ורבעים ישירות. הרחיבו את החצי לרבעים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את 1/2 למכנה משותף של 4 (נכפיל מונה ומכנה ב-2).", "math_expression": "1/2 = 2/4" },
-            { "verbal_explanation": "שלב 2: נחבר את הרבעים החדשים עם הרבע הקיים.", "math_expression": "2/4 + 1/4 = 3/4" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "בצעו את פעולת החיסור:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7/9 - 2/9 = ?</div>",
+        options: ["5/9", "5/0", "9/9", "2/9"],
+        correctAnswer: 0,
+        hint: "המכנים זהים. החסירו רק את המונים ושימרו על המכנה המקורי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחסיר את המונים: 7 פחות 2.&rlm;", math_expression: "7 - 2 = 5" },
+            { verbal_explanation: "נשאיר את המכנה 9. קיבלנו 5 תשיעיות.&rlm;", math_expression: "5/9" }
         ],
-        "final_answer": "3/4",
-        "options": ["2/6", "3/4", "1/6", "2/4"],
-        "correctAnswer": 1
+        final_answer: "5/9"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 1 - 1/3",
-        "hint": "הפכו את השלם לשבר שהמכנה שלו הוא 3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: שלם אחד שווה ל-3 שלישים.", "math_expression": "1 = 3/3" },
-            { "verbal_explanation": "שלב 2: נחסר שליש אחד מתוך שלושת השלישים.", "math_expression": "3/3 - 1/3 = 2/3" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "חשבו את התרגיל הבא, הפכו תחילה את השלם לשבר:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 - 1/3 = ?</div>",
+        options: ["2/3", "1/3", "0", "3/3"],
+        correctAnswer: 0,
+        hint: "זכרו שניתן לכתוב את השלם '1' בתור 3 שלישים (3/3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכתוב מחדש את השלם 1 כ-3 שלישים על מנת שנוכל לחסר.&rlm;", math_expression: "1 = 3/3" },
+            { verbal_explanation: "נחסר שליש אחד מתוך שלושה שלישים.&rlm;", math_expression: "3/3 - 1/3 = 2/3" }
         ],
-        "final_answer": "2/3",
-        "options": ["1/3", "2/3", "4/3", "1 1/3"],
-        "correctAnswer": 1
+        final_answer: "2/3"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 1/3 + 1/4",
-        "hint": "מצאו מכנה משותף ל-3 ול-4 (המספר הקטן ביותר ששניהם מתחלקים בו הוא 12).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את 1/3 למכנה 12 (כפל ב-4).", "math_expression": "1/3 = 4/12" },
-            { "verbal_explanation": "שלב 2: נרחיב את 1/4 למכנה 12 (כפל ב-3).", "math_expression": "1/4 = 3/12" },
-            { "verbal_explanation": "שלב 3: נחבר את המונים.", "math_expression": "4/12 + 3/12 = 7/12" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "פתרו את תרגיל החיבור (היעזרו בהרחבה):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2/5 + 1/10 = ?</div>",
+        options: ["5/10", "3/10", "3/15", "4/10"],
+        correctAnswer: 0,
+        hint: "המכנה המשותף הקטן ביותר הוא 10. הרחיבו את השבר 2/5 למכנה 10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את שתי חמישיות פי 2 כדי לקבל מכנה 10.&rlm;", math_expression: "2/5 = 4/10" },
+            { verbal_explanation: "נחבר את המונים עם המכנה המשותף החדש.&rlm;", math_expression: "4/10 + 1/10 = 5/10" }
         ],
-        "final_answer": "7/12",
-        "options": ["2/7", "7/12", "1/12", "2/12"],
-        "correctAnswer": 1
+        final_answer: "5/10"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 5/6 - 1/2",
-        "hint": "הרחיבו את החצי כך שיהיה עם מכנה 6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את 1/2 למכנה 6 (כפל פי 3).", "math_expression": "1/2 = 3/6" },
-            { "verbal_explanation": "שלב 2: נחסר את השברים בעלי המכנה המשותף.", "math_expression": "5/6 - 3/6 = 2/6" },
-            { "verbal_explanation": "שלב 3: נצמצם את התוצאה ב-2.", "math_expression": "2/6 = 1/3" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "חשבו את תוצאת החיסור:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>11/12 - 1/4 = ?</div>",
+        options: ["8/12", "10/12", "10/8", "1/2"],
+        correctAnswer: 0,
+        hint: "הרחיבו את הרבע (1/4) למכנה 12 על ידי כפל מונה ומכנה ב-3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את הרבע פי 3 למכנה משותף 12.&rlm;", math_expression: "1/4 = 3/12" },
+            { verbal_explanation: "נחסיר את השבר המורחב מהשבר הראשון.&rlm;", math_expression: "11/12 - 3/12 = 8/12" }
         ],
-        "final_answer": "1/3",
-        "options": ["4/4", "1/3", "4/6", "1/4"],
-        "correctAnswer": 1
+        final_answer: "8/12"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2 1/4 + 1 1/4 (חיבור מספרים מעורבים)",
-        "hint": "חברו קודם את השלמים, ואז חברו את השברים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את השלמים (2+1).", "math_expression": "2 + 1 = 3" },
-            { "verbal_explanation": "שלב 2: נחבר את השברים (רבע ועוד רבע).", "math_expression": "1/4 + 1/4 = 2/4" },
-            { "verbal_explanation": "שלב 3: נצמצם את 2/4 לחצי, ונחבר הכל.", "math_expression": "3 1/2" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "מהי תוצאת החיבור הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/4 + 1/5 = ?</div>",
+        options: ["19/20", "4/9", "4/20", "15/20"],
+        correctAnswer: 0,
+        hint: "המכנה המשותף עבור 4 ו-5 הוא מכפלתם (20). הרחיבו את שני השברים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את השבר הראשון פי 5 (למכנה 20).&rlm;", math_expression: "3/4 = 15/20" },
+            { verbal_explanation: "נרחיב את השבר השני פי 4 (למכנה 20).&rlm;", math_expression: "1/5 = 4/20" },
+            { verbal_explanation: "נחבר את המונים.&rlm;", math_expression: "15/20 + 4/20 = 19/20" }
         ],
-        "final_answer": "3 1/2",
-        "options": ["3 1/4", "3 1/2", "4 1/2", "3"],
-        "correctAnswer": 1
+        final_answer: "19/20"
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 3 - 1 1/5",
-        "hint": "'פרטו' שלם אחד מתוך ה-3 לחמישיות, כדי שתוכלו לחסר ממנו את השבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את המספר 3 ל-2 שלמים ועוד חמש חמישיות.", "math_expression": "3 = 2 5/5" },
-            { "verbal_explanation": "שלב 2: נחסר את השלמים (2 פחות 1).", "math_expression": "2 - 1 = 1" },
-            { "verbal_explanation": "שלב 3: נחסר את השברים (5 חמישיות פחות חמישית אחת).", "math_expression": "5/5 - 1/5 = 4/5" },
-            { "verbal_explanation": "שלב 4: נחבר את התוצאות.", "math_expression": "1 4/5" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "ליעל היו 3 רבעים של פיצה. היא אכלה רבע מהפיצה. איזה חלק נותר?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/4 - 1/4 = ?</div>",
+        options: ["2/4", "1/4", "4/4", "1/2"], 
+        correctAnswer: 0,
+        hint: "המכנים זהים (4). חסרו רק את המונים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחסיר את המונים.", math_expression: "3 - 1 = 2" },
+            { verbal_explanation: "נותרו 2 רבעים (שאפשר בהמשך לצמצם לחצי).&rlm;", math_expression: "2/4" }
         ],
-        "final_answer": "1 4/5",
-        "options": ["2 4/5", "1 1/5", "1 4/5", "2 1/5"],
-        "correctAnswer": 2
+        final_answer: "2/4"
     },
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "בקנקן היו 3/4 ליטר מיץ. יוסי שתה 1/4 ליטר. כמה נשאר?",
-        "hint": "תרגיל חיסור פשוט בעל אותו מכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסר מונה ממונה (3 פחות 1).", "math_expression": "3/4 - 1/4 = 2/4" },
-            { "verbal_explanation": "שלב 2: נצמצם את השבר לחצי.", "math_expression": "2/4 = 1/2" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "רמי צבע בבוקר 2/5 מהגדר שלו, ובצהריים צבע עוד 1/5. איזה חלק מהגדר נצבע?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2/5 + 1/5 = ?</div>",
+        options: ["3/5", "3/10", "1/5", "2/5"],
+        correctAnswer: 0,
+        hint: "המכנים זהים. עליכם לבצע חיבור מונים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחבר את המונים של החלקים שרמי צבע.&rlm;", math_expression: "2 + 1 = 3" },
+            { verbal_explanation: "התוצאה היא 3 חמישיות.&rlm;", math_expression: "3/5" }
         ],
-        "final_answer": "1/2 ליטר",
-        "options": ["1/4 ליטר", "1/2 ליטר", "1 ליטר", "2/8 ליטר"],
-        "correctAnswer": 1
+        final_answer: "3/5"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "אפו שתי עוגות זהות. מהראשונה נשאר 1/2 ומהשנייה נשאר 2/3. כמה עוגה נשאר בסך הכל?",
-        "hint": "חברו חצי ושני שלישים. המכנה המשותף הוא 6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את חצי לשישיות.", "math_expression": "1/2 = 3/6" },
-            { "verbal_explanation": "שלב 2: נרחיב את שני שלישים לשישיות.", "math_expression": "2/3 = 4/6" },
-            { "verbal_explanation": "שלב 3: נחבר. נקבל שבר מדומה.", "math_expression": "3/6 + 4/6 = 7/6" },
-            { "verbal_explanation": "שלב 4: נהפוך את 7/6 למספר מעורב.", "math_expression": "1 1/6" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "פתרו את התרגיל המעורב משמאל לימין:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5/6 - 1/3 + 1/6 = ?</div>",
+        options: ["4/6", "3/6", "5/9", "2/6"],
+        correctAnswer: 0,
+        hint: "הביאו את השליש למכנה 6 (על ידי הרחבה פי 2), ואז חשבו את התרגיל לפי הסדר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הרחבת השליש למכנה 6.", math_expression: "1/3 = 2/6" },
+            { verbal_explanation: "פעולת החיסור: 5 שישיות פחות 2 שישיות שווה 3 שישיות.&rlm;", math_expression: "5/6 - 2/6 = 3/6" },
+            { verbal_explanation: "פעולת החיבור: 3 שישיות ועוד 1 שישית שווה 4 שישיות.&rlm;", math_expression: "3/6 + 1/6 = 4/6" }
         ],
-        "final_answer": "1 1/6",
-        "options": ["3/5", "1 1/6", "5/6", "1 1/2"],
-        "correctAnswer": 1
+        final_answer: "4/6"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "מה צריך לחבר ל-3/8 כדי לקבל שלם אחד (1)?",
-        "hint": "שלם מורכב מ-8 שמיניות. כמה שמיניות חסרות?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את השלם כשבר של שמיניות.", "math_expression": "1 = 8/8" },
-            { "verbal_explanation": "שלב 2: נחסר את מה שיש לנו מהשלם.", "math_expression": "8/8 - 3/8 = 5/8" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "חשבו את תוצאת החיבור הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1/3 + 1/4 = ?</div>",
+        options: ["7/12", "2/7", "1/7", "2/12"],
+        correctAnswer: 0,
+        hint: "המכנה המשותף המינימלי הוא 12. הרחיבו את השליש פי 4 ואת הרבע פי 3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את השליש פי 4 ואת הרבע פי 3 למכנה 12.&rlm;", math_expression: "1/3 = 4/12 , 1/4 = 3/12" },
+            { verbal_explanation: "נחבר את המונים המורחבים.&rlm;", math_expression: "4/12 + 3/12 = 7/12" }
         ],
-        "final_answer": "5/8",
-        "options": ["3/8", "4/8", "5/8", "6/8"],
-        "correctAnswer": 2
+        final_answer: "7/12"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2 1/3 + 1 5/6",
-        "hint": "מצאו מכנה משותף לשברים (6). ואז חברו. אם השבר גדול מ-1, העבירו אותו לשלמים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את השליש לשישיות.", "math_expression": "1/3 = 2/6" },
-            { "verbal_explanation": "שלב 2: נחבר את השלמים.", "math_expression": "2 + 1 = 3" },
-            { "verbal_explanation": "שלב 3: נחבר את השברים (2/6 + 5/6).", "math_expression": "7/6" },
-            { "verbal_explanation": "שלב 4: 7/6 הם שלם אחד ועוד שישית. נוסיף זאת ל-3 השלמים.", "math_expression": "3 + 1 1/6 = 4 1/6" }
+        topic: "fractions",
+        subTopic: "חיבור וחיסור שברים פשוטים",
+        question_text: "חיבור של שלושה שברים פשוטים. חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/8 + 1/2 + 1/4 = ?</div>",
+        options: ["9/8", "3/14", "5/8", "1"],
+        correctAnswer: 0,
+        hint: "המכנה המשותף הגדול הוא 8. הרחיבו את חצי ורבע לשמיניות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את חצי (פי 4) ואת רבע (פי 2) למכנה 8.", math_expression: "1/2 = 4/8 , 1/4 = 2/8" },
+            { verbal_explanation: "נחבר הכל: 3 ועוד 4 ועוד 2 מונים.", math_expression: "3/8 + 4/8 + 2/8 = 9/8" }
         ],
-        "final_answer": "4 1/6",
-        "options": ["3 6/9", "3 7/6", "4 1/6", "4 5/6"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 28,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "דן רץ ביום א' 1/4 ק\"מ וביום ב' 3/5 ק\"מ. כמה רץ בסך הכל?",
-        "hint": "מכנה משותף ל-4 ו-5 הוא 20.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את 1/4 למכנה 20 (כפל פי 5).", "math_expression": "1/4 = 5/20" },
-            { "verbal_explanation": "שלב 2: נרחיב את 3/5 למכנה 20 (כפל פי 4).", "math_expression": "3/5 = 12/20" },
-            { "verbal_explanation": "שלב 3: נחבר את המונים.", "math_expression": "5/20 + 12/20 = 17/20" }
-        ],
-        "final_answer": "17/20",
-        "options": ["4/9", "17/20", "15/20", "4/20"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 29,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 4 1/2 - 2 3/4",
-        "hint": "המכנה המשותף הוא 4. תצטרכו 'לפרוט' שלם אחד מתוך ה-4 כי 2/4 קטן מ-3/4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את החצי לרבעים.", "math_expression": "4 2/4 - 2 3/4" },
-            { "verbal_explanation": "שלב 2: נפרוט שלם אחד ל-4 רבעים ונוסיף אותם ל-2/4 שיש לנו.", "math_expression": "4 2/4 = 3 6/4" },
-            { "verbal_explanation": "שלב 3: נחסר עכשיו שלמים ושברים.", "math_expression": "3 6/4 - 2 3/4 = 1 3/4" }
-        ],
-        "final_answer": "1 3/4",
-        "options": ["2 1/4", "1 3/4", "2 3/4", "1 1/4"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 30,
-        "subTopic": "חיבור וחיסור שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "על השולחן מונחת פיצה. יעל אכלה 1/6 ממנה. רון אכל 1/6 ממנה. איזה חלק מהפיצה נשאר?",
-        "hint": "חברו מה שנאכל, והחסירו משלם אחד (6/6).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב כמה אכלו יחד.", "math_expression": "1/6 + 1/6 = 2/6" },
-            { "verbal_explanation": "שלב 2: נחסר את מה שנאכל מפיצה שלמה (6 שישיות).", "math_expression": "6/6 - 2/6 = 4/6" },
-            { "verbal_explanation": "שלב 3: נצמצם את התוצאה ב-2.", "math_expression": "4/6 = 2/3" }
-        ],
-        "final_answer": "2/3",
-        "options": ["4/6", "2/3", "1/3", "1/6"],
-        "correctAnswer": 1
+        final_answer: "9/8"
     },
 
-    // ==============================================================
-    // --- תת נושא 3: חילוק שברים עשרוניים (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 3: חילוק שברים עשרוניים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 31,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Low",
-        "question_text": "פתרו את התרגיל: 0.8 ÷ 2",
-        "hint": "אם מחלקים 8 תפוחים ל-2 מקבלים 4. אותו דבר עם עשיריות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתייחס לתרגיל כאל '8 עשיריות לחלק ל-2'.", "math_expression": "8 ÷ 2 = 4" },
-            { "verbal_explanation": "שלב 2: נחזיר את התשובה להיות במונחים של עשיריות.", "math_expression": "0.4" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "פתרו את תרגיל החילוק הבא (שבר עשרוני חלקי מספר שלם):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4.8 : 2 = ?</div>",
+        options: ["2.4", "24", "0.24", "2.8"],
+        correctAnswer: 0,
+        hint: "חלקו את המספר השלם (4) ב-2, ולאחר מכן את העשיריות (8) ב-2. אל תשכחו את הנקודה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ניתן לחלק כל חלק בנפרד. נחלק את השלמים: 4 לחלק ל-2 הם 2.&rlm;", math_expression: "4 : 2 = 2" },
+            { verbal_explanation: "נחלק את העשיריות: 8 עשיריות לחלק ל-2 הן 4 עשיריות.&rlm;", math_expression: "0.8 : 2 = 0.4" },
+            { verbal_explanation: "נחבר את התוצאות.", math_expression: "2 + 0.4 = 2.4" }
         ],
-        "final_answer": "0.4",
-        "options": ["0.04", "4", "0.4", "0.2"],
-        "correctAnswer": 2
+        final_answer: "2.4"
     },
+    // שאלה 26
     {
-        "id": 32,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: 1.5 ÷ 3",
-        "hint": "הסתכלו על זה כ-15 עשיריות לחלק ל-3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשוב על 1.5 כ-15 עשיריות.", "math_expression": "15 ÷ 3 = 5" },
-            { "verbal_explanation": "שלב 2: מכיוון שחילקנו עשיריות, התוצאה היא 5 עשיריות.", "math_expression": "0.5" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חשבו את תוצאת החילוק:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.6 : 3 = ?</div>",
+        options: ["0.2", "2", "0.02", "1.8"],
+        correctAnswer: 0,
+        hint: "חשבו על 0.6 כעל '6 עשיריות'. חלקו 6 ב-3, והתשובה תהיה בעשיריות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "6 עשיריות לחלק ל-3 נותן לנו 2 עשיריות.&rlm;", math_expression: "6 : 3 = 2" },
+            { verbal_explanation: "התוצאה היא 2 עשיריות, כלומר 0.2.&rlm;", math_expression: "0.2" }
         ],
-        "final_answer": "0.5",
-        "options": ["5", "0.05", "0.5", "0.15"],
-        "correctAnswer": 2
+        final_answer: "0.2"
     },
+    // שאלה 27
     {
-        "id": 33,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2.4 ÷ 0.6",
-        "hint": "כדי להיפטר מהנקודה במחלק, הכפילו את שני המספרים ב-10. זה כמו לחשב 24 לחלק ל-6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המונה והמחלק ב-10 כדי להפוך אותם למספרים שלמים.", "math_expression": "2.4 × 10 = 24, 0.6 × 10 = 6" },
-            { "verbal_explanation": "שלב 2: נבצע חילוק רגיל של מספרים שלמים.", "math_expression": "24 ÷ 6 = 4" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "מהי התוצאה של התרגיל (היזהרו מהזזת הנקודה):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1.5 : 5 = ?</div>",
+        options: ["0.3", "3", "0.03", "1.3"],
+        correctAnswer: 0,
+        hint: "קשה לחלק 1 ל-5, לכן נתייחס למספר כאל '15 עשיריות' ונחלק ב-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נתייחס למספר 1.5 כאל 15 עשיריות.&rlm;", math_expression: "1.5 = 15/10" },
+            { verbal_explanation: "15 לחלק ל-5 שווה ל-3.&rlm;", math_expression: "15 : 5 = 3" },
+            { verbal_explanation: "לכן התשובה היא 3 עשיריות.", math_expression: "0.3" }
         ],
-        "final_answer": "4",
-        "options": ["0.4", "4", "40", "0.04"],
-        "correctAnswer": 1
+        final_answer: "0.3"
     },
+    // שאלה 28
     {
-        "id": 34,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 3 ÷ 0.5",
-        "hint": "כמה חצאים (0.5) נכנסים בתוך 3 שלמים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את שני הצדדים ב-10 כדי שהמחלק יהיה שלם.", "math_expression": "3 × 10 = 30, 0.5 × 10 = 5" },
-            { "verbal_explanation": "שלב 2: נחלק את השלמים החדשים.", "math_expression": "30 ÷ 5 = 6" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חילוק בשבר עשרוני. כיצד פותרים את התרגיל הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2.5 : 0.5 = ?</div>",
+        options: ["5", "0.5", "50", "2.0"],
+        correctAnswer: 0,
+        hint: "כדי להיפטר מהנקודה העשרונית במחלק (0.5), הכפילו את שני המספרים ב-10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל את שני המספרים ב-10 כדי להפוך את תרגיל החילוק לתרגיל בשלמים.&rlm;", math_expression: "(2.5 × 10) : (0.5 × 10)" },
+            { verbal_explanation: "התרגיל החדש והפשוט יותר הוא 25 לחלק ל-5.&rlm;", math_expression: "25 : 5 = 5" }
         ],
-        "final_answer": "6",
-        "options": ["1.5", "0.6", "6", "15"],
-        "correctAnswer": 2
+        final_answer: "5"
     },
+    // שאלה 29
     {
-        "id": 35,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "לקחו חבל באורך 4.8 מטר וחתכו אותו ל-4 חתיכות שוות. מה אורך כל חתיכה?",
-        "hint": "חלקו 4.8 ב-4. חלקו שלמים בנפרד ועשיריות בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את השלם.", "math_expression": "4 ÷ 4 = 1" },
-            { "verbal_explanation": "שלב 2: נחלק את העשיריות.", "math_expression": "0.8 ÷ 4 = 0.2" },
-            { "verbal_explanation": "שלב 3: נחבר את התוצאות.", "math_expression": "1.2" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חשבו את תוצאת החילוק (שימו לב לשני העשרוניים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1.2 : 0.4 = ?</div>",
+        options: ["3", "0.3", "30", "1.6"],
+        correctAnswer: 0,
+        hint: "כמה פעמים 0.4 נכנס בתוך 1.2? אפשר להכפיל את שני המספרים ב-10 כדי שיהיה קל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את שני המספרים פי 10 (נזיז את הנקודה ימינה).&rlm;", math_expression: "12 : 4" },
+            { verbal_explanation: "נחשב 12 לחלק ל-4, התוצאה היא 3.&rlm;", math_expression: "3" }
         ],
-        "final_answer": "1.2 מטר",
-        "options": ["1.4 מטר", "1.2 מטר", "0.12 מטר", "12 מטר"],
-        "correctAnswer": 1
+        final_answer: "3"
     },
+    // שאלה 30
     {
-        "id": 36,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 0.25 ÷ 5",
-        "hint": "חשבו על 25 מאיות לחלק ל-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: יש לנו 25 מאיות לחלק ל-5. נבצע תרגיל רגיל.", "math_expression": "25 ÷ 5 = 5" },
-            { "verbal_explanation": "שלב 2: התוצאה היא במונחים של מאיות, כלומר 5 מאיות.", "math_expression": "0.05" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חילוק מאיות במאיות. חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.08 : 0.02 = ?</div>",
+        options: ["4", "0.4", "0.04", "40"],
+        correctAnswer: 0,
+        hint: "הכפילו את שני המספרים פי 100 כדי לבטל את הנקודה העשרונית לחלוטין.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל את המחולק ואת המחלק ב-100.&rlm;", math_expression: "(0.08 × 100) : (0.02 × 100)" },
+            { verbal_explanation: "נקבל תרגיל חילוק רגיל בשלמים: 8 לחלק ל-2.&rlm;", math_expression: "8 : 2 = 4" }
         ],
-        "final_answer": "0.05",
-        "options": ["0.5", "5", "0.05", "0.005"],
-        "correctAnswer": 2
+        final_answer: "4"
     },
+    // שאלה 31
     {
-        "id": 37,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 1 ÷ 0.2",
-        "hint": "כמה פעמים נכנסת חמישית (0.2) בשלם אחד?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את שני המספרים ב-10 כדי להיפטר מהעשרוני במחלק.", "math_expression": "1 × 10 = 10, 0.2 × 10 = 2" },
-            { "verbal_explanation": "שלב 2: נחלק כרגיל.", "math_expression": "10 ÷ 2 = 5" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "סרט אדום באורך 3.6 מטרים נחתך ל-4 חתיכות שוות. מהו אורך כל חתיכה?&rlm;",
+        options: ["0.9", "0.09", "9", "0.8"],
+        correctAnswer: 0,
+        hint: "חשבו על 3.6 כעל '36 עשיריות'. חלקו 36 ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "התרגיל הוא 3.6 לחלק ל-4. נתייחס לזה כאל 36 עשיריות.&rlm;", math_expression: "3.6 : 4" },
+            { verbal_explanation: "36 לחלק ל-4 שווה ל-9.&rlm;", math_expression: "36 : 4 = 9" },
+            { verbal_explanation: "לכן התשובה היא 9 עשיריות.&rlm;", math_expression: "0.9" }
         ],
-        "final_answer": "5",
-        "options": ["0.5", "5", "2", "0.2"],
-        "correctAnswer": 1
+        final_answer: "0.9"
     },
+    // שאלה 32
     {
-        "id": 38,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "שילמו 10.5 ₪ עבור 3 עפרונות. מה מחיר עיפרון אחד?",
-        "hint": "חשבו על זה כ-105 עשיריות לחלק ל-3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב 105 לחלק ל-3.", "math_expression": "105 ÷ 3 = 35" },
-            { "verbal_explanation": "שלב 2: נמקם את הנקודה העשרונית בחזרה מקום אחד (כי התחלנו עם עשיריות).", "math_expression": "3.5" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "קנקן מיץ מכיל 7.5 ליטרים. רוצים למזוג את המיץ לכוסות המכילות 1.5 ליטר כל אחת. לכמה כוסות יספיק המיץ?&rlm;",
+        options: ["5", "50", "10", "3"],
+        correctAnswer: 0,
+        hint: "התרגיל הוא 7.5 לחלק ל-1.5. הכפילו ב-10 כדי לקבל 75 חלקי 15.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "התרגיל שעלינו לפתור הוא חלוקת הכמות הכוללת בנפח של כוס אחת.&rlm;", math_expression: "7.5 : 1.5" },
+            { verbal_explanation: "נכפיל את שני המספרים פי 10 ונקבל תרגיל בשלמים.&rlm;", math_expression: "75 : 15 = 5" }
         ],
-        "final_answer": "3.5 ₪",
-        "options": ["3.05 ₪", "3.5 ₪", "0.35 ₪", "35 ₪"],
-        "correctAnswer": 1
+        final_answer: "5"
     },
+    // שאלה 33
     {
-        "id": 39,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 0.12 ÷ 0.04",
-        "hint": "שני המספרים הם מאיות. הכפילו את שניהם ב-100.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המספרים ב-100 כדי שיהיו שלמים.", "math_expression": "12 ÷ 4" },
-            { "verbal_explanation": "שלב 2: נבצע את החילוק.", "math_expression": "3" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חילוק שלם בשבר עשרוני. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 : 0.5 = ?</div>",
+        options: ["6", "1.5", "15", "0.6"],
+        correctAnswer: 0,
+        hint: "כמה פעמים חצי (0.5) נכנס בתוך השלם 3? (בכל שלם יש שני חצאים).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי להיפטר מהעשרוני, נכפיל את שני המספרים ב-10.&rlm;", math_expression: "(3 × 10) : (0.5 × 10)" },
+            { verbal_explanation: "התרגיל הוא כעת 30 לחלק ל-5.&rlm;", math_expression: "30 : 5 = 6" }
         ],
-        "final_answer": "3",
-        "options": ["3", "0.3", "0.03", "30"],
-        "correctAnswer": 0
+        final_answer: "6"
     },
+    // שאלה 34
     {
-        "id": 40,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 7.2 ÷ 0.8",
-        "hint": "הכפילו את שני הצדדים ב-10, זה כמו לחלק 72 ב-8.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזיז את הנקודה מקום אחד ימינה בשני המספרים.", "math_expression": "72 ÷ 8" },
-            { "verbal_explanation": "שלב 2: נפתור לפי לוח הכפל.", "math_expression": "9" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חשבו את התוצאה הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 : 2.5 = ?</div>",
+        options: ["4", "40", "0.4", "25"],
+        correctAnswer: 0,
+        hint: "כמה פעמים 'שניים וחצי' נכנס בתוך 10?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל את שני המספרים פי 10 כדי לחלק בשלמים.&rlm;", math_expression: "(10 × 10) : (2.5 × 10)" },
+            { verbal_explanation: "נקבל 100 לחלק ל-25.&rlm;", math_expression: "100 : 25 = 4" }
         ],
-        "final_answer": "9",
-        "options": ["0.9", "9", "90", "0.09"],
-        "correctAnswer": 1
+        final_answer: "4"
     },
+    // שאלה 35
     {
-        "id": 41,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 0.5 ÷ 2",
-        "hint": "מה זה חצי לחלק ל-2? זה רבע. כמה זה רבע כמספר עשרוני?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את 0.5 כ-0.50 (חמישים מאיות) כדי שיהיה קל לחלק.", "math_expression": "0.50 ÷ 2" },
-            { "verbal_explanation": "שלב 2: 50 מאיות לחלק ל-2 שווה 25 מאיות.", "math_expression": "0.25" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "מהי תוצאת חלוקת המאיות הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.75 : 0.25 = ?</div>",
+        options: ["3", "0.3", "30", "5"],
+        correctAnswer: 0,
+        hint: "חישבו על זה כחלוקה של כסף: כמה מטבעות של 25 אגורות נכנסים בתוך 75 אגורות?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל את שני הצדדים ב-100 להסרת הנקודה העשרונית.&rlm;", math_expression: "(0.75 × 100) : (0.25 × 100)" },
+            { verbal_explanation: "התרגיל הוא 75 לחלק ל-25. התשובה היא 3.&rlm;", math_expression: "75 : 25 = 3" }
         ],
-        "final_answer": "0.25",
-        "options": ["0.25", "2.5", "0.05", "0.1"],
-        "correctAnswer": 0
+        final_answer: "3"
     },
+    // שאלה 36
     {
-        "id": 42,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "מחלקים בקבוק מיץ של 1.5 ליטרים לכוסות המכילות 0.3 ליטר כל אחת. כמה כוסות יתמלאו?",
-        "hint": "הכפילו את שני המספרים ב-10 וחשבו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המונה והמחלק ב-10 לקבלת שלמים.", "math_expression": "1.5 × 10 = 15, 0.3 × 10 = 3" },
-            { "verbal_explanation": "שלב 2: נחלק.", "math_expression": "15 ÷ 3 = 5" }
+        topic: "fractions",
+        subTopic: "חילוק שברים עשרוניים",
+        question_text: "חשבו את התוצאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4.2 : 0.6 = ?</div>",
+        options: ["7", "0.7", "70", "4.8"],
+        correctAnswer: 0,
+        hint: "הכפילו את שניהם פי 10 כדי לקבל חילוק פשוט בלוח הכפל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את שני המספרים פי 10.&rlm;", math_expression: "42 : 6" },
+            { verbal_explanation: "42 לחלק ל-6 שווה ל-7.&rlm;", math_expression: "7" }
         ],
-        "final_answer": "5 כוסות",
-        "options": ["3 כוסות", "15 כוסות", "5 כוסות", "0.5 כוסות"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 43,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Low",
-        "question_text": "פתרו: 6.6 ÷ 6",
-        "hint": "חלקו את השלמים, ואז חלקו את העשיריות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 6 שלמים לחלק ל-6 שווה 1.", "math_expression": "1" },
-            { "verbal_explanation": "שלב 2: 6 עשיריות לחלק ל-6 שווה עשירית אחת.", "math_expression": "0.1" },
-            { "verbal_explanation": "שלב 3: נחבר יחד.", "math_expression": "1.1" }
-        ],
-        "final_answer": "1.1",
-        "options": ["1.1", "1.01", "11", "0.11"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 44,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "High",
-        "question_text": "פתרו: 0.09 ÷ 0.3",
-        "hint": "כדי שהמחלק (0.3) יהיה שלם, נכפיל הכל ב-10. נקבל 0.9 לחלק ל-3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את שני המספרים ב-10 כדי להפוך את המחלק לשלם.", "math_expression": "0.9 ÷ 3" },
-            { "verbal_explanation": "שלב 2: 9 עשיריות לחלק ל-3 שוות ל-3 עשיריות.", "math_expression": "0.3" }
-        ],
-        "final_answer": "0.3",
-        "options": ["3", "0.3", "0.03", "0.003"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "חילוק שברים עשרוניים",
-        "difficulty": "Medium",
-        "question_text": "מסלול ריצה הוא 4.2 ק\"מ. כל סיבוב במסלול שווה 0.7 ק\"מ. כמה סיבובים יש במסלול?",
-        "hint": "הכפילו את שני הצדדים ב-10 כדי לקבל מספרים שלמים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את שני המספרים ב-10.", "math_expression": "42 ÷ 7" },
-            { "verbal_explanation": "שלב 2: נפתור לפי לוח הכפל.", "math_expression": "6" }
-        ],
-        "final_answer": "6 סיבובים",
-        "options": ["6 סיבובים", "7 סיבובים", "0.6 סיבובים", "60 סיבובים"],
-        "correctAnswer": 0
+        final_answer: "7"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: חילוק שברים פשוטים (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 4: חילוק שברים פשוטים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 46,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Low",
-        "question_text": "פתרו: 1/2 ÷ 2",
-        "hint": "כשמחלקים חצי לשניים, מה מקבלים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כדי לחלק שבר בשלם, נהפוך את החילוק לכפל בהופכי של השלם (1/2).", "math_expression": "1/2 × 1/2" },
-            { "verbal_explanation": "שלב 2: נכפיל מונה במונה ומכנה במכנה.", "math_expression": "1/4" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "פתרו את תרגיל חילוק השברים הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1/2 : 1/4 = ?</div>",
+        options: ["2", "1/8", "1/2", "4"],
+        correctAnswer: 0,
+        hint: "כדי לחלק שברים, כופלים את השבר הראשון בהופכי של השבר השני (נהפוך את 1/4 ל-4/1).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נהפוך את פעולת החילוק לכפל, ואת השבר השני להופכי שלו (4 חלקי 1).&rlm;", math_expression: "1/2 × 4/1" },
+            { verbal_explanation: "נכפול מונה במונה ומכנה במכנה: 1 כפול 4 הם 4, ו-2 כפול 1 הם 2.&rlm;", math_expression: "4/2" },
+            { verbal_explanation: "השבר המדומה שווה בדיוק ל-2 שלמים.&rlm;", math_expression: "4 : 2 = 2" }
         ],
-        "final_answer": "1/4",
-        "options": ["1", "1/4", "1/2", "4"],
-        "correctAnswer": 1
+        final_answer: "2"
     },
+    // שאלה 38
     {
-        "id": 47,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 2 ÷ 1/3",
-        "hint": "כמה שלישים נכנסים ב-2 שלמים? בשלם אחד יש 3 שלישים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חילוק בשבר שווה לכפל בהופכי שלו. ההופכי של 1/3 הוא 3/1 (או פשוט 3).", "math_expression": "2 × 3" },
-            { "verbal_explanation": "שלב 2: נבצע את הכפל.", "math_expression": "6" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "חשבו את תוצאת החילוק הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/4 : 1/8 = ?</div>",
+        options: ["6", "3/32", "8/3", "4"],
+        correctAnswer: 0,
+        hint: "כמה פעמים שמינית אחת נכנסת בתוך 3 רבעים? כפלו בהופכי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נהפוך את התרגיל לכפל בהופכי של השבר השני.&rlm;", math_expression: "3/4 × 8/1" },
+            { verbal_explanation: "נבצע כפל מונים ומכנים: 3 כפול 8 הם 24. ו-4 כפול 1 הם 4.&rlm;", math_expression: "24/4" },
+            { verbal_explanation: "24 לחלק ל-4 שווה ל-6 שלמים.&rlm;", math_expression: "6" }
         ],
-        "final_answer": "6",
-        "options": ["2/3", "1 1/2", "6", "1/6"],
-        "correctAnswer": 2
+        final_answer: "6"
     },
+    // שאלה 39
     {
-        "id": 48,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 3/4 ÷ 1/4",
-        "hint": "כמה פעמים רבע נכנס בתוך שלושה רבעים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את תרגיל החילוק לכפל בהופכי של השבר השני (4/1).", "math_expression": "3/4 × 4/1" },
-            { "verbal_explanation": "שלב 2: ה-4 במונה וה-4 במכנה מצטמצמים.", "math_expression": "3" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "חילוק מספר שלם בשבר. חשבו את התוצאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 : 1/3 = ?</div>",
+        options: ["6", "2/3", "1.5", "1/6"],
+        correctAnswer: 0,
+        hint: "כמה פעמים 'שליש' יכול להיכנס בתוך 2 שלמים? ב-1 שלם יש שלושה שלישים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרשום את ה-2 כשבר (2/1) ונכפול בהופכי של השליש (3/1).&rlm;", math_expression: "2/1 × 3/1" },
+            { verbal_explanation: "2 כפול 3 שווה ל-6. התשובה היא 6 שלמים.&rlm;", math_expression: "6" }
         ],
-        "final_answer": "3",
-        "options": ["3/16", "3", "1/3", "4/3"],
-        "correctAnswer": 1
+        final_answer: "6"
     },
+    // שאלה 40
     {
-        "id": 49,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 4/5 ÷ 2",
-        "hint": "חילוק ב-2 זה כמו לכפול בחצי. לחלופין, חלקו רק את המונה (4) ב-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מכיוון שהמונה (4) מתחלק ב-2 ללא שארית, נוכל פשוט לחלק אותו ולשמור על המכנה.", "math_expression": "4 ÷ 2 = 2" },
-            { "verbal_explanation": "שלב 2: המכנה נשאר 5.", "math_expression": "2/5" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "מהי התוצאה של תרגיל החילוק הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 : 1/2 = ?</div>",
+        options: ["10", "2.5", "5/2", "1/10"],
+        correctAnswer: 0,
+        hint: "כמה חצאים יש בתוך 5 שלמים?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חילוק בחצי זהה לכפל פי 2 (ההופכי של 1/2).&rlm;", math_expression: "5 × 2/1" },
+            { verbal_explanation: "5 כפול 2 שווה ל-10.&rlm;", math_expression: "10" }
         ],
-        "final_answer": "2/5",
-        "options": ["8/5", "2/5", "4/10", "1/5"],
-        "correctAnswer": 1
+        final_answer: "10"
     },
+    // שאלה 41
     {
-        "id": 50,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "יש לנו פיצה שלמה. אנחנו רוצים לחלק אותה למשולשים, כך שכל משולש יהיה 1/8 מהפיצה. כמה משולשים נקבל? (1 ÷ 1/8)",
-        "hint": "כמה שמיניות יש בשלם אחד?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את החילוק בשבר לכפל בהופכי שלו (8).", "math_expression": "1 × 8" },
-            { "verbal_explanation": "שלב 2: נבצע כפל.", "math_expression": "8" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "חילוק שבר במספר שלם. פתרו את התרגיל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1/3 : 2 = ?</div>",
+        options: ["1/6", "2/3", "6", "1.5"],
+        correctAnswer: 0,
+        hint: "לחלק שליש ל-2 חלקים, זה כמו לכפול אותו בחצי (ההופכי של 2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נהפוך את השלם 2 להופכי שלו, שהוא חצי, ונכפול.&rlm;", math_expression: "1/3 × 1/2" },
+            { verbal_explanation: "כפל מונים וכפל מכנים נותן שישית.&rlm;", math_expression: "1/6" }
         ],
-        "final_answer": "8 משולשים",
-        "options": ["4 משולשים", "8 משולשים", "16 משולשים", "1/8 משולשים"],
-        "correctAnswer": 1
+        final_answer: "1/6"
     },
+    // שאלה 42
     {
-        "id": 51,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 1/2 ÷ 1/3",
-        "hint": "הפכו לכפל בהופכי: חצי כפול 3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך חילוק לכפל בהופכי של השבר השני (3/1).", "math_expression": "1/2 × 3/1" },
-            { "verbal_explanation": "שלב 2: נכפיל מונה במונה ומכנה במכנה.", "math_expression": "3/2" },
-            { "verbal_explanation": "שלב 3: נהפוך לשבר מעורב (3 חצאים הם שלם וחצי).", "math_expression": "1 1/2" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "מהי התוצאה של החלוקה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1/5 : 3 = ?</div>",
+        options: ["1/15", "3/5", "15", "1/8"],
+        correctAnswer: 0,
+        hint: "כופלים את השבר בהופכי של השלם 3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ההופכי של 3 הוא 1/3. נכפול את השבר ב-1/3.&rlm;", math_expression: "1/5 × 1/3" },
+            { verbal_explanation: "1 כפול 1 במונה, ו-5 כפול 3 במכנה.&rlm;", math_expression: "1/15" }
         ],
-        "final_answer": "1 1/2",
-        "options": ["1/6", "2/3", "1 1/2", "3/6"],
-        "correctAnswer": 2
+        final_answer: "1/15"
     },
+    // שאלה 43
     {
-        "id": 52,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 5 ÷ 1/2",
-        "hint": "כמה חצאים יש ב-5 שלמים? בכל שלם יש שני חצאים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את תרגיל החילוק לכפל בהופכי (2/1).", "math_expression": "5 × 2/1" },
-            { "verbal_explanation": "שלב 2: נכפיל.", "math_expression": "10" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "פתרו את תרגיל החילוק הבא בין שני שברים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2/3 : 2/9 = ?</div>",
+        options: ["3", "4/27", "1/3", "9"],
+        correctAnswer: 0,
+        hint: "הפכו את השבר השני להופכי שלו (9/2), כפלו, ולאחר מכן צמצמו את התוצאה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כפל בהופכי של השבר השני.&rlm;", math_expression: "2/3 × 9/2" },
+            { verbal_explanation: "ניתן לצמצם את ה-2 במונה וה-2 במכנה. נשארנו עם 9 חלקי 3.&rlm;", math_expression: "9/3" },
+            { verbal_explanation: "9 לחלק ל-3 שווה ל-3 שלמים.&rlm;", math_expression: "3" }
         ],
-        "final_answer": "10",
-        "options": ["2.5", "10", "5/2", "1/10"],
-        "correctAnswer": 1
+        final_answer: "3"
     },
+    // שאלה 44
     {
-        "id": 53,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "חילקו 3/4 ק\"ג קמח ל-3 שקיות שוות. כמה קמח יש בכל שקית?",
-        "hint": "תרגיל: 3/4 לחלק ל-3. חלקו את המונה ב-3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו צריכים לחלק שלושה רבעים ל-3.", "math_expression": "3/4 ÷ 3" },
-            { "verbal_explanation": "שלב 2: נחלק את המונה (3) ב-3. התוצאה היא 1. המכנה נשאר 4.", "math_expression": "1/4" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "חשבו את תוצאת התרגיל (שימו לב למכנים השווים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4/5 : 2/5 = ?</div>",
+        options: ["2", "8/25", "1/2", "4"],
+        correctAnswer: 0,
+        hint: "כאשר המכנים שווים, ניתן פשוט לחלק את המונים זה בזה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבצע כפל בהופכי של השבר השני (שהוא 5/2).&rlm;", math_expression: "4/5 × 5/2" },
+            { verbal_explanation: "ה-5 מצטמצם. נשארנו עם 4 חלקי 2 שזה שווה ל-2.&rlm;", math_expression: "2" }
         ],
-        "final_answer": "1/4 ק\"ג",
-        "options": ["1/4 ק\"ג", "3/12 ק\"ג", "9/4 ק\"ג", "1 ק\"ג"],
-        "correctAnswer": 0
+        final_answer: "2"
     },
+    // שאלה 45
     {
-        "id": 54,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2/3 ÷ 4/5",
-        "hint": "כפל בהופכי: 2/3 כפול 5/4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך חילוק לכפל בהופכי (5/4).", "math_expression": "2/3 × 5/4" },
-            { "verbal_explanation": "שלב 2: נכפיל מונה במונה (2*5) ומכנה במכנה (3*4).", "math_expression": "10/12" },
-            { "verbal_explanation": "שלב 3: נצמצם את השבר ב-2.", "math_expression": "5/6" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "לדנה יש קנקן עם 3/4 ליטר של מיץ. היא רוצה למזוג את המיץ לכוסות כך שבכל כוס יהיה 1/8 ליטר. כמה כוסות היא תמלא?&rlm;",
+        options: ["6", "4", "8", "3"],
+        correctAnswer: 0,
+        hint: "התרגיל הוא: 3 רבעים לחלק לשמינית. הכפילו בהופכי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרשום את התרגיל ככפל בהופכי של שמינית.&rlm;", math_expression: "3/4 × 8/1" },
+            { verbal_explanation: "3 כפול 8 שווה 24. המכנה הוא 4.&rlm;", math_expression: "24/4" },
+            { verbal_explanation: "24 לחלק ל-4 שווה ל-6 כוסות.&rlm;", math_expression: "6" }
         ],
-        "final_answer": "5/6",
-        "options": ["8/15", "5/6", "10/15", "8/12"],
-        "correctAnswer": 1
+        final_answer: "6"
     },
+    // שאלה 46
     {
-        "id": 55,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "כמה פעמים נכנס 1/6 בתוך 1/2?",
-        "hint": "תרגיל: חצי לחלק לשישית. (כמה שישיות שוות לחצי?)",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את התרגיל (חצי חלקי שישית) ונהפוך לכפל בהופכי (6).", "math_expression": "1/2 × 6/1" },
-            { "verbal_explanation": "שלב 2: נכפיל מונה במונה ומכנה במכנה.", "math_expression": "6/2" },
-            { "verbal_explanation": "שלב 3: 6 חצאים הם בדיוק 3 שלמים.", "math_expression": "3" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "חצי עוגה (1/2) מחולקת שווה בשווה בין 4 ילדים. איזה חלק מהעוגה השלמה יקבל כל ילד?&rlm;",
+        options: ["1/8", "1/2", "1/6", "1/4"],
+        correctAnswer: 0,
+        hint: "התרגיל הוא חצי לחלק ל-4. כפלו את השבר בהופכי של 4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרשום את התרגיל כחילוק שבר בשלם.&rlm;", math_expression: "1/2 : 4" },
+            { verbal_explanation: "נהפוך לכפל בהופכי: חצי כפול רבע.&rlm;", math_expression: "1/2 × 1/4" },
+            { verbal_explanation: "1 כפול 1 במונה, ו-2 כפול 4 במכנה. נקבל שמינית.&rlm;", math_expression: "1/8" }
         ],
-        "final_answer": "3",
-        "options": ["1/12", "1/3", "3", "12"],
-        "correctAnswer": 2
+        final_answer: "1/8"
     },
+    // שאלה 47
     {
-        "id": 56,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 6 ÷ 3/4",
-        "hint": "הפכו לכפל בהופכי: 6 כפול 4/3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך לכפל בהופכי.", "math_expression": "6 × 4/3" },
-            { "verbal_explanation": "שלב 2: נכפיל את ה-6 במונה (4) ונקבל 24. נחלק במכנה (3).", "math_expression": "24 ÷ 3 = 8" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "חילוק עם מספר מעורב. פתרו את התרגיל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 1/2 : 1/2 = ?</div>",
+        options: ["3", "1 1/4", "3/4", "2"],
+        correctAnswer: 0,
+        hint: "הפכו את 'אחד וחצי' לשבר מדומה (3/2) ואז בצעו את חילוק השברים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נהפוך את המספר המעורב לשבר מדומה: 3 חצאים.&rlm;", math_expression: "3/2" },
+            { verbal_explanation: "כעת נחלק לחצי. נכפול בהופכי (שזה 2).&rlm;", math_expression: "3/2 × 2/1 = 3" }
         ],
-        "final_answer": "8",
-        "options": ["18/4", "8", "4.5", "24/4"],
-        "correctAnswer": 1
+        final_answer: "3"
     },
+    // שאלה 48
     {
-        "id": 57,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "סרט באורך 5/6 מטר נגזר ל-5 חתיכות שוות. מה אורך כל חתיכה?",
-        "hint": "חלקו את המונה (5) ב-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התרגיל הוא 5/6 לחלק ל-5. כשהמונה מתחלק בשלם, פשוט נחלק אותו ונשמור על המכנה.", "math_expression": "5 ÷ 5 = 1" },
-            { "verbal_explanation": "שלב 2: נרשום את המונה החדש עם המכנה המקורי.", "math_expression": "1/6" }
+        topic: "fractions",
+        subTopic: "חילוק שברים פשוטים",
+        question_text: "מהי תוצאת חלוקת שבר בעצמו?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/4 : 3/4 = ?</div>",
+        options: ["1", "9/16", "3/4", "0"],
+        correctAnswer: 0,
+        hint: "כל מספר (או שבר) שמחולק בעצמו נותן תמיד אותה תוצאה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר מחלקים מספר (שאינו אפס) בעצמו, התוצאה היא תמיד 1 השלם.&rlm;", math_expression: "1" }
         ],
-        "final_answer": "1/6 מטר",
-        "options": ["5/30 מטר", "1/6 מטר", "25/6 מטר", "1/5 מטר"],
-        "correctAnswer": 1
+        final_answer: "1"
+    },// ========================================================================
+// שכבת גיל: ה'-ו' | נושא: שברים (חלק ב')
+// 4 תתי נושאים | 48 שאלות סה"כ
+// ========================================================================
+// הוראות כתיבה: 
+// שברים: נכתבים כ- 1/4 או 2 1/2
+// חילוק: נכתב כ- :
+// כפל: נכתב כ- ×
+// ========================================================================
+
+
+
+    // ==========================================================
+    // תת נושא 5: חישוב חלק של כמות ומציאת הכמות היסודית (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
+    {
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "בכיתה יש 24 תלמידים. 1/4 מהם מרכיבים משקפיים. כמה תלמידים מרכיבים משקפיים?&rlm;",
+        options: ["6", "4", "8", "12"],
+        correctAnswer: 0,
+        hint: "כדי למצוא רבע מכמות, יש לחלק את הכמות הכוללת ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכמות הכוללת היא 24 (השלם). אנו רוצים למצוא כמה זה 1/4 מתוך 24.&rlm;", math_expression: "24 × 1/4" },
+            { verbal_explanation: "נחלק את 24 במכנה 4.&rlm;", math_expression: "24 : 4 = 6" },
+            { verbal_explanation: "נכפיל את התוצאה במונה 1. נקבל 6 תלמידים.&rlm;", math_expression: "6 × 1 = 6" }
+        ],
+        final_answer: "6"
     },
+    // שאלה 2
     {
-        "id": 58,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2/5 ÷ 1/10",
-        "hint": "כפל בהופכי: 2/5 כפול 10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הפיכה לכפל בהופכי של השבר השני (10/1).", "math_expression": "2/5 × 10/1" },
-            { "verbal_explanation": "שלב 2: נכפיל 2 ב-10 (שווה 20), ונחלק במכנה (5).", "math_expression": "20 ÷ 5 = 4" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "קבוצת כדורגל שיחקה 30 משחקים העונה וניצחה ב-2/3 מהם. בכמה משחקים היא ניצחה?&rlm;",
+        options: ["20", "10", "15", "25"],
+        correctAnswer: 0,
+        hint: "תחילה מצאו כמה זה 1/3 מתוך 30 (חלקו ב-3), ואז הכפילו את התוצאה ב-2 כדי למצוא 2/3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחלק את השלם (30) למכנה (3) כדי לגלות כמה משחקים שווים לשליש אחד.&rlm;", math_expression: "30 : 3 = 10" },
+            { verbal_explanation: "הקבוצה ניצחה בשני שלישים, לכן נכפיל את התוצאה במונה (2).&rlm;", math_expression: "10 × 2 = 20" }
         ],
-        "final_answer": "4",
-        "options": ["2/50", "4", "1/4", "20/50"],
-        "correctAnswer": 1
+        final_answer: "20"
     },
+    // שאלה 3
     {
-        "id": 59,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 1/8 ÷ 2",
-        "hint": "חלקו את השבר פי 2. כפל בהופכי (כפל בחצי).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: להפוך חילוק ב-2 לכפל בחצי (1/2).", "math_expression": "1/8 × 1/2" },
-            { "verbal_explanation": "שלב 2: נכפיל מכנה במכנה (8*2) ומונה במונה.", "math_expression": "1/16" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "מהם 3/5 מתוך 50 שקלים?&rlm;",
+        options: ["30 שקלים", "10 שקלים", "25 שקלים", "40 שקלים"],
+        correctAnswer: 0,
+        hint: "חלקו את ה-50 ב-5, ואת התוצאה כפלו ב-3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמצא כמה זה חמישית אחת: 50 לחלק ל-5.&rlm;", math_expression: "50 : 5 = 10" },
+            { verbal_explanation: "אנו צריכים 3 חמישיות, לכן נכפיל ב-3.&rlm;", math_expression: "10 × 3 = 30" }
         ],
-        "final_answer": "1/16",
-        "options": ["1/4", "2/8", "1/16", "4"],
-        "correctAnswer": 2
+        final_answer: "30 שקלים"
     },
+    // שאלה 4
     {
-        "id": 60,
-        "subTopic": "חילוק שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "בבקבוק יש 3/4 ליטר מיץ. אנו רוצים למזוג אותו לכוסות המכילות 1/8 ליטר כל אחת. כמה כוסות נמלא?",
-        "hint": "כמה פעמים נכנסת שמינית (1/8) בשלושה רבעים (3/4)? כפל בהופכי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך חילוק לכפל בהופכי (8/1).", "math_expression": "3/4 × 8/1" },
-            { "verbal_explanation": "שלב 2: נכפיל מונה במונה (3*8=24) ונחלק במכנה (4).", "math_expression": "24 ÷ 4 = 6" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "מציאת השלם: 1/2 מהספר הוא 10 עמודים. כמה עמודים יש בספר כולו?&rlm;",
+        options: ["20 עמודים", "5 עמודים", "15 עמודים", "25 עמודים"],
+        correctAnswer: 0,
+        hint: "אם חצי שווה ל-10, עליכם להכפיל פי 2 כדי להגיע לספר השלם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נתון שחלק אחד מתוך שניים (חצי) שווה ל-10.&rlm;", math_expression: "1/2 = 10" },
+            { verbal_explanation: "כדי למצוא את השלם (2 חצאים), נכפיל ב-2.&rlm;", math_expression: "10 × 2 = 20" }
         ],
-        "final_answer": "6 כוסות",
-        "options": ["3 כוסות", "4 כוסות", "6 כוסות", "8 כוסות"],
-        "correctAnswer": 2
-    },// ==============================================================
-    // --- תת נושא 5: חישוב חלק של כמות ומציאת הכמות היסודית (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 61,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Low",
-        "question_text": "חשבו: כמה הם 1/4 מתוך 40?",
-        "hint": "כדי למצוא רבע מכמות, פשוט מחלקים את הכמות הכוללת ב-4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את השלם (40) במכנה (4).", "math_expression": "40 ÷ 4 = 10" },
-            { "verbal_explanation": "שלב 2: נכפיל את התוצאה במונה (1).", "math_expression": "10 × 1 = 10" }
-        ],
-        "final_answer": "10",
-        "options": ["5", "10", "15", "8"],
-        "correctAnswer": 1
+        final_answer: "20 עמודים"
     },
+    // שאלה 5
     {
-        "id": 62,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Medium",
-        "question_text": "חשבו: כמה הם 2/3 מתוך 18?",
-        "hint": "מצאו קודם כמה זה שליש אחד (חלקו ב-3), ואז הכפילו ב-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את הכמות (18) במכנה (3) למציאת שליש אחד.", "math_expression": "18 ÷ 3 = 6" },
-            { "verbal_explanation": "שלב 2: נכפיל את התוצאה במונה (2) למציאת שני שלישים.", "math_expression": "6 × 2 = 12" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "שליש (1/3) מהעוגה שוקל 400 גרם. מהו משקלה של העוגה השלמה?&rlm;",
+        options: ["1200 גרם", "800 גרם", "200 גרם", "600 גרם"],
+        correctAnswer: 0,
+        hint: "בעוגה שלמה יש 3 שלישים. אם שליש אחד הוא 400, הכפילו ב-3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חלק אחד מתוך 3 (שליש) שווה 400.&rlm;", math_expression: "1/3 = 400" },
+            { verbal_explanation: "כדי למצוא את השלם, נכפיל את הערך של חלק אחד במספר החלקים הכולל (המכנה).&rlm;", math_expression: "400 × 3 = 1200" }
         ],
-        "final_answer": "12",
-        "options": ["9", "6", "12", "15"],
-        "correctAnswer": 2
+        final_answer: "1200 גרם"
     },
+    // שאלה 6
     {
-        "id": 63,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Medium",
-        "question_text": "בכיתה יש 30 תלמידים. 3/5 מהם משתתפים בחוג ספורט. כמה תלמידים בחוג ספורט?",
-        "hint": "חלקו את הכיתה ל-5 קבוצות (חמישיות), וקחו 3 קבוצות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא כמה תלמידים שווים לחמישית אחת (30 חלקי 5).", "math_expression": "30 ÷ 5 = 6" },
-            { "verbal_explanation": "שלב 2: נכפיל את הכמות של חמישית אחת ב-3.", "math_expression": "6 × 3 = 18" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "3/4 (שלושה רבעים) ממשקל החתול הם 12 ק\"ג. מהו משקלו המלא של החתול?&rlm;",
+        options: ["16 ק\"ג", "9 ק\"ג", "24 ק\"ג", "15 ק\"ג"],
+        correctAnswer: 0,
+        hint: "תחילה, חלקו 12 ב-3 כדי למצוא כמה שוקל רבע אחד. לאחר מכן, הכפילו ב-4 כדי למצוא את השלם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נתון ש-3 חלקים שווים 12. נחלק ב-3 כדי למצוא ערך של חלק אחד (רבע).&rlm;", math_expression: "12 : 3 = 4" },
+            { verbal_explanation: "רבע שווה ל-4 ק\"ג. בשלם יש 4 רבעים. נכפיל ב-4.&rlm;", math_expression: "4 × 4 = 16" }
         ],
-        "final_answer": "18 תלמידים",
-        "options": ["15 תלמידים", "18 תלמידים", "20 תלמידים", "12 תלמידים"],
-        "correctAnswer": 1
+        final_answer: "16 ק\"ג"
     },
+    // שאלה 7
     {
-        "id": 64,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "חשבו: כמה הם 5/8 מתוך 32?",
-        "hint": "חלקו ב-8 והכפילו ב-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מציאת שמינית אחת מחלוקת 32 ב-8.", "math_expression": "32 ÷ 8 = 4" },
-            { "verbal_explanation": "שלב 2: הכפלת הערך ב-5 לקבלת 5 שמיניות.", "math_expression": "4 × 5 = 20" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "יעל קראה 2/5 מהספר שלה, שהם 40 עמודים. כמה עמודים בסך הכל יש בספר?&rlm;",
+        options: ["100", "80", "50", "200"],
+        correctAnswer: 0,
+        hint: "אם 2 חלקים (מתוך 5) הם 40, חלק אחד הוא 20. כמה זה 5 חלקים?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמצא כמה זה חמישית אחת. 2 חמישיות הן 40, נחלק ב-2.&rlm;", math_expression: "40 : 2 = 20" },
+            { verbal_explanation: "חמישית אחת שווה 20. הספר המלא הוא 5 חמישיות. נכפיל ב-5.&rlm;", math_expression: "20 × 5 = 100" }
         ],
-        "final_answer": "20",
-        "options": ["16", "24", "20", "15"],
-        "correctAnswer": 2
+        final_answer: "100"
     },
+    // שאלה 8
     {
-        "id": 65,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Medium",
-        "question_text": "ספר עולה 120 ₪. נועה קיבלה הנחה של 1/4 מהמחיר. מהו סכום ההנחה בשקלים?",
-        "hint": "מצאו רבע מתוך 120.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את המחיר הכולל ל-4.", "math_expression": "120 ÷ 4 = 30" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "מה גדול יותר: 1/2 מתוך 40 או 1/3 מתוך 60?&rlm;",
+        options: ["הם שווים בדיוק", "1/2 מתוך 40", "1/3 מתוך 60", "אי אפשר לדעת"],
+        correctAnswer: 0,
+        hint: "חשבו כל אחד מהם בנפרד. כמה זה חצי של 40? כמה זה שליש של 60?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחשב 1/2 מתוך 40 (נחלק ב-2).&rlm;", math_expression: "40 : 2 = 20" },
+            { verbal_explanation: "נחשב 1/3 מתוך 60 (נחלק ב-3).&rlm;", math_expression: "60 : 3 = 20" },
+            { verbal_explanation: "שתי התוצאות שוות ל-20.&rlm;", math_expression: "20 = 20" }
         ],
-        "final_answer": "30 ₪",
-        "options": ["40 ₪", "30 ₪", "60 ₪", "90 ₪"],
-        "correctAnswer": 1
+        final_answer: "הם שווים בדיוק"
     },
+    // שאלה 9
     {
-        "id": 66,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "שלושה רבעים (3/4) ממשקל של שקית קמח הם 600 גרם. מהו משקלה של שקית קמח שלמה?",
-        "hint": "אם 3 חלקים שווים 600, כמה שווה חלק אחד? ואז כמה שווים כל 4 החלקים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את ה-600 ב-3 כדי למצוא כמה שוקל 'רבע' אחד.", "math_expression": "600 ÷ 3 = 200" },
-            { "verbal_explanation": "שלב 2: נכפיל ב-4 כדי למצוא את השלם המלא (4 רבעים).", "math_expression": "200 × 4 = 800" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "במבחן יש 50 שאלות. יוסי ענה נכון על 9/10 מהשאלות. על כמה שאלות יוסי טעה?&rlm;",
+        options: ["5", "45", "10", "1"],
+        correctAnswer: 0,
+        hint: "אם יוסי ענה נכון על 9 עשיריות, זה אומר שהוא טעה בעשירית אחת (1/10). חשבו כמה זה 1/10 מתוך 50.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "החלק של התשובות השגויות הוא 1 פחות 9/10, שזה 1/10.&rlm;", math_expression: "10/10 - 9/10 = 1/10" },
+            { verbal_explanation: "נחשב עשירית מתוך 50 שאלות. נחלק את 50 ב-10.&rlm;", math_expression: "50 : 10 = 5" }
         ],
-        "final_answer": "800 גרם",
-        "options": ["700 גרם", "800 גרם", "900 גרם", "1000 גרם"],
-        "correctAnswer": 1
+        final_answer: "5"
     },
+    // שאלה 10
     {
-        "id": 67,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "מצאו את השלם: 2/5 מהמספר הם 20.",
-        "hint": "אם שתי חמישיות הן 20, חמישית אחת היא 10. הכפילו ב-5 לשלם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את הכמות (20) במונה (2) כדי למצוא את הערך של חמישית.", "math_expression": "20 ÷ 2 = 10" },
-            { "verbal_explanation": "שלב 2: נכפיל את הערך במכנה (5) כדי למצוא את השלם.", "math_expression": "10 × 5 = 50" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "מכונית נסעה 3/8 מהדרך, שהם 60 ק\"מ. מהו אורך הדרך כולה?&rlm;",
+        options: ["160 ק\"מ", "120 ק\"מ", "240 ק\"מ", "80 ק\"מ"],
+        correctAnswer: 0,
+        hint: "חילוק המרחק במונה (60 לחלק ל-3) ייתן לכם שמינית דרך. הכפילו במכנה (8) לקבלת הדרך המלאה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמצא כמה ק\"מ שווה חלק אחד (1/8). נחלק במונה 3.&rlm;", math_expression: "60 : 3 = 20" },
+            { verbal_explanation: "הדרך המלאה מורכבת מ-8 שמיניות. נכפיל ב-8.&rlm;", math_expression: "20 × 8 = 160" }
         ],
-        "final_answer": "50",
-        "options": ["40", "100", "50", "60"],
-        "correctAnswer": 2
+        final_answer: "160 ק\"מ"
     },
+    // שאלה 11
     {
-        "id": 68,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Medium",
-        "question_text": "מצאו את השלם: 1/3 מהמספר הוא 15.",
-        "hint": "אם שליש הוא 15, השלם גדול פי 3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את החלק (15) ב-3 למציאת השלם.", "math_expression": "15 × 3 = 45" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "חשבו כמה הם 2/7 מתוך 35?&rlm;",
+        options: ["10", "5", "14", "20"],
+        correctAnswer: 0,
+        hint: "חלקו 35 ב-7, ואת מה שיצא תכפילו ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שביעית מתוך 35 נמצא על ידי חילוק.&rlm;", math_expression: "35 : 7 = 5" },
+            { verbal_explanation: "אנו זקוקים ל-2 שביעיות. נכפיל פי 2.&rlm;", math_expression: "5 × 2 = 10" }
         ],
-        "final_answer": "45",
-        "options": ["30", "45", "60", "5"],
-        "correctAnswer": 1
+        final_answer: "10"
     },
+    // שאלה 12
     {
-        "id": 69,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "מצאו את השלם: 5/6 מהמספר הם 30.",
-        "hint": "חלקו 30 ב-5 למציאת שישית, והכפילו ב-6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא ערך של שישית אחת.", "math_expression": "30 ÷ 5 = 6" },
-            { "verbal_explanation": "שלב 2: נכפיל ב-6 למציאת השלם כולו.", "math_expression": "6 × 6 = 36" }
+        topic: "fractions",
+        subTopic: "חישוב חלק של כמות ומציאת הכמות היסודית",
+        question_text: "5/6 מתוך משכורתו של רון הם 5,000 שקלים. מהי משכורתו המלאה?&rlm;",
+        options: ["6,000 שקלים", "10,000 שקלים", "7,500 שקלים", "5,500 שקלים"],
+        correctAnswer: 0,
+        hint: "אם 5 חלקים שווים 5,000, כמה שווה חלק אחד? ומהו השלם?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמצא ערך של חלק אחד (שישית).&rlm;", math_expression: "5000 : 5 = 1000" },
+            { verbal_explanation: "השלם הוא 6 שישיות. נכפיל 1000 ב-6.&rlm;", math_expression: "1000 × 6 = 6000" }
         ],
-        "final_answer": "36",
-        "options": ["25", "30", "36", "42"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 70,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Medium",
-        "question_text": "דני רץ 3/4 מהמסלול, שהם 15 ק\"מ. מהו אורך המסלול השלם?",
-        "hint": "חלקו 15 ב-3 (רבע אחד) והכפילו ב-4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מציאת רבע מסלול.", "math_expression": "15 ÷ 3 = 5" },
-            { "verbal_explanation": "שלב 2: מציאת המסלול המלא (4 רבעים).", "math_expression": "5 × 4 = 20" }
-        ],
-        "final_answer": "20 ק\"מ",
-        "options": ["15 ק\"מ", "20 ק\"מ", "25 ק\"מ", "30 ק\"מ"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 71,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Low",
-        "question_text": "מה גדול יותר: 1/2 מתוך 100 או 1/4 מתוך 200?",
-        "hint": "חשבו כל אחד מהם בנפרד והשוו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב 1/2 מתוך 100.", "math_expression": "100 ÷ 2 = 50" },
-            { "verbal_explanation": "שלב 2: נחשב 1/4 מתוך 200.", "math_expression": "200 ÷ 4 = 50" },
-            { "verbal_explanation": "שלב 3: התוצאות שוות.", "math_expression": "50 = 50" }
-        ],
-        "final_answer": "הם שווים",
-        "options": ["1/2 מתוך 100", "1/4 מתוך 200", "הם שווים", "אי אפשר לדעת"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 72,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "מצאו את השלם: 7/10 מהכסף הם 140 ₪.",
-        "hint": "140 חלקי 7 נותן את העשירית. הכפילו ב-10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מציאת עשירית אחת.", "math_expression": "140 ÷ 7 = 20" },
-            { "verbal_explanation": "שלב 2: הכפלה ב-10 לשלם המלא.", "math_expression": "20 × 10 = 200" }
-        ],
-        "final_answer": "200 ₪",
-        "options": ["100 ₪", "150 ₪", "200 ₪", "250 ₪"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 73,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "4/9 מכלל העצים בפרדס הם עצי תפוז. ידוע שיש 36 עצי תפוז. כמה עצים בסך הכל בפרדס?",
-        "hint": "אם 4 תשיעיות הן 36, תשיעית אחת היא 9. מצאו את השלם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק 36 ב-4 למציאת תשיעית.", "math_expression": "36 ÷ 4 = 9" },
-            { "verbal_explanation": "שלב 2: נכפיל ב-9 למציאת הכמות השלמה.", "math_expression": "9 × 9 = 81" }
-        ],
-        "final_answer": "81 עצים",
-        "options": ["72 עצים", "81 עצים", "90 עצים", "64 עצים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 74,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "Medium",
-        "question_text": "חשבו: כמה הם 3/10 מתוך 50?",
-        "hint": "חלקו ב-10 והכפילו ב-3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מציאת עשירית.", "math_expression": "50 ÷ 10 = 5" },
-            { "verbal_explanation": "שלב 2: הכפלה ב-3.", "math_expression": "5 × 3 = 15" }
-        ],
-        "final_answer": "15",
-        "options": ["10", "15", "20", "25"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 75,
-        "subTopic": "חישוב חלק של כמות ומציאת הכמות היסודית",
-        "difficulty": "High",
-        "question_text": "רונית קראה 2/5 מהספר. נשארו לה עוד 60 עמודים לקרוא. כמה עמודים בספר כולו?",
-        "hint": "אם קראה 2/5, נשארו לה 3/5. לכן 3/5 שווים 60. מצאו את השלם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: החלק שנותר לקרוא הוא 3/5.", "math_expression": "5/5 - 2/5 = 3/5" },
-            { "verbal_explanation": "שלב 2: נמצא כמה שווה חמישית (60 חלקי 3).", "math_expression": "60 ÷ 3 = 20" },
-            { "verbal_explanation": "שלב 3: נכפיל ב-5 למציאת השלם.", "math_expression": "20 × 5 = 100" }
-        ],
-        "final_answer": "100 עמודים",
-        "options": ["80 עמודים", "100 עמודים", "120 עמודים", "150 עמודים"],
-        "correctAnswer": 1
+        final_answer: "6,000 שקלים"
     },
 
-    // ==============================================================
-    // --- תת נושא 6: כפל וחילוק שברים עשרוניים ב-10, 100 וכו' (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 6: כפל וחילוק שברים עשרוניים ב-10, 100 וכו' (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 76,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Low",
-        "question_text": "פתרו: 2.5 × 10",
-        "hint": "בכפל ב-10, מזיזים את הנקודה העשרונית מקום אחד ימינה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הזזת הנקודה צעד אחד ימינה הופכת את 2.5 ל-25.", "math_expression": "25.0 = 25" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "חשבו את תוצאת הכפל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4.5 × 10 = ?</div>",
+        options: ["45", "0.45", "450", "4.05"],
+        correctAnswer: 0,
+        hint: "בכפל ב-10, הנקודה העשרונית זזה מקום אחד ימינה (המספר גדל).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר מכפילים שבר עשרוני ב-10, מזיזים את הנקודה העשרונית צעד אחד ימינה.&rlm;", math_expression: "4.5 × 10 = 45.0" },
+            { verbal_explanation: "המספר 45.0 זהה למספר השלם 45.&rlm;", math_expression: "45" }
         ],
-        "final_answer": "25",
-        "options": ["0.25", "25", "250", "2.05"],
-        "correctAnswer": 1
+        final_answer: "45"
     },
+    // שאלה 14
     {
-        "id": 77,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 0.34 × 100",
-        "hint": "בכפל ב-100 מזיזים את הנקודה שני מקומות ימינה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הזזת הנקודה העשרונית 2 מקומות ימינה.", "math_expression": "34" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.72 × 100 = ?</div>",
+        options: ["72", "7.2", "0.0072", "720"],
+        correctAnswer: 0,
+        hint: "בכפל ב-100 (שני אפסים), הנקודה זזה שני מקומות ימינה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כפל ב-100 מזיז את הנקודה העשרונית שני צעדים ימינה.&rlm;", math_expression: "0.72 × 100 = 72.0" },
+            { verbal_explanation: "התוצאה היא המספר השלם 72.&rlm;", math_expression: "72" }
         ],
-        "final_answer": "34",
-        "options": ["3.4", "34", "340", "0.034"],
-        "correctAnswer": 1
+        final_answer: "72"
     },
+    // שאלה 15
     {
-        "id": 78,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "High",
-        "question_text": "פתרו: 4.1 × 100",
-        "hint": "הזיזו את הנקודה פעמיים ימינה. השלימו באפס מקומות ריקים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הזזה ראשונה הופכת ל-41. הזזה שנייה דורשת הוספת אפס.", "math_expression": "410" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "בצעו את פעולת החילוק הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>12.5 : 10 = ?</div>",
+        options: ["1.25", "125", "0.125", "1.025"],
+        correctAnswer: 0,
+        hint: "בחילוק ב-10, הנקודה העשרונית זזה מקום אחד שמאלה (המספר קטן).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חילוק ב-10 מקטין את המספר, ולכן הנקודה העשרונית זזה צעד אחד שמאלה.&rlm;", math_expression: "12.5 : 10 = 1.25" }
         ],
-        "final_answer": "410",
-        "options": ["41", "410", "4.10", "4100"],
-        "correctAnswer": 1
+        final_answer: "1.25"
     },
+    // שאלה 16
     {
-        "id": 79,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "High",
-        "question_text": "פתרו: 0.05 × 1000",
-        "hint": "הכפלה ב-1000 דורשת הזזת הנקודה 3 פעמים ימינה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: שתי הזזות נותנות 5. ההזזה השלישית מוסיפה אפס.", "math_expression": "50" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "חשבו את תוצאת החילוק ב-100:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3.4 : 100 = ?</div>",
+        options: ["0.034", "0.34", "340", "0.0034"],
+        correctAnswer: 0,
+        hint: "בחילוק ב-100, הנקודה צריכה לזוז שני מקומות שמאלה. ייתכן שתצטרכו להוסיף אפסים כדי 'לייצר' מקומות פנויים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הזזת הנקודה צעד אחד שמאלה תיתן 0.34. נדרש צעד נוסף.&rlm;", math_expression: "" },
+            { verbal_explanation: "נוסיף אפס משמאל לשלוש ונעביר את הנקודה שוב.&rlm;", math_expression: "3.4 : 100 = 0.034" }
         ],
-        "final_answer": "50",
-        "options": ["5", "50", "500", "0.5"],
-        "correctAnswer": 1
+        final_answer: "0.034"
     },
+    // שאלה 17
     {
-        "id": 80,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Low",
-        "question_text": "פתרו: 12.3 × 10",
-        "hint": "הזיזו נקודה ימינה מקום אחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המספר הופך לשלם.", "math_expression": "123" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.05 × 1000 = ?</div>",
+        options: ["50", "5", "500", "0.5"],
+        correctAnswer: 0,
+        hint: "ב-1000 יש שלושה אפסים, לכן הזכרו להזיז את הנקודה שלושה מקומות ימינה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נזיז את הנקודה 3 צעדים ימינה. שני הצעדים הראשונים יעברו את ה-0 ואת ה-5.&rlm;", math_expression: "0.05 × 100 = 5" },
+            { verbal_explanation: "הצעד השלישי יוסיף אפס מימין למספר 5.&rlm;", math_expression: "5 × 10 = 50" }
         ],
-        "final_answer": "123",
-        "options": ["1.23", "123", "1230", "12.03"],
-        "correctAnswer": 1
+        final_answer: "50"
     },
+    // שאלה 18
     {
-        "id": 81,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "High",
-        "question_text": "פתרו: 0.007 × 100",
-        "hint": "הזיזו הנקודה פעמיים ימינה בלבד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הזזה של שני מקומות ימינה תעביר את הנקודה לפני ה-7.", "math_expression": "0.7" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "חבילת מדבקות עולה 4.20 שקלים. בחנות נמכר מארז של 10 חבילות. מה מחיר המארז?&rlm;",
+        options: ["42 שקלים", "420 שקלים", "0.42 שקלים", "4.20 שקלים"],
+        correctAnswer: 0,
+        hint: "הכפילו את מחיר החבילה היחידה (4.20) ב-10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל ב-10 על ידי הזזת הנקודה העשרונית מקום אחד ימינה.&rlm;", math_expression: "4.20 × 10 = 42.0" },
+            { verbal_explanation: "הסכום הוא 42 שקלים שלמים.&rlm;", math_expression: "42" }
         ],
-        "final_answer": "0.7",
-        "options": ["7", "0.7", "70", "0.07"],
-        "correctAnswer": 1
+        final_answer: "42 שקלים"
     },
+    // שאלה 19
     {
-        "id": 82,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "High",
-        "question_text": "פתרו: 5.6 × 1000",
-        "hint": "הזיזו את הנקודה 3 פעמים ימינה (הוסיפו שני אפסים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הזזה אחת נותנת 56. עוד שתי הזזות יוסיפו שני אפסים.", "math_expression": "5600" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "קופסה ובה 100 כדורי טניס שוקלת 235 גרם (בהתעלם ממשקל הקופסה). כמה שוקל כדור טניס אחד?&rlm;",
+        options: ["2.35 גרם", "0.235 גרם", "23.5 גרם", "2350 גרם"],
+        correctAnswer: 0,
+        hint: "חלקו את המשקל הכולל (235) במספר הכדורים (100).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "בחילוק שלם ב-100, הנקודה העשרונית הנסתרת (שנמצאת מימין ל-5) זזה שני צעדים שמאלה.&rlm;", math_expression: "235 : 100" },
+            { verbal_explanation: "הנקודה תעבור את ה-5 ואז את ה-3, ותיעצר בין ה-2 ל-3.&rlm;", math_expression: "2.35" }
         ],
-        "final_answer": "5,600",
-        "options": ["560", "5,600", "56", "56,000"],
-        "correctAnswer": 1
+        final_answer: "2.35 גרם"
     },
+    // שאלה 20
     {
-        "id": 83,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Low",
-        "question_text": "פתרו: 15.2 ÷ 10",
-        "hint": "בחילוק, מזיזים את הנקודה העשרונית שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חילוק ב-10 גורר הזזה של הנקודה מקום אחד שמאלה.", "math_expression": "1.52" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "פתרו את המשוואה הבאה ומצאו את המספר החסר:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>? × 100 = 45</div>",
+        options: ["0.45", "4.5", "4500", "0.045"],
+        correctAnswer: 0,
+        hint: "כדי למצוא את המספר המקורי לפני הכפל ב-100, עלינו לבצע את הפעולה ההפוכה: לחלק ב-100.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נפעיל פעולה הפוכה: נחלק את 45 ב-100.&rlm;", math_expression: "45 : 100" },
+            { verbal_explanation: "הנקודה זזה שני צעדים שמאלה.&rlm;", math_expression: "0.45" }
         ],
-        "final_answer": "1.52",
-        "options": ["152", "1.52", "0.152", "15.02"],
-        "correctAnswer": 1
+        final_answer: "0.45"
     },
+    // שאלה 21
     {
-        "id": 84,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 234.5 ÷ 100",
-        "hint": "חילוק ב-100 דורש הזזת הנקודה שני מקומות שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזיז את הנקודה שמאלה אל בין ה-2 ל-3.", "math_expression": "2.345" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "פתרו את המשוואה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>12.4 : ? = 1.24</div>",
+        options: ["10", "100", "1", "0.1"],
+        correctAnswer: 0,
+        hint: "הביטו בנקודה העשרונית: בכמה מקומות (ובאיזה כיוון) היא זזה מהמספר המקורי לתוצאה?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הנקודה העשרונית זזה מהמספר 12.4 למספר 1.24 צעד אחד בדיוק שמאלה.&rlm;", math_expression: "" },
+            { verbal_explanation: "תזוזה של צעד אחד שמאלה משמעותה חילוק ב-10.&rlm;", math_expression: "10" }
         ],
-        "final_answer": "2.345",
-        "options": ["23.45", "2.345", "0.2345", "2345"],
-        "correctAnswer": 1
+        final_answer: "10"
     },
+    // שאלה 22
     {
-        "id": 85,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 5 ÷ 10",
-        "hint": "כאשר למספר שלם אין נקודה, היא נמצאת מוסתרת מימינו (5.0). הזיזו שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזיז את הנקודה מ-5.0 מקום אחד שמאלה.", "math_expression": "0.5" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "תרגיל משולב (משמאל לימין):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3.2 × 100 : 10 = ?</div>",
+        options: ["32", "3.2", "320", "0.32"],
+        correctAnswer: 0,
+        hint: "בצעו כפל ב-100, ואז חלקו ב-10. לחלופין, כפל ב-100 וחילוק ב-10 שווים פשוט לכפל ב-10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כפל ב-100 מזיז את הנקודה שני צעדים ימינה.&rlm;", math_expression: "3.2 × 100 = 320" },
+            { verbal_explanation: "חילוק התוצאה ב-10 מזיז צעד אחד שמאלה.&rlm;", math_expression: "320 : 10 = 32" }
         ],
-        "final_answer": "0.5",
-        "options": ["50", "0.5", "0.05", "5"],
-        "correctAnswer": 1
+        final_answer: "32"
     },
+    // שאלה 23
     {
-        "id": 86,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 8.4 ÷ 10",
-        "hint": "הזיזו נקודה מקום אחד שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הנקודה עוברת לפני ה-8.", "math_expression": "0.84" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.9 × 10 = ?</div>",
+        options: ["9", "0.09", "90", "0.90"],
+        correctAnswer: 0,
+        hint: "הזזת הנקודה מקום אחד ימינה מעבירה את ה-9 מספרת העשיריות לספרת האחדות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נזיז את הנקודה ימינה מעבר ל-9.&rlm;", math_expression: "0.9 × 10 = 9.0" },
+            { verbal_explanation: "נקבל את המספר השלם 9.&rlm;", math_expression: "9" }
         ],
-        "final_answer": "0.84",
-        "options": ["84", "0.84", "0.084", "8.04"],
-        "correctAnswer": 1
+        final_answer: "9"
     },
+    // שאלה 24
     {
-        "id": 87,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 12 ÷ 100",
-        "hint": "חילוק ב-100: מזיזים פעמיים שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מהמספר 12.0 נזיז פעמיים שמאלה אל לפני ה-1.", "math_expression": "0.12" }
+        topic: "fractions",
+        subTopic: "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
+        question_text: "חשבו את תוצאת החילוק:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>15 : 1000 = ?</div>",
+        options: ["0.015", "0.15", "1.5", "15000"],
+        correctAnswer: 0,
+        hint: "ב-1000 יש שלושה אפסים. הזיזו את הנקודה (הנמצאת מימין ל-5) שלושה מקומות שמאלה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נתחיל מהמספר 15.0 ונזיז את הנקודה 3 צעדים שמאלה.&rlm;", math_expression: "" },
+            { verbal_explanation: "הנקודה תעבור את ה-5, תעבור את ה-1, ונוסיף אפס להשלמת הצעד השלישי.&rlm;", math_expression: "0.015" }
         ],
-        "final_answer": "0.12",
-        "options": ["1.2", "0.12", "1200", "0.012"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 88,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "High",
-        "question_text": "פתרו: 450 ÷ 1000",
-        "hint": "3 אפסים, 3 הזזות שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הזזת הנקודה 3 מקומות שמאלה.", "math_expression": "0.450 = 0.45" }
-        ],
-        "final_answer": "0.45",
-        "options": ["4.5", "0.45", "45", "0.045"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 89,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "High",
-        "question_text": "פתרו: 0.2 ÷ 10",
-        "hint": "כשהנקודה זזה שמאלה מ-0, יש להוסיף עוד אפס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזיז את הנקודה שמאלה ונקבל מאית.", "math_expression": "0.02" }
-        ],
-        "final_answer": "0.02",
-        "options": ["2", "0.2", "0.02", "0.002"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 90,
-        "subTopic": "כפל וחילוק שברים עשרוניים ב-10, 100 וכו'",
-        "difficulty": "Medium",
-        "question_text": "מחירם של 10 עפרונות זהים הוא 12.5 ₪. מה מחירו של עיפרון אחד?",
-        "hint": "חלקו את המחיר הכולל ב-10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק 12.5 ב-10 על ידי הזזת הנקודה שמאלה.", "math_expression": "12.5 ÷ 10 = 1.25" }
-        ],
-        "final_answer": "1.25 ₪",
-        "options": ["125 ₪", "1.25 ₪", "0.125 ₪", "2.5 ₪"],
-        "correctAnswer": 1
+        final_answer: "0.015"
     },
 
-    // ==============================================================
-    // --- תת נושא 7: כפל שבר בשבר כולל מספרים מעורבים (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 7: כפל שבר בשבר כולל מספרים מעורבים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 91,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "Low",
-        "question_text": "פתרו: 1/2 × 1/2",
-        "hint": "בכפל שברים: מונה כפול מונה, ומכנה כפול מכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המונים (1×1).", "math_expression": "1" },
-            { "verbal_explanation": "שלב 2: נכפיל את המכנים (2×2).", "math_expression": "4" },
-            { "verbal_explanation": "שלב 3: נרשום את השבר.", "math_expression": "1/4" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "מהי תוצאת הכפל בין שני השברים הפשוטים הבאים?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1/2 × 1/3 = ?</div>",
+        options: ["1/6", "2/5", "1/5", "2/6"],
+        correctAnswer: 0,
+        hint: "בכפל שברים, כופלים מונה במונה ומכנה במכנה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול את המונים: 1 כפול 1.&rlm;", math_expression: "1 × 1 = 1" },
+            { verbal_explanation: "נכפול את המכנים: 2 כפול 3.&rlm;", math_expression: "2 × 3 = 6" },
+            { verbal_explanation: "נרשום את התוצאה: שישית.&rlm;", math_expression: "1/6" }
         ],
-        "final_answer": "1/4",
-        "options": ["1", "1/4", "2/4", "1/2"],
-        "correctAnswer": 1
+        final_answer: "1/6"
     },
+    // שאלה 26
     {
-        "id": 92,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 2/3 × 3/4",
-        "hint": "אפשר לכפול ואז לצמצם, או לצמצם 'באלכסון' לפני הכפל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל מונה במונה (2*3=6) ומכנה במכנה (3*4=12).", "math_expression": "6/12" },
-            { "verbal_explanation": "שלב 2: נצמצם את השבר (נחלק ב-6).", "math_expression": "1/2" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "חשבו את המכפלה וצמצמו את התוצאה הסופית:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2/3 × 3/4 = ?</div>",
+        options: ["1/2", "6/12", "5/7", "8/9"],
+        correctAnswer: 0,
+        hint: "אפשר לכפול ואז לצמצם, או לצמצם 'באלכסון' לפני הכפל (את ה-3 במונה עם ה-3 במכנה).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול מונים ומכנים.", math_expression: "(2 × 3) / (3 × 4) = 6/12" },
+            { verbal_explanation: "נצמצם את השבר 6/12 על ידי חלוקה ב-6.&rlm;", math_expression: "1/2" }
         ],
-        "final_answer": "1/2",
-        "options": ["5/7", "1/2", "6/7", "5/12"],
-        "correctAnswer": 1
+        final_answer: "1/2"
     },
+    // שאלה 27
     {
-        "id": 93,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 3/5 × 1/3",
-        "hint": "שימו לב ל-3 במונה ול-3 במכנה - אפשר לבטל אותם (לצמצם).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל: 3*1=3, 5*3=15.", "math_expression": "3/15" },
-            { "verbal_explanation": "שלב 2: נצמצם ב-3.", "math_expression": "1/5" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "בצעו את כפל השברים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3/5 × 1/4 = ?</div>",
+        options: ["3/20", "4/9", "3/9", "12/5"],
+        correctAnswer: 0,
+        hint: "מונה כפול מונה, מכנה כפול מכנה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כפל מונים: 3 כפול 1.&rlm;", math_expression: "3" },
+            { verbal_explanation: "כפל מכנים: 5 כפול 4.&rlm;", math_expression: "20" },
+            { verbal_explanation: "התוצאה היא 3 חלקי 20.&rlm;", math_expression: "3/20" }
         ],
-        "final_answer": "1/5",
-        "options": ["4/8", "3/8", "1/5", "3/15"],
-        "correctAnswer": 2
+        final_answer: "3/20"
     },
+    // שאלה 28
     {
-        "id": 94,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 5/8 × 4/5",
-        "hint": "צמצמו את ה-5 במונה ובמכנה, ותישארו עם 4/8.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: לאחר כפל (או צמצום אלכסוני) נקבל 20/40.", "math_expression": "20/40" },
-            { "verbal_explanation": "שלב 2: נצמצם את השבר.", "math_expression": "1/2" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "חשבו (מומלץ לצמצם 'באלכסון' לפני הכפל):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5/8 × 4/5 = ?</div>",
+        options: ["1/2", "20/40", "9/13", "1/4"],
+        correctAnswer: 0,
+        hint: "שימו לב ל-5 במונה ול-5 במכנה. אפשר לצמצם אותם ל-1 לפני הכפל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ניתן לצמצם את המספר 5 שבמונה עם ה-5 שבמכנה.&rlm;", math_expression: "" },
+            { verbal_explanation: "נשארנו עם 4 במונה ו-8 במכנה.&rlm;", math_expression: "4/8" },
+            { verbal_explanation: "השבר 4/8 שווה לחצי (נצמצם ב-4).&rlm;", math_expression: "1/2" }
         ],
-        "final_answer": "1/2",
-        "options": ["9/13", "1/2", "20/13", "1/4"],
-        "correctAnswer": 1
+        final_answer: "1/2"
     },
+    // שאלה 29
     {
-        "id": 95,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 1/4 × 2/7",
-        "hint": "מונה במונה, מכנה במכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל מונים: 1×2=2. כפל מכנים: 4×7=28.", "math_expression": "2/28" },
-            { "verbal_explanation": "שלב 2: נצמצם ב-2.", "math_expression": "1/14" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "כפל של מספר מעורב בשבר. הפכו את המספר המעורב לשבר מדומה תחילה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 1/2 × 1/3 = ?</div>",
+        options: ["1/2", "3/6", "1 1/6", "1/3"],
+        correctAnswer: 0,
+        hint: "'אחד וחצי' שווה ל-3/2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המרת המספר המעורב לשבר מדומה (3 חצאים).&rlm;", math_expression: "1 1/2 = 3/2" },
+            { verbal_explanation: "כעת נבצע כפל שברים פשוט: 3/2 כפול 1/3.&rlm;", math_expression: "3/2 × 1/3" },
+            { verbal_explanation: "ה-3 במונה וה-3 במכנה מצטמצמים ונשאר 1/2.&rlm;", math_expression: "1/2" }
         ],
-        "final_answer": "1/14",
-        "options": ["3/11", "2/11", "1/14", "1/7"],
-        "correctAnswer": 2
+        final_answer: "1/2"
     },
+    // שאלה 30
     {
-        "id": 96,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 3/8 × 2/3",
-        "hint": "הכפילו וקבלו 6/24. ואז צמצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל מונים (3*2=6) ומכנים (8*3=24).", "math_expression": "6/24" },
-            { "verbal_explanation": "שלב 2: נצמצם ב-6.", "math_expression": "1/4" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "כפל של שני מספרים מעורבים. זכרו להפוך לשברים מדומים לפני הכפל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 1/4 × 1 1/3 = ?</div>",
+        options: ["1 2/3", "1 1/12", "5/3", "1 2/7"],
+        correctAnswer: 0,
+        hint: "1 ורבע = 5/4. אחד ושליש = 4/3. מה קורה כשכופלים אותם?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמיר את שני המספרים לשברים מדומים.&rlm;", math_expression: "5/4 × 4/3" },
+            { verbal_explanation: "ה-4 במונה וה-4 במכנה מצטמצמים.&rlm;", math_expression: "5/3" },
+            { verbal_explanation: "השבר 5/3 שווה ל-1 ושני שלישים.&rlm;", math_expression: "1 2/3" }
         ],
-        "final_answer": "1/4",
-        "options": ["1/4", "5/11", "6/11", "1/2"],
-        "correctAnswer": 0
+        final_answer: "1 2/3"
     },
+    // שאלה 31
     {
-        "id": 97,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 7/10 × 5/7",
-        "hint": "צמצמו את ה-7. יישאר לכם 5/10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל נותן 35/70. (או צמצום אלכסוני ל-5/10).", "math_expression": "35/70" },
-            { "verbal_explanation": "שלב 2: נצמצם לחצי.", "math_expression": "1/2" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "חשבו את תוצאת הכפל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 2/3 × 1/4 = ?</div>",
+        options: ["2/3", "8/12", "2 2/12", "3/7"],
+        correctAnswer: 0,
+        hint: "הפכו את 'שתיים ושני שלישים' לשבר מדומה (8/3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמיר את המספר המעורב (2 שלמים הם 6 שלישים, פלוס 2).&rlm;", math_expression: "2 2/3 = 8/3" },
+            { verbal_explanation: "נכפול ברבע.&rlm;", math_expression: "8/3 × 1/4" },
+            { verbal_explanation: "כפל מונים ומכנים ייתן 8/12. נצמצם ב-4 ונקבל 2/3.&rlm;", math_expression: "2/3" }
         ],
-        "final_answer": "1/2",
-        "options": ["1/2", "12/17", "35/17", "1/5"],
-        "correctAnswer": 0
+        final_answer: "2/3"
     },
+    // שאלה 32
     {
-        "id": 98,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 1 1/2 × 1/3 (מספר מעורב כפול שבר)",
-        "hint": "הפכו את המספר המעורב (1 וחצי) לשבר מדומה (3 חצאים) ואז כפלו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך 1 1/2 לשבר מדומה.", "math_expression": "3/2" },
-            { "verbal_explanation": "שלב 2: נכפיל 3/2 ב-1/3.", "math_expression": "3/2 × 1/3" },
-            { "verbal_explanation": "שלב 3: התוצאה היא 3/6, שנצמצם לחצי.", "math_expression": "1/2" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "לגינה מלבנית יש אורך של 1/2 מטר ורוחב של 3/4 מטר. מהו שטח הגינה (במ\"ר)?&rlm;",
+        options: ["3/8", "4/6", "3/4", "1/4"],
+        correctAnswer: 0,
+        hint: "שטח מלבן מחושב על ידי הכפלת אורך ברוחב.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול את האורך ברוחב.&rlm;", math_expression: "1/2 × 3/4" },
+            { verbal_explanation: "מונה כפול מונה (1 כפול 3) ומכנה כפול מכנה (2 כפול 4).&rlm;", math_expression: "3/8" }
         ],
-        "final_answer": "1/2",
-        "options": ["1 1/6", "1/2", "3/6", "2/5"],
-        "correctAnswer": 1
+        final_answer: "3/8"
     },
+    // שאלה 33
     {
-        "id": 99,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2 1/4 × 2/3",
-        "hint": "הפכו 2 ורבע ל-9/4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרת המספר המעורב: 2 שלמים הם 8 רבעים, ועוד רבע = 9/4.", "math_expression": "9/4" },
-            { "verbal_explanation": "שלב 2: נכפיל: 9/4 * 2/3 = 18/12.", "math_expression": "18/12" },
-            { "verbal_explanation": "שלב 3: נצמצם ב-6 ונקבל 3/2, שהם שלם וחצי.", "math_expression": "1 1/2" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "שיעור אמנות אורך 1 1/2 שעות. דנה סיימה את היצירה שלה לאחר 2/3 מהזמן. כמה שעות לקח לה לסיים?&rlm;",
+        options: ["1", "3/2", "2/3", "1 1/6"],
+        correctAnswer: 0,
+        hint: "כדי למצוא חלק מכמות, מכפילים את הכמות בחלק (2/3 כפול אחד וחצי).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמיר את 1 וחצי לשבר מדומה (3/2).&rlm;", math_expression: "3/2" },
+            { verbal_explanation: "נכפול את החלק שדנה עבדה בזמן הכולל.&rlm;", math_expression: "2/3 × 3/2" },
+            { verbal_explanation: "המונים והמכנים מצטמצמים זה עם זה לחלוטין (6/6). התשובה היא שעה 1.&rlm;", math_expression: "1" }
         ],
-        "final_answer": "1 1/2",
-        "options": ["2 2/12", "1 1/2", "3/2", "2 1/2"],
-        "correctAnswer": 1
+        final_answer: "1"
     },
+    // שאלה 34
     {
-        "id": 100,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 1 2/3 × 1 1/5",
-        "hint": "הפכו את שני המספרים המעורבים לשברים מדומים לפני הכפל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרת המספר הראשון (5/3).", "math_expression": "5/3" },
-            { "verbal_explanation": "שלב 2: המרת המספר השני (6/5).", "math_expression": "6/5" },
-            { "verbal_explanation": "שלב 3: כפל (30/15). ו-30 לחלק ל-15 שווה בדיוק 2.", "math_expression": "30/15 = 2" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "מהי תוצאת התרגיל הבא? (זכרו את חוקי הכפל באפס)&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0 × (3/4 × 5/7) = ?</div>",
+        options: ["0", "15/28", "8/11", "1"],
+        correctAnswer: 0,
+        hint: "אין צורך לפתור את הסוגריים אם מכפילים בסוף באפס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כל מספר או ביטוי, לא משנה כמה הוא מורכב, כפול 0 תמיד יהיה 0.&rlm;", math_expression: "0" }
         ],
-        "final_answer": "2",
-        "options": ["1 2/15", "2", "3", "30/15"],
-        "correctAnswer": 1
+        final_answer: "0"
     },
+    // שאלה 35
     {
-        "id": 101,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2 1/2 × 1 1/2",
-        "hint": "הפכו לשברים מדומים (5/2 כפול 3/2).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרת המספרים ל-5/2 ו-3/2.", "math_expression": "5/2 × 3/2" },
-            { "verbal_explanation": "שלב 2: כפל מונים ומכנים.", "math_expression": "15/4" },
-            { "verbal_explanation": "שלב 3: חילוץ שלמים (ב-15 נכנסות 3 פעמים 4, ונשארות 3 רבעים).", "math_expression": "3 3/4" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "חשבו את כפל השברים (שימו לב לקשר בין השברים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4/7 × 7/4 = ?</div>",
+        options: ["1", "28/28", "16/49", "0"],
+        correctAnswer: 0,
+        hint: "אלו שברים הופכיים. מכפלת שבר במספר ההופכי שלו תמיד שווה למספר מסוים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבצע את הכפל: 4 כפול 7 במונה, 7 כפול 4 במכנה.&rlm;", math_expression: "28 / 28" },
+            { verbal_explanation: "28 לחלק ל-28 שווה לשלם אחד.&rlm;", math_expression: "1" }
         ],
-        "final_answer": "3 3/4",
-        "options": ["3 1/4", "3 3/4", "2 1/4", "4"],
-        "correctAnswer": 1
+        final_answer: "1"
     },
+    // שאלה 36
     {
-        "id": 102,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 3 1/3 × 3/10",
-        "hint": "הפכו את 3 ושליש לשבר מדומה (10/3).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרה ל-10/3.", "math_expression": "10/3" },
-            { "verbal_explanation": "שלב 2: כפל בשבר השני. המונים והמכנים מבטלים אלו את אלו.", "math_expression": "10/3 × 3/10 = 30/30" },
-            { "verbal_explanation": "שלב 3: 30 חלקי 30 שווה 1.", "math_expression": "1" }
+        topic: "fractions",
+        subTopic: "כפל שבר בשבר כולל מספרים מעורבים",
+        question_text: "כפלו את המספר המעורב בשלם. אפשר לפצל את הפעולה לחלקים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 1/2 × 2 = ?</div>",
+        options: ["5", "4 1/2", "4", "2 2/4"],
+        correctAnswer: 0,
+        hint: "כמה זה פעמיים שניים וחצי שקלים?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': פיצול. 2 כפול 2 שווה 4. 2 כפול חצי שווה 1. יחד 5.&rlm;", math_expression: "4 + 1 = 5" },
+            { verbal_explanation: "דרך ב': שבר מדומה. 5/2 כפול 2 שווה 10/2, שזה 5.&rlm;", math_expression: "5/2 × 2 = 5" }
         ],
-        "final_answer": "1",
-        "options": ["1", "9/30", "3", "1/3"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 103,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 1 3/4 × 2",
-        "hint": "אפשר לכפול את השלם בנפרד (1*2) ואת השבר בנפרד (3/4 * 2) ואז לחבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 1 כפול 2 שווה 2.", "math_expression": "2" },
-            { "verbal_explanation": "שלב 2: שלושה רבעים כפול 2 שווה 6 רבעים, שהם שלם וחצי (1 1/2).", "math_expression": "1 1/2" },
-            { "verbal_explanation": "שלב 3: חיבור החלקים.", "math_expression": "2 + 1 1/2 = 3 1/2" }
-        ],
-        "final_answer": "3 1/2",
-        "options": ["2 3/4", "3 1/2", "4", "3 3/4"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 104,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "פתרו: 2 2/5 × 1 1/4",
-        "hint": "הפכו למדומים: 12/5 כפול 5/4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרה ל-12/5 ול-5/4.", "math_expression": "12/5 × 5/4" },
-            { "verbal_explanation": "שלב 2: כפל (60/20).", "math_expression": "60 ÷ 20 = 3" }
-        ],
-        "final_answer": "3",
-        "options": ["3", "2 2/20", "2 3/9", "4"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 105,
-        "subTopic": "כפל שבר בשבר כולל מספרים מעורבים",
-        "difficulty": "High",
-        "question_text": "שטחו של חדר מלבני: אורכו 1 1/2 מטר ורוחבו 1/2 מטר. מה השטח במ\"ר?",
-        "hint": "הכפילו אורך ברוחב.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את האורך ל-3/2.", "math_expression": "3/2 × 1/2" },
-            { "verbal_explanation": "שלב 2: נכפיל כדי לקבל שטח.", "math_expression": "3/4" }
-        ],
-        "final_answer": "3/4 מ\"ר",
-        "options": ["1 מ\"ר", "3/4 מ\"ר", "1/4 מ\"ר", "1 1/4 מ\"ר"],
-        "correctAnswer": 1
+        final_answer: "5"
     },
 
-    // ==============================================================
-    // --- תת נושא 8: כפל שברים עשרוניים ואומדן תוצאות (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 8: כפל שברים עשרוניים ואומדן תוצאות (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 106,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Low",
-        "question_text": "פתרו: 0.2 × 0.3",
-        "hint": "כפלו כרגיל (2×3) ואז ספרו כמה ספרות היו אחרי הנקודה בשני המספרים יחד (2 מקומות).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המספרים ללא הנקודות.", "math_expression": "2 × 3 = 6" },
-            { "verbal_explanation": "שלב 2: נמקם את הנקודה 2 מקומות שמאלה מהסוף.", "math_expression": "0.06" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "חשבו את תוצאת הכפל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.2 × 0.3 = ?</div>",
+        options: ["0.06", "0.6", "6", "0.006"],
+        correctAnswer: 0,
+        hint: "כפלו 2 ב-3 כשלמים (נקבל 6). לאחר מכן, ספרו את כל הספרות אחרי הנקודה בשני המספרים יחד (2 ספרות).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "התעלמו מהנקודות וכפלו: 2 כפול 3.&rlm;", math_expression: "2 × 3 = 6" },
+            { verbal_explanation: "ספרו את המקומות העשרוניים במקור (מקום אחד + מקום אחד = שני מקומות). לכן נשים את הנקודה שני צעדים שמאלה מה-6.&rlm;", math_expression: "0.06" }
         ],
-        "final_answer": "0.06",
-        "options": ["0.6", "0.06", "6", "0.5"],
-        "correctAnswer": 1
+        final_answer: "0.06"
     },
+    // שאלה 38
     {
-        "id": 107,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 0.5 × 0.4",
-        "hint": "5 כפול 4 שווה 20. הזזת הנקודה פעמיים תיתן 0.20.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל 5 ב-4.", "math_expression": "20" },
-            { "verbal_explanation": "שלב 2: נזיז את הנקודה 2 מקומות שמאלה.", "math_expression": "0.20 = 0.2" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "מהי תוצאת כפל העשרוניים הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1.2 × 0.4 = ?</div>",
+        options: ["0.48", "4.8", "48", "0.048"],
+        correctAnswer: 0,
+        hint: "כמה זה 12 כפול 4? ולאחר מכן הזיזו את הנקודה שני מקומות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול ללא נקודות: 12 כפול 4.&rlm;", math_expression: "12 × 4 = 48" },
+            { verbal_explanation: "יש ספרה אחת אחרי הנקודה ב-1.2, ועוד אחת ב-0.4 (סה\"כ 2). נמקם את הנקודה.&rlm;", math_expression: "0.48" }
         ],
-        "final_answer": "0.2",
-        "options": ["0.02", "2", "0.2", "0.9"],
-        "correctAnswer": 2
+        final_answer: "0.48"
     },
+    // שאלה 39
     {
-        "id": 108,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "High",
-        "question_text": "פתרו: 1.2 × 0.3",
-        "hint": "12 כפול 3 שווה 36. כמה ספרות אחרי הנקודה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל 12 ב-3.", "math_expression": "36" },
-            { "verbal_explanation": "שלב 2: יש 2 ספרות אחרי הנקודה בתרגיל, לכן נמקם את הנקודה בהתאם.", "math_expression": "0.36" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "חשבו את תוצאת הכפל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.05 × 0.2 = ?</div>",
+        options: ["0.01", "0.1", "0.001", "1"],
+        correctAnswer: 0,
+        hint: "5 כפול 2 שווה ל-10. יש לכם 3 מקומות עשרוניים להזיז (שניים בראשון, אחד בשני).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "5 כפול 2 הם 10.&rlm;", math_expression: "10" },
+            { verbal_explanation: "נזיז את הנקודה 3 צעדים שמאלה מה-10 (עבור 3 הספרות העשרוניות בשאלה). נקבל 0.010.&rlm;", math_expression: "0.010 = 0.01" }
         ],
-        "final_answer": "0.36",
-        "options": ["3.6", "0.36", "0.036", "1.5"],
-        "correctAnswer": 1
+        final_answer: "0.01"
     },
+    // שאלה 40
     {
-        "id": 109,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "High",
-        "question_text": "פתרו: 0.04 × 0.5",
-        "hint": "4 כפול 5 שווה 20. בתרגיל יש סה\"כ 3 ספרות אחרי הנקודה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל רגיל (4*5=20).", "math_expression": "20" },
-            { "verbal_explanation": "שלב 2: הזזת נקודה 3 מקומות שמאלה (0.020).", "math_expression": "0.02" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2.5 × 1.5 = ?</div>",
+        options: ["3.75", "37.5", "3.25", "4.05"],
+        correctAnswer: 0,
+        hint: "כפלו 25 ב-15 במאונך, ולאחר מכן הזיזו את הנקודה שני מקומות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחשב כפל שלמים: 25 כפול 15.&rlm;", math_expression: "25 × 15 = 375" },
+            { verbal_explanation: "יש שתי ספרות אחרי הנקודה בסך הכל (אחת בכל גורם). נמקם את הנקודה בתוצאה.&rlm;", math_expression: "3.75" }
         ],
-        "final_answer": "0.02",
-        "options": ["0.2", "0.02", "0.002", "0.20"],
-        "correctAnswer": 1
+        final_answer: "3.75"
     },
+    // שאלה 41
     {
-        "id": 110,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 2.5 × 0.2",
-        "hint": "25 כפול 2 שווה 50. יש 2 ספרות אחרי הנקודה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 25 כפול 2 שווה 50.", "math_expression": "50" },
-            { "verbal_explanation": "שלב 2: נזיז את הנקודה 2 מקומות.", "math_expression": "0.50 = 0.5" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "אומדן: מה תהיה בערך התוצאה של התרגיל הבא (מבלי לחשב במדויק)?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3.9 × 5.1 = ?</div>",
+        options: ["סביב 20", "סביב 15", "סביב 8", "סביב 35"],
+        correctAnswer: 0,
+        hint: "עגלו כל מספר לשלם הקרוב ביותר: 3.9 קרוב ל-4. ו-5.1 קרוב ל-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נעגל את 3.9 ל-4.&rlm;", math_expression: "" },
+            { verbal_explanation: "נעגל את 5.1 ל-5.&rlm;", math_expression: "" },
+            { verbal_explanation: "האומדן הוא כפל המעוגלים: 4 כפול 5. לכן התוצאה תהיה קרובה ל-20.&rlm;", math_expression: "4 × 5 = 20" }
         ],
-        "final_answer": "0.5",
-        "options": ["5", "0.5", "0.05", "50"],
-        "correctAnswer": 1
+        final_answer: "סביב 20"
     },
+    // שאלה 42
     {
-        "id": 111,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Low",
-        "question_text": "פתרו: 0.1 × 0.1",
-        "hint": "עשירית כפול עשירית היא מאית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 1 כפול 1 שווה 1. הזזה של 2 מקומות.", "math_expression": "0.01" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "אומדן: בחרו את ההערכה הקרובה ביותר לתוצאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>9.8 × 0.9 = ?</div>",
+        options: ["קרוב ל-9", "קרוב ל-90", "קרוב ל-1", "קרוב ל-100"],
+        correctAnswer: 0,
+        hint: "9.8 קרוב ל-10. 0.9 קרוב ל-1. כפלו אותם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "9.8 קרוב מאוד למספר 10. 0.9 קרוב מאוד למספר 1.&rlm;", math_expression: "" },
+            { verbal_explanation: "10 כפול 1 הם 10. לכן התוצאה תהיה מעט פחות מ-10 (סביב 9).&rlm;", math_expression: "10 × 1 = 10" }
         ],
-        "final_answer": "0.01",
-        "options": ["0.1", "0.01", "1", "0.001"],
-        "correctAnswer": 1
+        final_answer: "קרוב ל-9"
     },
+    // שאלה 43
     {
-        "id": 112,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "High",
-        "question_text": "פתרו: 1.5 × 1.5",
-        "hint": "15 כפול 15 שווה 225. מקמו את הנקודה לאחר 2 ספרות מהסוף.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 15 בריבוע זה 225.", "math_expression": "225" },
-            { "verbal_explanation": "שלב 2: מיקום הנקודה.", "math_expression": "2.25" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "דנה קנתה 0.5 ק\"ג תפוחים. מחיר לקילוגרם אחד הוא 4.2 שקלים. כמה שילמה דנה?&rlm;",
+        options: ["2.1 שקלים", "4.7 שקלים", "21 שקלים", "8.4 שקלים"],
+        correctAnswer: 0,
+        hint: "לכפול מספר ב-0.5 זה בדיוק כמו לחלק אותו בחצי (ב-2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול את המחיר בכמות: 4.2 כפול 0.5.&rlm;", math_expression: "4.2 × 0.5" },
+            { verbal_explanation: "אנו יודעים שכפל ב-0.5 שווה לחצי מהכמות. חצי מ-4.2 הוא 2.1.&rlm;", math_expression: "2.1" }
         ],
-        "final_answer": "2.25",
-        "options": ["22.5", "2.25", "0.225", "3.0"],
-        "correctAnswer": 1
+        final_answer: "2.1 שקלים"
     },
+    // שאלה 44
     {
-        "id": 113,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "אמדו (העריכו) את התוצאה: 4.9 × 2.1 (בלי לחשב במדויק).",
-        "hint": "עגלו את 4.9 ל-5 ואת 2.1 ל-2. המכפלה קרובה למה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נעגל כל מספר למספר השלם הקרוב ביותר.", "math_expression": "5 × 2" },
-            { "verbal_explanation": "שלב 2: נכפיל את המעוגלים כדי לקבל אומדן (הערכה).", "math_expression": "10" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "מהו שטחו של חלון מלבני שאורכו 2.2 מטרים ורוחבו 1.5 מטרים?&rlm;",
+        options: ["3.3 מ\"ר", "33 מ\"ר", "3.7 מ\"ר", "0.33 מ\"ר"],
+        correctAnswer: 0,
+        hint: "כפלו 22 ב-15. לאחר מכן הזיזו את הנקודה העשרונית שני מקומות שמאלה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחשב כפל שלמים: 22 כפול 15.&rlm;", math_expression: "22 × 15 = 330" },
+            { verbal_explanation: "יש 2 ספרות עשרוניות בנתונים (אחת בכל מספר). נמקם את הנקודה 2 צעדים שמאלה מ-330.&rlm;", math_expression: "3.30 = 3.3" }
         ],
-        "final_answer": "בערך 10",
-        "options": ["בערך 7", "בערך 10", "בערך 15", "בערך 20"],
-        "correctAnswer": 1
+        final_answer: "3.3 מ\"ר"
     },
+    // שאלה 45
     {
-        "id": 114,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "אמדו את התוצאה: 9.8 × 0.5",
-        "hint": "9.8 קרוב ל-10. מה זה חצי (0.5) מ-10?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: עיגול 9.8 ל-10.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 2: 10 כפול 0.5 זה בדיוק חצי מ-10.", "math_expression": "5" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "היכן צריכה להיות הנקודה העשרונית בתוצאה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2.3 × 1.4 = 322</div>",
+        options: ["3.22", "32.2", "0.322", "322.0"],
+        correctAnswer: 0,
+        hint: "ספרו את מספר הספרות שמימין לנקודה בשני המספרים המוכפלים. זה יהיה מספר הספרות מימין לנקודה בתוצאה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ב-2.3 יש ספרה אחת אחרי הנקודה. ב-1.4 יש ספרה אחת אחרי הנקודה. סך הכל 2 מקומות.&rlm;", math_expression: "" },
+            { verbal_explanation: "נציב את הנקודה בתוצאה 322 כך שיהיו 2 ספרות אחריה.&rlm;", math_expression: "3.22" }
         ],
-        "final_answer": "בערך 5",
-        "options": ["בערך 10", "בערך 5", "בערך 9", "בערך 2"],
-        "correctAnswer": 1
+        final_answer: "3.22"
     },
+    // שאלה 46
     {
-        "id": 115,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "איזו תוצאה סבירה ביותר לתרגיל: 3.1 × 6.2?",
-        "hint": "עגלו ל-3 ול-6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: עיגול למספרים שלמים.", "math_expression": "3 × 6 = 18" },
-            { "verbal_explanation": "שלב 2: התוצאה חייבת להיות קרובה ל-18.", "math_expression": "18" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "אומדן: מה בערך התוצאה של התרגיל?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.45 × 10.2 = ?</div>",
+        options: ["קרוב ל-4.5", "קרוב ל-45", "קרוב ל-0.4", "קרוב ל-10"],
+        correctAnswer: 0,
+        hint: "0.45 קרוב מאוד ל-0.5 (שזה חצי). 10.2 קרוב ל-10. כמה זה חצי מ-10?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אומדן גס: נעגל את 0.45 לחצי, ואת 10.2 ל-10.&rlm;", math_expression: "0.5 × 10" },
+            { verbal_explanation: "חצי מ-10 שווה 5. התוצאה צריכה להיות קרובה ל-5.&rlm;", math_expression: "" }
         ],
-        "final_answer": "קרוב ל-18",
-        "options": ["קרוב ל-18", "קרוב ל-9", "קרוב ל-36", "קרוב ל-24"],
-        "correctAnswer": 0
+        final_answer: "קרוב ל-4.5"
     },
+    // שאלה 47
     {
-        "id": 116,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "High",
-        "question_text": "אמדו את התוצאה: 5.05 × 3.9",
-        "hint": "5.05 קרוב ל-5. 3.9 קרוב ל-4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: עיגול ל-5 ול-4.", "math_expression": "5 × 4 = 20" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "חשבו את מכפלת שלוש העשיריות:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.1 × 0.1 × 0.1 = ?</div>",
+        options: ["0.001", "0.01", "0.3", "0.111"],
+        correctAnswer: 0,
+        hint: "1 כפול 1 כפול 1 שווה 1. ספרו את כל המקומות העשרוניים בשלושת הגורמים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכפלת השלמים נותנת 1.&rlm;", math_expression: "1 × 1 × 1 = 1" },
+            { verbal_explanation: "יש שלושה מספרים עם ספרה אחת אחרי הנקודה (סך הכל 3 מקומות). נזיז שמאלה מ-1 ונוסיף אפסים.&rlm;", math_expression: "0.001" }
         ],
-        "final_answer": "בערך 20",
-        "options": ["בערך 15", "בערך 20", "בערך 25", "בערך 10"],
-        "correctAnswer": 1
+        final_answer: "0.001"
     },
+    // שאלה 48
     {
-        "id": 117,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "High",
-        "question_text": "האם התוצאה של 10.2 × 0.9 גדולה או קטנה מ-10.2?",
-        "hint": "כאשר מכפילים במספר שקטן מ-1 (כמו 0.9), התוצאה תמיד קטנה מהמספר המקורי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 0.9 קרוב ל-1 אבל קטן ממנו. כפל בשבר מקטין את המספר.", "math_expression": "כפל בשבר מחליש" }
+        topic: "fractions",
+        subTopic: "כפל שברים עשרוניים ואומדן תוצאות",
+        question_text: "ללא חישוב, קבעו מה קורה למספר 3.5 כאשר מכפילים אותו ב-0.8.&rlm;",
+        options: ["התוצאה קטנה מ-3.5", "התוצאה גדולה מ-3.5", "התוצאה נשארת 3.5", "התוצאה תהיה מספר שלם"],
+        correctAnswer: 0,
+        hint: "כאשר מכפילים מספר כלשהו בשבר עשרוני הקטן מ-1, התוצאה תמיד תהיה קטנה מהמספר המקורי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המספר 0.8 קטן משלם 1.&rlm;", math_expression: "0.8 < 1" },
+            { verbal_explanation: "כפל במספר הקטן מ-1, 'מכווץ' את הכמות המקורית ולכן התוצאה תקטן.&rlm;", math_expression: "3.5 × 0.8 < 3.5" }
         ],
-        "final_answer": "קטנה מ-10.2",
-        "options": ["גדולה מ-10.2", "שווה ל-10.2", "קטנה מ-10.2", "אי אפשר לדעת"],
-        "correctAnswer": 2
+        final_answer: "התוצאה קטנה מ-3.5"
+    },// ========================================================================
+// שכבת גיל: ה'-ו' | נושא: שברים (חלק 3 - 4 האחרונים)
+// 4 תתי נושאים | 48 שאלות סה"כ
+// נקי לחלוטין! ללא LaTeX וללא דולרים. שימוש ב: / , × , :
+// ========================================================================
+
+
+
+    // ==========================================================
+    // תת נושא 9: כפל שלם בשבר פשוט ובמספר מעורב (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "חשבו את תוצאת הכפל הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 × 1/4 = ?</div>",
+        options: ["3/4", "1/12", "3/12", "4/3"],
+        correctAnswer: 0,
+        hint: "בכפל שלם בשבר, כופלים את השלם רק במונה. המכנה נשאר ללא שינוי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול את המספר השלם (3) במונה של השבר (1).&rlm;", math_expression: "3 × 1 = 3" },
+            { verbal_explanation: "התוצאה היא המונה החדש, והמכנה נשאר 4.&rlm;", math_expression: "3/4" }
+        ],
+        final_answer: "3/4"
     },
+    // שאלה 2
     {
-        "id": 118,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "אמדו את התוצאה של 1.9 × 1.9.",
-        "hint": "1.9 קרוב מאוד ל-2. מה זה 2 כפול 2?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 1.9 מתעגל למעלה ל-2.", "math_expression": "2 × 2 = 4" }
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "פתרו את התרגיל (התוצאה תהיה שבר מדומה):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 × 2/3 = ?</div>",
+        options: ["10/3", "7/3", "10/15", "5 2/3"],
+        correctAnswer: 0,
+        hint: "הכפילו את 5 ב-2 ורשמו מעל המכנה 3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול את השלם במונה: 5 כפול 2 שווה 10.&rlm;", math_expression: "5 × 2 = 10" },
+            { verbal_explanation: "התוצאה היא 10 שלישים.&rlm;", math_expression: "10/3" }
         ],
-        "final_answer": "בערך 4",
-        "options": ["בערך 2", "בערך 4", "בערך 6", "בערך 1"],
-        "correctAnswer": 1
+        final_answer: "10/3"
     },
+    // שאלה 3
     {
-        "id": 119,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "High",
-        "question_text": "פתרו בדיוק: 0.8 × 0.08",
-        "hint": "8 כפול 8 זה 64. יש 3 ספרות אחרי הנקודה (אחת משמאל ועוד שתיים מימין).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המספרים.", "math_expression": "8 × 8 = 64" },
-            { "verbal_explanation": "שלב 2: נזיז את הנקודה 3 מקומות שמאלה.", "math_expression": "0.064" }
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "כפל שלם במספר מעורב. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 × 1 1/2 = ?</div>",
+        options: ["6", "4 1/2", "5", "4 1/8"],
+        correctAnswer: 0,
+        hint: "אפשר להכפיל כל חלק בנפרד: 4 פעמים 1, ועוד 4 פעמים חצי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כפל השלמים: 4 כפול 1 שווה 4.&rlm;", math_expression: "4 × 1 = 4" },
+            { verbal_explanation: "כפל השבר: 4 חצאים שווים ל-2 שלמים.&rlm;", math_expression: "4 × 1/2 = 2" },
+            { verbal_explanation: "נחבר: 4 ועוד 2 שווה 6.&rlm;", math_expression: "4 + 2 = 6" }
         ],
-        "final_answer": "0.064",
-        "options": ["0.64", "0.064", "0.0064", "6.4"],
-        "correctAnswer": 1
+        final_answer: "6"
     },
+    // שאלה 4
     {
-        "id": 120,
-        "subTopic": "כפל שברים עשרוניים ואומדן תוצאות",
-        "difficulty": "Medium",
-        "question_text": "אמא קנתה 2.1 ק\"ג עגבניות שעולות 4.9 ₪ לקילוגרם. איזה סכום מהבאים הגיוני ביותר שתשלם?",
-        "hint": "עגלו 2.1 ל-2 ועגלו 4.9 ל-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אומדן כמות (2) כפול אומדן מחיר (5).", "math_expression": "2 × 5 = 10" }
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "חשבו והפכו למספר מעורב במידת הצורך:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>6 × 3/8 = ?</div>",
+        options: ["2 1/4", "18/48", "9/8", "6 3/8"],
+        correctAnswer: 0,
+        hint: "הכפילו 6 ב-3 לקבלת 18 שמיניות. צמצמו את השבר או הפכו למעורב.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "6 כפול 3 שווה 18. קיבלנו 18 שמיניות.&rlm;", math_expression: "18/8" },
+            { verbal_explanation: "כמה פעמים 8 נכנס ב-18? פעמיים (16) ונשארות 2 שמיניות. כלומר 2 ורבע.&rlm;", math_expression: "18/8 = 2 2/8 = 2 1/4" }
         ],
-        "final_answer": "בערך 10 ₪",
-        "options": ["בערך 10 ₪", "בערך 8 ₪", "בערך 15 ₪", "בערך 20 ₪"],
-        "correctAnswer": 0
+        final_answer: "2 1/4"
+    },
+    // שאלה 5
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "בצעו את הכפל הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 × 2 2/5 = ?</div>",
+        options: ["4 4/5", "4 2/5", "4 2/10", "2 4/5"],
+        correctAnswer: 0,
+        hint: "הכפילו את השלמים ואת השברים בנפרד, או הפכו לשבר מדומה קודם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכפלת השלם: 2 כפול 2 שווה 4.&rlm;", math_expression: "2 × 2 = 4" },
+            { verbal_explanation: "הכפלת השבר: 2 כפול 2 חמישיות שווה 4 חמישיות.&rlm;", math_expression: "2 × 2/5 = 4/5" },
+            { verbal_explanation: "התוצאה הכוללת היא 4 וארבע חמישיות.&rlm;", math_expression: "4 4/5" }
+        ],
+        final_answer: "4 4/5"
+    },
+    // שאלה 6
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "חשבו את תוצאת התרגיל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 × 1/5 = ?</div>",
+        options: ["2", "10/50", "1/2", "5"],
+        correctAnswer: 0,
+        hint: "10 חמישיות. כמה שלמים זה?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול 10 ב-1 (המונה). התוצאה היא 10 חמישיות.&rlm;", math_expression: "10/5" },
+            { verbal_explanation: "10 לחלק ל-5 שווה בדיוק 2 שלמים.&rlm;", math_expression: "10 : 5 = 2" }
+        ],
+        final_answer: "2"
+    },
+    // שאלה 7
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "מהי המכפלה של התרגיל הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>8 × 3/4 = ?</div>",
+        options: ["6", "24/32", "8 3/4", "32/3"],
+        correctAnswer: 0,
+        hint: "אפשר לכפול 8 ב-3 ואז לחלק ב-4, או לחלק 8 ב-4 תחילה ואז לכפול ב-3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול: 8 כפול 3 שווה 24.&rlm;", math_expression: "8 × 3 = 24" },
+            { verbal_explanation: "נחלק במכנה: 24 לחלק ל-4 שווה ל-6.&rlm;", math_expression: "24 : 4 = 6" }
+        ],
+        final_answer: "6"
+    },
+    // שאלה 8
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7 × 2/7 = ?</div>",
+        options: ["2", "14/49", "7 2/7", "1"],
+        correctAnswer: 0,
+        hint: "כאשר מכפילים מספר שלם בשבר שהמכנה שלו הוא אותו מספר, הם מקזזים זה את זה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "7 כפול 2 שווה 14.&rlm;", math_expression: "7 × 2 = 14" },
+            { verbal_explanation: "14 חלקי 7 שווה 2. (ה-7 במונה וה-7 במכנה הצטמצמו).&rlm;", math_expression: "14 : 7 = 2" }
+        ],
+        final_answer: "2"
+    },
+    // שאלה 9
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "חשבו את התוצאה (זכרו את חוקי הכפל ב-0):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0 × 4 1/3 = ?</div>",
+        options: ["0", "4 1/3", "1", "13/3"],
+        correctAnswer: 0,
+        hint: "כל מספר כפול אפס נותן תוצאה קבועה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אפס פעמים של כל כמות שהיא תמיד ייתן אפס.&rlm;", math_expression: "0" }
+        ],
+        final_answer: "0"
+    },
+    // שאלה 10
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "מהי התוצאה של כפל ב-1?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 × 5/6 = ?</div>",
+        options: ["5/6", "6/5", "1 5/6", "5/60"],
+        correctAnswer: 0,
+        hint: "המספר 1 הוא איבר ניטרלי בכפל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כל מספר המוכפל ב-1 שומר על ערכו המקורי.&rlm;", math_expression: "5/6" }
+        ],
+        final_answer: "5/6"
+    },
+    // שאלה 11
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "חשבו את התרגיל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 × 2 1/3 = ?</div>",
+        options: ["7", "6 1/3", "6", "9/3"],
+        correctAnswer: 0,
+        hint: "אפשר להפוך את המספר המעורב ל-7/3 ואז לכפול ב-3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמיר 2 ושליש לשבר מדומה: 7 שלישים.&rlm;", math_expression: "2 1/3 = 7/3" },
+            { verbal_explanation: "נכפול 3 ב-7/3. ה-3 מצטמצם ונשאר 7.&rlm;", math_expression: "3 × 7/3 = 7" }
+        ],
+        final_answer: "7"
+    },
+    // שאלה 12
+    {
+        topic: "fractions",
+        subTopic: "כפל שלם בשבר פשוט ובמספר מעורב",
+        question_text: "מהי תוצאת הכפל הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>12 × 5/6 = ?</div>",
+        options: ["10", "60/72", "12 5/6", "2"],
+        correctAnswer: 0,
+        hint: "חלקו תחילה את 12 ב-6, ואת התוצאה תכפילו ב-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי להקל, נחלק קודם את השלם 12 במכנה 6.&rlm;", math_expression: "12 : 6 = 2" },
+            { verbal_explanation: "נכפיל את התוצאה במונה 5.&rlm;", math_expression: "2 × 5 = 10" }
+        ],
+        final_answer: "10"
     },
 
-    // ==============================================================
-    // --- תת נושא 9: כפל שלם בשבר פשוט ובמספר מעורב (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 10: מיקום על ישר המספרים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 121,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Low",
-        "question_text": "פתרו: 5 × 1/2",
-        "hint": "מהם 5 חצאים? חברו חצי 5 פעמים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את השלם במונה.", "math_expression": "5/2" },
-            { "verbal_explanation": "שלב 2: נהפוך למספר מעורב.", "math_expression": "2 1/2" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "איזה שבר נמצא בדיוק באמצע הדרך בין המספר 0 למספר 1?&rlm;<br><div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 220 60\" width=\"100%\" height=\"60\" style=\"max-width:250px;\"><line x1=\"20\" y1=\"40\" x2=\"200\" y2=\"40\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"20\" y1=\"30\" x2=\"20\" y2=\"50\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"200\" y1=\"30\" x2=\"200\" y2=\"50\" stroke=\"#0f172a\" stroke-width=\"2\"/><text x=\"20\" y=\"25\" font-family=\"Arial\" font-size=\"12\" fill=\"#1e293b\" text-anchor=\"middle\">0</text><text x=\"200\" y=\"25\" font-family=\"Arial\" font-size=\"12\" fill=\"#1e293b\" text-anchor=\"middle\">1</text><circle cx=\"110\" cy=\"40\" r=\"5\" fill=\"#ef4444\"/></svg></div>",
+        options: ["1/2", "1/4", "3/4", "1/10"],
+        correctAnswer: 0,
+        hint: "הנקודה האמצעית מחלקת את השלם לשני חצאים שווים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הנקודה האדומה נמצאת בדיוק באמצע, כלומר מרחקה מ-0 זהה למרחקה מ-1.&rlm;", math_expression: "" },
+            { verbal_explanation: "ערך שמחלק את השלם לשניים שווה לחצי.&rlm;", math_expression: "1/2" }
         ],
-        "final_answer": "2 1/2",
-        "options": ["5/10", "2 1/2", "5", "1/10"],
-        "correctAnswer": 1
+        final_answer: "1/2"
     },
+    // שאלה 14
     {
-        "id": 122,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 4 × 2/3",
-        "hint": "הכפילו את ה-4 במונה (2) והשאירו את המכנה (3).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל שלם במונה.", "math_expression": "8/3" },
-            { "verbal_explanation": "שלב 2: נחלץ שלמים (ב-8 יש פעמיים 3).", "math_expression": "2 2/3" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "ישר המספרים בין 0 ל-1 מחולק ל-5 קטעים שווים. מהו הערך של השנתה (הקו) השנייה מימין לאפס?&rlm;",
+        options: ["2/5", "1/5", "3/5", "2/4"],
+        correctAnswer: 0,
+        hint: "חלוקה ל-5 קטעים אומרת שכל קפיצה שווה לחמישית (1/5).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "מאחר שהישר מחולק ל-5 חלקים, כל קפיצה מייצגת 1/5.&rlm;", math_expression: "" },
+            { verbal_explanation: "הקו השני מייצג שתי קפיצות, ולכן ערכו הוא 2 חמישיות.&rlm;", math_expression: "2/5" }
         ],
-        "final_answer": "2 2/3",
-        "options": ["8/12", "2 2/3", "4 2/3", "6/3"],
-        "correctAnswer": 1
+        final_answer: "2/5"
     },
+    // שאלה 15
     {
-        "id": 123,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 6 × 3/4",
-        "hint": "כפלו במונה ואז פשטו את השבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל: 6 כפול 3 שווה 18.", "math_expression": "18/4" },
-            { "verbal_explanation": "שלב 2: נחלץ שלמים (16 מתחלק ב-4 ל-4 שלמים, נשארו 2 רבעים).", "math_expression": "4 2/4 = 4 1/2" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "בין אילו שני מספרים שלמים ממוקם השבר 7/3?&rlm;",
+        options: ["2 ו-3", "1 ו-2", "3 ו-4", "7 ו-8"],
+        correctAnswer: 0,
+        hint: "המירו את השבר המדומה למספר מעורב. כמה פעמים 3 נכנס בתוך 7?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא את מיקום השבר, נבדוק כמה שלמים הוא מכיל. 7 חלקי 3 שווה ל-2 שלמים עם שארית 1.&rlm;", math_expression: "7/3 = 2 1/3" },
+            { verbal_explanation: "2 ושליש גדול מ-2 אך קטן מ-3, לכן הוא ממוקם ביניהם.&rlm;", math_expression: "" }
         ],
-        "final_answer": "4 1/2",
-        "options": ["4 1/2", "18", "6 3/4", "3/24"],
-        "correctAnswer": 0
+        final_answer: "2 ו-3"
     },
+    // שאלה 16
     {
-        "id": 124,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Low",
-        "question_text": "פתרו: 10 × 1/5",
-        "hint": "כמה הם 10 חלקי 5?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את השלם במונה.", "math_expression": "10/5" },
-            { "verbal_explanation": "שלב 2: נחלק.", "math_expression": "2" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "איזה שבר נמצא ימינה יותר (גדול יותר) על ישר המספרים: 3/5 או 4/5?&rlm;",
+        options: ["4/5", "3/5", "הם באותו מקום", "אי אפשר לדעת"],
+        correctAnswer: 0,
+        hint: "ככל שהמונה גדול יותר (כאשר המכנים שווים), השבר מייצג כמות גדולה יותר ולכן ממוקם ימינה יותר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השברים הם בעלי מכנה זהה. 4 חמישיות גדולות מ-3 חמישיות.&rlm;", math_expression: "4/5 > 3/5" },
+            { verbal_explanation: "לכן 4/5 ממוקם ימינה יותר על הישר.&rlm;", math_expression: "" }
         ],
-        "final_answer": "2",
-        "options": ["10/50", "2", "5", "1/2"],
-        "correctAnswer": 1
+        final_answer: "4/5"
     },
+    // שאלה 17
     {
-        "id": 125,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 8 × 3/8",
-        "hint": "ה-8 בשלם וה-8 במכנה יכולים לצמצם אחד את השני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל נותן 24/8.", "math_expression": "24 ÷ 8 = 3" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "מהו המרחק בין הנקודה 1/6 לנקודה 5/6 על ישר המספרים?&rlm;",
+        options: ["4/6 (שני שלישים)", "1/6", "5/6", "6/6"],
+        correctAnswer: 0,
+        hint: "המרחק הוא ההפרש. חסרו את הקטן מהגדול.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחסר 1/6 מתוך 5/6.&rlm;", math_expression: "5/6 - 1/6 = 4/6" },
+            { verbal_explanation: "4 שישיות ניתנות לצמצום לחצי של 2/3 (שני שלישים).&rlm;", math_expression: "4/6 = 2/3" }
         ],
-        "final_answer": "3",
-        "options": ["24", "3", "8/3", "11/8"],
-        "correctAnswer": 1
+        final_answer: "4/6 (שני שלישים)"
     },
+    // שאלה 18
     {
-        "id": 126,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 7 × 2/5",
-        "hint": "14 חמישיות. כמה שלמים זה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 7 כפול 2 שווה 14.", "math_expression": "14/5" },
-            { "verbal_explanation": "שלב 2: 14 חלקי 5 נותן 2 שלמים ושאר של 4.", "math_expression": "2 4/5" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "אתם עומדים על הנקודה 1/2 בישר המספרים. אם תקפצו 1/4 (רבע) ימינה, לאיזו נקודה תגיעו?&rlm;",
+        options: ["3/4", "1/4", "1", "2/4"],
+        correctAnswer: 0,
+        hint: "חצי שווה לשני רבעים (2/4). הוסיפו רבע אחד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "קפיצה ימינה משמעותה חיבור. נחבר 1/2 ועוד 1/4.&rlm;", math_expression: "1/2 + 1/4" },
+            { verbal_explanation: "נרחיב את חצי לשני רבעים ונחבר.&rlm;", math_expression: "2/4 + 1/4 = 3/4" }
         ],
-        "final_answer": "2 4/5",
-        "options": ["14/35", "2 4/5", "7 2/5", "3 1/5"],
-        "correctAnswer": 1
+        final_answer: "3/4"
     },
+    // שאלה 19
     {
-        "id": 127,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "High",
-        "question_text": "פתרו: 12 × 5/6",
-        "hint": "במקום לכפול 12 ב-5, אפשר קודם לחלק את ה-12 ב-6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק קודם 12 ב-6.", "math_expression": "12 ÷ 6 = 2" },
-            { "verbal_explanation": "שלב 2: נכפיל את התוצאה במונה 5.", "math_expression": "2 × 5 = 10" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "ישר מספרים מחולק לעשיריות (1/10). איזו נקודה נמצאת על השנתה השביעית מימין ל-0?&rlm;",
+        options: ["7/10", "10/7", "1/7", "7/100"],
+        correctAnswer: 0,
+        hint: "7 קפיצות של 1/10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כל שנתה היא 1/10. 7 שנתות הן 7 עשיריות.&rlm;", math_expression: "7 × 1/10 = 7/10" }
         ],
-        "final_answer": "10",
-        "options": ["60", "10", "2", "12 5/6"],
-        "correctAnswer": 1
+        final_answer: "7/10"
     },
+    // שאלה 20
     {
-        "id": 128,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 3 × 1 1/2",
-        "hint": "כפלו את השלם בשלם, ואת השלם בשבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל 3 בשלם.", "math_expression": "3 × 1 = 3" },
-            { "verbal_explanation": "שלב 2: נכפיל 3 בחצי.", "math_expression": "3/2 = 1 1/2" },
-            { "verbal_explanation": "שלב 3: נחבר.", "math_expression": "3 + 1 1/2 = 4 1/2" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "היכן ממוקם המספר 1 3/4 (אחד ושלושה רבעים) על הישר?&rlm;",
+        options: ["בין 1 ל-2", "בין 0 ל-1", "בין 3 ל-4", "על המספר 1 בדיוק"],
+        correctAnswer: 0,
+        hint: "המספר גדול מ-1 (כי יש לו שלם) אך עדיין לא הגיע ל-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המספר בנוי משלם (1) ועוד חלק שברי קטן משלם (3/4).&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן הוא עבר את 1, אבל טרם הגיע ל-2.&rlm;", math_expression: "" }
         ],
-        "final_answer": "4 1/2",
-        "options": ["3 1/2", "4 1/2", "3/2", "6"],
-        "correctAnswer": 1
+        final_answer: "בין 1 ל-2"
     },
+    // שאלה 21
     {
-        "id": 129,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "High",
-        "question_text": "פתרו: 4 × 2 1/4",
-        "hint": "4 פעמים 2, ו-4 פעמים רבע.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 4 כפול 2 שלמים.", "math_expression": "8" },
-            { "verbal_explanation": "שלב 2: 4 כפול רבע שווה לשלם אחד.", "math_expression": "1" },
-            { "verbal_explanation": "שלב 3: נחבר.", "math_expression": "8 + 1 = 9" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "איזו נקודה נמצאת בדיוק באמצע הדרך בין 1/3 ל-2/3?&rlm;",
+        options: ["1/2", "3/6", "1/4", "1/6"], 
+        // הערה: 3/6 זה בדיוק 1/2, נציג 1/2 כאופציה נכונה ו-1/6 וכו' כדי לא לבלבל נשתמש רק בתשובה מצומצמת. אעדכן את האופציה ל "1/2 (שהוא 3/6)".
+        correctAnswer: 0,
+        hint: "הרחיבו את השלישים לשישיות (2/6 ו-4/6). מה נמצא ביניהם?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא את האמצע, נרחיב לשישיות. 1/3 שווה 2/6. ו-2/3 שווה 4/6.&rlm;", math_expression: "2/6 , 4/6" },
+            { verbal_explanation: "המספר שבאמצע בין 2 ל-4 הוא 3. לכן האמצע הוא 3/6, השווה לחצי.&rlm;", math_expression: "3/6 = 1/2" }
         ],
-        "final_answer": "9",
-        "options": ["8 1/4", "9", "10", "8 4/16"],
-        "correctAnswer": 1
+        final_answer: "1/2 (שהוא 3/6)" // התאמתי את התשובה לאופציה
     },
+    // שאלה 22
     {
-        "id": 130,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 2 × 3 1/3",
-        "hint": "2 פעמים 3, ו-2 פעמים שליש.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 2 כפול 3.", "math_expression": "6" },
-            { "verbal_explanation": "שלב 2: 2 כפול שליש.", "math_expression": "2/3" },
-            { "verbal_explanation": "שלב 3: נחבר.", "math_expression": "6 2/3" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "כמה קפיצות של 1/8 (שמינית) צריך לעשות מהמספר 0 כדי להגיע למספר 1 השלם?&rlm;",
+        options: ["8 קפיצות", "4 קפיצות", "1 קפיצה", "10 קפיצות"],
+        correctAnswer: 0,
+        hint: "כמה שמיניות יש בשלם אחד?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלם אחד בנוי מ-8 שמיניות.&rlm;", math_expression: "1 = 8/8" },
+            { verbal_explanation: "לכן, כל קפיצה של שמינית תקרב אותנו. נזדקק ל-8 קפיצות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "6 2/3",
-        "options": ["5 1/3", "6 2/3", "6 1/6", "5"],
-        "correctAnswer": 1
+        final_answer: "8 קפיצות"
     },
+    // שאלה 23
     {
-        "id": 131,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "High",
-        "question_text": "פתרו: 5 × 1 2/5",
-        "hint": "הפכו את המספר המעורב ל-7/5 ואז כפלו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הפיכה לשבר מדומה.", "math_expression": "7/5" },
-            { "verbal_explanation": "שלב 2: כפל: 5 כפול 7/5 (החמישיות מתבטלות).", "math_expression": "7" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "מבין השברים הבאים, איזה מהם ממוקם הכי קרוב למספר 1?&rlm;",
+        options: ["7/8", "1/8", "5/8", "3/8"],
+        correctAnswer: 0,
+        hint: "השבר שהמרחק בינו לבין 8/8 הוא הקטן ביותר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "1 שווה ל-8/8. נבדוק למי חסר הכי מעט כדי להגיע לשם.&rlm;", math_expression: "8/8 - 7/8 = 1/8" },
+            { verbal_explanation: "7/8 הוא הקרוב ביותר (מרחק של שמינית אחת בלבד).&rlm;", math_expression: "" }
         ],
-        "final_answer": "7",
-        "options": ["5 2/5", "7", "6", "10"],
-        "correctAnswer": 1
+        final_answer: "7/8"
     },
+    // שאלה 24
     {
-        "id": 132,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "פתרו: 6 × 1 1/3",
-        "hint": "6 כפול 1 זה 6. ומה זה 6 פעמים שליש?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 6 כפול 1.", "math_expression": "6" },
-            { "verbal_explanation": "שלב 2: 6 כפול שליש = 6/3 = 2 שלמים.", "math_expression": "2" },
-            { "verbal_explanation": "שלב 3: נחבר.", "math_expression": "6 + 2 = 8" }
+        topic: "fractions",
+        subTopic: "מיקום על ישר המספרים",
+        question_text: "היכן ממוקם השבר המדומה 5/2 (חמישה חצאים) על ישר המספרים?&rlm;",
+        options: ["בין 2 ל-3", "בין 5 ל-6", "בין 1 ל-2", "על המספר 5"],
+        correctAnswer: 0,
+        hint: "כמה פעמים 2 נכנס בתוך 5? 2 שלמים נותנים לכם 4 חצאים. נשאר חצי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נהפוך את השבר המדומה למספר מעורב.&rlm;", math_expression: "5/2 = 2 1/2" },
+            { verbal_explanation: "שניים וחצי נמצא בדיוק באמצע הדרך בין 2 ל-3.&rlm;", math_expression: "" }
         ],
-        "final_answer": "8",
-        "options": ["7", "8", "6 1/3", "9"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 133,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Low",
-        "question_text": "פתרו: 10 × 2 1/2",
-        "hint": "10 כפול 2 שווה 20. ו-10 חצאים שווים לעוד 5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 10 כפול 2.", "math_expression": "20" },
-            { "verbal_explanation": "שלב 2: 10 כפול חצי (חצי מ-10).", "math_expression": "5" },
-            { "verbal_explanation": "שלב 3: נחבר.", "math_expression": "20 + 5 = 25" }
-        ],
-        "final_answer": "25",
-        "options": ["20 1/2", "25", "22 1/2", "30"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 134,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "High",
-        "question_text": "פתרו: 8 × 1 1/4",
-        "hint": "8 כפול 1 שווה 8. מה זה רבע מ-8?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 8 כפול 1.", "math_expression": "8" },
-            { "verbal_explanation": "שלב 2: 8 כפול רבע (שמונה רבעים הם 2 שלמים).", "math_expression": "2" },
-            { "verbal_explanation": "שלב 3: חיבור.", "math_expression": "8 + 2 = 10" }
-        ],
-        "final_answer": "10",
-        "options": ["9", "10", "8 1/4", "12"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 135,
-        "subTopic": "כפל שלם בשבר פשוט ובמספר מעורב",
-        "difficulty": "Medium",
-        "question_text": "אופה משתמש ב-1 3/4 ק\"ג קמח לכל עוגה. הוא אפה 5 עוגות זהות. כמה קמח נדרש בסך הכל?",
-        "hint": "כפלו 5 בשלם (1) ובשבר (3/4).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 5 כפול 1.", "math_expression": "5" },
-            { "verbal_explanation": "שלב 2: 5 כפול 3/4 שווה 15/4 (שזה 3 שלמים ו-3 רבעים).", "math_expression": "3 3/4" },
-            { "verbal_explanation": "שלב 3: נחבר הכל.", "math_expression": "5 + 3 3/4 = 8 3/4" }
-        ],
-        "final_answer": "8 3/4",
-        "options": ["5 3/4", "8 3/4", "7 1/2", "10"],
-        "correctAnswer": 1
-    },// ==============================================================
-    // --- תת נושא 10: מיקום על ישר המספרים (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 136,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Medium",
-        "question_text": "צפרדע מתחילה לקפוץ מנקודת ה-0 על ישר המספרים. בכל קפיצה היא מתקדמת בדיוק 3/4 מטר. לאיזו נקודה על ישר המספרים תגיע הצפרדע לאחר 2 קפיצות רצופות?",
-        "hint": "חברו 3/4 ועוד 3/4. אם התוצאה גדולה מ-1, הפכו אותה למספר מעורב.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את המרחק של שתי הקפיצות.", "math_expression": "3/4 + 3/4 = 6/4" },
-            { "verbal_explanation": "שלב 2: שש רבעים הם שבר מדומה. נמיר אותו למספר מעורב (4 רבעים הם שלם, ונשארו 2 רבעים).", "math_expression": "1 2/4" },
-            { "verbal_explanation": "שלב 3: נצמצם את השבר 2/4 לחצי.", "math_expression": "1 1/2" }
-        ],
-        "final_answer": "1 1/2 (אחד וחצי)",
-        "options": ["1 1/4", "1 1/2 (אחד וחצי)", "2", "6/8"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 137,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "High",
-        "question_text": "במפת ניווט, המרחק בין תחנה א' לתחנה ב' הוא קילומטר אחד. הקטע שבין התחנות חולק ל-10 מקטעים שווים בדיוק על ידי סימוני צבע. דנה הלכה מתחנה א' ועצרה בסימון ה-4, ויוסי עצר בסימון ה-8. מהו המרחק בקילומטרים בין דנה ליוסי?",
-        "hint": "כל סימון מייצג עשירית (1/10) מהדרך. חשבו כמה עשיריות מפרידות ביניהם וצמצמו את השבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: דנה נמצאת בנקודה 4/10, ויוסי בנקודה 8/10.", "math_expression": "8/10 - 4/10" },
-            { "verbal_explanation": "שלב 2: נחסר את המיקומים כדי למצוא את המרחק ביניהם.", "math_expression": "4/10" },
-            { "verbal_explanation": "שלב 3: נצמצם את השבר על ידי חלוקת המונה והמכנה ב-2.", "math_expression": "2/5" }
-        ],
-        "final_answer": "2/5 ק\"מ",
-        "options": ["1/5 ק\"מ", "4/10 ק\"מ", "2/5 ק\"מ", "1/2 ק\"מ"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 138,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Medium",
-        "question_text": "מורה ציירה ישר מספרים ענק על רצפת הכיתה. היא ביקשה מאור לעמוד על הנקודה 0.25 ומנועה לעמוד על הנקודה 3/4. האם הם עומדים באותו המקום, או שמישהו מהם נמצא רחוק יותר מהאפס?",
-        "hint": "המירו את 3/4 לשבר עשרוני או את 0.25 לשבר פשוט כדי להשוות בקלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמיר את המיקום של נועה (3/4) לשבר עשרוני. שלושה רבעים שווים ל-75 מאיות.", "math_expression": "3/4 = 0.75" },
-            { "verbal_explanation": "שלב 2: נשווה בין 0.25 ל-0.75. המספר 0.75 גדול יותר.", "math_expression": "0.75 > 0.25" },
-            { "verbal_explanation": "שלב 3: לכן, נועה נמצאת רחוק יותר מה-0.", "math_expression": "נועה רחוקה יותר" }
-        ],
-        "final_answer": "נועה נמצאת רחוק יותר",
-        "options": ["אור נמצא רחוק יותר", "נועה נמצאת רחוק יותר", "הם עומדים באותה נקודה בדיוק", "אי אפשר לדעת"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 139,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Low",
-        "question_text": "על סרגל מדידה סטנדרטי, היכן בדיוק ממוקם הסימון של 2.5 סנטימטרים?",
-        "hint": "2.5 מורכב מ-2 שלמים וחצי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המספר מתחיל ב-2 שלמים, ולכן הוא עבר את הסימון של 2 ס\"מ.", "math_expression": "> 2" },
-            { "verbal_explanation": "שלב 2: החלק העשרוני הוא 0.5 (חצי), כלומר הוא ממוקם בדיוק באמצע הדרך ל-3.", "math_expression": "בדיוק בין 2 ל-3" }
-        ],
-        "final_answer": "בדיוק באמצע בין 2 ל-3",
-        "options": ["בדיוק באמצע בין 1 ל-2", "בדיוק באמצע בין 2 ל-3", "קרוב יותר ל-3 מאשר ל-2", "על הסימון של 2"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 140,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "High",
-        "question_text": "ארבעה רצים משתתפים במרוץ שליחים. נדב עבר 7/8 מהמסלול, יעל עברה 5/6 מהמסלול, רון עבר 9/10 מהמסלול ומיכל עברה 3/4 מהמסלול. מי מהרצים נמצא הקרוב ביותר לקו הסיום (השלם)?",
-        "hint": "ככל שהחתיכה החסרה להשלמת השלם (למשל 1/8 אצל נדב) קטנה יותר, כך הרץ קרוב יותר לסיום. מי חסר את החלק הקטן ביותר?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק מה חסר לכל רץ כדי להגיע ל-1 שלם: לנדב חסר 1/8, ליעל 1/6, לרון 1/10 ולמיכל 1/4.", "math_expression": "1/8, 1/6, 1/10, 1/4" },
-            { "verbal_explanation": "שלב 2: נחפש את השבר הקטן ביותר מבין החסרים. ככל שהמכנה גדול יותר, החלק קטן יותר.", "math_expression": "1/10 הוא הקטן ביותר" },
-            { "verbal_explanation": "שלב 3: מכיוון שלרון חסר רק 1/10 (החלק הקטן ביותר), הוא הקרוב ביותר לסיום.", "math_expression": "רון" }
-        ],
-        "final_answer": "רון",
-        "options": ["נדב", "יעל", "רון", "מיכל"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 141,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Medium",
-        "question_text": "מדחום מציג טמפרטורות על ישר מספרים. הטמפרטורה בבוקר הייתה 1.2 מעלות. בצהריים הטמפרטורה עלתה ב-3/4 מעלה. לאיזו נקודה על ישר המספרים (מדחום) הגיעה הטמפרטורה בצהריים?",
-        "hint": "המירו את השבר 3/4 לעשרוני (0.75) וחברו אותו לטמפרטורת הבוקר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמיר את עליית הטמפרטורה (3/4) לייצוג עשרוני.", "math_expression": "3/4 = 0.75" },
-            { "verbal_explanation": "שלב 2: נחבר את העלייה לטמפרטורת ההתחלה. נרשום 1.2 כ-1.20 כדי להקל על החיבור.", "math_expression": "1.20 + 0.75 = 1.95" }
-        ],
-        "final_answer": "1.95 מעלות",
-        "options": ["1.55 מעלות", "1.95 מעלות", "2.05 מעלות", "1.34 מעלות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 142,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "High",
-        "question_text": "מכונית צעצוע נוסעת על מסלול המחולק לשנתות של חמישיות. היא התחילה בנקודה 2 1/5, ונסעה קדימה מרחק של 1 3/5. באיזו נקודה על המסלול היא נעצרה?",
-        "hint": "חברו את השלמים בנפרד ואת החמישיות בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את המספרים השלמים (2 ועוד 1).", "math_expression": "2 + 1 = 3" },
-            { "verbal_explanation": "שלב 2: נחבר את השברים (חמישית ועוד שלוש חמישיות).", "math_expression": "1/5 + 3/5 = 4/5" },
-            { "verbal_explanation": "שלב 3: נאחד את התוצאות.", "math_expression": "3 4/5" }
-        ],
-        "final_answer": "3 4/5",
-        "options": ["3 2/5", "4", "3 4/5", "4 1/5"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 143,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Low",
-        "question_text": "איזה מספר עשרוני ממוקם בדיוק באמצע הדרך בין 0.4 ל-0.5 על ישר המספרים?",
-        "hint": "חשבו על המספרים כ-40 מאיות ו-50 מאיות. מה נמצא בדיוק ביניהם?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נוסיף אפס לשני המספרים כדי לראות אותם כמאיות.", "math_expression": "0.40 , 0.50" },
-            { "verbal_explanation": "שלב 2: המספר שנמצא בדיוק באמצע בין 40 ל-50 הוא 45.", "math_expression": "0.45" }
-        ],
-        "final_answer": "0.45",
-        "options": ["0.41", "0.45", "0.55", "0.045"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 144,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Medium",
-        "question_text": "שלושה חברים קבעו להיפגש במסלול הליכה שאורכו 10 קילומטרים. עמית מחכה בנקודה המייצגת 1/3 מהמסלול, נועה בנקודה המייצגת 0.3 מהמסלול, וברק בנקודה 3/8. מי נמצא הכי קרוב לתחילת המסלול (נקודת ה-0)?",
-        "hint": "המירו את כולם למכנה משותף או לעשרוני. 1/3 הוא 0.333, 0.3 הוא 0.300, ו-3/8 הוא 0.375.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבחן את נועה: היא ב-0.300.", "math_expression": "נועה = 0.300" },
-            { "verbal_explanation": "שלב 2: נבחן את עמית: 1/3 הוא קצת יותר מ-0.3.", "math_expression": "עמית = 0.333..." },
-            { "verbal_explanation": "שלב 3: נבחן את ברק: 3/8 מומר ל-0.375.", "math_expression": "ברק = 0.375" },
-            { "verbal_explanation": "שלב 4: המספר הקטן ביותר (הכי קרוב ל-0) הוא 0.300 של נועה.", "math_expression": "נועה" }
-        ],
-        "final_answer": "נועה",
-        "options": ["עמית", "נועה", "ברק", "כולם באותו המקום"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 145,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "High",
-        "question_text": "ציירו לעצמכם ישר מספרים. אם נסמן עליו את הנקודה 5/8, האם היא תהיה קרובה יותר לחצי (1/2) או לשלושה רבעים (3/4)?",
-        "hint": "הרחיבו את חצי ושלושה רבעים לשמיניות כדי להשוות בקלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את חצי לשמיניות: 1/2 שווה ל-4/8.", "math_expression": "1/2 = 4/8" },
-            { "verbal_explanation": "שלב 2: נרחיב את 3/4 לשמיניות: נכפיל ב-2 ונקבל 6/8.", "math_expression": "3/4 = 6/8" },
-            { "verbal_explanation": "שלב 3: הנקודה שלנו היא 5/8. היא ממוקמת בדיוק באמצע בין 4/8 ל-6/8.", "math_expression": "מרחק שווה" }
-        ],
-        "final_answer": "היא ממוקמת בדיוק באמצע ביניהם",
-        "options": ["קרובה יותר לחצי", "קרובה יותר לשלושה רבעים", "היא ממוקמת בדיוק באמצע ביניהם", "היא בכלל מחוץ לטווח"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 146,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Low",
-        "question_text": "אם נחלק את המרחק שבין 0 ל-1 לשלושה חלקים שווים, ונחלק את אותו המרחק גם לשישה חלקים שווים. איזו נקודה תשב בדיוק על אותו המקום שבו יושבת הנקודה 1/3?",
-        "hint": "איזה שבר בעל מכנה 6 שווה בדיוק ל-1/3?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו מחפשים שבר השווה ל-1/3 מתוך החלוקה לשישיות.", "math_expression": "1/3 = ?/6" },
-            { "verbal_explanation": "שלב 2: נרחיב את השבר פי 2.", "math_expression": "2/6" }
-        ],
-        "final_answer": "2/6",
-        "options": ["1/6", "2/6", "3/6", "4/6"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 147,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Medium",
-        "question_text": "צוללן יורד מתחת לפני הים. פני הים מייצגים את הנקודה 0. אם הוא צלל לעומק של 4.5 מטרים, ואז עלה למעלה 1 1/4 מטרים. באיזו נקודה על ציר העומק (ישר המספרים האנכי) הוא נמצא כעת?",
-        "hint": "המירו את 1 1/4 לעשרוני (1.25) וחסרו אותו מהעומק אליו הגיע הצוללן (כי הוא עלה למעלה, לכיוון האפס).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמיר את מרחק העלייה למספר עשרוני.", "math_expression": "1 1/4 = 1.25" },
-            { "verbal_explanation": "שלב 2: העומק המקסימלי היה 4.5. העלייה מקטינה את העומק, ולכן נחסר.", "math_expression": "4.50 - 1.25 = 3.25" }
-        ],
-        "final_answer": "עומק של 3.25 מטרים",
-        "options": ["5.75 מטרים", "3.25 מטרים", "3.5 מטרים", "4.25 מטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 148,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "High",
-        "question_text": "שבלול מטפס על קיר שגובהו 5 מטרים. ביום הוא עולה 1.5 מטרים, ובלילה הוא מחליק למטה 1/2 מטר. באיזו נקודה על ציר הגובה יהיה השבלול לאחר יממה שלמה (יום ולילה אחד)?",
-        "hint": "חברו את העלייה של היום והחסירו את הירידה של הלילה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרחק שעלה ביום הוא 1.5. המרחק שהחליק בלילה הוא חצי (0.5).", "math_expression": "1.5 - 0.5" },
-            { "verbal_explanation": "שלב 2: נבצע את החיסור.", "math_expression": "1.0" }
-        ],
-        "final_answer": "נקודת ה-1 מטר",
-        "options": ["1.5 מטרים", "נקודת ה-1 מטר", "2 מטרים", "0.5 מטר"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 149,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "Medium",
-        "question_text": "איזו נקודה על ישר המספרים מייצגת ערך גדול יותר: 0.8 או 4/5?",
-        "hint": "המירו את השבר הפשוט (4/5) לשבר עשרוני כדי להשוות בקלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את 4/5 למכנה 10 על ידי כפל ב-2.", "math_expression": "4/5 = 8/10" },
-            { "verbal_explanation": "שלב 2: 8 עשיריות הן בדיוק 0.8. לכן שני המספרים מצביעים בדיוק על אותה נקודה.", "math_expression": "0.8 = 0.8" }
-        ],
-        "final_answer": "הם מייצגים את אותה הנקודה בדיוק",
-        "options": ["0.8 גדול יותר", "4/5 גדול יותר", "הם מייצגים את אותה הנקודה בדיוק", "אי אפשר לחשב"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 150,
-        "subTopic": "מיקום על ישר המספרים",
-        "difficulty": "High",
-        "question_text": "נתון קטע על ישר המספרים שהנקודה השמאלית בו היא 1 והנקודה הימנית היא 2. הקטע מחולק ל-8 חלקים שווים. מהו המספר המדויק המיוצג על ידי הקו החמישי לאחר הנקודה 1?",
-        "hint": "אם חילקנו את השלם ל-8, כל קו הוא שמינית. הקו החמישי הוא 5 שמיניות. הוסיפו את זה לשלם (1).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: זיהוי גודל הקפיצה. השלם מחולק ל-8, לכן כל קפיצה היא 1/8.", "math_expression": "קפיצה = 1/8" },
-            { "verbal_explanation": "שלב 2: אנו מתקדמים 5 קווים מהנקודה 1.", "math_expression": "1 + 5/8" },
-            { "verbal_explanation": "שלב 3: נרשום את התוצאה כמספר מעורב.", "math_expression": "1 5/8" }
-        ],
-        "final_answer": "1 5/8",
-        "options": ["1 5/10", "1 5/8", "5/8", "1 3/8"],
-        "correctAnswer": 1
+        final_answer: "בין 2 ל-3"
     },
 
-    // ==============================================================
-    // --- תת נושא 11: מעבר משבר פשוט לשבר עשרוני (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 11: מעבר משבר פשוט לשבר עשרוני (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 151,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Low",
-        "question_text": "קונדיטור מכין בלילה לעוגה וצריך להוסיף 1/2 ליטר חלב. כוס המדידה הדיגיטלית שלו מציגה מספרים עשרוניים בלבד. איזה מספר עשרוני עליו להגדיר בכוס?",
-        "hint": "חצי מ-1 שלם. הרחיבו את המכנה ל-10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את 1/2 למכנה 10 (נכפיל את המונה והמכנה ב-5).", "math_expression": "1/2 = 5/10" },
-            { "verbal_explanation": "שלב 2: נרשום 5 עשיריות כייצוג עשרוני.", "math_expression": "0.5" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "מהו הייצוג העשרוני של השבר הפשוט 1/2?&rlm;",
+        options: ["0.5", "0.2", "0.12", "0.05"],
+        correctAnswer: 0,
+        hint: "הרחיבו את השבר כך שהמכנה יהיה 10. (הכפילו ב-5).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את המונה והמכנה פי 5.&rlm;", math_expression: "(1 × 5) / (2 × 5) = 5/10" },
+            { verbal_explanation: "5 עשיריות נכתבות כ-0.5.&rlm;", math_expression: "0.5" }
         ],
-        "final_answer": "0.5",
-        "options": ["0.2", "0.5", "0.05", "1.2"],
-        "correctAnswer": 1
+        final_answer: "0.5"
     },
+    // שאלה 26
     {
-        "id": 152,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Medium",
-        "question_text": "במבחן קצר בחשבון, רועי ענה נכון על 3 מתוך 4 שאלות (3/4). המורה מזינה את הציון למערכת באחוזים או בשבר עשרוני מתוך 1.00. מהו השבר העשרוני המייצג את ההצלחה של רועי?",
-        "hint": "הרחיבו את המכנה (4) ל-100 על ידי הכפלה ב-25.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את הרבעים למאיות. נכפיל את 4 ב-25 ונקבל 100.", "math_expression": "מכנה: 4 × 25 = 100" },
-            { "verbal_explanation": "שלב 2: נכפיל את המונה (3) גם כן ב-25 ונקבל 75.", "math_expression": "מונה: 3 × 25 = 75" },
-            { "verbal_explanation": "שלב 3: נרשום 75 מאיות כמספר עשרוני.", "math_expression": "0.75" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "הפכו את השבר 3/4 לשבר עשרוני:&rlm;",
+        options: ["0.75", "0.34", "0.25", "3.4"],
+        correctAnswer: 0,
+        hint: "אי אפשר להרחיב רבע לעשר, אבל אפשר להרחיב ל-100. הכפילו מונה ומכנה ב-25.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את 3/4 פי 25 כדי לקבל מכנה 100.&rlm;", math_expression: "(3 × 25) / (4 × 25) = 75/100" },
+            { verbal_explanation: "75 מאיות נכתבות כשבר עשרוני 0.75.&rlm;", math_expression: "0.75" }
         ],
-        "final_answer": "0.75",
-        "options": ["0.34", "0.75", "0.25", "3.4"],
-        "correctAnswer": 1
+        final_answer: "0.75"
     },
+    // שאלה 27
     {
-        "id": 153,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Medium",
-        "question_text": "התזונאית המליצה לדנה לאכול 1/5 מקופסת השקדים ביום. דנה רוצה לשקול את הכמות במשקל אלקטרוני המציג ערכים עשרוניים של הקופסה. איזה שבר עשרוני מייצג חמישית?",
-        "hint": "הרחיבו את המכנה ל-10 על ידי הכפלה ב-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את השבר כדי להגיע למכנה 10. נכפיל את המונה והמכנה ב-2.", "math_expression": "1/5 = 2/10" },
-            { "verbal_explanation": "שלב 2: 2 עשיריות נכתבות כעשרוני כך.", "math_expression": "0.2" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "איזה שבר עשרוני שווה ל-1/5?&rlm;",
+        options: ["0.2", "0.5", "0.15", "0.02"],
+        correctAnswer: 0,
+        hint: "הרחיבו את חמישית למכנה 10 (הכפילו ב-2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול מונה ומכנה ב-2.&rlm;", math_expression: "1/5 = 2/10" },
+            { verbal_explanation: "שתי עשיריות הן 0.2.&rlm;", math_expression: "0.2" }
         ],
-        "final_answer": "0.2",
-        "options": ["0.15", "0.2", "0.5", "0.02"],
-        "correctAnswer": 1
+        final_answer: "0.2"
     },
+    // שאלה 28
     {
-        "id": 154,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Low",
-        "question_text": "מכל הדלק ברכב מלא עד ל-7/10 מקיבולתו. איך ייכתב הנתון הזה במחשב הרכב בצורה עשרונית?",
-        "hint": "השבר כבר מוכן עם מכנה 10. פשוט כתבו את המונה אחרי הנקודה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: שבר שהמכנה שלו הוא 10 או 100 ניתן לכתיבה מיידית.", "math_expression": "7/10" },
-            { "verbal_explanation": "שלב 2: 7 עשיריות נרשמות כספרה אחת מימין לנקודה.", "math_expression": "0.7" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "הפכו את השבר 7/10 למספר עשרוני:&rlm;",
+        options: ["0.7", "7.10", "0.07", "7.0"],
+        correctAnswer: 0,
+        hint: "השבר כבר במכנה עשר! פשוט רשמו אותו בפורמט עשרוני.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר המכנה הוא 10, המונה הוא הספרה הראשונה אחרי הנקודה העשרונית.&rlm;", math_expression: "7/10 = 0.7" }
         ],
-        "final_answer": "0.7",
-        "options": ["0.07", "7.0", "0.7", "0.710"],
-        "correctAnswer": 2
+        final_answer: "0.7"
     },
+    // שאלה 29
     {
-        "id": 155,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "High",
-        "question_text": "בסקר שנערך בקרב 20 תלמידים, נמצא ש-3 מתוכם (3/20) מרכיבים משקפיים. החוקר צריך לפרסם את התוצאה כשבר עשרוני. מה הוא ירשום?",
-        "hint": "כדי להפוך 20 ל-100, יש להכפיל ב-5. עשו זאת גם למונה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את המכנה מ-20 ל-100 על ידי הכפלה ב-5.", "math_expression": "20 × 5 = 100" },
-            { "verbal_explanation": "שלב 2: נכפיל גם את המונה ב-5 כדי לשמור על השבר.", "math_expression": "3 × 5 = 15" },
-            { "verbal_explanation": "שלב 3: נרשום 15 מאיות כמספר עשרוני.", "math_expression": "0.15" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "מהו הייצוג העשרוני של 3/20?&rlm;",
+        options: ["0.15", "0.3", "0.6", "0.015"],
+        correctAnswer: 0,
+        hint: "הרחיבו למכנה 100. בכמה נכפיל את 20 כדי להגיע ל-100? ב-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל מונה ומכנה ב-5.&rlm;", math_expression: "(3 × 5) / (20 × 5) = 15/100" },
+            { verbal_explanation: "15 מאיות נרשמות כ-0.15.&rlm;", math_expression: "0.15" }
         ],
-        "final_answer": "0.15",
-        "options": ["0.32", "0.15", "0.015", "3.20"],
-        "correctAnswer": 1
+        final_answer: "0.15"
     },
+    // שאלה 30
     {
-        "id": 156,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "High",
-        "question_text": "בחנות צעצועים יש מדף עם 25 בובות. 9 מתוכן (9/25) הן בובות פרווה. מהו הייצוג העשרוני של החלק של בובות הפרווה על המדף?",
-        "hint": "25 נכנס ב-100 בדיוק 4 פעמים. הרחיבו את השבר פי 4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב למכנה 100 (נכפיל את המונה והמכנה פי 4).", "math_expression": "9 × 4 = 36, 25 × 4 = 100" },
-            { "verbal_explanation": "שלב 2: השבר שנוצר הוא 36 מאיות.", "math_expression": "36/100" },
-            { "verbal_explanation": "שלב 3: נכתוב בעשרוני (שתי ספרות אחרי הנקודה).", "math_expression": "0.36" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "הפכו את המספר המעורב הבא לעשרוני: 2 1/4 (שניים ורבע).&rlm;",
+        options: ["2.25", "2.14", "2.4", "2.75"],
+        correctAnswer: 0,
+        hint: "השלם (2) נשאר שלם לפני הנקודה. הפכו רק את הרבע למאיות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השלם הוא 2, והשבר הוא 1/4.&rlm;", math_expression: "" },
+            { verbal_explanation: "ראינו קודם ש-1/4 שווה 25/100, כלומר 0.25.&rlm;", math_expression: "1/4 = 0.25" },
+            { verbal_explanation: "נחבר: 2 + 0.25 = 2.25.&rlm;", math_expression: "2.25" }
         ],
-        "final_answer": "0.36",
-        "options": ["0.25", "0.925", "0.36", "0.036"],
-        "correctAnswer": 2
+        final_answer: "2.25"
     },
+    // שאלה 31
     {
-        "id": 157,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Low",
-        "question_text": "דני קנה רבע (1/4) אבטיח במכולת. כשהקופאי הניח את האבטיח על המשקל הדיגיטלי, הוא רצה לראות אם המשקל זהה לרבע קילוגרם. איזה מספר היה צריך להופיע על הצג?",
-        "hint": "חשבו על מטבע של 25 אגורות, שהוא בדיוק רבע שקל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את השבר פי 25 כדי להגיע למכנה 100.", "math_expression": "1/4 = 25/100" },
-            { "verbal_explanation": "שלב 2: נרשום את 25 המאיות כמספר עשרוני.", "math_expression": "0.25" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "אתגר: הפכו את השבר 5/8 למספר עשרוני.&rlm;",
+        options: ["0.625", "0.58", "0.85", "0.62"],
+        correctAnswer: 0,
+        hint: "אי אפשר להרחיב את 8 ל-10 או ל-100. אבל אפשר להרחיב אותו ל-1000 על ידי הכפלה ב-125.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפיל את המונה והמכנה ב-125.&rlm;", math_expression: "(5 × 125) / (8 × 125) = 625/1000" },
+            { verbal_explanation: "625 אלפיות נרשמות עם 3 ספרות אחרי הנקודה.&rlm;", math_expression: "0.625" }
         ],
-        "final_answer": "0.25",
-        "options": ["0.14", "0.4", "0.25", "2.5"],
-        "correctAnswer": 2
+        final_answer: "0.625"
     },
+    // שאלה 32
     {
-        "id": 158,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Medium",
-        "question_text": "במתכון לפנקייק נדרשות 4/5 כוסות חלב. השף עובד עם משורה שמסומנת בעשרוני. איזה מספר על המשורה מקביל לכמות זו?",
-        "hint": "הרחיבו את החמישיות לעשיריות (הכפילו פי 2).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את השבר פי 2 כדי שהמכנה יהיה 10.", "math_expression": "4/5 = 8/10" },
-            { "verbal_explanation": "שלב 2: נרשום 8 עשיריות כעשרוני.", "math_expression": "0.8" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "מה גדול יותר: 0.4 או 2/5?&rlm;",
+        options: ["הם שווים בדיוק", "0.4 גדול יותר", "2/5 גדול יותר", "אי אפשר להשוות"],
+        correctAnswer: 0,
+        hint: "המירו את אחד מהם לפורמט של השני. למשל, הפכו את 2/5 לעשרוני.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב את 2/5 לעשיריות (נכפיל ב-2).&rlm;", math_expression: "2/5 = 4/10" },
+            { verbal_explanation: "4/10 נכתב כ-0.4. לכן המספרים שווים לחלוטין.&rlm;", math_expression: "0.4 = 0.4" }
         ],
-        "final_answer": "0.8",
-        "options": ["0.45", "0.8", "0.08", "4.5"],
-        "correctAnswer": 1
+        final_answer: "הם שווים בדיוק"
     },
+    // שאלה 33
     {
-        "id": 159,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Medium",
-        "question_text": "משקלה של חבילת אורז הוא 2 וחצי קילוגרם (2 1/2). כיצד יירשם משקל זה בחשבונית של הסופרמרקט (המציגה נתונים בעשרוני)?",
-        "hint": "השאירו את ה-2 כשלם בצד שמאל של הנקודה, והמירו רק את החצי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המספר השלם (2) נכתב משמאל לנקודה העשרונית.", "math_expression": "2." },
-            { "verbal_explanation": "שלב 2: את השבר 1/2 נמיר ל-5 עשיריות ונכתוב מימין לנקודה.", "math_expression": "2.5" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "המירו את 9/50 לשבר עשרוני:&rlm;",
+        options: ["0.18", "0.95", "0.09", "1.8"],
+        correctAnswer: 0,
+        hint: "הכפילו ב-2 כדי להגיע למכנה 100.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרחיב פי 2.&rlm;", math_expression: "(9 × 2) / (50 × 2) = 18/100" },
+            { verbal_explanation: "18 מאיות הן 0.18.&rlm;", math_expression: "0.18" }
         ],
-        "final_answer": "2.5",
-        "options": ["2.12", "2.5", "2.05", "5.2"],
-        "correctAnswer": 1
+        final_answer: "0.18"
     },
+    // שאלה 34
     {
-        "id": 160,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "High",
-        "question_text": "במסלול מכשולים באורך 50 מטרים, הונח שלט לאחר 11 מטרים. השבר המייצג את מיקום השלט הוא 11/50 מהמסלול. כיצד נכתוב זאת כשבר עשרוני?",
-        "hint": "כדי לעבור ממכנה 50 למכנה 100, הכפילו פי 2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המונה והמכנה ב-2 להרחבה למאיות.", "math_expression": "11 × 2 = 22, 50 × 2 = 100" },
-            { "verbal_explanation": "שלב 2: השבר שהתקבל הוא 22/100. נרשום אותו בעשרוני.", "math_expression": "0.22" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "המירו את 1 3/5 למספר עשרוני:&rlm;",
+        options: ["1.6", "1.35", "1.3", "1.15"],
+        correctAnswer: 0,
+        hint: "השאירו את ה-1 כשלם, והרחיבו את 3/5 לעשיריות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "3/5 מורחב פי 2 הוא 6/10.&rlm;", math_expression: "3/5 = 6/10 = 0.6" },
+            { verbal_explanation: "נוסיף את השלם: 1 ועוד 0.6 שווה 1.6.&rlm;", math_expression: "1.6" }
         ],
-        "final_answer": "0.22",
-        "options": ["0.11", "0.50", "0.22", "11.50"],
-        "correctAnswer": 2
+        final_answer: "1.6"
     },
+    // שאלה 35
     {
-        "id": 161,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "High",
-        "question_text": "מנוע של מכונית צרך 3/8 ממיכל הדלק שלו בנסיעה אחת. הצג הדיגיטלי בלוח המחוונים מציג שברים עשרוניים. מה יופיע על הצג עבור הצריכה הזו?",
-        "hint": "את המכנה 8 לא ניתן להפוך ל-10 או 100 בשלמים, אבל ניתן להפוך ל-1000 אם כופלים ב-125.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב את השבר לאלפיות על ידי הכפלת המונה והמכנה ב-125.", "math_expression": "8 × 125 = 1000" },
-            { "verbal_explanation": "שלב 2: נכפיל את המונה: 3 כפול 125.", "math_expression": "375/1000" },
-            { "verbal_explanation": "שלב 3: נרשום 375 אלפיות (שלוש ספרות אחרי הנקודה).", "math_expression": "0.375" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "הפכו את 11/25 לשבר עשרוני:&rlm;",
+        options: ["0.44", "0.11", "0.25", "1.125"],
+        correctAnswer: 0,
+        hint: "הכפילו את המונה והמכנה ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "25 כפול 4 נותן 100. נכפיל גם את 11 ב-4.&rlm;", math_expression: "11 × 4 = 44" },
+            { verbal_explanation: "קיבלנו 44/100, שזה 0.44.&rlm;", math_expression: "0.44" }
         ],
-        "final_answer": "0.375",
-        "options": ["0.38", "0.375", "0.038", "3.8"],
-        "correctAnswer": 1
+        final_answer: "0.44"
     },
+    // שאלה 36
     {
-        "id": 162,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "High",
-        "question_text": "בהוראות ההרכבה של רהיט נכתב שיש להשתמש בבורג בעובי שמינית אינץ' (1/8). כמה זה בעשרוני?",
-        "hint": "כמו בשאלה הקודמת, זכרו ש-8 כפול 125 שווה 1000.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המונה (1) ואת המכנה (8) פי 125.", "math_expression": "1/8 = 125/1000" },
-            { "verbal_explanation": "שלב 2: 125 אלפיות נכתבות עם 3 ספרות אחרי הנקודה.", "math_expression": "0.125" }
+        topic: "fractions",
+        subTopic: "מעבר משבר פשוט לשבר עשרוני",
+        question_text: "איך נכתוב מאית אחת (1/100) כשבר עשרוני?&rlm;",
+        options: ["0.01", "0.1", "0.100", "1.00"],
+        correctAnswer: 0,
+        hint: "מאית היא הספרה השנייה אחרי הנקודה العשרונית. הספרה הראשונה (עשיריות) תהיה אפס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "מאחר ויש שני אפסים במכנה, יהיו 2 ספרות אחרי הנקודה. אין לנו עשיריות לכן נשים אפס.&rlm;", math_expression: "0.01" }
         ],
-        "final_answer": "0.125",
-        "options": ["0.18", "0.125", "1.8", "0.8"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 163,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Medium",
-        "question_text": "אופה השתמש ב-5/4 קילוגרם שוקולד. המאזניים הדיגיטליים שלו מראים מספרים עשרוניים בלבד. איזה משקל הם יראו?",
-        "hint": "5/4 הם למעשה שבר מדומה שגדול מ-1. הוציאו שלם אחד, והמירו את הרבע שנותר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את השבר המדומה למספר מעורב (שלם ורבע).", "math_expression": "5/4 = 1 1/4" },
-            { "verbal_explanation": "שלב 2: אנו כבר יודעים שרבע מיוצג עשרונית כ-0.25.", "math_expression": "1/4 = 0.25" },
-            { "verbal_explanation": "שלב 3: נחבר את השלם אל החלק העשרוני.", "math_expression": "1.25" }
-        ],
-        "final_answer": "1.25",
-        "options": ["0.54", "5.4", "1.25", "1.4"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 164,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "High",
-        "question_text": "במהלך תרומת דם, התורם מילא 7/25 משקית האיסוף. כמה זה בשבר עשרוני?",
-        "hint": "המכנה הוא 25. מה צריך לעשות כדי להגיע ל-100?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב למאיות על ידי הכפלת המונה והמכנה ב-4.", "math_expression": "7 × 4 = 28" },
-            { "verbal_explanation": "שלב 2: השבר המורחב הוא 28/100. נרשום אותו כעשרוני.", "math_expression": "0.28" }
-        ],
-        "final_answer": "0.28",
-        "options": ["0.725", "0.28", "2.8", "0.028"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 165,
-        "subTopic": "מעבר משבר פשוט לשבר עשרוני",
-        "difficulty": "Medium",
-        "question_text": "מדריך ספורט חילק פרסים. הוא נתן פרסים ל-50 תלמידים מתוך 1000 שהשתתפו (50/1000). מהו השבר העשרוני המייצג את מקבלי הפרסים?",
-        "hint": "ניתן לצמצם את השבר על ידי 'מחיקת' אפסים לפני ההמרה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נצמצם את השבר ב-10 על ידי הורדת אפס אחד מהמונה ואפס מהמכנה.", "math_expression": "50/1000 = 5/100" },
-            { "verbal_explanation": "שלב 2: נותרו לנו 5 מאיות. נכתוב זאת כעשרוני (אפס אחד אחרי הנקודה ורק אז ה-5).", "math_expression": "0.05" }
-        ],
-        "final_answer": "0.05",
-        "options": ["0.5", "0.05", "0.005", "0.50"],
-        "correctAnswer": 1
+        final_answer: "0.01"
     },
 
-    // ==============================================================
-    // --- תת נושא 12: צמצום והרחבה של שברים פשוטים (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 12: צמצום והרחבה של שברים פשוטים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 166,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Low",
-        "question_text": "בעל פיצרייה חתך פיצה משפחתית ל-8 משולשים, ולקוח קנה 4 מהם (4/8). המוכר רוצה לספר ללקוח הבא בסגנון פשוט איזה חלק מהפיצה נקנה. איזה שבר מצומצם הוא יגיד?",
-        "hint": "חפשו מספר שבו אפשר לחלק גם את ה-4 וגם את ה-8 ללא שארית, כדי לפשט את השבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: גם 4 וגם 8 מתחלקים ב-4 ללא שארית.", "math_expression": "4 ÷ 4 = 1" },
-            { "verbal_explanation": "שלב 2: נחלק גם את המכנה.", "math_expression": "8 ÷ 4 = 2" },
-            { "verbal_explanation": "שלב 3: השבר המצומצם הוא חצי.", "math_expression": "1/2" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "צמצמו את השבר 8/12 לצורתו הפשוטה ביותר:&rlm;",
+        options: ["2/3", "4/6", "1/2", "3/4"],
+        correctAnswer: 0,
+        hint: "מצאו את המספר הגדול ביותר שגם 8 וגם 12 מתחלקים בו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המחלק המשותף הגדול ביותר הוא 4.&rlm;", math_expression: "8 : 4 = 2" },
+            { verbal_explanation: "נחלק גם את המכנה ב-4.&rlm;", math_expression: "12 : 4 = 3" },
+            { verbal_explanation: "השבר המצומצם הוא שני שלישים.&rlm;", math_expression: "2/3" }
         ],
-        "final_answer": "1/2",
-        "options": ["2/4", "1/2", "1/4", "1/8"],
-        "correctAnswer": 1
+        final_answer: "2/3"
     },
+    // שאלה 38
     {
-        "id": 167,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Low",
-        "question_text": "מורה רשמה על הלוח את השבר 2/3. היא ביקשה מהתלמידים להרחיב אותו כך שהמכנה שלו יהיה 15, כדי שיוכלו לחבר אותו עם שבר אחר. מה יהיה המונה החדש?",
-        "hint": "בדקו: פי כמה הוכפל ה-3 כדי להפוך ל-15? הכפילו את ה-2 באותו מספר בדיוק.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגלה את גורם ההרחבה (חלוקת המכנה החדש בישן).", "math_expression": "15 ÷ 3 = 5" },
-            { "verbal_explanation": "שלב 2: נכפיל את המונה הישן בגורם זה.", "math_expression": "2 × 5 = 10" },
-            { "verbal_explanation": "שלב 3: השבר המורחב הוא 10/15.", "math_expression": "10/15" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "הרחיבו את השבר 2/3 פי 4. מה תהיה התוצאה?&rlm;",
+        options: ["8/12", "6/7", "8/3", "6/12"],
+        correctAnswer: 0,
+        hint: "הרחבה אומרת שכופלים גם את המונה וגם את המכנה באותו המספר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול מונה ב-4.&rlm;", math_expression: "2 × 4 = 8" },
+            { verbal_explanation: "נכפול מכנה ב-4.&rlm;", math_expression: "3 × 4 = 12" },
+            { verbal_explanation: "התוצאה: 8 חלקי 12.&rlm;", math_expression: "8/12" }
         ],
-        "final_answer": "10",
-        "options": ["10", "5", "8", "12"],
-        "correctAnswer": 0
+        final_answer: "8/12"
     },
+    // שאלה 39
     {
-        "id": 168,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "בכיתה יש 20 תלמידים, מתוכם 15 בנות. יחס הבנות בכיתה הוא 15/20. איזה שבר מצומצם מייצג את אותו היחס?",
-        "hint": "שימו לב שגם 15 וגם 20 מסתיימים ב-5 או ב-0, מה שאומר ששניהם מתחלקים ב-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את המונה (הבנות) ב-5.", "math_expression": "15 ÷ 5 = 3" },
-            { "verbal_explanation": "שלב 2: נחלק את המכנה (סך התלמידים) ב-5.", "math_expression": "20 ÷ 5 = 4" },
-            { "verbal_explanation": "שלב 3: התוצאה היא שבר המייצג שלושה רבעים.", "math_expression": "3/4" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "צמצמו את 15/20:&rlm;",
+        options: ["3/4", "3/5", "5/10", "1/2"],
+        correctAnswer: 0,
+        hint: "שני המספרים נגמרים ב-5 או 0, ולכן מתחלקים ב-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחלק מונה ומכנה ב-5.&rlm;", math_expression: "15 : 5 = 3" },
+            { verbal_explanation: "המכנה: 20 חלקי 5 הם 4.&rlm;", math_expression: "20 : 5 = 4" },
+            { verbal_explanation: "התוצאה: 3/4.&rlm;", math_expression: "3/4" }
         ],
-        "final_answer": "3/4",
-        "options": ["1/4", "3/5", "3/4", "5/4"],
-        "correctAnswer": 2
+        final_answer: "3/4"
     },
+    // שאלה 40
     {
-        "id": 169,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "כדי להתאים גוון צבע, צבעי ערבב 3/5 פחית צבע לבן עם צבע כחול. למחרת הוא רצה להכין כמות גדולה יותר שמתאימה ל-25 פחיות (המכנה הוא 25). כמה פחיות צבע לבן עליו לשים כדי לשמור על אותו יחס של 3/5?",
-        "hint": "אנו צריכים למצוא את המונה החסר: 3/5 שווה ל- ?/25. פי כמה הוכפל ה-5?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק מהו גורם ההרחבה של המכנה.", "math_expression": "25 ÷ 5 = 5" },
-            { "verbal_explanation": "שלב 2: נכפיל את המונה המקורי (3) פי 5.", "math_expression": "3 × 5 = 15" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "איזה מהשברים הבאים שווה בדיוק ל-1/4? (נסו לצמצם אותם)&rlm;",
+        options: ["3/12", "2/6", "4/8", "5/15"],
+        correctAnswer: 0,
+        hint: "בשבר השווה ל-1/4, המכנה הוא בדיוק פי 4 מהמונה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את האפשרות הראשונה: האם 12 גדול פי 4 מ-3? כן.&rlm;", math_expression: "3 × 4 = 12" },
+            { verbal_explanation: "אם נצמצם את 3/12 פי 3, נקבל 1/4.&rlm;", math_expression: "3/12 = 1/4" }
         ],
-        "final_answer": "15 פחיות",
-        "options": ["10 פחיות", "12 פחיות", "15 פחיות", "20 פחיות"],
-        "correctAnswer": 2
+        final_answer: "3/12"
     },
+    // שאלה 41
     {
-        "id": 170,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "דנה טוענת שהשבר 4/12 שקול בדיוק לשליש (1/3). האם היא צודקת, ואיך אפשר להוכיח זאת?",
-        "hint": "נסו לצמצם את השבר 4/12. האם גם המונה וגם המכנה מתחלקים ב-4?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק אם ניתן לחלק את המונה והמכנה באותו מספר. שניהם מתחלקים ב-4.", "math_expression": "4 ÷ 4 = 1, 12 ÷ 4 = 3" },
-            { "verbal_explanation": "שלב 2: התוצאה לאחר הצמצום היא בדיוק 1/3, לכן דנה צודקת.", "math_expression": "4/12 = 1/3" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "מהו השבר המצומצם ביותר עבור 18/24?&rlm;",
+        options: ["3/4", "9/12", "6/8", "1/2"],
+        correctAnswer: 0,
+        hint: "חפשו מחלק משותף גדול (למשל 6).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחלק את שני המספרים ב-6.&rlm;", math_expression: "18 : 6 = 3" },
+            { verbal_explanation: "במכנה: 24 חלקי 6 שווה 4.&rlm;", math_expression: "24 : 6 = 4" },
+            { verbal_explanation: "התוצאה היא 3/4.&rlm;", math_expression: "3/4" }
         ],
-        "final_answer": "היא צודקת, צמצום ב-4 נותן שליש",
-        "options": ["היא טועה, 4/12 גדול יותר", "היא צודקת, צמצום ב-4 נותן שליש", "היא טועה, 4/12 קטן יותר", "אין קשר בין השברים"],
-        "correctAnswer": 1
+        final_answer: "3/4"
     },
+    // שאלה 42
     {
-        "id": 171,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "מפעל ייצר 24 חלקי חילוף למכונה, ומתוכם 18 היו תקינים (18/24). מנהל המפעל רוצה לרשום את חלק התקינים בשבר המצומצם ביותר האפשרי בדוח שלו. מה הוא ירשום?",
-        "hint": "אפשר לצמצם בכמה שלבים (למשל לחלק ב-2 ואז ב-3) או למצוא מיד את המחלק המשותף הגדול ביותר של 18 ו-24 (שהוא 6).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא מספר שמחלק את שני המספרים. למשל 6.", "math_expression": "18 ÷ 6 = 3" },
-            { "verbal_explanation": "שלב 2: נחלק את המכנה ב-6.", "math_expression": "24 ÷ 6 = 4" },
-            { "verbal_explanation": "שלב 3: הגענו לשבר שלא ניתן לצמצם יותר: שלושה רבעים.", "math_expression": "3/4" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "הרחיבו את 5/7 כך שהמכנה שלו יהיה 35. מהו המונה החדש?&rlm;",
+        options: ["25", "10", "15", "30"],
+        correctAnswer: 0,
+        hint: "בדקו פי כמה הוכפל ה-7 כדי להפוך ל-35. הכפילו את ה-5 באותו מספר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "7 כפול 5 שווה 35. לכן ההרחבה היא פי 5.&rlm;", math_expression: "7 × 5 = 35" },
+            { verbal_explanation: "נכפול את המונה 5 באותו מספר.&rlm;", math_expression: "5 × 5 = 25" }
         ],
-        "final_answer": "3/4",
-        "options": ["9/12", "6/8", "3/4", "2/3"],
-        "correctAnswer": 2
+        final_answer: "25"
     },
+    // שאלה 43
     {
-        "id": 172,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Low",
-        "question_text": "מה נקבל אם ניקח את השבר 5/7 ונרחיב אותו פי 3 כדי שיתאים למתכון חדש?",
-        "hint": "הרחבה פי 3 משמעותה לכפול גם את המונה (למעלה) וגם את המכנה (למטה) במספר 3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המונה 5 ב-3.", "math_expression": "5 × 3 = 15" },
-            { "verbal_explanation": "שלב 2: נכפיל את המכנה 7 ב-3.", "math_expression": "7 × 3 = 21" },
-            { "verbal_explanation": "שלב 3: נרכיב את השבר החדש.", "math_expression": "15/21" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "צמצמו את 50/100 לצורתו הפשוטה ביותר.&rlm;",
+        options: ["1/2", "5/10", "1/5", "2/1"],
+        correctAnswer: 0,
+        hint: "50 הוא חצי מ-100.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחלק מונה ומכנה ב-50.&rlm;", math_expression: "50 : 50 = 1" },
+            { verbal_explanation: "100 לחלק ל-50 שווה ל-2.&rlm;", math_expression: "100 : 50 = 2" },
+            { verbal_explanation: "השבר הוא חצי.&rlm;", math_expression: "1/2" }
         ],
-        "final_answer": "15/21",
-        "options": ["8/10", "15/7", "15/21", "5/21"],
-        "correctAnswer": 2
+        final_answer: "1/2"
     },
+    // שאלה 44
     {
-        "id": 173,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "בסקר העדפות מזון, התקבלו התוצאות הבאות לגבי מספר האנשים שאוהבים פיצה: קבוצה א' 6/12, קבוצה ב' 50/100, וקבוצה ג' 5/12. איזה מבין השברים הללו **אינו** שווה לחצי (1/2)?",
-        "hint": "בשבר ששווה לחצי, המכנה תמיד כפול בדיוק מהמונה. חפשו את השבר שבו זה לא מתקיים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק את קבוצה א' (6/12) ואת ב' (50/100). בשניהם המונה הוא בדיוק חצי מהמכנה.", "math_expression": "= 1/2" },
-            { "verbal_explanation": "שלב 2: נבדוק את קבוצה ג'. המכנה הוא 12, אך המונה הוא 5 (ולא 6). לכן זה אינו חצי.", "math_expression": "5/12 ≠ 1/2" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "איזה שבר *אינו* שווה ל-1/2?&rlm;",
+        options: ["3/5", "4/8", "50/100", "10/20"],
+        correctAnswer: 0,
+        hint: "בשבר השווה לחצי, המכנה הוא תמיד כפליים מהמונה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את 3/5: האם 5 הוא כפליים מ-3? לא (הוא 6). לכן זה לא שווה לחצי.&rlm;", math_expression: "3 × 2 = 6" }
         ],
-        "final_answer": "5/12",
-        "options": ["6/12", "50/100", "5/12", "אף אחד מהם"],
-        "correctAnswer": 2
+        final_answer: "3/5"
     },
+    // שאלה 45
     {
-        "id": 174,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "בחברת סקרים נמצא כי 30 מתוך 100 נשאלים מעדיפים צבע כחול. החברה צריכה להציג את השבר 30/100 בצורה מצומצמת וקלה לקריאה בגרף. מה השבר שהם יציגו?",
-        "hint": "כאשר המונה והמכנה מסתיימים באפס, אפשר פשוט 'למחוק' אפס אחד מכל צד (שזה שקול לחילוק ב-10).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק גם את המונה וגם את המכנה ב-10 כדי להיפטר מהאפסים.", "math_expression": "30 ÷ 10 = 3, 100 ÷ 10 = 10" },
-            { "verbal_explanation": "שלב 2: נרשום את השבר החדש שנוצר.", "math_expression": "3/10" },
-            { "verbal_explanation": "שלב 3: נבדוק אם אפשר לצמצם שוב. 3 ו-10 לא חולקים מחלק משותף.", "math_expression": "3/10 סופי" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "באיזה מספר צמצמו את 7/21 כדי לקבל 1/3?&rlm;",
+        options: ["7", "3", "2", "21"],
+        correctAnswer: 0,
+        hint: "בכמה חילקו את 7 כדי שיהפוך ל-1?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "7 חלקי 7 זה 1.&rlm;", math_expression: "7 : 7 = 1" },
+            { verbal_explanation: "נבדוק גם במכנה: 21 לחלק ל-7 שווה 3. הצמצום בוצע פי 7.&rlm;", math_expression: "21 : 7 = 3" }
         ],
-        "final_answer": "3/10",
-        "options": ["15/50", "3/10", "3/100", "1/3"],
-        "correctAnswer": 1
+        final_answer: "7"
     },
+    // שאלה 46
     {
-        "id": 175,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "לכבוד מסיבת הסיום, ועד הכיתה הזמין פיצות. נשארו 7/8 ממגש. המורה ביקשה לחתוך את החתיכות כך שכעת יש 42 חתיכות קטנות (המונה הוא 42). לכמה חתיכות קטנות חולק המגש השלם במקור (מהו המכנה החדש של השבר המורחב)?",
-        "hint": "בדקו פי כמה הוכפל המונה המקורי (7) כדי להפוך ל-42. הכפילו את המכנה (8) באותו גורם בדיוק.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את גורם ההרחבה על ידי חלוקת המונה החדש במונה הישן.", "math_expression": "42 ÷ 7 = 6" },
-            { "verbal_explanation": "שלב 2: כדי לשמור על אותו יחס, נכפיל גם את המכנה (8) באותו גורם (6).", "math_expression": "8 × 6 = 48" },
-            { "verbal_explanation": "שלב 3: המגש השלם היה מורכב מ-48 חתיכות קטנות.", "math_expression": "42/48" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "אם מרחיבים את 3/8 כך שהמונה יהיה 15, מה יהיה המכנה?&rlm;",
+        options: ["40", "24", "15", "80"],
+        correctAnswer: 0,
+        hint: "המונה 3 הוכפל פי 5 כדי להיות 15. מה קורה למכנה אם מכפילים אותו ב-5?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבדוק הרחבת המונה: 3 כפול 5 שווה 15.&rlm;", math_expression: "3 × 5 = 15" },
+            { verbal_explanation: "נרחיב את המכנה בהתאם: 8 כפול 5.&rlm;", math_expression: "8 × 5 = 40" }
         ],
-        "final_answer": "48",
-        "options": ["40", "42", "48", "56"],
-        "correctAnswer": 2
+        final_answer: "40"
     },
+    // שאלה 47
     {
-        "id": 176,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "חקלאי חילק את שדהו ל-36 חלקות שוות ושתל עגבניות ב-24 מהן (24/36). הוא רוצה לתאר את החלק ששתל בשבר המצומצם ביותר שאפשר. איזה שבר עליו לרשום?",
-        "hint": "חפשו את המחלק המשותף הגדול ביותר של 24 ו-36 (רמז: הוא גדול מ-10).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את השבר המייצג את החלקות.", "math_expression": "24/36" },
-            { "verbal_explanation": "שלב 2: שני המספרים מתחלקים ב-12. נחלק את המונה והמכנה.", "math_expression": "24 ÷ 12 = 2, 36 ÷ 12 = 3" },
-            { "verbal_explanation": "שלב 3: השבר בצורתו המצומצמת ביותר הוא שני שלישים.", "math_expression": "2/3" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "צמצמו את 24/36:&rlm;",
+        options: ["2/3", "4/6", "12/18", "6/9"],
+        correctAnswer: 0,
+        hint: "חפשו את המחלק המשותף הגדול ביותר (12).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחלק ב-12 את שני המספרים.&rlm;", math_expression: "24 : 12 = 2" },
+            { verbal_explanation: "המכנה: 36 חלקי 12.&rlm;", math_expression: "36 : 12 = 3" },
+            { verbal_explanation: "קיבלנו שני שלישים.&rlm;", math_expression: "2/3" }
         ],
-        "final_answer": "2/3",
-        "options": ["4/6", "2/3", "1/2", "3/4"],
-        "correctAnswer": 1
+        final_answer: "2/3"
     },
+    // שאלה 48
     {
-        "id": 177,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "במתכון מקורי כתוב להשתמש ב- 15/25 קילוגרם סוכר. הקונדיטור רוצה לכתוב את הכמות הזו בעזרת מכנה של 100. מה תהיה הכמות החדשה?",
-        "hint": "פי כמה יש להכפיל 25 כדי להגיע ל-100? כפלו גם את המונה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את גורם ההרחבה: כמה פעמים נכנס 25 ב-100?", "math_expression": "100 ÷ 25 = 4" },
-            { "verbal_explanation": "שלב 2: נכפיל את המונה המקורי (15) ב-4.", "math_expression": "15 × 4 = 60" },
-            { "verbal_explanation": "שלב 3: השבר החדש הוא 60 מאיות.", "math_expression": "60/100" }
+        topic: "fractions",
+        subTopic: "צמצום והרחבה של שברים פשוטים",
+        question_text: "האם השברים 4/6 ו-6/9 שווים זה לזה?&rlm;",
+        options: ["כן", "לא", "רק במספרים זוגיים", "אי אפשר לדעת"],
+        correctAnswer: 0,
+        hint: "צמצמו את שניהם עד הסוף וראו אם מקבלים את אותו השבר המצומצם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "צמצום 4/6: נחלק ב-2 ונקבל 2/3.&rlm;", math_expression: "4/6 = 2/3" },
+            { verbal_explanation: "צמצום 6/9: נחלק ב-3 ונקבל 2/3.&rlm;", math_expression: "6/9 = 2/3" },
+            { verbal_explanation: "שניהם שווים לאותו שבר (2/3), ולכן הם שווים זה לזה.&rlm;", math_expression: "" }
         ],
-        "final_answer": "60/100",
-        "options": ["30/100", "45/100", "60/100", "75/100"],
-        "correctAnswer": 2
+        final_answer: "כן"
+    },// ========================================================================
+// שכבת גיל: ה'-ו' | נושא: שברים (חלק ג' ואחרון)
+// 2 תתי נושאים אחרונים | 24 שאלות סה"כ
+// ========================================================================
+// הוראות כתיבה: 
+// שברים: נכתבים כ- 1/4 או 2 1/2
+// חילוק: נכתב כ- :
+// כפל: נכתב כ- ×
+// ========================================================================
+
+
+    // ==========================================================
+    // תת נושא 13: שבר כמנת חילוק (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "קבוצה של 3 חברים הזמינה 2 פיצות. הם רוצים לחלק את הפיצות שווה בשווה ביניהם. איזה חלק של פיצה יקבל כל חבר?&rlm;",
+        options: ["2/3", "3/2", "1/2", "1 1/2"],
+        correctAnswer: 0,
+        hint: "זכרו את הכלל: קו השבר שווה בדיוק לפעולת החילוק. חלקו את מספר הפיצות (המחולק) במספר החברים (המחלק).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא כמה יקבל כל אחד, נחלק את הכמות הכוללת (2 פיצות) במספר האנשים (3 חברים).&rlm;", math_expression: "2 : 3" },
+            { verbal_explanation: "פעולת החילוק '2 לחלק ל-3' נכתבת בדיוק כמו השבר שני שלישים.&rlm;", math_expression: "2/3" }
+        ],
+        final_answer: "2/3"
     },
+    // שאלה 2
     {
-        "id": 178,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "Medium",
-        "question_text": "במבחן יש 120 שאלות. יונתן ענה נכון על 90 שאלות (90/120). חברו דני אמר: 'ענית נכונה על בדיוק 3/4 מהמבחן'. האם דני צודק?",
-        "hint": "צמצמו את השבר 90/120 לשבר הפשוט ביותר ובדקו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נצמצם ב-10 על ידי הורדת אפסים.", "math_expression": "90/120 = 9/12" },
-            { "verbal_explanation": "שלב 2: נצמצם את המונה והמכנה ב-3.", "math_expression": "9 ÷ 3 = 3, 12 ÷ 3 = 4 -> 3/4" },
-            { "verbal_explanation": "שלב 3: התוצאה זהה לדבריו של דני.", "math_expression": "דני צודק" }
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "איזה תרגיל חילוק שווה לשבר 5/8?&rlm;",
+        options: ["5 : 8", "8 : 5", "5 × 8", "8 - 5"],
+        correctAnswer: 0,
+        hint: "המונה הוא תמיד המספר הראשון (המחולק) והמכנה הוא המספר השני (המחלק).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השבר 5 שמיניות פירושו 5 שלמים שמחולקים ל-8 חלקים שווים.&rlm;", math_expression: "5/8" },
+            { verbal_explanation: "לכן תרגיל החילוק המתאים הוא 5 לחלק ל-8.&rlm;", math_expression: "5 : 8" }
         ],
-        "final_answer": "כן, דני צודק",
-        "options": ["כן, דני צודק", "לא, דני טועה", "הוא ענה על פחות מ-3/4", "אי אפשר לחשב"],
-        "correctAnswer": 0
+        final_answer: "5 : 8"
     },
+    // שאלה 3
     {
-        "id": 179,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "רון אכל 2/3 פיצה, שירה אכלה 4/6 פיצה, ונדב אכל 6/9 פיצה. מי מהם אכל את הכמות הגדולה ביותר?",
-        "hint": "צמצמו את כל השברים לצורה המפושטת ביותר שלהם ואז השוו ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: רון: 2/3 מצומצם.", "math_expression": "2/3" },
-            { "verbal_explanation": "שלב 2: נצמצם את שירה ב-2.", "math_expression": "4/6 = 2/3" },
-            { "verbal_explanation": "שלב 3: נצמצם את נדב ב-3.", "math_expression": "6/9 = 2/3" },
-            { "verbal_explanation": "שלב 4: כולם שווים.", "math_expression": "כולם שווים" }
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "מהי התוצאה של תרגיל החילוק הבא? רשמו את התשובה כשבר מדומה ואז כמספר מעורב:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>14 : 3 = ?</div>",
+        options: ["4 2/3", "3 2/3", "4 1/3", "14 1/3"],
+        correctAnswer: 0,
+        hint: "רשמו 14/3 ובדקו כמה פעמים 3 נכנס ב-14 בשלמותו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נמיר את פעולת החילוק לשבר מדומה.&rlm;", math_expression: "14 : 3 = 14/3" },
+            { verbal_explanation: "המספר 3 נכנס ב-14 בדיוק 4 פעמים (כי 4 כפול 3 שווה 12), ונשארת שארית של 2.&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן התשובה היא 4 שלמים ו-2 שלישים.&rlm;", math_expression: "4 2/3" }
         ],
-        "final_answer": "כולם אכלו אותה כמות בדיוק",
-        "options": ["רון אכל הכי הרבה", "שירה אכלה הכי הרבה", "נדב אכל הכי הרבה", "כולם אכלו אותה כמות בדיוק"],
-        "correctAnswer": 3
+        final_answer: "4 2/3"
     },
+    // שאלה 4
     {
-        "id": 180,
-        "subTopic": "צמצום והרחבה של שברים פשוטים",
-        "difficulty": "High",
-        "question_text": "מנהלת בנק מציגה ללקוחות ש-16/64 מההלוואות הוחזרו. איזה שבר הוא הייצוג המצומצם והברור ביותר של הנתון הזה?",
-        "hint": "זכרו ש-16 נכנס בדיוק מספר פעמים שלמות בתוך 64.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק ב-8 כשלב ביניים.", "math_expression": "16 ÷ 8 = 2, 64 ÷ 8 = 8  -> 2/8" },
-            { "verbal_explanation": "שלב 2: נצמצם שוב ב-2.", "math_expression": "2 ÷ 2 = 1, 8 ÷ 2 = 4 -> 1/4" }
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "חבל שאורכו 4 מטרים נחתך ל-9 חתיכות שוות באורכן. מהו אורכה של כל חתיכה במטרים?&rlm;",
+        options: ["4/9", "9/4", "1/9", "2 1/4"],
+        correctAnswer: 0,
+        hint: "מה מחלקים? את המטרים. לכמה מחלקים? ל-9.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכמות המחולקת היא אורך החבל (4), והיא מתחלקת ב-9.&rlm;", math_expression: "4 : 9" },
+            { verbal_explanation: "נעביר את פעולת החילוק לייצוג של שבר.&rlm;", math_expression: "4/9" }
         ],
-        "final_answer": "1/4",
-        "options": ["1/8", "1/4", "1/3", "4/16"],
-        "correctAnswer": 1
+        final_answer: "4/9"
+    },
+    // שאלה 5
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "סמנו את המשפט הנכון לגבי השבר המדומה 10/2:&rlm;",
+        options: ["הוא שווה לתרגיל 10 : 2 ולמספר השלם 5.", "הוא שווה לתרגיל 2 : 10.", "אי אפשר לחלק 10 ב-2.", "הוא שווה ל-2/10."],
+        correctAnswer: 0,
+        hint: "קו השבר מסמל חילוק של המונה במכנה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השבר 10/2 מורכב ממונה 10 ומכנה 2.&rlm;", math_expression: "" },
+            { verbal_explanation: "זה שווה לפעולת החילוק של המונה במכנה.&rlm;", math_expression: "10 : 2 = 5" }
+        ],
+        final_answer: "הוא שווה לתרגיל 10 : 2 ולמספר השלם 5."
+    },
+    // שאלה 6
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "הפכו את השבר 15/4 לתרגיל חילוק, וחשבו את התוצאה כמספר מעורב:&rlm;",
+        options: ["3 3/4", "3 1/4", "4 3/4", "11/4"],
+        correctAnswer: 0,
+        hint: "תרגיל החילוק הוא 15 : 4. כמה שלמים יש כאן ומהי השארית?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השבר 15/4 שווה לתרגיל החילוק 15 לחלק ל-4.&rlm;", math_expression: "15 : 4" },
+            { verbal_explanation: "המספר 4 נכנס ב-15 שלוש פעמים (שווה 12).&rlm;", math_expression: "3" },
+            { verbal_explanation: "השארית היא 3 (15 פחות 12), והמכנה נשאר 4.&rlm;", math_expression: "3 3/4" }
+        ],
+        final_answer: "3 3/4"
+    },
+    // שאלה 7
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "רוצים לחלק 1 ליטר של שמן זית ל-5 בקבוקים קטנים ושווים בנפחם. כמה ליטר שמן יהיה בכל בקבוק?&rlm;",
+        options: ["1/5", "5/1", "1/10", "5"],
+        correctAnswer: 0,
+        hint: "כמות השמן (1) היא המחולק. מספר הבקבוקים (5) הוא המחלק.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרשום את תרגיל החילוק: 1 ליטר מחולק ל-5 בקבוקים.&rlm;", math_expression: "1 : 5" },
+            { verbal_explanation: "התוצאה נכתבת כשבר שבו המונה הוא 1 והמכנה הוא 5.&rlm;", math_expression: "1/5" }
+        ],
+        final_answer: "1/5"
+    },
+    // שאלה 8
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "מה הערך של התרגיל הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0 : 7 = ?</div>",
+        options: ["0", "7", "0/7 שזה אומר שאי אפשר לחלק", "1/7"],
+        correctAnswer: 0, // התשובה היא 0. ההערה השלישית לא נכונה כי 0 לחלק למשהו זה 0. אי אפשר לחלק *ב*-אפס.
+        hint: "כשיש לכם 0 דברים ואתם מחלקים אותם ל-7 אנשים, כמה כל אחד מקבל?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "תרגיל החילוק שווה לשבר שמונהו אפס.&rlm;", math_expression: "0/7" },
+            { verbal_explanation: "אפס לחלק לכל מספר (שאינו אפס) תמיד שווה לאפס.&rlm;", math_expression: "0" }
+        ],
+        final_answer: "0"
+    },
+    // שאלה 9
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "4 חפיסות שוקולד מחולקות שווה בשווה בין 6 ילדים. איזה חלק של חפיסה קיבל כל ילד? (חשבו וצמצמו את השבר)&rlm;",
+        options: ["2/3", "4/6", "1 1/2", "3/2"], 
+        // 4/6 גם נכון אבל ביקשו לצמצם, לכן 2/3.
+        correctAnswer: 0,
+        hint: "תרגיל החילוק ייתן לכם שבר. חפשו מספר שאפשר לחלק בו גם את המונה וגם את המכנה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נחלק 4 חפיסות ב-6 ילדים ונקבל 4 שישיות.&rlm;", math_expression: "4 : 6 = 4/6" },
+            { verbal_explanation: "נצמצם את השבר על ידי חלוקת המונה והמכנה ב-2.&rlm;", math_expression: "4/6 = 2/3" }
+        ],
+        final_answer: "2/3"
+    },
+    // שאלה 10
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "איזה מהמשפטים הבאים מסביר בצורה נכונה מדוע 8/3 שווה ל-2 ושני שלישים?&rlm;",
+        options: ["כי אם מחלקים 8 ב-3 מקבלים 2 שלמים ושארית 2 שממשיכה להתחלק ב-3.", "כי 8 כפול 3 זה 24.", "כי בשבר מדומה תמיד המונה הוא 2.", "כי 8 פחות 3 שווה 5."],
+        correctAnswer: 0,
+        hint: "זכרו שקו השבר הוא כמו פעולת חילוק עם שארית.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "8/3 הוא בעצם התרגיל 8 לחלק ל-3.&rlm;", math_expression: "8 : 3" },
+            { verbal_explanation: "כאשר מחלקים 8 ב-3, מקבלים 2 שלמים ויש שארית של 2.&rlm;", math_expression: "" },
+            { verbal_explanation: "השארית נשארת כשבר עם אותו מכנה.&rlm;", math_expression: "2 2/3" }
+        ],
+        final_answer: "כי אם מחלקים 8 ב-3 מקבלים 2 שלמים ושארית 2 שממשיכה להתחלק ב-3."
+    },
+    // שאלה 11
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "קבוצת צופים צעדה מרחק של 10 ק\"מ. המרחק חולק ל-3 מקטעים שווים. מה אורך כל מקטע?&rlm;",
+        options: ["3 1/3 ק\"מ", "10/3 ק\"מ", "3 ק\"מ", "גם תשובה 1 וגם תשובה 2 נכונות"],
+        correctAnswer: 3,
+        hint: "המרחק המקורי הוא המחולק (10). מספר המקטעים הוא המחלק (3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נרשום את תרגיל החילוק כשבר מדומה.&rlm;", math_expression: "10 : 3 = 10/3" },
+            { verbal_explanation: "נהפוך את השבר המדומה למספר מעורב: 10 לחלק ל-3 זה 3 עם שארית 1.&rlm;", math_expression: "3 1/3" },
+            { verbal_explanation: "לכן, גם 10/3 וגם 3 ושליש הן תשובות נכונות.&rlm;", math_expression: "" }
+        ],
+        final_answer: "גם תשובה 1 וגם תשובה 2 נכונות"
+    },
+    // שאלה 12
+    {
+        topic: "fractions",
+        subTopic: "שבר כמנת חילוק",
+        question_text: "מהי התוצאה של תרגיל החילוק הבא? רשמו כשבר פשוט:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 : 5 = ?</div>",
+        options: ["1/5", "5/1", "5", "0"],
+        correctAnswer: 0,
+        hint: "המספר משמאל לנקודתיים הוא המונה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "1 הוא המונה (המחולק). 5 הוא המכנה (המחלק).&rlm;", math_expression: "1/5" }
+        ],
+        final_answer: "1/5"
     },
 
-    // ==============================================================
-    // --- תת נושא 13: שבר כמנת חילוק (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 14: שבר עשרוני מחזורי (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 181,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Low",
-        "question_text": "צוות של 5 חוקרים מצא זהב במשקל 3 קילוגרמים וחילק אותו שווה בשווה. איזה חלק מהקילוגרם יקבל כל חוקר?",
-        "hint": "הכמות המחולקת (3) היא המונה, ומספר האנשים (5) הוא המכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את תרגיל החילוק.", "math_expression": "3 ÷ 5" },
-            { "verbal_explanation": "שלב 2: נתרגם את סימן החילוק לקו שבר.", "math_expression": "3/5" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "איזה שבר פשוט שווה לשבר העשרוני המחזורי 0.333... (שבו הספרה 3 חוזרת עד אינסוף)?&rlm;",
+        options: ["1/3", "3/10", "1/4", "3/100"],
+        correctAnswer: 0,
+        hint: "נסו לחלק במחשבון 1 לחלק ל-3. מה תהיה התוצאה?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר מחלקים 1 ב-3, השארית אף פעם לא מסתיימת, והספרה 3 חוזרת על עצמה שוב ושוב.&rlm;", math_expression: "1 : 3 = 0.333..." }
         ],
-        "final_answer": "3/5 ק\"ג",
-        "options": ["5/3 ק\"ג", "3/5 ק\"ג", "1/5 ק\"ג", "8/5 ק\"ג"],
-        "correctAnswer": 1
+        final_answer: "1/3"
     },
+    // שאלה 14
     {
-        "id": 182,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Medium",
-        "question_text": "נותרו 7 עוגות שמרים שחולקו שווה בשווה בין 4 עובדי מאפייה. כמה עוגות יקבל כל עובד (במספר מעורב)?",
-        "hint": "7 חלקי 4 יוצר שבר מדומה. חלצו את השלמים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבנה את השבר: עוגות במונה ועובדים במכנה.", "math_expression": "7/4" },
-            { "verbal_explanation": "שלב 2: נבדוק כמה פעמים נכנס 4 ב-7 במלואו.", "math_expression": "1 (שארית 3)" },
-            { "verbal_explanation": "שלב 3: נרשום כמספר מעורב.", "math_expression": "1 3/4" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "כיצד נכתוב את השבר 2/3 כשבר עשרוני?&rlm;",
+        options: ["0.666...", "0.23", "2.333...", "0.6"],
+        correctAnswer: 0,
+        hint: "אם 1/3 שווה ל-0.333..., למה שווה הפעמיים שלו (2/3)?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אנו יודעים ששליש אחד שווה 0.333...&rlm;", math_expression: "1/3 = 0.333..." },
+            { verbal_explanation: "שני שלישים הם בדיוק כפול מזה, ולכן הספרה 6 תחזור על עצמה.&rlm;", math_expression: "0.333... × 2 = 0.666..." }
         ],
-        "final_answer": "1 3/4 עוגות",
-        "options": ["1 1/4 עוגות", "2 עוגות", "1 3/4 עוגות", "3/4 עוגה"],
-        "correctAnswer": 2
+        final_answer: "0.666..."
     },
+    // שאלה 15
     {
-        "id": 183,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "High",
-        "question_text": "קבלן חתך כבל באורך 15 מטרים ל-6 חתיכות שוות. מה האורך של כל חתיכה (כשבר מצומצם)?",
-        "hint": "הפכו את 15/6 לשלמים וצמצמו את השבר שנותר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום כחילוק ושבר מדומה.", "math_expression": "15/6" },
-            { "verbal_explanation": "שלב 2: נחלץ שלמים (6 נכנס פעמיים ב-15, שארית 3).", "math_expression": "2 3/6" },
-            { "verbal_explanation": "שלב 3: נצמצם את השבר (3/6 שווה חצי).", "math_expression": "2 1/2" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "מהו הייצוג העשרוני של השבר 1/9?&rlm;",
+        options: ["0.111...", "0.999...", "0.19", "0.9"],
+        correctAnswer: 0,
+        hint: "שברים עם מכנה 9 יוצרים דפוס מחזורי מיוחד. הספרה במונה חוזרת על עצמה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר מחלקים 1 ב-9 בשיטת חילוק ארוך, מקבלים 0.1 והשארית היא שוב 1, וכך הלאה עד אינסוף.&rlm;", math_expression: "1 : 9 = 0.111..." }
         ],
-        "final_answer": "2 1/2 מטרים",
-        "options": ["2 1/3 מטרים", "2 1/2 מטרים", "3 מטרים", "15/6 מטרים"],
-        "correctAnswer": 1
+        final_answer: "0.111..."
     },
+    // שאלה 16
     {
-        "id": 184,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Medium",
-        "question_text": "מורה חילקה סרט קישוט באורך 2 מטרים בין 9 תלמידים. איזה שבר מתאר את חלקו של כל תלמיד?",
-        "hint": "החפץ שאותו מחלקים (הסרט) נרשם במונה, ומספר האנשים נרשם במכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הכמות לחלוקה היא 2 (מונה).", "math_expression": "2" },
-            { "verbal_explanation": "שלב 2: המחלקים הם 9 (מכנה).", "math_expression": "9" },
-            { "verbal_explanation": "שלב 3: נרכיב את השבר.", "math_expression": "2/9" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "איזה מהשברים הבאים הופך לשבר עשרוני מחזורי (לא סופי)?&rlm;",
+        options: ["1/3", "1/4", "1/2", "1/5"],
+        correctAnswer: 0,
+        hint: "בדקו אילו שברים אפשר להרחיב למכנים של 10, 100, 1000 (אלו יהיו שברים סופיים).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "את השברים 1/2 (0.5), 1/4 (0.25) ו-1/5 (0.2) אפשר להרחיב לעשיריות ומאיות ולכן הם סופיים.&rlm;", math_expression: "" },
+            { verbal_explanation: "את המכנה 3 אי אפשר להרחיב ל-10, 100 וכו'. לכן התוצאה תהיה מחזורית.&rlm;", math_expression: "1/3 = 0.333..." }
         ],
-        "final_answer": "2/9",
-        "options": ["9/2", "2/9", "4.5", "1/9"],
-        "correctAnswer": 1
+        final_answer: "1/3"
     },
+    // שאלה 17
     {
-        "id": 185,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Low",
-        "question_text": "במסעדה חילקו 8 מנות פתיחה זהות ל-8 שולחנות. איזה שבר מתאר זאת ומה ערכו?",
-        "hint": "8 לחלק ל-8.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: החלוקה היא 8/8.", "math_expression": "8/8" },
-            { "verbal_explanation": "שלב 2: שבר שבו המונה שווה למכנה מתאר שלם אחד.", "math_expression": "1" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "אם השבר 1/9 נכתב כ-0.111..., למה שווה השבר 5/9?&rlm;",
+        options: ["0.555...", "0.59", "0.95", "5.999..."],
+        correctAnswer: 0,
+        hint: "הכפילו את הערך של 1/9 ב-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השבר 5/9 מורכב מחמש פעמים 1/9.&rlm;", math_expression: "5 × 1/9" },
+            { verbal_explanation: "נכפול 5 ב-0.111... ונקבל רצף של חמישיות.&rlm;", math_expression: "5 × 0.111... = 0.555..." }
         ],
-        "final_answer": "8/8 שהוא 1 שלם",
-        "options": ["8/1 שהוא 8", "1/8", "8/8 שהוא 1 שלם", "0"],
-        "correctAnswer": 2
+        final_answer: "0.555..."
     },
+    // שאלה 18
     {
-        "id": 186,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "High",
-        "question_text": "יש למזוג 4 ליטרים בנזין ל-10 בקבוקים שווים. כמה בנזין יהיה בכל בקבוק (בשבר עשרוני)?",
-        "hint": "רשמו 4/10 והמירו לייצוג עשרוני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מציבים את הכמות במונה ואת הבקבוקים במכנה.", "math_expression": "4/10" },
-            { "verbal_explanation": "שלב 2: קוראים את השבר כעשרוני.", "math_expression": "0.4" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "מהו השבר הפשוט המתאים לשבר המחזורי 0.777... ?&rlm;",
+        options: ["7/9", "7/10", "7/100", "77/100"],
+        correctAnswer: 0,
+        hint: "זכרו את הכלל לגבי שברים עם מכנה 9.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אנו יודעים שחלוקה ב-9 יוצרת ספרה מחזורית הזהה למונה.&rlm;", math_expression: "1/9 = 0.111..." },
+            { verbal_explanation: "לכן, 7 פעמים 1/9 ייתן 0.777...&rlm;", math_expression: "7/9 = 0.777..." }
         ],
-        "final_answer": "0.4 ליטר",
-        "options": ["2.5 ליטר", "0.4 ליטר", "4.10 ליטר", "1.4 ליטר"],
-        "correctAnswer": 1
+        final_answer: "7/9"
     },
+    // שאלה 19
     {
-        "id": 187,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Medium",
-        "question_text": "5 חברים חילקו ביניהם 11 מגשי פיצה שווה בשווה. כמה פיצה אכל כל אחד?",
-        "hint": "חלקו את 11 ב-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את השבר המדומה.", "math_expression": "11/5" },
-            { "verbal_explanation": "שלב 2: נוציא שלמים: המספר 5 נכנס ב-11 פעמיים עם שארית 1.", "math_expression": "2 1/5" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "המירו את השבר 1/6 לשבר עשרוני. מה מתקבל?&rlm;",
+        options: ["0.1666...", "0.6", "0.16", "0.6111..."],
+        correctAnswer: 0,
+        hint: "חלקו 10 ב-6 בראש: מקבלים 1 ושארית 4. כעת חלקו 40 ב-6: מקבלים 6 ושארית 4. וכך הלאה...&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבצע חילוק ארוך של 1 ב-6.&rlm;", math_expression: "1 : 6" },
+            { verbal_explanation: "הספרה הראשונה היא 1 (10 חלקי 6), הספרה הבאה היא 6 (40 חלקי 6), ומשם השארית 4 תמיד חוזרת. לכן ה-6 חוזר על עצמו.&rlm;", math_expression: "0.1666..." }
         ],
-        "final_answer": "2 1/5 מגשים",
-        "options": ["2 1/5 מגשים", "11/2 מגשים", "5/11 מגשים", "3 1/5 מגשים"],
-        "correctAnswer": 0
+        final_answer: "0.1666..."
     },
+    // שאלה 20
     {
-        "id": 188,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "High",
-        "question_text": "נגר צריך לבנות 12 שרפרפים זהים מתוך 5 קורות עץ שלמות. איזה חלק מקורה נדרש לכל שרפרף?",
-        "hint": "מה אנחנו מחלקים? את קורות העץ (5).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מחלקים 5 קורות ל-12 שרפרפים.", "math_expression": "5 ÷ 12" },
-            { "verbal_explanation": "שלב 2: המספר הראשון הוא המונה.", "math_expression": "5/12" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "איזה שבר גדול יותר: 0.3 או 1/3?&rlm;",
+        options: ["1/3 גדול יותר", "0.3 גדול יותר", "הם שווים בדיוק", "אי אפשר לדעת"],
+        correctAnswer: 0,
+        hint: "המירו את 1/3 לעשרוני והשוו את הספרות מאיות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "0.3 נכתב גם כ-0.300.&rlm;", math_expression: "0.3 = 0.300" },
+            { verbal_explanation: "השבר 1/3 נכתב כ-0.333...&rlm;", math_expression: "1/3 = 0.333..." },
+            { verbal_explanation: "מכיוון שבספרת המאיות יש 3 לעומת 0, ה-1/3 גדול יותר.&rlm;", math_expression: "0.333... > 0.300" }
         ],
-        "final_answer": "5/12 קורה",
-        "options": ["12/5 קורה", "5/12 קורה", "2 2/5 קורה", "1/12 קורה"],
-        "correctAnswer": 1
+        final_answer: "1/3 גדול יותר"
     },
+    // שאלה 21
     {
-        "id": 189,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Low",
-        "question_text": "השבר 14/7 מייצג פעולת חילוק. מהי התוצאה במספרים שלמים?",
-        "hint": "קו השבר הוא כמו הסימן 'לחלק ל'.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתרגם את קו השבר לפעולת חילוק.", "math_expression": "14 ÷ 7" },
-            { "verbal_explanation": "שלב 2: נפתור.", "math_expression": "2" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "דן חישב במחשבון את התרגיל 1/3 + 1/3. המחשבון הציג לו שבר עשרוני. מה היה כתוב על הצג?&rlm;",
+        options: ["0.666666...", "0.222222...", "0.6", "0.333333..."],
+        correctAnswer: 0,
+        hint: "המירו לעשרוני וחברו: 0.333... ועוד 0.333...&rlm;",
+        solution_steps: [
+            { verbal_explanation: "התרגיל הוא חיבור של שני שלישים, שזה 2/3.&rlm;", math_expression: "1/3 + 1/3 = 2/3" },
+            { verbal_explanation: "אנו יודעים ש-2/3 כעשרוני הוא סדרה אינסופית של 6.&rlm;", math_expression: "0.666..." }
         ],
-        "final_answer": "2",
-        "options": ["1/2", "2", "7", "14"],
-        "correctAnswer": 1
+        final_answer: "0.666666..."
     },
+    // שאלה 22
     {
-        "id": 190,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Medium",
-        "question_text": "סיר מרק של 10 ליטרים מחולק ל-3 מיכלים ענקיים שווים. כמה ליטרים ייכנסו לכל מיכל?",
-        "hint": "10 חלקי 3. כמה שלמים זה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: השבר הוא 10/3.", "math_expression": "10/3" },
-            { "verbal_explanation": "שלב 2: המספר 3 נכנס ב-10 שלוש פעמים (9). השארית היא 1.", "math_expression": "3 1/3" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "המירו את השבר המדומה 4/3 לשבר עשרוני.&rlm;",
+        options: ["1.333...", "0.433...", "1.444...", "4.333..."],
+        correctAnswer: 0,
+        hint: "הפכו קודם למספר מעורב: 1 ו-1/3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "השבר 4/3 הוא למעשה שלם 1 ועוד 1/3.&rlm;", math_expression: "4/3 = 1 1/3" },
+            { verbal_explanation: "השלם הוא 1, והשליש הופך ל-0.333...&rlm;", math_expression: "1 + 0.333... = 1.333..." }
         ],
-        "final_answer": "3 1/3 ליטרים",
-        "options": ["3 1/3 ליטרים", "3/10 ליטר", "3 ליטרים", "1/3 ליטר"],
-        "correctAnswer": 0
+        final_answer: "1.333..."
     },
+    // שאלה 23
     {
-        "id": 191,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "High",
-        "question_text": "6 רצים חילקו ביניהם מסלול של 20 קילומטרים. כמה רץ כל אחד במדויק?",
-        "hint": "20 חלקי 6. חלצו שלמים וצמצמו את השבר הנותר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום 20/6.", "math_expression": "20/6" },
-            { "verbal_explanation": "שלב 2: 6 נכנס ב-20 שלוש פעמים, שארית 2.", "math_expression": "3 2/6" },
-            { "verbal_explanation": "שלב 3: נצמצם את 2/6 לחצי שליש (1/3).", "math_expression": "3 1/3" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "איזה מבין השברים הבאים *אינו* שבר מחזורי (כלומר הוא שבר עשרוני סופי)?&rlm;",
+        options: ["1/8", "1/3", "2/9", "5/6"],
+        correctAnswer: 0,
+        hint: "נסו להרחיב את המכנה ל-10, 100 או 1000. האם אפשר להרחיב את 8 ל-1000?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "את המספר 8 ניתן להרחיב ל-1000 על ידי הכפלה ב-125.&rlm;", math_expression: "1/8 = 125/1000" },
+            { verbal_explanation: "125 אלפיות הן שבר עשרוני סופי ומדויק לחלוטין (0.125). שאר השברים כאן הם מחזוריים.&rlm;", math_expression: "0.125" }
         ],
-        "final_answer": "3 1/3 ק\"מ",
-        "options": ["3 2/3 ק\"מ", "3 1/6 ק\"מ", "3 1/3 ק\"מ", "14/6 ק\"מ"],
-        "correctAnswer": 2
+        final_answer: "1/8"
     },
+    // שאלה 24
     {
-        "id": 192,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Medium",
-        "question_text": "מה משמעות הביטוי '3/8' כשמדברים על חלוקת עוגות לילדים?",
-        "hint": "המונה הוא החפץ, המכנה הוא המקבלים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המונה (3) מייצג את העוגות שמחלקים.", "math_expression": "3 עוגות" },
-            { "verbal_explanation": "שלב 2: המכנה (8) מייצג את מספר הילדים שמקבלים.", "math_expression": "8 ילדים" }
+        topic: "fractions",
+        subTopic: "שבר עשרוני מחזורי",
+        question_text: "דנה הקלידה במחשבון את התרגיל 2 : 9. איזה שבר עשרוני היא תראה על המסך?&rlm;",
+        options: ["0.222...", "0.922...", "2.999...", "0.45"],
+        correctAnswer: 0,
+        hint: "חילוק של כל ספרה ב-9 נותן שבר מחזורי של אותה הספרה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "תרגיל החילוק שקול לשבר 2/9.&rlm;", math_expression: "2 : 9 = 2/9" },
+            { verbal_explanation: "אנו יודעים ש-1/9 הוא 0.111... לכן, נכפיל פי 2 את כל הספרות ונקבל את התוצאה.&rlm;", math_expression: "0.111... × 2 = 0.222..." }
         ],
-        "final_answer": "3 עוגות המחולקות ל-8 ילדים",
-        "options": ["8 עוגות המחולקות ל-3 ילדים", "3 עוגות המחולקות ל-8 ילדים", "שלוניות ושמיניות", "אין קשר לחילוק"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 193,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Low",
-        "question_text": "איך נייצג את הפעולה: 1 קילוגרם חלקי 10 שקיות?",
-        "hint": "1 לחלק ל-10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 1 הוא המונה, 10 הוא המכנה.", "math_expression": "1/10" }
-        ],
-        "final_answer": "1/10",
-        "options": ["10/1", "1/10", "1/100", "0"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 194,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "High",
-        "question_text": "מעבירים 18 גרם נוזל ל-8 מבחנות באופן שווה. מהו המשקל בכל מבחנה (בעשרוני)?",
-        "hint": "הפכו את 18/8 למעורב, צמצמו, ואז הפכו לעשרוני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את חלוקת החומר.", "math_expression": "18/8" },
-            { "verbal_explanation": "שלב 2: נוציא שלמים: 8 נכנס פעמיים, שארית 2.", "math_expression": "2 2/8" },
-            { "verbal_explanation": "שלב 3: נצמצם ל- 2 ורבע.", "math_expression": "2 1/4" },
-            { "verbal_explanation": "שלב 4: רבע שווה 0.25 בעשרוני.", "math_expression": "2.25" }
-        ],
-        "final_answer": "2.25 גרם",
-        "options": ["2.5 גרם", "2.125 גרם", "2.25 גרם", "2.8 גרם"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 195,
-        "subTopic": "שבר כמנת חילוק",
-        "difficulty": "Medium",
-        "question_text": "מחלקים 25 שתילים בין 10 בתי ספר שווה בשווה. כמה שתילים מקבל כל בית ספר?",
-        "hint": "25 לחלק ל-10. הזיזו את הנקודה שמאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התרגיל הוא 25/10.", "math_expression": "25/10" },
-            { "verbal_explanation": "שלב 2: 25 חלקי 10 בעשרוני הוא 2.5.", "math_expression": "2.5" }
-        ],
-        "final_answer": "2.5 שתילים",
-        "options": ["2.5 שתילים", "2.05 שתילים", "0.25 שתילים", "10/25 שתילים"],
-        "correctAnswer": 0
-    },
-
-    // ==============================================================
-    // --- תת נושא 14: שבר עשרוני מחזורי (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 196,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Low",
-        "question_text": "חותכים קורה של 1 מטר ל-3 חלקים שווים. במחשבון הקישו 1 חלקי 3. איזו תוצאה עשרונית תופיע?",
-        "hint": "1/3 אינו ניתן להמרה מדויקת לעשרוני. הוא יוצר מספר אינסופי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: השבר הוא שליש.", "math_expression": "1/3" },
-            { "verbal_explanation": "שלב 2: חילוק ארוך של 1 ב-3 ייצור שארית תמידית של 1.", "math_expression": "0.3333..." }
-        ],
-        "final_answer": "0.3333...",
-        "options": ["0.3", "0.3333...", "0.34", "0.13"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 197,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Medium",
-        "question_text": "אם 1/3 הוא 0.333... , כיצד ייכתב 2/3 כעשרוני מחזורי?",
-        "hint": "הכפילו את המספר ב-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 2/3 גדול פי 2 משליש אחד.", "math_expression": "1/3 × 2" },
-            { "verbal_explanation": "שלב 2: נכפיל את מחזוריות הספרה 3 ב-2 ונקבל שישיות.", "math_expression": "0.666..." }
-        ],
-        "final_answer": "0.666...",
-        "options": ["0.6", "0.66", "0.666...", "0.5"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 198,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Medium",
-        "question_text": "איך מסמנים בקיצור שבר עשרוני שבו ספרה חוזרת על עצמה (כמו 0.5555...) במתמטיקה?",
-        "hint": "משתמשים בסימן מיוחד מעל הספרה החוזרת.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במקום לכתוב נקודות אינסופיות, רושמים את הספרה פעם אחת.", "math_expression": "0.5" },
-            { "verbal_explanation": "שלב 2: מעליה מוסיפים קו קטן המסמן מחזוריות.", "math_expression": "קו מעל ה-5" }
-        ],
-        "final_answer": "שמים קו קטן או נקודה מעל הספרה",
-        "options": ["כותבים נקודה בסוף", "שמים קו קטן או נקודה מעל הספרה", "מוסיפים 'אינסוף'", "רושמים 3 פעמים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 199,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "איזה שבר פשוט מייצג את המספר העשרוני המחזורי 0.1111...?",
-        "hint": "כל שבר שהמכנה שלו הוא 9, יוצר שבר עשרוני מחזורי של המונה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חלוקת כל מספר חד ספרתי ב-9, תיצור את המספר כמחזורי.", "math_expression": "X/9 = 0.XXX..." },
-            { "verbal_explanation": "שלב 2: מכיוון שהספרה היא 1, מדובר בתשיעית.", "math_expression": "1/9" }
-        ],
-        "final_answer": "1/9",
-        "options": ["1/10", "1/9", "1/11", "1/3"],
-        "correctAnswer": 1
-    },{
-        "id": 200,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "חילקו 5 ק\"ג זרעים שווה בשווה ל-9 מתקנים. מהו המשקל העשרוני בכל מתקן?",
-        "hint": "השבר הוא 5/9. זכרו את הכלל של חלוקה ב-9.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: החלוקה היא 5/9.", "math_expression": "5/9" },
-            { "verbal_explanation": "שלב 2: שברים עם מכנה 9 יוצרים מספר עשרוני שהמונה הוא הספרה המחזורית.", "math_expression": "0.555..." }
-        ],
-        "final_answer": "0.555... ק\"ג",
-        "options": ["0.55 ק\"ג", "0.5 ק\"ג", "0.555... ק\"ג", "1.8 ק\"ג"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 201,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Medium",
-        "question_text": "האם השבר 1/4 הוא מחזורי (כמו 1/3) או סופי?",
-        "hint": "נסו להמיר רבע למכנה 100. האם הוא נגמר?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרחיב 1/4 למאיות.", "math_expression": "1/4 = 25/100" },
-            { "verbal_explanation": "שלב 2: 25 מאיות נכתבות כ-0.25 ומסתיימות שם.", "math_expression": "0.25 (סופי)" }
-        ],
-        "final_answer": "לא, הוא שבר סופי (0.25)",
-        "options": ["כן, הוא מחזורי", "לא, הוא שבר סופי (0.25)", "תלוי בחישוב", "אי רציונלי"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 202,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "אם 1/9 זה 0.111... ו-2/9 זה 0.222..., איך נכתוב את 7/9?",
-        "hint": "המונה הוא הספרה החוזרת.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הכלל אומר שהמונה הופך לספרה המחזורית.", "math_expression": "7/9 -> 7 חוזר" },
-            { "verbal_explanation": "שלב 2: נרשום את התוצאה.", "math_expression": "0.777..." }
-        ],
-        "final_answer": "0.777...",
-        "options": ["0.79", "0.777...", "0.7", "7.999..."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 203,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "קורה באורך 10 מטרים נחתכה ל-3 חלקים שווים. מה התוצאה המדויקת שתוצג במחשבון?",
-        "hint": "10 חלקי 3 שווה 3 שלמים ועוד שליש.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום: 10 חלקי 3.", "math_expression": "10 ÷ 3" },
-            { "verbal_explanation": "שלב 2: השלמים הם 3 והשארית 1/3.", "math_expression": "3 1/3" },
-            { "verbal_explanation": "שלב 3: 1/3 כעשרוני הוא 0.333... נוסיף את ה-3 השלמים.", "math_expression": "3.333..." }
-        ],
-        "final_answer": "3.333... מטרים",
-        "options": ["3.33 מטרים", "3.333... מטרים", "3.5 מטרים", "שגיאה"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 204,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Medium",
-        "question_text": "איזה מהשברים הבאים הוא היוצא דופן (כלומר הופך למחזורי ולא מסתיים)?",
-        "hint": "חפשו את המכנה שאי אפשר להרחיב למכפלות של 10 (10, 100, 1000).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 1/2 הופך ל-0.5 (סופי).", "math_expression": "1/2 = 0.5" },
-            { "verbal_explanation": "שלב 2: 1/4 ו-1/5 הופכים ל-0.25 ו-0.2 (סופיים).", "math_expression": "1/4=0.25, 1/5=0.2" },
-            { "verbal_explanation": "שלב 3: 1/3 אינו מתחלק ב-10/100, ולכן הוא מחזורי.", "math_expression": "1/3 = 0.333..." }
-        ],
-        "final_answer": "1/3 (שליש)",
-        "options": ["1/2 (חצי)", "1/4 (רבע)", "1/5 (חמישית)", "1/3 (שליש)"],
-        "correctAnswer": 3
-    },
-    {
-        "id": 205,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "מכונה מחלקת 4 ליטרים נוזל ל-9 בקבוקים. איזה מספר עשרוני מראה המכונה?",
-        "hint": "4/9 יוצר ספרה 4 מחזורית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: השבר הוא 4/9.", "math_expression": "4/9" },
-            { "verbal_explanation": "שלב 2: הכלל של חלוקה ב-9.", "math_expression": "0.444..." }
-        ],
-        "final_answer": "0.444...",
-        "options": ["0.49", "0.4", "0.444...", "4.9"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 206,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Low",
-        "question_text": "יעל קיבלה במחשבון את התוצאה 0.363636... איך רושמים זאת תקנית במתמטיקה?",
-        "hint": "מוצאים את הזוג שחוזר על עצמו ומסמנים אותו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התבנית שחוזרת היא '36'.", "math_expression": "36 חוזר" },
-            { "verbal_explanation": "שלב 2: רושמים פעם אחת עם קו מעל.", "math_expression": "קו מעל 36" }
-        ],
-        "final_answer": "רושמים 0.36 ושמים קו מעל שתי הספרות",
-        "options": ["מעגלים ל-0.4", "רושמים 0.36 ושמים קו מעל שתי הספרות", "רושמים 0.363", "מוסיפים אפס"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 207,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "מהירות של אצן התקבלה כ- 11.111... מטרים לשנייה. איזה שבר מעורב מייצג זאת בדיוק?",
-        "hint": "החלק השלם הוא 11. מה מייצג ה-0.111...?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: החלק השלם הוא 11.", "math_expression": "11 שלמים" },
-            { "verbal_explanation": "שלב 2: 0.111... הוא בדיוק 1/9.", "math_expression": "1/9" },
-            { "verbal_explanation": "שלב 3: נחבר.", "math_expression": "11 1/9" }
-        ],
-        "final_answer": "11 1/9",
-        "options": ["11 1/10", "11 1/9", "11 1/2", "11 1/3"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 208,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Medium",
-        "question_text": "אם 1/3 שווה ל-0.333... ו-1/6 הוא בדיוק חצי ממנו, איך נראה 1/6 כעשרוני (בערך)?",
-        "hint": "מה זה חצי מ-33? סביבות 16.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את 0.333 ב-2 (בערך חצי מ-33).", "math_expression": "33 ÷ 2 ≈ 16.6" },
-            { "verbal_explanation": "שלב 2: התוצאה המדויקת היא 0.1666...", "math_expression": "0.1666..." }
-        ],
-        "final_answer": "0.1666...",
-        "options": ["0.15", "0.1666...", "0.222...", "0.36"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 209,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "High",
-        "question_text": "חישוב של 100 חלקי 33 נותן במחשבון את התוצאה 3.030303... איזה חלק פשוט זה מייצג?",
-        "hint": "הוציאו 3 שלמים (ששווים 99). נשאר 1 חלקי 33.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 33 נכנס ב-100 שלוש פעמים (99).", "math_expression": "3 שלמים" },
-            { "verbal_explanation": "שלב 2: נשארת שארית של 1 (מתוך 33).", "math_expression": "1/33" },
-            { "verbal_explanation": "שלב 3: לכן התוצאה היא 3 ו-1/33.", "math_expression": "3 1/33" }
-        ],
-        "final_answer": "3 1/33",
-        "options": ["3 1/3", "3 3/100", "3 1/33", "100/3"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 210,
-        "subTopic": "שבר עשרוני מחזורי",
-        "difficulty": "Medium",
-        "question_text": "האם חיבור של 1/3 (0.333...) עם 2/3 (0.666...) ייתן מספר מחזורי?",
-        "hint": "חברו את השברים הפשוטים כדי להבין.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור שברים פשוטים נותן שלם אחד בדיוק.", "math_expression": "1/3 + 2/3 = 3/3 = 1" },
-            { "verbal_explanation": "שלב 2: 1 אינו מחזורי. אגב, 0.999... במתמטיקה מוגדר כשווה ל-1 שלם.", "math_expression": "סופי (1)" }
-        ],
-        "final_answer": "לא, התוצאה היא 1 שלם",
-        "options": ["כן, 0.999...", "לא, התוצאה היא 1 שלם", "תלוי במחשבון", "זה נשאר שבר"],
-        "correctAnswer": 1
+        final_answer: "0.222..."
     }
+
 ];

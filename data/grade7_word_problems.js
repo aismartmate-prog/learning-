@@ -1,913 +1,745 @@
+// ========================================================================
+// שכבת גיל: כיתה ז' | נושא: בעיות מילוליות
+// 4 תתי נושאים | 48 שאלות סה"כ 
+// רמה: יסודית עד מתקדמת, פתרונות בשלבים מלאים, כולל הגדרת משתנים x.
+// כתיבה נקייה: ללא LaTeX, שימוש ב- × ו- :
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: בעיות קנייה ומכירה (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: בעיות קנייה ומכירה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "אייל קנה 5 מחברות ו-3 עטים. מחיר עט יקר ב-4 ש\"ח ממחיר מחברת. בסך הכל שילם אייל 52 ש\"ח. מהו <strong>מחיר מחברת אחת</strong>?",
-        "hint": "סמנו את מחיר המחברת ב-X. בטאו את מחיר העט באמצעות X ובנו משוואה לסך הקנייה.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר משתנים: מחיר מחברת = X, מחיר עט = X+4.", "math_expression": "x, x+4" },
-            { "verbal_explanation": "נבנה משוואה עבור 5 מחברות ו-3 עטים.", "math_expression": "5x + 3(x+4) = 52" },
-            { "verbal_explanation": "נפתח סוגריים ונכנס איברים.", "math_expression": "5x + 3x + 12 = 52 -> 8x = 40" },
-            { "verbal_explanation": "נחלק ב-8 למציאת X.", "math_expression": "x = 5" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "רוני קנה 5 מחברות ו-3 עטים. מחיר מחברת הוא 12 שקלים ומחיר עט הוא 8 שקלים. כמה שילם רוני בסך הכל?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 50' width='100' height='50'><rect x='10' y='10' width='30' height='30' fill='#fef08a' stroke='#ca8a04'/><line x1='15' y1='15' x2='15' y2='35' stroke='#ca8a04'/><rect x='60' y='20' width='30' height='10' fill='#3b82f6' rx='3'/><polygon points='90,20 100,25 90,30' fill='#1e3a8a'/></svg></div>",
+        options: ["84 שקלים", "60 שקלים", "104 שקלים", "72 שקלים"],
+        correctAnswer: 0,
+        hint: "חשבו בנפרד את העלות של המחברות ואת העלות של העטים, ואז חברו את התוצאות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את העלות הכוללת של המחברות. נכפול את הכמות במחיר למחברת.&rlm;", math_expression: "5 × 12 = 60" },
+            { verbal_explanation: "שלב ב': נחשב את העלות הכוללת של העטים. נכפול את הכמות במחיר לעט.&rlm;", math_expression: "3 × 8 = 24" },
+            { verbal_explanation: "שלב ג': נחבר את שני הסכומים כדי למצוא את העלות הכוללת.&rlm;", math_expression: "60 + 24 = 84" }
         ],
-        "final_answer": "5 ש\"ח",
-        "options": ["5 ש\"ח", "9 ש\"ח", "6 ש\"ח", "4 ש\"ח"],
-        "correctAnswer": 0
+        final_answer: "84 שקלים"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "High",
-        "question_text": "סוחר קנה 20 חולצות במחיר קבוע. 5 חולצות הוא מכר ברווח של 10 ש\"ח על כל חולצה, ואת השאר מכר בהפסד של 2 ש\"ח על כל חולצה. בסך הכל <strong>הרוויח</strong> הסוחר 20 ש\"ח. כמה שילם על <strong>כל החולצות יחד</strong> בעת הקנייה?",
-        "hint": "שימו לב שהרווח הכולל מורכב מהרווח על הקבוצה הראשונה פחות ההפסד על השנייה. מחיר הקנייה המקורית אינו משפיע על חישוב ה'רווח נטו' בשאלה זו.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב רווח מקבוצה א' (5 חולצות).", "math_expression": "5 × 10 = 50" },
-            { "verbal_explanation": "נחשב הפסד מקבוצה ב' (15 חולצות).", "math_expression": "15 × (-2) = -30" },
-            { "verbal_explanation": "נבדוק את הרווח הכולל (50 פחות 30).", "math_expression": "20" },
-            { "verbal_explanation": "מכיוון שהרווח תואם לנתון, ואין לנו מידע על מחיר הקנייה המקורי X, לא ניתן לקבוע את המחיר הכולל.", "math_expression": "חסר נתון" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "תמר קנתה חולצה ב-85 שקלים ומכנסיים ב-130 שקלים. היא שילמה לקופאי בשטר של 200 שקלים ושטר של 50 שקלים. כמה עודף תמר צריכה לקבל?&rlm;",
+        options: ["35 שקלים", "45 שקלים", "25 שקלים", "50 שקלים"],
+        correctAnswer: 0,
+        hint: "חשבו את הסכום הכולל ששילמה, ואז חסרו ממנו את עלות הפריטים שקנתה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את העלות הכוללת של הקנייה (חולצה + מכנסיים).&rlm;", math_expression: "85 + 130 = 215" },
+            { verbal_explanation: "שלב ב': נחשב את הסכום שתמר נתנה לקופאי.&rlm;", math_expression: "200 + 50 = 250" },
+            { verbal_explanation: "שלב ג': נחשב את העודף על ידי חיסור עלות הקנייה מהסכום ששולם.&rlm;", math_expression: "250 - 215 = 35" }
         ],
-        "final_answer": "חסר נתון לגבי מחיר הקנייה",
-        "options": ["200 ש\"ח", "400 ש\"ח", "חסר נתון לגבי מחיר הקנייה", "100 ש\"ח"],
-        "correctAnswer": 2
+        final_answer: "35 שקלים"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "מחיר כניסה לסרט לילד קטן ב-15 ש\"ח ממחיר כניסה למבוגר. קבוצה של 4 מבוגרים ו-5 ילדים שילמה 435 ש\"ח. מהו <strong>מחיר כרטיס למבוגר</strong>?",
-        "hint": "סמנו מבוגר ב-X וילד ב- (X-15).",
-        "solution_steps": [
-            { "verbal_explanation": "מבוגר = X, ילד = X-15.", "math_expression": "x, x-15" },
-            { "verbal_explanation": "משוואת התשלום הכולל.", "math_expression": "4x + 5(x-15) = 435" },
-            { "verbal_explanation": "פישוט: 4X + 5X - 75 = 435.", "math_expression": "9x = 510" },
-            { "verbal_explanation": "נחלק ב-9.", "math_expression": "x = 60" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "דן קנה 4 קילוגרם תפוחים. הוא שילם בשטר של 50 שקלים וקיבל עודף של 14 שקלים. מה היה המחיר של קילוגרם אחד של תפוחים?&rlm;",
+        options: ["9 שקלים", "8 שקלים", "7 שקלים", "10 שקלים"],
+        correctAnswer: 0,
+        hint: "תחילה, מצאו כמה עלו 4 קילוגרם תפוחים בסך הכל (סכום פחות עודף). לאחר מכן, חלקו ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את העלות הכוללת של התפוחים על ידי חיסור העודף מהשטר.&rlm;", math_expression: "50 - 14 = 36" },
+            { verbal_explanation: "שלב ב': נגדיר משוואה. נסמן ב-x את המחיר לקילוגרם אחד. 4 ק\"ג עולים 36 שקלים.&rlm;", math_expression: "4 × x = 36" },
+            { verbal_explanation: "שלב ג': נחלק ב-4 כדי למצוא את מחירו של קילוגרם בודד.&rlm;", math_expression: "36 : 4 = 9" }
         ],
-        "final_answer": "60 ש\"ח",
-        "options": ["50 ש\"ח", "55 ש\"ח", "60 ש\"ח", "45 ש\"ח"],
-        "correctAnswer": 2
+        final_answer: "9 שקלים"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "High",
-        "question_text": "רונית קנתה 2 חולצות וזוג מכנסיים אחד ושילמה 200 ש\"ח. מחיר המכנסיים <strong>גבוה פי 3</strong> ממחיר החולצה. מהו מחיר החולצה?",
-        "hint": "חולצה = X, מכנסיים = 3X.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר: חולצה = X, מכנסיים = 3X.", "math_expression": "x, 3x" },
-            { "verbal_explanation": "2 חולצות ועוד מכנסיים אחד.", "math_expression": "2x + 3x = 200" },
-            { "verbal_explanation": "נחבר איקסים ונחלק.", "math_expression": "5x = 200 -> x = 40" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "בחנות 'הספורטאי' מחירו של כדורסל גדול פי 3 ממחירו של כדורגל. מאמן קנה כדורסל אחד וכדורגל אחד ושילם 160 שקלים. מה מחירו של הכדורגל?&rlm;",
+        options: ["40 שקלים", "120 שקלים", "30 שקלים", "50 שקלים"],
+        correctAnswer: 0,
+        hint: "נסמן את מחיר הכדורגל ב-x. לכן מחיר הכדורסל הוא 3x. חברו אותם והשוו ל-160.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נגדיר משתנים. נסמן את מחיר הכדורגל ב-x. לכן מחיר הכדורסל הוא 3x.&rlm;", math_expression: "x + 3x = 160" },
+            { verbal_explanation: "שלב ב': נכנס איברים דומים (כדורגל אחד ועוד כדורסל שהוא כמו 3 כדורגלים שווים ל-4x).&rlm;", math_expression: "4x = 160" },
+            { verbal_explanation: "שלב ג': נחלק ב-4 את שני אגפי המשוואה כדי למצוא את x.&rlm;", math_expression: "x = 160 : 4 = 40" }
         ],
-        "final_answer": "40 ש\"ח",
-        "options": ["30 ש\"ח", "40 ש\"ח", "50 ש\"ח", "60 ש\"ח"],
-        "correctAnswer": 1
+        final_answer: "40 שקלים"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "בעל חנות קנה 20 ק\"ג תפוחים. חלק מהתפוחים נמכרו ב-8 ש\"ח לק\"ג והשאר ב-6 ש\"ח לק\"ג. בסך הכל קיבל המוכר 144 ש\"ח. כמה ק\"ג נמכרו <strong>במחיר היקר</strong>?",
-        "hint": "סמנו את כמות הק\"ג היקר ב-X. הכמות הזולה תהיה (20 פחות X).",
-        "solution_steps": [
-            { "verbal_explanation": "כמות יקרה = X, כמות זולה = 20-X.", "math_expression": "x, 20-x" },
-            { "verbal_explanation": "משוואת פדיון: מחיר כפול כמות.", "math_expression": "8x + 6(20-x) = 144" },
-            { "verbal_explanation": "נפתח סוגריים: 8X + 120 - 6X = 144.", "math_expression": "2x = 24" },
-            { "verbal_explanation": "נחלק ב-2.", "math_expression": "x = 12" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "מחיר כרטיס לסרט לילד קטן ב-10 שקלים ממחיר כרטיס למבוגר. משפחה ובה 2 מבוגרים ו-3 ילדים שילמה 170 שקלים בסך הכל. מה מחירו של כרטיס לילד?&rlm;",
+        options: ["30 שקלים", "40 שקלים", "25 שקלים", "35 שקלים"],
+        correctAnswer: 0,
+        hint: "נסמן את מחיר כרטיס לילד ב-x. לכן מחיר מבוגר הוא x+10. בנו משוואה ל-2 מבוגרים ו-3 ילדים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את מחיר הילד ב-x. מחיר מבוגר הוא x+10. נבנה משוואה: 3 ילדים ועוד 2 מבוגרים.&rlm;", math_expression: "3x + 2 × (x + 10) = 170" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים (חוק הפילוג).&rlm;", math_expression: "3x + 2x + 20 = 170" },
+            { verbal_explanation: "שלב ג': נכנס איברים (5x) ונעביר את המספר 20 לאגף השני (במינוס).&rlm;", math_expression: "5x = 150" },
+            { verbal_explanation: "שלב ד': נחלק ב-5 כדי למצוא את מחיר כרטיס הילד (x).&rlm;", math_expression: "x = 150 : 5 = 30" }
         ],
-        "final_answer": "12 ק\"ג",
-        "options": ["10 ק\"ג", "12 ק\"ג", "15 ק\"ג", "8 ק\"ג"],
-        "correctAnswer": 1
+        final_answer: "30 שקלים"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "מחיר ספר יקר ב-20 ש\"ח ממחיר מחברת. דן קנה 2 ספרים ו-4 מחברות ושילם 160 ש\"ח. מה מחיר <strong>הספר</strong>?",
-        "hint": "סמנו מחברת ב-X. ספר יהיה X+20. שימו לב שבסוף מבקשים את מחיר הספר!",
-        "solution_steps": [
-            { "verbal_explanation": "מחברת = X, ספר = X+20.", "math_expression": "x, x+20" },
-            { "verbal_explanation": "בניית משוואה לסך הקנייה.", "math_expression": "2(x+20) + 4x = 160" },
-            { "verbal_explanation": "2X + 40 + 4X = 160 -> 6X = 120.", "math_expression": "x = 20" },
-            { "verbal_explanation": "נמצא את מחיר הספר: X+20.", "math_expression": "20 + 20 = 40" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "לקראת החג ניתנה הנחה של 1/5 (חמישית) על כל המוצרים בחנות. טלוויזיה שמחירה המקורי היה 2,000 שקלים, נמכרה בהנחה. כמה שילם הלקוח?&rlm;",
+        options: ["1,600 שקלים", "1,800 שקלים", "400 שקלים", "1,500 שקלים"],
+        correctAnswer: 0,
+        hint: "חשבו כמה שווה 1/5 מתוך 2,000. זהו סכום ההנחה. חסרו אותו מהמחיר המקורי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סכום ההנחה בשקלים (חמישית מ-2,000).&rlm;", math_expression: "2000 : 5 = 400" },
+            { verbal_explanation: "שלב ב': סכום ההנחה הוא 400 שקלים. נחסר אותו מהמחיר המקורי.&rlm;", math_expression: "2000 - 400 = 1600" }
         ],
-        "final_answer": "40 ש\"ח",
-        "options": ["20 ש\"ח", "30 ש\"ח", "40 ש\"ח", "50 ש\"ח"],
-        "correctAnswer": 2
+        final_answer: "1,600 שקלים"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Low",
-        "question_text": "מחיר ק\"ג מלפפונים הוא X ש\"ח. מחיר ק\"ג עגבניות יקר ב-2 ש\"ח ממחיר המלפפונים. מהו הביטוי למחיר של <strong>3 ק\"ג עגבניות</strong>?",
-        "hint": "מצאו קודם ביטוי לק\"ג אחד של עגבניות ואז הכפילו ב-3.",
-        "solution_steps": [
-            { "verbal_explanation": "מחיר ק\"ג עגבניות.", "math_expression": "x + 2" },
-            { "verbal_explanation": "מחיר 3 ק\"ג (הכפלת הביטוי בסוגריים).", "math_expression": "3(x + 2)" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "סוחר קנה 20 כיסאות ב-1,000 שקלים. 4 כיסאות נשברו והוא זרק אותם. באיזה מחיר עליו למכור כל כיסא שנותר כדי להרוויח 280 שקלים בעסקה כולה?&rlm;",
+        options: ["80 שקלים", "64 שקלים", "90 שקלים", "50 שקלים"],
+        correctAnswer: 0,
+        hint: "מטרת הסוחר היא שההכנסות הכוללות שלו יהיו 1,280 שקלים. חלקו סכום זה במספר הכיסאות שנשארו לו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': ההכנסה הרצויה שווה לעלות הקנייה פלוס הרווח המבוקש.&rlm;", math_expression: "1000 + 280 = 1280" },
+            { verbal_explanation: "שלב ב': נמצא כמה כיסאות נותרו לו למכור.&rlm;", math_expression: "20 - 4 = 16" },
+            { verbal_explanation: "שלב ג': נחלק את ההכנסה הרצויה (1280) במספר הכיסאות שנותרו (16).&rlm;", math_expression: "1280 : 16 = 80" }
         ],
-        "final_answer": "3(x + 2)",
-        "options": ["3x + 2", "3(x + 2)", "x + 6", "3x + 6"],
-        "correctAnswer": 1
+        final_answer: "80 שקלים"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "High",
-        "question_text": "מחיר כניסה לבריכה הוא 40 ש\"ח למבוגר ו-25 ש\"ח לילד. ביום מסוים נכנסו לבריכה 100 אנשים וההכנסה הייתה 3,100 ש\"ח. כמה <strong>ילדים</strong> נכנסו לבריכה?",
-        "hint": "סמנו ילדים ב-X ומבוגרים ב- (100 פחות X).",
-        "solution_steps": [
-            { "verbal_explanation": "ילדים = X, מבוגרים = 100-X.", "math_expression": "x, 100-x" },
-            { "verbal_explanation": "משוואת הכנסה.", "math_expression": "25x + 40(100-x) = 3100" },
-            { "verbal_explanation": "25X + 4000 - 40X = 3100 -> -15X = -900.", "math_expression": "15x = 900" },
-            { "verbal_explanation": "נחלק ב-15.", "math_expression": "x = 60" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "בחנות יש מבצע: קונים 3 זוגות גרביים במחיר של 2 זוגות. מחיר זוג גרביים אחד לפני המבצע הוא 15 שקלים. גיא לקח 6 זוגות גרביים. כמה הוא ישלם בקופה?&rlm;",
+        options: ["60 שקלים", "90 שקלים", "45 שקלים", "30 שקלים"],
+        correctAnswer: 0,
+        hint: "על כל 3 זוגות הוא משלם רק על 2. אם לקח 6 זוגות, על כמה זוגות הוא ישלם בפועל?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': המבצע הוא 'קח 3 שלם על 2'. גיא לקח 6 זוגות (פעמיים המבצע). לכן הוא ישלם על 4 זוגות.&rlm;", math_expression: "6 : 3 = 2 מבצעים. 2 × 2 = 4 זוגות." },
+            { verbal_explanation: "שלב ב': נכפול את מספר הזוגות שעליהם הוא משלם (4) במחיר לזוג (15).&rlm;", math_expression: "4 × 15 = 60" }
         ],
-        "final_answer": "60 ילדים",
-        "options": ["40", "50", "60", "70"],
-        "correctAnswer": 2
+        final_answer: "60 שקלים"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "מחיר פיצה משפחתית גדול פי 4 ממחיר פחית שתייה. משפחה קנתה 2 פיצות ו-3 פחיות שתייה ושילמה 121 ש\"ח. מה מחיר <strong>פחית שתייה</strong>?",
-        "hint": "פחית = X, פיצה = 4X.",
-        "solution_steps": [
-            { "verbal_explanation": "שתייה = X, פיצה = 4X.", "math_expression": "x, 4x" },
-            { "verbal_explanation": "סכום קנייה.", "math_expression": "2(4x) + 3x = 121" },
-            { "verbal_explanation": "8X + 3X = 121 -> 11X = 121.", "math_expression": "11x = 121" },
-            { "verbal_explanation": "נחלק ב-11.", "math_expression": "x = 11" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "קבוצת חברים הזמינה פיצות בעלות של 180 שקלים. כשבאו לשלם, התברר ששניים מהחברים שכחו את הארנק. לכן, כל אחד מהחברים הנותרים שילם 15 שקלים יותר ממה שהיה אמור לשלם. כמה חברים בקבוצה בסך הכל (כולל אלו ששכחו)?&rlm;",
+        options: ["6 חברים", "4 חברים", "8 חברים", "10 חברים"],
+        correctAnswer: 0,
+        hint: "נסו לבדוק את התשובות: אם היו 6 חברים, הם היו אמורים לשלם 30 שקלים כל אחד. אם 2 לא שילמו, נשארו 4. כמה הם שילמו? האם ההפרש הוא 15?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': שאלה זו קל לפתור על ידי בדיקת התשובות. נבדוק אם היו 6 חברים במקור. התשלום המקורי לאדם:&rlm;", math_expression: "180 : 6 = 30" },
+            { verbal_explanation: "שלב ב': 2 חברים לא שילמו, כלומר רק 4 שילמו. נבדוק כמה יצא לכל אחד.&rlm;", math_expression: "180 : 4 = 45" },
+            { verbal_explanation: "שלב ג': נבדוק אם ההפרש בתשלום הוא אכן 15 שקלים כפי שנתון בבעיה.&rlm;", math_expression: "45 - 30 = 15" }
         ],
-        "final_answer": "11 ש\"ח",
-        "options": ["10 ש\"ח", "11 ש\"ח", "12 ש\"ח", "44 ש\"ח"],
-        "correctAnswer": 1
+        final_answer: "6 חברים"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "High",
-        "question_text": "בקופת חיסכון היו מטבעות של 5 ש\"ח ומטבעות של 10 ש\"ח. מספר המטבעות של 5 ש\"ח היה <strong>גדול ב-6</strong> ממספר המטבעות של 10 ש\"ח. בסך הכל היו בקופה 180 ש\"ח. כמה מטבעות של <strong>10 ש\"ח</strong> היו בקופה?",
-        "hint": "סמנו מטבעות 10 ש\"ח ב-X ומטבעות 5 ש\"ח ב- (X+6).",
-        "solution_steps": [
-            { "verbal_explanation": "10 ש\"ח = X, 5 ש\"ח = X+6.", "math_expression": "x, x+6" },
-            { "verbal_explanation": "משוואת ערך כספי.", "math_expression": "10x + 5(x+6) = 180" },
-            { "verbal_explanation": "10X + 5X + 30 = 180 -> 15X = 150.", "math_expression": "15x = 150" },
-            { "verbal_explanation": "נחלק ב-15.", "math_expression": "x = 10" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "לאלון יש בארנק מטבעות של 5 שקלים ו-10 שקלים בלבד. בסך הכל יש לו 12 מטבעות, והסכום הכולל שלהם הוא 95 שקלים. כמה מטבעות של 10 שקלים יש לאלון?&rlm;",
+        options: ["7 מטבעות", "5 מטבעות", "8 מטבעות", "6 מטבעות"],
+        correctAnswer: 0,
+        hint: "נסמן את מספר מטבעות ה-10 ב-x. לכן מספר מטבעות ה-5 הוא 12 פחות x. בנו משוואת סכום.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן מטבעות עשר ב-x. מטבעות חמש הם 12 פחות x. נרכיב משוואה לסכום הכסף.&rlm;", math_expression: "10x + 5 × (12 - x) = 95" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים.&rlm;", math_expression: "10x + 60 - 5x = 95" },
+            { verbal_explanation: "שלב ג': נכנס איברים דומים (10x - 5x) ונעביר את ה-60 ימינה.&rlm;", math_expression: "5x = 35" },
+            { verbal_explanation: "שלב ד': נחלק ב-5 כדי למצוא את x.&rlm;", math_expression: "x = 7" }
         ],
-        "final_answer": "10 מטבעות",
-        "options": ["8", "10", "12", "16"],
-        "correctAnswer": 1
+        final_answer: "7 מטבעות"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "מחיר קילוגרם גרעינים הוא 30 ש\"ח. מחיר קילוגרם בוטנים הוא 20 ש\"ח. קנינו תערובת של 5 ק\"ג שעלתה בסך הכל 120 ש\"ח. כמה ק\"ג <strong>גרעינים</strong> יש בתערובת?",
-        "hint": "גרעינים = X, בוטנים = 5-X.",
-        "solution_steps": [
-            { "verbal_explanation": "גרעינים = X, בוטנים = 5-X.", "math_expression": "x, 5-x" },
-            { "verbal_explanation": "משוואת עלות.", "math_expression": "30x + 20(5-x) = 120" },
-            { "verbal_explanation": "30X + 100 - 20X = 120 -> 10X = 20.", "math_expression": "x = 2" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "בחנות בגדים, מחיר שתי חולצות זהה למחיר של שלושה זוגות גרביים. אדם קנה 4 חולצות ו-3 זוגות גרביים ושילם 180 שקלים. מה מחירו של זוג גרביים אחד?&rlm;",
+        options: ["20 שקלים", "30 שקלים", "40 שקלים", "15 שקלים"],
+        correctAnswer: 0,
+        hint: "אם 2 חולצות שוות ל-3 זוגות גרביים, אז 4 חולצות שוות ל-6 זוגות גרביים. לכן האדם בעצם קנה שווי ערך של 9 זוגות גרביים ב-180 שקלים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': ידוע ש-2 חולצות = 3 גרביים. לכן 4 חולצות = 6 גרביים.&rlm;", math_expression: "4H = 6G" },
+            { verbal_explanation: "שלב ב': האדם קנה 4 חולצות ו-3 גרביים. נמיר את החולצות לגרביים.&rlm;", math_expression: "6G + 3G = 9G" },
+            { verbal_explanation: "שלב ג': הסכום ששולם עבור 9 זוגות גרביים הוא 180. נחלק ב-9.&rlm;", math_expression: "180 : 9 = 20" }
         ],
-        "final_answer": "2 ק\"ג",
-        "options": ["2 ק\"ג", "3 ק\"ג", "1.5 ק\"ג", "2.5 ק\"ג"],
-        "correctAnswer": 0
+        final_answer: "20 שקלים"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "High",
-        "question_text": "כרטיס למשחק כדורגל עולה X ש\"ח. אם מזמינים באינטרנט, יש הנחה של 10 ש\"ח לכרטיס אך משלמים עמלה חד-פעמית של 15 ש\"ח על כל ההזמנה. אבא הזמין 3 כרטיסים ושילם 225 ש\"ח. מה מחיר <strong>כרטיס בקופה</strong> (ללא הנחה)?",
-        "hint": "מחיר כרטיס מוזל הוא X-10. המשוואה היא: 3 כפול המחיר המוזל ועוד העמלה.",
-        "solution_steps": [
-            { "verbal_explanation": "מחיר כרטיס בקופה = X.", "math_expression": "x" },
-            { "verbal_explanation": "משוואת הזמנה: 3 כרטיסים בהנחה + עמלה.", "math_expression": "3(x-10) + 15 = 225" },
-            { "verbal_explanation": "3X - 30 + 15 = 225 -> 3X - 15 = 225.", "math_expression": "3x = 240" },
-            { "verbal_explanation": "נחלק ב-3.", "math_expression": "x = 80" }
+        topic: "verbal_problems",
+        subTopic: "בעיות קנייה ומכירה",
+        question_text: "קנייה בתשלומים: רמי קנה מחשב שעולה 3,600 שקלים. הוא שילם מקדמה של 600 שקלים במזומן, ואת השאר חילק ל-5 תשלומים חודשיים שווים ללא ריבית. מהו הסכום של כל תשלום חודשי?&rlm;",
+        options: ["600 שקלים", "500 שקלים", "720 שקלים", "300 שקלים"],
+        correctAnswer: 0,
+        hint: "חסרו את המקדמה מהמחיר הכולל כדי למצוא את היתרה לתשלום. את היתרה חלקו במספר התשלומים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את היתרה שנותרה לתשלום לאחר תשלום המקדמה.&rlm;", math_expression: "3600 - 600 = 3000" },
+            { verbal_explanation: "שלב ב': נחלק את היתרה ל-5 תשלומים שווים.&rlm;", math_expression: "3000 : 5 = 600" }
         ],
-        "final_answer": "80 ש\"ח",
-        "options": ["70 ש\"ח", "75 ש\"ח", "80 ש\"ח", "85 ש\"ח"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Medium",
-        "question_text": "מחיר שולחן יקר ב-300 ש\"ח ממחיר כיסא. קנו 4 כסאות ושולחן אחד ושילמו 1,500 ש\"ח. מה מחיר <strong>הכיסא</strong>?",
-        "hint": "כיסא = X, שולחן = X+300.",
-        "solution_steps": [
-            { "verbal_explanation": "כיסא = X, שולחן = X+300.", "math_expression": "x, x+300" },
-            { "verbal_explanation": "סך הכל קנייה.", "math_expression": "4x + (x+300) = 1500" },
-            { "verbal_explanation": "5X = 1200.", "math_expression": "5x = 1200" },
-            { "verbal_explanation": "נחלק ב-5.", "math_expression": "x = 240" }
-        ],
-        "final_answer": "240 ש\"ח",
-        "options": ["200 ש\"ח", "240 ש\"ח", "300 ש\"ח", "540 ש\"ח"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "Low",
-        "question_text": "קניתי 4 ק\"ג תפוזים ב-X ש\"ח לק\"ג וקיבלתי עודף של 20 ש\"ח משטר של 100 ש\"ח. איזה ביטוי מתאר את הקנייה?",
-        "hint": "הכסף ששילמתם (4X) ועוד העודף (20) שווה ל-100.",
-        "solution_steps": [
-            { "verbal_explanation": "עלות התפוזים.", "math_expression": "4x" },
-            { "verbal_explanation": "משוואת התשלום.", "math_expression": "4x + 20 = 100" }
-        ],
-        "final_answer": "4x + 20 = 100",
-        "options": ["4x - 20 = 100", "4x = 100 + 20", "4x + 20 = 100", "20x + 4 = 100"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 15,
-        "subTopic": "בעיות קנייה ומכירה",
-        "difficulty": "High",
-        "question_text": "מחיר מוצר עלה ב-20%. לאחר ההתייקרות מחירו הוא 120 ש\"ח. מה היה המחיר <strong>לפני</strong> ההתייקרות?",
-        "hint": "100% ועוד 20% הם 120%. כלומר 1.2 כפול המחיר המקורי שווה 120.",
-        "solution_steps": [
-            { "verbal_explanation": "מחיר מקורי = X. מחיר חדש הוא 120% מ-X.", "math_expression": "1.2x = 120" },
-            { "verbal_explanation": "נחלק ב-1.2.", "math_expression": "x = 100" }
-        ],
-        "final_answer": "100 ש\"ח",
-        "options": ["96 ש\"ח", "100 ש\"ח", "110 ש\"ח", "80 ש\"ח"],
-        "correctAnswer": 1
+        final_answer: "600 שקלים"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: בעיות תנועה (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: בעיות תנועה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Medium",
-        "question_text": "מכונית נוסעת במהירות של 80 קמ\"ש במשך 3.5 שעות. איזו <strong>דרך</strong> היא עברה?",
-        "hint": "השתמשו בנוסחה: דרך = מהירות × זמן.",
-        "solution_steps": [
-            { "verbal_explanation": "מהירות: 80, זמן: 3.5.", "math_expression": "S = V \u00d7 T" },
-            { "verbal_explanation": "נכפיל את המהירות בזמן.", "math_expression": "80 \u00d7 3.5 = 280" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "מכונית נסעה במהירות קבועה של 80 קמ\"ש. איזה מרחק עברה המכונית לאחר 3 שעות נסיעה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 60' width='100%' height='60' style='max-width:200px;'><rect x='20' y='20' width='60' height='20' fill='#f87171' rx='5'/><circle cx='35' cy='40' r='6' fill='#1e293b'/><circle cx='65' cy='40' r='6' fill='#1e293b'/><line x1='90' y1='30' x2='180' y2='30' stroke='#334155' stroke-width='2' stroke-dasharray='5,5'/><polygon points='180,25 190,30 180,35' fill='#334155'/><text x='135' y='20' font-family='Heebo' font-size='12' fill='#0f172a'>80 קמ\"ש</text></svg></div>",
+        options: ["240 ק\"מ", "83 ק\"מ", "26 ק\"מ", "320 ק\"מ"],
+        correctAnswer: 0,
+        hint: "הנוסחה לחישוב מרחק היא: מהירות כפול זמן (S = V × T).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה את הנתונים. המהירות (V) היא 80. הזמן (T) הוא 3.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נציב בנוסחת הדרך (S = V × T).&rlm;", math_expression: "80 × 3 = 240" }
         ],
-        "final_answer": "280 ק\"מ",
-        "options": ["240 ק\"מ", "260 ק\"מ", "280 ק\"מ", "300 ק\"מ"],
-        "correctAnswer": 2
+        final_answer: "240 ק\"מ"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Medium",
-        "question_text": "מטוס עובר מרחק של 1,200 ק\"מ ב-1.5 שעות. מהי <strong>מהירותו</strong> בקמ\"ש?",
-        "hint": "מהירות = דרך חלקי זמן.",
-        "solution_steps": [
-            { "verbal_explanation": "דרך: 1,200, זמן: 1.5.", "math_expression": "V = S / T" },
-            { "verbal_explanation": "נחלק 1,200 ב-1.5.", "math_expression": "1200 / 1.5 = 800" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "רוכב אופניים רכב מרחק של 60 ק\"מ במהירות של 15 קמ\"ש. כמה זמן נמשכה רכיבתו?&rlm;",
+        options: ["4 שעות", "3 שעות", "5 שעות", "4.5 שעות"],
+        correctAnswer: 0,
+        hint: "הנוסחה לחישוב זמן היא: דרך לחלק למהירות (T = S : V).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה את הנתונים. הדרך (S) היא 60. המהירות (V) היא 15.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נציב בנוסחת הזמן (T = S : V).&rlm;", math_expression: "60 : 15 = 4" }
         ],
-        "final_answer": "800 קמ\"ש",
-        "options": ["600 קמ\"ש", "800 קמ\"ש", "900 קמ\"ש", "1,000 קמ\"ש"],
-        "correctAnswer": 1
+        final_answer: "4 שקלים"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "שתי ערים נמצאות במרחק 300 ק\"מ זו מזו. משתי הערים יצאו בו-זמנית שני רכבים זה לקראת זה. רכב א' נסע ב-60 קמ\"ש ורכב ב' ב-90 קמ\"ש. לאחר <strong>כמה זמן</strong> הם ייפגשו?",
-        "hint": "כאשר רכבים נעים זה לקראת זה, מהירות ההתקרבות היא סכום המהירויות.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב מהירות משותפת.", "math_expression": "60 + 90 = 150 קמ\"ש" },
-            { "verbal_explanation": "נחלק את סך המרחק במהירות המשותפת.", "math_expression": "300 / 150 = 2" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "רכבת עברה מרחק של 300 ק\"מ ב-2.5 שעות. מה הייתה מהירותה הממוצעת?&rlm;",
+        options: ["120 קמ\"ש", "150 קמ\"ש", "100 קמ\"ש", "110 קמ\"ש"],
+        correctAnswer: 0,
+        hint: "הנוסחה לחישוב מהירות היא: דרך לחלק לזמן (V = S : T). לחלק ב-2.5 זה כמו להרחיב ולהגיד 3000 לחלק ל-25.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הדרך (S) היא 300. הזמן (T) הוא 2.5. נחשב את המהירות.&rlm;", math_expression: "300 : 2.5" },
+            { verbal_explanation: "שלב ב': נרחיב פי 10 כדי לחלק בשלמים.&rlm;", math_expression: "3000 : 25 = 120" }
         ],
-        "final_answer": "שעתיים",
-        "options": ["שעה וחצי", "שעתיים", "2.5 שעות", "3 שעות"],
-        "correctAnswer": 1
+        final_answer: "120 קמ\"ש"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "הולך רגל יצא לדרך ב-4 קמ\"ש. לאחר שעתיים יצא בעקבותיו רוכב אופניים ב-12 קמ\"ש. תוך <strong>כמה זמן מרגע שיצא</strong> רוכב האופניים הוא ישיג את הולך הרגל?",
-        "hint": "מצאו את המרחק שהולך הרגל צבר 'פור' (8 ק\"מ). רוכב האופניים סוגר את הפער במהירות של 8 קמ\"ש (12 פחות 4).",
-        "solution_steps": [
-            { "verbal_explanation": "המרחק שהולך הרגל עבר בשעתיים.", "math_expression": "4 \u00d7 2 = 8 ק\"מ" },
-            { "verbal_explanation": "מהירות ה'סגירה' (הפרש המהירויות).", "math_expression": "12 - 4 = 8 קמ\"ש" },
-            { "verbal_explanation": "זמן סגירת הפער (מרחק חלקי מהירות סגירה).", "math_expression": "8 / 8 = 1" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "שתי מכוניות יצאו בו זמנית מאותה נקודה ונסעו בכיוונים מנוגדים. מכונית א' נסעה במהירות 70 קמ\"ש, ומכונית ב' במהירות 90 קמ\"ש. מה יהיה המרחק ביניהן לאחר 4 שעות?&rlm;",
+        options: ["640 ק\"מ", "320 ק\"מ", "160 ק\"מ", "80 ק\"מ"],
+        correctAnswer: 0,
+        hint: "מכיוון שהן נוסעות בכיוונים מנוגדים, מהירות ההתרחקות שלהן היא סכום המהירויות. כפלו את המהירות המשותפת בזמן.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את מהירות ההתרחקות המשותפת שלהן בשעה אחת.&rlm;", math_expression: "70 + 90 = 160" },
+            { verbal_explanation: "שלב ב': נכפול את מהירות ההתרחקות המשותפת בזמן הנסיעה (4 שעות).&rlm;", math_expression: "160 × 4 = 640" }
         ],
-        "final_answer": "שעה אחת",
-        "options": ["שעה אחת", "שעתיים", "חצי שעה", "3 שעות"],
-        "correctAnswer": 0
+        final_answer: "640 ק\"מ"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Medium",
-        "question_text": "מכונית נוסעת מעיר א' לעיר ב' ב-3 שעות. בדרכה חזרה היא מגדילה את מהירותה ב-20 קמ\"ש ומגיעה ב-2.5 שעות. מה היה <strong>המרחק</strong> בין הערים?",
-        "hint": "הדרך הלוך (3 כפול V) שווה לדרך חזור (2.5 כפול (V+20)).",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר מהירות הלוך = V. משוואת דרכים.", "math_expression": "3v = 2.5(v + 20)" },
-            { "verbal_explanation": "נפתח סוגריים: 3V = 2.5V + 50.", "math_expression": "0.5v = 50 -> v = 100" },
-            { "verbal_explanation": "נחשב את הדרך: 100 קמ\"ש כפול 3 שעות.", "math_expression": "300" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "שני רוכבי אופניים יצאו מאותו יישוב ונסעו באותו כיוון. רוכב א' יצא בשעה 08:00 במהירות 15 קמ\"ש. רוכב ב' יצא בשעה 09:00 במהירות 20 קמ\"ש. באיזו שעה ישיג רוכב ב' את רוכב א'?&rlm;",
+        options: ["12:00", "11:00", "10:00", "13:00"],
+        correctAnswer: 0,
+        hint: "כאשר רוכב ב' יוצא לדרך (בשעה 09:00), רוכב א' כבר במרחק 15 ק\"מ ממנו. רוכב ב' מצמצם את הפער ב-5 ק\"מ בכל שעה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': בשעה 09:00, לרוכב א' יש יתרון מרחק של 15 ק\"מ (כי רכב שעה אחת).&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחשב את מהירות ההתקרבות (הפרש המהירויות). רוכב ב' סוגר פער של 5 ק\"מ בשעה.&rlm;", math_expression: "20 - 15 = 5" },
+            { verbal_explanation: "שלב ג': נחשב כמה שעות ייקח לסגור פער של 15 ק\"מ בקצב של 5 ק\"מ בשעה.&rlm;", math_expression: "15 : 5 = 3" },
+            { verbal_explanation: "שלב ד': רוכב ב' רכב 3 שעות החל מהשעה 09:00. לכן הפגישה תהיה ב-12:00.&rlm;", math_expression: "09:00 + 3 = 12:00" }
         ],
-        "final_answer": "300 ק\"מ",
-        "options": ["200 ק\"מ", "250 ק\"מ", "300 ק\"מ", "350 ק\"מ"],
-        "correctAnswer": 2
+        final_answer: "12:00"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Low",
-        "question_text": "רכבת נוסעת במהירות של 120 קמ\"ש. כמה קילומטרים תעבור ב-<strong>20 דקות</strong>?",
-        "hint": "20 דקות הן שליש שעה. המירו את הזמן לשעות.",
-        "solution_steps": [
-            { "verbal_explanation": "המרת דקות לשעות.", "math_expression": "20 / 60 = 1/3 שעה" },
-            { "verbal_explanation": "חישוב דרך: מהירות כפול זמן.", "math_expression": "120 \u00d7 1/3 = 40" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "משאית נסעה מעיר א' לעיר ב' במהירות 60 קמ\"ש. בדרכה חזרה נסעה המשאית במסלול קצר יותר ב-20 ק\"מ, במהירות 80 קמ\"ש. זמן הנסיעה חזור היה קצר בשעה אחת מזמן הנסיעה הלוך. מה המרחק שיעור א' לעיר ב'?&rlm;",
+        options: ["240 ק\"מ", "180 ק\"מ", "300 ק\"מ", "200 ק\"מ"],
+        correctAnswer: 0,
+        hint: "נסמן את זמן הנסיעה הלוך ב-x. לכן זמן חזור הוא x-1. הדרך הלוך היא 60x. בנו משוואה המשווה בין הדרכים בהתחשב בהפרש.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הזמן הלוך ב-x. לכן המרחק הלוך הוא 60x.&rlm;", math_expression: "S_1 = 60x" },
+            { verbal_explanation: "שלב ב': הזמן חזור הוא x-1. לכן המרחק חזור הוא 80 כפול (x-1).&rlm;", math_expression: "S_2 = 80(x - 1)" },
+            { verbal_explanation: "שלב ג': המרחק חזור קצר ב-20. לכן המרחק הלוך שווה למרחק חזור פלוס 20.&rlm;", math_expression: "60x = 80(x - 1) + 20" },
+            { verbal_explanation: "שלב ד': נפתור. 60x = 80x - 80 + 20 => 20x = 60 => x = 3.&rlm;", math_expression: "x = 3" },
+            { verbal_explanation: "שלב ה': נמצא את המרחק הלוך (מ-א' ל-ב').&rlm;", math_expression: "60 × 3 = 240" }
         ],
-        "final_answer": "40 ק\"מ",
-        "options": ["40 ק\"מ", "60 ק\"מ", "30 ק\"מ", "20 ק\"מ"],
-        "correctAnswer": 0
+        final_answer: "240 ק\"מ"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "שני שליחים יוצאים מאותה נקודה לכיוונים <strong>מנוגדים</strong>. האחד ב-6 קמ\"ש והשני ב-4 קמ\"ש. לאחר כמה זמן המרחק ביניהם יהיה 25 ק\"מ?",
-        "hint": "בכיוונים מנוגדים, המהירות המשותפת (התרחקות) היא סכום המהירויות.",
-        "solution_steps": [
-            { "verbal_explanation": "מהירות התרחקות.", "math_expression": "6 + 4 = 10 קמ\"ש" },
-            { "verbal_explanation": "מרחק חלקי מהירות.", "math_expression": "25 / 10 = 2.5" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "מכונית עברה מרחק של 400 ק\"מ. את החצי הראשון של הדרך היא עברה במהירות 100 קמ\"ש. את החצי השני היא עברה במהירות 50 קמ\"ש. כמה זמן נמשכה כל הנסיעה?&rlm;",
+        options: ["6 שעות", "5.3 שעות", "8 שעות", "4 שעות"],
+        correctAnswer: 0,
+        hint: "חצי דרך היא 200 ק\"מ. חשבו את הזמן לכל חצי בנפרד וחברו אותם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את הזמן של החצי הראשון (200 ק\"מ).&rlm;", math_expression: "200 : 100 = 2" },
+            { verbal_explanation: "שלב ב': נחשב את הזמן של החצי השני (200 ק\"מ).&rlm;", math_expression: "200 : 50 = 4" },
+            { verbal_explanation: "שלב ג': נחבר את שני הזמנים לקבלת הזמן הכולל.&rlm;", math_expression: "2 + 4 = 6" }
         ],
-        "final_answer": "2.5 שעות",
-        "options": ["2 שעות", "2.5 שעות", "3 שעות", "5 שעות"],
-        "correctAnswer": 1
+        final_answer: "6 שעות"
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Medium",
-        "question_text": "אדם הלך 12 ק\"מ במהירות של 4 קמ\"ש, ואז רץ 12 ק\"מ במהירות של 6 קמ\"ש. כמה <strong>זמן</strong> ארך כל המסלול?",
-        "hint": "חשבו זמן לכל שלב בנפרד (דרך חלקי מהירות) וחברו.",
-        "solution_steps": [
-            { "verbal_explanation": "זמן הליכה.", "math_expression": "12 / 4 = 3 שעות" },
-            { "verbal_explanation": "זמן ריצה.", "math_expression": "12 / 6 = 2 שעות" },
-            { "verbal_explanation": "סך הכל.", "math_expression": "3 + 2 = 5" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "שני הולכי רגל יצאו משני יישובים שהמרחק ביניהם 44 ק\"מ, והלכו זה לקראת זה. הם נפגשו לאחר 4 שעות. מהירותו של הולך רגל אחד הייתה גדולה ב-1 קמ\"ש ממהירותו של השני. מה הייתה מהירות ההולך המהיר יותר?&rlm;",
+        options: ["6 קמ\"ש", "5 קמ\"ש", "4 קמ\"ש", "7 קמ\"ש"],
+        correctAnswer: 0,
+        hint: "סכום המרחקים שעברו שווה ל-44. נסמן מהירות איטי ב-x ומהירות מהיר ב-x+1. הזמן של שניהם הוא 4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן מהירות איטי=x, מהירות מהיר=x+1. שניהם הלכו 4 שעות והמרחק המשותף הוא 44.&rlm;", math_expression: "4x + 4(x + 1) = 44" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים.&rlm;", math_expression: "4x + 4x + 4 = 44" },
+            { verbal_explanation: "שלב ג': נפתור את המשוואה.&rlm;", math_expression: "8x = 40 => x = 5" },
+            { verbal_explanation: "שלב ד': x הוא המהירות של האיטי. המהיר גדול ב-1 ולכן מהירותו 6.&rlm;", math_expression: "5 + 1 = 6" }
         ],
-        "final_answer": "5 שעות",
-        "options": ["4 שעות", "5 שעות", "6 שעות", "4.5 שעות"],
-        "correctAnswer": 1
+        final_answer: "6 קמ\"ש"
     },
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "מכונית עברה מרחק מסוים ב-5 שעות. לו הייתה נוסעת במהירות הגדולה ב-10 קמ\"ש, הייתה עוברת את אותו המרחק ב-4 שעות. מה הייתה <strong>מהירות המכונית</strong>?",
-        "hint": "המרחק קבוע. השוו את הביטויים לדרך (V כפול 5 שווה ל-(V+10) כפול 4).",
-        "solution_steps": [
-            { "verbal_explanation": "משוואת דרכים.", "math_expression": "5v = 4(v + 10)" },
-            { "verbal_explanation": "נפתח סוגריים: 5V = 4V + 40.", "math_expression": "v = 40" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "סירה שטה בנהר נגד כיוון הזרם במשך 3 שעות ועברה 36 ק\"מ. ידוע שמהירות זרם הנהר היא 3 קמ\"ש. מהי מהירות הסירה במים עומדים?&rlm;",
+        options: ["15 קמ\"ש", "12 קמ\"ש", "9 קמ\"ש", "18 קמ\"ש"],
+        correctAnswer: 0,
+        hint: "חשבו קודם את המהירות של הסירה בפועל (נגד הזרם). מהירות נגד הזרם היא 'מהירות סירה פחות מהירות זרם'.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את מהירות הסירה בפועל (נגד הזרם).&rlm;", math_expression: "36 : 3 = 12" },
+            { verbal_explanation: "שלב ב': נסמן את המהירות במים עומדים ב-x. המהירות נגד הזרם היא x מינוס זרם (3).&rlm;", math_expression: "x - 3 = 12" },
+            { verbal_explanation: "שלב ג': נפתור את המשוואה ונקבל את מהירות הסירה בנחת.&rlm;", math_expression: "x = 12 + 3 = 15" }
         ],
-        "final_answer": "40 קמ\"ש",
-        "options": ["40 קמ\"ש", "50 קמ\"ש", "60 קמ\"ש", "80 קמ\"ש"],
-        "correctAnswer": 0
+        final_answer: "15 קמ\"ש"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "רפסודה נעה בנהר שבו מהירות הזרם היא 3 קמ\"ש. מה המרחק שתעבור הרפסודה ב-4 שעות (ללא מנוע)?",
-        "hint": "לרפסודה ללא מנוע יש בדיוק את המהירות של הזרם.",
-        "solution_steps": [
-            { "verbal_explanation": "מהירות = 3 קמ\"ש, זמן = 4 שעות.", "math_expression": "3 \u00d7 4" },
-            { "verbal_explanation": "חישוב דרך.", "math_expression": "12" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "אדם יצא להליכה. ב-1/3 הראשונים של הזמן הוא הלך במהירות 6 קמ\"ש. ביתר הזמן הוא הלך במהירות 4 קמ\"ש. בסך הכל הוא הלך 3 שעות. איזה מרחק עבר?&rlm;",
+        options: ["14 ק\"מ", "15 ק\"מ", "12 ק\"מ", "18 ק\"מ"],
+        correctAnswer: 0,
+        hint: "הזמן הכולל הוא 3 שעות. מהו 1/3 מתוך 3 שעות? (זה הזמן הראשון). מהו שאר הזמן? חשבו דרך לכל חלק.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הזמן בחלק הראשון הוא שליש מ-3 שעות, כלומר שעה אחת. המהירות הייתה 6.&rlm;", math_expression: "1 × 6 = 6" },
+            { verbal_explanation: "שלב ב': יתר הזמן הוא שעתיים (3 פחות 1). המהירות הייתה 4.&rlm;", math_expression: "2 × 4 = 8" },
+            { verbal_explanation: "שלב ג': נחבר את המרחקים לקבלת המרחק הכולל.&rlm;", math_expression: "6 + 8 = 14" }
         ],
-        "final_answer": "12 ק\"מ",
-        "options": ["7 ק\"מ", "12 ק\"מ", "15 ק\"מ", "9 ק\"מ"],
-        "correctAnswer": 1
+        final_answer: "14 ק\"מ"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Medium",
-        "question_text": "ספורטאי רץ 30 ק\"מ במהירות קבועה. אם ירוץ ב-2 קמ\"ש מהר יותר, הוא יסיים ב-5 שעות. מהי <strong>מהירותו הנוכחית</strong>?",
-        "hint": "מצאו קודם את המהירות החדשה (30 חלקי 5) ואז החסירו 2.",
-        "solution_steps": [
-            { "verbal_explanation": "מהירות חדשה (משופרת).", "math_expression": "30 / 5 = 6 קמ\"ש" },
-            { "verbal_explanation": "נחזור למהירות המקורית.", "math_expression": "6 - 2 = 4" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "מכונית צריכה לעבור 240 ק\"מ בזמן מסוים. לאחר שעברה חצי מהדרך במהירות המתוכננת, היא התעכבה לחצי שעה. כדי להגיע ליעדה בזמן, הגבירה את מהירותה ב-20 קמ\"ש. מה הייתה מהירותה המתוכננת בהתחלה?&rlm;",
+        options: ["80 קמ\"ש", "60 קמ\"ש", "100 קמ\"ש", "120 קמ\"ש"],
+        correctAnswer: 0,
+        hint: "זהו תרגיל מתקדם. נסמן את המהירות הרגילה ב-V. על החצי השני (120 ק\"מ) הזמן קוצר בחצי שעה. המשוואה תהיה: 120 חלקי V שווה ל-120 חלקי (V+20) ועוד חצי. אפשר גם להציב תשובות!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הדרך הפשוטה ביותר כאן היא בדיקת תשובות. נבדוק אם V=80.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': הזמן הרגיל לעבור 120 ק\"מ במהירות 80 הוא 1.5 שעות.&rlm;", math_expression: "120 : 80 = 1.5" },
+            { verbal_explanation: "שלב ג': המהירות המוגברת היא 100. הזמן החדש לעבור 120 ק\"מ הוא 1.2 שעות.&rlm;", math_expression: "120 : 100 = 1.2" },
+            { verbal_explanation: "שלב ד': ההפרש בין הזמנים (1.5 פחות 1.2) הוא 0.3 שעות, ולא חצי שעה (0.5). לכן 80 היא *תשובה שגויה* לפי החישוב, אבל רגע - בואו נבדוק V=60!&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ה': תיקון: נציב V=80. אם V=80 הזמן 1.5. V מוגבר 100 זמן 1.2. טעות שלי בהגדרת התשובה הנכונה בשאלה, התשובה היא 60! נציב 60: זמן רגיל 120:60=2. זמן מוגבר (80): 120:80=1.5. ההפרש הוא חצי שעה! (2 פחות 1.5).&rlm;", math_expression: "2 - 1.5 = 0.5" }
         ],
-        "final_answer": "4 קמ\"ש",
-        "options": ["4 קמ\"ש", "6 קמ\"ש", "5 קמ\"ש", "3 קמ\"ש"],
-        "correctAnswer": 0
+        // תיקון של התשובה הנכונה בזמן אמת לפי ההסבר (V=60 נותן בדיוק הפרש של חצי שעה). נעדכן את ה-correctAnswer.
+        correctAnswer: 1, 
+        final_answer: "60 קמ\"ש"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "מכונית יוצאת לדרך של 400 ק\"מ. בשעתיים הראשונות נסעה ב-100 קמ\"ש. בשאר הדרך האט הנהג ל-50 קמ\"ש. כמה <strong>זמן</strong> ארכה הנסיעה כולה?",
-        "hint": "חשבו כמה מרחק נשאר לאחר השעתיים הראשונות.",
-        "solution_steps": [
-            { "verbal_explanation": "מרחק שעבר בשעתיים.", "math_expression": "100 \u00d7 2 = 200 ק\"מ" },
-            { "verbal_explanation": "מרחק שנותר.", "math_expression": "400 - 200 = 200 ק\"מ" },
-            { "verbal_explanation": "זמן לנסיעת היתרה במהירות 50.", "math_expression": "200 / 50 = 4 שעות" },
-            { "verbal_explanation": "סה\"כ זמן.", "math_expression": "2 + 4 = 6" }
+        topic: "verbal_problems",
+        subTopic: "בעיות תנועה",
+        question_text: "קטר רכבת שאורכו מתעלמים ממנו חולף על פני מנהרה באורך 500 מטר בתוך דקה אחת (60 שניות). מהי מהירות הרכבת במטרים לשנייה?&rlm;",
+        options: ["8.33 מטרים לשנייה", "50 מטרים לשנייה", "10 מטרים לשנייה", "12 מטרים לשנייה"],
+        correctAnswer: 0,
+        hint: "מהירות שווה לדרך (500) לחלק לזמן בשניות (60).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה את הנתונים. המרחק הוא 500 מטר, והזמן הוא 60 שניות.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחלק דרך בזמן כדי למצוא מהירות (V).&rlm;", math_expression: "500 : 60 = 50 : 6" },
+            { verbal_explanation: "שלב ג': נצמצם ונקבל 25 חלקי 3, שהם 8 ושליש.&rlm;", math_expression: "8 1/3 = 8.33..." }
         ],
-        "final_answer": "6 שעות",
-        "options": ["4 שעות", "5 שעות", "6 שעות", "8 שעות"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 28,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "כלב רודף אחרי חתול הנמצא 30 מטר לפניו. מהירות הכלב 10 מ' לשנייה ומהירות החתול 7 מ' לשנייה. כמה <strong>שניות</strong> יחלפו עד שהכלב יתפוס את החתול?",
-        "hint": "חשבו את מהירות ה'סגירה' (הפרש המהירויות).",
-        "solution_steps": [
-            { "verbal_explanation": "הפרש מהירויות.", "math_expression": "10 - 7 = 3 מ'/שנייה" },
-            { "verbal_explanation": "זמן סגירת מרחק של 30 מטר.", "math_expression": "30 / 3 = 10" }
-        ],
-        "final_answer": "10 שניות",
-        "options": ["5 שניות", "10 שניות", "15 שניות", "30 שניות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 29,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "Medium",
-        "question_text": "רוכב אופניים עבר 45 ק\"מ. ב-3 השעות הראשונות נסע במהירות X ובשעה הרביעית נסע ב-15 קמ\"ש. מהי המהירות X?",
-        "hint": "3 כפול X ועוד 15 שווה לסך הדרך (45).",
-        "solution_steps": [
-            { "verbal_explanation": "בניית משוואת דרך כוללת.", "math_expression": "3x + 15 = 45" },
-            { "verbal_explanation": "נחסיר 15.", "math_expression": "3x = 30" },
-            { "verbal_explanation": "נחלק ב-3.", "math_expression": "x = 10" }
-        ],
-        "final_answer": "10 קמ\"ש",
-        "options": ["8", "10", "12", "15"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 30,
-        "subTopic": "בעיות תנועה",
-        "difficulty": "High",
-        "question_text": "מכונית עוברת 240 ק\"מ. אם תוריד את מהירותה ב-20 קמ\"ש, זמן הנסיעה יגדל בשעה אחת. מה הייתה <strong>המהירות המקורית</strong>?",
-        "hint": "זוהי שאלה של ניסוי וטעייה או משוואה ריבועית. נסו להציב 80 מהאפשרויות ולראות אם הזמן יוצא שלם.",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק מהירות 80: זמן = 240/80 = 3 שעות.", "math_expression": "3" },
-            { "verbal_explanation": "מהירות מופחתת ב-20 היא 60: זמן = 240/60 = 4 שעות.", "math_expression": "4" },
-            { "verbal_explanation": "ההפרש בזמן הוא בדיוק שעה אחת, כפי שנדרש.", "math_expression": "4 - 3 = 1" }
-        ],
-        "final_answer": "80 קמ\"ש",
-        "options": ["60 קמ\"ש", "80 קמ\"ש", "100 קמ\"ש", "120 קמ\"ש"],
-        "correctAnswer": 1
-    },,
-    // ==============================================================
-    // --- תת נושא 3: בעיות גיאומטריות (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "אורך מלבן גדול ב-4 ס\"מ מרוחבו. היקף המלבן הוא 40 ס\"מ. מהו <strong>רוחב</strong> המלבן?",
-        "hint": "סמנו את הרוחב ב-X. זכרו שהיקף מלבן הוא פעמיים האורך ועוד פעמיים הרוחב.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר: רוחב = X, אורך = X+4.", "math_expression": "x, x+4" },
-            { "verbal_explanation": "נבנה משוואת היקף: 2 פעמים אורך + 2 פעמים רוחב.", "math_expression": "2x + 2(x+4) = 40" },
-            { "verbal_explanation": "נפתח סוגריים: 2X + 2X + 8 = 40.", "math_expression": "4x = 32" },
-            { "verbal_explanation": "נחלק ב-4 למציאת ה-X.", "math_expression": "x = 8" }
-        ],
-        "final_answer": "8 ס\"מ",
-        "options": ["8 ס\"מ", "12 ס\"מ", "10 ס\"מ", "6 ס\"מ"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 32,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "במשולש, זווית אחת גדולה פי 2 מהשנייה, והזווית השלישית היא בת 60 מעלות. מהו גודל <strong>הזווית הקטנה ביותר</strong> במשולש?",
-        "hint": "סכום הזוויות בכל משולש הוא 180 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "זווית א' = X, זווית ב' = 2X, זווית ג' = 60.", "math_expression": "x + 2x + 60 = 180" },
-            { "verbal_explanation": "נחבר איקסים ונחסיר 60 משני האגפים.", "math_expression": "3x = 120" },
-            { "verbal_explanation": "נחלק ב-3.", "math_expression": "x = 40" }
-        ],
-        "final_answer": "40 מעלות",
-        "options": ["30 מעלות", "40 מעלות", "60 מעלות", "80 מעלות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 33,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "נתון מלבן שאורכו X ורוחבו קטן ב-2 ס\"מ מאורכו. אם נגדיל את האורך ב-3 ס\"מ, נקבל מלבן חדש ששטחו גדול ב-21 סמ\"ר משטח המלבן המקורי. מהו <strong>האורך X</strong>?",
-        "hint": "שטח מלבן מקורי: X כפול (X-2). שטח מלבן חדש: (X+3) כפול (X-2).",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה: שטח חדש פחות שטח ישן שווה 21.", "math_expression": "(x+3)(x-2) - x(x-2) = 21" },
-            { "verbal_explanation": "נפתח סוגריים: X² + X - 6 - X² + 2X = 21.", "math_expression": "3x - 6 = 21" },
-            { "verbal_explanation": "נפתור את המשוואה.", "math_expression": "3x = 27 -> x = 9" }
-        ],
-        "final_answer": "9 ס\"מ",
-        "options": ["7 ס\"מ", "8 ס\"מ", "9 ס\"מ", "10 ס\"מ"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 34,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "צלע של ריבוע היא X ס\"מ. אם נגדיל צלע אחת ב-20% ונקטין צלע סמוכה ב-20%, מה יקרה ל<strong>שטח הצורה</strong>?",
-        "hint": "הצורה החדשה היא מלבן שצלעותיו הן 1.2X ו-0.8X.",
-        "solution_steps": [
-            { "verbal_explanation": "שטח ריבוע מקורי הוא X כפול X.", "math_expression": "x\u00b2" },
-            { "verbal_explanation": "שטח המלבן החדש: 1.2X כפול 0.8X.", "math_expression": "1.2x \u00d7 0.8x = 0.96x\u00b2" },
-            { "verbal_explanation": "נשווה בין השטחים: מ-100% ירדנו ל-96%.", "math_expression": "100% - 96% = 4%" }
-        ],
-        "final_answer": "השטח יקטן ב-4%",
-        "options": ["השטח לא ישתנה", "השטח יגדל ב-4%", "השטח יקטן ב-4%", "השטח יקטן ב-20%"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 35,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "במשולש שווה שוקיים, זווית הראש גדולה ב-30 מעלות מזווית הבסיס. מהו גודל <strong>זווית הבסיס</strong>?",
-        "hint": "במשולש שווה שוקיים יש שתי זוויות בסיס שוות (X). זווית הראש היא X+30.",
-        "solution_steps": [
-            { "verbal_explanation": "בסיס = X, בסיס = X, ראש = X+30.", "math_expression": "x + x + (x + 30) = 180" },
-            { "verbal_explanation": "3X + 30 = 180.", "math_expression": "3x = 150" },
-            { "verbal_explanation": "נחלק ב-3.", "math_expression": "x = 50" }
-        ],
-        "final_answer": "50 מעלות",
-        "options": ["50 מעלות", "60 מעלות", "70 מעלות", "80 מעלות"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 36,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "נתון ריבוע שצלעו X. חתכו ממנו מלבן שרוחבו 3 ס\"מ לכל אורך הריבוע. השטח שנותר הוא 28 סמ\"ר. מה היה <strong>אורך צלע הריבוע המקורי</strong>?",
-        "hint": "השטח שנותר הוא מלבן שצלעותיו הן X ו- (X-3).",
-        "solution_steps": [
-            { "verbal_explanation": "בניית משוואת שטח: צלע אחת נשארה X והשנייה התקצרה.", "math_expression": "x(x - 3) = 28" },
-            { "verbal_explanation": "נחפש מספר X שמתקיים: X כפול פחות 3 מעצמו שווה 28.", "math_expression": "7 \u00d7 4 = 28" },
-            { "verbal_explanation": "לכן X חייב להיות 7.", "math_expression": "x = 7" }
-        ],
-        "final_answer": "7 ס\"מ",
-        "options": ["5 ס\"מ", "6 ס\"מ", "7 ס\"מ", "8 ס\"מ"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 37,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Low",
-        "question_text": "היקף ריבוע הוא 4X. מהו <strong>שטח</strong> הריבוע?",
-        "hint": "מצאו קודם את אורך הצלע של הריבוע על ידי חלוקת ההיקף ב-4.",
-        "solution_steps": [
-            { "verbal_explanation": "אורך צלע הריבוע.", "math_expression": "4x / 4 = x" },
-            { "verbal_explanation": "שטח ריבוע הוא צלע כפול צלע.", "math_expression": "x \u00d7 x = x\u00b2" }
-        ],
-        "final_answer": "X²",
-        "options": ["X", "2X", "X²", "16X²"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 38,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "במשולש ישר זווית, אורך ניצב אחד הוא 8 ס\"מ. הניצב השני קטן ב-X ס\"מ מהניצב הראשון. שטח המשולש הוא 24 סמ\"ר. מהו <strong>הערך של X</strong>?",
-        "hint": "שטח משולש ישר זווית הוא (ניצב א' כפול ניצב ב') חלקי 2.",
-        "solution_steps": [
-            { "verbal_explanation": "ניצב א' = 8, ניצב ב' = 8-X.", "math_expression": "8, 8-x" },
-            { "verbal_explanation": "משוואת שטח: [8 כפול (8-X)] חלקי 2 שווה 24.", "math_expression": "4(8 - x) = 24" },
-            { "verbal_explanation": "נחלק ב-4: 8 פחות X שווה 6.", "math_expression": "8 - x = 6" },
-            { "verbal_explanation": "נמצא את X.", "math_expression": "x = 2" }
-        ],
-        "final_answer": "2",
-        "options": ["2", "3", "4", "6"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 39,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "אם נגדיל צלע של ריבוע ב-3 ס\"מ, היקפו יהיה 32 ס\"מ. מה היה <strong>שטח הריבוע המקורי</strong>?",
-        "hint": "מצאו קודם את הצלע של הריבוע החדש (היקף חלקי 4).",
-        "solution_steps": [
-            { "verbal_explanation": "צלע הריבוע החדש: 32 חלקי 4.", "math_expression": "8 ס\"מ" },
-            { "verbal_explanation": "הצלע הוגדלה ב-3, לכן המקורית הייתה 5.", "math_expression": "8 - 3 = 5" },
-            { "verbal_explanation": "שטח מקורי: 5 כפול 5.", "math_expression": "25" }
-        ],
-        "final_answer": "25 סמ\"ר",
-        "options": ["25 סמ\"ר", "64 סמ\"ר", "16 סמ\"ר", "49 סמ\"ר"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 40,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "שטח מקבילית הוא 40 סמ\"ר. גובה המקבילית קטן ב-3 ס\"מ מהבסיס שלה. מהו <strong>אורך הבסיס</strong>?",
-        "hint": "שטח מקבילית = בסיס × גובה. סמנו בסיס ב-X.",
-        "solution_steps": [
-            { "verbal_explanation": "בסיס = X, גובה = X-3.", "math_expression": "x(x - 3) = 40" },
-            { "verbal_explanation": "נחפש מספר שההפרש בינו לבין זה שמוכפל בו הוא 3, ומכפלתם 40.", "math_expression": "8 \u00d7 5 = 40" },
-            { "verbal_explanation": "לכן הבסיס (המספר הגדול) הוא 8.", "math_expression": "8" }
-        ],
-        "final_answer": "8 ס\"מ",
-        "options": ["5 ס\"מ", "8 ס\"מ", "10 ס\"מ", "4 ס\"מ"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 41,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "קובייה שאורך מקצועה (צלעה) הוא X. אם נגדיל את הצלע פי 2, <strong>פי כמה יגדל נפח</strong> הקובייה?",
-        "hint": "נפח קובייה הוא צלע בשלישית (X³).",
-        "solution_steps": [
-            { "verbal_explanation": "נפח מקורי.", "math_expression": "x\u00b3" },
-            { "verbal_explanation": "נפח חדש עם צלע 2X.", "math_expression": "(2x)\u00b3 = 8x\u00b3" },
-            { "verbal_explanation": "נראה פי כמה הנפח החדש גדול מהישן.", "math_expression": "8" }
-        ],
-        "final_answer": "פי 8",
-        "options": ["פי 2", "פי 4", "פי 6", "פי 8"],
-        "correctAnswer": 3
-    },
-    {
-        "id": 42,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "שתי זוויות צמודות נמצאות על קו ישר. זווית אחת גדולה פי 4 מהשנייה. מהו גודל <strong>הזווית הגדולה</strong>?",
-        "hint": "סכום זוויות צמודות על קו ישר הוא 180 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "זווית קטנה = X, גדולה = 4X.", "math_expression": "x + 4x = 180" },
-            { "verbal_explanation": "5X = 180 -> X = 36.", "math_expression": "x = 36" },
-            { "verbal_explanation": "נמצא את הזווית הגדולה: 4 כפול 36.", "math_expression": "144" }
-        ],
-        "final_answer": "144 מעלות",
-        "options": ["36 מעלות", "144 מעלות", "150 מעלות", "120 מעלות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 43,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "מלבן שהיקפו 60 ס\"מ חולק לשני ריבועים זהים. מהו <strong>שטח המלבן</strong> כולו?",
-        "hint": "אם המלבן בנוי משני ריבועים צמודים, אז האורך שלו הוא פעמיים הרוחב.",
-        "solution_steps": [
-            { "verbal_explanation": "רוחב = X, אורך = 2X. משוואת היקף.", "math_expression": "2(x + 2x) = 60" },
-            { "verbal_explanation": "6X = 60 -> X = 10.", "math_expression": "x = 10" },
-            { "verbal_explanation": "מידות המלבן הן 10 ו-20. נחשב שטח.", "math_expression": "10 \u00d7 20 = 200" }
-        ],
-        "final_answer": "200 סמ\"ר",
-        "options": ["100 סמ\"ר", "200 סמ\"ר", "225 סמ\"ר", "150 סמ\"ר"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 44,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "High",
-        "question_text": "בתוך ריבוע שצלעו 10 ס\"מ, מצויר ריבוע פנימי קטן יותר כך שהמרחק בין צלעות הריבועים הוא 2 ס\"מ מכל צד. מהו <strong>השטח שבין שני הריבועים</strong>?",
-        "hint": "חשבו את שטח הריבוע הגדול, והחסירו ממנו את שטח הריבוע הקטן. צלע הקטן היא (10 פחות 2 פחות 2).",
-        "solution_steps": [
-            { "verbal_explanation": "שטח ריבוע גדול.", "math_expression": "10 \u00d7 10 = 100" },
-            { "verbal_explanation": "אורך צלע ריבוע פנימי: מורידים 2 ס\"מ מכל קצה.", "math_expression": "10 - 2 - 2 = 6" },
-            { "verbal_explanation": "שטח ריבוע פנימי: 6 כפול 6.", "math_expression": "36" },
-            { "verbal_explanation": "הפרש השטחים.", "math_expression": "100 - 36 = 64" }
-        ],
-        "final_answer": "64 סמ\"ר",
-        "options": ["64 סמ\"ר", "36 סמ\"ר", "84 סמ\"ר", "20 סמ\"ר"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 45,
-        "subTopic": "בעיות גיאומטריות",
-        "difficulty": "Medium",
-        "question_text": "מהו היקף של עיגול שרדיוסו הוא 5 ס\"מ? (השתמשו ב- 3.14 עבור פאי).",
-        "hint": "נוסחת היקף מעגל: 2 כפול פאי כפול רדיוס.",
-        "solution_steps": [
-            { "verbal_explanation": "נציב בנוסחה: 2 כפול 3.14 כפול 5.", "math_expression": "10 \u00d7 3.14" },
-            { "verbal_explanation": "נחשב את המכפלה.", "math_expression": "31.4" }
-        ],
-        "final_answer": "31.4 ס\"מ",
-        "options": ["15.7 ס\"מ", "31.4 ס\"מ", "78.5 ס\"מ", "62.8 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "8.33 מטרים לשנייה"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: בעיות יחס (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: בעיות גיאומטריות (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 46,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Low",
-        "question_text": "היחס בין מספר הבנים למספר הבנות בכיתה הוא 2:3. אם יש בכיתה 12 בנים, כמה <strong>בנות</strong> יש בכיתה?",
-        "hint": "היחס אומר שעל כל 2 בנים יש 3 בנות. בדקו פי כמה גדול מספר הבנים האמיתי מהיחס.",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את הגורם המרחיב: 12 חלקי 2.", "math_expression": "6" },
-            { "verbal_explanation": "נכפיל את חלק הבנות ביחס באותו גורם.", "math_expression": "3 \u00d7 6 = 18" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "אורכו של מלבן גדול ב-4 ס\"מ מרוחבו. היקף המלבן הוא 32 ס\"מ. מהו רוחב המלבן?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 80' width='100%' height='80' style='max-width:150px;'><rect x='10' y='20' width='130' height='50' fill='none' stroke='#0f172a' stroke-width='2'/><text x='75' y='15' font-family='Heebo' font-size='12' fill='#0f172a'>x + 4</text><text x='155' y='50' font-family='Heebo' font-size='12' fill='#0f172a'>x</text></svg></div>",
+        options: ["6 ס\"מ", "10 ס\"מ", "8 ס\"מ", "4 ס\"מ"],
+        correctAnswer: 0,
+        hint: "היקף מלבן הוא סכום כל 4 הצלעות. אם נסמן את הרוחב ב-x, האורך הוא x+4. המשוואה תהיה 2x + 2(x+4) = 32.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הרוחב ב-x. האורך הוא x+4. נבנה משוואה להיקף המלבן (פעמיים אורך פלוס פעמיים רוחב).&rlm;", math_expression: "2x + 2(x + 4) = 32" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים ונכנס איברים דומים.&rlm;", math_expression: "2x + 2x + 8 = 32" },
+            { verbal_explanation: "שלב ג': נחסר 8 משני האגפים.&rlm;", math_expression: "4x = 24" },
+            { verbal_explanation: "שלב ד': נחלק ב-4 כדי למצוא את הרוחב.&rlm;", math_expression: "x = 6" }
         ],
-        "final_answer": "18 בנות",
-        "options": ["12", "15", "18", "24"],
-        "correctAnswer": 2
+        final_answer: "6 ס\"מ"
     },
+    // שאלה 26
     {
-        "id": 47,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "סכום של 200 ש\"ח חולק בין דן ליוסי ביחס של 3:7 (יוסי קיבל את החלק הגדול). כמה כסף קיבל <strong>יוסי</strong>?",
-        "hint": "חברו את חלקי היחס כדי לדעת לכמה 'חלקים' שווים חולק הכסף.",
-        "solution_steps": [
-            { "verbal_explanation": "סך כל החלקים ביחס.", "math_expression": "3 + 7 = 10" },
-            { "verbal_explanation": "ערך של 'חלק' אחד: 200 חלקי 10.", "math_expression": "20" },
-            { "verbal_explanation": "יוסי קיבל 7 חלקים.", "math_expression": "7 \u00d7 20 = 140" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "שטחו של מלבן הוא 48 סמ\"ר. אורכו הוא 8 ס\"מ. מהו היקף המלבן?&rlm;",
+        options: ["28 ס\"מ", "20 ס\"מ", "14 ס\"מ", "32 ס\"מ"],
+        correctAnswer: 0,
+        hint: "תחילה, מצאו את הרוחב באמצעות חלוקת השטח באורך. לאחר מכן חשבו היקף.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': שטח מלבן שווה לאורך כפול רוחב. נמצא את הרוחב על ידי חלוקת השטח באורך.&rlm;", math_expression: "48 : 8 = 6" },
+            { verbal_explanation: "שלב ב': כעת אנו יודעים שהאורך הוא 8 והרוחב הוא 6. נחשב את ההיקף.&rlm;", math_expression: "2 × 8 + 2 × 6 = 16 + 12" },
+            { verbal_explanation: "שלב ג': נסכם.&rlm;", math_expression: "28" }
         ],
-        "final_answer": "140 ש\"ח",
-        "options": ["60 ש\"ח", "100 ש\"ח", "140 ש\"ח", "170 ש\"ח"],
-        "correctAnswer": 2
+        final_answer: "28 ס\"מ"
     },
+    // שאלה 27
     {
-        "id": 48,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "במתכון לעוגה היחס בין הקמח לסוכר הוא 5:2. אם השתמשנו ב-400 גרם סוכר, כמה <strong>גרם קמח</strong> דרושים?",
-        "hint": "סדרו את היחס: קמח (5) מול סוכר (2).",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא פי כמה גדלה כמות הסוכר מ-2 ל-400.", "math_expression": "400 / 2 = 200" },
-            { "verbal_explanation": "נכפיל את חלק הקמח באותו יחס.", "math_expression": "5 \u00d7 200 = 1000" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "היקף ריבוע שווה להיקף משולש שווה צלעות שאורך צלעו 8 ס\"מ. מהו שטח הריבוע?&rlm;",
+        options: ["36 סמ\"ר", "24 סמ\"ר", "16 סמ\"ר", "64 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "חשבו קודם את היקף המשולש. מכיוון שהיקף הריבוע זהה, חלקו אותו ב-4 כדי למצוא צלע בריבוע, ואז חשבו שטח.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את היקף המשולש (3 צלעות שוות של 8 ס\"מ).&rlm;", math_expression: "3 × 8 = 24" },
+            { verbal_explanation: "שלב ב': היקף הריבוע גם הוא 24. נחלק ב-4 כדי למצוא צלע אחת בריבוע.&rlm;", math_expression: "24 : 4 = 6" },
+            { verbal_explanation: "שלב ג': נחשב את שטח הריבוע (צלע כפול צלע).&rlm;", math_expression: "6 × 6 = 36" }
         ],
-        "final_answer": "1000 גרם (1 ק\"ג)",
-        "options": ["800 גרם", "1000 גרם", "1200 גרם", "600 גרם"],
-        "correctAnswer": 1
+        final_answer: "36 סמ\"ר"
     },
+    // שאלה 28
     {
-        "id": 49,
-        "subTopic": "בעיות יחס",
-        "difficulty": "High",
-        "question_text": "היחס בין הגילאים של אבא לבנו הוא 4:1. בעוד 5 שנים יהיה הבן בן 15. בן כמה <strong>האבא היום</strong>?",
-        "hint": "מצאו קודם את גיל הבן היום.",
-        "solution_steps": [
-            { "verbal_explanation": "אם בעוד 5 שנים הבן יהיה בן 15, היום הוא בן 10.", "math_expression": "15 - 5 = 10" },
-            { "verbal_explanation": "לפי היחס 4:1, האב מבוגר פי 4 מהבן.", "math_expression": "10 \u00d7 4 = 40" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "במשולש נתון, שתי זוויות הן בגודל 45 מעלות ו-65 מעלות. מהו גודלה של הזווית השלישית?&rlm;",
+        options: ["70 מעלות", "90 מעלות", "80 מעלות", "60 מעלות"],
+        correctAnswer: 0,
+        hint: "סכום הזוויות במשולש הוא תמיד 180 מעלות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחבר את שתי הזוויות הנתונות.&rlm;", math_expression: "45 + 65 = 110" },
+            { verbal_explanation: "שלב ב': נחסר את הסכום מ-180 מעלות כדי למצוא את הזווית השלישית.&rlm;", math_expression: "180 - 110 = 70" }
         ],
-        "final_answer": "40",
-        "options": ["35", "40", "45", "60"],
-        "correctAnswer": 1
+        final_answer: "70 מעלות"
     },
+    // שאלה 29
     {
-        "id": 50,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "קנה המידה במפה הוא 1:50,000. המרחק בין שתי נקודות במפה הוא 4 ס\"מ. מהו <strong>המרחק האמיתי</strong> בקילומטרים?",
-        "hint": "קנה מידה אומר שכל 1 ס\"מ במפה שווה ל-50,000 ס\"מ במציאות. זכרו: 100,000 ס\"מ הם 1 ק\"מ.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את המרחק בסנטימטרים במציאות.", "math_expression": "4 \u00d7 50,000 = 200,000" },
-            { "verbal_explanation": "נמיר מקילומטרים לסנטימטרים (חלוקה ב-100,000).", "math_expression": "200,000 / 100,000 = 2" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "זווית הראש במשולש שווה שוקיים היא בת 40 מעלות. מהו גודלה של כל אחת מזוויות הבסיס?&rlm;",
+        options: ["70 מעלות", "140 מעלות", "40 מעלות", "50 מעלות"],
+        correctAnswer: 0,
+        hint: "סכום הזוויות הוא 180. חסרו את זווית הראש, ואת השארית חלקו שווה בשווה בין שתי זוויות הבסיס (הן שוות זו לזו).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סכום שתי זוויות הבסיס על ידי חיסור זווית הראש מ-180.&rlm;", math_expression: "180 - 40 = 140" },
+            { verbal_explanation: "שלב ב': במשולש שווה שוקיים זוויות הבסיס שוות. לכן נחלק ב-2.&rlm;", math_expression: "140 : 2 = 70" }
         ],
-        "final_answer": "2 ק\"מ",
-        "options": ["2 ק\"מ", "20 ק\"מ", "0.2 ק\"מ", "200 ק\"מ"],
-        "correctAnswer": 0
+        final_answer: "70 מעלות"
     },
+    // שאלה 30
     {
-        "id": 51,
-        "subTopic": "בעיות יחס",
-        "difficulty": "High",
-        "question_text": "במסיבה היחס בין מספר המבוגרים לילדים היה 1:4. לאחר ש-5 מבוגרים נוספים הגיעו, היחס הפך ל-1:2. כמה <strong>ילדים</strong> היו במסיבה?",
-        "hint": "סמנו מבוגרים כ-X וילדים כ-4X. בנו משוואה ליחס החדש.",
-        "solution_steps": [
-            { "verbal_explanation": "התחלה: מבוגרים=X, ילדים=4X. אחרי תוספת: מבוגרים=X+5.", "math_expression": "4x / (x + 5) = 2 / 1" },
-            { "verbal_explanation": "נפתור את הפרופורציה (כפל בהצלבה).", "math_expression": "4x = 2x + 10" },
-            { "verbal_explanation": "2X = 10 -> X = 5.", "math_expression": "x = 5" },
-            { "verbal_explanation": "מספר הילדים הוא 4X.", "math_expression": "4 \u00d7 5 = 20" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "לפניכם מגרש בצורת מלבן שאורכו 20 מטר ורוחבו 15 מטר. באמצע המגרש יש בריכה מרובעת בגודל 5 על 5 מטר. שאר המגרש מכוסה בדשא. מהו שטח הדשא?&rlm;",
+        options: ["275 מ\"ר", "300 מ\"ר", "25 מ\"ר", "325 מ\"ר"],
+        correctAnswer: 0,
+        hint: "חשבו את השטח הכולל, חסרו ממנו את שטח הבריכה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את השטח הכולל של המגרש (מלבן).&rlm;", math_expression: "20 × 15 = 300" },
+            { verbal_explanation: "שלב ב': נחשב את שטח הבריכה (ריבוע).&rlm;", math_expression: "5 × 5 = 25" },
+            { verbal_explanation: "שלב ג': נחסר את שטח הבריכה מהשטח הכולל למציאת הדשא.&rlm;", math_expression: "300 - 25 = 275" }
         ],
-        "final_answer": "20 ילדים",
-        "options": ["10", "15", "20", "25"],
-        "correctAnswer": 2
+        final_answer: "275 מ\"ר"
     },
+    // שאלה 31
     {
-        "id": 52,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Low",
-        "question_text": "מחיר 5 ק\"ג תפוחים הוא 30 ש\"ח. כמה יעלו <strong>8 ק\"ג</strong> תפוחים מאותו סוג?",
-        "hint": "מצאו קודם מחיר לק\"ג אחד (היחס בין המחיר לכמות).",
-        "solution_steps": [
-            { "verbal_explanation": "מחיר לקילוגרם בודד.", "math_expression": "30 / 5 = 6 ש\"ח" },
-            { "verbal_explanation": "נכפיל בכמות המבוקשת.", "math_expression": "6 \u00d7 8 = 48" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "אם מגדילים את אורך צלע הריבוע ב-2 ס\"מ, ההיקף שלו יהיה 32 ס\"מ. מה היה אורך הצלע המקורי של הריבוע?&rlm;",
+        options: ["6 ס\"מ", "8 ס\"מ", "4 ס\"מ", "10 ס\"מ"],
+        correctAnswer: 0,
+        hint: "היקף הריבוע החדש הוא 32. חלקו ב-4 למציאת הצלע החדשה, וחסרו 2 כדי למצוא את המקורית.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': ההיקף לאחר ההגדלה הוא 32. נחלק ב-4 כדי למצוא את אורך הצלע לאחר ההגדלה.&rlm;", math_expression: "32 : 4 = 8" },
+            { verbal_explanation: "שלב ב': הצלע החדשה היא 8, והיא גדולה ב-2 מהמקורית. נחסר 2 למציאת המקורית.&rlm;", math_expression: "8 - 2 = 6" }
         ],
-        "final_answer": "48 ש\"ח",
-        "options": ["40 ש\"ח", "48 ש\"ח", "50 ש\"ח", "38 ש\"ח"],
-        "correctAnswer": 1
+        final_answer: "6 ס\"מ"
     },
+    // שאלה 32
     {
-        "id": 53,
-        "subTopic": "בעיות יחס",
-        "difficulty": "High",
-        "question_text": "היחס בין שלוש הזוויות במשולש הוא 1:2:3. מה גודלה של <strong>הזווית הגדולה ביותר</strong>?",
-        "hint": "חלקו את 180 מעלות לסך כל חלקי היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "סך כל החלקים ביחס.", "math_expression": "1 + 2 + 3 = 6" },
-            { "verbal_explanation": "ערך של 'חלק' אחד במעלות.", "math_expression": "180 / 6 = 30" },
-            { "verbal_explanation": "הזווית הגדולה היא 3 חלקים.", "math_expression": "3 \u00d7 30 = 90" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "משולש וישר זווית: שטח משולש ישר זווית הוא 30 סמ\"ר. ניצב אחד שווה ל-12 ס\"מ. מה אורכו של הניצב השני?&rlm;",
+        options: ["5 ס\"מ", "10 ס\"מ", "2.5 ס\"מ", "6 ס\"מ"],
+        correctAnswer: 0,
+        hint: "נוסחת שטח משולש היא בסיס כפול גובה חלקי 2. כאן הניצבים הם הבסיס והגובה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הניצב החסר ב-x. הנוסחה לשטח היא (12 כפול x) לחלק ל-2 שווה 30.&rlm;", math_expression: "(12 × x) : 2 = 30" },
+            { verbal_explanation: "שלב ב': נכפול את השטח ב-2 כדי למצוא את מכפלת הניצבים.&rlm;", math_expression: "30 × 2 = 60" },
+            { verbal_explanation: "שלב ג': נחלק 60 בניצב הידוע (12) כדי למצוא את x.&rlm;", math_expression: "60 : 12 = 5" }
         ],
-        "final_answer": "90 מעלות",
-        "options": ["60 מעלות", "80 מעלות", "90 מעלות", "100 מעלות"],
-        "correctAnswer": 2
+        final_answer: "5 ס\"מ"
     },
+    // שאלה 33
     {
-        "id": 54,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "בכלוב יש ארנבים ותוכים. היחס בין מספר הארנבים למספר התוכים הוא 2:5. בסך הכל יש בכלוב 35 חיות. כמה <strong>ארנבים</strong> יש בכלוב?",
-        "hint": "השתמשו בשיטת יחידת היחס (סך הכל חלקי סכום היחס).",
-        "solution_steps": [
-            { "verbal_explanation": "סכום חלקי היחס.", "math_expression": "2 + 5 = 7" },
-            { "verbal_explanation": "ערך כל יחידה.", "math_expression": "35 / 7 = 5" },
-            { "verbal_explanation": "מספר ארנבים (2 יחידות).", "math_expression": "2 \u00d7 5 = 10" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "לשני מלבנים שטח זהה. אורך מלבן א' הוא 10 ורוחבו 6. אורך מלבן ב' הוא 15. מהו רוחבו של מלבן ב'?&rlm;",
+        options: ["4", "5", "8", "3"],
+        correctAnswer: 0,
+        hint: "חשבו את השטח של מלבן א', והשוו אותו לשטח מלבן ב'.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את השטח של המלבן הראשון.&rlm;", math_expression: "10 × 6 = 60" },
+            { verbal_explanation: "שלב ב': השטח של המלבן השני גם הוא 60. נסמן רוחב ב-x.&rlm;", math_expression: "15 × x = 60" },
+            { verbal_explanation: "שלב ג': נחלק את השטח באורך הידוע כדי למצוא את הרוחב.&rlm;", math_expression: "60 : 15 = 4" }
         ],
-        "final_answer": "10 ארנבים",
-        "options": ["10", "14", "25", "15"],
-        "correctAnswer": 0
+        final_answer: "4"
     },
+    // שאלה 34
     {
-        "id": 55,
-        "subTopic": "בעיות יחס",
-        "difficulty": "High",
-        "difficulty": "High",
-        "question_text": "היחס בין אורכי הצלעות של מלבן הוא 2:5. היקף המלבן הוא 70 ס\"מ. מהו <strong>שטח</strong> המלבן?",
-        "hint": "השתמשו ב-2X ו-5X לצלעות. זכרו שההיקף הוא פעמיים הסכום שלהן.",
-        "solution_steps": [
-            { "verbal_explanation": "משוואת היקף.", "math_expression": "2(2x + 5x) = 70" },
-            { "verbal_explanation": "14X = 70 -> X = 5.", "math_expression": "x = 5" },
-            { "verbal_explanation": "צלעות המלבן: 10 ס\"מ ו-25 ס\"מ.", "math_expression": "10 , 25" },
-            { "verbal_explanation": "נחשב שטח.", "math_expression": "10 \u00d7 25 = 250" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "חוט ברזל שאורכו 48 ס\"מ כופף ליצירת ריבוע. לאחר מכן, פתחו את הריבוע וכופפו את אותו החוט ליצירת מלבן שרוחבו 10 ס\"מ. מהו אורכו של המלבן?&rlm;",
+        options: ["14 ס\"מ", "24 ס\"מ", "38 ס\"מ", "12 ס\"מ"],
+        correctAnswer: 0,
+        hint: "אורך החוט הוא בעצם ההיקף של כל צורה. היקף המלבן הוא 48. יש לו פעמיים רוחב של 10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': אורך החוט הוא היקף המלבן, ולכן היקף המלבן הוא 48.&rlm;", math_expression: "P = 48" },
+            { verbal_explanation: "שלב ב': למלבן יש שתי צלעות רוחב של 10 ס\"מ כל אחת. סכומן הוא 20.&rlm;", math_expression: "10 × 2 = 20" },
+            { verbal_explanation: "שלב ג': האורך הנותר לשתי הצלעות הארוכות הוא ההיקף פחות 20.&rlm;", math_expression: "48 - 20 = 28" },
+            { verbal_explanation: "שלב ד': נחלק ב-2 כדי למצוא צלע אורך אחת.&rlm;", math_expression: "28 : 2 = 14" }
         ],
-        "final_answer": "250 סמ\"ר",
-        "options": ["150 סמ\"ר", "250 סמ\"ר", "350 סמ\"ר", "100 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "14 ס\"מ"
     },
+    // שאלה 35
     {
-        "id": 56,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "יחס המחירים בין קילו ענבים לקילו תפוחים הוא 3:1. אם 2 קילו ענבים ו-4 קילו תפוחים עולים 50 ש\"ח, מה מחיר <strong>קילו ענבים</strong>?",
-        "hint": "תפוחים = X, ענבים = 3X.",
-        "solution_steps": [
-            { "verbal_explanation": "בניית משוואת עלות.", "math_expression": "2(3x) + 4x = 50" },
-            { "verbal_explanation": "6X + 4X = 50 -> 10X = 50.", "math_expression": "x = 5" },
-            { "verbal_explanation": "מחיר ענבים הוא 3X.", "math_expression": "3 \u00d7 5 = 15" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "זווית שטוחה (180 מעלות) מחולקת על ידי קרן לשתי זוויות סמוכות. זווית אחת גדולה ב-40 מעלות מהזווית השנייה. מה גודלה של הזווית הקטנה יותר?&rlm;",
+        options: ["70 מעלות", "90 מעלות", "60 מעלות", "110 מעלות"],
+        correctAnswer: 0,
+        hint: "נסמן את הזווית הקטנה ב-x, והגדולה x+40. סכומן הוא 180.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן זווית קטנה ב-x, זווית גדולה ב-x+40. סכומן 180.&rlm;", math_expression: "x + (x + 40) = 180" },
+            { verbal_explanation: "שלב ב': נכנס איברים ונעביר אגף.&rlm;", math_expression: "2x + 40 = 180  =>  2x = 140" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 לקבלת x.&rlm;", math_expression: "x = 70" }
         ],
-        "final_answer": "15 ש\"ח",
-        "options": ["5 ש\"ח", "10 ש\"ח", "15 ש\"ח", "20 ש\"ח"],
-        "correctAnswer": 2
+        final_answer: "70 מעלות"
     },
+    // שאלה 36
     {
-        "id": 57,
-        "subTopic": "בעיות יחס",
-        "difficulty": "High",
-        "question_text": "היחס בין כמות השמן לכמות המים בתערובת הוא 1:8. אם בתערובת יש 4.5 ליטר נוזל בסך הכל, כמה <strong>מיליליטר (מ\"ל) שמן</strong> יש בה?",
-        "hint": "חלקו את סך הליטרים ל-9 חלקים (1+8). זכרו ש-1 ליטר הוא 1000 מ\"ל.",
-        "solution_steps": [
-            { "verbal_explanation": "ערך כל חלק בליטרים.", "math_expression": "4.5 / 9 = 0.5 ליטר" },
-            { "verbal_explanation": "נמיר למ\"ל.", "math_expression": "0.5 \u00d7 1000 = 500" }
+        topic: "verbal_problems",
+        subTopic: "בעיות גיאומטריות",
+        question_text: "קיר בצורת מלבן רוחבו 4 מטרים ואורכו 3 מטרים. קופסת צבע מספיקה לצביעת 2 מ\"ר. כמה קופסאות צבע נדרשות לצביעת כל הקיר?&rlm;",
+        options: ["6", "12", "7", "24"],
+        correctAnswer: 0,
+        hint: "חשבו את השטח الكולל של הקיר. לאחר מכן, חלקו את השטח בהספק של קופסת צבע אחת.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את שטח הקיר.&rlm;", math_expression: "4 × 3 = 12" },
+            { verbal_explanation: "שלב ב': נחלק את השטח הכולל ביכולת הכיסוי של קופסה אחת (2 מ\"ר).&rlm;", math_expression: "12 : 2 = 6" }
         ],
-        "final_answer": "500 מ\"ל",
-        "options": ["400 מ\"ל", "500 מ\"ל", "450 מ\"ל", "100 מ\"ל"],
-        "correctAnswer": 1
+        final_answer: "6"
     },
+
+    // ==========================================================
+    // תת נושא 4: בעיות יחס (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 58,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "מפה משורטטת בקנה מידה של 1:2,000,000. אורך כביש במציאות הוא 100 ק\"מ. מה יהיה אורכו <strong>במפה</strong> בסנטימטרים?",
-        "hint": "המרו קודם את הקילומטרים לסנטימטרים (הוסיפו 5 אפסים), ואז חלקו ביחס.",
-        "solution_steps": [
-            { "verbal_explanation": "המרת ק\"מ לס\"מ.", "math_expression": "100 \u00d7 100,000 = 10,000,000" },
-            { "verbal_explanation": "חלוקה בקנה המידה.", "math_expression": "10,000,000 / 2,000,000 = 5" }
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "בסלסלה יש 12 תפוחים ו-8 אגסים. מהו היחס (המצומצם) בין מספר התפוחים למספר האגסים?&rlm;",
+        options: ["3:2", "2:3", "12:8", "4:3"],
+        correctAnswer: 0,
+        hint: "רשמו את היחס כ-12:8 ואז חלקו את שני המספרים במחלק המשותף הגדול ביותר (4).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את היחס הראשוני לפי הסדר המבוקש (קודם תפוחים ואז אגסים).&rlm;", math_expression: "12 : 8" },
+            { verbal_explanation: "שלב ב': נצמצם את היחס על ידי חלוקת שני המספרים ב-4.&rlm;", math_expression: "(12:4) : (8:4) = 3:2" }
         ],
-        "final_answer": "5 ס\"מ",
-        "options": ["2 ס\"מ", "5 ס\"מ", "10 ס\"מ", "50 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "3:2"
     },
+    // שאלה 38
     {
-        "id": 59,
-        "subTopic": "בעיות יחס",
-        "difficulty": "High",
-        "question_text": "היחס בין החיסכון של יעל לחיסכון של גיא הוא 2:5. לאחר ששניהם חסכו 100 ש\"ח נוספים כל אחד, היחס השתנה ל-1:2. כמה כסף היה ל<strong>יעל</strong> בהתחלה?",
-        "hint": "סמנו: יעל=2X, גיא=5X. בנו משוואת יחס חדש.",
-        "solution_steps": [
-            { "verbal_explanation": "משוואת יחס: (יעל+100) חלקי (גיא+100) שווה 1/2.", "math_expression": "(2x + 100) / (5x + 100) = 1 / 2" },
-            { "verbal_explanation": "כפל בהצלבה: 2(2X + 100) = 5X + 100.", "math_expression": "4x + 200 = 5x + 100" },
-            { "verbal_explanation": "נפתור: X = 100.", "math_expression": "x = 100" },
-            { "verbal_explanation": "כסף של יעל בהתחלה (2X).", "math_expression": "200" }
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "בכיתה יש בנים ובנות ביחס של 4:5 (4 בנים על כל 5 בנות). מספר התלמידים הכולל בכיתה הוא 36. כמה בנים יש בכיתה?&rlm;",
+        options: ["16", "20", "9", "4"],
+        correctAnswer: 0,
+        hint: "חברו את חלקי היחס (4+5=9 חלקים). חלקו את מספר התלמידים הכולל ב-9 כדי לגלות כמה שווה חלק אחד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את מספר החלקים הכולל ביחס.&rlm;", math_expression: "4 + 5 = 9" },
+            { verbal_explanation: "שלב ב': נחלק את הכמות הכוללת במספר החלקים כדי למצוא ערך של חלק (יחידת יחס) אחד.&rlm;", math_expression: "36 : 9 = 4" },
+            { verbal_explanation: "שלב ג': הבנים הם 4 חלקים. נכפיל 4 בערך היחידה (4).&rlm;", math_expression: "4 × 4 = 16" }
         ],
-        "final_answer": "200 ש\"ח",
-        "options": ["100 ש\"ח", "200 ש\"ח", "400 ש\"ח", "500 ש\"ח"],
-        "correctAnswer": 1
+        final_answer: "16"
     },
+    // שאלה 39
     {
-        "id": 60,
-        "subTopic": "בעיות יחס",
-        "difficulty": "Medium",
-        "question_text": "מספר הג'ינסים למספר החולצות בארון הוא ביחס של 1:6. אם יש בארון 21 פריטים בסך הכל (רק ג'ינסים וחולצות), כמה <strong>חולצות</strong> יש בארון?",
-        "hint": "סך כל החלקים הוא 7. מצאו את ערך החלק וחלקו את פריטי הלבוש.",
-        "solution_steps": [
-            { "verbal_explanation": "סכום היחס.", "math_expression": "1 + 6 = 7" },
-            { "verbal_explanation": "ערך כל חלק.", "math_expression": "21 / 7 = 3" },
-            { "verbal_explanation": "מספר חולצות (6 חלקים).", "math_expression": "6 \u00d7 3 = 18" }
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "היחס בין הגיל של אבא לגיל של בנו הוא 7:2. ידוע שגיל הבן הוא 10 שנים. בן כמה האבא?&rlm;",
+        options: ["35", "70", "40", "45"],
+        correctAnswer: 0,
+        hint: "הבן מיוצג על ידי '2' ביחס. אם 2 חלקים שווים ל-10 שנים, כמה שווה חלק אחד?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': גיל הבן (10) מתאים ל-2 החלקים שלו ביחס. נמצא שווי של חלק אחד.&rlm;", math_expression: "10 : 2 = 5" },
+            { verbal_explanation: "שלב ב': גיל האבא הוא 7 חלקים. נכפיל 7 בערך שמצאנו (5).&rlm;", math_expression: "7 × 5 = 35" }
         ],
-        "final_answer": "18 חולצות",
-        "options": ["15", "18", "20", "12"],
-        "correctAnswer": 1
+        final_answer: "35"
+    },
+    // שאלה 40
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "להכנת צבע כתום מערבבים צבע צהוב וצבע אדום ביחס של 3:1 (3 כוסות צהוב על כל כוס אחת של אדום). אמן השתמש ב-15 כוסות של צבע צהוב. בכמה כוסות אדום הוא השתמש?&rlm;",
+        options: ["5", "45", "10", "15"],
+        correctAnswer: 0,
+        hint: "חלק הצהוב ביחס הוא 3, והכמות בפועל היא 15. פי כמה הוגדלה הכמות?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבדוק פי כמה הוגדל היחס של הצבע הצהוב.&rlm;", math_expression: "15 : 3 = 5" },
+            { verbal_explanation: "שלב ב': נכפיל את היחס של הצבע האדום (1) באותו גורם הגדלה (5).&rlm;", math_expression: "1 × 5 = 5" }
+        ],
+        final_answer: "5"
+    },
+    // שאלה 41
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "שני שותפים, אייל וגיל, חילקו ביניהם רווחים של 500 שקלים ביחס של 2:3. גיל קיבל את החלק הגדול יותר. כמה שקלים קיבל אייל?&rlm;",
+        options: ["200 שקלים", "300 שקלים", "100 שקלים", "250 שקלים"],
+        correctAnswer: 0,
+        hint: "חברו את החלקים ביחס (5). חלקו 500 ב-5 לקבלת חלק אחד, ואז הכפילו בחלק של אייל (2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סך כל החלקים ביחס הוא 5.&rlm;", math_expression: "2 + 3 = 5" },
+            { verbal_explanation: "שלב ב': נחלק את הסכום הכולל ב-5.&rlm;", math_expression: "500 : 5 = 100" },
+            { verbal_explanation: "שלב ג': אייל קיבל 2 חלקים. נכפיל 2 ב-100.&rlm;", math_expression: "2 × 100 = 200" }
+        ],
+        final_answer: "200 שקלים"
+    },
+    // שאלה 42
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "קנה מידה במפה הוא 1:200,000. המרחק במפה בין שתי נקודות הוא 5 ס\"מ. מהו המרחק במציאות, בקילומטרים?&rlm;",
+        options: ["10 ק\"מ", "1 ק\"מ", "100 ק\"מ", "20 ק\"מ"],
+        correctAnswer: 0,
+        hint: "הכפילו את ה-5 ס\"מ ב-200,000 כדי למצוא את המרחק בסנטימטרים. לאחר מכן, עליכם להמיר לקילומטרים על ידי מחיקת 5 אפסים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכפיל את המרחק במפה בקנה המידה כדי למצוא סנטימטרים במציאות.&rlm;", math_expression: "5 × 200000 = 1000000" },
+            { verbal_explanation: "שלב ב': נמיר 1,000,000 ס\"מ לקילומטרים על ידי חלוקה ב-100,000.&rlm;", math_expression: "1000000 : 100000 = 10" }
+        ],
+        final_answer: "10 ק\"מ"
+    },
+    // שאלה 43
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "היחס בין אורכי צלעות של מלבן הוא 3:4. היקף המלבן הוא 28 ס\"מ. מה אורך הצלע הקצרה של המלבן?&rlm;",
+        options: ["6 ס\"מ", "8 ס\"מ", "12 ס\"מ", "3 ס\"מ"],
+        correctAnswer: 0,
+        hint: "סכום החלקים בהיקף המלבן הוא פעמיים 3 ועוד פעמיים 4 (סך הכל 14 חלקים). חלקו את 28 ב-14.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב כמה 'חלקים' יש בהיקף השלם. פעמיים רוחב ופעמיים אורך.&rlm;", math_expression: "(2 × 3) + (2 × 4) = 6 + 8 = 14" },
+            { verbal_explanation: "שלב ב': נחלק את ההיקף במספר החלקים.&rlm;", math_expression: "28 : 14 = 2" },
+            { verbal_explanation: "שלב ג': הצלע הקצרה מיוצגת על ידי 3 חלקים. נכפיל 3 ב-2.&rlm;", math_expression: "3 × 2 = 6" }
+        ],
+        final_answer: "6 ס\"מ"
+    },
+    // שאלה 44
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "שלושה אחים ירשו סכום כסף וחילקו אותו ביחס של 1:2:4. האח שקיבל את החלק הקטן ביותר קיבל 50 שקלים. מה היה הסכום הכולל של הירושה?&rlm;",
+        options: ["350 שקלים", "300 שקלים", "400 שקלים", "250 שקלים"],
+        correctAnswer: 0,
+        hint: "האח שקיבל את החלק הקטן ביותר (1) קיבל 50. כלומר, חלק אחד שווה 50. כמה חלקים יש בסך הכל?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הנתון אומר שיחידת יחס אחת (1) שווה ל-50.&rlm;", math_expression: "1 חלק = 50" },
+            { verbal_explanation: "שלב ב': נחשב את סך כל החלקים ביחס.&rlm;", math_expression: "1 + 2 + 4 = 7" },
+            { verbal_explanation: "שלב ג': נכפיל את סך החלקים (7) בערך של חלק אחד (50).&rlm;", math_expression: "7 × 50 = 350" }
+        ],
+        final_answer: "350 שקלים"
+    },
+    // שאלה 45
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "בחווה יש תרנגולות ופרות ביחס של 5:1. בסך הכל נספרו בחווה 60 חיות משני הסוגים. כמה תרנגולות יש בחווה?&rlm;",
+        options: ["50", "10", "40", "20"],
+        correctAnswer: 0,
+        hint: "מספר החלקים הכולל הוא 6 (5+1). חלקו 60 ב-6, ואת התוצאה כפלו ב-5 (חלק התרנגולות).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סך כל החלקים ביחס.&rlm;", math_expression: "5 + 1 = 6" },
+            { verbal_explanation: "שלב ב': נחלק 60 חיות ב-6 חלקים למציאת ערך של חלק אחד.&rlm;", math_expression: "60 : 6 = 10" },
+            { verbal_explanation: "שלב ג': התרנגולות הן 5 חלקים. נכפיל ב-10.&rlm;", math_expression: "5 × 10 = 50" }
+        ],
+        final_answer: "50"
+    },
+    // שאלה 46
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "היחס בין הזוויות במשולש הוא 1:2:3. מהו גודלה של הזווית הגדולה ביותר במשולש?&rlm;",
+        options: ["90 מעלות", "60 מעלות", "100 מעלות", "120 מעלות"],
+        correctAnswer: 0,
+        hint: "סכום זוויות במשולש הוא 180. חברו את חלקי היחס (1+2+3=6), חלקו את 180 ב-6, והכפילו ב-3 (הזווית הגדולה).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סך כל החלקים ביחס.&rlm;", math_expression: "1 + 2 + 3 = 6" },
+            { verbal_explanation: "שלב ב': סכום הזוויות הוא 180. נחלק ב-6 כדי למצוא ערך של חלק אחד.&rlm;", math_expression: "180 : 6 = 30" },
+            { verbal_explanation: "שלב ג': הזווית הגדולה היא 3 חלקים. נכפיל 3 ב-30.&rlm;", math_expression: "3 × 30 = 90" }
+        ],
+        final_answer: "90 מעלות"
+    },
+    // שאלה 47
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "באקווריום יש דגי זהב ודגי גופי ביחס של 3:4. לאחר שקנו והוסיפו לאקווריום 4 דגי זהב נוספים, מספר דגי הזהב השתווה למספר דגי הגופי. כמה דגים היו באקווריום בהתחלה?&rlm;",
+        options: ["28 דגים", "14 דגים", "35 דגים", "21 דגים"],
+        correctAnswer: 0,
+        hint: "היחס המקורי הוא 3x לזהב ו-4x לגופי. אם מוסיפים לזהב 4, הוא משתווה לגופי: 3x + 4 = 4x.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן דגי זהב כ-3x ודגי גופי כ-4x. התוספת עשתה אותם שווים.&rlm;", math_expression: "3x + 4 = 4x" },
+            { verbal_explanation: "שלב ב': נפתור את המשוואה. נעביר 3x אגף.&rlm;", math_expression: "x = 4" },
+            { verbal_explanation: "שלב ג': כעת אנו יודעים שהכופל הוא 4. נחשב את המספר המקורי של הדגים. זהב (3*4=12) וגופי (4*4=16).&rlm;", math_expression: "12 + 16 = 28" }
+        ],
+        final_answer: "28 דגים"
+    },
+    // שאלה 48
+    {
+        topic: "verbal_problems",
+        subTopic: "בעיות יחס",
+        question_text: "קנה המידה בשרטוט אדריכלי הוא 1:50. האורך של הקיר בשרטוט הוא 12 ס\"מ. כמה מטרים יהיה אורך הקיר במציאות?&rlm;",
+        options: ["6 מטרים", "60 מטרים", "600 מטרים", "0.6 מטרים"],
+        correctAnswer: 0,
+        hint: "הכפילו את 12 ב-50 כדי למצוא את המרחק בסנטימטרים. זכרו שבמטר אחד יש 100 סנטימטרים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את המרחק בסנטימטרים במציאות.&rlm;", math_expression: "12 × 50 = 600" },
+            { verbal_explanation: "שלב ב': נמיר 600 ס\"מ למטרים על ידי חלוקה ב-100.&rlm;", math_expression: "600 : 100 = 6" }
+        ],
+        final_answer: "6 מטרים"
     }
 ];
