@@ -1,912 +1,743 @@
+// ========================================================================
+// שכבת גיל: כיתה ז' | נושא: מספרים מכוונים
+// 4 תתי נושאים | 48 שאלות סה"כ
+// רמה: יסודית עד מתקדמת, פתרונות מפורטים מאוד בשלבים. 
+// כתיבה נקייה: חילוק מוצג כ- (:), כפל כ- (×), חזקות רגילות (²). ללא LaTeX.
+// איורים (SVG) מוטמעים להמחשה ויזואלית.
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: הערך המוחלט ומספרים נגדיים (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: הערך המוחלט ומספרים נגדיים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Low",
-        "question_text": "מהו <strong>הערך המוחלט</strong> של המספר 8- ? ( |-8| )<br><div style='text-align:center; margin:15px 0;'><svg width='240' height='60'><line x1='20' y1='30' x2='220' y2='30' stroke='#1e293b' stroke-width='2'/><circle cx='170' cy='30' r='4' fill='#1e293b'/><text x='170' y='50' font-size='14' text-anchor='middle'>0</text><circle cx='30' cy='30' r='4' fill='#b09151'/><text x='30' y='50' font-size='14' text-anchor='middle'>-8</text><path d='M170,20 Q100,-10 30,20' fill='none' stroke='#b09151' stroke-width='2' stroke-dasharray='4'/><polygon points='30,20 35,10 40,22' fill='#b09151'/><text x='100' y='12' font-size='12' fill='#b09151' text-anchor='middle'>מרחק?</text></svg></div>",
-        "hint": "ערך מוחלט (המסומן בשני קווים אנכיים) מודד אך ורק מרחק מאפס. האם מרחק יכול להיות שלילי?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את משמעות הפעולה. הערך המוחלט בודק כמה 'צעדים' המספר נמצא מהאפס, ללא קשר לכיוון שלו (ימינה או שמאלה).", "math_expression": "|-8|" },
-            { "verbal_explanation": "שלב 2: המספר 8- נמצא בדיוק 8 צעדים שמאלה מהאפס על ציר המספרים.", "math_expression": "8 צעדים" },
-            { "verbal_explanation": "שלב 3: מכיוון שמרחק תמיד נמדד במספר חיובי או אפס, התשובה תהיה 8 חיובי.", "math_expression": "|-8| = 8" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "מהי המשמעות הגיאומטרית של הערך המוחלט של מספר, למשל |5-| ?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 300 80' width='100%' height='80' style='max-width:300px;'><line x1='10' y1='50' x2='290' y2='50' stroke='#334155' stroke-width='2'/><line x1='150' y1='40' x2='150' y2='60' stroke='#334155' stroke-width='2'/><text x='150' y='30' font-family='Arial' font-size='14' fill='#0f172a' text-anchor='middle'>0</text><circle cx='50' cy='50' r='5' fill='#ef4444'/><text x='50' y='30' font-family='Arial' font-size='14' fill='#ef4444' text-anchor='middle'>-5</text><path d='M 50 50 Q 100 0 150 50' fill='none' stroke='#3b82f6' stroke-width='2' stroke-dasharray='5,5'/><text x='100' y='25' font-family='Arial' font-size='14' font-weight='bold' fill='#3b82f6' text-anchor='middle'>?</text></svg></div>",
+        options: ["המרחק של המספר מנקודת האפס על ישר המספרים.", "המספר ההפוך שלו.", "המספר בתוספת 5.", "הסימן של המספר (חיובי או שלילי)."],
+        correctAnswer: 0,
+        hint: "ערך מוחלט נמדד ביחידות של אורך, וכמו כל אורך או מרחק בעולם שלנו - הוא תמיד חיובי (או אפס).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ערך מוחלט (המסומן בשני קווים אנכיים | |) מוגדר כמרחק של המספר מנקודת האפס (ראשית הצירים).&rlm;", math_expression: "" },
+            { verbal_explanation: "מכיוון שמרחק אינו יכול להיות שלילי, התוצאה של ערך מוחלט היא תמיד מספר חיובי או 0.&rlm;", math_expression: "|-5| = 5" }
         ],
-        "final_answer": "8",
-        "options": ["8-", "8", "0", "16"],
-        "correctAnswer": 1
+        final_answer: "המרחק של המספר מנקודת האפס על ישר המספרים."
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Low",
-        "question_text": "מהו ה<strong>מספר הנגדי</strong> למספר 15?",
-        "hint": "מספרים נגדיים נמצאים באותו מרחק מהאפס, אבל בצדדים הפוכים (אחד חיובי והשני שלילי).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מספר נגדי הוא 'תמונת הראי' של המספר ביחס לאפס. יש לו את אותו ערך מוחלט אבל סימן הפוך.", "math_expression": "15" },
-            { "verbal_explanation": "שלב 2: המספר שלנו הוא 15 חיובי (+15).", "math_expression": "+15" },
-            { "verbal_explanation": "שלב 3: לכן, הנגדי שלו יהיה באותו מרחק אבל בצד השלילי של הציר, כלומר מינוס 15.", "math_expression": "-15" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "חשבו את התוצאה של התרגיל הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>|-8| + |-2| = ?</div>",
+        options: ["10", "-10", "6", "-6"],
+        correctAnswer: 0,
+        hint: "הוציאו כל מספר מהערך המוחלט שלו (הפכו אותו לחיובי) ורק אז בצעו את פעולת החיבור.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את הערך המוחלט של 8-. המרחק שלו מ-0 הוא 8.&rlm;", math_expression: "|-8| = 8" },
+            { verbal_explanation: "שלב ב': נחשב את הערך המוחלט של 2-. המרחק שלו מ-0 הוא 2.&rlm;", math_expression: "|-2| = 2" },
+            { verbal_explanation: "שלב ג': נחבר את שתי התוצאות החיוביות שקיבלנו.&rlm;", math_expression: "8 + 2 = 10" }
         ],
-        "final_answer": "15-",
-        "options": ["15", "15-", "0", "1/15"],
-        "correctAnswer": 1
+        final_answer: "10"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Medium",
-        "question_text": "מהי התוצאה של חיבור מספר ו<strong>המספר הנגדי שלו</strong>? לדוגמה: <strong> 8 + (-8) </strong>",
-        "hint": "אם הלכתם 8 צעדים קדימה ואז 8 צעדים אחורה, באיזו נקודה אתם נמצאים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נדמיין תנועה על ציר המספרים. אנחנו מתחילים באפס והולכים 8 צעדים ימינה למספר החיובי 8.", "math_expression": "+8" },
-            { "verbal_explanation": "שלב 2: כעת אנו צריכים להוסיף 8-, כלומר ללכת 8 צעדים שמאלה (אחורה) מאותה נקודה.", "math_expression": "8 - 8" },
-            { "verbal_explanation": "שלב 3: מכיוון שחזרנו בדיוק על עקבותינו, הגענו חזרה לאפס. זהו כלל: סכום של כל מספר והנגדי שלו הוא תמיד 0.", "math_expression": "0" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "מהו המספר הנגדי למספר 14?&rlm;",
+        options: ["-14", "1/14", "0", "14"],
+        correctAnswer: 0,
+        hint: "מספרים נגדיים הם שני מספרים שנמצאים באותו מרחק מהאפס, אבל בכיוונים מנוגדים. סכומם תמיד שווה לאפס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המספר הנגדי של מספר חיובי הוא אותו המספר בסימן שלילי.&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן, המספר שנמצא במרחק 14 צעדים שמאלה מהאפס הוא 14-.&rlm;", math_expression: "14 + (-14) = 0" }
         ],
-        "final_answer": "0",
-        "options": ["16", "16-", "0", "8"],
-        "correctAnswer": 2
+        final_answer: "-14"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "High",
-        "question_text": "פתרו את המשוואה: <strong> |X| = 5 </strong>. מהן התשובות האפשריות עבור הנעלם X?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='40'><line x1='10' y1='20' x2='190' y2='20' stroke='#1e293b' stroke-width='2'/><circle cx='100' cy='20' r='4' fill='#1e293b'/><text x='100' y='10' font-size='12' text-anchor='middle'>0</text><circle cx='150' cy='20' r='4' fill='#b09151'/><circle cx='50' cy='20' r='4' fill='#b09151'/><text x='125' y='10' font-size='10'>מרחק 5</text><text x='75' y='10' font-size='10'>מרחק 5</text></svg></div>",
-        "hint": "אילו מספרים על הציר רחוקים בדיוק 5 צעדים מהאפס?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתרגם את המשוואה לעברית: 'לאיזה מספרים יש מרחק של בדיוק 5 מהאפס?'.", "math_expression": "|X| = 5" },
-            { "verbal_explanation": "שלב 2: נבדוק ימינה מהאפס. המספר 5 חיובי נמצא במרחק של 5 צעדים.", "math_expression": "X = 5" },
-            { "verbal_explanation": "שלב 3: נבדוק שמאלה מהאפס. גם המספר 5- נמצא במרחק של בדיוק 5 צעדים. לכן למשוואה זו יש שני פתרונות נכונים.", "math_expression": "X = -5" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "שאלה למחשבה: מהו המספר **הנגדי** לערך המוחלט של 7- ?&rlm;",
+        options: ["-7", "7", "0", "1/7"],
+        correctAnswer: 0,
+        hint: "פרוק לשלבים: קודם כל חשבו כמה זה |7-|, ואז חפשו מהו המספר הנגדי לתשובה שקיבלתם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את הערך המוחלט של 7-. המרחק מ-0 הוא 7 חיובי.&rlm;", math_expression: "|-7| = 7" },
+            { verbal_explanation: "שלב ב': כעת נחפש את המספר הנגדי לתוצאה שקיבלנו (7).&rlm;", math_expression: "" },
+            { verbal_explanation: "הנגדי של 7 הוא 7-.&rlm;", math_expression: "" }
         ],
-        "final_answer": "5 וגם 5-",
-        "options": ["רק 5", "רק 5-", "5 וגם 5-", "אין פתרון"],
-        "correctAnswer": 2
+        final_answer: "-7"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Medium",
-        "question_text": "חשבו את תוצאת התרגיל הבא: <strong> |-6| + |-4| </strong>",
-        "hint": "הקווים האנכיים דורשים מאיתנו להוציא את המספר כחיובי לפני שמבצעים את החיבור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את הערך המוחלט הראשון. המרחק של 6- מהאפס הוא 6.", "math_expression": "|-6| = 6" },
-            { "verbal_explanation": "שלב 2: נחשב את הערך המוחלט השני. המרחק של 4- מהאפס הוא 4.", "math_expression": "|-4| = 4" },
-            { "verbal_explanation": "שלב 3: נציב את התוצאות החיוביות בתרגיל ונחבר אותן.", "math_expression": "6 + 4 = 10" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "פתרו את המשוואה הבאה: איזה מספר (או מספרים) יכולים להיות x?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>|x| = 12</div>",
+        options: ["12 או -12", "רק 12", "רק -12", "אין פתרון"],
+        correctAnswer: 0,
+        hint: "שאלו את עצמכם: אילו מספרים נמצאים במרחק של בדיוק 12 צעדים מהאפס על ישר המספרים? יש שני כיוונים!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המשוואה שואלת אילו מספרים נמצאים במרחק של 12 יחידות מהאפס.&rlm;", math_expression: "" },
+            { verbal_explanation: "אם נלך 12 צעדים ימינה מהאפס, נגיע ל-12.&rlm;", math_expression: "|12| = 12" },
+            { verbal_explanation: "אם נלך 12 צעדים שמאלה מהאפס, נגיע למינוס 12.&rlm;", math_expression: "|-12| = 12" },
+            { verbal_explanation: "לכן למשוואה יש שני פתרונות אפשריים.&rlm;", math_expression: "x = 12 , x = -12" }
         ],
-        "final_answer": "10",
-        "options": ["10-", "10", "2", "2-"],
-        "correctAnswer": 1
+        final_answer: "12 או -12"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Medium",
-        "question_text": "איזה סימן מתמטי מתאים כדי להשלים את ההשוואה הבאה: <strong> |-12| ___ 10 </strong> ?",
-        "hint": "קודם 'תפתרו' את הערך המוחלט של 12-, ואז השוו את התוצאה למספר 10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נטפל באגף שמאל. הערך המוחלט של 12- הוא המרחק שלו מאפס, שהוא המספר החיובי 12.", "math_expression": "|-12| = 12" },
-            { "verbal_explanation": "שלב 2: כעת נשווה את התוצאה שקיבלנו (12) עם המספר באגף ימין (10). מי גדול יותר?", "math_expression": "12 > 10" },
-            { "verbal_explanation": "שלב 3: מכיוון ש-12 גדול מ-10, הסימן המתאים הוא '>' (גדול מ).", "math_expression": ">" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "חשבו את תוצאת התרגיל (שימו לב למינוס שמחוץ לערך המוחלט):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-| -20 | = ?</div>",
+        options: ["-20", "20", "0", "40"],
+        correctAnswer: 0,
+        hint: "הערך המוחלט הופך את ה-20- למספר חיובי. אבל אחרי שהוא יוצא החוצה, מחכה לו סימן מינוס!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את מה שבתוך הערך המוחלט. המרחק של 20- מ-0 הוא 20.&rlm;", math_expression: "|-20| = 20" },
+            { verbal_explanation: "שלב ב': נציב את התוצאה חזרה בתרגיל. יש לנו סימן מינוס לפני התוצאה.&rlm;", math_expression: "- (20) = -20" }
         ],
-        "final_answer": "> (גדול מ)",
-        "options": ["< (קטן מ)", "> (גדול מ)", "= (שווה)", "לא ניתן לדעת"],
-        "correctAnswer": 1
+        final_answer: "-20"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "High",
-        "question_text": "צוללת שטה בעומק של 300 מטרים מתחת לפני הים (300-). מטוס טס בגובה של 250 מטרים מעל פני הים (250+). מי מהם <strong>רחוק יותר</strong> מפני הים (שנחשבים לאפס)?",
-        "hint": "המרחק מפני הים נמדד תמיד במספר חיובי (ערך מוחלט). למי יש מרחק גדול יותר?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: פני הים מייצגים את נקודת האפס. נחשב את מרחק הצוללת מהאפס על ידי ערך מוחלט.", "math_expression": "|-300| = 300" },
-            { "verbal_explanation": "שלב 2: נחשב את מרחק המטוס מפני הים.", "math_expression": "|250| = 250" },
-            { "verbal_explanation": "שלב 3: נשווה בין המרחקים: 300 מטרים גדול יותר מ-250 מטרים. לכן, הצוללת רחוקה יותר.", "math_expression": "300 > 250" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "איזה מבין האי-שוויונות הבאים הוא הנכון?&rlm;",
+        options: ["|-15| > |-10|", "|-5| < 0", "|3| > |-4|", "|-8| = -8"],
+        correctAnswer: 0,
+        hint: "חשבו את הערך המוחלט של כל מספר (הפכו לחיובי) ורק אז השוו ביניהם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את האפשרות הראשונה: |-15| שווה 15. |-10| שווה 10.&rlm;", math_expression: "15 > 10" },
+            { verbal_explanation: "המשפט 15 > 10 הוא נכון.&rlm;", math_expression: "" },
+            { verbal_explanation: "נבדוק שאר אפשרויות: |-5| שווה 5, וזה לא קטן מ-0. |-4| שווה 4, ולכן 3 לא גדול ממנו. ערך מוחלט לא יכול להיות שווה למספר שלילי.&rlm;", math_expression: "" }
         ],
-        "final_answer": "הצוללת רחוקה יותר",
-        "options": ["המטוס רחוק יותר", "הצוללת רחוקה יותר", "הם באותו מרחק", "המים רחוקים יותר"],
-        "correctAnswer": 1
+        final_answer: "|-15| > |-10|"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "High",
-        "question_text": "כמה פתרונות נכונים יש למשוואה הבאה: <strong> |X| = -3 </strong>?",
-        "hint": "האם מרחק פיזי יכול להיות מספר שלילי (כמו מינוס 3 מטרים)?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נקרא את המשוואה במילים: 'לאיזה מספר יש מרחק של מינוס 3 מהאפס?'.", "math_expression": "|X| = -3" },
-            { "verbal_explanation": "שלב 2: מכיוון שערך מוחלט מודד מרחק, התוצאה שלו חייבת להיות תמיד 0 או מספר חיובי. מרחק לעולם לא יכול להיות שלילי.", "math_expression": "|X| \u2265 0" },
-            { "verbal_explanation": "שלב 3: לכן, אין אף מספר בעולם שהערך המוחלט שלו יהיה 3-. למשוואה אין פתרון.", "math_expression": "אין פתרון" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "יעל ודן עומדים על ישר מספרים ענק. יעל עומדת על המספר 8, ודן עומד על המספר הנגדי ליעל. מהו המרחק ביניהם?&rlm;",
+        options: ["16 יחידות", "8 יחידות", "0 יחידות", "4 יחידות"],
+        correctAnswer: 0,
+        hint: "דן עומד על 8-. המרחק מיעל (8) לאפס הוא 8, והמרחק מדן (8-) לאפס הוא גם 8. מה המרחק הכולל?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': המספר הנגדי של 8 הוא 8-. לכן דן עומד על 8-.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחשב את המרחק ביניהם. אפשר לחבר את הערכים המוחלטים של שניהם.&rlm;", math_expression: "|8| + |-8| = 8 + 8 = 16" },
+            { verbal_explanation: "שלב ג': לחלופין, נבצע תרגיל הפרש מרחקים: גדול פחות קטן.&rlm;", math_expression: "8 - (-8) = 8 + 8 = 16" }
         ],
-        "final_answer": "אין פתרון",
-        "options": ["שני פתרונות (3, 3-)", "פתרון אחד (3-)", "אין פתרון", "אינסוף פתרונות"],
-        "correctAnswer": 2
+        final_answer: "16 יחידות"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Medium",
-        "question_text": "חשבו בזהירות את הביטוי הבא: <strong> -|-9| </strong>",
-        "hint": "פתרו קודם את מה שבתוך הערך המוחלט, ורק לאחר מכן הוסיפו את המינוס שחיכה בחוץ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתעלם לרגע מהמינוס החיצוני ונטפל בערך המוחלט. המרחק של 9- מהאפס הוא המספר החיובי 9.", "math_expression": "|-9| = 9" },
-            { "verbal_explanation": "שלב 2: כעת נחזור לתרגיל השלם. יש לנו מינוס שנמצא מחוץ לערך המוחלט. נצמיד אותו לתוצאה שקיבלנו (9).", "math_expression": "-(9)" },
-            { "verbal_explanation": "שלב 3: התוצאה הסופית הופכת בחזרה לשלילית.", "math_expression": "-9" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "פתרו את התרגיל הכולל חיסור בתוך הערך המוחלט:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>|5 - 9| = ?</div>",
+        options: ["4", "-4", "14", "-14"],
+        correctAnswer: 0,
+        hint: "קווי הערך המוחלט מתפקדים גם כמו סוגריים. קודם פתרו את התרגיל בפנים (5 פחות 9), ורק אז הוציאו ערך מוחלט מהתוצאה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבצע את פעולת החיסור בתוך הערך המוחלט.&rlm;", math_expression: "5 - 9 = -4" },
+            { verbal_explanation: "שלב ב': נוציא ערך מוחלט לתוצאה שקיבלנו. המרחק של 4- מאפס הוא 4.&rlm;", math_expression: "|-4| = 4" }
         ],
-        "final_answer": "9-",
-        "options": ["9", "9-", "0", "81"],
-        "correctAnswer": 1
+        final_answer: "4"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "High",
-        "question_text": "מהו <strong>המרחק הכולל</strong> (ביחידות) בין המספר <strong>4-</strong> לבין המספר <strong>6</strong> על ציר המספרים?<br><div style='text-align:center; margin:15px 0;'><svg width='240' height='50'><line x1='20' y1='30' x2='220' y2='30' stroke='#1e293b' stroke-width='2'/><circle cx='100' cy='30' r='4' fill='#1e293b'/><text x='100' y='50' font-size='12' text-anchor='middle'>0</text><circle cx='40' cy='30' r='4' fill='red'/><text x='40' y='50' font-size='12' text-anchor='middle'>-4</text><circle cx='190' cy='30' r='4' fill='blue'/><text x='190' y='50' font-size='12' text-anchor='middle'>6</text></svg></div>",
-        "hint": "חשבו כמה יחידות יש מ-4- עד לאפס, ועוד כמה יחידות יש מהאפס ועד ל-6. חברו אותן יחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את המרחק של הנקודה הראשונה מהאפס באמצעות ערך מוחלט. מ-4- עד 0 יש 4 צעדים.", "math_expression": "|-4| = 4" },
-            { "verbal_explanation": "שלב 2: נחשב את המרחק של הנקודה השנייה מהאפס. מ-0 עד 6 יש 6 צעדים.", "math_expression": "|6| = 6" },
-            { "verbal_explanation": "שלב 3: נחבר את שני המרחקים כדי למצוא את המרחק הכולל ביניהם.", "math_expression": "4 + 6 = 10" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "איזו מהמשוואות הבאות **אין** לה פתרון?&rlm;",
+        options: ["|x| = -3", "|x| = 0", "|x| = 3", "|x - 1| = 5"],
+        correctAnswer: 0,
+        hint: "זכרו שערך מוחלט מייצג מרחק. האם מרחק יכול להיות שלילי?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ערך מוחלט של כל מספר הוא תמיד חיובי או אפס.&rlm;", math_expression: "|x| ≥ 0" },
+            { verbal_explanation: "לכן, ביטוי של ערך מוחלט לעולם לא יכול להיות שווה למספר שלילי (כמו 3-). אין אף מספר שמרחקו מאפס הוא מינוס שלוש.&rlm;", math_expression: "" }
         ],
-        "final_answer": "10",
-        "options": ["2", "10", "2-", "24"],
-        "correctAnswer": 1
+        final_answer: "|x| = -3"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Medium",
-        "question_text": "אם נתון שהמשתנה <strong>X הוא מספר חיובי</strong> (למשל 5), אז מה יהיה הביטוי <strong>X-</strong> (מינוס X)?",
-        "hint": "הסימן מינוס לפני אות מסמן 'הנגדי של'. מהו הנגדי של מספר חיובי?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ניקח מספר חיובי כלשהו לדוגמה, נניח ש-X שווה ל-5.", "math_expression": "X = 5" },
-            { "verbal_explanation": "שלב 2: נציב את המספר בתוך הביטוי X- ונקבל 5-.", "math_expression": "-X = -5" },
-            { "verbal_explanation": "שלב 3: כלומר, הוספת סימן מינוס למספר חיובי הופכת אותו למספר שלילי (הנגדי שלו).", "math_expression": "מספר שלילי" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "מהי התוצאה של חיבור מספר למספר הנגדי שלו? למשל: (x) + (-x)&rlm;",
+        options: ["0", "תמיד מספר שלילי", "2x", "תלוי מהו המספר"],
+        correctAnswer: 0,
+        hint: "אם יש לכם 5 שקלים ואתם מוסיפים חוב של 5 שקלים, כמה כסף יישאר לכם?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "מספרים נגדיים 'מבטלים' זה את זה כאשר מחברים אותם.&rlm;", math_expression: "x + (-x) = 0" },
+            { verbal_explanation: "לדוגמה: 10 ועוד מינוס 10 שווה לאפס. 3- ועוד 3 שווה לאפס.&rlm;", math_expression: "10 - 10 = 0" }
         ],
-        "final_answer": "מספר שלילי",
-        "options": ["מספר חיובי", "מספר שלילי", "אפס", "תלוי בערך של X"],
-        "correctAnswer": 1
+        final_answer: "0"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Low",
-        "question_text": "סדרו את המספרים הבאים מהקטן ביותר לגדול ביותר: <strong> 5, 8-, 0, 3- </strong>",
-        "hint": "דמיינו את ציר המספרים. המספר השמאלי ביותר הוא הקטן ביותר (הוא נמצא ב'מינוס' הכי עמוק).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל מהמספרים השליליים. המספר שרחוק יותר שמאלה מהאפס הוא הקטן ביותר. 8- קטן יותר מ-3-.", "math_expression": "-8 < -3" },
-            { "verbal_explanation": "שלב 2: כעת נמקם את המספרים הניטרליים והחיוביים. האפס תמיד גדול מכל המספרים השליליים.", "math_expression": "-8, -3, 0" },
-            { "verbal_explanation": "שלב 3: המספר 5 הוא חיובי, ולכן הוא הגדול ביותר ברשימה ויופיע בסוף.", "math_expression": "-8, -3, 0, 5" }
+        topic: "directed_numbers",
+        subTopic: "הערך המוחלט ומספרים נגדיים",
+        question_text: "חשבו את תוצאת התרגיל המשולב:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>|-10| : |-2| = ?</div>",
+        options: ["5", "-5", "20", "-20"],
+        correctAnswer: 0,
+        hint: "הוציאו כל מספר מהערך המוחלט (הפכו לחיובי), ואז בצעו את פעולת החילוק.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב ערך מוחלט של 10-.&rlm;", math_expression: "|-10| = 10" },
+            { verbal_explanation: "שלב ב': נחשב ערך מוחלט של 2-.&rlm;", math_expression: "|-2| = 2" },
+            { verbal_explanation: "שלב ג': נבצע את החילוק בין התוצאות החיוביות.&rlm;", math_expression: "10 : 2 = 5" }
         ],
-        "final_answer": "8- , 3- , 0 , 5",
-        "options": ["8-, 0, 3-, 5", "0, 3-, 5, 8-", "8-, 3-, 0, 5", "5, 0, 3-, 8-"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "High",
-        "question_text": "חשבו את תוצאת התרגיל שבתוך הערך המוחלט: <strong> |10 - 15| </strong>",
-        "hint": "פתרו קודם את תרגיל החיסור (קטן פחות גדול נותן תוצאה שלילית), ולאחר מכן הפעילו את הערך המוחלט.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: קווי הערך המוחלט פועלים כמו סוגריים. עלינו קודם כל לבצע את החישוב הפנימי: 10 פחות 15.", "math_expression": "10 - 15 = -5" },
-            { "verbal_explanation": "שלב 2: נציב את התוצאה השלילית שקיבלנו בחזרה בתוך הקווים האנכיים.", "math_expression": "|-5|" },
-            { "verbal_explanation": "שלב 3: כעת נפעיל את הערך המוחלט, שהופך כל מספר למרחק החיובי שלו מהאפס.", "math_expression": "5" }
-        ],
-        "final_answer": "5",
-        "options": ["5-", "5", "25", "25-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "High",
-        "question_text": "למשוואה הבאה יש פתרון אחד בלבד. מצאו את X: <strong> |X - 3| = 0 </strong>",
-        "hint": "המרחק היחיד ששווה לאפס הוא מנקודת האפס עצמה. לכן, הביטוי שבתוך הקווים חייב להיות 0.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המשוואה מציינת שהערך המוחלט של הביטוי הוא אפס. מכיוון שרק למספר 0 יש מרחק 0 מאפס, הביטוי עצמו חייב להיות שווה לאפס.", "math_expression": "X - 3 = 0" },
-            { "verbal_explanation": "שלב 2: פותרים את המשוואה הפשוטה: איזה מספר פחות 3 נותן 0? נעביר את 3 אגף ונקבל את התשובה.", "math_expression": "X = 3" }
-        ],
-        "final_answer": "3",
-        "options": ["0", "3-", "3", "אין פתרון"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 15,
-        "subTopic": "הערך המוחלט ומספרים נגדיים",
-        "difficulty": "Medium",
-        "question_text": "אם ידוע ש- <strong> |A| = |B| </strong> (הערך המוחלט שלהם זהה), אילו שתי אפשרויות קיימות עבור הקשר בין A ל-B?",
-        "hint": "הם נמצאים באותו מרחק מהאפס. האם הם חייבים להיות באותו צד של הציר?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: משמעות הנתון היא ששני המספרים מרוחקים באותה מידה מנקודת האפס על ציר המספרים.", "math_expression": "מרחק שווה" },
-            { "verbal_explanation": "שלב 2: האפשרות הראשונה היא שהם נמצאים באותו צד ובאותה נקודה בדיוק (למשל 4 ו-4).", "math_expression": "A = B" },
-            { "verbal_explanation": "שלב 3: האפשרות השנייה היא שהם נמצאים בצדדים נגדיים של הציר (למשל 4 ומינוס 4).", "math_expression": "A = -B" }
-        ],
-        "final_answer": "הם שווים זה לזה או שהם מספרים נגדיים",
-        "options": ["הם שווים זה לזה בוודאות", "הם שניהם חיוביים", "הם שווים זה לזה או שהם מספרים נגדיים", "סכומם תמיד שווה לאפס"],
-        "correctAnswer": 2
+        final_answer: "5"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: חיבור וחיסור (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: חיבור וחיסור (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Low",
-        "question_text": "חשבו את תוצאת תרגיל החיבור של שני מספרים שליליים: <strong> (-3) + (-6) </strong><br><div style='text-align:center; margin:15px 0;'><svg width='150' height='100'><rect x='65' y='10' width='20' height='80' rx='10' fill='#e2e8f0' stroke='#1e293b' stroke-width='2'/><rect x='65' y='40' width='20' height='50' rx='10' fill='#ef4444'/><line x1='50' y1='40' x2='65' y2='40' stroke='#1e293b'/><text x='35' y='45' font-size='12'>0</text><line x1='50' y1='60' x2='65' y2='60' stroke='#1e293b'/><text x='35' y='65' font-size='12'>-3</text></svg></div>",
-        "hint": "חיבור של שני מספרים שליליים מקביל לחיבור של שני חובות יחד. החוב הכולל שלכם יגדל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כאשר מחברים שני מספרים בעלי אותו סימן (שניהם שליליים), אנו צוברים כמות גדולה יותר מאותו סימן.", "math_expression": "מינוס + מינוס" },
-            { "verbal_explanation": "שלב 2: נתעלם מהסימנים ונחבר את המספרים עצמם: 3 ועוד 6 שווה 9.", "math_expression": "3 + 6 = 9" },
-            { "verbal_explanation": "שלב 3: מכיוון ששני המספרים היו שליליים (חובות), התוצאה נשארת שלילית.", "math_expression": "-9" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "חשבו את התוצאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-12 + 7 = ?</div>",
+        options: ["-5", "5", "-19", "19"],
+        correctAnswer: 0,
+        hint: "חשבו על זה כחוב: יש לכם חוב של 12 שקלים (12-), והחזרתם 7 שקלים. האם נשארתם בחוב או בפלוס?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר מחברים מספר חיובי למספר שלילי, אנו זזים ימינה על ישר המספרים מנקודת ה-12-.&rlm;", math_expression: "" },
+            { verbal_explanation: "מכיוון שהחוב (12) גדול מהסכום שהוספנו (7), נישאר בתחום השלילי.&rlm;", math_expression: "12 - 7 = 5" },
+            { verbal_explanation: "התוצאה היא חוב של 5, כלומר 5-.&rlm;", math_expression: "-5" }
         ],
-        "final_answer": "9-",
-        "options": ["3-", "9", "9-", "18-"],
-        "correctAnswer": 2
+        final_answer: "-5"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Medium",
-        "question_text": "חשבו את התוצאה של חיבור מספרים בעלי סימנים שונים: <strong> -10 + 4 </strong>",
-        "hint": "דמיינו שיש לכם חוב של 10 שקלים בחשבון (-10), ואתם מפקידים 4 שקלים חיוביים. מה המצב כעת?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כאשר מחברים מספרים בעלי סימנים שונים, הם 'מקזזים' זה את זה. לכן, נבצע פעולת חיסור בין הגדלים: 10 פחות 4 שווה 6.", "math_expression": "10 - 4 = 6" },
-            { "verbal_explanation": "שלב 2: כעת עלינו להחליט על הסימן. נבדוק למי מהמספרים המקוריים היה ערך מוחלט גדול יותר ('מי היה חזק יותר').", "math_expression": "|-10| > |4|" },
-            { "verbal_explanation": "שלב 3: מכיוון ש-10 (השלילי) גדול מ-4, הסימן של התוצאה יהיה שלילי.", "math_expression": "-6" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "הטמפרטורה בירושלים בבוקר הייתה 3 מעלות. עד הערב חלה צניחה של 8 מעלות. מה הייתה הטמפרטורה בערב?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 200' width='60' height='120'><rect x='40' y='20' width='20' height='140' rx='10' fill='#e2e8f0' stroke='#334155' stroke-width='2'/><circle cx='50' cy='160' r='15' fill='#ef4444'/><rect x='45' y='80' width='10' height='80' fill='#ef4444'/><line x1='60' y1='80' x2='75' y2='80' stroke='#334155' stroke-width='2'/><text x='85' y='85' font-family='Arial' font-size='14' fill='#0f172a'>3°</text><path d='M 30 80 Q 10 110 30 140' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='30,140 25,130 35,130' fill='#3b82f6'/><text x='-5' y='115' font-family='Arial' font-size='12' fill='#3b82f6' font-weight='bold'>-8°</text></svg></div>",
+        options: ["-5 מעלות", "5 מעלות", "-11 מעלות", "11 מעלות"],
+        correctAnswer: 0,
+        hint: "התחלתם ב-3 מעלות חיוביות, וירדתם 8 מעלות כלפי מטה. עברתם את האפס!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נתרגם את הסיפור לתרגיל חשבון. התחלנו בפלוס 3, וחסרנו 8.&rlm;", math_expression: "3 - 8" },
+            { verbal_explanation: "שלב ב': ירידה של 3 מעלות תביא אותנו בדיוק ל-0. נשארו לנו עוד 5 מעלות לרדת (כי 8=3+5).&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ג': נרד עוד 5 מעלות מנקודת האפס, ונגיע ל-5-.&rlm;", math_expression: "-5" }
         ],
-        "final_answer": "6-",
-        "options": ["14-", "6", "6-", "14"],
-        "correctAnswer": 2
+        final_answer: "-5 מעלות"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Medium",
-        "question_text": "כיצד נפתור את תרגיל החיסור הבא: <strong> 7 - (-2) </strong>?",
-        "hint": "חיסור של מספר שלילי משמעו 'ביטול חוב'. כשמבטלים לכם חוב, בעצם מוסיפים לכם כסף! מינוס ליד מינוס הופך לפלוס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במתמטיקה קיים כלל חשוב: כאשר סימן חיסור מופיע מיד לפני סימן מינוס נוסף, הם הופכים יחד לפעולת חיבור חיובית.", "math_expression": "- ( - ) \u2192 +" },
-            { "verbal_explanation": "שלב 2: נכתוב את התרגיל מחדש בצורה קלה יותר עם סימן החיבור החדש שנוצר.", "math_expression": "7 + 2" },
-            { "verbal_explanation": "שלב 3: נחשב את תרגיל החיבור הפשוט.", "math_expression": "9" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "שימו לב היטב לסימנים! חשבו את התוצאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-15 - (-9) = ?</div>",
+        options: ["-6", "-24", "6", "24"],
+        correctAnswer: 0,
+        hint: "כשמחסרים מספר שלילי (מינוס ליד מינוס), זה שווה ערך להוספת מספר חיובי. 'לקחת חוב' שווה ל'לתת כסף'.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': רצף של 'מינוס מינוס' הופך לפלוס.&rlm;", math_expression: "-(-9) = +9" },
+            { verbal_explanation: "שלב ב': נכתוב את התרגיל מחדש עם סימן חיבור.&rlm;", math_expression: "-15 + 9" },
+            { verbal_explanation: "שלב ג': חוב של 15 פלוס הכנסה של 9 משאיר אותנו עם חוב של 6.&rlm;", math_expression: "-6" }
         ],
-        "final_answer": "9",
-        "options": ["5", "9", "5-", "9-"],
-        "correctAnswer": 1
+        final_answer: "-6"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Low",
-        "question_text": "חשבו את תוצאת התרגיל הבא: <strong> -5 - 8 </strong>",
-        "hint": "אתם מתחילים בנקודה 5- על ציר המספרים, ואז יורדים (מחסרים) עוד 8 צעדים לכיוון השלילי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התרגיל הוא בעצם מינוס 5, שממנו אנחנו מחסרים עוד 8. אפשר לראות זאת כצבירה של שני חובות.", "math_expression": "-5 + (-8)" },
-            { "verbal_explanation": "שלב 2: נחבר את כמות הצעדים שאנו הולכים שמאלה (5 ועוד 8 הם 13).", "math_expression": "13" },
-            { "verbal_explanation": "שלב 3: מכיוון שאנו מעמיקים בצד השלילי, התוצאה נשארת במינוס.", "math_expression": "-13" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "מה תהיה התוצאה של חיסור שני מספרים חיוביים באופן הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 - 11 = ?</div>",
+        options: ["-7", "7", "-15", "15"],
+        correctAnswer: 0,
+        hint: "המספר שאנו מחסרים (11) גדול מהמספר שממנו אנו מחסרים (4). לכן התוצאה תהיה שלילית.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אנו נמצאים בנקודה 4 על ציר המספרים וצועדים 11 צעדים שמאלה.&rlm;", math_expression: "" },
+            { verbal_explanation: "4 צעדים יביאו אותנו לאפס. יישארו לנו עוד 7 צעדים לצעוד אל תוך המינוס.&rlm;", math_expression: "11 - 4 = 7" },
+            { verbal_explanation: "לכן נגיע ל-7-.&rlm;", math_expression: "-7" }
         ],
-        "final_answer": "13-",
-        "options": ["3-", "3", "13-", "40-"],
-        "correctAnswer": 2
+        final_answer: "-7"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Medium",
-        "question_text": "הטמפרטורה בירושלים הייתה בבוקר <strong>3°C מעלות</strong>. עד שעות הערב, הטמפרטורה <strong>צנחה ב-7 מעלות</strong>. מה הייתה הטמפרטורה בערב?",
-        "hint": "התחילו במספר 3 חיובי וחסרו ממנו 7. אתם תעברו את האפס ותיכנסו לטמפרטורות השליליות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתרגם את הסיפור לתרגיל חשבוני. טמפרטורת הפתיחה היא 3, והירידה מסומנת כפחות 7.", "math_expression": "3 - 7" },
-            { "verbal_explanation": "שלב 2: מכיוון שאנו מחסרים מספר גדול יותר מהמספר ההתחלתי, התוצאה תהיה שלילית. נחשב את ההפרש בין 7 ל-3.", "math_expression": "7 - 3 = 4" },
-            { "verbal_explanation": "שלב 3: נוסיף לתוצאה סימן מינוס, כיוון שירדנו מתחת לאפס.", "math_expression": "-4" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "פתרו את התרגיל הכולל שלושה מספרים מכוונים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-5 + (-8) - (-3) = ?</div>",
+        options: ["-10", "-16", "-10", "0"], // שמתי פעמיים -10, נשנה אחד.
+        options: ["-10", "-16", "6", "0"],
+        correctAnswer: 0,
+        hint: "פשטו קודם את הסימנים: חיבור של מינוס נשאר מינוס. חיסור של מינוס הופך לפלוס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסדר את הסימנים. פלוס ומינוס הופך למינוס. מינוס ומינוס הופך לפלוס.&rlm;", math_expression: "-5 - 8 + 3" },
+            { verbal_explanation: "שלב ב': נבצע משמאל לימין. מינוס 5 פחות 8 שווה מינוס 13 (חוב ועוד חוב).&rlm;", math_expression: "-5 - 8 = -13" },
+            { verbal_explanation: "שלב ג': עכשיו נוסיף 3 לתוצאה.&rlm;", math_expression: "-13 + 3 = -10" }
         ],
-        "final_answer": "4- מעלות",
-        "options": ["10- מעלות", "4 מעלות", "4- מעלות", "10 מעלות"],
-        "correctAnswer": 2
+        final_answer: "-10"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "High",
-        "question_text": "חשבו את תוצאת התרגיל הארוך הבא: <strong> 15 + (-15) + 8 </strong>",
-        "hint": "הסתכלו היטב על שני המספרים הראשונים. האם אתם מזהים שם מספרים נגדיים? היעזרו בהם כדי לפשט את התרגיל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חוק הקיבוץ מאפשר לנו לבחור אילו מספרים לחבר קודם. נסתכל על 15 ועל (15-). אלו הם מספרים נגדיים.", "math_expression": "15 + (-15)" },
-            { "verbal_explanation": "שלב 2: סכום של כל מספר והנגדי שלו הוא בדיוק אפס. הם פשוט מבטלים אחד את השני.", "math_expression": "0" },
-            { "verbal_explanation": "שלב 3: נציב את האפס במקום שני המספרים ונוסיף את המספר האחרון (8).", "math_expression": "0 + 8 = 8" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "צוללת שטה בעומק של 45- מטרים (מתחת לפני הים). היא יורדת לעומק נוסף של 20 מטרים, ולאחר מכן עולה 35 מטרים כלפי מעלה. באיזה עומק נמצאת הצוללת כעת?&rlm;",
+        options: ["-30 מטרים", "-10 מטרים", "-100 מטרים", "-60 מטרים"],
+        correctAnswer: 0,
+        hint: "ירידה לעומק משמעותה חיסור (להיות יותר במינוס). עלייה כלפי מעלה משמעותה חיבור (להתקרב לאפס).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הצוללת ב-45-. היא יורדת עוד 20, אז נחסר 20.&rlm;", math_expression: "-45 - 20 = -65" },
+            { verbal_explanation: "שלב ב': הצוללת הגיעה לעומק 65-. כעת היא עולה (פלוס) 35 מטרים.&rlm;", math_expression: "-65 + 35" },
+            { verbal_explanation: "שלב ג': נחשב. חוב של 65 פלוס 35 משאיר חוב של 30.&rlm;", math_expression: "-30" }
         ],
-        "final_answer": "8",
-        "options": ["8-", "38", "8", "30"],
-        "correctAnswer": 2
+        final_answer: "-30 מטרים"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Medium",
-        "question_text": "החשבון של רועי בבנק עמד על מינוס של <strong>200- שקלים</strong>. ביום למחרת הוא הפקיד לחשבון <strong>300 שקלים</strong>. מהי היתרה בחשבונו כעת?",
-        "hint": "בנו תרגיל חיבור פשוט: החוב ההתחלתי (-200) ועוד ההפקדה החיובית (300).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את התרגיל. אנחנו מחברים 300 למספר השלילי 200-.", "math_expression": "-200 + 300" },
-            { "verbal_explanation": "שלב 2: אנו רשאים להחליף את סדר המספרים לפי חוק החילוף, כדי שיהיה לנו קל יותר לראות את התרגיל.", "math_expression": "300 - 200" },
-            { "verbal_explanation": "שלב 3: נחשב את החיסור הפשוט ונקבל שהיתרה הפכה לחיובית.", "math_expression": "100" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "השלימו את המספר החסר במשוואה הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-7 + ? = 4</div>",
+        options: ["11", "3", "-11", "-3"],
+        correctAnswer: 0,
+        hint: "כמה צעדים אתם צריכים ללכת ממינוס 7 כדי להגיע לפלוס 4? קודם 7 צעדים כדי להגיע לאפס, ואז עוד 4 צעדים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': שימוש בהיגיון על ישר המספרים. המרחק מ-7- לאפס הוא 7. מאפס ל-4 המרחק הוא 4. סך הכל 11 צעדים ימינה (+).&rlm;", math_expression: "7 + 4 = 11" },
+            { verbal_explanation: "דרך ב': פתרון אלגברי. נעביר את ה-7- אגף ונהפוך לו את הסימן לפלוס 7.&rlm;", math_expression: "? = 4 + 7 = 11" }
         ],
-        "final_answer": "100 שקלים (פלוס)",
-        "options": ["100- שקלים", "500 שקלים", "100 שקלים (פלוס)", "500- שקלים"],
-        "correctAnswer": 2
+        final_answer: "11"
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Low",
-        "question_text": "חשבו: <strong> -12 + 12 </strong>",
-        "hint": "מה קורה כשמחברים חוב ורווח באותו הסכום בדיוק?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו מזהים כאן חיבור של מספר עם המספר הנגדי שלו.", "math_expression": "נגדיים" },
-            { "verbal_explanation": "שלב 2: 12 צעדים שמאלה, ואז 12 צעדים ימינה, מחזירים אותנו בדיוק לאותה הנקודה.", "math_expression": "0" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "השלימו את המספר החסר בחיסור:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 - ? = 10</div>",
+        options: ["-8", "8", "-12", "12"],
+        correctAnswer: 0,
+        hint: "איך יכול להיות שהחסרנו משהו מ-2 וקיבלנו תוצאה גדולה יותר (10)? זה קורה רק כשמחסרים מספר שלילי!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי להגיע מ-2 אל 10, אנחנו צריכים להוסיף 8.&rlm;", math_expression: "2 + 8 = 10" },
+            { verbal_explanation: "בתרגיל שלנו יש סימן חיסור. כדי שהחיסור יהפוך לחיבור, עלינו לחסר מספר שלילי.&rlm;", math_expression: "2 - (-8) = 10" },
+            { verbal_explanation: "לכן המספר החסר הוא 8-.&rlm;", math_expression: "-8" }
         ],
-        "final_answer": "0",
-        "options": ["24", "24-", "0", "144-"],
-        "correctAnswer": 2
+        final_answer: "-8"
     },
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Medium",
-        "question_text": "חשבו את תוצאת התרגיל: <strong> -7 - (-7) </strong>",
-        "hint": "טפלו ב'מינוס מינוס' שבתוך התרגיל. למה הוא הופך?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו רואים סימן חיסור צמוד למינוס של ה-7. לפי הכללים, מינוס ומינוס צמודים הופכים לפלוס.", "math_expression": "- ( - ) \u2192 +" },
-            { "verbal_explanation": "שלב 2: נכתוב את התרגיל מחדש עם הסימן המעודכן.", "math_expression": "-7 + 7" },
-            { "verbal_explanation": "שלב 3: חיבור של מספר והנגדי שלו נותן תמיד אפס.", "math_expression": "0" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "נתונים שני מספרים: a = -15 ו- b = 6. מהו הערך של הביטוי a - b ?&rlm;",
+        options: ["-21", "-9", "9", "21"],
+        correctAnswer: 0,
+        hint: "הציבו את המספרים במדויק בתוך הביטוי: מינוס 15, פחות 6.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את הנתונים בביטוי a - b.&rlm;", math_expression: "(-15) - 6" },
+            { verbal_explanation: "שלב ב': יש לנו מספר שלילי, ואנו מחסרים ממנו עוד. לכן נתרחק שמאלה מהאפס.&rlm;", math_expression: "-15 - 6 = -21" }
         ],
-        "final_answer": "0",
-        "options": ["14-", "0", "14", "49"],
-        "correctAnswer": 1
+        final_answer: "-21"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "High",
-        "question_text": "מצאו את הנעלם במשוואה: <strong> -5 + X = -2 </strong>",
-        "hint": "אתם נמצאים בקומה מינוס 5, ואתם רוצים להגיע לקומה מינוס 2. כמה קומות ובאיזה כיוון עליכם לעלות?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המטרה היא לבודד את X. נעשה זאת על ידי ביטול ה- (-5) שנמצא באגף שמאל. נוסיף 5 לשני אגפי המשוואה.", "math_expression": "X = -2 + 5" },
-            { "verbal_explanation": "שלב 2: נפתור את תרגיל החיבור בצד ימין (או 5 פחות 2).", "math_expression": "X = 3" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "חיבור של שברים עשרוניים מכוונים. חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-3.5 + (-1.5) = ?</div>",
+        options: ["-5.0", "-2.0", "5.0", "2.0"],
+        correctAnswer: 0,
+        hint: "סדרו סימנים: פלוס ומינוס הופך למינוס. זהו חיבור של שני חובות, לכן סכמו אותם והשאירו סימן מינוס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסדר את הסימנים. פלוס צמוד למינוס הופך למינוס.&rlm;", math_expression: "-3.5 - 1.5" },
+            { verbal_explanation: "שלב ב': נחבר את הערכים המוחלטים ונוסיף מינוס, כי שניהם שליליים.&rlm;", math_expression: "3.5 + 1.5 = 5.0" },
+            { verbal_explanation: "שלב ג': התוצאה הסופית.&rlm;", math_expression: "-5.0" }
         ],
-        "final_answer": "3",
-        "options": ["7-", "3-", "3", "7"],
-        "correctAnswer": 2
+        final_answer: "-5.0"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "High",
-        "question_text": "מהו ה<strong>הפרש</strong> (תרגיל חיסור) בין המספר 5 לבין המספר 5-? (חשבו: <strong> 5 - (-5) </strong> )",
-        "hint": "ההפרש מתאר למעשה את המרחק בין המספרים. זכרו מה עושים עם פעמיים מינוס ברצף.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את התרגיל במדויק: המספר הראשון פחות המספר השני (שהוא שלילי).", "math_expression": "5 - (-5)" },
-            { "verbal_explanation": "שלב 2: נשתמש בכלל שקובע שסימן חיסור לפני מינוס הופך לחיבור חיובי.", "math_expression": "5 + 5" },
-            { "verbal_explanation": "שלב 3: נחבר את המספרים ונקבל את ההפרש (שהוא למעשה המרחק בין שתי הנקודות על הציר).", "math_expression": "10" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "בחשבון הבנק של נועה היה בבוקר סכום של 150- שקלים (משיכת יתר). בצהריים היא הפקידה 200 שקלים, ובערב משכה 80 שקלים. מה מצב החשבון שלה בסוף היום?&rlm;",
+        options: ["-30 שקלים", "30 שקלים", "130 שקלים", "-430 שקלים"],
+        correctAnswer: 0,
+        hint: "הפקדה = פלוס. משיכה = מינוס. עקבו אחר הכסף שלב אחר שלב.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': מצב התחלתי 150-. הופקדו 200 (פעולת חיבור).&rlm;", math_expression: "-150 + 200 = 50" },
+            { verbal_explanation: "שלב ב': היתרה כעת היא 50 חיובי. בוצעה משיכה של 80 (פעולת חיסור).&rlm;", math_expression: "50 - 80" },
+            { verbal_explanation: "שלב ג': 50 פחות 80 מכניס שוב למינוס.&rlm;", math_expression: "-30" }
         ],
-        "final_answer": "10",
-        "options": ["0", "10-", "10", "25"],
-        "correctAnswer": 2
+        final_answer: "-30 שקלים"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Low",
-        "question_text": "חשבו: <strong> 0 - 8 </strong>",
-        "hint": "חיסור מתוך אפס פירושו ירידה אל מתחת לאפס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התחלנו באפס, ולא הוספנו כלום. אנחנו פשוט צריכים לחסר 8.", "math_expression": "0 - 8" },
-            { "verbal_explanation": "שלב 2: ירידה של 8 צעדים מהאפס מביאה אותנו בדיוק למספר מינוס 8.", "math_expression": "-8" }
+        topic: "directed_numbers",
+        subTopic: "חיבור וחיסור",
+        question_text: "מה תהיה התוצאה אם נחסר מספר חיובי ממספר שלילי? (למשל השלילי מינוס החיובי).&rlm;",
+        options: ["תמיד מספר שלילי", "תמיד מספר חיובי", "אפס", "תלוי איזה מספר גדול יותר"],
+        correctAnswer: 0,
+        hint: "תחשבו על דוגמה בראש: למשל (2-) פחות 5. לאן תגיעו על ציר המספרים?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נתחיל ממספר שלילי כלשהו (למשל 10-).&rlm;", math_expression: "" },
+            { verbal_explanation: "אנו מחסרים מספר חיובי. פעולת חיסור מזיזה אותנו שמאלה על ציר המספרים.&rlm;", math_expression: "" },
+            { verbal_explanation: "היות ואנחנו כבר בתחום השלילי וזזים עוד שמאלה, תמיד נישאר בתחום השלילי.&rlm;", math_expression: "-a - b = -(a+b)" }
         ],
-        "final_answer": "8-",
-        "options": ["8", "8-", "0", "אין פתרון"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 28,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "High",
-        "question_text": "פתרו את התרגיל המורכב: <strong> -3 + (-4) - (-10) </strong>",
-        "hint": "עבדו צעד אחר צעד משמאל לימין. זכרו לטפל קודם בסימן החיסור שלפני ה- (-10).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל בפישוט הסימנים. נהפוך את החיסור של מינוס 10 לחיבור של 10 חיובי.", "math_expression": "-3 + (-4) + 10" },
-            { "verbal_explanation": "שלב 2: נפתור את החלק הראשון משמאל. חיבור של שני חובות (3- ועוד 4-) נותן חוב גדול יותר (7-).", "math_expression": "-7 + 10" },
-            { "verbal_explanation": "שלב 3: נפתור את החלק האחרון. חוב של 7 שקלים ורווח של 10 שקלים. מותר להפוך את הסדר (10 פחות 7).", "math_expression": "3" }
-        ],
-        "final_answer": "3",
-        "options": ["17-", "3-", "3", "7"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 29,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "Medium",
-        "question_text": "מעלית בבניין התחילה את נסיעתה מהחניון התת-קרקעי בקומה <strong>2-</strong>. היא <strong>עלתה 5 קומות</strong> למעלה. לאיזו קומה היא הגיעה?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='100'><rect x='40' y='10' width='40' height='80' fill='#fdfbf7' stroke='#1e293b' stroke-width='2'/><line x1='40' y1='50' x2='80' y2='50' stroke='#1e293b'/><text x='25' y='55' font-size='12'>0</text><rect x='45' y='70' width='30' height='15' fill='#b09151'/><text x='15' y='82' font-size='12'>-2</text><path d='M85,75 Q110,40 85,20' fill='none' stroke='#1e293b' stroke-width='2' stroke-dasharray='4'/><polygon points='85,20 90,15 95,25' fill='#1e293b'/></svg></div>",
-        "hint": "תרגמו זאת לתרגיל חיבור פשוט: (2-) ועוד 5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את התרגיל. התחלנו במינוס 2, ו'עלייה' משמעותה חיבור חיובי של 5.", "math_expression": "-2 + 5" },
-            { "verbal_explanation": "שלב 2: מכיוון שאנו מחברים מספר חיובי שגדול בערכו מהמספר השלילי, נעבור את קומת הקרקע (האפס). נחשב 5 פחות 2.", "math_expression": "5 - 2 = 3" },
-            { "verbal_explanation": "שלב 3: המעלית תעצור בקומה 3 מעל הקרקע.", "math_expression": "3" }
-        ],
-        "final_answer": "קומה 3",
-        "options": ["קומה 3-", "קומה 7-", "קומה 3", "קומה 7"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 30,
-        "subTopic": "חיבור וחיסור",
-        "difficulty": "High",
-        "question_text": "מצאו את הערך של X במשוואה: <strong> X - (-4) = 1 </strong>",
-        "hint": "קודם כל, פשטו את ה'מינוס מינוס'. לאחר מכן פתרו את המשוואה הרגילה שתתקבל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל בפישוט האגף השמאלי. חיסור של מספר שלילי הופך לפעולת חיבור. נרשום את המשוואה מחדש.", "math_expression": "X + 4 = 1" },
-            { "verbal_explanation": "שלב 2: נשאל את עצמנו: איזה מספר שנוסיף לו 4 ייתן לנו 1? כדי למצוא אותו, נחסיר 4 משני האגפים.", "math_expression": "X = 1 - 4" },
-            { "verbal_explanation": "שלב 3: נחשב את התוצאה הסופית. 1 פחות 4 מוביל אותנו מתחת לאפס, למינוס 3.", "math_expression": "X = -3" }
-        ],
-        "final_answer": "3-",
-        "options": ["5", "3-", "5-", "3"],
-        "correctAnswer": 1
-    },,
-    // ==============================================================
-    // --- תת נושא 3: כפל וחילוק (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Low",
-        "question_text": "חשבו את תוצאת תרגיל הכפל הבא: <strong> 5 × (-4) </strong>",
-        "hint": "כפל של מספר חיובי במספר שלילי נותן תמיד תוצאה שלילית (כמו לקחת חוב של 4 שקלים, 5 פעמים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתעלם לרגע מהסימנים ונבצע את פעולת הכפל הרגילה בין המספרים (5 כפול 4).", "math_expression": "5 × 4 = 20" },
-            { "verbal_explanation": "שלב 2: כעת נקבע את הסימן. לפי חוקי הכפל, 'פלוס' כפול 'מינוס' מנצח ה'מינוס'.", "math_expression": "(+) × (-) = -" },
-            { "verbal_explanation": "שלב 3: נצמיד את סימן המינוס לתוצאה שקיבלנו.", "math_expression": "-20" }
-        ],
-        "final_answer": "20-",
-        "options": ["20", "20-", "9-", "1-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 32,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Medium",
-        "question_text": "מהי התוצאה של כפל שני מספרים שליליים: <strong> (-6) × (-3) </strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='60'><rect x='10' y='10' width='140' height='40' rx='8' fill='#fefce8' stroke='#b09151' stroke-width='2'/><text x='80' y='35' font-size='16' font-weight='bold' text-anchor='middle'>(-) × (-) = (+)</text></svg></div>",
-        "hint": "זכרו את חוק הקסם במתמטיקה: כפל של שני סימנים זהים (מינוס ומינוס) נותן תמיד פלוס!",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבצע את פעולת הכפל על המספרים עצמם ללא הסימנים. 6 כפול 3 נותן 18.", "math_expression": "6 × 3 = 18" },
-            { "verbal_explanation": "שלב 2: נבדוק את הסימנים. אנו מכפילים מספר שלילי במספר שלילי. חוק הסימנים קובע ש'מינוס כפול מינוס שווה פלוס'.", "math_expression": "(-) × (-) = +" },
-            { "verbal_explanation": "שלב 3: התוצאה הסופית היא מספר חיובי.", "math_expression": "18" }
-        ],
-        "final_answer": "18",
-        "options": ["18-", "9-", "18", "9"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 33,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "High",
-        "question_text": "חשבו את תוצאת התרגיל המורכב הבא: <strong> (-2) × 3 × (-4) </strong>",
-        "hint": "בצעו את הכפל צעד אחר צעד, משמאל לימין. קודם הכפילו את שני המספרים הראשונים, ואת התוצאה הכפילו בשלישי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל מהחלק השמאלי של התרגיל: מינוס 2 כפול 3 (שלילי כפול חיובי נותן שלילי).", "math_expression": "-2 × 3 = -6" },
-            { "verbal_explanation": "שלב 2: כעת נציב את התוצאה חזרה. נשאר לנו להכפיל את המינוס 6 שקיבלנו במספר האחרון שבתרגיל, מינוס 4.", "math_expression": "-6 × (-4)" },
-            { "verbal_explanation": "שלב 3: כפל של שני מספרים שליליים נותן תוצאה חיובית. 6 כפול 4 זה 24.", "math_expression": "24" }
-        ],
-        "final_answer": "24",
-        "options": ["24-", "24", "10-", "14"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 34,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Low",
-        "question_text": "פתרו את תרגיל החילוק: <strong> 20 ÷ (-5) </strong>",
-        "hint": "חוקי הסימנים בחילוק זהים לחוקי הסימנים בכפל. חיובי לחלק לשלילי נותן...",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבצע את פעולת החילוק על המספרים עצמם: 20 לחלק ל-5 הם 4.", "math_expression": "20 ÷ 5 = 4" },
-            { "verbal_explanation": "שלב 2: נבדוק את הסימנים. חילקנו מספר חיובי במספר שלילי. בדיוק כמו בכפל, התוצאה תהיה שלילית.", "math_expression": "(+) ÷ (-) = -" },
-            { "verbal_explanation": "שלב 3: נצמיד את סימן המינוס לתוצאה.", "math_expression": "-4" }
-        ],
-        "final_answer": "4-",
-        "options": ["4", "4-", "25", "15-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 35,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Medium",
-        "question_text": "חשבו את התוצאה: <strong> -100 ÷ (-10) </strong>",
-        "hint": "מספר שלילי מחולק במספר שלילי. מהו חוק הסימנים המתאים כאן?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחלק את המספרים ללא התייחסות לסימן: 100 לחלק ל-10 הם 10.", "math_expression": "100 ÷ 10 = 10" },
-            { "verbal_explanation": "שלב 2: נבחן את הסימנים. אנו מחלקים מינוס במינוס. כמו בכפל, מינוס לחלק למינוס נותן פלוס.", "math_expression": "(-) ÷ (-) = +" },
-            { "verbal_explanation": "שלב 3: לכן התוצאה הסופית היא 10 חיובי.", "math_expression": "10" }
-        ],
-        "final_answer": "10",
-        "options": ["10-", "10", "110-", "0"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 36,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "High",
-        "question_text": "חשבו, משמאל לימין: <strong> -48 ÷ 6 × (-2) </strong>",
-        "hint": "בכפל וחילוק אין עדיפות לאחד על השני, פותרים פשוט לפי הסדר (משמאל לימין).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל מהפעולה הראשונה משמאל (החילוק). מינוס 48 לחלק ל-6 החיובי. התוצאה תהיה שלילית.", "math_expression": "-48 ÷ 6 = -8" },
-            { "verbal_explanation": "שלב 2: ניקח את התוצאה (8-) ונבצע את הפעולה הבאה: כפל במינוס 2.", "math_expression": "-8 × (-2)" },
-            { "verbal_explanation": "שלב 3: כפל של שני מספרים שליליים נותן תוצאה חיובית. 8 כפול 2 הם 16.", "math_expression": "16" }
-        ],
-        "final_answer": "16",
-        "options": ["16-", "16", "4", "4-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 37,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Medium",
-        "question_text": "צוללת צוללת לעומק הים בקצב קבוע של <strong>5- מטרים בכל דקה</strong>. היכן תהיה הצוללת ביחס לפני הים לאחר <strong>10 דקות</strong>?",
-        "hint": "בנו תרגיל כפל: קצב הירידה (שלילי) כפול מספר הדקות (חיובי).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את התרגיל. בכל דקה הצוללת יורדת 5 מטרים (זהו 5-). תהליך זה קורה 10 פעמים.", "math_expression": "-5 × 10" },
-            { "verbal_explanation": "שלב 2: נכפיל את המספרים: 5 כפול 10 שווה 50.", "math_expression": "50" },
-            { "verbal_explanation": "שלב 3: שלילי כפול חיובי נותן שלילי. לכן התוצאה היא מינוס 50 (כלומר, 50 מטרים מתחת לפני הים).", "math_expression": "-50" }
-        ],
-        "final_answer": "50- מטרים",
-        "options": ["50 מטרים", "50- מטרים", "15- מטרים", "2- מטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 38,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Low",
-        "question_text": "מה יהיה ה<strong>סימן</strong> של התוצאה, אם נכפיל יחד <strong>3 מספרים שליליים</strong>?",
-        "hint": "חשבו צעד צעד: מינוס כפול מינוס שווה פלוס. ואז פלוס שקיבלנו כפול המינוס השלישי שווה...?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נדמיין כפל של שלושה סימני מינוס.", "math_expression": "(-) × (-) × (-)" },
-            { "verbal_explanation": "שלב 2: נכפיל את השניים הראשונים. כפי שלמדנו, מינוס כפול מינוס הופך לפלוס.", "math_expression": "(+) × (-)" },
-            { "verbal_explanation": "שלב 3: כעת נשאר להכפיל את התוצאה החיובית במינוס האחרון. חיובי כפול שלילי נותן שלילי.", "math_expression": "-" }
-        ],
-        "final_answer": "הסימן יהיה שלילי",
-        "options": ["הסימן יהיה חיובי", "הסימן יהיה שלילי", "התוצאה תהיה תמיד 0", "לא ניתן לדעת"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 39,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "High",
-        "question_text": "חשבו: <strong> (-1) × (-1) × (-1) × (-1) </strong>",
-        "hint": "ספרו כמה מספרי 1- יש בתרגיל. אם הכמות זוגית, כל זוג הופך לפלוס אחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה שיש לנו 4 מופעים של המספר (1-). כמות זוגית של מספרים שליליים בכפל תמיד נותנת תוצאה חיובית.", "math_expression": "4 פעמים (-)" },
-            { "verbal_explanation": "שלב 2: נחלק אותם לזוגות: הזוג הראשון (1- כפול 1-) נותן 1 חיובי. הזוג השני נותן גם הוא 1 חיובי.", "math_expression": "(+1) × (+1)" },
-            { "verbal_explanation": "שלב 3: 1 כפול 1 נשאר פשוט 1.", "math_expression": "1" }
-        ],
-        "final_answer": "1",
-        "options": ["1-", "4-", "1", "4"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 40,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Medium",
-        "question_text": "מצאו את הנעלם X במשוואה הבאה: <strong> X × (-4) = 24 </strong>",
-        "hint": "איזה מספר נכפיל ב-4 כדי לקבל 24? והאם הוא צריך להיות חיובי או שלילי כדי שהתוצאה תהיה פלוס 24?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: תחילה נבדוק את המספרים בלי הסימן. איזה מספר כפול 4 נותן 24? התשובה היא 6.", "math_expression": "? × 4 = 24 \u2192 6" },
-            { "verbal_explanation": "שלב 2: עכשיו נבדוק את הסימנים. התוצאה (24) היא חיובית, ואחד הגורמים (-4) הוא שלילי. כדי שהתוצאה תהיה חיובית, הגורם השני חייב להיות שלילי גם הוא (כי מינוס כפול מינוס שווה פלוס).", "math_expression": "(-) × (-) = +" },
-            { "verbal_explanation": "שלב 3: לכן, המספר הנעלם חייב להיות מינוס 6.", "math_expression": "X = -6" }
-        ],
-        "final_answer": "6-",
-        "options": ["6", "6-", "8-", "8"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 41,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "High",
-        "question_text": "פתרו את המשוואה הבאה ומצאו את X: <strong> -36 ÷ X = -9 </strong>",
-        "hint": "התוצאה שלילית ואחד המספרים שלילי. מה זה אומר על הסימן של X?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתעלם מהסימנים ונשאל את עצמנו: 36 לחלק לאיזה מספר ייתן 9? התשובה היא 4.", "math_expression": "36 ÷ ? = 9 \u2192 4" },
-            { "verbal_explanation": "שלב 2: נבדוק את חוקי הסימנים. חילקנו מספר שלילי (-36) ב-X וקיבלנו תוצאה שלילית (-9).", "math_expression": "(-) ÷ (?) = -" },
-            { "verbal_explanation": "שלב 3: כדי שהסימן השלילי יישמר, חובה לחלק את המספר השלילי במספר חיובי.", "math_expression": "X = 4" }
-        ],
-        "final_answer": "4",
-        "options": ["4-", "4", "9", "9-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 42,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Low",
-        "question_text": "חשבו: <strong> 0 ÷ (-8) </strong>",
-        "hint": "מה קורה שמחלקים כלום (אפס) לכמה חלקים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חילוק אפס בכל מספר (שאינו אפס) אומר שאנחנו מנסים לחלק כמות של 'כלום'.", "math_expression": "0 ÷ A" },
-            { "verbal_explanation": "שלב 2: התוצאה תמיד תהיה אפס, ללא קשר אם המספר בו מחלקים הוא חיובי או שלילי.", "math_expression": "0" }
-        ],
-        "final_answer": "0",
-        "options": ["8-", "8", "0", "אין פתרון"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 43,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Medium",
-        "question_text": "מהי התוצאה של: <strong> (-5) × 0 × (-12) </strong>?",
-        "hint": "לפני שאתם מחשבים, הסתכלו היטב על המספרים שבתרגיל. האם יש שם 'מאפס'?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בתרגיל כפל ארוך (עם כמה גורמים), נוכל להסתכל על כל המכפלה כמקשה אחת.", "math_expression": "A × B × C" },
-            { "verbal_explanation": "שלב 2: נשים לב שאחד הגורמים הוא אפס. חוק האפס בכפל קובע שמכפלה של כל מספר באפס מאפסת את כל התרגיל כולו.", "math_expression": "0" },
-            { "verbal_explanation": "שלב 3: לכן אין צורך לחשב כמה זה 5 כפול 12, התשובה הסופית היא פשוט 0.", "math_expression": "0" }
-        ],
-        "final_answer": "0",
-        "options": ["60", "60-", "0", "17-"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 44,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "High",
-        "question_text": "מהו ה<strong>ממוצע</strong> של שלושת המספרים הבאים: <strong> -4, -6, -2 </strong>?",
-        "hint": "כדי למצוא ממוצע, עלינו קודם כל לחבר את כל המספרים, ואז לחלק את התוצאה בכמות המספרים (3).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב קודם את הסכום הכולל. נחבר את שלושת החובות: 4- ועוד 6- זה 10-. נוסיף את ה-2- ונקבל 12-.", "math_expression": "(-4) + (-6) + (-2) = -12" },
-            { "verbal_explanation": "שלב 2: כעת נחלק את הסכום שקיבלנו (-12) ב-3, שכן יש לנו 3 מספרים.", "math_expression": "-12 ÷ 3" },
-            { "verbal_explanation": "שלב 3: נבצע חילוק: 12 לחלק ל-3 הם 4. שלילי לחלק לחיובי נותן תוצאה שלילית.", "math_expression": "-4" }
-        ],
-        "final_answer": "4-",
-        "options": ["12-", "4-", "4", "6-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "כפל וחילוק",
-        "difficulty": "Medium",
-        "question_text": "חמישה שותפים לעסק צברו יחד חוב של <strong>50- שקלים</strong>. הם מחליטים לחלק את החוב שווה בשווה ביניהם. מה יהיה ה'רווח/הפסד' של <strong>כל שותף בנפרד</strong>?",
-        "hint": "בנו תרגיל חילוק: חלקו את החוב השלילי (-50) למספר האנשים החיובי (5).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את התרגיל. החוב מיוצג על ידי מספר שלילי (-50), ומספר האנשים הוא חיובי (5).", "math_expression": "-50 ÷ 5" },
-            { "verbal_explanation": "שלב 2: נבצע את החילוק. 50 לחלק ל-5 שווה 10.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 3: נבדוק את הסימנים: שלילי לחלק לחיובי שווה לשלילי. לכן, לכל אחד מהם יתווסף חוב של 10 שקלים.", "math_expression": "-10" }
-        ],
-        "final_answer": "10- (חוב של 10 שקלים)",
-        "options": ["10 (רווח)", "10- (חוב)", "50-", "55-"],
-        "correctAnswer": 1
+        final_answer: "תמיד מספר שלילי"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: שימוש בסוגריים (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: כפל וחילוק (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 46,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Low",
-        "question_text": "חשבו: <strong> 5 + (-3 × 2) </strong><br><div style='text-align:center; margin:15px 0;'><svg width='180' height='40'><path d='M70,25 Q100,-10 130,25' fill='none' stroke='#b09151' stroke-width='2'/><text x='100' y='35' font-size='12' font-weight='bold' text-anchor='middle'>קודם סוגריים!</text></svg></div>",
-        "hint": "הסוגריים מורים לנו לפתור קודם את תרגיל הכפל שנמצא בתוכם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל תמיד ממה שנמצא בתוך הסוגריים. נחשב את הכפל: מינוס 3 כפול 2 חיובי נותן מינוס 6.", "math_expression": "-3 × 2 = -6" },
-            { "verbal_explanation": "שלב 2: נחזור לתרגיל המקורי ונחליף את הסוגריים בתוצאה שקיבלנו. התרגיל הוא כעת 5 ועוד מינוס 6.", "math_expression": "5 + (-6)" },
-            { "verbal_explanation": "שלב 3: נפתור את תרגיל החיבור. חוב של 6 וכסף של 5 ישאירו אותנו בחוב של 1.", "math_expression": "-1" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "חשבו את תוצאת הכפל הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-6 × (-8) = ?</div>",
+        options: ["48", "-48", "14", "-14"],
+        correctAnswer: 0,
+        hint: "זכרו את חוק הסימנים המפורסם: מינוס כפול מינוס נותן...&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נתעלם מהסימנים ונכפול את המספרים.&rlm;", math_expression: "6 × 8 = 48" },
+            { verbal_explanation: "שלב ב': נבדוק סימנים. מכפלה של שני מספרים שניהם שליליים (סימנים זהים) נותנת תוצאה חיובית.&rlm;", math_expression: "(-) × (-) = (+)" },
+            { verbal_explanation: "התוצאה היא 48.&rlm;", math_expression: "" }
         ],
-        "final_answer": "1-",
-        "options": ["11", "1-", "4", "22-"],
-        "correctAnswer": 1
+        final_answer: "48"
     },
+    // שאלה 26
     {
-        "id": 47,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Medium",
-        "question_text": "חשבו את הביטוי הבא: <strong> -10 - (-2 × -4) </strong>",
-        "hint": "זהירות עם הסימנים בתוך הסוגריים: כפל של מינוס במינוס נותן פלוס. רק אחר כך בצעו את החיסור מחוץ לסוגריים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ניגש לסוגריים. יש לנו כפל של מינוס 2 במינוס 4. חוק הסימנים אומר שמינוס כפול מינוס נותן פלוס, לכן נקבל 8 חיובי.", "math_expression": "-2 × (-4) = 8" },
-            { "verbal_explanation": "שלב 2: נציב את התוצאה בתרגיל המקורי: מינוס 10 פחות התוצאה שקיבלנו (8).", "math_expression": "-10 - 8" },
-            { "verbal_explanation": "שלב 3: נחשב את חיבור החובות: ירידה ממינוס 10 בעוד 8 צעדים מובילה למינוס 18.", "math_expression": "-18" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "פתרו את תרגיל החילוק הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>35 : (-5) = ?</div>",
+        options: ["-7", "7", "-30", "0.7"],
+        correctAnswer: 0,
+        hint: "חוקי הסימנים בחילוק זהים לאלה שבכפל: מספר חיובי לחלק למספר שלילי נותן מינוס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחלק את המספרים ללא הסימן.&rlm;", math_expression: "35 : 5 = 7" },
+            { verbal_explanation: "שלב ב': פלוס לחלק למינוס (סימנים שונים) נותן תוצאה שלילית.&rlm;", math_expression: "(+) : (-) = (-)" },
+            { verbal_explanation: "לכן התוצאה היא 7-.&rlm;", math_expression: "-7" }
         ],
-        "final_answer": "18-",
-        "options": ["2-", "18-", "2", "18"],
-        "correctAnswer": 1
+        final_answer: "-7"
     },
+    // שאלה 27
     {
-        "id": 48,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "High",
-        "question_text": "חשבו: <strong> -4 × (3 - 8) </strong>",
-        "hint": "פתרו קודם את תרגיל החיסור בתוך הסוגריים (זה ייתן תוצאה שלילית!), ואז הכפילו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: למרות שיש כפל מחוץ לסוגריים, חובה לבצע את הסוגריים קודם. נחשב 3 פחות 8. מכיוון שמחסרים גדול מקטן, התוצאה היא שלילית.", "math_expression": "3 - 8 = -5" },
-            { "verbal_explanation": "שלב 2: כעת התרגיל שלנו הפך למינוס 4 כפול התוצאה שבסוגריים (מינוס 5).", "math_expression": "-4 × (-5)" },
-            { "verbal_explanation": "שלב 3: נחשב את הכפל. מינוס כפול מינוס הוא פלוס, ו-4 כפול 5 הוא 20.", "math_expression": "20" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "מכפלה של שלושה מספרים. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-2 × 4 × (-5) = ?</div>",
+        options: ["40", "-40", "10", "-10"],
+        correctAnswer: 0,
+        hint: "כפלו לפי הסדר משמאל לימין, ושימו לב לשינוי הסימן בכל שלב.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכפול את שני הגורמים הראשונים. מינוס כפול פלוס נותן מינוס.&rlm;", math_expression: "-2 × 4 = -8" },
+            { verbal_explanation: "שלב ב': ניקח את התוצאה ונכפול בגורם השלישי. מינוס כפול מינוס נותן פלוס.&rlm;", math_expression: "-8 × (-5) = 40" }
         ],
-        "final_answer": "20",
-        "options": ["20-", "20", "4-", "15-"],
-        "correctAnswer": 1
+        final_answer: "40"
     },
+    // שאלה 28
     {
-        "id": 49,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את התרגיל: <strong> 12 ÷ (-2 - 4) </strong>",
-        "hint": "קודם יש לחשב את סכום החובות בתוך הסוגריים (-2 ו- -4), ורק אז לבצע את החילוק.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל בחישוב הביטוי שבסוגריים. מינוס 2 פחות 4 זו ירידה נוספת, מה שמביא אותנו למינוס 6.", "math_expression": "-2 - 4 = -6" },
-            { "verbal_explanation": "שלב 2: נחזור לתרגיל השלם. אנו מתבקשים לחלק את 12 בתוצאה שקיבלנו (-6).", "math_expression": "12 ÷ (-6)" },
-            { "verbal_explanation": "שלב 3: חיובי לחלק לשלילי ייתן שלילי. 12 לחלק ל-6 הם 2. לכן התוצאה היא 2-.", "math_expression": "-2" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "קבעו מה יהיה הסימן של התוצאה בתרגיל הבא, מבלי לחשב אותה במדויק:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-1 × (-2) × (-3) × (-4) × (-5) = ?</div>",
+        options: ["שלילי", "חיובי", "אפס", "אי אפשר לדעת"],
+        correctAnswer: 0,
+        hint: "ספרו כמה סימני מינוס יש בתרגיל הכפל. אם הכמות אי-זוגית, התוצאה תהיה שלילית.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "בתרגיל כפל המורכב רק ממספרים שליליים, הסימן נקבע לפי כמות המינוסים.&rlm;", math_expression: "" },
+            { verbal_explanation: "כמות זוגית של מינוסים מבטלת זה את זה (נותן פלוס). כמות אי-זוגית משאירה מינוס אחד 'ללא בן זוג'.&rlm;", math_expression: "" },
+            { verbal_explanation: "יש כאן 5 מספרים שליליים (אי-זוגי), ולכן התוצאה תהיה שלילית.&rlm;", math_expression: "" }
         ],
-        "final_answer": "2-",
-        "options": ["2", "2-", "6", "6-"],
-        "correctAnswer": 1
+        final_answer: "שלילי"
     },
+    // שאלה 29
     {
-        "id": 50,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Low",
-        "question_text": "מה הערך של הביטוי: <strong> -(5 - 9) </strong>?",
-        "hint": "חשבו קודם את ה- (5 פחות 9). אחר כך הצמידו לתוצאה את סימן המינוס שמחכה בחוץ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את מה שבתוך הסוגריים בלבד: 5 פחות 9 ייתן לנו מספר שלילי, מכיוון שחסרנו יותר ממה שיש.", "math_expression": "5 - 9 = -4" },
-            { "verbal_explanation": "שלב 2: כעת ניקח את התוצאה ונוסיף לה את סימן המינוס שנמצא לפני הסוגריים.", "math_expression": "-(-4)" },
-            { "verbal_explanation": "שלב 3: כזכור, מינוס שצמוד למינוס הופך את המספר לחיובי (הנגדי של 4- הוא 4).", "math_expression": "4" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "חילוק באפס וחילוק של אפס: מהי התוצאה של התרגיל הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0 : (-12) = ?</div>",
+        options: ["0", "-12", "ביטוי חסר משמעות (לא חוקי)", "12"],
+        correctAnswer: 0,
+        hint: "אפס לחלק לכל מספר (שאינו אפס) נותן תמיד אפס. (להבדיל מחילוק *ב*-אפס שהוא אסור).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אם יש לנו 0 עצמים ואנו מחלקים אותם ל-12- קבוצות (תיאורטית), כל קבוצה תקבל 0.&rlm;", math_expression: "0 : x = 0" },
+            { verbal_explanation: "אפס הוא מספר ניטרלי לסימן, אין דבר כזה 0-. התשובה היא פשוט 0.&rlm;", math_expression: "" }
         ],
-        "final_answer": "4",
-        "options": ["4-", "4", "14", "14-"],
-        "correctAnswer": 1
+        final_answer: "0"
     },
+    // שאלה 30
     {
-        "id": 51,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "High",
-        "question_text": "חשבו את התרגיל הבא, הכולל סוגריים מרובעים (שעוטפים הכל): <strong> [-15 + (-5)] ÷ (-4) </strong>",
-        "hint": "הסוגריים המרובעים מתנהגים כמו חדר סגור. פתרו קודם את כל מה שבתוכם, ואז חלקו ב-4-.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתמקד קודם בתוך הסוגריים המרובעים. יש לנו מינוס 15 ועוד מינוס 5. זהו חיבור של שני חובות.", "math_expression": "-15 + (-5) = -20" },
-            { "verbal_explanation": "שלב 2: כעת נציב את התוצאה הכוללת (-20) במקום כל הסוגריים המרובעים, ונבצע את החילוק המבוקש.", "math_expression": "-20 ÷ (-4)" },
-            { "verbal_explanation": "שלב 3: נחלק מספר שלילי במספר שלילי, מה שיתן תוצאה חיובית. 20 לחלק ל-4 הם 5.", "math_expression": "5" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "מהו הערך של x במשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-3 × x = 21</div>",
+        options: ["-7", "7", "-24", "63"],
+        correctAnswer: 0,
+        hint: "נפעיל פעולה הפוכה: חלקו את התוצאה (21) במקדם (-3). שימו לב לסימנים!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא גורם כפל חסר, אנו מחלקים את התוצאה בגורם הידוע.&rlm;", math_expression: "x = 21 : (-3)" },
+            { verbal_explanation: "חיובי (21) לחלק לשלילי (3-) ייתן מספר שלילי.&rlm;", math_expression: "21 : 3 = 7" },
+            { verbal_explanation: "לכן x שווה 7-.&rlm;", math_expression: "x = -7" }
         ],
-        "final_answer": "5",
-        "options": ["5-", "5", "4", "10"],
-        "correctAnswer": 1
+        final_answer: "-7"
     },
+    // שאלה 31
     {
-        "id": 52,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Medium",
-        "question_text": "חשבו: <strong> -3 × (-2) + (-4) × 5 </strong>",
-        "hint": "זהו תרגיל קלאסי של סדר פעולות. בצעו קודם את שתי פעולות הכפל (בנפרד זו מזו), ורק בסוף חברו את שתי התוצאות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את הכפל הראשון: מינוס 3 כפול מינוס 2. שלילי כפול שלילי נותן פלוס 6.", "math_expression": "-3 × (-2) = 6" },
-            { "verbal_explanation": "שלב 2: נחשב את הכפל השני: מינוס 4 כפול 5 חיובי. שלילי כפול חיובי נותן מינוס 20.", "math_expression": "-4 × 5 = -20" },
-            { "verbal_explanation": "שלב 3: נחבר את שתי התוצאות שקיבלנו. יש לנו 6 ועוד מינוס 20.", "math_expression": "6 + (-20)" },
-            { "verbal_explanation": "שלב 4: מכיוון שהחוב (20-) גדול מהרווח (6), התוצאה תהיה שלילית.", "math_expression": "-14" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "חשבו את תוצאת הכפל של שברים פשוטים מכוונים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-1/2 × (-4) = ?</div>",
+        options: ["2", "-2", "-1/8", "1/8"],
+        correctAnswer: 0,
+        hint: "מינוס כפול מינוס הופך לפלוס. כמה זה חצי מתוך 4?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבדוק סימנים. מינוס כפול מינוס שווה פלוס.&rlm;", math_expression: "(-) × (-) = (+)" },
+            { verbal_explanation: "שלב ב': נכפול את המספרים: חצי כפול 4. כפל בשבר מתבצע על המונה.&rlm;", math_expression: "(1 × 4) / 2 = 4/2" },
+            { verbal_explanation: "שלב ג': 4 חלקי 2 שווה ל-2 שלמים.&rlm;", math_expression: "2" }
         ],
-        "final_answer": "14-",
-        "options": ["14", "14-", "26", "26-"],
-        "correctAnswer": 1
+        final_answer: "2"
     },
+    // שאלה 32
     {
-        "id": 53,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "High",
-        "question_text": "חשבו: <strong> 20 - [ 5 - (-3 × 2) ] </strong>",
-        "hint": "התחילו תמיד מהחלק הפנימי ביותר! קודם הכפל שבסוגריים הפנימיים, אז החיסור בסוגריים המרובעים, ובסוף הפעולה שבחוץ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפתור קודם את הכפל שבתוך הסוגריים העגולים הפנימיים. מינוס 3 כפול 2 שווה מינוס 6.", "math_expression": "-3 × 2 = -6" },
-            { "verbal_explanation": "שלב 2: נציב את התוצאה בתוך הסוגריים המרובעים. כעת מופיע לנו '5 פחות מינוס 6'. פחות מינוס הופך לפלוס.", "math_expression": "5 - (-6) = 5 + 6 = 11" },
-            { "verbal_explanation": "שלב 3: סיימנו עם כל הסוגריים. כעת נחזור למספר שהמתין בחוץ מתחילת התרגיל (20) ונחסר ממנו את התוצאה שלנו (11).", "math_expression": "20 - 11 = 9" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "תרגיל משולב של כפל וחילוק:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-100 : (-5) × (-2) = ?</div>",
+        options: ["-40", "40", "-10", "10"],
+        correctAnswer: 0,
+        hint: "בצעו לפי הסדר משמאל לימין. קודם חילוק, ואז את התוצאה כפלו. עקבו בזהירות אחרי החלפת הסימנים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבצע את החילוק הראשון. מינוס 100 לחלק למינוס 5. התוצאה חיובית.&rlm;", math_expression: "-100 : (-5) = 20" },
+            { verbal_explanation: "שלב ב': ניקח את התוצאה ונכפול בגורם השלישי (מינוס 2).&rlm;", math_expression: "20 × (-2)" },
+            { verbal_explanation: "שלב ג': פלוס כפול מינוס נותן מינוס. 20 כפול 2 שווה 40.&rlm;", math_expression: "-40" }
         ],
-        "final_answer": "9",
-        "options": ["9", "31", "9-", "15"],
-        "correctAnswer": 0
+        final_answer: "-40"
     },
+    // שאלה 33
     {
-        "id": 54,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Low",
-        "question_text": "מהי התוצאה של: <strong> (-6 + 6) × (-10) </strong>?",
-        "hint": "הסתכלו היטב על מה שקורה בתוך הסוגריים. האם אתם מזהים שם מספרים נגדיים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב קודם את מה שבסוגריים. אנו מחברים מינוס 6 עם פלוס 6. אלו מספרים נגדיים שמבטלים זה את זה ולכן סכומם 0.", "math_expression": "-6 + 6 = 0" },
-            { "verbal_explanation": "שלב 2: כעת נכפיל את התוצאה אפס במספר שנמצא מחוץ לסוגריים.", "math_expression": "0 × (-10)" },
-            { "verbal_explanation": "שלב 3: לפי חוקי הכפל, אפס כפול כל מספר תמיד נותן אפס.", "math_expression": "0" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "מה תהיה התוצאה של העלאת מספר שלילי בחזקה זוגית? למשל: ²(3-)&rlm;",
+        options: ["תמיד מספר חיובי", "תמיד מספר שלילי", "אפס", "תלוי בבסיס"],
+        correctAnswer: 0,
+        hint: "חזקה שנייה אומרת לכפול את המספר בעצמו. מינוס כפול מינוס...&rlm;",
+        solution_steps: [
+            { verbal_explanation: "התרגיל ²(3-) פירושו מינוס 3 כפול מינוס 3.&rlm;", math_expression: "(-3) × (-3) = 9" },
+            { verbal_explanation: "כל מספר שלילי שמוכפל בעצמו מספר זוגי של פעמים ייתן זוגות של מינוסים שמתבטלים לפלוס.&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן התוצאה תמיד תהיה חיובית.&rlm;", math_expression: "" }
         ],
-        "final_answer": "0",
-        "options": ["120-", "60-", "0", "120"],
-        "correctAnswer": 2
+        final_answer: "תמיד מספר חיובי"
     },
+    // שאלה 34
     {
-        "id": 55,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Medium",
-        "question_text": "חשבו את תוצאת שבר החילוק הבא (קו השבר מתנהג כמו סוגריים סביב המונה וסביב המכנה): <strong> (-12 - 8) ÷ (-4 + 9) </strong>",
-        "hint": "חשבו קודם את השבר השמאלי (המונה), ואז את השבר הימני (המכנה), ובסוף חלקו ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את תכולת הסוגריים השמאליים. מינוס 12 פחות 8 אומר ירידה נוספת, כלומר מינוס 20.", "math_expression": "-12 - 8 = -20" },
-            { "verbal_explanation": "שלב 2: נחשב את תכולת הסוגריים הימניים. מינוס 4 ועוד 9 מוביל אותנו אל מעל האפס, ל-5 חיובי.", "math_expression": "-4 + 9 = 5" },
-            { "verbal_explanation": "שלב 3: נחלק את התוצאות זו בזו: שלילי לחלק לחיובי ייתן שלילי.", "math_expression": "-20 ÷ 5 = -4" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "קבעו האם המשוואה הבאה נכונה או שגויה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-20 : 4 = 20 : (-4)</div>",
+        options: ["נכונה", "שגויה", "נכונה רק בערך מוחלט", "שגויה כי אי אפשר לחלק במינוס"],
+        correctAnswer: 0,
+        hint: "חשבו את התוצאה של אגף ימין ושל אגף שמאל בנפרד. האם התקבל אותו המספר?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נפתור את אגף שמאל: מינוס 20 לחלק ל-4 חיובי. התוצאה שלילית.&rlm;", math_expression: "-20 : 4 = -5" },
+            { verbal_explanation: "נפתור את אגף ימין: 20 חיובי לחלק ל-4 מינוס. התוצאה גם שלילית.&rlm;", math_expression: "20 : (-4) = -5" },
+            { verbal_explanation: "שני האגפים שווים ל-5-, ולכן המשוואה נכונה.&rlm;", math_expression: "-5 = -5" }
         ],
-        "final_answer": "4-",
-        "options": ["4", "4-", "5", "5-"],
-        "correctAnswer": 1
+        final_answer: "נכונה"
     },
+    // שאלה 35
     {
-        "id": 56,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "High",
-        "question_text": "הציבו <strong> X = -2 </strong> בביטוי האלגברי <strong> 3X - 5 </strong> וחשבו את התוצאה.",
-        "hint": "כאשר מציבים מספר שלילי בביטוי במקום אות, חובה להשתמש בסוגריים כדי לא להתבלבל בסימנים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחליף את האות X במספר (-2), ונזכור שבין 3 ל-X יש פעולת כפל נסתרת. נקפיד לשים את ה-(-2) בסוגריים.", "math_expression": "3 × (-2) - 5" },
-            { "verbal_explanation": "שלב 2: נבצע קודם את פעולת הכפל לפי סדר הפעולות. חיובי כפול שלילי זה שלילי.", "math_expression": "-6 - 5" },
-            { "verbal_explanation": "שלב 3: נחסיר 5 מתוך ה-6-. התוצאה היא חוב גדול יותר של 11-.", "math_expression": "-11" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "בעיה מילולית: הצוללת 'ברק' צוללת בקצב קבוע של 15 מטרים לדקה. באיזה עומק היא תהיה לאחר 4 דקות של צלילה? (השתמשו במספרים מכוונים, עומק יסומן כמינוס).&rlm;",
+        options: ["-60 מטרים", "60 מטרים", "-11 מטרים", "19 מטרים"],
+        correctAnswer: 0,
+        hint: "הקצב הוא שלילי (15- לדקה). הכפילו את הקצב השלילי במספר הדקות (4 חיובי).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נגדיר את הקצב כמספר שלילי, מכיוון שהצוללת יורדת למטה.&rlm;", math_expression: "V = -15" },
+            { verbal_explanation: "שלב ב': נכפול את הקצב בזמן (4 דקות) כדי למצוא את המיקום החדש.&rlm;", math_expression: "-15 × 4" },
+            { verbal_explanation: "שלב ג': מינוס כפול פלוס שווה מינוס. 15 כפול 4 שווה 60.&rlm;", math_expression: "-60" }
         ],
-        "final_answer": "11-",
-        "options": ["1-", "1", "11-", "11"],
-        "correctAnswer": 2
+        final_answer: "-60 מטרים"
     },
+    // שאלה 36
     {
-        "id": 57,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Medium",
-        "question_text": "נתונים המספרים: <strong> A = -4 , B = -3 </strong>. חשבו את ערך הביטוי: <strong> A × B - A </strong>",
-        "hint": "הציבו את המספרים בזהירות עם סוגריים. הביטוי ייראה כך: (-4) כפול (-3) פחות (-4).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הערכים בתוך הביטוי כדי לראות את התרגיל השלם במדויק.", "math_expression": "(-4) × (-3) - (-4)" },
-            { "verbal_explanation": "שלב 2: נבצע את פעולת הכפל שבתחילת התרגיל. מינוס כפול מינוס הוא פלוס, ולכן נקבל 12.", "math_expression": "12 - (-4)" },
-            { "verbal_explanation": "שלב 3: נזכור שחיסור של מספר שלילי הופך לחיבור. נהפוך את התרגיל ל-12 ועוד 4 ונחשב.", "math_expression": "12 + 4 = 16" }
+        topic: "directed_numbers",
+        subTopic: "כפל וחילוק",
+        question_text: "איזה מספר חסר במשוואה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>? × (-0.5) = 10</div>",
+        options: ["-20", "20", "-5", "5"],
+        correctAnswer: 0,
+        hint: "התוצאה חיובית ואחד הגורמים שלילי, משמע הגורם החסר חייב להיות שלילי. פעולה הפוכה: חלקו 10 במינוס חצי.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבודד את המספר החסר על ידי חלוקת התוצאה בגורם הידוע.&rlm;", math_expression: "? = 10 : (-0.5)" },
+            { verbal_explanation: "סימן: פלוס לחלק למינוס ייתן מינוס.&rlm;", math_expression: "" },
+            { verbal_explanation: "חישוב: 10 לחלק לחצי. כמה חצאים יש ב-10 שלמים? נכפול ב-2 ונקבל 20.&rlm;", math_expression: "10 : 0.5 = 20" },
+            { verbal_explanation: "נוסיף את סימן המינוס.&rlm;", math_expression: "-20" }
         ],
-        "final_answer": "16",
-        "options": ["8", "16", "16-", "8-"],
-        "correctAnswer": 1
+        final_answer: "-20"
     },
+
+    // ==========================================================
+    // תת נושא 4: שימוש בסוגריים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 58,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "High",
-        "question_text": "מהי התוצאה של: <strong> -|-5 × 2| </strong>?",
-        "hint": "בדומה לסוגריים, פתרו קודם את תרגיל הכפל שבתוך הקווים. אחרי זה הוציאו ערך מוחלט, ורק בסוף הוסיפו את המינוס שבחוץ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: קודם כל נבצע את הפעולה שבתוך קווי הערך המוחלט. מינוס 5 כפול 2 שווה למינוס 10.", "math_expression": "|-10|" },
-            { "verbal_explanation": "שלב 2: כעת נחשב את הערך המוחלט של (-10). המרחק מהאפס הוא פשוט 10 חיובי.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 3: כמעט סיימנו! בואו לא נשכח את המינוס שהמתין לנו מתחילת התרגיל מחוץ לקווים. נצמיד אותו לתוצאה.", "math_expression": "-(10) = -10" }
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "סדר פעולות עם סוגריים. חשבו את התוצאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-10 - (-4 + 6) = ?</div>",
+        options: ["-12", "-8", "-20", "0"],
+        correctAnswer: 0,
+        hint: "פתרו קודם את מה שבתוך הסוגריים (מינוס 4 פלוס 6). לאחר מכן, חסרו את התוצאה מ-10-.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתור את התרגיל שבסוגריים: חוב של 4 והוספנו 6, נגיע ל-2 חיובי.&rlm;", math_expression: "-4 + 6 = 2" },
+            { verbal_explanation: "שלב ב': נעדכן את התרגיל ונפתור. 10- פחות 2 חיובי.&rlm;", math_expression: "-10 - 2 = -12" }
         ],
-        "final_answer": "10-",
-        "options": ["10", "10-", "7", "7-"],
-        "correctAnswer": 1
+        final_answer: "-12"
     },
+    // שאלה 38
     {
-        "id": 59,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "Medium",
-        "question_text": "האם התוצאה של <strong> (-4 - 2) × 3 </strong> שווה לתוצאה של <strong> -4 - 2 × 3 </strong>?",
-        "hint": "הסוגריים משנים לחלוטין את סדר הפעולות! חשבו כל צד בנפרד והשוו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את צד ימין (עם הסוגריים). הסוגריים מחייבים חיסור קודם: מינוס 6 כפול 3 שווה 18-.", "math_expression": "(-6) × 3 = -18" },
-            { "verbal_explanation": "שלב 2: נחשב את צד שמאל (בלי סוגריים). כאן הכפל קודם: מינוס 4 פחות (2 כפול 3), כלומר מינוס 4 פחות 6, שזה 10-.", "math_expression": "-4 - 6 = -10" },
-            { "verbal_explanation": "שלב 3: התוצאות (18- ו- 10-) שונות לגמרי. זה מוכיח כמה סוגריים חשובים בסדר פעולות.", "math_expression": "-18 \u2260 -10" }
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "שימו לב לכפל ולסוגריים. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-3 × (5 - 8) = ?</div>",
+        options: ["9", "-9", "-39", "1"],
+        correctAnswer: 0,
+        hint: "פתרו את הסוגריים (5 פחות 8 ייתן מספר שלילי). אז כפלו מינוס במינוס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתור את החיסור בסוגריים. 5 פחות 8 נותן מספר שלילי.&rlm;", math_expression: "5 - 8 = -3" },
+            { verbal_explanation: "שלב ב': נבצע את פעולת הכפל מחוץ לסוגריים. מינוס 3 כפול מינוס 3.&rlm;", math_expression: "-3 × (-3)" },
+            { verbal_explanation: "שלב ג': מינוס כפול מינוס הופך לפלוס. 3 כפול 3 שווה 9.&rlm;", math_expression: "9" }
         ],
-        "final_answer": "לא, התוצאות שונות",
-        "options": ["כן, הן שוות", "לא, התוצאות שונות", "כן, זהו חוק הקיבוץ", "שתי התשובות שוות ל-0"],
-        "correctAnswer": 1
+        final_answer: "9"
     },
+    // שאלה 39
     {
-        "id": 60,
-        "subTopic": "שימוש בסוגריים",
-        "difficulty": "High",
-        "question_text": "הטמפרטורה בתנור הייתה <strong>10 מעלות</strong>. היא <strong>צנחה ב-2 מעלות בכל שעה, במשך 6 שעות</strong>. מה הייתה הטמפרטורה בסוף? <br><div style='text-align:center; margin:15px 0;'><svg width='180' height='40'><text x='90' y='25' font-size='14' text-anchor='middle'>רמז: 10 - (2 × 6)</text></svg></div>",
-        "hint": "חשבו קודם בכמה מעלות סך הכל ירדה הטמפרטורה (כפל), ואז חסרו את הכמות הזו מהטמפרטורה ההתחלתית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את סך כל הירידה בטמפרטורה. היא ירדה ב-2 מעלות במשך 6 שעות, כלומר בסך הכל הירידה הייתה של 12 מעלות.", "math_expression": "2 × 6 = 12" },
-            { "verbal_explanation": "שלב 2: ניקח את הטמפרטורה ההתחלתית (10) ונחסיר ממנה את סך הירידה (12).", "math_expression": "10 - 12" },
-            { "verbal_explanation": "שלב 3: מכיוון שאנו מחסרים 12 מ-10, נרד מתחת לאפס ונגיע למינוס 2 מעלות.", "math_expression": "-2" }
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "מה ההבדל בין הביטויים הבאים? מה תוצאתם?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(-4)²   לעומת   -4²</div>",
+        options: ["שניהם שווים 16", "שניהם שווים -16", "הראשון שווה 16 והשני שווה -16", "הראשון שווה -16 והשני שווה 16"],
+        correctAnswer: 2,
+        hint: "בביטוי הראשון הסוגריים מורים לנו להכפיל את המינוס 4 בעצמו. בביטוי השני, החזקה פועלת רק על ה-4, והמינוס נשאר בחוץ!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נפתור את הביטוי הראשון: מינוס 4 נמצא כולו בסוגריים ועולה בריבוע. מינוס כפול מינוס נותן פלוס.&rlm;", math_expression: "(-4)² = (-4) × (-4) = 16" },
+            { verbal_explanation: "נפתור את הביטוי השני: לחזקה יש קדימות לפני סימן המינוס. נעלה רק את 4 בריבוע (16) ונוסיף את המינוס בסוף.&rlm;", math_expression: "-4² = -(4 × 4) = -16" }
         ],
-        "final_answer": "2- מעלות",
-        "options": ["2 מעלות", "2- מעלות", "12- מעלות", "8 מעלות"],
-        "correctAnswer": 1
+        final_answer: "הראשון שווה 16 והשני שווה -16"
+    },
+    // שאלה 40
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "חשבו את תוצאת התרגיל המורכב הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>20 - [ -5 + (-3 × 2) ] = ?</div>",
+        options: ["31", "9", "25", "11"],
+        correctAnswer: 0,
+        hint: "התחילו מהסוגריים הפנימיים ביותר (הכפל). אח\"כ פתרו את מה שבסוגריים המרובעים. בסוף חסרו מ-20.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתור את הכפל בתוך הסוגריים הפנימיים.&rlm;", math_expression: "-3 × 2 = -6" },
+            { verbal_explanation: "שלב ב': נעדכן את מה שבתוך הסוגריים המרובעים. 5- ועוד 6- הם חובות שמצטברים.&rlm;", math_expression: "-5 + (-6) = -11" },
+            { verbal_explanation: "שלב ג': כעת התרגיל הוא 20 פחות (11-). מינוס מינוס הופך לפלוס.&rlm;", math_expression: "20 - (-11) = 20 + 11 = 31" }
+        ],
+        final_answer: "31"
+    },
+    // שאלה 41
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "פתיחת סוגריים עם חוק הפילוג. פשטו את הביטוי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-2(3x - 4) = ?</div>",
+        options: ["-6x + 8", "-6x - 8", "6x - 8", "-6x - 4"],
+        correctAnswer: 0,
+        hint: "הכפילו את 2- ב-3x. לאחר מכן, הכפילו את 2- ב-4-. מינוס כפול מינוס הוא פלוס!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נכפול 2- ב-3x ונקבל 6x-.&rlm;", math_expression: "-2 × 3x = -6x" },
+            { verbal_explanation: "נכפול 2- ב-4- (כולל המינוס שלפני הארבע). מינוס כפול מינוס הוא פלוס.&rlm;", math_expression: "-2 × (-4) = +8" },
+            { verbal_explanation: "נרשום את הביטוי הסופי.&rlm;", math_expression: "-6x + 8" }
+        ],
+        final_answer: "-6x + 8"
+    },
+    // שאלה 42
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "הצבת מספר שלילי. נתון הביטוי האלגברי: a² - 3a. מה תהיה התוצאה אם נציב a = -2 ?&rlm;",
+        options: ["10", "-2", "-10", "2"],
+        correctAnswer: 0,
+        hint: "כאשר מציבים מספר שלילי בביטוי, חובה להקיף אותו בסוגריים! הציבו כך: (-2)² - 3 × (-2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 2- במקום האות a, תוך שימוש בסוגריים.&rlm;", math_expression: "(-2)² - 3 × (-2)" },
+            { verbal_explanation: "שלב ב': נחשב את החזקה. מינוס 2 כפול מינוס 2 זה 4 חיובי.&rlm;", math_expression: "4 - 3 × (-2)" },
+            { verbal_explanation: "שלב ג': נחשב את הכפל. מינוס 3 כפול מינוס 2 זה פלוס 6.&rlm;", math_expression: "4 + 6 = 10" }
+        ],
+        final_answer: "10"
+    },
+    // שאלה 43
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "פתרו את תרגיל השבר הבא (זכרו, קו שבר מתפקד כמו סוגריים למונה ולמכנה):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(-15 + 3) / (-3 - 1) = ?</div>",
+        options: ["3", "-3", "4.5", "-4.5"],
+        correctAnswer: 0,
+        hint: "חשבו את המונה בנפרד (15- פלוס 3), חשבו את המכנה בנפרד (3- פחות 1), ורק אז חלקו את התוצאות זו בזו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': חישוב המונה. מינוס 15 ועוד 3 נותן מינוס 12.&rlm;", math_expression: "-15 + 3 = -12" },
+            { verbal_explanation: "שלב ב': חישוב המכנה. מינוס 3 פחות 1 נותן מינוס 4.&rlm;", math_expression: "-3 - 1 = -4" },
+            { verbal_explanation: "שלב ג': נחלק מונה במכנה. מינוס 12 לחלק למינוס 4. מינוס ומינוס מבטלים זה את זה.&rlm;", math_expression: "-12 : (-4) = 3" }
+        ],
+        final_answer: "3"
+    },
+    // שאלה 44
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "מהו הערך של x במשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2(x - 5) = -14</div>",
+        options: ["-2", "2", "-12", "12"],
+        correctAnswer: 0,
+        hint: "פתחו את הסוגריים לפי חוק הפילוג (2x - 10), ואז העבירו את ה-10 אגף בפלוס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': פתיחת סוגריים באגף שמאל.&rlm;", math_expression: "2x - 10 = -14" },
+            { verbal_explanation: "שלב ב': נוסיף 10 לשני האגפים כדי לבודד את x.&rlm;", math_expression: "2x = -14 + 10 = -4" },
+            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "x = -4 : 2 = -2" }
+        ],
+        final_answer: "-2"
+    },
+    // שאלה 45
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "חשבו את תוצאת התרגיל (שימו לב לכמות המינוסים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>- ( - ( -5 ) ) = ?</div>",
+        options: ["-5", "5", "0", "15"],
+        correctAnswer: 0,
+        hint: "כל זוג של 'מינוס מינוס' הופך לפלוס. התחילו מבפנים החוצה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסתכל על הסוגריים הפנימיים: מינוס של (5-). זה הופך לפלוס 5.&rlm;", math_expression: "-(-5) = 5" },
+            { verbal_explanation: "שלב ב': עכשיו נשאר לנו המינוס הכי שמאלי שעומד מחוץ לסוגריים מול התוצאה החיובית 5.&rlm;", math_expression: "-(5) = -5" }
+        ],
+        final_answer: "-5"
+    },
+    // שאלה 46
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "תרגיל מסכם. פתרו לאט ובזהירות לפי סדר פעולות חשבון:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-20 : 4 - (-3)² = ?</div>",
+        options: ["-14", "14", "-4", "4"],
+        correctAnswer: 0,
+        hint: "חזקה קודמת לכל! חשבו קודם כמה זה ²(3-). לאחר מכן בצעו את חילוק, ולבסוף את החיסור שבאמצע.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': חישוב החזקה. מינוס 3 בריבוע הוא פלוס 9 (כי מינוס כפול מינוס).&rlm;", math_expression: "(-3)² = 9" },
+            { verbal_explanation: "שלב ב': נעדכן את התרגיל ונבצע חילוק.&rlm;", math_expression: "-20 : 4 - 9" },
+            { verbal_explanation: "שלב ג': מינוס 20 לחלק ל-4 זה מינוס 5.&rlm;", math_expression: "-5 - 9" },
+            { verbal_explanation: "שלב ד': מינוס 5 פחות 9 מעמיק את החוב למינוס 14.&rlm;", math_expression: "-14" }
+        ],
+        final_answer: "-14"
+    },
+    // שאלה 47
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "קבעו האם המשוואה הבאה נכונה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-(a + b) = -a - b</div>",
+        options: ["נכונה, זהו חוק הפילוג של מינוס", "שגויה, המינוס שייך רק ל-a", "נכונה רק אם a ו-b חיוביים", "שגויה, זה צריך להיות פלוס b"],
+        correctAnswer: 0,
+        hint: "מינוס מחוץ לסוגריים הוא כמו כפל ב- 1-. כשכופלים מינוס אחד בסכום, הוא הופך את הסימן של כל אחד מהאיברים בפנים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "סימן מינוס לפני סוגריים שקול להכפלה ב- (1-).&rlm;", math_expression: "-1 × (a + b)" },
+            { verbal_explanation: "לפי חוק הפילוג, יש להכפיל כל איבר בפנים במינוס 1.&rlm;", math_expression: "-1 × a + -1 × b = -a - b" },
+            { verbal_explanation: "לכן, פתיחת סוגריים עם מינוס לפני הופכת את הסימן של כל האיברים בפנים. המשוואה נכונה תמיד.&rlm;", math_expression: "" }
+        ],
+        final_answer: "נכונה, זהו חוק הפילוג של מינוס"
+    },
+    // שאלה 48
+    {
+        topic: "directed_numbers",
+        subTopic: "שימוש בסוגריים",
+        question_text: "הוצאת גורם משותף שלילי. כנסו את האיברים בביטוי הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-3x - 12 = ?</div>",
+        options: ["-3(x + 4)", "-3(x - 4)", "3(x - 4)", "-3(x + 12)"],
+        correctAnswer: 0,
+        hint: "אם מוציאים מינוס 3 מחוץ לסוגריים, חייבים לחלק את מינוס 12 במינוס 3. מינוס לחלק למינוס זה פלוס!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': אנו רוצים להוציא את הגורם המשותף המקסימלי, שהוא 3-.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחלק את האיבר הראשון: 3x- לחלק ל-3- ייתן x.&rlm;", math_expression: "-3x : (-3) = x" },
+            { verbal_explanation: "שלב ג': נחלק את האיבר השני: 12- לחלק ל-3- ייתן פלוס 4.&rlm;", math_expression: "-12 : (-3) = +4" },
+            { verbal_explanation: "שלב ד': נרכיב את התוצאה בתוך הסוגריים.&rlm;", math_expression: "-3(x + 4)" }
+        ],
+        final_answer: "-3(x + 4)"
     }
+
 ];

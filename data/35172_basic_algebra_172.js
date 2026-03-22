@@ -1,811 +1,897 @@
+﻿// ========================================================================
+// שאלון: 35172 | נושא: אלגברה בסיסית (5 תתי-נושאים, 60 שאלות)
+// קובץ: 35172_basic_algebra.js
+// >>> גרסה 4.1: התאמה מדויקת לתפריט התמונה, הגנת RTL, וללא לוכסנים בתשובות <<<
+// ========================================================================
+
+// ==========================================
+// מאגר 5 איורי פרימיום 3D (מופרדים מהטקסט לחלוטין)
+// ==========================================
+
+// 1. סדר פעולות חשבון (פירמידת פעולות תלת-ממדית)
+const svgOrder = "&#8207;<div dir='ltr' style='display:flex; justify-content:center; width:100%; clear:both; margin-top:15px;'><svg width='220' height='100' viewBox='0 0 220 100'><defs><linearGradient id='go1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#eff6ff'/><stop offset='100%' stop-color='#bfdbfe'/></linearGradient><filter id='dropO1'><feDropShadow dx='2' dy='4' stdDeviation='3' flood-opacity='0.3'/></filter></defs><path d='M80 70 L140 70 L130 90 L90 90 Z' fill='url(#go1)' stroke='#3b82f6' stroke-width='2' filter='url(#dropO1)'/><path d='M70 40 L150 40 L140 60 L80 60 Z' fill='url(#go1)' stroke='#3b82f6' stroke-width='2' filter='url(#dropO1)'/><path d='M60 10 L160 10 L150 30 L70 30 Z' fill='url(#go1)' stroke='#3b82f6' stroke-width='2' filter='url(#dropO1)'/><text x='110' y='25' font-family='Arial' font-size='14' font-weight='bold' fill='#1e3a8a' text-anchor='middle'>()</text><text x='110' y='55' font-family='Arial' font-size='14' font-weight='bold' fill='#1e3a8a' text-anchor='middle'>^</text><text x='110' y='85' font-family='Arial' font-size='14' font-weight='bold' fill='#1e3a8a' text-anchor='middle'>X /</text></svg></div>";
+
+// 2. חזקות של מספרים (בלוק בסיס ומעריך מרחף)
+const svgPower = "&#8207;<div dir='ltr' style='display:flex; justify-content:center; width:100%; clear:both; margin-top:15px;'><svg width='220' height='100' viewBox='0 0 220 100'><defs><linearGradient id='gp1' x1='0%' y1='100%' x2='100%' y2='0%'><stop offset='0%' stop-color='#fff7ed'/><stop offset='100%' stop-color='#fed7aa'/></linearGradient><filter id='dropP1'><feDropShadow dx='3' dy='5' stdDeviation='3' flood-opacity='0.4'/></filter></defs><rect x='60' y='30' width='60' height='60' rx='8' fill='url(#gp1)' stroke='#ea580c' stroke-width='3' filter='url(#dropP1)'/><rect x='130' y='10' width='30' height='30' rx='4' fill='#ffedd5' stroke='#c2410c' stroke-width='2' filter='url(#dropP1)'/><text x='90' y='70' font-family='Arial' font-size='32' font-weight='bold' fill='#9a3412' text-anchor='middle'>X</text><text x='145' y='32' font-family='Arial' font-size='18' font-weight='bold' fill='#9a3412' text-anchor='middle'>n</text></svg></div>";
+
+// 3. שורש ריבועי (שורש תלת-ממדי מואר)
+const svgRoot = "&#8207;<div dir='ltr' style='display:flex; justify-content:center; width:100%; clear:both; margin-top:15px;'><svg width='220' height='100' viewBox='0 0 220 100'><defs><linearGradient id='gr1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#fef2f2'/><stop offset='100%' stop-color='#fecaca'/></linearGradient><filter id='dropR1'><feDropShadow dx='2' dy='4' stdDeviation='3' flood-opacity='0.3'/></filter></defs><path d='M40 60 L60 60 L80 90 L120 20 L180 20' fill='none' stroke='url(#gr1)' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' filter='url(#dropR1)'/><path d='M40 60 L60 60 L80 90 L120 20 L180 20' fill='none' stroke='#e11d48' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/><text x='140' y='65' font-family='Arial' font-size='28' font-weight='bold' fill='#9f1239' text-anchor='middle'>a</text></svg></div>";
+
+// 4. הצבה בביטוי אלגברי (מכונת קלט-פלט)
+const svgSubst = "&#8207;<div dir='ltr' style='display:flex; justify-content:center; width:100%; clear:both; margin-top:15px;'><svg width='220' height='100' viewBox='0 0 220 100'><defs><linearGradient id='gs1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#f0fdf4'/><stop offset='100%' stop-color='#bbf7d0'/></linearGradient><filter id='dropS1'><feDropShadow dx='2' dy='4' stdDeviation='3' flood-opacity='0.3'/></filter></defs><rect x='80' y='20' width='60' height='60' rx='12' fill='url(#gs1)' stroke='#16a34a' stroke-width='3' filter='url(#dropS1)'/><path d='M30 50 L70 50' stroke='#15803d' stroke-width='4' stroke-linecap='round'/><polygon points='70,50 60,45 60,55' fill='#15803d'/><path d='M150 50 L190 50' stroke='#15803d' stroke-width='4' stroke-linecap='round'/><polygon points='190,50 180,45 180,55' fill='#15803d'/><text x='110' y='58' font-family='Arial' font-size='22' font-weight='bold' fill='#14532d' text-anchor='middle'>f(x)</text></svg></div>";
+
+// 5. פתיחת סוגריים וכינוס איברים (חצי פיזור דינמי)
+const svgExpand = "&#8207;<div dir='ltr' style='display:flex; justify-content:center; width:100%; clear:both; margin-top:15px;'><svg width='220' height='100' viewBox='0 0 220 100'><defs><linearGradient id='ge1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#faf5ff'/><stop offset='100%' stop-color='#e9d5ff'/></linearGradient><filter id='dropE1'><feDropShadow dx='2' dy='4' stdDeviation='3' flood-opacity='0.3'/></filter></defs><rect x='80' y='25' width='90' height='50' rx='8' fill='url(#ge1)' stroke='#9333ea' stroke-width='3' filter='url(#dropE1)'/><circle cx='40' cy='50' r='15' fill='#a855f7' filter='url(#dropE1)'/><path d='M40 35 Q 70 10 100 30' fill='none' stroke='#7e22ce' stroke-width='3' stroke-linecap='round'/><polygon points='100,30 92,25 95,34' fill='#7e22ce'/><path d='M40 65 Q 80 90 140 70' fill='none' stroke='#7e22ce' stroke-width='3' stroke-linecap='round'/><polygon points='140,70 132,75 135,66' fill='#7e22ce'/></svg></div>";
+
+
 const questionsDB = [
-    // ========================================================================
-    // תת נושא 1: סדר פעולות
-    // ========================================================================
 
-    // --- שאלה 1 ---
+    // ==========================================================
+    // 1. סדר פעולות חשבון (12 שאלות)
+    // ==========================================================
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את ערכו של התרגיל הבא, תוך הקפדה על סדר פעולות נכון:<br><br>\u202A15 - 3 × (8 - 2 × 3)\u202C",
-        options: ["9", "24", "18", "6"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך הביטוי הבא. הקפידו על סדר פעולות חשבון:<br>\\( 15 - 3 \\times (4 + 1) = ? \\)</div>" + svgOrder,
+        options: ["0", "60", "12", "-5"],
         correctAnswer: 0,
-        hint: "התחילו תמיד מהסוגריים הפנימיים. בתוך הסוגריים יש חיסור וכפל – הכפל קודם לחיסור. לאחר שתסיימו לחשב את ערך הסוגריים, בצעו את הכפל שמחוץ להם, ורק בסוף את החיסור הראשי.",
+        hint: "בסדר פעולות חשבון, קודם כל מחשבים את מה שבתוך הסוגריים, לאחר מכן כפל וחילוק, ורק בסוף חיבור וחיסור.",
         solution_steps: [
-            { verbal_explanation: "על פי כללי קדימות, ניגש תחילה אל תוך הסוגריים. בתוכם נבצע קודם את פעולת הכפל.", math_expression: "\u202A2 × 3 = 6\u202C" },
-            { verbal_explanation: "נשלים את הפעולה בתוך הסוגריים על ידי חיסור התוצאה משמונה.", math_expression: "\u202A8 - 6 = 2\u202C" },
-            { verbal_explanation: "נציב את התוצאה חזרה בתרגיל המקורי. כעת יש לנו פעולת חיסור ופעולת כפל. הכפל קודם לחיסור.", math_expression: "\u202A15 - 3 × 2\u202C" },
-            { verbal_explanation: "נבצע את פעולת הכפל שנותרה.", math_expression: "\u202A3 × 2 = 6\u202C" },
-            { verbal_explanation: "לסיום, נבצע את פעולת החיסור האחרונה לקבלת התוצאה הסופית.", math_expression: "\u202A15 - 6 = 9\u202C" }
+            { verbal_explanation: "תחילה נחשב את הפעולה שבתוך הסוגריים.", math_expression: "4 + 1 = 5" },
+            { verbal_explanation: "נכתוב מחדש את התרגיל עם התוצאה שקיבלנו.", math_expression: "15 - 3 \\times 5" },
+            { verbal_explanation: "כעת יש לנו חיסור וכפל. כפל קודם לחיסור.", math_expression: "3 \\times 5 = 15" },
+            { verbal_explanation: "לבסוף נבצע את פעולת החיסור.", math_expression: "15 - 15 = 0" }
         ],
-        final_answer: "9"
+        final_answer: "0"
     },
-
-    // --- שאלה 2 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה של השבר הבא (שימו לב לסימנים השליליים):<br><br>\u202A(24 - (-6)) / (-3 + 8)\u202C",
-        options: ["6", "-6", "3.6", "4"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את התוצאה של השבר הבא (קו שבר מתפקד כמו סוגריים):<br>\\( \\dfrac{20 - 4 \\times 2}{6 - 2} = ? \\)</div>",
+        options: ["3", "4", "8", "2"],
         correctAnswer: 0,
-        hint: "סימן החילוק בין שני סוגריים אומר שעלינו לחשב קודם את המונה בנפרד, ואת המכנה בנפרד. זכרו: חיסור של מספר שלילי הופך לחיבור.",
+        hint: "קו שבר מחלק את התרגיל לשניים: פתרו את המונה בנפרד (זכרו שכפל קודם), פתרו את המכנה בנפרד, ובסוף חלקו את התוצאות.",
         solution_steps: [
-            { verbal_explanation: "נחשב תחילה את הביטוי השמאלי (המונה). יש לנו שני סימני מינוס ברצף, אשר הופכים יחד לפעולת חיבור.", math_expression: "\u202A24 - (-6) = 24 + 6 = 30\u202C" },
-            { verbal_explanation: "כעת נחשב את הביטוי הימני (המכנה). חיבור של מספר שלילי ומספר חיובי.", math_expression: "\u202A-3 + 8 = 5\u202C" },
-            { verbal_explanation: "נחלק את תוצאת המונה בתוצאת המכנה.", math_expression: "\u202A30 / 5 = 6\u202C" }
+            { verbal_explanation: "נפתור את המונה. כפל קודם לחיסור.", math_expression: "4 \\times 2 = 8 \\Rightarrow 20 - 8 = 12" },
+            { verbal_explanation: "נפתור את המכנה.", math_expression: "6 - 2 = 4" },
+            { verbal_explanation: "כעת נחלק את תוצאת המונה בתוצאת המכנה.", math_expression: "\\dfrac{12}{4} = 3" }
         ],
-        final_answer: "6"
+        final_answer: "3"
     },
-
-    // --- שאלה 3 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "מהו ערכו של הביטוי הבא?<br><br>\u202A-12 / 4 + 5 × (-2)\u202C",
-        options: ["-13", "7", "-7", "13"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>מהי התוצאה של הביטוי הבא הכולל מספרים שליליים וחזקות?<br>\\( (-2)^3 - 4 \\times (-5) = ? \\)</div>",
+        options: ["12", "-28", "28", "-12"],
         correctAnswer: 0,
-        hint: "לפנינו פעולות חילוק, כפל וחיבור. כפל וחילוק קודמים לחיבור, ומכיוון שהם מופרדים בסימן חיבור, ניתן לחשב את החילוק (משמאל) ואת הכפל (מימין) במקביל, ואז לחבר את התוצאות.",
+        hint: "קודם חשבו את החזקה (שימו לב למעריך האי-זוגי שמשאיר את המינוס). אחר כך כפלו (מינוס כפול מינוס נותן פלוס).",
         solution_steps: [
-            { verbal_explanation: "נבצע את פעולת החילוק משמאל. מספר שלילי חלקי מספר חיובי נותן תוצאה שלילית.", math_expression: "\u202A-12 / 4 = -3\u202C" },
-            { verbal_explanation: "במקביל, נבצע את פעולת הכפל מימין. מספר חיובי כפול מספר שלילי נותן תוצאה שלילית.", math_expression: "\u202A5 × (-2) = -10\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות שהתקבלו. חיבור של שני מספרים שליליים מעמיק את הערך השלילי.", math_expression: "\u202A-3 + (-10) = -13\u202C" }
-        ],
-        final_answer: "-13"
-    },
-
-    // --- שאלה 4 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה, הקפידו על הסוגריים המרובעים (אשר מתפקדים כסוגריים רגילים לכל דבר):<br><br>\u202A20 - [ 14 - (8 - 5) × 2 ]\u202C",
-        options: ["12", "16", "4", "24"],
-        correctAnswer: 0,
-        hint: "תמיד מתחילים מהסוגריים הפנימיים ביותר. חשבו את הסוגריים העגולים. לאחר מכן עברו לתוך הסוגריים המרובעים, בצעו שם את הכפל ואז את החיסור. לבסוף, החסירו את התוצאה מהמספר עשרים.",
-        solution_steps: [
-            { verbal_explanation: "ניגש לסוגריים הפנימיים והעגולים ונבצע את פעולת החיסור הפשוטה.", math_expression: "\u202A8 - 5 = 3\u202C" },
-            { verbal_explanation: "נציב זאת בתוך הסוגריים המרובעים ונקבל תרגיל חדש. בתוכו, פעולת הכפל קודמת לחיסור.", math_expression: "\u202A[ 14 - 3 × 2 ]\u202C" },
-            { verbal_explanation: "נבצע את הכפל הפנימי.", math_expression: "\u202A3 × 2 = 6\u202C" },
-            { verbal_explanation: "נסיים את החישוב בתוך הסוגריים המרובעים.", math_expression: "\u202A14 - 6 = 8\u202C" },
-            { verbal_explanation: "כעת נחסר את תוצאת הסוגריים מהמספר המקורי שהמתין בחוץ.", math_expression: "\u202A20 - 8 = 12\u202C" }
+            { verbal_explanation: "נחשב תחילה את החזקה. חזקה אי-זוגית למספר שלילי נותנת תוצאה שלילית.", math_expression: "(-2)^3 = -8" },
+            { verbal_explanation: "נבצע את פעולת הכפל. זכרו שמינוס כפול מינוס הופך לפלוס.", math_expression: "-4 \\times (-5) = +20" },
+            { verbal_explanation: "נחבר את התוצאות.", math_expression: "-8 + 20 = 12" }
         ],
         final_answer: "12"
     },
-
-    // --- שאלה 5 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "נתון הביטוי האלגברי הבא: \u202A-3x + 5\u202C<br><br>הציבו בביטוי את הערך \u202Ax = -2\u202C וחשבו את התוצאה.",
-        options: ["11", "-1", "-11", "1"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>פתרו את התרגיל הבא, הכולל סוגריים בתוך סוגריים (סוגריים מרובעים):<br>\\( 10 - [8 - (3 - 1) \\times 2] = ? \\)</div>",
+        options: ["6", "10", "4", "2"],
         correctAnswer: 0,
-        hint: "כאשר מציבים מספר שלילי במקום נעלם, מומלץ מאוד לעטוף אותו בסוגריים כדי לא להתבלבל. התרגיל יהיה: מינוס שלוש, כפול סוגריים מינוס שתיים, ועוד חמש.",
+        hint: "תמיד מתחילים מהסוגריים הפנימיים ביותר. לאחר מכן פותרים את מה שבסוגריים המרובעים, ולבסוף מחסרים מ-10.",
         solution_steps: [
-            { verbal_explanation: "נחליף את הנעלם איקס במספר הנתון, תוך שימוש בסוגריים כפל.", math_expression: "\u202A-3 × (-2) + 5\u202C" },
-            { verbal_explanation: "על פי סדר פעולות, נבצע את הכפל. מכפלה של שני מספרים שליליים מניבה תוצאה חיובית.", math_expression: "\u202A-3 × (-2) = 6\u202C" },
-            { verbal_explanation: "נוסיף לתוצאה את המספר חמש.", math_expression: "\u202A6 + 5 = 11\u202C" }
+            { verbal_explanation: "נתחיל מהסוגריים העגולים הפנימיים.", math_expression: "3 - 1 = 2" },
+            { verbal_explanation: "נציב חזרה לסוגריים המרובעים ונבצע כפל קודם לחיסור.", math_expression: "[8 - 2 \\times 2] = [8 - 4] = 4" },
+            { verbal_explanation: "לבסוף נבצע את החיסור החיצוני.", math_expression: "10 - 4 = 6" }
+        ],
+        final_answer: "6"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הערך של התרגיל המשלב ערך מוחלט:<br>\\( |-12| - |-5| \\times 2 = ? \\)</div>" + svgOrder,
+        options: ["2", "-22", "14", "-2"],
+        correctAnswer: 0,
+        hint: "ערך מוחלט הופך כל מספר שבתוכו למספר חיובי. התייחסו לסימני הערך המוחלט כאל סוגריים שיש לפתור ראשונים.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את הערכים המוחלטים. ערך מוחלט תמיד חיובי.", math_expression: "|-12| = 12 \\quad , \\quad |-5| = 5" },
+            { verbal_explanation: "נכתוב מחדש את התרגיל עם הערכים החדשים.", math_expression: "12 - 5 \\times 2" },
+            { verbal_explanation: "נבצע את הכפל קודם.", math_expression: "5 \\times 2 = 10" },
+            { verbal_explanation: "נחסר.", math_expression: "12 - 10 = 2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך השבר הבא:<br>\\( \\dfrac{5^2 - 3^2}{2^3} = ? \\)</div>",
+        options: ["2", "1", "4", "0.5"],
+        correctAnswer: 0,
+        hint: "חשבו את כל החזקות במונה ובמכנה קודם. אל תחסרו בסיסים לפני העלאה בחזקה!",
+        solution_steps: [
+            { verbal_explanation: "נחשב את החזקות במונה בנפרד.", math_expression: "5^2 = 25 \\quad , \\quad 3^2 = 9" },
+            { verbal_explanation: "נבצע את החיסור במונה.", math_expression: "25 - 9 = 16" },
+            { verbal_explanation: "נחשב את החזקה במכנה.", math_expression: "2^3 = 2 \\times 2 \\times 2 = 8" },
+            { verbal_explanation: "נחלק מונה במכנה.", math_expression: "\\dfrac{16}{8} = 2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>מה התוצאה של התרגיל הבא?<br>\\( (15 - 7 \\times 2) \\times 0 + 8 = ? \\)</div>",
+        options: ["8", "0", "15", "1"],
+        correctAnswer: 0,
+        hint: "שימו לב לכפל באפס. האם צריך בכלל לחשב את מה שבתוך הסוגריים?",
+        solution_steps: [
+            { verbal_explanation: "אנו רואים שכל הסוגריים מוכפלים באפס.", math_expression: "(...) \\times 0 = 0" },
+            { verbal_explanation: "לכן, התוצאה של כל החלק הראשון היא אפס.", math_expression: "0 + 8" },
+            { verbal_explanation: "התוצאה הסופית תלויה רק באיבר הנותר.", math_expression: "8" }
+        ],
+        final_answer: "8"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את רצף הפעולות הבא (קריאה משמאל לימין בכפל וחילוק):<br>\\( 48 : 6 \\times 2 - 5 = ? \\)</div>",
+        options: ["11", "-1", "3", "16"],
+        correctAnswer: 0,
+        hint: "לכפל וחילוק יש אותה קדימות! לכן פותרים אותם לפי הסדר בו הם מופיעים, משמאל לימין.",
+        solution_steps: [
+            { verbal_explanation: "חילוק וכפל נמצאים באותה רמת קדימות, לכן נתחיל מהחילוק השמאלי.", math_expression: "48 : 6 = 8" },
+            { verbal_explanation: "כעת נבצע את הכפל בתוצאה שקיבלנו.", math_expression: "8 \\times 2 = 16" },
+            { verbal_explanation: "לבסוף נחסר 5.", math_expression: "16 - 5 = 11" }
         ],
         final_answer: "11"
     },
-
-    // --- שאלה 6 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה של תרגיל החילוק הבא המכיל שרשרת סימנים שליליים:<br><br>\u202A48 / (-6) / (-2)\u202C",
-        options: ["4", "-4", "16", "-16"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך הביטוי עם ערכים מוחלטים מרובים:<br>\\( |3 - 8| \\times |-2| = ? \\)</div>",
+        options: ["10", "-10", "-5", "6"],
         correctAnswer: 0,
-        hint: "כאשר ישנה שרשרת של פעולות חילוק באותה רמת קדימות וללא סוגריים, הכלל הנוקשה הוא לחשב אך ורק משמאל לימין.",
+        hint: "בצעו את הפעולה שבתוך הערך המוחלט הראשון. ואז הפכו את התוצאה לחיובית לפני שתכפלו.",
         solution_steps: [
-            { verbal_explanation: "נחלץ תחילה את החלק השמאלי של התרגיל. חלוקה של מספר חיובי במספר שלילי נותנת תוצאה שלילית.", math_expression: "\u202A48 / (-6) = -8\u202C" },
-            { verbal_explanation: "כעת ניקח את התוצאה ונחלק אותה במספר הבא בתור. חלוקה של מספר שלילי במספר שלילי מניבה תוצאה חיובית.", math_expression: "\u202A-8 / (-2) = 4\u202C" }
-        ],
-        final_answer: "4"
-    },
-
-    // --- שאלה 7 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "פתרו את התרגיל הבא, הכולל כפל שברים פשוטים וסדר פעולות:<br><br>\u202A(1/2) × 8 - (3/4) × 12\u202C",
-        options: ["-5", "5", "13", "-1"],
-        correctAnswer: 0,
-        hint: "בצעו את שתי פעולות הכפל בנפרד (הכפלת שבר במספר שלם משמעה הכפלת המונה במספר וחלוקה במכנה). לאחר מכן, החסירו את התוצאה השנייה מהראשונה.",
-        solution_steps: [
-            { verbal_explanation: "נחשב את המכפלה הראשונה. חצי כפול שמונה הם למעשה חצי מתוך שמונה.", math_expression: "\u202A(1/2) × 8 = 8 / 2 = 4\u202C" },
-            { verbal_explanation: "נחשב את המכפלה השנייה. שלושה רבעים כפול שנים עשר.", math_expression: "\u202A(3/4) × 12 = (3 × 12) / 4 = 36 / 4 = 9\u202C" },
-            { verbal_explanation: "נחזור למבנה התרגיל המקורי ונבצע פעולת חיסור פשוטה.", math_expression: "\u202A4 - 9 = -5\u202C" }
-        ],
-        final_answer: "-5"
-    },
-
-    // --- שאלה 8 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה הסופית בתרגיל הכולל סוגריים וסימנים שליליים:<br><br>\u202A(-10 + 2 × 3) / (-2)\u202C",
-        options: ["2", "-2", "8", "4"],
-        correctAnswer: 0,
-        hint: "חשבו את כל הפעולות בתוך הסוגריים הראשונים (קודם כפל, ואז חיבור). לאחר שקיבלתם מספר בודד, חלקו אותו במספר שבסוגריים השניים.",
-        solution_steps: [
-            { verbal_explanation: "ניגש לסוגריים השמאליים ונבצע בתוכם את פעולת הכפל.", math_expression: "\u202A2 × 3 = 6\u202C" },
-            { verbal_explanation: "נשלים את החישוב בתוך אותם סוגריים באמצעות חיבור למספר השלילי.", math_expression: "\u202A-10 + 6 = -4\u202C" },
-            { verbal_explanation: "כעת נבצע את פעולת החילוק הראשית של התרגיל. שני המינוסים מתבטלים לתוצאה חיובית.", math_expression: "\u202A-4 / (-2) = 2\u202C" }
-        ],
-        final_answer: "2"
-    },
-
-    // --- שאלה 9 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "הציבו את הערכים \u202Ax = 3\u202C ו- \u202Ay = -2\u202C בתוך הביטוי האלגברי הבא, וחשבו את התוצאה:<br><br>\u202A2x - 3y\u202C",
-        options: ["12", "0", "18", "6"],
-        correctAnswer: 0,
-        hint: "הציבו את המספרים בזהירות. במקום ה-y יבוא מינוס שתיים, מה שייצור מכפלה של מינוס שלוש במינוס שתיים.",
-        solution_steps: [
-            { verbal_explanation: "נציב את הערכים המספריים לתוך הביטוי, תוך הקפדה על סוגריים למספרים שליליים.", math_expression: "\u202A2 × (3) - 3 × (-2)\u202C" },
-            { verbal_explanation: "נחשב את המכפלה הראשונה.", math_expression: "\u202A2 × 3 = 6\u202C" },
-            { verbal_explanation: "נחשב את המכפלה השנייה, וניזהר עם הסימנים. מינוס כפול מינוס הוא פלוס.", math_expression: "\u202A-3 × (-2) = +6\u202C" },
-            { verbal_explanation: "נחבר את התוצאות.", math_expression: "\u202A6 + 6 = 12\u202C" }
-        ],
-        final_answer: "12"
-    },
-
-    // --- שאלה 10 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה של תרגיל מרובה שלבים זה:<br><br>\u202A100 - 5 × [ 20 - 4 × (7 - 3) ]\u202C",
-        options: ["80", "180", "380", "20"],
-        correctAnswer: 0,
-        hint: "קל לטעות כאן! אסור לחסר 5 מ-100 בהתחלה. ה-5 כפול בכל הסוגריים המרובעים. התחילו מהסוגריים העגולים (7-3), כפלו ב-4, חסרו מ-20, כפלו ב-5 ולבסוף חסרו מ-100.",
-        solution_steps: [
-            { verbal_explanation: "נתחיל בפנימיים ביותר - הסוגריים העגולים.", math_expression: "\u202A7 - 3 = 4\u202C" },
-            { verbal_explanation: "נציב בסוגריים המרובעים ונבצע את הכפל.", math_expression: "\u202A4 × 4 = 16\u202C" },
-            { verbal_explanation: "נסיים את הפעולה בתוך הסוגריים המרובעים.", math_expression: "\u202A20 - 16 = 4\u202C" },
-            { verbal_explanation: "כעת התרגיל הראשי הוא מאה פחות חמש כפול ארבע. לפי הסדר, נבצע את הכפל.", math_expression: "\u202A5 × 4 = 20\u202C" },
-            { verbal_explanation: "נסיים בחיסור הסופי מתוך מאה.", math_expression: "\u202A100 - 20 = 80\u202C" }
-        ],
-        final_answer: "80"
-    },
-
-    // --- שאלה 11 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "מהי התוצאה של התרגיל הבא המשלב כפל בעשרוניים?<br><br>\u202A2.5 × (-4) + 10 / 0.5\u202C",
-        options: ["10", "-10", "30", "0"],
-        correctAnswer: 0,
-        hint: "בצעו את הכפל משמאל ואת החילוק מימין בנפרד. טיפ: לחלק מספר בחצי (0.5) זה בדיוק כמו להכפיל אותו פי 2.",
-        solution_steps: [
-            { verbal_explanation: "נחשב את הכפל השמאלי. שתיים וחצי כפול ארבע נותן עשר. מאחר ויש סימן שלילי, התוצאה שלילית.", math_expression: "\u202A2.5 × (-4) = -10\u202C" },
-            { verbal_explanation: "נחשב את החילוק הימני. לחלק באפס נקודה חמש זה להכפיל בשניים.", math_expression: "\u202A10 / 0.5 = 20\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות ביחד להשלמת התרגיל.", math_expression: "\u202A-10 + 20 = 10\u202C" }
+            { verbal_explanation: "נחשב את הביטוי בתוך הערך המוחלט הראשון.", math_expression: "3 - 8 = -5" },
+            { verbal_explanation: "נפעיל את פונקציית הערך המוחלט, אשר הופכת כל מספר לחיובי.", math_expression: "|-5| = 5 \\quad , \\quad |-2| = 2" },
+            { verbal_explanation: "נכפול את התוצאות.", math_expression: "5 \\times 2 = 10" }
         ],
         final_answer: "10"
     },
-
-    // --- שאלה 12 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה של התרגיל הבא המכיל אפס כמלכודת:<br><br>\u202A8 × (5 - 5) - 14 / (-2)\u202C",
-        options: ["7", "-7", "0", "14"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>פתרו את השבר המורכב:<br>\\( \\dfrac{14 - (-2)^3}{2} = ? \\)</div>",
+        options: ["11", "3", "10", "4"],
         correctAnswer: 0,
-        hint: "הסוגריים הראשונים מתאפסים, ולכן כל פעולת הכפל השמאלית הופכת לאפס. נשארתם עם מינוס ארבע עשרה לחלק למינוס שתיים.",
+        hint: "זהירות במקרים של מינוס לפני מספר שלילי המועלה בחזקה. חזקה קודמת למינוס שלפניה.",
         solution_steps: [
-            { verbal_explanation: "נחשב את הערך בתוך הסוגריים.", math_expression: "\u202A5 - 5 = 0\u202C" },
-            { verbal_explanation: "נכפיל את התוצאה בשמונה. מכפלה באפס מתאפסת כליל.", math_expression: "\u202A8 × 0 = 0\u202C" },
-            { verbal_explanation: "נבצע את פעולת החילוק שבאגף הימני. שים לב שזה מינוס ארבע עשרה חלקי מינוס שתיים.", math_expression: "\u202A-14 / (-2) = 7\u202C" },
-            { verbal_explanation: "נחבר את האפס לתוצאת החילוק (שהיא חיובית בגלל שני המינוסים).", math_expression: "\u202A0 + 7 = 7\u202C" }
+            { verbal_explanation: "נחשב את החזקה במונה. מספר שלילי בחזקה אי-זוגית נשאר שלילי.", math_expression: "(-2)^3 = -8" },
+            { verbal_explanation: "נכתוב מחדש את המונה. חיסור של מספר שלילי הופך לפלוס.", math_expression: "14 - (-8) = 14 + 8 = 22" },
+            { verbal_explanation: "נחלק את המונה במכנה.", math_expression: "\\dfrac{22}{2} = 11" }
         ],
-        final_answer: "7"
+        final_answer: "11"
     },
-
-    // --- שאלה 13 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "שימו לב לפעולות הנגדיות בתרגיל הבא וחשבו:<br><br>\u202A-(-8) - 3 × (-4)\u202C",
-        options: ["20", "-4", "4", "32"],
-        correctAnswer: 0,
-        hint: "מינוס לפני סוגריים שבהם יש מינוס הופך לפלוס. גם כפל של שני מספרים שליליים נותן פלוס. בסופו של דבר, תקבלו חיבור של שני מספרים חיוביים.",
-        solution_steps: [
-            { verbal_explanation: "נפשט את החלק השמאלי של התרגיל. שני סימני מינוס רצופים מניבים מספר חיובי.", math_expression: "\u202A-(-8) = +8\u202C" },
-            { verbal_explanation: "נבצע את הכפל בחלק הימני. מינוס שלוש כפול מינוס ארבע נותן תוצאה חיובית.", math_expression: "\u202A-3 × (-4) = +12\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות הנקיות.", math_expression: "\u202A8 + 12 = 20\u202C" }
-        ],
-        final_answer: "20"
-    },
-
-    // --- שאלה 14 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה הסופית של התרגיל הבא:<br><br>\u202A[ -20 / (4 - 9) ] × (-3)\u202C",
-        options: ["-12", "12", "-15", "15"],
-        correctAnswer: 0,
-        hint: "חשבו את הסוגריים העגולים תחילה (4 פחות 9). את התוצאה הציבו בחילוק שבתוך הסוגריים המרובעים. בסוף כפלו הכל במינוס שלוש.",
-        solution_steps: [
-            { verbal_explanation: "נתחיל בפנים, מהסוגריים העגולים המכילים פעולת חיסור פשוטה.", math_expression: "\u202A4 - 9 = -5\u202C" },
-            { verbal_explanation: "נבצע את החילוק הכלוא בתוך הסוגריים המרובעים. מינוס חלקי מינוס שווה פלוס.", math_expression: "\u202A-20 / (-5) = 4\u202C" },
-            { verbal_explanation: "נכפיל את התוצאה במספר החיצוני הנתון. חיובי כפול שלילי שווה לשלילי.", math_expression: "\u202A4 × (-3) = -12\u202C" }
-        ],
-        final_answer: "-12"
-    },
-
-    // --- שאלה 15 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "סדר פעולות",
-        question: "חשבו את התוצאה של השבר המורכב הבא:<br><br>\u202A30 / [ 2 + ( -10 + 2 ) / 2 ]\u202C",
-        options: ["-15", "15", "-10", "10"],
-        correctAnswer: 0,
-        hint: "כנסו לסוגריים המרובעים, ובתוכם כנסו לסוגריים העגולים. חשבו מינוס 10 פלוס 2. חלקו את התוצאה ב-2. חברו ל-2 את התוצאה שקיבלתם. לבסוף חלקו 30 בתוצאה המרובעת.",
-        solution_steps: [
-            { verbal_explanation: "נפתור קודם את הסוגריים העגולים הפנימיים ביותר.", math_expression: "\u202A-10 + 2 = -8\u202C" },
-            { verbal_explanation: "בתוך הסוגריים המרובעים, נבצע כעת את פעולת החילוק.", math_expression: "\u202A-8 / 2 = -4\u202C" },
-            { verbal_explanation: "נסיים את החישוב בתוך הסוגריים המרובעים על ידי החיבור הנדרש.", math_expression: "\u202A2 + (-4) = -2\u202C" },
-            { verbal_explanation: "נבצע את החילוק הראשי של התרגיל.", math_expression: "\u202A30 / (-2) = -15\u202C" }
-        ],
-        final_answer: "-15"
-    },
-
-    // ========================================================================
-    // תת נושא 2: חזקות של מספרים
-    // ========================================================================
-
-    // --- שאלה 16 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "שימו לב היטב למלכודת הסימנים בתרגיל הבא, וחשבו את התוצאה:<br><br>\u202A-3² + (-3)²\u202C",
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>מה ההבדל בין שני הביטויים? חשבו את הערך הכולל:<br>\\( -3^2 + (-3)^2 = ? \\)</div>",
         options: ["0", "18", "-18", "9"],
         correctAnswer: 0,
-        hint: "האיבר הראשון אינו כולל סוגריים, ולכן החזקה פועלת רק על המספר 3 (המינוס ממתין בחוץ). האיבר השני עטוף בסוגריים, ולכן המינוס מועלה בריבוע והופך לפלוס.",
+        hint: "הביטוי הראשון: רק ה-3 עולה בריבוע והמינוס נשאר. הביטוי השני: גם המינוס עולה בריבוע והופך לפלוס.",
         solution_steps: [
-            { verbal_explanation: "נחשב את האיבר השמאלי. כיוון שאין סוגריים, נעלה את שלוש בריבוע ורק אז נוסיף את המינוס.", math_expression: "\u202A-(3 × 3) = -9\u202C" },
-            { verbal_explanation: "נחשב את האיבר הימני. הסוגריים כוללים את המינוס, ולכן מינוס כפול מינוס נותן תוצאה חיובית.", math_expression: "\u202A(-3) × (-3) = 9\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות ההפוכות שהתקבלו.", math_expression: "\u202A-9 + 9 = 0\u202C" }
+            { verbal_explanation: "באיבר הראשון, החזקה לא פועלת על המינוס כי אין סוגריים.", math_expression: "-3^2 = -(3 \\times 3) = -9" },
+            { verbal_explanation: "באיבר השני, החזקה פועלת על המספר השלילי כולו (כי הוא בסוגריים), לכן המינוס הופך לפלוס.", math_expression: "(-3)^2 = (-3) \\times (-3) = 9" },
+            { verbal_explanation: "נחבר את התוצאות.", math_expression: "-9 + 9 = 0" }
         ],
         final_answer: "0"
     },
-
-    // --- שאלה 17 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "חשבו את התוצאה של תרגיל החזקות הבא:<br><br>\u202A5 × (-2)⁰ - 4²\u202C",
-        options: ["-11", "-6", "9", "-16"],
+        topic: "basic_algebra_172",
+        subTopic: "סדר פעולות חשבון",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הערך של הביטוי הבא, המשלב כפל וחזקות:<br>\\( 20 - 2 \\times 3^2 = ? \\)</div>",
+        options: ["2", "162", "14", "-16"],
         correctAnswer: 0,
-        hint: "זכרו את חוק הברזל: כל מספר (שונה מאפס) המועלה בחזקת אפס שווה תמיד ל-1. לכן הביטוי האמצעי כולו הופך למספר 1.",
+        hint: "החזקה קודמת לכפל! חשבו קודם את 3 בריבוע, ואז כפלו ב-2.",
         solution_steps: [
-            { verbal_explanation: "נחשב את החזקה הראשונה בתרגיל. כל מספר בחזקת אפס מקבל את הערך אחד.", math_expression: "\u202A(-2)⁰ = 1\u202C" },
-            { verbal_explanation: "נחשב את החזקה השנייה. שוב, אין סוגריים סביב המינוס, לכן החזקה חלה רק על הארבע.", math_expression: "\u202A4² = 16\u202C" },
-            { verbal_explanation: "נציב את הערכים חזרה לתרגיל המקורי ונבצע קודם את פעולת הכפל.", math_expression: "\u202A5 × 1 - 16\u202C" },
-            { verbal_explanation: "נשלים את החיסור לקבלת התשובה הסופית.", math_expression: "\u202A5 - 16 = -11\u202C" }
-        ],
-        final_answer: "-11"
-    },
-
-    // --- שאלה 18 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "חשבו את ערכו של הביטוי הבא המשלב חזקה על שבר:<br><br>\u202A(-1/2)³ × 16\u202C",
-        options: ["-2", "2", "-8", "4"],
-        correctAnswer: 0,
-        hint: "כאשר מעלים שבר שלילי בחזקה אי-זוגית (3), התוצאה תישאר שלילית. העלו בנפרד את המונה בשלישית ואת המכנה בשלישית, ולאחר מכן כפלו את השבר שהתקבל במספר 16.",
-        solution_steps: [
-            { verbal_explanation: "נפעיל את החזקה על השבר. מעריך אי-זוגי משאיר את הסימן השלילי. אחד בשלישית הוא אחד. שתיים בשלישית הוא שמונה.", math_expression: "\u202A(-1/2)³ = -1/8\u202C" },
-            { verbal_explanation: "כעת נכפיל את השבר שהתקבל במספר השלם. הכפלת שבר מתבצעת על ידי הכפלת המונה.", math_expression: "\u202A(-1/8) × 16 = -16 / 8\u202C" },
-            { verbal_explanation: "נצמצם את השבר לחלוטין.", math_expression: "\u202A-16 / 8 = -2\u202C" }
-        ],
-        final_answer: "-2"
-    },
-
-    // --- שאלה 19 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "חשבו את ערכו של התרגיל הבא, והקפידו להבדיל בין מעריך זוגי למעריך אי-זוגי:<br><br>\u202A(-1)⁴ - (-1)⁵\u202C",
-        options: ["2", "0", "-2", "1"],
-        correctAnswer: 0,
-        hint: "המספר מינוס אחד, כאשר הוא מועלה בחזקה זוגית, הופך לפלוס אחד. אך כאשר הוא מועלה בחזקה אי-זוגית, הוא נשאר מינוס אחד.",
-        solution_steps: [
-            { verbal_explanation: "נחשב את האיבר הראשון. מינוס אחד בחזקה זוגית (ארבע) הופך לחיוב.", math_expression: "\u202A(-1)⁴ = 1\u202C" },
-            { verbal_explanation: "נחשב את האיבר השני. מינוס אחד בחזקה אי-זוגית (חמש) נשאר שלילי.", math_expression: "\u202A(-1)⁵ = -1\u202C" },
-            { verbal_explanation: "נציב את הערכים ונבצע את החיסור. מינוס אחרי מינוס הופך לפלוס.", math_expression: "\u202A1 - (-1) = 1 + 1 = 2\u202C" }
+            { verbal_explanation: "על פי סדר פעולות חשבון, נחשב קודם את החזקה.", math_expression: "3^2 = 9" },
+            { verbal_explanation: "כעת נבצע את הכפל.", math_expression: "2 \\times 9 = 18" },
+            { verbal_explanation: "נסיים בפעולת החיסור.", math_expression: "20 - 18 = 2" }
         ],
         final_answer: "2"
     },
 
-    // --- שאלה 20 ---
+    // ==========================================================
+    // 2. חזקות של מספרים (12 שאלות)
+    // ==========================================================
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "חשבו את המנה (תוצאת החילוק) של הביטוי הבא:<br><br>\u202A(-4)² / (-2)³\u202C",
-        options: ["-2", "2", "-8", "4"],
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך הביטוי המשלב מעריכים זוגיים ואי-זוגיים:<br>\\( (-4)^2 - (-2)^3 = ? \\)</div>" + svgPower,
+        options: ["24", "8", "0", "-24"],
         correctAnswer: 0,
-        hint: "חשבו כל חזקה בנפרד לפי הכללים. המונה יקבל חזקה זוגית ולכן יהפוך לחיובי. המכנה יקבל חזקה אי-זוגית ויישאר שלילי. חלקו את המספרים בהתאם.",
+        hint: "חזקה זוגית 'בולעת' את המינוס. חזקה אי-זוגית משאירה אותו. היזהרו מהמינוס שבין האיברים.",
         solution_steps: [
-            { verbal_explanation: "נחשב את ערך המונה. חזקה זוגית מעלימה את המינוס שבתוך הסוגריים.", math_expression: "\u202A(-4)² = 16\u202C" },
-            { verbal_explanation: "נחשב את ערך המכנה. חזקה אי-זוגית משמרת את המינוס.", math_expression: "\u202A(-2)³ = -8\u202C" },
-            { verbal_explanation: "נבצע את פעולת החילוק בין המונה למכנה. מספר חיובי לחלק לשלילי ייתן תוצאה שלילית.", math_expression: "\u202A16 / (-8) = -2\u202C" }
+            { verbal_explanation: "האיבר הראשון מועלה בחזקה זוגית, ולכן התוצאה חיובית.", math_expression: "(-4)^2 = 16" },
+            { verbal_explanation: "האיבר השני מועלה בחזקה אי-זוגית, ולכן התוצאה נשארת שלילית.", math_expression: "(-2)^3 = -8" },
+            { verbal_explanation: "נציב חזרה לתרגיל (חיסור של מספר שלילי הופך לחיבור).", math_expression: "16 - (-8) = 16 + 8 = 24" }
         ],
-        final_answer: "-2"
+        final_answer: "24"
     },
-
-    // --- שאלה 21 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "חשבו את התוצאה של התרגיל הבא:<br><br>\u202A2³ - 3 × (-2)²\u202C",
-        options: ["-4", "20", "-16", "4"],
+        question_text: "<div dir='rtl' style='text-align: center;'>מלכודת החזקות! חשבו את התוצאה של:<br>\\( 5^0 + (-5)^0 - 0^5 = ? \\)</div>",
+        options: ["2", "1", "0", "10"],
         correctAnswer: 0,
-        hint: "לפי סדר פעולות, חזקות קודמות לכפל ולחיסור. חשבו את שתי החזקות ראשונות, לאחר מכן בצעו את הכפל (שלוש כפול התוצאה), ובסוף חסרו.",
+        hint: "כל מספר (שאינו 0) בחזקת 0 שווה 1. אפס בחזקת כל מספר חיובי שווה 0.",
         solution_steps: [
-            { verbal_explanation: "נחשב את החזקה הראשונה (שתיים בשלישית).", math_expression: "\u202A2³ = 8\u202C" },
-            { verbal_explanation: "נחשב את החזקה השנייה (מינוס שתיים בריבוע). התוצאה חיובית עקב המעריך הזוגי.", math_expression: "\u202A(-2)² = 4\u202C" },
-            { verbal_explanation: "נציב את התוצאות בתרגיל ונבצע את פעולת הכפל שקודמת לחיסור.", math_expression: "\u202A8 - 3 × 4 = 8 - 12\u202C" },
-            { verbal_explanation: "נסיים בפעולת החיסור לקבלת התשובה המדויקת.", math_expression: "\u202A8 - 12 = -4\u202C" }
+            { verbal_explanation: "מספר חיובי בחזקת אפס שווה לאחד.", math_expression: "5^0 = 1" },
+            { verbal_explanation: "מספר שלילי (בסוגריים) בחזקת אפס שווה גם הוא לאחד.", math_expression: "(-5)^0 = 1" },
+            { verbal_explanation: "אפס בחזקת כל מספר הוא פשוט אפס.", math_expression: "0^5 = 0" },
+            { verbal_explanation: "נציב ונחבר הכל.", math_expression: "1 + 1 - 0 = 2" }
         ],
-        final_answer: "-4"
+        final_answer: "2"
     },
-
-    // --- שאלה 22 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "נתון הביטוי האלגברי הבא: \u202Ax² - 5x\u202C<br><br>הציבו בביטוי את הערך \u202Ax = -2\u202C וחשבו את התוצאה.",
-        options: ["14", "-6", "6", "-14"],
+        question_text: "<div dir='rtl' style='text-align: center;'>מהו הערך המספרי של חזקה שלילית זו?<br>\\( 3^{-2} = ? \\)</div>",
+        options: ["\\dfrac{1}{9}", "-9", "-\\dfrac{1}{9}", "9"],
         correctAnswer: 0,
-        hint: "כאשר מציבים מספר שלילי במקום נעלם המועלה בחזקה, חייבים לעטוף אותו בסוגריים! הציבו כך: סוגריים מינוס שתיים סגור סוגריים בריבוע.",
+        hint: "המעריך השלילי לא הופך את המספר לשלילי! הוא מורה לנו להפוך את המספר לשבר (אחד חלקי).",
         solution_steps: [
-            { verbal_explanation: "נציב את הערך הנתון בתוך הביטוי תוך שימוש קפדני בסוגריים כדי לשמור על הסימנים.", math_expression: "\u202A(-2)² - 5 × (-2)\u202C" },
-            { verbal_explanation: "נחשב את החזקה של המספר השלילי. חזקה זוגית הופכת אותו לחיובי.", math_expression: "\u202A(-2)² = 4\u202C" },
-            { verbal_explanation: "נחשב את מכפלת המספרים הנותרים. מינוס כפול מינוס הוא פלוס.", math_expression: "\u202A-5 × (-2) = +10\u202C" },
-            { verbal_explanation: "נחבר את התוצאות.", math_expression: "\u202A4 + 10 = 14\u202C" }
+            { verbal_explanation: "מעריך שלילי פירושו 'ההופכי של המספר בחזקה החיובית'.", math_expression: "a^{-n} = \\dfrac{1}{a^n}" },
+            { verbal_explanation: "ניישם את הכלל על התרגיל שלנו.", math_expression: "3^{-2} = \\dfrac{1}{3^2}" },
+            { verbal_explanation: "נחשב את החזקה במכנה.", math_expression: "\\dfrac{1}{9}" }
         ],
-        final_answer: "14"
+        final_answer: "\\dfrac{1}{9}"
     },
-
-    // --- שאלה 23 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "חשבו את ערכו של התרגיל הבא המשלב שבר עשרוני בחזקה:<br><br>\u202A(0.5)² × 40\u202C",
-        options: ["10", "20", "5", "8"],
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הערך של שבר המועלה בחזקה שלילית:<br>\\( \\left(\\dfrac{2}{3}\\right)^{-2} = ? \\)</div>",
+        options: ["\\dfrac{9}{4}", "\\dfrac{4}{9}", "-\\dfrac{4}{9}", "\\dfrac{6}{4}"],
         correctAnswer: 0,
-        hint: "חשבו מהו חצי כפול חצי. התוצאה היא רבע (0.25). לאחר מכן, כפלו רבע בארבעים (שזה כמו לחלק את 40 בארבע).",
+        hint: "כדי להיפטר ממעריך שלילי של שבר, פשוט הופכים את המונה והמכנה.",
         solution_steps: [
-            { verbal_explanation: "נעלה את השבר העשרוני בריבוע. חצי כפול חצי שווה לרבע.", math_expression: "\u202A(0.5)² = 0.25\u202C" },
-            { verbal_explanation: "נכפיל את הרבע במספר השלם הנתון בתרגיל.", math_expression: "\u202A0.25 × 40 = 10\u202C" }
+            { verbal_explanation: "כדי שהמעריך יהיה חיובי, נהפוך את השבר שבתוך הסוגריים.", math_expression: "\\left(\\dfrac{2}{3}\\right)^{-2} = \\left(\\dfrac{3}{2}\\right)^2" },
+            { verbal_explanation: "כעת, נעלה גם את המונה וגם את המכנה בריבוע.", math_expression: "\\dfrac{3^2}{2^2}" },
+            { verbal_explanation: "נחשב את התוצאות.", math_expression: "\\dfrac{9}{4}" }
         ],
-        final_answer: "10"
+        final_answer: "\\dfrac{9}{4}"
     },
-
-    // --- שאלה 24 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "מהו ערכו של הביטוי הבא?<br><br>\u202A0⁵ + 5⁰ - (-1)²\u202C",
-        options: ["0", "1", "5", "-1"],
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את הביטוי המציג חזקה של חזקה:<br>\\( (2^3)^2 = ? \\)</div>" + svgPower,
+        options: ["64", "32", "12", "256"],
         correctAnswer: 0,
-        hint: "אפס בחזקת 5 הוא אפס. חמש בחזקת אפס הוא 1. מינוס אחד בריבוע הוא גם 1. חברו את המספרים כראוי לפי סדר הסימנים.",
+        hint: "כאשר מעלים חזקה בחזקה נוספת, יש לכפול את המעריכים זה בזה (חוק כפל מעריכים).",
         solution_steps: [
-            { verbal_explanation: "האיבר הראשון מתאפס, מכיוון שאפס בחזקת כל חזקה חיובית שווה לעצמו.", math_expression: "\u202A0⁵ = 0\u202C" },
-            { verbal_explanation: "האיבר השני שווה לאחד. על פי החוק, כל מספר השונה מאפס המועלה בחזקת אפס נותן אחד.", math_expression: "\u202A5⁰ = 1\u202C" },
-            { verbal_explanation: "האיבר השלישי הוא חזקה זוגית על מספר שלילי, ולכן יהפוך לחיובי.", math_expression: "\u202A(-1)² = 1\u202C" },
-            { verbal_explanation: "נציב הכל במשוואה המקורית ונבצע את החישוב המסכם.", math_expression: "\u202A0 + 1 - 1 = 0\u202C" }
+            { verbal_explanation: "לפי חוקי החזקות, 'חזקה של חזקה' משמעותה הכפלת המעריכים.", math_expression: "(a^n)^m = a^{n \\times m}" },
+            { verbal_explanation: "נפעיל את הכלל על התרגיל.", math_expression: "(2^3)^2 = 2^{3 \\times 2} = 2^6" },
+            { verbal_explanation: "נחשב את הערך של 2 בשישית (כפל של שתיים בעצמו 6 פעמים).", math_expression: "64" }
         ],
-        final_answer: "0"
+        final_answer: "64"
     },
-
-    // --- שאלה 25 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "חשבו את התוצאה בעזרת חוקי חזקות (חיבור וחיסור מעריכים של בסיסים זהים):<br><br>\u202A( (-2)³ × (-2)² ) / (-2)⁴\u202C",
-        options: ["-2", "2", "4", "-4"],
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך המכפלה של חזקות בעלות אותו בסיס:<br>\\( 3^4 \\times 3^{-2} = ? \\)</div>",
+        options: ["9", "27", "\\dfrac{1}{9}", "81"],
         correctAnswer: 0,
-        hint: "הבסיס לכל אורך התרגיל הוא זהה (-2). בכפל של בסיסים זהים מחברים מעריכים. בחילוק של בסיסים זהים מחסרים מעריכים.",
+        hint: "בכפל של חזקות עם בסיסים זהים, פשוט מחברים את המעריכים. שימו לב שיש לכם מעריך שלילי.",
         solution_steps: [
-            { verbal_explanation: "נשתמש בחוקי חזקות כדי לחבר את המעריכים במונה (פעולת כפל בין בסיסים זהים). שלוש ועוד שתיים הם חמש.", math_expression: "\u202A(-2)³ × (-2)² = (-2)⁵\u202C" },
-            { verbal_explanation: "כעת נחלק את התוצאה במכנה. חלוקה של בסיסים זהים גוררת חיסור מעריכים. חמש פחות ארבע שווה לאחד.", math_expression: "\u202A(-2)⁵ / (-2)⁴ = (-2)¹\u202C" },
-            { verbal_explanation: "כל מספר בחזקת אחד שווה לעצמו.", math_expression: "\u202A-2\u202C" }
-        ],
-        final_answer: "-2"
-    },
-
-    // --- שאלה 26 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "חשבו את השבר המורכב הבא:<br><br>\u202A(3² - (-4)²) / (-7)\u202C",
-        options: ["1", "-1", "7", "-7"],
-        correctAnswer: 0,
-        hint: "חשבו את המונה בנפרד: שלוש בריבוע זה 9. מינוס 4 בתוך סוגריים בריבוע זה 16 חיובי. לכן המונה הוא 9 פחות 16. לבסוף חלקו במכנה.",
-        solution_steps: [
-            { verbal_explanation: "נחשב את ערך החזקות שבמונה השבר. האיבר הראשון הוא תשע. באיבר השני, החזקה הזוגית מעלימה את המינוס שבסוגריים והוא הופך ל-16 חיובי.", math_expression: "\u202A3² = 9 , (-4)² = 16\u202C" },
-            { verbal_explanation: "נבצע את פעולת החיסור במונה.", math_expression: "\u202A9 - 16 = -7\u202C" },
-            { verbal_explanation: "כעת נחלק את תוצאת המונה במכנה הנתון. חלוקת מספר בעצמו שווה תמיד לאחד.", math_expression: "\u202A-7 / (-7) = 1\u202C" }
-        ],
-        final_answer: "1"
-    },
-
-    // --- שאלה 27 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "מהי התוצאה של התרגיל הבא, המציג 'חזקה של חזקה'?<br><br>\u202A( (-1)³ )² + ( (-2)² )³\u202C",
-        options: ["65", "63", "60", "129"],
-        correctAnswer: 0,
-        hint: "ניתן לחשב את תוכן הסוגריים ואז להעלות שוב בחזקה. מינוס אחד בשלישית נשאר שלילי, אך כשעולה בריבוע הופך לחיובי. בצד השני, מינוס שתיים בריבוע הופך ל-4 חיובי, שעולה בחזקת שלוש.",
-        solution_steps: [
-            { verbal_explanation: "ניגש לאיבר הראשון ונחשב מבפנים החוצה. מינוס אחד בחזקה אי זוגית נותר שלילי, אך לאחר מכן מועלה בריבוע והופך לחיובי.", math_expression: "\u202A(-1)² = 1\u202C" },
-            { verbal_explanation: "באותה שיטה, ניגש לאיבר השני. מינוס שתיים בריבוע הופך למספר חיובי (ארבע), שמועלה מיד בחזקה שלישית.", math_expression: "\u202A(4)³ = 64\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות הסופיות.", math_expression: "\u202A1 + 64 = 65\u202C" }
-        ],
-        final_answer: "65"
-    },
-
-    // --- שאלה 28 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "נתון הביטוי האלגברי: \u202A-a²\u202C<br><br>הציבו בביטוי את הערך \u202Aa = -3\u202C וחשבו את התוצאה המדויקת.",
-        options: ["-9", "9", "6", "-6"],
-        correctAnswer: 0,
-        hint: "שימו לב: המינוס של הביטוי המקורי נמצא *מחוץ* לסוגריים של ההצבה. ההצבה הנכונה היא מינוס, פתח סוגריים, מינוס 3, סגור סוגריים, בריבוע.",
-        solution_steps: [
-            { verbal_explanation: "נציב את הערך לתוך הביטוי תוך עטיפתו בסוגריים כנדרש בהצבה. סימן המינוס המקורי נשאר בחוץ.", math_expression: "\u202A-( -3 )²\u202C" },
-            { verbal_explanation: "נחשב קודם כל את פעולת החזקה שעל הסוגריים. החזקה הזוגית מעלימה את המינוס הפנימי.", math_expression: "\u202A(-3)² = 9\u202C" },
-            { verbal_explanation: "כעת, נצרף לתוצאה את סימן המינוס החיצוני שהמתין מתחילת התרגיל.", math_expression: "\u202A-(9) = -9\u202C" }
-        ],
-        final_answer: "-9"
-    },
-
-    // --- שאלה 29 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "חזקות של מספרים",
-        question: "חשבו את התוצאה של התרגיל הבא המשלב חזקות בתוך ומחוץ לסוגריים:<br><br>\u202A( 5 - 2³ )²\u202C",
-        options: ["9", "-9", "1", "25"],
-        correctAnswer: 0,
-        hint: "חובה לחשב את הערך השלם שבתוך הסוגריים הגדולים לפני שמפעילים את החזקה החיצונית ביותר. בפנים: העלו את 2 בשלישית והחסירו מ-5.",
-        solution_steps: [
-            { verbal_explanation: "ניגש קודם כל אל הפעולות הכלואות בתוך הסוגריים. על פי הסדר, נחשב שם קודם את החזקה הפנימית.", math_expression: "\u202A2³ = 8\u202C" },
-            { verbal_explanation: "נשלים את פתרון הסוגריים על ידי ביצוע פעולת החיסור הנדרשת.", math_expression: "\u202A5 - 8 = -3\u202C" },
-            { verbal_explanation: "כעת נעלה את תוצאת הסוגריים בחזקה השנייה והחיצונית. חזקה זוגית מבטלת את הסימן השלילי.", math_expression: "\u202A(-3)² = 9\u202C" }
+            { verbal_explanation: "בכפל של בסיסים זהים, מחברים את המעריכים.", math_expression: "a^n \\times a^m = a^{n+m}" },
+            { verbal_explanation: "נחבר את המעריכים שלנו (4 ועוד מינוס 2).", math_expression: "3^{4 + (-2)} = 3^{4-2} = 3^2" },
+            { verbal_explanation: "נחשב את התוצאה.", math_expression: "9" }
         ],
         final_answer: "9"
     },
-
-    // --- שאלה 30 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "חזקות של מספרים",
-        question: "אתגר מסכם: חשבו בזהירות את תוצאת התרגיל הבא:<br><br>\u202A-10² - ( -5 )² + (-2)⁴\u202C",
-        options: ["-109", "109", "-75", "-59"],
+        question_text: "<div dir='rtl' style='text-align: center;'>מהי התוצאה של תרגיל החילוק הבא?<br>\\( \\dfrac{5^7}{5^5} = ? \\)</div>",
+        options: ["25", "5", "125", "10"],
         correctAnswer: 0,
-        hint: "האיבר הראשון (-10²) הוא מינוס 100 כי אין סוגריים. באיבר השני יש סוגריים, לכן המינוס בפנים נעלם ומקבלים 25, אבל המינוס בחוץ נשאר (אז זה פחות 25). באיבר השלישי החזקה על הסוגריים והתוצאה חיובית (16).",
+        hint: "בחילוק של חזקות עם בסיסים זהים, מחסרים את מעריך המכנה ממעריך המונה.",
         solution_steps: [
-            { verbal_explanation: "נחשב את האיבר הראשון משמאל. היעדר סוגריים אומר שהחזקה חלה רק על המספר. התוצאה שלילית.", math_expression: "\u202A-10² = -100\u202C" },
-            { verbal_explanation: "נחשב את האיבר האמצעי. החזקה על הסוגריים הופכת את מינוס 5 לפלוס 25. אך סימן החיסור שלפני הסוגריים נשאר.", math_expression: "\u202A-( -5 )² = -(25) = -25\u202C" },
-            { verbal_explanation: "נחשב את האיבר השלישי. החזקה הזוגית חלה על כל הסוגריים ומעלימה את הסימן השלילי.", math_expression: "\u202A(-2)⁴ = 16\u202C" },
-            { verbal_explanation: "נציב את כל התוצאות חזרה ונבצע את החישוב הסופי והמסכם.", math_expression: "\u202A-100 - 25 + 16 = -125 + 16 = -109\u202C" }
+            { verbal_explanation: "בחילוק בסיסים זהים, נחסר את המעריכים.", math_expression: "\\dfrac{a^n}{a^m} = a^{n-m}" },
+            { verbal_explanation: "נבצע את החיסור עבור התרגיל.", math_expression: "5^{7-5} = 5^2" },
+            { verbal_explanation: "נחשב את הריבוע.", math_expression: "25" }
         ],
-        final_answer: "-109"
-    },,
-
-    // ========================================================================
-    // תת נושא 3: שורש ריבועי
-    // ========================================================================
-
-    // --- שאלה 31 ---
+        final_answer: "25"
+    },
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `חשבו את ערכו של התרגיל הבא המורכב משני שורשים נפרדים:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√64 + √36</span>`,
-        options: ["14", "10", "100", "48"],
+        topic: "basic_algebra_172",
+        subTopic: "חזקות של מספרים",
+        question_text: "<div dir='rtl' style='text-align: center;'>כיצד ניתן לחשב במהירות את המכפלה הבאה? (בסיסים שונים, מעריך זהה)<br>\\( 2^3 \\times 5^3 = ? \\)</div>",
+        options: ["1000", "100", "30", "10^6"],
         correctAnswer: 0,
-        hint: "כאשר יש סימן חיבור בין שני שורשים נפרדים, חובה לחשב כל שורש בנפרד ורק לאחר מכן לחבר את התוצאות שלהם.",
+        hint: "כאשר המעריכים זהים, ניתן 'למשוך' את המעריך החוצה, לכפול את הבסיסים בתוך סוגריים, ואז להעלות את התוצאה בחזקה.",
         solution_steps: [
-            { verbal_explanation: "נחשב תחילה את השורש הריבועי של המספר השמאלי. המספר שמוכפל בעצמו ונותן שישים וארבע הוא שמונה.", math_expression: "\u202A√64 = 8\u202C" },
-            { verbal_explanation: "נחשב את השורש הריבועי של המספר הימני. המספר שמוכפל בעצמו ונותן שלושים ושש הוא שש.", math_expression: "\u202A√36 = 6\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות הנקיות שקיבלנו לקבלת התשובה הסופית.", math_expression: "\u202A8 + 6 = 14\u202C" }
+            { verbal_explanation: "חוק המעריכים הזהים מאפשר לאחד את הבסיסים תחת מעריך משותף אחד.", math_expression: "a^n \\times b^n = (a \\times b)^n" },
+            { verbal_explanation: "נאחד את הבסיסים ונכפול אותם.", math_expression: "(2 \\times 5)^3 = 10^3" },
+            { verbal_explanation: "נחשב 10 בשלישית (1 עם 3 אפסים).", math_expression: "1000" }
         ],
-        final_answer: "14"
+        final_answer: "1000"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "חזקות של מספרים",
+        question_text: "<div dir='rtl' style='text-align: center;'>שימו לב, זהו תרגיל חיבור, ולא כפל! חשבו:<br>\\( 2^3 + 2^4 = ? \\)</div>",
+        options: ["24", "128", "32", "12"],
+        correctAnswer: 0,
+        hint: "אין 'חוק חזקות' לחיבור! עליכם לחשב את הערך של כל חזקה בנפרד ואז פשוט לחבר את המספרים.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את הערך של 2 בשלישית.", math_expression: "2^3 = 8" },
+            { verbal_explanation: "נחשב את הערך של 2 ברביעית.", math_expression: "2^4 = 16" },
+            { verbal_explanation: "נבצע פעולת חיבור פשוטה.", math_expression: "8 + 16 = 24" }
+        ],
+        final_answer: "24"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "חזקות של מספרים",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הערך של הביטוי הבא (היזהרו - אין סוגריים!):<br>\\( -2^4 = ? \\)</div>",
+        options: ["-16", "16", "8", "-8"],
+        correctAnswer: 0,
+        hint: "מכיוון שאין סוגריים סביב ה-2 והמינוס, החזקה פועלת רק על המספר 2. המינוס מחכה בצד ומוצמד לתשובה בסוף.",
+        solution_steps: [
+            { verbal_explanation: "החזקה 4 חלה רק על בסיס 2, ולא על סימן המינוס.", math_expression: "-(2^4)" },
+            { verbal_explanation: "נחשב את 2 ברביעית.", math_expression: "2 \\times 2 \\times 2 \\times 2 = 16" },
+            { verbal_explanation: "נוסיף את סימן המינוס לתוצאה.", math_expression: "-16" }
+        ],
+        final_answer: "-16"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "חזקות של מספרים",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הביטוי המשלב מעריכים חיובים, שליליים ואפס:<br>\\( \\dfrac{10^{-3} \\times 10^5}{10^0} = ? \\)</div>",
+        options: ["100", "10", "1", "0.01"],
+        correctAnswer: 0,
+        hint: "חברו מעריכים במונה. זכרו שמכנה שערכו 1 (בגלל חזקת אפס) לא משנה את התוצאה.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את המונה על ידי חיבור מעריכים.", math_expression: "10^{-3+5} = 10^2" },
+            { verbal_explanation: "נחשב את המכנה (10 בחזקת אפס).", math_expression: "10^0 = 1" },
+            { verbal_explanation: "נחלק מונה במכנה ונחשב את הריבוע.", math_expression: "\\dfrac{10^2}{1} = 100" }
+        ],
+        final_answer: "100"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "חזקות של מספרים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את ביטוי האלגברה הבא לחזקה אחת של x:<br>\\( x^3 \\times x^5 = ? \\)</div>",
+        options: ["x^8", "x^{15}", "x^2", "x^5"],
+        correctAnswer: 0,
+        hint: "בכפל של משתנים עם בסיסים זהים, מחברים את המעריכים.",
+        solution_steps: [
+            { verbal_explanation: "לפי חוק כפל חזקות בעלות בסיס זהה, נחבר את המעריכים.", math_expression: "x^{3+5}" },
+            { verbal_explanation: "נחשב את הסכום לקבלת התשובה.", math_expression: "x^8" }
+        ],
+        final_answer: "x^8"
     },
 
-    // --- שאלה 32 ---
+    // ==========================================================
+    // 3. שורש ריבועי (12 שאלות)
+    // ==========================================================
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "שורש ריבועי",
-        question: `שימו לב להבדל! חשבו את ערכו של התרגיל הבא, שבו פעולת החיבור נמצאת תחת קורת גג אחת של שורש:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√(64 + 36)</span>`,
-        options: ["10", "14", "100", "50"],
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הערך של השורש הריבועי הבא:<br>\\( \\sqrt{169} = ? \\)</div>" + svgRoot,
+        options: ["13", "14", "17", "16.9"],
         correctAnswer: 0,
-        hint: "סימן השורש הארוך מתפקד בדיוק כמו סוגריים. חובה לחשב את סכום המספרים שבפנים לפני שמוציאים שורש מהתוצאה.",
+        hint: "זהו שורש מוכר. איזה מספר שלם, כשנכפול אותו בעצמו, ייתן לנו 169?",
         solution_steps: [
-            { verbal_explanation: "נחבר את המספרים הנמצאים בתוך השורש המשותף.", math_expression: "\u202A64 + 36 = 100\u202C" },
-            { verbal_explanation: "כעת נוציא שורש ריבועי מהתוצאה השלמה שקיבלנו. המספר שמוכפל בעצמו ונותן מאה הוא עשר.", math_expression: "\u202A√100 = 10\u202C" }
+            { verbal_explanation: "נחפש מספר x המקיים ש-x כפול x שווה ל-169.", math_expression: "x^2 = 169" },
+            { verbal_explanation: "מתוך היכרות עם לוח הכפל המורחב, נבדוק את המספר 13.", math_expression: "13 \\times 13 = 169" },
+            { verbal_explanation: "לכן התשובה היא 13.", math_expression: "13" }
         ],
-        final_answer: "10"
+        final_answer: "13"
     },
-
-    // --- שאלה 33 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "שורש ריבועי",
-        question: `מהו ערכו של השורש הריבועי המופעל על שבר פשוט?<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√(25 / 49)</span>`,
-        options: ["5/7", "25/7", "5/49", "12.5/24.5"],
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את השורש הריבועי של השבר הבא:<br>\\( \\sqrt{\\dfrac{49}{81}} = ? \\)</div>",
+        options: ["\\dfrac{7}{9}", "\\dfrac{49}{9}", "\\dfrac{7}{81}", "\\dfrac{9}{7}"],
         correctAnswer: 0,
-        hint: "חוקי השורשים מאפשרים לנו לפצל את השורש: להוציא שורש בנפרד למונה (המספר העליון) ושורש בנפרד למכנה (המספר התחתון).",
+        hint: "שורש של שבר שווה לשורש של המונה חלקי השורש של המכנה.",
         solution_steps: [
-            { verbal_explanation: "נפצל את השורש הכללי לשני שורשים נפרדים, אחד למונה ואחד למכנה.", math_expression: "\u202A(√25) / (√49)\u202C" },
-            { verbal_explanation: "נחשב את השורש של המונה. שורש של עשרים וחמש הוא חמש.", math_expression: "\u202A√25 = 5\u202C" },
-            { verbal_explanation: "נחשב את השורש של המכנה. שורש של ארבעים ותשע הוא שבע.", math_expression: "\u202A√49 = 7\u202C" },
-            { verbal_explanation: "נרכיב את השבר מחדש עם התוצאות.", math_expression: "\u202A5 / 7\u202C" }
+            { verbal_explanation: "נפריד את השורש למונה ולמכנה בנפרד לפי חוקי השורשים.", math_expression: "\\dfrac{\\sqrt{49}}{\\sqrt{81}}" },
+            { verbal_explanation: "נחשב את שורש המונה (איזה מספר כפול עצמו נותן 49).", math_expression: "\\sqrt{49} = 7" },
+            { verbal_explanation: "נחשב את שורש המכנה.", math_expression: "\\sqrt{81} = 9" },
+            { verbal_explanation: "נרשום את התוצאה הסופית כשבר.", math_expression: "\\dfrac{7}{9}" }
         ],
-        final_answer: "5/7"
+        final_answer: "\\dfrac{7}{9}"
     },
-
-    // --- שאלה 34 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "שורש ריבועי",
-        question: `חשבו את התוצאה של הוצאת שורש משבר עשרוני:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√0.81</span>`,
-        options: ["0.9", "0.09", "9", "0.81"],
+        question_text: "<div dir='rtl' style='text-align: center;'>מהו השורש הריבועי של המספר העשרוני הבא?<br>\\( \\sqrt{0.04} = ? \\)</div>",
+        options: ["0.2", "0.02", "2", "0.4"],
         correctAnswer: 0,
-        hint: "אפשר להפוך את השבר העשרוני לשבר פשוט (שמונים ואחד חלקי מאה) ולהוציא שורש למונה ולמכנה. לחלופין, חישבו איזה מספר עשרוני שמוכפל בעצמו ייתן שתי ספרות אחרי הנקודה.",
+        hint: "התעלמו מהנקודה וחישבו על השורש של 4. לאחר מכן, קחו חצי מכמות הספרות שאחרי הנקודה העשרונית למקם את הנקודה בתוצאה.",
         solution_steps: [
-            { verbal_explanation: "נמיר את השבר העשרוני לשבר פשוט כדי להקל על החישוב בראש.", math_expression: "\u202A0.81 = 81 / 100\u202C" },
-            { verbal_explanation: "נוציא שורש בנפרד למונה ולמכנה. שורש של שמונים ואחד הוא תשע, ושורש של מאה הוא עשר.", math_expression: "\u202A(√81) / (√100) = 9 / 10\u202C" },
-            { verbal_explanation: "נמיר את התוצאה חזרה לשבר עשרוני כדי להתאים לתשובות.", math_expression: "\u202A9 / 10 = 0.9\u202C" }
+            { verbal_explanation: "אפשר להמיר את המספר העשרוני לשבר פשוט כדי להקל על החישוב.", math_expression: "\\sqrt{\\dfrac{4}{100}}" },
+            { verbal_explanation: "נוציא שורש למונה ולמכנה בנפרד.", math_expression: "\\dfrac{\\sqrt{4}}{\\sqrt{100}} = \\dfrac{2}{10}" },
+            { verbal_explanation: "נמיר את התוצאה בחזרה למספר עשרוני.", math_expression: "0.2" }
         ],
-        final_answer: "0.9"
+        final_answer: "0.2"
     },
-
-    // --- שאלה 35 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "שורש ריבועי",
-        question: `פתרו את המשוואה הריבועית הבאה וגלו את ערכי הנעלם:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">x² - 49 = 0</span>`,
-        options: ["7 וגם -7", "7 בלבד", "-7 בלבד", "24.5 וגם -24.5"],
+        question_text: "<div dir='rtl' style='text-align: center;'>פתרו את התרגיל המשלב שורש וסדר פעולות:<br>\\( \\sqrt{10^2 - 8^2} = ? \\)</div>",
+        options: ["6", "2", "36", "4"],
         correctAnswer: 0,
-        hint: "העבירו את המספר לאגף השני כך שאיקס בריבוע יעמוד לבדו. לאחר מכן הוציאו שורש משני האגפים. זכרו שלמשוואה כזו יש שני פתרונות: אחד חיובי ואחד שלילי.",
+        hint: "אסור בשום אופן לפצל שורש על פעולת חיסור או חיבור! חייבים קודם לחשב את כל הביטוי שבתוך השורש לערך מספרי אחד.",
         solution_steps: [
-            { verbal_explanation: "נעביר את המספר החופשי לאגף הימני בסימן חיובי כדי לבודד את המשתנה הריבועי.", math_expression: "\u202Ax² = 49\u202C" },
-            { verbal_explanation: "נוציא שורש ריבועי משני האגפים. שורש של ארבעים ותשע הוא שבע.", math_expression: "\u202A√x² = √49\u202C" },
-            { verbal_explanation: "מכיוון שגם שבע בריבוע נותן ארבעים ותשע וגם מינוס שבע בריבוע נותן ארבעים ותשע, יש למשוואה שני פתרונות תקינים.", math_expression: "\u202Ax = 7 , x = -7\u202C" }
-        ],
-        final_answer: "7 וגם -7"
-    },
-
-    // --- שאלה 36 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `חשבו את התוצאה של התרגיל הבא, המשלב כפל ושורשים:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">3 × √16 - 2 × √9</span>`,
-        options: ["6", "12", "30", "0"],
-        correctAnswer: 0,
-        hint: "בסדר פעולות חשבון, הוצאת שורש שקולה לחזקה וקודמת לכפל. חשבו קודם את שני השורשים, לאחר מכן כפלו אותם במקדמים, ובסוף בצעו את החיסור.",
-        solution_steps: [
-            { verbal_explanation: "נפשט את הביטוי על ידי חישוב השורשים. שורש שש עשרה הוא ארבע, ושורש תשע הוא שלוש.", math_expression: "\u202A3 × 4 - 2 × 3\u202C" },
-            { verbal_explanation: "נבצע את פעולות הכפל משמאל ומימין לפני שניגש לחיסור.", math_expression: "\u202A12 - 6\u202C" },
-            { verbal_explanation: "נבצע את פעולת החיסור הסופית לקבלת התוצאה.", math_expression: "\u202A12 - 6 = 6\u202C" }
+            { verbal_explanation: "נחשב את החזקות הנמצאות בתוך השורש.", math_expression: "10^2 = 100 \\quad , \\quad 8^2 = 64" },
+            { verbal_explanation: "נבצע את פעולת החיסור בתוך השורש.", math_expression: "\\sqrt{100 - 64} = \\sqrt{36}" },
+            { verbal_explanation: "נוציא שורש מהתוצאה שקיבלנו.", math_expression: "6" }
         ],
         final_answer: "6"
     },
-
-    // --- שאלה 37 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
+        topic: "basic_algebra_172",
         subTopic: "שורש ריבועי",
-        question: `פתרו את המשוואה הבאה הכוללת נעלם בתוך השורש:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√(2x - 1) = 3</span>`,
-        options: ["5", "4", "10", "2"],
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את התוצאה ובחרו את המשפט הנכון מבין השניים:<br> א) \\( \\sqrt{16} + \\sqrt{9} \\) <br> ב) \\( \\sqrt{16 + 9} \\)</div>",
+        options: ["א=7, ב=5", "א=5, ב=5 (שווים)", "א=25, ב=5", "א=7, ב=25"],
         correctAnswer: 0,
-        hint: "הפעולה ההפוכה להוצאת שורש היא העלאה בריבוע. העלו את שני אגפי המשוואה בריבוע (חזקה 2) כדי לבטל את השורש באגף השמאלי. לאחר מכן פתרו משוואה רגילה.",
+        hint: "בתרגיל א', מוציאים שורש לכל מספר ואז מחברים. בתרגיל ב', קודם מחברים ורק אז מוציאים שורש לתוצאה.",
         solution_steps: [
-            { verbal_explanation: "כדי להיפטר מהשורש, נעלה את שני אגפי המשוואה בריבוע.", math_expression: "\u202A(√(2x - 1))² = 3²\u202C" },
-            { verbal_explanation: "השורש מתבטל באגף השמאלי, והמספר באגף הימני עולה בריבוע והופך לתשע.", math_expression: "\u202A2x - 1 = 9\u202C" },
-            { verbal_explanation: "נעביר את המספר אחד לאגף הימני בסימן חיובי.", math_expression: "\u202A2x = 9 + 1  =>  2x = 10\u202C" },
-            { verbal_explanation: "נחלק בשתיים כדי לבודד ולמצוא את המשתנה.", math_expression: "\u202Ax = 5\u202C" }
+            { verbal_explanation: "נחשב את תרגיל א'. קודם כל נוציא שורשים נפרדים.", math_expression: "4 + 3 = 7" },
+            { verbal_explanation: "נחשב את תרגיל ב'. קודם נחבר בתוך השורש.", math_expression: "\\sqrt{25} = 5" },
+            { verbal_explanation: "מסקנה: שורש של סכום אינו שווה לסכום השורשים.", math_expression: "7 \\neq 5" }
+        ],
+        final_answer: "א=7, ב=5"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>כיצד נחשב את המכפלה הבאה? (היעזרו בחוקי השורשים)<br>\\( \\sqrt{2} \\times \\sqrt{18} = ? \\)</div>",
+        options: ["6", "36", "\\sqrt{20}", "12"],
+        correctAnswer: 0,
+        hint: "אף אחד מהמספרים לא נותן שורש שלם לבדו. חוק מכפלת שורשים מאפשר לאחד אותם לשורש אחד.",
+        solution_steps: [
+            { verbal_explanation: "נאחד את שני השורשים תחת שורש אחד על פי הכלל.", math_expression: "\\sqrt{a} \\times \\sqrt{b} = \\sqrt{a \\times b}" },
+            { verbal_explanation: "נכפול את המספרים בתוך השורש המאוחד.", math_expression: "\\sqrt{2 \\times 18} = \\sqrt{36}" },
+            { verbal_explanation: "נוציא שורש לתוצאה היפה שקיבלנו.", math_expression: "6" }
+        ],
+        final_answer: "6"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את החילוק של השורשים הבאים:<br>\\( \\dfrac{\\sqrt{75}}{\\sqrt{3}} = ? \\)</div>",
+        options: ["5", "25", "\\sqrt{72}", "15"],
+        correctAnswer: 0,
+        hint: "בדיוק כמו בכפל, אפשר לאחד חלוקה של שני שורשים לשורש אחד גדול שמכיל בתוכו שבר. צמצמו ואז הוציאו שורש.",
+        solution_steps: [
+            { verbal_explanation: "נאחד את המונה והמכנה תחת שורש גדול אחד.", math_expression: "\\sqrt{\\dfrac{75}{3}}" },
+            { verbal_explanation: "נבצע את החילוק הפנימי.", math_expression: "\\sqrt{25}" },
+            { verbal_explanation: "נוציא את השורש מהתוצאה.", math_expression: "5" }
+        ],
+        final_answer: "5"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>מהו השורש של השבר המעורב הבא? (הפכו לשבר מדומה תחילה):<br>\\( \\sqrt{1 \\dfrac{9}{16}} = ? \\)</div>",
+        options: ["\\dfrac{5}{4}", "1 \\dfrac{3}{4}", "\\dfrac{25}{16}", "\\dfrac{13}{16}"],
+        correctAnswer: 0,
+        hint: "אי אפשר להוציא שורש משבר מעורב כמו שהוא. הפכו אותו לשבר מדומה ואז הוציאו שורש למונה ולמכנה.",
+        solution_steps: [
+            { verbal_explanation: "נהפוך את השבר המעורב לשבר מדומה (16 כפול 1, ועוד 9 במונה).", math_expression: "\\sqrt{\\dfrac{16 \\times 1 + 9}{16}} = \\sqrt{\\dfrac{25}{16}}" },
+            { verbal_explanation: "נפצל לשני שורשים ונפתור כל אחד בנפרד.", math_expression: "\\dfrac{\\sqrt{25}}{\\sqrt{16}}" },
+            { verbal_explanation: "נקבל שבר רגיל שהוא התשובה.", math_expression: "\\dfrac{5}{4}" }
+        ],
+        final_answer: "\\dfrac{5}{4}"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>פתרו את התרגיל המכיל 'שורש בתוך שורש':<br>\\( \\sqrt{25 - \\sqrt{81}} = ? \\)</div>" + svgRoot,
+        options: ["4", "16", "2", "8"],
+        correctAnswer: 0,
+        hint: "התחילו מהשורש הפנימי ביותר. מצאו את ערכו, ואז המשיכו את התרגיל החיצוני.",
+        solution_steps: [
+            { verbal_explanation: "נפתור קודם כל את השורש הפנימי (שורש 81).", math_expression: "\\sqrt{81} = 9" },
+            { verbal_explanation: "נציב את התוצאה בחזרה לתרגיל ונבצע את החיסור.", math_expression: "\\sqrt{25 - 9} = \\sqrt{16}" },
+            { verbal_explanation: "לבסוף נפתור את השורש החיצוני.", math_expression: "4" }
+        ],
+        final_answer: "4"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>מצאו את הערך של x במשוואה הבאה:<br>\\( 2\\sqrt{x} = 10 \\)</div>",
+        options: ["25", "5", "100", "50"],
+        correctAnswer: 0,
+        hint: "כדי למצוא את x שכלוא בתוך השורש, בודדו קודם את השורש באגף שלו (חלקו ב-2). לאחר מכן, העלו את כל המשוואה בריבוע.",
+        solution_steps: [
+            { verbal_explanation: "נחלק את שני אגפי המשוואה ב-2 כדי לבודד את השורש.", math_expression: "\\sqrt{x} = 5" },
+            { verbal_explanation: "כדי להיפטר מהשורש, נעלה את שני אגפי המשוואה בריבוע.", math_expression: "(\\sqrt{x})^2 = 5^2" },
+            { verbal_explanation: "שורש וריבוע מבטלים זה את זה.", math_expression: "x = 25" }
+        ],
+        final_answer: "25"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את הערך של הביטוי הבא (שימו לב למיקום המינוס):<br>\\( -\\sqrt{144} = ? \\)</div>",
+        options: ["-12", "12", "אין פתרון", "144"],
+        correctAnswer: 0,
+        hint: "המינוס לא נמצא בתוך השורש. המינוס נמצא בחוץ ופשוט ממתין לתוצאה של השורש.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את ערך השורש תוך התעלמות זמנית מהמינוס החיצוני.", math_expression: "\\sqrt{144} = 12" },
+            { verbal_explanation: "כעת, נוסיף את סימן המינוס הממתין בחוץ.", math_expression: "-12" }
+        ],
+        final_answer: "-12"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "שורש ריבועי",
+        question_text: "<div dir='rtl' style='text-align: center;'>פתרו את השבר המורכב הבא:<br>\\( \\dfrac{\\sqrt{100} - \\sqrt{36}}{\\sqrt{4}} = ? \\)</div>",
+        options: ["2", "4", "8", "32"],
+        correctAnswer: 0,
+        hint: "חשבו כל שורש בנפרד, ואז המשיכו את התרגיל עם המספרים הרגילים (חיסור במונה ואז חילוק במכנה).",
+        solution_steps: [
+            { verbal_explanation: "נוציא את כל השורשים בתרגיל לערכים מספריים.", math_expression: "\\sqrt{100} = 10 \\quad , \\quad \\sqrt{36} = 6 \\quad , \\quad \\sqrt{4} = 2" },
+            { verbal_explanation: "נכתוב את התרגיל מחדש עם המספרים שקיבלנו.", math_expression: "\\dfrac{10 - 6}{2}" },
+            { verbal_explanation: "נבצע את החיסור במונה ואז נחלק במכנה.", math_expression: "\\dfrac{4}{2} = 2" }
+        ],
+        final_answer: "2"
+    },
+
+    // ==========================================================
+    // 4. הצבה בביטוי אלגברי (12 שאלות)
+    // ==========================================================
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>נתון הביטוי האלגברי: \\( 5x - 7 \\). מה יהיה ערך הביטוי אם נציב \\( x = 4 \\)?</div>" + svgSubst,
+        options: ["13", "12", "27", "3"],
+        correctAnswer: 0,
+        hint: "החליפו את האות x במספר 4. זכרו שבין המספר 5 לאות x מסתתרת פעולת כפל.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערך במקום המשתנה בביטוי.", math_expression: "5 \\times 4 - 7" },
+            { verbal_explanation: "על פי סדר פעולות חשבון, נבצע תחילה את הכפל.", math_expression: "20 - 7" },
+            { verbal_explanation: "נבצע את פעולת החיסור לקבלת התוצאה הסופית.", math_expression: "13" }
+        ],
+        final_answer: "13"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>נתון הביטוי: \\( -3a + 10 \\). חשבו את ערך הביטוי עבור \\( a = -2 \\).</div>",
+        options: ["16", "4", "-16", "-4"],
+        correctAnswer: 0,
+        hint: "כאשר מציבים מספר שלילי, חובה לשים אותו בתוך סוגריים. זכרו שמכפלה של שני מספרים שליליים נותנת תוצאה חיובית.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערך השלילי בתוך סוגריים כדי לא להתבלבל בסימנים.", math_expression: "-3 \\times (-2) + 10" },
+            { verbal_explanation: "נכפול מינוס במינוס, מה שנותן פלוס.", math_expression: "6 + 10" },
+            { verbal_explanation: "נחבר את המספרים.", math_expression: "16" }
+        ],
+        final_answer: "16"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך הביטוי הריבועי \\( x^2 - 4x \\) עבור \\( x = 5 \\).</div>",
+        options: ["5", "45", "-5", "9"],
+        correctAnswer: 0,
+        hint: "הציבו את המספר במקום x בשני המקומות שבהם הוא מופיע. חשבו קודם את החזקה.",
+        solution_steps: [
+            { verbal_explanation: "נציב את המספר 5 במקום כל מופע של x.", math_expression: "5^2 - 4 \\times 5" },
+            { verbal_explanation: "נחשב את החזקה ואת המכפלה.", math_expression: "25 - 20" },
+            { verbal_explanation: "נבצע את החיסור.", math_expression: "5" }
+        ],
+        final_answer: "5"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>הצבה של מספר שלילי בחזקה: מה ערך הביטוי \\( 2m^2 + m \\) עבור \\( m = -3 \\)?</div>",
+        options: ["15", "-21", "-15", "21"],
+        correctAnswer: 0,
+        hint: "הקפידו על סוגריים: \\( (-3)^2 \\). מספר שלילי המועלה בחזקה זוגית הופך לחיובי.",
+        solution_steps: [
+            { verbal_explanation: "נציב את המספר השלילי בתוך סוגריים בכל מקום בו מופיע המשתנה.", math_expression: "2(-3)^2 + (-3)" },
+            { verbal_explanation: "נחשב את החזקה תחילה. מינוס 3 בריבוע הוא פלוס 9.", math_expression: "2(9) - 3" },
+            { verbal_explanation: "נבצע את הכפל ונחסר.", math_expression: "18 - 3 = 15" }
+        ],
+        final_answer: "15"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>נתון הביטוי עם שני משתנים: \\( 3x - 2y + 4 \\). חשבו את ערכו אם נתון כי \\( x = 2 \\) ו- \\( y = -1 \\).</div>",
+        options: ["12", "8", "4", "10"],
+        correctAnswer: 0,
+        hint: "הציבו כל מספר במשתנה המתאים לו. שימו לב לכפל של המינוס 2 במינוס 1.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערכים במקומות המתאימים, תוך שימוש בסוגריים להצבת המינוס.", math_expression: "3(2) - 2(-1) + 4" },
+            { verbal_explanation: "נבצע את שתי פעולות הכפל. שימו לב שמינוס כפול מינוס נותן פלוס.", math_expression: "6 + 2 + 4" },
+            { verbal_explanation: "נחבר את כל האיברים יחד.", math_expression: "12" }
+        ],
+        final_answer: "12"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערכו של שבר אלגברי זה כאשר מציבים \\( k = 4 \\):<br>\\( \\dfrac{k^2 - 6}{k + 1} \\)</div>" + svgSubst,
+        options: ["2", "10", "1.5", "5"],
+        correctAnswer: 0,
+        hint: "חשבו את המונה בנפרד ואת המכנה בנפרד, ורק בסוף בצעו את פעולת החילוק.",
+        solution_steps: [
+            { verbal_explanation: "נציב 4 במקום המשתנה במונה ובמכנה.", math_expression: "\\dfrac{4^2 - 6}{4 + 1}" },
+            { verbal_explanation: "נחשב את ערך החזקה במונה ואת פעולת החיבור במכנה.", math_expression: "\\dfrac{16 - 6}{5}" },
+            { verbal_explanation: "נבצע את פעולת החיסור במונה ונחלק.", math_expression: "\\dfrac{10}{5} = 2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>זהירות, מלכודת מינוס! מה ערך הביטוי \\( -x^2 \\) כאשר מציבים \\( x = -5 \\)?</div>",
+        options: ["-25", "25", "10", "-10"],
+        correctAnswer: 0,
+        hint: "המינוס שמופיע לפני ה-x אינו שייך לחזקה. קודם מעלים את ה-(5-) בריבוע, ורק אז מוסיפים לו את המינוס החיצוני.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערך השלילי בתוך סוגריים. המינוס החיצוני נשאר מחוץ לסוגריים.", math_expression: "-(-5)^2" },
+            { verbal_explanation: "נחשב קודם את החזקה, על פי סדר פעולות חשבון.", math_expression: "-(25)" },
+            { verbal_explanation: "כעת נפעיל את המינוס החיצוני על התוצאה החיובית שקיבלנו.", math_expression: "-25" }
+        ],
+        final_answer: "-25"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>נתון הביטוי \\( a(a - 3) \\). מהו ערכו עבור הצבה של \\( a = -1 \\)?</div>",
+        options: ["4", "-4", "-2", "2"],
+        correctAnswer: 0,
+        hint: "הציבו את 1- גם מחוץ לסוגריים וגם בתוכם. פתרו קודם את מה שבתוך הסוגריים.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערך במקומות המתאימים. נשתמש בסוגריים.", math_expression: "-1(-1 - 3)" },
+            { verbal_explanation: "נחשב את מה שבתוך הסוגריים הפנימיים.", math_expression: "-1(-4)" },
+            { verbal_explanation: "נבצע את המכפלה. כפל של שני שליליים נותן חיובי.", math_expression: "4" }
+        ],
+        final_answer: "4"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>חשבו את ערך הביטוי \\( \\dfrac{2x + y}{x - y} \\) עבור ההצבה: \\( x = 3 \\) ו- \\( y = -2 \\).</div>",
+        options: ["0.8", "1", "4", "0.4"],
+        correctAnswer: 0,
+        hint: "שימו לב במיוחד למכנה: יש שם חיסור של מספר שלילי, אשר הופך לחיבור.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הנתונים תוך שמירה קפדנית על סימני המינוס בעזרת סוגריים.", math_expression: "\\dfrac{2(3) + (-2)}{3 - (-2)}" },
+            { verbal_explanation: "נפשט את המונה. כפל, ואז חיבור עם מספר שלילי.", math_expression: "\\dfrac{6 - 2}{3 - (-2)}" },
+            { verbal_explanation: "במכנה, חיסור של מינוס הופך לחיבור.", math_expression: "\\dfrac{4}{3 + 2} = \\dfrac{4}{5}" },
+            { verbal_explanation: "נמיר את השבר הפשוט לשבר עשרוני.", math_expression: "0.8" }
+        ],
+        final_answer: "0.8"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>מהו ערכו של הביטוי \\( x^3 - 2x^2 + x \\) אם נציב \\( x = 2 \\)?</div>",
+        options: ["2", "4", "0", "8"],
+        correctAnswer: 0,
+        hint: "חשבו כל איבר בנפרד (קודם חזקות, ואז כפל) ולבסוף חברו וחלקו לפי הסדר.",
+        solution_steps: [
+            { verbal_explanation: "נציב 2 בכל מקום בו מופיע המשתנה.", math_expression: "2^3 - 2(2)^2 + 2" },
+            { verbal_explanation: "נחשב את החזקות.", math_expression: "8 - 2(4) + 2" },
+            { verbal_explanation: "נבצע את הכפל באיבר האמצעי.", math_expression: "8 - 8 + 2" },
+            { verbal_explanation: "נשלים את פעולות החיבור והחיסור.", math_expression: "2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>נתון הביטוי \\( \\sqrt{b^2 + 9} \\). איזה ערך נקבל אם נציב \\( b = 4 \\)?</div>",
+        options: ["5", "7", "25", "13"],
+        correctAnswer: 0,
+        hint: "העלו את 4 בריבוע, חברו ל-9 בתוך השורש, ורק בסוף הוציאו שורש לתוצאה כולה.",
+        solution_steps: [
+            { verbal_explanation: "נציב את הערך בתוך השורש.", math_expression: "\\sqrt{4^2 + 9}" },
+            { verbal_explanation: "נחשב את החזקה.", math_expression: "\\sqrt{16 + 9}" },
+            { verbal_explanation: "נחבר את המספרים תחת השורש ואז נוציא שורש ריבועי.", math_expression: "\\sqrt{25} = 5" }
+        ],
+        final_answer: "5"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "הצבה בביטוי אלגברי",
+        question_text: "<div dir='rtl' style='text-align: center;'>מצאו את ערך הביטוי \\( \\dfrac{1}{x} + \\dfrac{1}{y} \\) עבור הצבה של שברים: \\( x = \\dfrac{1}{2} \\) ו- \\( y = \\dfrac{1}{3} \\).</div>",
+        options: ["5", "1.2", "6", "0.833"],
+        correctAnswer: 0,
+        hint: "הביטוי 1 חלקי שבר הוא למעשה ההופכי של אותו שבר. לכן, ההופכי של חצי הוא 2, וההופכי של שליש הוא 3.",
+        solution_steps: [
+            { verbal_explanation: "נציב את השברים בביטוי במקום המשתנים.", math_expression: "\\dfrac{1}{\\dfrac{1}{2}} + \\dfrac{1}{\\dfrac{1}{3}}" },
+            { verbal_explanation: "אחד חלקי שבר שווה למספר ההופכי שלו.", math_expression: "2 + 3" },
+            { verbal_explanation: "נחבר את השלמים שקיבלנו.", math_expression: "5" }
         ],
         final_answer: "5"
     },
 
-    // --- שאלה 38 ---
+    // ==========================================================
+    // 5. פתיחת סוגריים וכינוס איברים (12 שאלות)
+    // ==========================================================
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `איזה מהמשפטים הבאים נכון לגבי הביטוי הבא?<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√(-25)</span>`,
-        options: ["לביטוי זה אין פתרון במספרים ממשיים", "התוצאה היא מינוס 5", "התוצאה היא 5", "התוצאה היא מינוס 25"],
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את הביטוי על ידי פתיחת סוגריים (חוק הפילוג):<br>\\( 4(x + 5) \\)</div>" + svgExpand,
+        options: ["4x + 20", "4x + 5", "x + 20", "24x"],
         correctAnswer: 0,
-        hint: "האם יש מספר שאם נכפיל אותו בעצמו נקבל מספר שלילי? חיובי כפול חיובי שווה חיובי, ושלילי כפול שלילי גם הוא שווה חיובי.",
+        hint: "יש לכפול את המספר שמחוץ לסוגריים (4) בכל אחד מהאיברים שבתוך הסוגריים.",
         solution_steps: [
-            { verbal_explanation: "כדי שלשורש יהיה פתרון, צריך להיות מספר שריבועו שווה למה שבתוך השורש.", math_expression: "\u202Ax² = -25\u202C" },
-            { verbal_explanation: "חזקה שנייה של מספר ממשי לעולם אינה יכולה לתת תוצאה שלילית (כי פלוס כפול פלוס זה פלוס, ומינוס כפול מינוס זה פלוס).", math_expression: "\u202Ax × x ≥ 0\u202C" },
-            { verbal_explanation: "לכן, לא ניתן להוציא שורש ריבועי ממספר שלילי במערכת המספרים הממשיים שלמדנו.", math_expression: "\u202A√(-25) = No Solution\u202C" }
+            { verbal_explanation: "נכפול את המספר החיצוני באיבר הראשון שבסוגריים.", math_expression: "4 \\times x = 4x" },
+            { verbal_explanation: "נכפול את המספר החיצוני באיבר השני שבסוגריים.", math_expression: "4 \\times 5 = 20" },
+            { verbal_explanation: "נחבר את התוצאות לביטוי אחד פשוט.", math_expression: "4x + 20" }
         ],
-        final_answer: "לביטוי זה אין פתרון במספרים ממשיים"
+        final_answer: "4x + 20"
     },
-
-    // --- שאלה 39 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `חשבו את התוצאה של התרגיל המשלב חזקות ושורשים:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">(√7)² + √(3² + 4²)</span>`,
-        options: ["12", "14", "16", "24"],
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את הביטוי הבא. שימו לב לסימן המינוס:<br>\\( -3(2a - 4) \\)</div>",
+        options: ["-6a + 12", "-6a - 12", "6a - 12", "-6a - 4"],
         correctAnswer: 0,
-        hint: "האיבר הראשון: שורש וחזקה מאותו סדר מבטלים זה את זה. האיבר השני: חשבו קודם את החזקות שבתוך השורש, חברו אותן, ורק בסוף הוציאו שורש מן התוצאה השלמה.",
+        hint: "כופלים מינוס 3 בכל איבר. זכרו שמינוס כפול פלוס הוא מינוס, ומינוס כפול מינוס נותן פלוס.",
         solution_steps: [
-            { verbal_explanation: "באיבר השמאלי, פעולת ההעלאה בריבוע מבטלת בדיוק את פעולת השורש הריבועי, ומשאירה את המספר נקי.", math_expression: "\u202A(√7)² = 7\u202C" },
-            { verbal_explanation: "באיבר הימני, נחשב קודם את החזקות בתוך השורש (שלוש בריבוע זה תשע, ארבע בריבוע זה שש עשרה).", math_expression: "\u202A√(9 + 16)\u202C" },
-            { verbal_explanation: "נחבר את המספרים בתוך השורש ואז נוציא את השורש הסופי.", math_expression: "\u202A√25 = 5\u202C" },
-            { verbal_explanation: "נחבר את שתי התוצאות שקיבלנו מהאיבר השמאלי והימני.", math_expression: "\u202A7 + 5 = 12\u202C" }
+            { verbal_explanation: "נכפול את המקדם השלילי באיבר הראשון.", math_expression: "-3 \\times 2a = -6a" },
+            { verbal_explanation: "נכפול את המקדם השלילי באיבר השני שהוא גם שלילי (לכן התוצאה חיובית).", math_expression: "-3 \\times (-4) = 12" },
+            { verbal_explanation: "נאחד את שני החלקים.", math_expression: "-6a + 12" }
         ],
-        final_answer: "12"
+        final_answer: "-6a + 12"
     },
-
-    // --- שאלה 40 ---
     {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `נתון הביטוי האלגברי (המזכיר את נוסחת השורשים): <span dir="ltr" style="font-weight: bold;">√(b² - 4ac)</span><br><br>
-        הציבו את הערכים: <span dir="ltr" style="font-weight: bold;">a = 1 , b = 5 , c = 4</span> וחשבו את התוצאה.`,
-        options: ["3", "9", "1", "5"],
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>מהי התוצאה של פתיחת סוגריים בביטוי הבא?<br>\\( x(x + 7) \\)</div>",
+        options: ["x^2 + 7x", "2x + 7", "x^2 + 7", "8x"],
         correctAnswer: 0,
-        hint: "הציבו את המספרים בזהירות בתוך השורש. חשבו את החזקה (5 בריבוע), ולאחר מכן את מכפלת שאר המספרים (4 כפול 1 כפול 4). חסרו והוציאו שורש.",
+        hint: "כאשר כופלים משתנה בעצמו (איקס כפול איקס) מקבלים את המשתנה בריבוע.",
         solution_steps: [
-            { verbal_explanation: "נציב את הערכים המספריים לתוך הביטוי האלגברי בדיוק במקומות המתאימים.", math_expression: "\u202A√(5² - 4 × 1 × 4)\u202C" },
-            { verbal_explanation: "נחשב את החזקה של המקדם הראשון (חמש בריבוע שווה עשרים וחמש).", math_expression: "\u202A5² = 25\u202C" },
-            { verbal_explanation: "נחשב את מכפלת שלושת המספרים הנותרים (ארבע כפול אחד כפול ארבע).", math_expression: "\u202A4 × 1 × 4 = 16\u202C" },
-            { verbal_explanation: "נבצע את פעולת החיסור בתוך השורש ולאחריה נוציא את השורש מהתוצאה.", math_expression: "\u202A√(25 - 16) = √9 = 3\u202C" }
+            { verbal_explanation: "נכפול את המשתנה שמחוץ לסוגריים במשתנה הפנימי.", math_expression: "x \\times x = x^2" },
+            { verbal_explanation: "נכפול את המשתנה החיצוני במספר שבפנים.", math_expression: "x \\times 7 = 7x" },
+            { verbal_explanation: "נאחד את הביטויים שנוצרו.", math_expression: "x^2 + 7x" }
+        ],
+        final_answer: "x^2 + 7x"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את הביטוי הבא על ידי פתיחת הסוגריים הכפולים וכינוס איברים:<br>\\( (x + 2)(x + 3) \\)</div>" + svgExpand,
+        options: ["x^2 + 5x + 6", "x^2 + 6", "x^2 + 5", "2x + 6"],
+        correctAnswer: 0,
+        hint: "השתמשו בחוק הפילוג המורחב: כפלו כל איבר מהסוגריים הראשונים בכל איבר מהסוגריים השניים, ולאחר מכן כנסו איברים דומים.",
+        solution_steps: [
+            { verbal_explanation: "נכפול את האיבר הראשון (x) בשני איברי הסוגריים השניים.", math_expression: "x \\times x + x \\times 3 = x^2 + 3x" },
+            { verbal_explanation: "נכפול את האיבר השני (2) בשני איברי הסוגריים השניים.", math_expression: "2 \\times x + 2 \\times 3 = 2x + 6" },
+            { verbal_explanation: "נחבר הכל ונכנס איברים דומים (איברים עם x).", math_expression: "x^2 + 3x + 2x + 6 = x^2 + 5x + 6" }
+        ],
+        final_answer: "x^2 + 5x + 6"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את ביטוי המכפלה הכולל מינוסים:<br>\\( (a - 4)(a + 5) \\)</div>",
+        options: ["a^2 + a - 20", "a^2 - a - 20", "a^2 - 20", "a^2 + 9a - 20"],
+        correctAnswer: 0,
+        hint: "הקפידו על חוקי הסימנים. מינוס 4 כפול a שווה מינוס 4a. בסוף, כנסו איברים דומים בזהירות.",
+        solution_steps: [
+            { verbal_explanation: "כפל של האיבר הראשון (a) בשני האיברים.", math_expression: "a \\times a + a \\times 5 = a^2 + 5a" },
+            { verbal_explanation: "כפל של האיבר השני הכולל את הסימן שלו (-4) בשני האיברים.", math_expression: "-4 \\times a - 4 \\times 5 = -4a - 20" },
+            { verbal_explanation: "נחבר ונכנס איברים דומים בחלק המרכזי.", math_expression: "a^2 + (5a - 4a) - 20" },
+            { verbal_explanation: "הביטוי הסופי המפשוט.", math_expression: "a^2 + a - 20" }
+        ],
+        final_answer: "a^2 + a - 20"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>מהי הצורה המפושטת של הביטוי הבא?<br>\\( (2x - 1)(3x - 2) \\)</div>",
+        options: ["6x^2 - 7x + 2", "6x^2 - 5x + 2", "5x^2 - 7x - 2", "6x^2 - 2"],
+        correctAnswer: 0,
+        hint: "כפלו מקדמים בזהירות (2x כפול 3x שווה 6x²). זכרו שמכפלה של שני מספרים שליליים נותנת חיובי.",
+        solution_steps: [
+            { verbal_explanation: "נבצע את כל ארבעת פעולות הכפל הנדרשות (פילוג מורחב).", math_expression: "(2x)(3x) + (2x)(-2) + (-1)(3x) + (-1)(-2)" },
+            { verbal_explanation: "נחשב את המכפלות השונות.", math_expression: "6x^2 - 4x - 3x + 2" },
+            { verbal_explanation: "נכנס איברים דומים בעלי משתנה מאותה דרגה.", math_expression: "6x^2 - 7x + 2" }
+        ],
+        final_answer: "6x^2 - 7x + 2"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>כיצד נראה הביטוי לאחר פתיחת הסוגריים?<br>\\( - (x - 8) \\)</div>",
+        options: ["-x + 8", "-x - 8", "x + 8", "x - 8"],
+        correctAnswer: 0,
+        hint: "סימן המינוס לפני הסוגריים פועל כמו הכפלה ב- (-1). הוא פשוט הופך את הסימן של כל איבר בפנים.",
+        solution_steps: [
+            { verbal_explanation: "סימן המינוס מחוץ לסוגריים משנה את הסימן של האיבר הראשון (x חיובי הופך לשלילי).", math_expression: "-x" },
+            { verbal_explanation: "המינוס משנה גם את הסימן של האיבר השני (מינוס 8 הופך לפלוס 8).", math_expression: "8" },
+            { verbal_explanation: "נאחד לביטוי הסופי.", math_expression: "-x + 8" }
+        ],
+        final_answer: "-x + 8"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את הביטוי על ידי פתיחת סוגריים וכינוס איברים מיידי:<br>\\( 5 + 2(x - 3) \\)</div>",
+        options: ["2x - 1", "7x - 21", "2x + 2", "7x - 3"],
+        correctAnswer: 0,
+        hint: "שימו לב היטב לסדר הפעולות! אסור לחבר 5+2 לפני שפותחים את הסוגריים (כפל קודם לחיבור).",
+        solution_steps: [
+            { verbal_explanation: "נתחיל מפתיחת הסוגריים על ידי הכפלת ה-2 באיברים הפנימיים בלבד.", math_expression: "2x - 6" },
+            { verbal_explanation: "נצרף את ה-5 שהמתין בחוץ.", math_expression: "5 + 2x - 6" },
+            { verbal_explanation: "נכנס איברים דומים (מספרים חופשיים בלבד).", math_expression: "2x - 1" }
+        ],
+        final_answer: "2x - 1"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את הביטוי הבא המכיל שני זוגות סוגריים נפרדים:<br>\\( 3(a + 2) - 4(a - 1) \\)</div>",
+        options: ["-a + 10", "-a + 2", "7a + 2", "-a + 6"],
+        correctAnswer: 0,
+        hint: "פתחו כל זוג סוגריים בנפרד. היזהרו כשאתם פותחים את הסוגריים השניים, שכן המקדם הוא 4-.",
+        solution_steps: [
+            { verbal_explanation: "נפתח את הסוגריים הראשונים.", math_expression: "3a + 6" },
+            { verbal_explanation: "נפתח את הסוגריים השניים (נכפול במינוס 4).", math_expression: "-4a + 4" },
+            { verbal_explanation: "נחבר את כל האיברים למשוואה אחת ארוכה.", math_expression: "3a + 6 - 4a + 4" },
+            { verbal_explanation: "נכנס איברים דומים (משתנים לחוד ומספרים לחוד).", math_expression: "-a + 10" }
+        ],
+        final_answer: "-a + 10"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>כיצד נפתח סוגריים הכוללים חזקות מורכבות יותר?<br>\\( 2x^2(3x - 5) \\)</div>",
+        options: ["6x^3 - 10x^2", "5x^3 - 10x^2", "6x^2 - 10x^2", "6x^3 - 5"],
+        correctAnswer: 0,
+        hint: "היעזרו בחוקי חזקות בעת הכפל: x בריבוע כפול x נותן x בשלישית.",
+        solution_steps: [
+            { verbal_explanation: "נכפול את המקדם החיצוני באיבר הראשון. מקדם במקדם, ומשתנה במשתנה.", math_expression: "(2x^2) \\times (3x) = 6x^3" },
+            { verbal_explanation: "נכפול את המקדם החיצוני באיבר השני.", math_expression: "(2x^2) \\times (-5) = -10x^2" },
+            { verbal_explanation: "נאחד את הביטוי.", math_expression: "6x^3 - 10x^2" }
+        ],
+        final_answer: "6x^3 - 10x^2"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פשטו את המכפלה המשולשת הבאה:<br>\\( 2(x + 1)(x + 4) \\)</div>",
+        options: ["2x^2 + 10x + 8", "2x^2 + 5x + 4", "2x^2 + 10x + 4", "2x^2 + 8"],
+        correctAnswer: 0,
+        hint: "מומלץ קודם לפתוח את הסוגריים הכפולים, לשים את התוצאה בתוך סוגריים גדולים, ורק בסוף להכפיל הכל ב-2.",
+        solution_steps: [
+            { verbal_explanation: "נפתח את הסוגריים הכפולים (מכפלת הדו-איברים).", math_expression: "(x+1)(x+4) = x^2 + 4x + 1x + 4 = x^2 + 5x + 4" },
+            { verbal_explanation: "כעת, נכפול את כל הביטוי שקיבלנו במקדם החיצוני 2.", math_expression: "2(x^2 + 5x + 4)" },
+            { verbal_explanation: "נבצע את פתיחת הסוגריים האחרונה.", math_expression: "2x^2 + 10x + 8" }
+        ],
+        final_answer: "2x^2 + 10x + 8"
+    },
+    {
+        topic: "basic_algebra_172",
+        subTopic: "פתיחת סוגריים וכינוס איברים",
+        question_text: "<div dir='rtl' style='text-align: center;'>פתרו את הביטוי הבא הדורש פתיחה מדויקת וכינוס איברים מורכב:<br>\\( x(x - 2) - (x + 1)(x - 3) \\)</div>",
+        options: ["3", "-3", "2x^2 - x + 3", "2x - 3"],
+        correctAnswer: 0,
+        hint: "פתחו את החלק הראשון, ואז פתחו את השני אך השאירו אותו בתוך סוגריים בגלל המינוס שלפניו. לבסוף הפכו סימנים וכנסו.",
+        solution_steps: [
+            { verbal_explanation: "נפתח את החלק הראשון.", math_expression: "x^2 - 2x" },
+            { verbal_explanation: "נפתח את החלק השני בתוך סוגריים להגנה מהמינוס.", math_expression: "(x^2 - 3x + x - 3) = (x^2 - 2x - 3)" },
+            { verbal_explanation: "נשלב את שני החלקים עם סימן המינוס ביניהם.", math_expression: "x^2 - 2x - (x^2 - 2x - 3)" },
+            { verbal_explanation: "נפתח את סוגריים ההגנה (שינוי סימנים) ונכנס איברים דומים.", math_expression: "x^2 - 2x - x^2 + 2x + 3 = 3" }
         ],
         final_answer: "3"
-    },
-
-    // --- שאלה 41 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `חשבו את ערכו של התרגיל הבא המשלב חיבור של שבר מתחת לשורש:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√(1 + 16/9)</span>`,
-        options: ["5/3", "1 + 4/3", "17/9", "4/3"],
-        correctAnswer: 0,
-        hint: "אסור להוציא שורש בנפרד כשיש פעולת חיבור. עליכם קודם כל לעשות מכנה משותף ולחבר את ה-1 עם השבר (1 שווה ל-9 חלקי 9). לאחר שתקבלו שבר יחיד, הוציאו שורש למונה ולמכנה.",
-        solution_steps: [
-            { verbal_explanation: "נמיר את המספר השלם אחד לשבר בעל מכנה תשע כדי שנוכל לבצע פעולת חיבור שברים בתוך השורש.", math_expression: "\u202A1 = 9 / 9\u202C" },
-            { verbal_explanation: "נחבר את שני השברים יחד כדי לקבל שבר מדומה אחד גדול.", math_expression: "\u202A(9 / 9) + (16 / 9) = 25 / 9\u202C" },
-            { verbal_explanation: "כעת, כשיש לנו שבר בודד, חוקי השורשים מאפשרים לנו להוציא שורש נפרד למונה ושורש נפרד למכנה.", math_expression: "\u202A(√25) / (√9)\u202C" },
-            { verbal_explanation: "נחשב את השורשים לקבלת השבר הסופי.", math_expression: "\u202A5 / 3\u202C" }
-        ],
-        final_answer: "5/3"
-    },
-
-    // --- שאלה 42 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `אומדן שורשים. ללא שימוש במחשבון, איזו מהטענות הבאות מתארת בצורה המדויקת ביותר את הערך של: <span dir="ltr" style="font-weight: bold;">√50</span> ?`,
-        options: ["הערך גדול מ-7 וקטן מ-8", "הערך שווה בדיוק ל-7.5", "הערך גדול מ-8 וקטן מ-9", "הערך שווה בדיוק ל-25"],
-        correctAnswer: 0,
-        hint: "חפשו את שני המספרים השלמים שהשורשים המדויקים שלהם נמצאים ממש מעל ומתחת ל-50. למשל, שורש של 49 ושורש של 64.",
-        solution_steps: [
-            { verbal_explanation: "נמצא את שני המספרים הריבועיים הקרובים ביותר לחמישים שאנו יודעים את השורש השלם שלהם. המספר הקטן הוא ארבעים ותשע, והגדול הוא שישים וארבע.", math_expression: "\u202A49 < 50 < 64\u202C" },
-            { verbal_explanation: "נוציא שורש ריבועי מכל אחד מהאי-שוויונות כדי להבין באיזה טווח נמצאת התשובה.", math_expression: "\u202A√49 < √50 < √64\u202C" },
-            { verbal_explanation: "שורש 49 הוא 7, ושורש 64 הוא 8. מסקנה: הערך נמצא בין שבע לשמונה.", math_expression: "\u202A7 < √50 < 8\u202C" }
-        ],
-        final_answer: "הערך גדול מ-7 וקטן מ-8"
-    },
-
-    // --- שאלה 43 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `פתרו את המשוואה הבאה המשלבת כפל, חיבור ושורש ריבועי:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">5 + 2 × √x = 13</span>`,
-        options: ["16", "4", "8", "64"],
-        correctAnswer: 0,
-        hint: "התייחסו לשורש x כאל נעלם רגיל. העבירו את 5 לאגף השני והחסירו. לאחר מכן חלקו ב-2 את המשוואה. לבסוף, כדי להיפטר מהשורש, העלו את שני האגפים בריבוע.",
-        solution_steps: [
-            { verbal_explanation: "נתייחס לכל ביטוי השורש כיחידה אחת. נעביר את המספר חמש לאגף הימני בחיסור.", math_expression: "\u202A2 × √x = 13 - 5\u202C" },
-            { verbal_explanation: "נבצע את החיסור.", math_expression: "\u202A2 × √x = 8\u202C" },
-            { verbal_explanation: "נחלק את המשוואה בשתיים כדי לבודד את השורש לחלוטין.", math_expression: "\u202A√x = 4\u202C" },
-            { verbal_explanation: "כדי למצוא את האיקס עצמו, נעשה את הפעולה ההפוכה לשורש, שהיא העלאה בריבוע של שני האגפים.", math_expression: "\u202Ax = 4² = 16\u202C" }
-        ],
-        final_answer: "16"
-    },
-
-    // --- שאלה 44 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `מהי התוצאה של תרגיל "שורש בתוך שורש" זה?<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">√( √(81) )</span>`,
-        options: ["3", "9", "4.5", "81"],
-        correctAnswer: 0,
-        hint: "עבדו תמיד מבפנים החוצה. חשבו קודם כל את השורש הפנימי הקטן (מהו שורש 81?). קחו את התוצאה שקיבלתם והוציאו גם לה שורש במסגרת השורש החיצוני הגדול.",
-        solution_steps: [
-            { verbal_explanation: "נפתור תחילה את החלק הפנימי ביותר. השורש הריבועי של שמונים ואחת הוא תשע.", math_expression: "\u202A√(81) = 9\u202C" },
-            { verbal_explanation: "נציב את המספר תשע שקיבלנו בחזרה אל תחת השורש החיצוני הגדול הממתין בתרגיל.", math_expression: "\u202A√(9)\u202C" },
-            { verbal_explanation: "נוציא שורש למספר תשע לקבלת התוצאה הסופית והפשוטה.", math_expression: "\u202A√9 = 3\u202C" }
-        ],
-        final_answer: "3"
-    },
-
-    // --- שאלה 45 ---
-    {
-        subject: "מתמטיקה",
-        topic: "אלגברה בסיסית",
-        subTopic: "שורש ריבועי",
-        question: `אתגר מסכם: חשבו את ערכו של הביטוי המורכב הבא:<br><br>
-        <span dir="ltr" style="font-size: 1.2em; font-weight: bold; color: #0f172a;">( √(100) - √(36) )² / √4</span>`,
-        options: ["8", "16", "32", "2"],
-        correctAnswer: 0,
-        hint: "בתוך הסוגריים יש חיסור של שני שורשים נפרדים. חשבו כל שורש, ובצעו את החיסור. את התוצאה שקיבלתם, העלו בריבוע. לאחר מכן, חלקו את הכל בשורש של 4.",
-        solution_steps: [
-            { verbal_explanation: "ניגש קודם כל לסוגריים. נחשב בתוכם את השורשים. שורש מאה זה עשר, שורש שלושים ושש זה שש.", math_expression: "\u202A(10 - 6)² / √4\u202C" },
-            { verbal_explanation: "נבצע את פעולת החיסור שנותרה בתוך הסוגריים העגולים.", math_expression: "\u202A(4)² / √4\u202C" },
-            { verbal_explanation: "נעלה את תוצאת הסוגריים בחזקה הדרושה (ארבע בריבוע).", math_expression: "\u202A16 / √4\u202C" },
-            { verbal_explanation: "נחשב את השורש הממתין במכנה. שורש של ארבע הוא שתיים.", math_expression: "\u202A16 / 2\u202C" },
-            { verbal_explanation: "נסיים בפעולת החילוק הפשוטה לקבלת המספר הסופי.", math_expression: "\u202A8\u202C" }
-        ],
-        final_answer: "8"
     }
+
 ];

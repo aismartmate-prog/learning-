@@ -1,692 +1,557 @@
+// ========================================================================
+// שכבת גיל: כיתה ז' | נושא: מרובעים
+// 3 תתי נושאים | 36 שאלות סה"כ
+// שאלות משולבות אלגברה וגיאומטריה, כולל שרטוטי SVG מתקדמים וצבעוניים.
+// כתיבה נקייה: חילוק מוצג כ- (:), כפל כ- (×), שברים כ- (1/2), חזקות כ- (²).
+// ללא שימוש ב-LaTeX!
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: תכונות המלבן (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: תכונות המלבן (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Low",
-        "question_text": "מהי התכונה המאפיינת את <strong>הזוויות</strong> של כל מלבן?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100'><rect x='20' y='20' width='120' height='60' fill='#f8fafc' stroke='#1e293b' stroke-width='2'/><polyline points='20,35 35,35 35,20' fill='none' stroke='#b09151' stroke-width='2'/><polyline points='140,35 125,35 125,20' fill='none' stroke='#b09151' stroke-width='2'/><polyline points='20,65 35,65 35,80' fill='none' stroke='#b09151' stroke-width='2'/><polyline points='140,65 125,65 125,80' fill='none' stroke='#b09151' stroke-width='2'/></svg></div>",
-        "hint": "הסתכלו על הסימון האדום/זהוב בפינות המלבן בשרטוט. איזו זווית הוא מסמל?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזכר בהגדרה הבסיסית ביותר של מלבן. מלבן הוא מרובע (צורה בעלת 4 צלעות).", "math_expression": "מרובע" },
-            { "verbal_explanation": "שלב 2: השם 'מלבן' מגיע מהמילה 'לבנה' (בלוק בנייה), שפינותיה תמיד ישרות.", "math_expression": "פינות ישרות" },
-            { "verbal_explanation": "שלב 3: לכן, התכונה המרכזית היא שכל ארבע הזוויות במלבן הן זוויות ישרות, כלומר בנות 90 מעלות.", "math_expression": "90°" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "במלבן ABCD העבירו את האלכסונים AC ו-BD הנפגשים בנקודה O. ידוע כי אורך האלכסון AC הוא 14 ס\"מ. מהו אורך הקטע BO?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 120' width='100%' height='120' style='max-width:240px;'><rect x='20' y='20' width='160' height='80' fill='#f1f5f9' stroke='#334155' stroke-width='2'/><line x1='20' y1='20' x2='180' y2='100' stroke='#ef4444' stroke-width='2'/><line x1='20' y1='100' x2='180' y2='20' stroke='#3b82f6' stroke-width='2'/><text x='10' y='15' font-family='Arial' font-size='12' fill='#0f172a'>A</text><text x='185' y='15' font-family='Arial' font-size='12' fill='#0f172a'>B</text><text x='185' y='110' font-family='Arial' font-size='12' fill='#0f172a'>C</text><text x='10' y='110' font-family='Arial' font-size='12' fill='#0f172a'>D</text><text x='100' y='50' font-family='Arial' font-size='12' fill='#0f172a' font-weight='bold'>O</text></svg></div>",
+        options: ["7 ס\"מ", "14 ס\"מ", "3.5 ס\"מ", "28 ס\"מ"],
+        correctAnswer: 0,
+        hint: "במלבן, האלכסונים שווים זה לזה באורכם, והם גם חוצים זה את זה (מחלקים אחד את השני בדיוק לחצי).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "תכונה 1 של המלבן: האלכסונים שווים. לכן, אם AC = 14, אז גם האלכסון BD = 14.&rlm;", math_expression: "BD = 14" },
+            { verbal_explanation: "תכונה 2 של המלבן: האלכסונים חוצים זה את זה. נקודה O מחלקת את BD לשני חצאים שווים.&rlm;", math_expression: "" },
+            { verbal_explanation: "נחלק את אורך האלכסון BD ב-2 כדי למצוא את אורך הקטע BO.&rlm;", math_expression: "14 : 2 = 7" }
         ],
-        "final_answer": "כל הזוויות הן בנות 90 מעלות",
-        "options": ["כל הזוויות שוות ל-60 מעלות", "הזוויות הנגדיות בלבד שוות", "כל הזוויות הן בנות 90 מעלות", "סכום הזוויות הוא 180 מעלות"],
-        "correctAnswer": 2
+        final_answer: "7 ס\"מ"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Low",
-        "question_text": "במלבן, מה ניתן לומר על <strong>הצלעות הנגדיות</strong> (הצלעות שנמצאות זו מול זו)?",
-        "hint": "חשבו על דלת או על מסך מחשב. האם הקצה העליון והתחתון שווים באורכם?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתבונן בזוג צלעות שנמצאות אחת מול השנייה (למשל למעלה ולמטה).", "math_expression": "צלעות נגדיות" },
-            { "verbal_explanation": "שלב 2: במלבן, הצלעות הללו לעולם לא ייפגשו (הן מקבילות).", "math_expression": "מקבילות" },
-            { "verbal_explanation": "שלב 3: בנוסף, הן תמיד חייבות להיות בדיוק באותו האורך.", "math_expression": "שוות ומקבילות" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "איזה מהמשפטים הבאים מגדיר במדויק מלבן?&rlm;",
+        options: ["מקבילית שבה יש זווית ישרה אחת לפחות.", "מרובע שבו כל הצלעות שוות.", "מקבילית שבה האלכסונים מאונכים זה לזה.", "מרובע שבו האלכסונים חוצים זה את זה."],
+        correctAnswer: 0,
+        hint: "מלבן הוא מקרה פרטי של מקבילית. ברגע שבמקבילית זווית אחת 'מתיישרת' ל-90 מעלות, כל שאר הזוויות חייבות להתיישר גם הן.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ההגדרה הפורמלית של מלבן היא מקבילית בעלת זווית ישרה.&rlm;", math_expression: "" },
+            { verbal_explanation: "מכיוון שבמקבילית זוויות נגדיות שוות וזוויות סמוכות משלימות ל-180, ברגע שזווית אחת היא 90 מעלות, כל ארבע הזוויות יהיו 90 מעלות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "הן שוות באורכן ומקבילות זו לזו",
-        "options": ["הן תמיד שוות לצלעות הסמוכות", "הן שוות באורכן ומקבילות זו לזו", "הן מקבילות אך לא שוות", "הן נחתכות ב-90 מעלות"],
-        "correctAnswer": 1
+        final_answer: "מקבילית שבה יש זווית ישרה אחת לפחות."
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Medium",
-        "question_text": "במלבן שורטט אלכסון אחד ואורכו <strong>12 ס\"מ</strong>. מה יהיה אורכו של <strong>האלכסון השני</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100'><rect x='20' y='20' width='120' height='60' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='20' y1='20' x2='140' y2='80' stroke='#b09151' stroke-width='2' stroke-dasharray='4'/><line x1='140' y1='20' x2='20' y2='80' stroke='#b09151' stroke-width='2' stroke-dasharray='4'/><text x='80' y='12' font-size='12' text-anchor='middle'>12 ס\"מ = ? ס\"מ</text></svg></div>",
-        "hint": "אחת התכונות המיוחדות של מלבן קשורה לאלכסונים שלו. האם הם נראים באותו אורך?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אלכסון הוא קו המחבר שני קודקודים נגדיים (פינות מנוגדות).", "math_expression": "אלכסון" },
-            { "verbal_explanation": "שלב 2: נזכר במשפט הגיאומטרי: 'בכל מלבן, שני האלכסונים שווים זה לזה באורכם'.", "math_expression": "אלכסון א = אלכסון ב" },
-            { "verbal_explanation": "שלב 3: לכן, אם אלכסון אחד הוא 12 ס\"מ, גם האלכסון השני חייב להיות בדיוק 12 ס\"מ.", "math_expression": "12" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "במלבן, אלכסון יוצר זווית של 35 מעלות עם הצלע הארוכה של המלבן. מהו גודל הזווית שהאלכסון יוצר עם הצלע הקצרה (הסמוכה לה)?&rlm;",
+        options: ["55 מעלות", "35 מעלות", "90 מעלות", "145 מעלות"],
+        correctAnswer: 0,
+        hint: "זווית של מלבן היא תמיד 90 מעלות (זווית ישרה). האלכסון מחלק את זווית המלבן לשתי זוויות המשלימות יחד ל-90.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "קודקוד המלבן יוצר זווית של 90 מעלות.&rlm;", math_expression: "" },
+            { verbal_explanation: "האלכסון חותך את הזווית הזו לשני חלקים. חלק אחד נתון כ-35 מעלות.&rlm;", math_expression: "" },
+            { verbal_explanation: "כדי למצוא את החלק השני, נחסר מ-90 מעלות.&rlm;", math_expression: "90 - 35 = 55" }
         ],
-        "final_answer": "12 ס\"מ",
-        "options": ["6 ס\"מ", "24 ס\"מ", "12 ס\"מ", "אי אפשר לדעת בלי צלעות"],
-        "correctAnswer": 2
+        final_answer: "55 מעלות"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Medium",
-        "question_text": "במלבן, האלכסונים נחתכים בנקודה O. אם המרחק מקודקוד אחד לנקודה O הוא <strong>5 ס\"מ</strong>, מהו אורכו של <strong>האלכסון המלא</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100'><rect x='20' y='20' width='120' height='60' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='20' y1='20' x2='140' y2='80' stroke='#b09151' stroke-width='2'/><line x1='140' y1='20' x2='20' y2='80' stroke='#b09151' stroke-width='2'/><circle cx='80' cy='50' r='3' fill='red'/><text x='80' y='45' font-size='14' text-anchor='middle'>O</text><text x='50' y='35' font-size='12' fill='red'>5</text></svg></div>",
-        "hint": "האלכסונים במלבן חוצים זה את זה בדיוק באמצע.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התכונה קובעת שנקודת המפגש של האלכסונים חוצה אותם. כלומר, היא מחלקת כל אלכסון לשני חצאים שווים.", "math_expression": "חצי אלכסון = 5" },
-            { "verbal_explanation": "שלב 2: אם חצי אלכסון שווה ל-5 ס\"מ, החצי השני גם הוא 5 ס\"מ.", "math_expression": "5 + 5" },
-            { "verbal_explanation": "שלב 3: נחבר את שני החצאים כדי לקבל את האורך של האלכסון המלא.", "math_expression": "10" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "אורכו של מלבן הוא x + 5, ורוחבו הוא x. היקף המלבן הוא 30 ס\"מ. מהו רוחב המלבן?&rlm;",
+        options: ["5 ס\"מ", "10 ס\"מ", "15 ס\"מ", "4 ס\"מ"],
+        correctAnswer: 0,
+        hint: "היקף מלבן הוא פעמיים האורך ועוד פעמיים הרוחב. בנו את המשוואה: 2x + 2(x+5) = 30.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרכיב משוואה להיקף. למלבן שתי צלעות ברוחב x, ושתי צלעות באורך x+5.&rlm;", math_expression: "x + x + (x + 5) + (x + 5) = 30" },
+            { verbal_explanation: "שלב ב': נכנס איברים דומים (ארבע פעמים x, ועוד 10).&rlm;", math_expression: "4x + 10 = 30" },
+            { verbal_explanation: "שלב ג': נחסר 10 משני האגפים.&rlm;", math_expression: "4x = 20" },
+            { verbal_explanation: "שלב ד': נחלק ב-4 למציאת x (הרוחב).&rlm;", math_expression: "x = 20 : 4 = 5" }
         ],
-        "final_answer": "10 ס\"מ",
-        "options": ["5 ס\"מ", "10 ס\"מ", "20 ס\"מ", "2.5 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "5 ס\"מ"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "High",
-        "question_text": "היקף של מלבן הוא <strong>30 ס\"מ</strong>. אורך צלע אחת הוא <strong>10 ס\"מ</strong>. מהו אורך <strong>הצלע הסמוכה לה</strong>?",
-        "hint": "היקף הוא סכום כל 4 הצלעות. אם צלע אחת 10, אז גם זו שמולה 10. כמה נשאר לשתי הצלעות האחרות?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את היקף המלבן. היקף מורכב מפעמיים האורך ועוד פעמיים הרוחב.", "math_expression": "2A + 2B = 30" },
-            { "verbal_explanation": "שלב 2: ידוע לנו שצלע אחת היא 10. מכיוון שצלעות נגדיות שוות, יש לנו שתי צלעות של 10.", "math_expression": "10 + 10 = 20" },
-            { "verbal_explanation": "שלב 3: נחסיר את סכום הצלעות הללו (20) מסך ההיקף (30) כדי לראות כמה נשאר לשתי הצלעות הנותרות.", "math_expression": "30 - 20 = 10" },
-            { "verbal_explanation": "שלב 4: ה-10 שנותר מתחלק שווה בשווה בין שתי הצלעות הנגדיות הנותרות. נחלק ב-2.", "math_expression": "10 ÷ 2 = 5" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "מלבן שבו גם כל הצלעות שוות באורכן נקרא...&rlm;",
+        options: ["ריבוע", "מעוין", "טרפז", "דלתון"],
+        correctAnswer: 0,
+        hint: "למלבן יש זוויות ישרות. ברגע שנוסיף לו תכונה שכל הצלעות שלו שוות, נקבל צורה מושלמת.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "מלבן הוא מרובע שכל זוויותיו ישרות (90 מעלות).&rlm;", math_expression: "" },
+            { verbal_explanation: "כאשר אנו מוסיפים את התנאי שגם כל 4 הצלעות שוות, אנו מקבלים מרובע שגם זוויותיו ישרות וגם צלעותיו שוות - וזהו ריבוע.&rlm;", math_expression: "" }
         ],
-        "final_answer": "5 ס\"מ",
-        "options": ["10 ס\"מ", "20 ס\"מ", "5 ס\"מ", "15 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "ריבוע"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Low",
-        "question_text": "כמה <strong>צירי סימטריה</strong> יש למלבן (שאינו ריבוע)?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100'><rect x='20' y='20' width='120' height='60' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='80' y1='10' x2='80' y2='90' stroke='#b09151' stroke-width='2' stroke-dasharray='5'/><line x1='10' y1='50' x2='150' y2='50' stroke='#b09151' stroke-width='2' stroke-dasharray='5'/></svg></div>",
-        "hint": "ציר סימטריה הוא קו קיפול שבו שני החצאים חופפים בדיוק. אפשר לקפל מלבן לאורך ולרוחב. האם אפשר לקפל אותו באלכסון ולקבל חפיפה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ננסה 'לקפל' את המלבן באמצע לאורך (מלמעלה למטה). שני החצאים מכסים זה את זה בדיוק. זהו ציר 1.", "math_expression": "ציר אנכי" },
-            { "verbal_explanation": "שלב 2: ננסה לקפל לרוחב (מימין לשמאל). גם כאן החצאים חופפים. זהו ציר 2.", "math_expression": "ציר אופקי" },
-            { "verbal_explanation": "שלב 3: אם ננסה לקפל על האלכסון במלבן (שאינו ריבוע), השפיצים לא ייפגשו. לכן יש לו רק 2 צירי סימטריה.", "math_expression": "2 צירים" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "אלכסוני המלבן מיוצגים על ידי הביטויים (3x - 2) ס\"מ ו- (x + 8) ס\"מ. מהו אורכו של כל אלכסון בסנטימטרים?&rlm;",
+        options: ["13", "5", "10", "15"],
+        correctAnswer: 0,
+        hint: "במלבן, האלכסונים תמיד שווים זה לזה. השוו את שני הביטויים, מצאו את x, והציבו חזרה באחד הביטויים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרכיב משוואה. האלכסונים במלבן שווים.&rlm;", math_expression: "3x - 2 = x + 8" },
+            { verbal_explanation: "שלב ב': נעביר את ה-x שמאלה ואת המספרים ימינה. 3x פחות x שווה 2x. פלוס 8 ועוד 2 שווה 10.&rlm;", math_expression: "2x = 10" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 למציאת x.&rlm;", math_expression: "x = 5" },
+            { verbal_explanation: "שלב ד': נציב את x=5 באחד הביטויים כדי למצוא את אורך האלכסון.&rlm;", math_expression: "5 + 8 = 13" }
         ],
-        "final_answer": "2",
-        "options": ["0", "2", "4", "אינסוף"],
-        "correctAnswer": 1
+        final_answer: "13"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Medium",
-        "question_text": "אלכסון במלבן מחלק אותו תמיד ל-2 משולשים. אילו מן המשולשים הבאים יתקבלו?",
-        "hint": "הזווית של המלבן לא משתנה (נשארת 90 מעלות). המשולשים שנוצרים נשענים על הזווית הזו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כשנעביר קו אלכסון במלבן פינה לפינה נגדית, הוא יחתוך את הצורה לשני משולשים.", "math_expression": "2 משולשים" },
-            { "verbal_explanation": "שלב 2: לכל אחד מהמשולשים הללו יש זווית אחת של 90 מעלות (זו הזווית של המלבן המקורי שנשארה שלמה).", "math_expression": "זווית 90°" },
-            { "verbal_explanation": "שלב 3: משולש שיש בו זווית של 90 מעלות נקרא 'משולש ישר זווית'. בנוסף, שני המשולשים חופפים (זהים לחלוטין) כי הצלעות הנגדיות שוות.", "math_expression": "ישרי זווית חופפים" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "מה מספר צירי הסימטריה (קווי קיפול) שיש למלבן שאינו ריבוע?&rlm;",
+        options: ["2 צירי סימטריה", "4 צירי סימטריה", "0 צירי סימטריה", "ציר סימטריה 1"],
+        correctAnswer: 0,
+        hint: "דמיינו דף נייר A4 (שהוא מלבן). בכמה דרכים תוכלו לקפל אותו כך ששני החצאים יחפפו בדיוק מושלם? (האלכסונים הם לא צירי סימטריה במלבן!).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "למלבן רגיל יש שני קווי קיפול אפשריים: קו אנכי שחוצה אותו לשמאל-ימין, וקו אופקי שחוצה אותו ללמעלה-למטה.&rlm;", math_expression: "" },
+            { verbal_explanation: "קיפול על האלכסון לא ייצור חפיפה מושלמת (הקצוות יבלטו החוצה). לכן יש רק 2 צירים.&rlm;", math_expression: "" }
         ],
-        "final_answer": "שני משולשים ישרי זווית חופפים",
-        "options": ["שני משולשים שווי צלעות", "שני משולשים ישרי זווית חופפים", "שני משולשים קהי זווית", "שני משולשים שווי שוקיים"],
-        "correctAnswer": 1
+        final_answer: "2 צירי סימטריה"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "High",
-        "question_text": "במלבן העבירו אלכסון. הזווית שבין האלכסון לבין הצלע הארוכה היא <strong>30°</strong>. מה גודלה של הזווית שבין <strong>אותו אלכסון לצלע הקצרה</strong> (באותו קודקוד)?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100'><rect x='20' y='20' width='120' height='60' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='20' y1='80' x2='140' y2='20' stroke='#b09151' stroke-width='2'/><path d='M45,80 A25,25 0 0,0 42,69' fill='none' stroke='red' stroke-width='2'/><text x='55' y='75' font-size='12' fill='red'>30°</text><path d='M20,55 A25,25 0 0,0 35,60' fill='none' stroke='blue' stroke-width='2'/><text x='25' y='50' font-size='12' fill='blue'>X</text></svg></div>",
-        "hint": "זכרו שסך כל הזווית בפינת המלבן (הקודקוד השלם) היא בדיוק 90 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה שהאלכסון חותך את זווית המלבן בפינה לשני חלקים.", "math_expression": "פינה" },
-            { "verbal_explanation": "שלב 2: אנו יודעים שזווית שלמה של מלבן היא זווית ישרה, כלומר שווה ל-90 מעלות.", "math_expression": "סך הכל = 90°" },
-            { "verbal_explanation": "שלב 3: אם חלק אחד שווה ל-30°, החלק השני חייב להשלים אותו ל-90. נחשב: 90 פחות 30.", "math_expression": "90 - 30 = 60°" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "היקף מלבן הוא 50 ס\"מ. אורך צלע אחת הוא 15 ס\"מ. מהו אורכה של הצלע הסמוכה לה?&rlm;",
+        options: ["10 ס\"מ", "20 ס\"מ", "35 ס\"מ", "5 ס\"מ"],
+        correctAnswer: 0,
+        hint: "למלבן יש שתי צלעות באורך 15 ס\"מ. חסרו את שתיהן מההיקף הכולל, וחלקו את השארית ל-2 הצלעות הנותרות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': למלבן יש שתי צלעות באורך 15, לכן סכומן הוא 30.&rlm;", math_expression: "15 × 2 = 30" },
+            { verbal_explanation: "שלב ב': נחסר את ה-30 מההיקף הכולל.&rlm;", math_expression: "50 - 30 = 20" },
+            { verbal_explanation: "שלב ג': ה-20 שנותרו מתחלקים שווה בשווה לשתי הצלעות הנגדיות האחרות. נחלק ב-2.&rlm;", math_expression: "20 : 2 = 10" }
         ],
-        "final_answer": "60°",
-        "options": ["90°", "30°", "60°", "150°"],
-        "correctAnswer": 2
+        final_answer: "10 ס\"מ"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Medium",
-        "question_text": "היחס בין אורכי הצלעות הסמוכות במלבן הוא <strong>1:3</strong>. היקף המלבן הוא <strong>32 ס\"מ</strong>. מהו אורך <strong>הצלע הקצרה</strong>?",
-        "hint": "סמנו את הצלע הקצרה ב-X והארוכה ב-3X. זכרו שהיקף הוא סכום של 4 צלעות (פעמיים מכל אחת).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר משתנים לפי היחס. צלע קצרה תהיה 1X, וצלע ארוכה תהיה 3X.", "math_expression": "X, 3X" },
-            { "verbal_explanation": "שלב 2: נבנה את משוואת ההיקף. מלבן מורכב מפעמיים צלע קצרה ופעמיים צלע ארוכה. נחבר את הכל ונשווה ל-32.", "math_expression": "X + 3X + X + 3X = 32" },
-            { "verbal_explanation": "שלב 3: נכנס איברים (נחבר את כל האיקסים יחד). קיבלנו 8 יחידות X.", "math_expression": "8X = 32" },
-            { "verbal_explanation": "שלב 4: נחלק ב-8 כדי למצוא את הערך של יחידה אחת (הצלע הקצרה).", "math_expression": "X = 4" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "אלכסוני המלבן חולקו את המלבן ל-4 משולשים. מה נכון לומר על 4 המשולשים הללו?&rlm;",
+        options: ["הם כולם שווי שטח", "הם כולם חופפים זה לזה", "הם משולשים ישרי זווית", "אין ביניהם קשר"],
+        correctAnswer: 0,
+        hint: "האלכסונים במלבן שווים וחוצים זה את זה, מה שיוצר 4 משולשים שווי שוקיים. למרות שהם לא כולם חופפים, השטח שלהם זהה לחלוטין!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "במלבן, האלכסונים שווים וחוצים זה את זה. לכן נוצרים שני זוגות של משולשים חופפים (העליון חופף לתחתון, הימני חופף לשמאלי).&rlm;", math_expression: "" },
+            { verbal_explanation: "אולם, לכל 4 המשולשים יש את אותו בסיס ואותו גובה (מבחינת שטחים), ולכן שטחם שווה, גם אם צורתם אינה זהה לחלוטין (הם לא חופפים כולם יחד).&rlm;", math_expression: "" }
         ],
-        "final_answer": "4 ס\"מ",
-        "options": ["4 ס\"מ", "8 ס\"מ", "12 ס\"מ", "3 ס\"מ"],
-        "correctAnswer": 0
+        final_answer: "הם כולם שווי שטח"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Low",
-        "question_text": "האם כל מלבן הוא בהכרח גם <strong>מקבילית</strong>?",
-        "hint": "מקבילית מוגדרת כמרובע שבו כל זוג צלעות נגדיות מקבילות זו לזו. האם מלבן עונה להגדרה הזו?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק מה הדרישה כדי להיקרא 'מקבילית'. הדרישה היא שלמרובע יהיו שני זוגות של צלעות נגדיות מקבילות.", "math_expression": "מקבילית = 2 זוגות צלעות מקבילות" },
-            { "verbal_explanation": "שלב 2: במלבן, הצלעות העליונה והתחתונה מקבילות, וכן הצלעות הימנית והשמאלית.", "math_expression": "מלבן מקיים את התנאי" },
-            { "verbal_explanation": "שלב 3: לכן, המלבן הוא 'משפחה' בתוך המקביליות (הוא מקבילית מיוחדת עם זוויות של 90 מעלות). התשובה היא כן.", "math_expression": "נכון" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "במלבן, אלכסון מחלק את זווית המלבן לשתי זוויות המתייחסות זו לזו ביחס של 1:2. מה גודל הזוויות?&rlm;",
+        options: ["30° ו-60°", "45° ו-45°", "20° ו-70°", "40° ו-50°"],
+        correctAnswer: 0,
+        hint: "זווית המלבן כולה היא 90 מעלות. חברו את חלקי היחס (1+2=3) וחלקו את ה-90 ל-3 חלקים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': זווית המלבן היא 90 מעלות. סך החלקים ביחס הוא 3.&rlm;", math_expression: "1 + 2 = 3" },
+            { verbal_explanation: "שלב ב': נחלק 90 ב-3 כדי למצוא את הערך של יחידת יחס אחת.&rlm;", math_expression: "90 : 3 = 30" },
+            { verbal_explanation: "שלב ג': הזווית הקטנה היא 1 כפול 30 (30°), והזווית הגדולה היא 2 כפול 30 (60°).&rlm;", math_expression: "1 × 30 = 30 , 2 × 30 = 60" }
         ],
-        "final_answer": "כן, כל מלבן הוא מקבילית",
-        "options": ["לא, מלבן הוא צורה אחרת לגמרי", "כן, כל מלבן הוא מקבילית", "רק אם כל צלעותיו שוות (ריבוע)", "רק אם האלכסונים שלו מאונכים"],
-        "correctAnswer": 1
+        final_answer: "30° ו-60°"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "High",
-        "question_text": "במלבן, שני האלכסונים נחתכים בנקודה שיוצרת 4 משולשים בתוך המלבן. איזה סוג משולשים אלו?",
-        "hint": "ציירו מלבן ואלכסונים. חצאי האלכסונים שווים זה לזה. משולש שבו שתי צלעות שוות נקרא...",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו יודעים שבמלבן האלכסונים שווים באורכם, והם גם חוצים זה את זה בדיוק באמצע.", "math_expression": "האלכסונים שווים ונחצים" },
-            { "verbal_explanation": "שלב 2: לכן, ארבעת 'חצאי האלכסונים' הנפגשים באמצע שווים כולם זה לזה.", "math_expression": "4 קטעים שווים מהמרכז" },
-            { "verbal_explanation": "שלב 3: כל משולש שנוצר מורכב מצלע של המלבן ומשני חצאי אלכסון. מכיוון ששני חצאי האלכסון שוות, בכל משולש יש 2 צלעות שוות. משולש כזה נקרא 'שווה שוקיים'.", "math_expression": "משולשים שווי שוקיים" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "יחס אורכי הצלעות במלבן הוא 1:2. היקף המלבן הוא 30 ס\"מ. מהם אורכי הצלעות של המלבן?&rlm;",
+        options: ["5 ס\"מ ו-10 ס\"מ", "10 ס\"מ ו-20 ס\"מ", "6 ס\"מ ו-12 ס\"מ", "3 ס\"מ ו-6 ס\"מ"],
+        correctAnswer: 0,
+        hint: "נסמן את הצלע הקצרה ב-x, ואת הארוכה ב-2x. ההיקף הוא פעמיים x ועוד פעמיים 2x (סך הכל 6x). משוואה: 6x = 30.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן רוחב = x, אורך = 2x. נבנה משוואת היקף.&rlm;", math_expression: "x + x + 2x + 2x = 30" },
+            { verbal_explanation: "שלב ב': נחבר את כל ה-x-ים.&rlm;", math_expression: "6x = 30" },
+            { verbal_explanation: "שלב ג': נחלק ב-6. ה-x (הצלע הקצרה) שווה 5.&rlm;", math_expression: "x = 5" },
+            { verbal_explanation: "שלב ד': הצלע הארוכה היא כפולה (2x). 5 כפול 2 שווה 10.&rlm;", math_expression: "2 × 5 = 10" }
         ],
-        "final_answer": "משולשים שווי שוקיים",
-        "options": ["משולשים שווי צלעות", "משולשים ישרי זווית", "משולשים שווי שוקיים", "משולשים שוני צלעות"],
-        "correctAnswer": 2
+        final_answer: "5 ס\"מ ו-10 ס\"מ"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Medium",
-        "question_text": "אם ידוע שמרובע מסוים הוא מקבילית, איזה <strong>תנאי אחד מספיק</strong> להוסיף כדי להוכיח שהוא <strong>מלבן</strong>?",
-        "hint": "מה ההבדל הויזואלי היחיד בין מקבילית 'נטויה' לבין מלבן 'זקוף'?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מקבילית יכולה להיות נטויה (זוויות חדות וקהות).", "math_expression": "מקבילית" },
-            { "verbal_explanation": "שלב 2: כדי 'ליישר' אותה למלבן, אנחנו חייבים שהזוויות שלה יהיו ישרות.", "math_expression": "יישור זוויות" },
-            { "verbal_explanation": "שלב 3: בזכות התכונות של מקבילית (זוויות נגדיות שוות וסמוכות משלימות ל-180), מספיק שנוכיח שזווית אחת בלבד היא 90 מעלות. אוטומטית, כל שאר ה-3 יהפכו ל-90, והצורה תהיה מלבן.", "math_expression": "זווית אחת ישרה" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המלבן",
+        question_text: "איזה מרובע תמיד יתקבל אם נחבר ברצף את אמצעי הצלעות של מלבן?&rlm;",
+        options: ["מעוין", "ריבוע", "מלבן", "טרפז"],
+        correctAnswer: 0,
+        hint: "נסו לצייר מלבן ולסמן את אמצעי הצלעות. חיבור שלהם יוצר צורה שבה כל הצלעות שוות, אך הזוויות אינן ישרות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר מחברים את אמצעי הצלעות של מלבן, נוצרים 4 משולשים ישרי זווית חופפים בפינות.&rlm;", math_expression: "" },
+            { verbal_explanation: "היתרים של המשולשים האלו יוצרים מרובע פנימי חדש, ומכיוון שהם חופפים, כל 4 צלעותיו שוות.&rlm;", math_expression: "" },
+            { verbal_explanation: "מרובע בעל 4 צלעות שוות הוא מעוין.&rlm;", math_expression: "" }
         ],
-        "final_answer": "מספיק שתהיה לו זווית ישרה אחת (90°)",
-        "options": ["שכל צלעותיו שוות", "שהאלכסונים יחצו זה את זה", "מספיק שתהיה לו זווית ישרה אחת (90°)", "שהאלכסונים יהיו מאונכים"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "High",
-        "question_text": "האלכסונים במלבן נחתכים ויוצרים זווית קהה של <strong>120°</strong>. המשולשים שנוצרים הם שווי שוקיים. מהו גודלה של <strong>זווית הבסיס</strong> באחד המשולשים הקהים שנוצרו?",
-        "hint": "במשולש יש 180 מעלות. אם זווית הראש היא 120, כמה נשאר לשתי הזוויות שבתחתית (שהן שוות)?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתבונן במשולש שנוצר מהאלכסונים. הוא שווה שוקיים (כי חצאי האלכסון שווים), ונתון שזווית הראש במרכז היא 120.", "math_expression": "זווית ראש = 120°" },
-            { "verbal_explanation": "שלב 2: סכום הזוויות בכל משולש הוא תמיד 180. נחסיר מ-180 את זווית הראש כדי לראות כמה מעלות נותרו לשתי זוויות הבסיס יחד.", "math_expression": "180 - 120 = 60°" },
-            { "verbal_explanation": "שלב 3: במשולש שווה שוקיים, זוויות הבסיס שוות זו לזו. נחלק את ה-60 שנותר ל-2 חלקים שווים.", "math_expression": "60 ÷ 2 = 30°" }
-        ],
-        "final_answer": "30°",
-        "options": ["60°", "30°", "15°", "45°"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Medium",
-        "question_text": "אילו מהתכונות הבאות של אלכסונים <strong>אינה</strong> נכונה לגבי מלבן?",
-        "hint": "אלכסוני המלבן שווים וחוצים. אבל האם הם יוצרים צורת פלוס (+) ישרה בדיוק ביניהם?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו יודעים שבמלבן האלכסונים שווים באורכם. משפט זה נכון.", "math_expression": "אלכסונים שווים" },
-            { "verbal_explanation": "שלב 2: אנו יודעים שהם נחתכים בדיוק באמצע (חוצים זה את זה). משפט זה נכון.", "math_expression": "חוצים זה את זה" },
-            { "verbal_explanation": "שלב 3: האם הם מאונכים (יוצרים 90 מעלות ביניהם)? לא. תכונה זו שייכת למעוין ולריבוע, אבל מלבן רגיל 'מתוח' לאורך או לרוחב ולכן אלכסוניו נפגשים בזוויות חדות וקהות, לא ישרות.", "math_expression": "לא מאונכים (לא 90°)" }
-        ],
-        "final_answer": "האלכסונים מאונכים זה לזה",
-        "options": ["האלכסונים שווים זה לזה", "האלכסונים חוצים זה את זה", "האלכסונים מאונכים זה לזה", "האלכסונים יוצרים משולשים שווי שוקיים"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 15,
-        "subTopic": "תכונות המלבן",
-        "difficulty": "Low",
-        "question_text": "במלבן ABCD אורך הצלע AB הוא 8 ס\"מ, ואורך הצלע BC הוא 5 ס\"מ. מהו אורך צלע <strong>DC</strong>?",
-        "hint": "דמיינו את השרטוט: AB ו-DC הן הצלעות שנמצאות אחת מול השנייה (עליונה ותחתונה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במרובע המסומן ABCD, הצלע AB נגדית (נמצאת ממול) לצלע CD או DC.", "math_expression": "AB מול DC" },
-            { "verbal_explanation": "שלב 2: אחד מחוקי הברזל של המלבן הוא שצלעות נגדיות שוות באורכן תמיד.", "math_expression": "AB = DC" },
-            { "verbal_explanation": "שלב 3: לכן, אורכה של הצלע DC יהיה בדיוק כאורכה של AB, כלומר 8 ס\"מ.", "math_expression": "DC = 8" }
-        ],
-        "final_answer": "8 ס\"מ",
-        "options": ["5 ס\"מ", "8 ס\"מ", "13 ס\"מ", "אי אפשר לדעת"],
-        "correctAnswer": 1
+        final_answer: "מעוין"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: תכונות המקבילית (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: תכונות המקבילית (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Low",
-        "question_text": "איזו תכונה מגדירה <strong>מקבילית</strong> מבין הצורות המרובעות?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='80'><polygon points='40,20 140,20 120,60 20,60' fill='#fefce8' stroke='#1e293b' stroke-width='2'/><path d='M85,15 L95,20 L85,25' fill='none' stroke='red' stroke-width='2'/><path d='M75,55 L85,60 L75,65' fill='none' stroke='red' stroke-width='2'/><path d='M30,35 L25,45 L20,35' fill='none' stroke='blue' stroke-width='2'/><path d='M130,35 L125,45 L120,35' fill='none' stroke='blue' stroke-width='2'/></svg></div>",
-        "hint": "השם 'מקבילית' מרמז על התכונה החשובה ביותר שלה. מה מקביל למה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: השם מקבילית נגזר מהמילה 'מקביל' (קווים שלעולם לא נפגשים, כמו פסי רכבת).", "math_expression": "מקבילים" },
-            { "verbal_explanation": "שלב 2: ההגדרה הגיאומטרית היסודית היא שמקבילית היא מרובע שיש לו שני זוגות של צלעות כאלו.", "math_expression": "2 זוגות" },
-            { "verbal_explanation": "שלב 3: כלומר, הצלע העליונה מקבילה לתחתונה, והימנית מקבילה לשמאלית.", "math_expression": "צלעות נגדיות מקבילות" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "במקבילית, זווית אחת היא בת 70 מעלות. מה גודלה של הזווית הסמוכה לה (לידה)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 80' width='100%' height='80' style='max-width:200px;'><polygon points='40,70 180,70 150,20 10,20' fill='#dcfce7' stroke='#16a34a' stroke-width='2'/><path d='M 140 20 A 15 15 0 0 1 155 35' fill='none' stroke='#0f172a' stroke-width='2'/><text x='130' y='45' font-family='Arial' font-size='12' fill='#0f172a'>70°</text><path d='M 170 70 A 15 15 0 0 0 162 55' fill='none' stroke='#ef4444' stroke-width='2'/><text x='150' y='65' font-family='Arial' font-size='14' font-weight='bold' fill='#ef4444'>x</text></svg></div>",
+        options: ["110 מעלות", "70 מעלות", "20 מעלות", "180 מעלות"],
+        correctAnswer: 0,
+        hint: "במקבילית, כל שתי צלעות נגדיות הן מקבילות. לכן, כל שתי זוויות סמוכות הן 'זוויות חד-צדדיות' שמשלימות יחד ל-180 מעלות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "תכונה מרכזית של מקבילית: סכום כל שתי זוויות סמוכות הוא 180 מעלות.&rlm;", math_expression: "x + 70 = 180" },
+            { verbal_explanation: "נחסר 70 מ-180 כדי למצוא את הזווית החסרה.&rlm;", math_expression: "180 - 70 = 110" }
         ],
-        "final_answer": "כל זוג צלעות נגדיות מקבילות זו לזו",
-        "options": ["כל הזוויות שוות ל-90 מעלות", "כל זוג צלעות נגדיות מקבילות זו לזו", "האלכסונים שווים זה לזה", "יש רק זוג אחד של צלעות מקבילות"],
-        "correctAnswer": 1
+        final_answer: "110 מעלות"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Medium",
-        "question_text": "במקבילית, אחת מהזוויות הקהות (הגדולות) היא בת <strong>110° מעלות</strong>. מהו גודלה של <strong>הזווית הנגדית לה</strong> (הנמצאת בפינה שממול)?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='80'><polygon points='40,20 140,20 120,60 20,60' fill='none' stroke='#1e293b' stroke-width='2'/><path d='M35,20 A15,15 0 0,0 25,40' fill='none' stroke='red' stroke-width='2'/><text x='12' y='30' font-size='10' fill='red'>110°</text><path d='M135,60 A15,15 0 0,0 125,40' fill='none' stroke='blue' stroke-width='2'/><text x='140' y='55' font-size='12' fill='blue'>X</text></svg></div>",
-        "hint": "תכונה חשובה של מקביליות: זוויות נגדיות (זו מול זו באלכסון) מתנהגות כמו מראה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את מיקום הזוויות. הן נמצאות בפינות נגדיות של המקבילית.", "math_expression": "זוויות נגדיות" },
-            { "verbal_explanation": "שלב 2: המשפט הגיאומטרי קובע כי 'במקבילית, כל שתי זוויות נגדיות שוות זו לזו בגודלן'.", "math_expression": "זווית א' = זווית ב'" },
-            { "verbal_explanation": "שלב 3: לכן, אם הזווית הנתונה היא 110°, גם הזווית שמולה תהיה 110° בדיוק.", "math_expression": "110°" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "במקבילית, שתי זוויות נגדיות מיוצגות על ידי 4x ו- (x + 60). מהו ערכו של x?&rlm;",
+        options: ["20", "60", "30", "15"],
+        correctAnswer: 0,
+        hint: "במקבילית, זוויות נגדיות שוות זו לזו. בנו משוואה: 4x = x + 60.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': זוויות נגדיות (שנמצאות אחת מול השנייה באלכסון) במקבילית תמיד שוות.&rlm;", math_expression: "4x = x + 60" },
+            { verbal_explanation: "שלב ב': נחסר x משני האגפים כדי לרכז את המשתנים בצד אחד.&rlm;", math_expression: "3x = 60" },
+            { verbal_explanation: "שלב ג': נחלק ב-3.&rlm;", math_expression: "x = 20" }
         ],
-        "final_answer": "110° מעלות",
-        "options": ["70° מעלות", "110° מעלות", "90° מעלות", "180° מעלות"],
-        "correctAnswer": 1
+        final_answer: "20"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Medium",
-        "question_text": "במקבילית, זווית אחת היא בת <strong>60° מעלות</strong>. מהו גודלה של <strong>הזווית הסמוכה לה</strong> (שנמצאת על אותה צלע)?",
-        "hint": "זוויות סמוכות במקבילית משלימות יחד לצורת 'ח' או 'C' (נקראות זוויות חד-צדדיות בין ישרים מקבילים). הסכום שלהן הוא...",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במקבילית, שתי צלעות מקבילות נחתכות על ידי הצלע השלישית. דבר זה יוצר זוויות הנקראות 'חד-צדדיות'.", "math_expression": "זוויות חד-צדדיות" },
-            { "verbal_explanation": "שלב 2: הכלל קובע שסכומן של שתי זוויות סמוכות (על אותה צלע) במקבילית הוא תמיד 180 מעלות (חצי סיבוב).", "math_expression": "X + 60 = 180" },
-            { "verbal_explanation": "שלב 3: נחסיר את הזווית הידועה מ-180 כדי למצוא את הזווית הסמוכה לה.", "math_expression": "180 - 60 = 120°" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "במקבילית ABCD הועברו האלכסונים ונפגשו בנקודה M. אורך חצי מהאלכסון AM הוא 5 ס\"מ. מהו אורכו של האלכסון המלא AC?&rlm;",
+        options: ["10 ס\"מ", "5 ס\"מ", "2.5 ס\"מ", "15 ס\"מ"],
+        correctAnswer: 0,
+        hint: "במקבילית, האלכסונים חוצים זה את זה (מחלקים אחד את השני לשני חצאים שווים). אם חצי אחד הוא 5, כמה שווה השלם?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "תכונה: אלכסוני המקבילית חוצים זה את זה. לכן, נקודת המפגש מחלקת כל אלכסון לשניים.&rlm;", math_expression: "AM = MC = 5" },
+            { verbal_explanation: "האלכסון המלא מורכב משני החצאים הללו יחד.&rlm;", math_expression: "5 + 5 = 10" }
         ],
-        "final_answer": "120° מעלות",
-        "options": ["60° מעלות", "90° מעלות", "120° מעלות", "180° מעלות"],
-        "correctAnswer": 2
+        final_answer: "10 ס\"מ"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "High",
-        "question_text": "שתי זוויות סמוכות במקבילית מסומנות בביטויים: <strong>X</strong> ו- <strong>X + 40</strong>. מצאו את הערך של <strong>X</strong>.",
-        "hint": "היזכרו מהו סכומן של זוויות סמוכות במקבילית (כמו בשאלה הקודמת), ובנו משוואה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו יודעים שסכום של שתי זוויות סמוכות על אותה צלע במקבילית שווה ל-180 מעלות. נבנה משוואת סכום.", "math_expression": "X + (X + 40) = 180" },
-            { "verbal_explanation": "שלב 2: נכנס את האיברים הדומים (האיקסים). נקבל פעמיים X ועוד 40.", "math_expression": "2X + 40 = 180" },
-            { "verbal_explanation": "שלב 3: נחסיר 40 משני האגפים. נקבל שפעמיים X שווים ל-140.", "math_expression": "2X = 140" },
-            { "verbal_explanation": "שלב 4: נחלק ב-2 למציאת ערכו של X בודד.", "math_expression": "X = 70" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "שתי זוויות סמוכות במקבילית מתייחסות זו לזו ביחס של 2:3 (2x ו-3x). מהן המידות של זוויות אלו?&rlm;",
+        options: ["72° ו-108°", "40° ו-60°", "20° ו-30°", "80° ו-100°"],
+        correctAnswer: 0,
+        hint: "סכום זוויות סמוכות במקבילית הוא 180. חברו את x2 ו-3x (יחד 5x) והשוו ל-180.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סכום שתי זוויות סמוכות במקבילית הוא 180 מעלות.&rlm;", math_expression: "2x + 3x = 180" },
+            { verbal_explanation: "שלב ב': נכנס איברים (5x) ונפתור.&rlm;", math_expression: "5x = 180" },
+            { verbal_explanation: "שלב ג': נחלק 180 ב-5 למציאת x.&rlm;", math_expression: "x = 180 : 5 = 36" },
+            { verbal_explanation: "שלב ד': נציב למציאת הזוויות. הקטנה היא 2x, והגדולה היא 3x.&rlm;", math_expression: "2 × 36 = 72 , 3 × 36 = 108" }
         ],
-        "final_answer": "70",
-        "options": ["40", "70", "140", "180"],
-        "correctAnswer": 1
+        final_answer: "72° ו-108°"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Low",
-        "question_text": "אורך הצלע התחתונה במקבילית הוא <strong>10 ס\"מ</strong>. מהו אורכה של <strong>הצלע העליונה</strong> שמולה?",
-        "hint": "במקבילית, צלעות נגדיות מתנהגות בדיוק כמו במלבן.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה שמדובר בצלעות נגדיות (אחת למעלה ואחת למטה).", "math_expression": "צלעות נגדיות" },
-            { "verbal_explanation": "שלב 2: התכונה הבסיסית של מקבילית (שהיא גם תכונה של מלבן) קובעת שצלעות נגדיות אינן רק מקבילות, אלא תמיד שוות באורכן.", "math_expression": "צלע תחתונה = צלע עליונה" },
-            { "verbal_explanation": "שלב 3: לכן, אם אחת היא 10, השנייה גם חייבת להיות 10 ס\"מ.", "math_expression": "10 ס\"מ" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "היקף של מקבילית הוא 30 ס\"מ. אורך צלע אחת הוא x ואורך הצלע הסמוכה לה הוא x + 5. מהו אורך הצלע הקצרה (x)?&rlm;",
+        options: ["5 ס\"מ", "10 ס\"מ", "4 ס\"מ", "7.5 ס\"מ"],
+        correctAnswer: 0,
+        hint: "היקף המקבילית מחושב ממש כמו מלבן: 2x + 2(x+5) = 30.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': במקבילית צלעות נגדיות שוות, לכן ההיקף הוא פעמיים כל צלע סמוכה.&rlm;", math_expression: "2x + 2(x + 5) = 30" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים.&rlm;", math_expression: "2x + 2x + 10 = 30" },
+            { verbal_explanation: "שלב ג': נכנס איברים ונחסר 10.&rlm;", math_expression: "4x = 20" },
+            { verbal_explanation: "שלב ד': נחלק ב-4 למציאת x.&rlm;", math_expression: "x = 5" }
         ],
-        "final_answer": "10 ס\"מ",
-        "options": ["5 ס\"מ", "10 ס\"מ", "20 ס\"מ", "אי אפשר לדעת"],
-        "correctAnswer": 1
+        final_answer: "5 ס\"מ"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Medium",
-        "question_text": "היקף של מקבילית הוא <strong>40 ס\"מ</strong>. אורך אחת הצלעות הוא <strong>12 ס\"מ</strong>. מהו אורכה של <strong>הצלע הסמוכה</strong> לה?",
-        "hint": "ההיקף מורכב מזוג צלעות ארוכות וזוג צלעות קצרות. חסרו מההיקף את שתי הצלעות שאורכן 12.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: יש לנו צלע באורך 12. מכיוון שצלעות נגדיות שוות, הצלע שמולה היא גם 12. יחד הן תופסות חלק מההיקף.", "math_expression": "12 + 12 = 24" },
-            { "verbal_explanation": "שלב 2: נחסיר סכום זה מסך ההיקף (40) כדי לדעת כמה אורך נשאר לשתי הצלעות הנותרות.", "math_expression": "40 - 24 = 16" },
-            { "verbal_explanation": "שלב 3: ה-16 ס\"מ שנותרו מתחלקים שווה בשווה בין שתי הצלעות הנגדיות האחרות. נחלק ב-2.", "math_expression": "16 ÷ 2 = 8" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "במקבילית הועבר אלכסון היוצר צורת Z (זוויות מתחלפות) עם הצלעות המקבילות. אם הזווית הכלואה בין האלכסון לצלע העליונה היא 40 מעלות, מה תהיה הזווית בין האלכסון לצלע התחתונה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><line x1='10' y1='20' x2='150' y2='20' stroke='#334155' stroke-width='2'/><line x1='50' y1='80' x2='190' y2='80' stroke='#334155' stroke-width='2'/><line x1='50' y1='80' x2='150' y2='20' stroke='#ef4444' stroke-width='2'/><path d='M 120 20 A 25 25 0 0 0 135 30' fill='none' stroke='#3b82f6' stroke-width='2'/><text x='110' y='15' font-family='Arial' font-size='12' fill='#3b82f6'>40°</text><path d='M 80 80 A 25 25 0 0 0 65 70' fill='none' stroke='#10b981' stroke-width='2'/><text x='90' y='95' font-family='Arial' font-size='14' font-weight='bold' fill='#10b981'>?</text></svg></div>",
+        options: ["40 מעלות", "140 מעלות", "50 מעלות", "90 מעלות"],
+        correctAnswer: 0,
+        hint: "בין ישרים מקבילים, זוויות מתחלפות פנימיות (אלו שכלואות בתוך הברכיים של האות Z) תמיד שוות זו לזו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "האלכסון יוצר קו חותך בין שני ישרים מקבילים (הצלעות הנגדיות של המקבילית).&rlm;", math_expression: "" },
+            { verbal_explanation: "הזוויות המתחלפות (שנמצאות משני צידי האלכסון, אחת למעלה ואחת למטה) שוות זו לזו.&rlm;", math_expression: "x = 40" }
         ],
-        "final_answer": "8 ס\"מ",
-        "options": ["12 ס\"מ", "16 ס\"מ", "8 ס\"מ", "28 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "40 מעלות"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "High",
-        "question_text": "במקבילית העבירו שני אלכסונים שנחתכים בנקודה O. ידוע כי AO = 4 ס\"מ ו- BO = 6 ס\"מ. מהו <strong>האורך הכולל של שני האלכסונים (AC ו-BD) ביחד</strong>?",
-        "hint": "במקבילית, האלכסונים חוצים זה את זה בדיוק באמצע (כמו במלבן). אם חצי אלכסון הוא 4, האלכסון השלם הוא...?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: תכונת האלכסונים במקבילית היא שהם חוצים זה את זה לשני חצאים שווים. לכן, אם חצי אלכסון (AO) הוא 4, האלכסון השלם (AC) הוא פי 2.", "math_expression": "AC = 4 × 2 = 8" },
-            { "verbal_explanation": "שלב 2: נחשב את האלכסון השני. אם חצי אלכסון (BO) הוא 6, האלכסון השלם (BD) הוא פי 2.", "math_expression": "BD = 6 × 2 = 12" },
-            { "verbal_explanation": "שלב 3: נחבר את האורכים של שני האלכסונים השלמים כפי שהתבקשנו בשאלה.", "math_expression": "8 + 12 = 20" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "איזו מהתכונות הבאות **חייבת** להתקיים כדי שמרובע ייחשב למקבילית?&rlm;",
+        options: ["האלכסונים חוצים זה את זה.", "האלכסונים שווים זה לזה.", "יש זווית אחת ישרה.", "כל הצלעות שוות."],
+        correctAnswer: 0,
+        hint: "התכונות האחרות שייכות למרובעים 'משוכללים' יותר כמו מלבן או מעוין. למקבילית רגילה מספיקה תכונה בסיסית אחת לגבי האלכסונים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "משפט גיאומטרי קובע: מרובע שבו האלכסונים חוצים זה את זה הוא בהכרח מקבילית.&rlm;", math_expression: "" },
+            { verbal_explanation: "אלכסונים שווים (מלבן), זווית ישרה (מלבן) וצלעות שוות (מעוין) הן תכונות מיוחדות ולא נדרשות עבור מקבילית רגילה.&rlm;", math_expression: "" }
         ],
-        "final_answer": "20 ס\"מ",
-        "options": ["10 ס\"מ", "24 ס\"מ", "20 ס\"מ", "14 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "האלכסונים חוצים זה את זה."
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Medium",
-        "question_text": "סכומן של שתי זוויות נגדיות במקבילית (שתי זוויות שנמצאות זו מול זו) הוא <strong>100° מעלות</strong>. מהו גודלה של <strong>כל אחת מהן</strong>?",
-        "hint": "מה אנחנו יודעים על זוויות נגדיות במקבילית? הן תמיד...",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התכונה קובעת שזוויות נגדיות במקבילית הן שוות בגודלן.", "math_expression": "זווית א' = זווית ב'" },
-            { "verbal_explanation": "שלב 2: אם שתיהן זהות, והסכום של שתיהן יחד הוא 100, הרי שעלינו לחלק את הסכום הזה לשני חלקים שווים.", "math_expression": "100 ÷ 2" },
-            { "verbal_explanation": "שלב 3: נחשב ונקבל שכל זווית היא בת 50 מעלות.", "math_expression": "50°" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "במקבילית ABCD, הזווית A גדולה מהזווית הסמוכה לה B ב-40 מעלות. מהו גודלה של זווית A?&rlm;",
+        options: ["110 מעלות", "70 מעלות", "140 מעלות", "100 מעלות"],
+        correctAnswer: 0,
+        hint: "נסמן את זווית B ב-x, ואת זווית A ב-x+40. סכומן של זוויות סמוכות במקבילית הוא 180.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הזוויות. סכומן שווה ל-180.&rlm;", math_expression: "x + (x + 40) = 180" },
+            { verbal_explanation: "שלב ב': נכנס איברים (2x) ונחסר 40 משני האגפים.&rlm;", math_expression: "2x = 140" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 כדי למצוא את הזווית הקטנה B.&rlm;", math_expression: "x = 70" },
+            { verbal_explanation: "שלב ד': נחשב את הזווית הגדולה A (הגדולה ב-40).&rlm;", math_expression: "70 + 40 = 110" }
         ],
-        "final_answer": "50° מעלות",
-        "options": ["100° מעלות", "50° מעלות", "130° מעלות", "80° מעלות"],
-        "correctAnswer": 1
+        final_answer: "110 מעלות"
     },
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "High",
-        "question_text": "היחס בין שתי זוויות סמוכות במקבילית הוא <strong>1:3</strong>. מהו גודלה של <strong>הזווית הקהה (הגדולה)</strong>?",
-        "hint": "סמנו זווית אחת ב-X ואת השנייה ב-3X. זכרו שסכומן של זוויות סמוכות במקבילית הוא 180 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את היחס בעזרת נעלם X. הזווית החדה תהיה X והזווית הקהה תהיה 3X. סכומן של זוויות סמוכות במקבילית הוא תמיד 180.", "math_expression": "X + 3X = 180" },
-            { "verbal_explanation": "שלב 2: נחבר את החלקים. קיבלנו ש-4 יחידות X שוות ל-180 מעלות.", "math_expression": "4X = 180" },
-            { "verbal_explanation": "שלב 3: נחלק ב-4 כדי למצוא את היחידה הבסיסית (X), שהיא הזווית הקטנה.", "math_expression": "X = 45°" },
-            { "verbal_explanation": "שלב 4: מצאנו את הקטנה (45°), אך נשאלנו לגבי הגדולה. הגדולה היא 3 פעמים X.", "math_expression": "3 × 45 = 135°" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "נקודת המפגש של האלכסונים במקבילית מחלקת את האלכסון הראשון לקטעים באורך 6 ס\"מ, ואת האלכסון השני לקטעים באורך 8 ס\"מ. מהם אורכי האלכסונים השלמים של המקבילית?&rlm;",
+        options: ["12 ס\"מ ו-16 ס\"מ", "6 ס\"מ ו-8 ס\"מ", "3 ס\"מ ו-4 ס\"מ", "10 ס\"מ ו-14 ס\"מ"],
+        correctAnswer: 0,
+        hint: "נקודת המפגש היא בדיוק האמצע של כל אלכסון (חוצים זה את זה). הכפילו את החצאים ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "אלכסוני מקבילית חוצים זה את זה, ולכן חצי מהאלכסון הראשון הוא 6 וחצי מהשני הוא 8.&rlm;", math_expression: "" },
+            { verbal_explanation: "כדי למצוא את האורכים השלמים, נכפול כל אחד מהחצאים פי 2.&rlm;", math_expression: "6 × 2 = 12 , 8 × 2 = 16" }
         ],
-        "final_answer": "135° מעלות",
-        "options": ["45° מעלות", "135° מעלות", "90° מעלות", "180° מעלות"],
-        "correctAnswer": 1
+        final_answer: "12 ס\"מ ו-16 ס\"מ"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Low",
-        "question_text": "האם האלכסונים במקבילית רגילה <strong>חוצים את הזוויות</strong> (מחלקים את זווית הפינה לשני חצאים שווים)?",
-        "hint": "דמיינו מקבילית מאוד ארוכה ושטוחה. האם האלכסון עובר בדיוק באמצע הזווית?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: תכונת חציית הזוויות על ידי האלכסון לא קיימת במקבילית רגילה או במלבן.", "math_expression": "תכונה מיוחדת" },
-            { "verbal_explanation": "שלב 2: תכונה זו שמורה למקביליות מיוחדות בלבד שבהן כל הצלעות שוות: המעוין והריבוע.", "math_expression": "רק במעוין וריבוע" },
-            { "verbal_explanation": "שלב 3: לכן, עבור מקבילית סתמית, המשפט הזה אינו נכון.", "math_expression": "לא נכון" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "האם המשפט הבא נכון? 'כל מקבילית שבה האלכסונים שווים זה לזה היא בהכרח מלבן'.&rlm;",
+        options: ["נכון", "לא נכון, זה יכול להיות מעוין", "לא נכון, זה תמיד ריבוע", "נכון רק אם היא משולש"],
+        correctAnswer: 0,
+        hint: "במקבילית רגילה האלכסונים אינם שווים. התכונה המיוחדת שמיישרת את הזוויות והופכת אותה למלבן היא בדיוק שוויון האלכסונים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "משפט הגיאומטריה קובע: מקבילית בעלת אלכסונים שווים היא מלבן.&rlm;", math_expression: "" },
+            { verbal_explanation: "(הערה: ריבוע הוא סוג של מלבן ולכן המשפט נכון, במעוין רגיל האלכסונים אינם שווים).&rlm;", math_expression: "" }
         ],
-        "final_answer": "לא, רק במעוין וריבוע",
-        "options": ["כן, תמיד", "לא, בשום פנים ואופן לא", "לא, רק במעוין וריבוע", "רק כאשר המקבילית היא מלבן"],
-        "correctAnswer": 2
+        final_answer: "נכון"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Medium",
-        "question_text": "אם ידוע שמקבילית מסוימת כוללת <strong>זווית אחת ישרה (90°)</strong>, איזה שם מיוחד אפשר לתת לה?",
-        "hint": "אם זווית אחת היא 90, הסמוכה לה משלימה ל-180 (כלומר גם 90). ככה כל הזוויות מתיישרות. איזו צורה זו?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במקבילית, זוויות נגדיות שוות וסמוכות משלימות ל-180. לכן, אם אחת 90, הנגדית לה היא 90.", "math_expression": "90° , 90°" },
-            { "verbal_explanation": "שלב 2: הזווית הסמוכה לה תהיה 180 פחות 90, כלומר גם 90.", "math_expression": "180 - 90 = 90°" },
-            { "verbal_explanation": "שלב 3: קיבלנו מקבילית שכל 4 הזוויות שלה ישרות. ההגדרה של צורה כזו היא מלבן.", "math_expression": "מלבן" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "סמנו את התכונה ש**אינה** מתקיימת בהכרח בכל מקבילית:&rlm;",
+        options: ["האלכסונים מאונכים זה לזה (זווית 90 מעלות ביניהם)", "צלעות נגדיות שוות באורכן", "זוויות נגדיות שוות בגודלן", "האלכסונים חוצים זה את זה"],
+        correctAnswer: 0,
+        hint: "אלכסונים מאונכים (שיוצרים צלב ישר של 90 מעלות) הם תכונה מיוחדת של מעוין (וריבוע), ולא קיימת במקבילית או מלבן רגילים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "במקבילית רגילה, האלכסונים אמנם חוצים זה את זה, אך אין ביניהם זווית ישרה (90°).&rlm;", math_expression: "" },
+            { verbal_explanation: "רק כשהמקבילית הופכת למעוין או ריבוע, האלכסונים הופכים למאונכים זה לזה.&rlm;", math_expression: "" }
         ],
-        "final_answer": "מלבן",
-        "options": ["מעוין", "מלבן", "דלתון", "טרפז"],
-        "correctAnswer": 1
+        final_answer: "האלכסונים מאונכים זה לזה (זווית 90 מעלות ביניהם)"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "High",
-        "question_text": "במקבילית, זווית קהה אחת מיוצגת על ידי הביטוי <strong>3X</strong>. הזווית החדה הנגדית לה... רגע, האם יכולה להיות זווית חדה נגדית לזווית קהה?",
-        "hint": "היזכרו בתכונת הזוויות הנגדיות. האם הן שונות או שוות?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: התכונה הבסיסית במקבילית קובעת שזוויות נגדיות (מול) חייבות להיות שוות בגודלן.", "math_expression": "A = C" },
-            { "verbal_explanation": "שלב 2: לכן, אם זווית אחת היא קהה (גדולה מ-90), גם הזווית שמולה חייבת להיות קהה באותו גודל.", "math_expression": "קהה מול קהה" },
-            { "verbal_explanation": "שלב 3: המצב המתואר בשאלה ('זווית חדה נגדית לקהה') הוא בלתי אפשרי מבחינה גיאומטרית במקבילית.", "math_expression": "לא ייתכן" }
+        topic: "quadrilaterals",
+        subTopic: "תכונות המקבילית",
+        question_text: "במערכת צירים, נתונים שלושה קודקודים של מקבילית: (0,0), (5,0), (2,4). היכן ממוקם הקודקוד הרביעי (כדי להשלים למקבילית)?&rlm;",
+        options: ["(7,4)", "(5,4)", "(3,4)", "(-3,4)"],
+        correctAnswer: 0,
+        hint: "הבסיס התחתון מונח על ציר x ואורכו מ-0 עד 5 הוא 5 יחידות. לכן, גם הבסיס העליון חייב להיות באורך 5 יחידות. הוא מתחיל ב-x=2, הוסיפו לו 5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את אורך הבסיס התחתון. המרחק בין (0,0) ל-(5,0) הוא 5 יחידות.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': במקבילית, צלעות נגדיות שוות. לכן אורך הבסיס העליון גם הוא 5 יחידות.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ג': הבסיס העליון מתחיל בנקודה שבה ה-x הוא 2. נוסיף 5 יחידות ימינה ל-x.&rlm;", math_expression: "2 + 5 = 7" },
+            { verbal_explanation: "שלב ד': ה-y נשאר 4, ולכן הקודקוד הוא (7,4).&rlm;", math_expression: "" }
         ],
-        "final_answer": "לא ייתכן, זוויות נגדיות במקבילית תמיד שוות (קהה מול קהה)",
-        "options": ["כן, אם משלימות ל-180", "לא ייתכן, זוויות נגדיות במקבילית תמיד שוות (קהה מול קהה)", "רק במלבן", "כן, זהו חוק המקבילית"],
-        "correctAnswer": 1
+        final_answer: "(7,4)"
     },
+
+    // ==========================================================
+    // תת נושא 3: חישובי שטחים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 28,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Medium",
-        "question_text": "מהו סכום כל <strong>ארבע הזוויות הפנימיות</strong> במקבילית יחד?",
-        "hint": "מקבילית היא מרובע. אפשר לחלק אותה לשני משולשים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מקבילית שייכת למשפחת המרובעים (צורות בעלות 4 צלעות ו-4 זוויות).", "math_expression": "מרובע" },
-            { "verbal_explanation": "שלב 2: כל מרובע ניתן לחלוקה ל-2 משולשים (על ידי העברת אלכסון אחד).", "math_expression": "2 משולשים" },
-            { "verbal_explanation": "שלב 3: סכום הזוויות בכל משולש הוא 180 מעלות. לכן, פעמיים 180 מעלות ייתן לנו את הסכום הכולל.", "math_expression": "2 × 180 = 360°" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "במקבילית, אורך הבסיס הוא 12 ס\"מ והגובה היורד לאותו בסיס הוא 5 ס\"מ. מהו שטח המקבילית?&rlm;",
+        options: ["60 סמ\"ר", "30 סמ\"ר", "34 סמ\"ר", "17 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "נוסחת שטח מקבילית היא הכפלת הבסיס בגובה. אל תחלקו ב-2! (זה מיועד למשולש).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נוסחת השטח למקבילית היא אורך הבסיס כפול הגובה לאותו בסיס.&rlm;", math_expression: "S = b × h" },
+            { verbal_explanation: "נכפול 12 ב-5.&rlm;", math_expression: "12 × 5 = 60" }
         ],
-        "final_answer": "360° מעלות",
-        "options": ["180° מעלות", "360° מעלות", "90° מעלות", "אי אפשר לדעת (משתנה)"],
-        "correctAnswer": 1
+        final_answer: "60 סמ\"ר"
     },
+    // שאלה 26
     {
-        "id": 29,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "High",
-        "question_text": "במקבילית, הזווית הקהה היא בת 130°. הורידו גובה מאחד הקודקודים הקהים לצלע הנגדית. גובה זה יוצר משולש ישר זווית קטן בתוך המקבילית. מהי ה<strong>זווית החדה</strong> (שאינה 90) בתוך המשולש הקטן הזה?",
-        "hint": "הזווית החדה של המקבילית (מחוץ למשולש אבל סמוכה ל-130) היא 50 (משלימה ל-180). המשולש כולל את ה-50 ואת ה-90 (הגובה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא קודם את הזווית החדה של המקבילית כולה. היא סמוכה לזווית של 130 ולכן משלימה אותה ל-180 מעלות.", "math_expression": "180 - 130 = 50°" },
-            { "verbal_explanation": "שלב 2: כעת נסתכל על המשולש הישר זווית שנוצר. יש בו זווית של 90° (הגובה) ואת הזווית שמצאנו (50°).", "math_expression": "משולש: 90° , 50° , ?" },
-            { "verbal_explanation": "שלב 3: סכום זוויות במשולש הוא 180. נמצא את הזווית החסרה על ידי חיסור שתי הידועות מ-180.", "math_expression": "180 - 90 - 50 = 40°" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "שטחה של מקבילית הוא 72 סמ\"ר. אורך הבסיס שלה הוא 9 ס\"מ. מהו הגובה היורד לבסיס זה?&rlm;",
+        options: ["8 ס\"מ", "36 ס\"מ", "16 ס\"מ", "18 ס\"מ"],
+        correctAnswer: 0,
+        hint: "פעולה הפוכה: חלקו את השטח (72) באורך הבסיס (9) כדי למצוא את הגובה החסר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שטח המקבילית הוא מכפלת הבסיס בגובה.&rlm;", math_expression: "9 × h = 72" },
+            { verbal_explanation: "נחלק את השטח בבסיס למציאת הגובה.&rlm;", math_expression: "h = 72 : 9 = 8" }
         ],
-        "final_answer": "40° מעלות",
-        "options": ["50° מעלות", "40° מעלות", "130° מעלות", "90° מעלות"],
-        "correctAnswer": 1
+        final_answer: "8 ס\"מ"
     },
+    // שאלה 27
     {
-        "id": 30,
-        "subTopic": "תכונות המקבילית",
-        "difficulty": "Low",
-        "question_text": "איזו מהצורות הבאות <strong>אינה</strong> שייכת למשפחת ה'מקביליות'?",
-        "hint": "במקבילית יש שני זוגות של צלעות מקבילות. לאיזו צורה יש רק זוג אחד (או אפס)?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מלבן הוא מקבילית (יש לו שני זוגות צלעות מקבילות וזוויות ישרות).", "math_expression": "מלבן = √" },
-            { "verbal_explanation": "שלב 2: מעוין הוא מקבילית (כל צלעותיו שוות ונגדיות מקבילות).", "math_expression": "מעוין = √" },
-            { "verbal_explanation": "שלב 3: טרפז מוגדר כמרובע שיש לו אך ורק זוג אחד של צלעות מקבילות (הבסיסים). הזוג השני לא מקביל. לכן, הוא אינו מקבילית.", "math_expression": "טרפז = X" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "שטח מלבן שמידותיו 8 ס\"מ על 6 ס\"מ הוא...&rlm;",
+        options: ["48 סמ\"ר", "28 סמ\"ר", "24 סמ\"ר", "14 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "שטח מלבן שווה להכפלת שתי הצלעות הסמוכות (אורך כפול רוחב).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שטח מלבן מחושב על ידי הכפלת האורך ברוחב.&rlm;", math_expression: "8 × 6 = 48" }
         ],
-        "final_answer": "טרפז",
-        "options": ["מלבן", "מעוין", "ריבוע", "טרפז"],
-        "correctAnswer": 3
-    },,
-    // ==============================================================
-    // --- תת נושא 3: חישובי שטחים (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Low",
-        "question_text": "אורך מלבן הוא 8 ס\"מ ורוחבו 5 ס\"מ. מהו <strong>שטח המלבן</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100'><rect x='20' y='20' width='120' height='60' fill='#fdfbf7' stroke='#1e293b' stroke-width='2'/><text x='80' y='15' font-size='12' text-anchor='middle'>8</text><text x='10' y='55' font-size='12'>5</text><text x='80' y='55' font-size='14' text-anchor='middle' fill='#b09151'>שטח?</text></svg></div>",
-        "hint": "שטח מלבן מחושב על ידי הכפלת האורך ברוחב (כמה 'משבצות' נכנסות בפנים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזכר בנוסחה לחישוב שטח מלבן. השטח הוא מכפלת שתי צלעות סמוכות (אורך כפול רוחב).", "math_expression": "S = a × b" },
-            { "verbal_explanation": "שלב 2: נציב את הנתונים שלנו לתוך הנוסחה.", "math_expression": "S = 8 × 5" },
-            { "verbal_explanation": "שלב 3: נחשב את המכפלה. התוצאה תהיה בסנטימטרים רבועים (סמ\"ר).", "math_expression": "40" }
-        ],
-        "final_answer": "40 סמ\"ר",
-        "options": ["13 סמ\"ר", "40 סמ\"ר", "26 סמ\"ר", "80 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "48 סמ\"ר"
     },
+    // שאלה 28
     {
-        "id": 32,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Medium",
-        "question_text": "שטח מלבן הוא <strong>54 סמ\"ר</strong>. ידוע שאורך צלע אחת הוא <strong>9 ס\"מ</strong>. מהו אורך <strong>הצלע השנייה (הרוחב)</strong>?",
-        "hint": "אם שטח הוא אורך כפול רוחב, אז כדי למצוא את הרוחב צריך לעשות את הפעולה ההפוכה: לחלק את השטח באורך.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את הצלע החסרה כ-X. נבנה את משוואת השטח של המלבן.", "math_expression": "9 × X = 54" },
-            { "verbal_explanation": "שלב 2: נחלץ את X על ידי חלוקת השטח הכולל באורך הצלע הידועה.", "math_expression": "X = 54 ÷ 9" },
-            { "verbal_explanation": "שלב 3: נחשב את פעולת החילוק. איזה מספר כפול 9 שווה ל-54?", "math_expression": "X = 6" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "לפניכם צורה מורכבת המכילה מלבן ומשולש הדבוק אליו. אורך המלבן הוא 10 ורוחבו 4. המשולש יושב על צלע הרוחב, והגובה של המשולש (כלפי חוץ) הוא 3. מהו השטח הכולל?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 120' width='100%' height='120' style='max-width:200px;'><rect x='20' y='40' width='100' height='40' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><polygon points='120,40 120,80 150,60' fill='#bae6fd' stroke='#0284c7' stroke-width='2'/><text x='70' y='35' font-family='Arial' font-size='12' fill='#0f172a'>10</text><text x='10' y='65' font-family='Arial' font-size='12' fill='#0f172a'>4</text><line x1='120' y1='60' x2='150' y2='60' stroke='#0284c7' stroke-dasharray='3,3'/><text x='130' y='55' font-family='Arial' font-size='12' fill='#0284c7'>h=3</text></svg></div>",
+        options: ["46", "40", "52", "60"],
+        correctAnswer: 0,
+        hint: "חשבו את שטח המלבן (10*4). חשבו את שטח המשולש: בסיסו הוא רוחב המלבן (4) והגובה הוא 3, אז (4*3)/2. חברו את השטחים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את שטח המלבן.&rlm;", math_expression: "10 × 4 = 40" },
+            { verbal_explanation: "שלב ב': נחשב את שטח המשולש. הבסיס שלו הוא הצלע 4, והגובה הוא 3.&rlm;", math_expression: "(4 × 3) : 2 = 12 : 2 = 6" },
+            { verbal_explanation: "שלב ג': נחבר את שטחי שתי הצורות.&rlm;", math_expression: "40 + 6 = 46" }
         ],
-        "final_answer": "6 ס\"מ",
-        "options": ["9 ס\"מ", "6 ס\"מ", "45 ס\"מ", "7 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "46"
     },
+    // שאלה 29
     {
-        "id": 33,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "High",
-        "question_text": "היקף של מלבן הוא <strong>20 ס\"מ</strong> ואורך אחת מצלעותיו הוא <strong>6 ס\"מ</strong>. מהו <strong>שטח המלבן</strong>?",
-        "hint": "זו שאלה בשני שלבים! קודם מצאו את הצלע החסרה בעזרת ההיקף. רק אחר כך חשבו שטח.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בנתון ההיקף כדי למצוא את הצלע השנייה. היקף (20) שווה לפעמיים האורך (6) ועוד פעמיים הרוחב (X).", "math_expression": "2 × 6 + 2X = 20" },
-            { "verbal_explanation": "שלב 2: 12 ועוד 2X שווה 20. לכן 2X שווה 8. הרוחב הוא 4.", "math_expression": "X = 4" },
-            { "verbal_explanation": "שלב 3: עכשיו כשיש לנו גם אורך (6) וגם רוחב (4), נחשב את שטח המלבן.", "math_expression": "S = 6 × 4 = 24" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "במקבילית, צלע אחת היא 10 ס\"מ והגובה אליה הוא 6 ס\"מ. הצלע השנייה של המקבילית היא 12 ס\"מ. מהו הגובה היורד אל הצלע השנייה (של ה-12)?&rlm;",
+        options: ["5 ס\"מ", "7.2 ס\"מ", "6 ס\"מ", "4 ס\"מ"],
+        correctAnswer: 0,
+        hint: "השטח נשאר קבוע בלי קשר לאיזו צלע תבחרו כבסיס! חשבו את השטח עם הצלע הראשונה והגובה שלה (60), ואז חלקו בצלע השנייה כדי למצוא את הגובה אליה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את השטח לפי הנתונים המלאים (צלע 10 וגובה 6).&rlm;", math_expression: "10 × 6 = 60" },
+            { verbal_explanation: "שלב ב': השטח (60) חייב להיות שווה גם לצלע השנייה (12) כפול הגובה שלה (h).&rlm;", math_expression: "12 × h = 60" },
+            { verbal_explanation: "שלב ג': נחלק 60 ב-12.&rlm;", math_expression: "h = 5" }
         ],
-        "final_answer": "24 סמ\"ר",
-        "options": ["120 סמ\"ר", "24 סמ\"ר", "12 סמ\"ר", "40 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "5 ס\"מ"
     },
+    // שאלה 30
     {
-        "id": 34,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Low",
-        "question_text": "מהי הנוסחה לחישוב <strong>שטח מקבילית</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='80'><polygon points='40,20 140,20 120,60 20,60' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='40' y1='20' x2='40' y2='60' stroke='#b09151' stroke-width='2' stroke-dasharray='4'/><text x='35' y='45' font-size='12' text-anchor='end'>h</text><text x='70' y='75' font-size='12' text-anchor='middle'>b</text><polyline points='40,55 45,55 45,60' fill='none' stroke='#b09151'/></svg></div>",
-        "hint": "חשבו על צלע הבסיס והגובה שיורד אליה ב-90 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במקבילית, בניגוד למלבן, אי אפשר להכפיל סתם שתי צלעות סמוכות, כי הן נטויות ולא יוצרות ריבועים שלמים.", "math_expression": "צלע כפול צלע - שגוי" },
-            { "verbal_explanation": "שלב 2: הנוסחה הנכונה היא לקחת את אחת הצלעות כ'בסיס', ולהכפיל אותה ב'גובה' - הקו שיורד ממנה לצלע הנגדית ב-90 מעלות.", "math_expression": "בסיס × גובה" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "נתונים מלבן ומקבילית. למלבן אורך בסיס של 8 וגובה 5. למקבילית אורך בסיס של 8 וגובה (המאונך לבסיס) 5. לאיזו צורה שטח גדול יותר?&rlm;",
+        options: ["השטחים שווים", "למלבן שטח גדול יותר", "למקבילית שטח גדול יותר", "אי אפשר לדעת ללא אורך הצלע הנטויה"],
+        correctAnswer: 0,
+        hint: "נוסחת השטח זהה בשתי הצורות (בסיס כפול גובה למלבן זה בעצם אורך כפול רוחב). הצלע הנטויה של המקבילית אינה רלוונטית לשטח.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שטח המלבן מחושב על ידי הכפלת צלעותיו המאונכות.&rlm;", math_expression: "8 × 5 = 40" },
+            { verbal_explanation: "שטח המקבילית מחושב על ידי הכפלת הבסיס בגובה המאונך אליו.&rlm;", math_expression: "8 × 5 = 40" },
+            { verbal_explanation: "שתי הצורות בעלות אותו שטח בדיוק.&rlm;", math_expression: "40 = 40" }
         ],
-        "final_answer": "צלע (בסיס) כפול הגובה לאותה צלע",
-        "options": ["צלע ארוכה כפול צלע קצרה", "סכום כל הצלעות", "צלע (בסיס) כפול הגובה לאותה צלע", "בסיס כפול גובה לחלק ל-2"],
-        "correctAnswer": 2
+        final_answer: "השטחים שווים"
     },
+    // שאלה 31
     {
-        "id": 35,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Medium",
-        "question_text": "צלע הבסיס במקבילית היא <strong>12 ס\"מ</strong> והגובה היורד אליה הוא <strong>4 ס\"מ</strong>. מהו שטח המקבילית?",
-        "hint": "הציבו את הנתונים בנוסחת שטח המקבילית (בסיס כפול גובה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את הנתונים הנדרשים לחישוב השטח: בסיס (a = 12) וגובה לאותו בסיס (h = 4).", "math_expression": "a = 12 , h = 4" },
-            { "verbal_explanation": "שלב 2: נשתמש בנוסחת שטח המקבילית ונכפיל אותם.", "math_expression": "S = a × h" },
-            { "verbal_explanation": "שלב 3: נחשב את המכפלה 12 כפול 4.", "math_expression": "S = 12 × 4 = 48" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "מסגרת לתמונה ברוחב אחיד של 2 ס\"מ עוטפת תמונה מלבנית. מידות התמונה הפנימית הן 10 ס\"מ ו-15 ס\"מ. מהו שטח המסגרת בלבד (מבלי התמונה)?&rlm;",
+        options: ["116 סמ\"ר", "150 סמ\"ר", "266 סמ\"ר", "50 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "חשבו את השטח הכולל (מסגרת+תמונה): הוסיפו 4 ס\"מ לאורך ו-4 ס\"מ לרוחב (2 ס\"מ מכל צד). חסרו מהשטח הגדול את שטח התמונה (150).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': שטח התמונה הפנימית הוא אורך כפול רוחב.&rlm;", math_expression: "10 × 15 = 150" },
+            { verbal_explanation: "שלב ב': נחשב את מידות המלבן החיצוני. נוסיף 2 ס\"מ מכל צד, כלומר תוספת של 4 ס\"מ לאורך ולרוחב.&rlm;", math_expression: "10 + 4 = 14 , 15 + 4 = 19" },
+            { verbal_explanation: "שלב ג': נחשב את השטח הכולל החיצוני.&rlm;", math_expression: "14 × 19 = 266" },
+            { verbal_explanation: "שלב ד': נחסר את התמונה מהשטח הכולל לקבלת המסגרת בלבד.&rlm;", math_expression: "266 - 150 = 116" }
         ],
-        "final_answer": "48 סמ\"ר",
-        "options": ["16 סמ\"ר", "24 סמ\"ר", "48 סמ\"ר", "96 סמ\"ר"],
-        "correctAnswer": 2
+        final_answer: "116 סמ\"ר"
     },
+    // שאלה 32
     {
-        "id": 36,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Medium",
-        "question_text": "שטח של מקבילית הוא <strong>70 סמ\"ר</strong>. הגובה הוא <strong>7 ס\"מ</strong>. מהו אורך <strong>צלע הבסיס</strong> אליה יורד הגובה?",
-        "hint": "בצעו את הפעולה ההפוכה למציאת שטח: חלוקת השטח הכולל בגובה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את אורך הבסיס כנעלם b. נבנה את משוואת השטח.", "math_expression": "b × 7 = 70" },
-            { "verbal_explanation": "שלב 2: נבודד את b על ידי חלוקת השטח (70) בגובה (7).", "math_expression": "b = 70 ÷ 7" },
-            { "verbal_explanation": "שלב 3: נחשב את תוצאת החילוק כדי למצוא את אורך הבסיס.", "math_expression": "b = 10" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "לפניכם מקבילית המשורטטת על גבי רשת משבצות (כל משבצת היא 1 ס\"מ על 1 ס\"מ). בסיס המקבילית מכסה 6 משבצות. גובהה מכסה 4 משבצות. מהו שטחה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 100' width='100%' height='100' style='max-width:150px;'><defs><pattern id='grid' width='20' height='20' patternUnits='userSpaceOnUse'><path d='M 20 0 L 0 0 0 20' fill='none' stroke='#cbd5e1' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(#grid)'/><polygon points='40,80 160,80 120,0 0,0' fill='rgba(34,197,94,0.3)' stroke='#16a34a' stroke-width='2'/></svg></div>",
+        options: ["24 סמ\"ר", "10 סמ\"ר", "12 סמ\"ר", "20 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "גם על רשת משבצות, הנוסחה נשארת בסיס כפול גובה. ספירת משבצות תיתן לכם את האורכים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הבסיס הוא 6 (משבצות). הגובה (מספר המשבצות האנכיות מהבסיס התחתון לעליון) הוא 4.&rlm;", math_expression: "" },
+            { verbal_explanation: "שטח מקבילית הוא בסיס כפול גובה.&rlm;", math_expression: "6 × 4 = 24" }
         ],
-        "final_answer": "10 ס\"מ",
-        "options": ["10 ס\"מ", "63 ס\"מ", "77 ס\"מ", "5 ס\"מ"],
-        "correctAnswer": 0
+        final_answer: "24 סמ\"ר"
     },
+    // שאלה 33
     {
-        "id": 37,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "High",
-        "question_text": "מקבילית מורכבת מ<strong>שני משולשים חופפים</strong>. אם שטח משולש אחד הוא <strong>15 סמ\"ר</strong>, מהו שטח המקבילית כולה?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='80'><polygon points='40,20 140,20 120,60 20,60' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='140' y1='20' x2='20' y2='60' stroke='#b09151' stroke-width='2' stroke-dasharray='4'/><text x='100' y='35' font-size='12'>15</text><text x='50' y='55' font-size='12'>?</text></svg></div>",
-        "hint": "אלכסון מחלק את המקבילית בדיוק לשני חצאים שווים (משולשים חופפים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אלכסון המקבילית מחלק אותה לשני משולשים שווים בשטחם וצורתם (חופפים).", "math_expression": "שטח 1 = שטח 2" },
-            { "verbal_explanation": "שלב 2: נתון ששטח משולש אחד הוא 15. לכן גם השטח של המשולש השני הוא 15.", "math_expression": "S_2 = 15" },
-            { "verbal_explanation": "שלב 3: שטח המקבילית השלמה הוא סכום שטחי שני המשולשים המרכיבים אותה.", "math_expression": "15 + 15 = 30" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "אלגברה ושטחים: היקף של מלבן הוא 24 ס\"מ. ידוע שאורכו של המלבן גדול ב-2 ס\"מ מרוחבו. מהו שטח המלבן?&rlm;",
+        options: ["35 סמ\"ר", "24 סמ\"ר", "32 סמ\"ר", "48 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "נסמן רוחב ב-x, אורך ב-x+2. משוואת ההיקף: 2x + 2(x+2) = 24. מצאו את x, ואז כפלו אורך ברוחב לשטח.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרכיב משוואת היקף. חצי היקף (אורך + רוחב) שווה 12.&rlm;", math_expression: "x + (x + 2) = 12" },
+            { verbal_explanation: "שלב ב': נפתור את המשוואה לחצי היקף.&rlm;", math_expression: "2x + 2 = 12  =>  2x = 10  =>  x = 5" },
+            { verbal_explanation: "שלב ג': הרוחב הוא 5, האורך הוא 7. נחשב שטח.&rlm;", math_expression: "5 × 7 = 35" }
         ],
-        "final_answer": "30 סמ\"ר",
-        "options": ["15 סמ\"ר", "30 סמ\"ר", "45 סמ\"ר", "7.5 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "35 סמ\"ר"
     },
+    // שאלה 34
     {
-        "id": 38,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Low",
-        "question_text": "מלבן שאורכו 6 ורוחבו 4 משנה את צורתו ל<strong>מקבילית</strong> מבלי לשנות את אורכי הצלעות (אבל הוא 'נוטה' הצידה, כך שהגובה שלו קטן). האם השטח שלו <strong>יישאר זהה</strong>?",
-        "hint": "במלבן, הגובה שווה לצלע. במקבילית הנטויה, הגובה (שנמדד ב-90 מעלות) תמיד קצר יותר מהצלע הנטויה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: שטח המלבן המקורי הוא אורך כפול רוחב, או במילים אחרות - בסיס כפול גובה, כאשר הגובה הוא בדיוק הצלע (כי הזווית ישרה).", "math_expression": "S = 6 × 4 = 24" },
-            { "verbal_explanation": "שלב 2: כאשר מטים את המלבן, הצלעות נשארות 6 ו-4. אולם, הגובה החדש היורד לצלע 6 כבר לא יהיה 4 - הוא יהיה קצר יותר בגלל הנטייה (האלכסון ארוך מהגובה).", "math_expression": "h < 4" },
-            { "verbal_explanation": "שלב 3: לכן, אם הבסיס נשאר 6 והגובה קטן מ-4, המכפלה שלהם (השטח) בהכרח תקטן.", "math_expression": "S < 24" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "שטח עם שברים: מהו שטחו של מלבן שאורכו 4 ס\"מ ורוחבו 2 1/2 ס\"מ (שניים וחצי)?&rlm;",
+        options: ["10 סמ\"ר", "8 1/2 סמ\"ר", "6 סמ\"ר", "12 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "הפכו את 2 וחצי לשבר מדומה (5/2), או כפלו 4 ב-2 (8) ו-4 בחצי (2) וחברו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': שימוש בחוק הפילוג.&rlm;", math_expression: "4 × (2 + 1/2) = 4 × 2 + 4 × 1/2 = 8 + 2 = 10" },
+            { verbal_explanation: "דרך ב': שימוש בשבר מדומה.&rlm;", math_expression: "4 × 5/2 = 20/2 = 10" }
         ],
-        "final_answer": "לא, השטח יקטן",
-        "options": ["כן, השטח יישאר זהה", "לא, השטח יגדל", "לא, השטח יקטן", "זה תלוי באורך האלכסון"],
-        "correctAnswer": 2
+        final_answer: "10 סמ\"ר"
     },
+    // שאלה 35
     {
-        "id": 39,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "High",
-        "question_text": "במקבילית ABCD אורך הצלע התחתונה AB הוא 10 ס\"מ, והגובה לצלע זו הוא 6 ס\"מ. אורך הצלע השנייה BC הוא 8 ס\"מ. מהו <strong>הגובה שיורד לצלע BC</strong>?",
-        "hint": "שטח המקבילית קבוע. אפשר לחשב אותו מהבסיס והגובה הראשונים (10 ו-6), ואז להשתמש באותו השטח למצוא את הגובה השני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את השטח הכולל של המקבילית בעזרת הזוג הידוע (הצלע AB והגובה שלה). השטח הוא 10 כפול 6.", "math_expression": "S = 10 × 6 = 60" },
-            { "verbal_explanation": "שלב 2: שטח המקבילית יכול להיות מחושב גם דרך הזוג השני: הצלע BC (שהיא 8) כפול הגובה שיורד אליה (נקרא לו h).", "math_expression": "8 × h = 60" },
-            { "verbal_explanation": "שלב 3: נחלק את השטח שמצאנו (60) בצלע BC (8) כדי למצוא את הגובה h.", "math_expression": "h = 60 ÷ 8 = 7.5" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "לפניכם מקבילית משורטטת במערכת צירים. הקודקודים התחתונים הם בנקודות (1,1) ו-(6,1). הקודקודים העליונים הם בנקודות (3,5) ו-(8,5). מהו השטח?&rlm;",
+        options: ["20", "25", "10", "30"],
+        correctAnswer: 0,
+        hint: "חשבו את הבסיס (המרחק על ציר ה-x בין 1 ל-6). חשבו את הגובה (המרחק על ציר ה-y בין 1 ל-5). כפלו אותם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': אורך הבסיס הוא המרחק האופקי בין (1,1) ל-(6,1).&rlm;", math_expression: "6 - 1 = 5" },
+            { verbal_explanation: "שלב ב': גובה המקבילית הוא המרחק האנכי בין רצפת ה-y=1 לתקרת ה-y=5.&rlm;", math_expression: "5 - 1 = 4" },
+            { verbal_explanation: "שלב ג': שטח המקבילית הוא בסיס כפול גובה.&rlm;", math_expression: "5 × 4 = 20" }
         ],
-        "final_answer": "7.5 ס\"מ",
-        "options": ["10 ס\"מ", "6 ס\"מ", "7.5 ס\"מ", "4.8 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "20"
     },
+    // שאלה 36
     {
-        "id": 40,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Medium",
-        "question_text": "אם נגדיל את אורך המלבן פי 2, וגם את רוחב המלבן פי 2, <strong>בכמה יגדל השטח</strong> שלו?",
-        "hint": "נסו עם דוגמה: מלבן של 2x3. שטחו 6. עכשיו הכפילו את הצלעות (4x6). מה השטח עכשיו? כמה פעמים 6 נכנס בשטח החדש?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נוסחת השטח המקורית היא האורך כפול הרוחב.", "math_expression": "S_1 = a × b" },
-            { "verbal_explanation": "שלב 2: השטח החדש נוצר לאחר שהכפלנו את a ב-2 ואת b ב-2.", "math_expression": "S_2 = (2a) × (2b)" },
-            { "verbal_explanation": "שלב 3: נסדר את המכפלה: 2 כפול 2 זה 4. לכן השטח החדש הוא 4 פעמים מכפלת a ב-b.", "math_expression": "S_2 = 4 × (a × b) = 4 × S_1" }
+        topic: "quadrilaterals",
+        subTopic: "חישובי שטחים",
+        question_text: "מה יקרה לשטחה של מקבילית אם נכפיל גם את הבסיס שלה וגם את הגובה שלה פי 2?&rlm;",
+        options: ["השטח יגדל פי 4", "השטח יגדל פי 2", "השטח יישאר זהה", "השטח יגדל פי 8"],
+        correctAnswer: 0,
+        hint: "הציבו מספרים קטנים. בסיס 2 וגובה 3 (שטח 6). עכשיו בסיס 4 וגובה 6. מה השטח החדש?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שטח מקורי מורכב ממכפלת שני גורמים: בסיס וגובה.&rlm;", math_expression: "S = a × h" },
+            { verbal_explanation: "אם שניהם מוכפלים פי 2, גם ה-a מוכפל ב-2 וגם ה-h מוכפל ב-2.&rlm;", math_expression: "S_{new} = 2a × 2h" },
+            { verbal_explanation: "לפי חוק החילוף בכפל: 2 כפול 2 שווה 4. כלומר השטח גדל פי 4.&rlm;", math_expression: "4 × (a × h)" }
         ],
-        "final_answer": "השטח יגדל פי 4",
-        "options": ["יגדל פי 2", "יגדל פי 4", "יגדל פי 8", "לא ישתנה"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 41,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "High",
-        "question_text": "מלבן ששטחו 48 סמ\"ר מחולק ל-3 ריבועים קטנים וזהים. מהו <strong>אורך הצלע</strong> של כל ריבוע קטן?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='60'><rect x='20' y='10' width='150' height='40' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='70' y1='10' x2='70' y2='50' stroke='#1e293b'/><line x1='120' y1='10' x2='120' y2='50' stroke='#1e293b'/></svg></div>",
-        "hint": "חילקו את השטח הכללי ל-3. מצאו את השטח של ריבוע אחד, ואז מצאו את צלעו (שורש ריבועי).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב קודם את השטח של ריבוע קטן אחד. נחלק את השטח הכולל (48) ל-3 חלקים שווים.", "math_expression": "48 ÷ 3 = 16" },
-            { "verbal_explanation": "שלב 2: כעת נתמקד בריבוע אחד ששטחו הוא 16 סמ\"ר. שטח ריבוע הוא צלע כפול עצמה.", "math_expression": "X² = 16" },
-            { "verbal_explanation": "שלב 3: נמצא את אורך הצלע על ידי חילוץ השורש הריבועי של 16. המספר הוא 4.", "math_expression": "X = √16 = 4" }
-        ],
-        "final_answer": "4 ס\"מ",
-        "options": ["16 ס\"מ", "4 ס\"מ", "8 ס\"מ", "6 ס\"מ"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 42,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Low",
-        "question_text": "יש לנו חוט באורך 20 ס\"מ שאיתו ניצור מלבן (היקף). האם לכל המלבנים שניצור מחוט זה <strong>יהיה אותו שטח</strong>?",
-        "hint": "ההיקף קבוע (20). נסו ליצור מלבן צר מאוד (1x9) ומלבן מרובע יותר (4x6). האם מכפלת הצלעות (השטח) שווה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ההיקף הקבוע אומר שסכום צלע ורוחב הוא 10 (חצי מ-20).", "math_expression": "a + b = 10" },
-            { "verbal_explanation": "שלב 2: נבדוק אפשרות 1: מלבן שאורכו 9 ורוחבו 1. ההיקף הוא 20. נחשב שטח: 9 כפול 1.", "math_expression": "S_1 = 9 × 1 = 9" },
-            { "verbal_explanation": "שלב 3: נבדוק אפשרות 2: מלבן שאורכו 6 ורוחבו 4. ההיקף הוא 20. נחשב שטח: 6 כפול 4.", "math_expression": "S_2 = 6 × 4 = 24" },
-            { "verbal_explanation": "שלב 4: המסקנה היא שצורות שונות בעלות אותו היקף יכולות להיות בעלות שטחים שונים לגמרי (השטח גדל ככל שהצורה מתקרבת לריבוע).", "math_expression": "9 \u2260 24" }
-        ],
-        "final_answer": "לא, השטחים יכולים להיות שונים לחלוטין",
-        "options": ["כן, תמיד יהיה אותו שטח", "לא, השטחים יכולים להיות שונים לחלוטין", "רק אם הצלעות הן מספרים זוגיים", "כן, זהו חוק שימור השטח"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 43,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Medium",
-        "question_text": "נתונה מקבילית שבה צלע הבסיס ארוכה <strong>פי 3</strong> מהגובה. הגובה הוא <strong>5 ס\"מ</strong>. מהו שטח המקבילית?",
-        "hint": "קודם מצאו את הבסיס בעזרת הנתון על היחס (הכפילו את הגובה ב-3). אחר כך חשבו שטח.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הגובה נתון לנו והוא שווה ל-5. נמצא את צלע הבסיס. נאמר לנו שהיא גדולה פי 3 מהגובה.", "math_expression": "h = 5" },
-            { "verbal_explanation": "שלב 2: נכפיל את הגובה (5) ב-3 כדי למצוא את אורך הבסיס.", "math_expression": "b = 5 × 3 = 15" },
-            { "verbal_explanation": "שלב 3: נחשב את השטח לפי הנוסחה: בסיס (15) כפול גובה (5).", "math_expression": "S = 15 × 5 = 75" }
-        ],
-        "final_answer": "75 סמ\"ר",
-        "options": ["15 סמ\"ר", "75 סמ\"ר", "25 סמ\"ר", "100 סמ\"ר"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 44,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "High",
-        "question_text": "שטחו של מלבן הוא 100. אילו מבין זוגות הצלעות הבאים <strong>לא</strong> יכולים ליצור את המלבן הזה (בהנחה שאלו אורכי הצלעות)?",
-        "hint": "חפשו את הזוג שמכפלת המספרים שלו (אורך כפול רוחב) אינה שווה ל-100.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק כל אפשרות. שטח מלבן הוא צלע כפול צלע. עלינו למצוא איזה זוג לא נותן מכפלה של 100.", "math_expression": "a × b = 100" },
-            { "verbal_explanation": "שלב 2: נבדוק את (10, 10). 10 כפול 10 זה 100 (זהו ריבוע, שזה סוג של מלבן).", "math_expression": "10 × 10 = 100" },
-            { "verbal_explanation": "שלב 3: נבדוק את (25, 4). 25 כפול 4 זה 100.", "math_expression": "25 × 4 = 100" },
-            { "verbal_explanation": "שלב 4: נבדוק את (30, 3). 30 כפול 3 זה 90. המכפלה אינה 100, לכן זהו הזוג השגוי.", "math_expression": "30 × 3 = 90 \u2260 100" }
-        ],
-        "final_answer": "30 ו- 3",
-        "options": ["10 ו- 10", "20 ו- 5", "30 ו- 3", "25 ו- 4"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 45,
-        "subTopic": "חישובי שטחים",
-        "difficulty": "Medium",
-        "question_text": "חצר מלבנית באורך 10 מטרים ורוחב 5 מטרים דורשת ריצוף. עלות מטר מרובע (מ\"ר) אחד של ריצוף היא <strong>50 שקלים</strong>. מה תהיה ה<strong>עלות הכוללת</strong>?",
-        "hint": "חשבו קודם כמה 'מטרים מרובעים' (שטח) יש בחצר, ואז הכפילו את השטח במחיר למטר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא קודם את השטח הכולל של החצר במ\"ר. נכפיל את האורך ברוחב.", "math_expression": "S = 10 × 5 = 50 m\u00b2" },
-            { "verbal_explanation": "שלב 2: גילינו שיש לנו 50 מטרים מרובעים. כעת נחשב את העלות הכוללת. נכפיל את השטח שמצאנו בעלות של מטר אחד (שהיא גם 50).", "math_expression": "50 × 50" },
-            { "verbal_explanation": "שלב 3: נחשב את המכפלה הסופית. 5 כפול 5 זה 25, נוסיף את שני האפסים ונקבל 2,500.", "math_expression": "2500" }
-        ],
-        "final_answer": "2,500 שקלים",
-        "options": ["500 שקלים", "1,000 שקלים", "2,500 שקלים", "5,000 שקלים"],
-        "correctAnswer": 2
+        final_answer: "השטח יגדל פי 4"
     }
+
 ];

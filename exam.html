@@ -22,7 +22,6 @@
 
     <style>
         :root {
-            /* צבע עליון - שחור יוקרתי עם נגיעות זהב */
             --primary-header: #000000;  
             --accent-gold: #c5a059;   
             --primary-blue: #0f172a;  
@@ -33,7 +32,6 @@
             --text-muted: #334155;    
             --border-soft: #cbd5e1;   
             
-            /* צבעי משוב - שקופים ועדינים */
             --correct-bg: rgba(34, 197, 94, 0.12); 
             --correct-text: #14532d; 
             --correct-border: #4ade80; 
@@ -46,7 +44,7 @@
             --hint-text: #713f12; 
             --hint-border: #fde047;          
             
-            --sol-bg: rgba(34, 197, 94, 0.08); /* ירוק בהיר שקוף לפתרון */
+            --sol-bg: rgba(34, 197, 94, 0.08); 
             --sol-text: #14532d; 
             --sol-border: #4ade80;              
             
@@ -104,7 +102,6 @@
             height: 100%;
         }
         
-        /* טיימר פרימיום יוקרתי */
         .timer-sidebar { 
             background: #000000; 
             border: 2px solid var(--accent-gold); 
@@ -161,13 +158,12 @@
             position: relative;
         }
         
-        /* --- עיצוב דף פתיחה יוקרתי --- */
         #intro-screen {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            flex: 1 0 auto; /* התיקון: מאפשר לאזור לגדול לפי התוכן ולא נחתך */
+            flex: 1 0 auto; 
             width: 100%;
             text-align: center;
             animation: fadeIn 0.5s ease;
@@ -188,11 +184,10 @@
         }
         .btn-start-exam:hover:not(:disabled) { background: var(--accent-gold); color: #000; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4); }
 
-        /* --- עיצוב אזור השאלות --- */
         #quiz-area { 
             display: none; 
             flex-direction: column; 
-            flex: 1 0 auto; /* התיקון: מאפשר לאזור לגדול לפי התוכן ולא נחתך */
+            flex: 1 0 auto; 
         }
 
         .question-title { 
@@ -254,7 +249,6 @@
 
         .status-tag { font-weight: 700; font-size: 0.95rem; padding: 6px 18px; border-radius: 15px; display: inline-block;}
         
-        /* התיקון: קיבוע הזכויות לתחתית באופן קבוע מעל הטקסט הנגלל */
         .copyright-footer { 
             text-align: center; 
             font-size: 0.8rem; 
@@ -276,7 +270,6 @@
         sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
         sub { font-size: 0.7em; vertical-align: sub; }
 
-        /* --- עיצוב כפתור ההקראה --- */
         .btn-tts { 
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe); border: 2px solid #6366f1; border-radius: 40px; 
             padding: 8px 25px; font-size: 1.1rem; cursor: pointer; font-weight: 800; color: #4338ca; 
@@ -287,7 +280,6 @@
         .btn-tts.playing { animation: pulse-tts 1.5s infinite; border-color: #10b981; color: #059669; background: #d1fae5; }
         @keyframes pulse-tts { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); } 70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
 
-        /* --- עיצוב כפתור חלון טקסט קריאה (פינה ימנית עליונה) --- */
         .btn-reading-window {
             background: linear-gradient(135deg, #fdfcf8, #f5ecd6); 
             border: 2px solid var(--accent-gold); 
@@ -311,7 +303,6 @@
         }
         .btn-reading-window:active { transform: scale(0.95); }
 
-        /* --- תוספת: כפתור מורה פרטי AI צף --- */
         .ai-tutor-fab {
             position: fixed;
             bottom: 15px;
@@ -339,7 +330,6 @@
             box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
         }
 
-        /* --- תוספת: עיצוב חלון צ'אט של המורה (בסגנון וואטסאפ מוקטן) --- */
         .ai-chat-window {
             position: fixed;
             bottom: 75px; 
@@ -389,11 +379,7 @@
             height: 100%;
             border: none;
         }
-        /* ---------------------------------------------------- */
 
-        /* ==========================================================================
-           רספונסיביות מלאה (סלולר וטאבלט) - התאמה מושלמת למסכים קטנים ופתרונות
-           ========================================================================== */
         @media print {
             .sidebar, header, .ai-tutor-fab, .ai-chat-window { display: none !important; }
             .practice-layout { display: block; padding: 0; margin: 0; }
@@ -417,7 +403,6 @@
             header { padding: 10px 15px; }
             .options-grid { grid-template-columns: 1fr; gap: 10px; } 
             
-            /* התאמת הכפתור הצף לנייד */
             .ai-tutor-fab {
                 padding: 8px 15px;
                 font-size: 0.95rem;
@@ -425,7 +410,6 @@
                 left: 10px;
             }
 
-            /* התאמת חלון הצ'אט לנייד - יתפוס כמעט את כל המסך כמו אפליקציה */
             .ai-chat-window {
                 width: calc(100% - 20px);
                 height: calc(100vh - 80px);
@@ -433,7 +417,6 @@
                 left: 10px;
             }
             
-            /* עיצוב חכם לטבלת הפתרונות בסלולר - הופך לכרטיסיות קריאות */
             #solution-table-head { display: none; } 
             .solution-table, .solution-table tbody, .solution-table tr, .solution-table td {
                 display: block;
@@ -662,49 +645,33 @@
         readingWin.document.close();
     }
 
+    function speakCurrentQuestion(btnElement) {
+        if (!window.speechSynthesis) return alert("הדפדפן שלך לא תומך בהקראה קולית.");
+        window.speechSynthesis.cancel();
+        if (btnElement.classList.contains('playing')) {
+            btnElement.classList.remove('playing');
+            return;
+        }
+        document.querySelectorAll('.btn-tts').forEach(b => b.classList.remove('playing'));
+        btnElement.classList.add('playing');
+        
+        const q = questions[currentIndex];
+        let textToRead = q.question_text || q.question || "";
+        textToRead = textToRead.replace(/<[^>]+>/g, '').replace(/x+/gi, '');
+        
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.lang = 'he-IL';
+        utterance.rate = 0.9;
+        utterance.onend = () => btnElement.classList.remove('playing');
+        utterance.onerror = () => btnElement.classList.remove('playing');
+        window.speechSynthesis.speak(utterance);
+    }
+
     if (window.speechSynthesis) {
         window.speechSynthesis.onvoiceschanged = function() {
             window.speechSynthesis.getVoices();
         };
     }
-    
-    window.playTTS = function() {
-        if (!currentSpeechText) return;
-        window.speechSynthesis.cancel(); 
-        
-        const msg = new SpeechSynthesisUtterance(currentSpeechText);
-        msg.lang = 'en-US';
-        msg.rate = 0.8; 
-        msg.pitch = 1.1; 
-        
-        const voices = window.speechSynthesis.getVoices();
-        const preferredVoice = voices.find(voice => 
-            voice.name.includes('Google US English') || 
-            voice.name.includes('Samantha') || 
-            voice.name.includes('Victoria') ||
-            voice.name.includes('Alex')
-        );
-        if (preferredVoice) {
-            msg.voice = preferredVoice;
-        }
-
-        const btn = document.getElementById('tts-button-element');
-        if (btn) {
-            btn.classList.add('playing');
-            btn.innerHTML = '<span>מקריא עכשיו...</span> <span style="font-size:1.4rem;">🎶</span>';
-            
-            msg.onend = function() {
-                btn.classList.remove('playing');
-                btn.innerHTML = '<span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>';
-            };
-            msg.onerror = function() {
-                btn.classList.remove('playing');
-                btn.innerHTML = '<span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>';
-            };
-        }
-        
-        window.speechSynthesis.speak(msg);
-    };
 
     function openCalculatorWindow() {
         const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
@@ -1007,44 +974,54 @@
 
     function formatContent(text) {
         if (!text) return "";
-        let html = text.replace(/<svg[\s\S]*?<\/svg>/gi, m => m); 
-        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
-        html = html.replace(/\*/g, '×'); 
+        let html = String(text);
 
-        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
-            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
-            return match; 
+        const mathBlocks = [];
+        // הוספת displaystyle לכל בלוק MathJax כדי שהשברים ייראו בגודל טבעי
+        html = html.replace(/\\\([\s\S]*?\\\)/g, m => { 
+            let inner = m.substring(2, m.length - 2);
+            mathBlocks.push(`\\(\\displaystyle ${inner}\\)`); 
+            return `___MATH___`; 
         });
+        html = html.replace(/\$\$[\s\S]*?\$\$/g, m => { mathBlocks.push(m); return `___MATH___`; });
 
-        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
-        html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+        // הדגשת מילים עטופות ב-xxמילהxx (עם שני איקסים לפני ואחרי)
+        html = html.replace(/xx([^x]+)xx/gi, '<strong style="background: rgba(197, 160, 89, 0.15); border-bottom: 2px solid var(--accent-gold); padding: 0 5px; border-radius: 4px; color: var(--primary-header);">$1</strong>');
+
+        const svgs = []; html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
+        const htmlTags = []; html = html.replace(/<[^>]+>/g, m => { htmlTags.push(m); return `___TAG___`; });
+
+        html = html.replace(/\*/g, ' × ');
+        html = html.trim();
+
+        html = html.replace(/___TAG___/g, () => htmlTags.shift());
+        html = html.replace(/___SVG___/g, () => svgs.shift());
+        html = html.replace(/___MATH___/g, () => mathBlocks.shift());
         
-        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
-        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
-
-        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
-
-        return html.trim();
+        return html;
     }
 
-    // ==============================================================================
-    // הפונקציה החכמה שעוקפת את MathJax במקרים של עברית ומתקנת סימנים
-    // ==============================================================================
     function cleanMathExpression(text) {
         if (!text) return "";
         let res = String(text);
         
-        res = res.replace(/=>/g, ' ⇒ ');
-        res = res.replace(/->/g, ' → ');
-        res = res.replace(/!=/g, ' ≠ ');
-        res = res.replace(/<=/g, ' ≤ ');
-        res = res.replace(/>=/g, ' ≥ ');
-        res = res.replace(/\*/g, ' × '); 
+        res = res.replace(/[\u200E\u200F\u202A\u202B\u202C\u202D\u202E]/g, '');
+        res = res.replace(/&amp;rlm;/gi, '').replace(/&rlm;/gi, '').replace(/&lrm;/gi, '');
         
-        res = res.replace(/\bכפול\b/g, ' × ');
-        res = res.replace(/\bלחלק ל\b/g, ' / ');
-        res = res.replace(/\bלחלק\b/g, ' / ');
+        res = res.replace(/xx(.*?)xx/gi, '$1');
+        res = res.replace(/xx/gi, ''); 
+        res = res.replace(/\*\*([^*]+)\*\*/g, '$1');
+        res = res.replace(/(^|[\s])\*([א-ת][^*]*[א-ת]|[א-ת])\*(?=[\s.,?!]|$)/g, '$1$2');
+
+        res = res.replace(/=>/g, ' \\Rightarrow ');
+        res = res.replace(/->/g, ' \\rightarrow ');
+        res = res.replace(/!=/g, ' \\neq ');
+        res = res.replace(/<=/g, ' \\leq ');
+        res = res.replace(/>=/g, ' \\geq ');
+        
+        res = res.replace(/\bכפול\b/g, ' \\cdot ');
+        res = res.replace(/\bלחלק ל\b/g, ' : ');
+        res = res.replace(/\bלחלק\b/g, ' : ');
         res = res.replace(/\bשווה ל\b/g, ' = ');
         res = res.replace(/\bשווה\b/g, ' = ');
         res = res.replace(/\bפלוס\b/g, ' + ');
@@ -1053,10 +1030,6 @@
         res = res.replace(/\bפחות\b/g, ' - ');
         res = res.replace(/\bגדול מ\b/g, ' > ');
         res = res.replace(/\bקטן מ\b/g, ' < ');
-
-        res = res.replace(/\b(?!(sin|cos|tan|log|ln|lim|max|min|arcsin|arccos|arctan)\b)[A-Z]?[a-z]{2,}\b/g, '');
-        res = res.replace(/\\[a-zA-Z]+/g, '');
-        res = res.replace(/\\/g, '');
 
         return res.trim();
     }
@@ -1095,6 +1068,8 @@
         let displayTopic = "";
         if (currentTopicStr.toLowerCase().includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
+        } else if (currentTopicStr === 'abc_basics') {
+            displayTopic = "אנגלית מהבסיס (ABC)";
         } else {
             let topicsArray = currentTopicStr.split(',');
             let translatedTopics = topicsArray.map(t => topicNamesHe[t.trim()] || t.trim());
@@ -1104,9 +1079,11 @@
         let isFin = (gradeParam === "finance" || subjectParam === "finance");
         let isEng = (gradeParam === "english" || subjectParam === "english");
         let isHeb = (gradeParam === "hebrew" || subjectParam === "hebrew");
-        let isArabicMode = (gradeParam === "arabic" || subjectParam === "arabic");
+        let isArabicModeInner = (gradeParam === "arabic" || subjectParam === "arabic");
         
-        isMathMode = !(isFin || isEng || isHeb || isArabicMode || subjectParam === 'science' || gradeParam === 'science'); 
+        isEnglishMode = isEng;
+        
+        isMathMode = !(isFin || isEng || isHeb || isArabicModeInner || subjectParam === 'science' || gradeParam === 'science'); 
 
         if (!isMathMode) { 
             const btnFormulas = document.getElementById('formulas-btn');
@@ -1123,7 +1100,7 @@
             headerText = `אנגלית`;
         } else if (isHeb) {
             headerText = `לשון והבעה`;
-        } else if (isArabicMode) {
+        } else if (isArabicModeInner) {
             headerText = `ערבית`;
         } else {
             headerText = `${act} | כיתה ${displayGrade}`;
@@ -1292,6 +1269,9 @@
             }
             
             questions.forEach(q => {
+                if (!q.options) q.options = q.answers || q.choices || ["תשובה 1", "תשובה 2"];
+                if (q.correctAnswer === undefined) q.correctAnswer = q.correct_answer || 0;
+                
                 if (!isMathMode) {
                     q.shuffledOptions = shuffleOptions(q.options);
                 } else {
@@ -1384,21 +1364,33 @@
             let trimmed = part.trim();
             if (trimmed === '') return '';
             if (trimmed.includes('<svg')) { return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; width: 100%; text-align: center; margin: 10px 0;">${trimmed}</div>`; }
-            if (isMathMode && !/[\u0590-\u05FF]/.test(trimmed)) {
+            
+            let isHebrewLine = containsHebrew(trimmed);
+            let lineDir = isHebrewLine ? "rtl" : "ltr";
+
+            if (isMathMode && !isHebrewLine) {
                 return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; display: block; width: 100%; text-align: center; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.4rem; margin: 10px 0; font-weight: 800; color: #000000; letter-spacing: 1px;">${formatContent(trimmed)}</div>`;
             }
-            return `<div dir="rtl" style="direction: rtl; unicode-bidi: isolate; margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; color: #000000; line-height: 1.5;">${formatContent(trimmed)}</div>`;
+            return `<div dir="${lineDir}" style="direction: ${lineDir}; unicode-bidi: isolate; margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; color: #000000; line-height: 1.5; text-align: center;">${formatContent(trimmed)}</div>`;
         }).join('');
 
         let qTextHtml = `<div style="width: 100%;">${formattedQText}</div>`;
         
-        let isFin = (urlGrade === "finance" || urlSubject === "finance");
         let isEng = (urlGrade === "english" || urlSubject === "english");
         let isHeb = (urlGrade === "hebrew" || urlSubject === "hebrew");
         let isArabicModeInner = (urlGrade === "arabic" || urlSubject === "arabic");
 
+        const readingBtnContainer = document.getElementById('reading-btn-container');
+        readingBtnContainer.innerHTML = '';
+        
+        if (isEng && currentTopicStr === 'abc_basics') {
+            readingBtnContainer.innerHTML += `<button class="btn-tts" onclick="speakCurrentQuestion(this)">
+                <span>השמע שאלה</span> <span>🔊</span>
+            </button>`;
+        }
+
         let showReadingBtn = false;
-        let qTopic = (q.topic || "").toLowerCase();
+        let qTopic = (q.topic || currentTopicStr || "").toLowerCase();
         let qSub = (q.subTopic || q.subtopic || "").toLowerCase();
         
         if (q.passage || q.reading_text) {
@@ -1417,7 +1409,7 @@
             else if (isHeb && (qTopic.includes('הבנת_הנקרא_והבעה') || q.topic === 'הבנת_הנקרא_והבעה') && qSub.includes('הבנת הנקרא (טקסטים)')) {
                 showReadingBtn = true;
             }
-            else if (isArabicModeInner && qTopic.includes('הבנת הנקרא')) {
+            else if (isArabicModeInner && (qTopic.includes('reading') || qTopic.includes('הבנת') || qTopic.includes('טקסטים') || qSub.includes('טקסטים') || qSub.includes('הבנת'))) {
                 showReadingBtn = true;
             }
             
@@ -1427,23 +1419,11 @@
         }
 
         if (showReadingBtn) {
-            document.getElementById('reading-btn-container').innerHTML = `
+            readingBtnContainer.innerHTML += `
                 <button class="btn-reading-window" onclick="openReadingWindow()">
                     <span style="font-size:1.2rem;">📖</span> <span>טקסט קריאה</span>
                 </button>
             `;
-        } else {
-            document.getElementById('reading-btn-container').innerHTML = "";
-        }
-
-        if (isEng && q.tts_text) {
-            currentSpeechText = q.tts_text;
-            qTextHtml += `
-            <div style="text-align:center; margin-top:15px; margin-bottom: 20px;">
-                <button id="tts-button-element" class="btn-tts" onclick="playTTS()">
-                    <span>השמע באנגלית</span> <span style="font-size:1.4rem;">🔊</span>
-                </button>
-            </div>`;
         }
 
         document.getElementById('q-text').innerHTML = qTextHtml;
@@ -1457,62 +1437,87 @@
 
         const hebrewLetters = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'", "ט'", "י'", "י\"א", "י\"ב"];
 
-        if (q.solution) {
-            htmlContent += q.solution;
-            if (q.final_answer) finalAnswerText = q.final_answer;
+        if (!isMathMode) {
+            let nonMathHtml = `<div style="background: rgba(34, 197, 94, 0.08); border: 2px solid #4ade80; border-radius: 12px; padding: 20px; color: #14532d; font-size: 1.15rem; line-height: 1.8; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1); text-align: right; direction: rtl;">`;
+            
+            nonMathHtml += `<div style="font-weight: 500;"><b style="color: #166534; font-size: 1.25rem;">📝 פתרון:</b><br><br>`;
+            
+            if (q.solution) {
+                nonMathHtml += formatContent(q.solution);
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            } else if (q.solution_steps && q.solution_steps.length > 0) {
+                q.solution_steps.forEach((step, idx) => {
+                    let textObj = step.verbal_explanation || step.explanation || "";
+                    if (textObj) nonMathHtml += `<div style="margin-bottom: 8px;"><b>שלב ${idx+1}:</b> ${formatContent(textObj)}</div>`;
+                });
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            } else if (q.correctAnswer !== undefined && q.options && q.options[q.correctAnswer]) {
+                nonMathHtml += `התשובה הנכונה היא: <b style="background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 4px; border: 1px solid #4ade80;">${formatContent(q.options[q.correctAnswer])}</b>`;
+            } else {
+                nonMathHtml += `התשובה סומנה נכונה במערכת.`;
+            }
+            
+            nonMathHtml += `</div></div>`;
+            htmlContent += nonMathHtml;
         } 
-        else if (q.solution_steps && q.solution_steps.length > 0) {
-            q.solution_steps.forEach((step, index) => {
-                let verbal = step.verbal_explanation || step.explanation || "";
-                let mathText = step.math_expression || "";
-                
-                let stepLabel = hebrewLetters[index] || (index + 1);
-
-                htmlContent += `
-                <div class="step-card" style="background:#ffffff; border:2px solid #e2e8f0; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-                    <div class="step-header" style="font-size:1.1rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
-                        שלב ${stepLabel}:
-                    </div>`;
-                
-                if (verbal) {
-                    let verbalDir = /[\u0590-\u05FF]/.test(verbal) ? "rtl" : "ltr";
-                    htmlContent += `<div dir="${verbalDir}" style="font-size: 1.15rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
-                }
-
-                if (mathText) {
-                    let mathDir = "ltr";
-                    let contentToRender = "";
+        else {
+            if (q.solution) {
+                htmlContent += formatContent(q.solution);
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            } 
+            else if (q.solution_steps && q.solution_steps.length > 0) {
+                q.solution_steps.forEach((step, index) => {
+                    let verbal = step.verbal_explanation || step.explanation || "";
+                    let mathText = step.math_expression || "";
                     
-                    if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(mathText)) {
-                        contentToRender = '\\( ' + cleanMathExpression(mathText) + ' \\)';
-                    } else {
-                        mathDir = /[\u0590-\u05FF]/.test(mathText) ? "rtl" : "ltr";
-                        let cleanedText = mathText.replace(/=>/g, ' ⇒ ').replace(/->/g, ' → ').replace(/!=/g, ' ≠ ').replace(/<=/g, ' ≤ ').replace(/>=/g, ' ≥ ').replace(/\*/g, ' × ');
-                        contentToRender = formatContent(cleanedText);
+                    let stepLabel = hebrewLetters[index] || (index + 1);
+
+                    htmlContent += `
+                    <div class="step-card" style="background:#ffffff; border:2px solid #e2e8f0; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+                        <div class="step-header" style="font-size:1.1rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
+                            שלב ${stepLabel}:
+                        </div>`;
+                    
+                    if (verbal) {
+                        let verbalDir = /[\u0590-\u05FF]/.test(verbal) ? "rtl" : "ltr";
+                        htmlContent += `<div dir="${verbalDir}" style="font-size: 1.15rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
+                    }
+
+                    if (mathText) {
+                        let mathDir = "ltr";
+                        let contentToRender = "";
+                        
+                        if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(mathText)) {
+                            contentToRender = '\\( \\displaystyle ' + cleanMathExpression(mathText) + ' \\)';
+                        } else {
+                            mathDir = /[\u0590-\u05FF]/.test(mathText) ? "rtl" : "ltr";
+                            let cleanedText = mathText.replace(/=>/g, ' ⇒ ').replace(/->/g, ' → ').replace(/!=/g, ' ≠ ').replace(/<=/g, ' ≤ ').replace(/>=/g, ' ≥ ').replace(/\*/g, ' × ');
+                            contentToRender = formatContent(cleanedText);
+                        }
+                        
+                        htmlContent += `
+                        <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.4rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
+                            ${contentToRender}
+                        </div>`;
                     }
                     
-                    htmlContent += `
-                    <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.4rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
-                        ${contentToRender}
-                    </div>`;
-                }
-                
-                htmlContent += `</div>`;
-            });
+                    htmlContent += `</div>`;
+                });
 
-            if (q.final_answer) finalAnswerText = q.final_answer;
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            }
         }
 
         htmlContent += '</div>';
 
-        if (finalAnswerText) {
+        if (finalAnswerText && isMathMode) {
             let processedFinalAnswer = finalAnswerText.replace(/\*/g, ' × ');
             let ansDir = /[\u0590-\u05FF]/.test(processedFinalAnswer) ? "rtl" : "ltr";
             let ansFont = (ansDir === "ltr") ? "'Cambria Math', 'Times New Roman', Arial, sans-serif" : "inherit";
             
             let finalContent = "";
             if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(processedFinalAnswer)) {
-                finalContent = '\\( ' + cleanMathExpression(processedFinalAnswer) + ' \\)';
+                finalContent = '\\( \\displaystyle ' + cleanMathExpression(processedFinalAnswer) + ' \\)';
                 ansDir = "ltr";
             } else {
                 finalContent = formatContent(processedFinalAnswer);
@@ -1567,7 +1572,7 @@
             
             if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(processedOpt)) {
                  btnContent = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.3rem; font-weight: 700; text-align: center; letter-spacing: 1px;">
-                    \\( ${cleanMathExpression(processedOpt)} \\)
+                    \\( \\displaystyle ${cleanMathExpression(processedOpt)} \\)
                  </bdi>`;
             } else {
                  btnContent = `<bdi dir="${optDir}" style="width:100%; display:inline-block; font-size: 1.15rem; text-align: center; font-weight: 600;">

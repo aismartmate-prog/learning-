@@ -1,681 +1,552 @@
+// ========================================================================
+// שכבת גיל: כיתה ז' | נושא: משתנים וביטויים אלגבריים
+// 3 תתי נושאים | 36 שאלות סה"כ 
+// פתרונות מפורטים מאוד בשלבים. 
+// כתיבה נקייה: חילוק מוצג כ- (:), כפל כ- (×), שברים כ- (1/2), חזקות כ- (²).
+// כולל איורי SVG צבעוניים ובטוחים מוטמעים בקוד.
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: מושג המשתנה (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: מושג המשתנה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Low",
-        "question_text": "איזה ביטוי אלגברי מתאר את המשפט: <strong>'מספר הגדול ב-5 מהמספר X'</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='60'><rect x='20' y='10' width='40' height='40' rx='5' fill='#fefce8' stroke='#1e293b' stroke-width='2'/><text x='40' y='35' font-size='16' font-weight='bold' text-anchor='middle'>X</text><line x1='70' y1='30' x2='120' y2='30' stroke='#b09151' stroke-width='3'/><polygon points='110,20 130,30 110,40' fill='#b09151'/><text x='95' y='20' font-size='14' font-weight='bold'>+ 5</text><rect x='140' y='10' width='50' height='40' rx='5' fill='#f8fafc' stroke='#1e293b' stroke-width='2' stroke-dasharray='4'/><text x='165' y='35' font-size='20' text-anchor='middle'>?</text></svg></div>",
-        "hint": "המילה 'גדול ב-' מצביעה תמיד על פעולת חיבור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו מתחילים מהמספר הנתון שלנו, שהוא הנעלם X.", "math_expression": "X" },
-            { "verbal_explanation": "שלב 2: אומרים לנו שהמספר החדש 'גדול ב-5'. פעולה המציינת הגדלה בכמות מסוימת היא פעולת החיבור (+).", "math_expression": "+ 5" },
-            { "verbal_explanation": "שלב 3: נחבר את שני החלקים יחד לקבלת הביטוי האלגברי השלם.", "math_expression": "X + 5" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "מה מסמל 'משתנה' במתמטיקה (בדרך כלל מסומן באותיות כמו x או y)?&rlm;",
+        options: ["כמות שאינה ידועה או כמות שיכולה לקבל ערכים שונים", "מספר שתמיד שווה לאפס", "טעות בתרגיל שיש לתקן", "פעולת כפל נסתרת"],
+        correctAnswer: 0,
+        hint: "תחשבו על משתנה כמו על 'קופסה ריקה' שאפשר להכניס לתוכה מספרים שונים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "באלגברה, אנו משתמשים באותיות כדי לייצג מספרים שאנחנו עדיין לא יודעים מה הם, או כאלה שיכולים להשתנות מבעיה לבעיה.&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן המילה 'משתנה' מרמזת על כך שהערך שלו יכול להשתנות.&rlm;", math_expression: "" }
         ],
-        "final_answer": "X + 5",
-        "options": ["5X", "X + 5", "X - 5", "X / 5"],
-        "correctAnswer": 1
+        final_answer: "כמות שאינה ידועה או כמות שיכולה לקבל ערכים שונים"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Low",
-        "question_text": "איזה ביטוי מתאר: <strong>'מספר הקטן ב-3 מהמספר Y'</strong>?",
-        "hint": "המילה 'קטן ב-' מצביעה על חיסור. ממי מחסרים? מהמספר המקורי Y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המספר ההתחלתי שלנו הוא Y.", "math_expression": "Y" },
-            { "verbal_explanation": "שלב 2: עלינו להקטין אותו. המילה 'קטן ב-' מתורגמת לפעולת חיסור.", "math_expression": "- 3" },
-            { "verbal_explanation": "שלב 3: לכן, ניקח את Y ונחסיר ממנו 3. שימו לב שסדר הכתיבה משנה (זה לא 3 פחות Y).", "math_expression": "Y - 3" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "מחירו של ארטיק אחד הוא x שקלים. דני קנה 4 ארטיקים. איזה ביטוי אלגברי מתאר את הסכום ששילם דני?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 60' width='100%' height='60' style='max-width:200px;'><rect x='10' y='10' width='20' height='40' fill='#fca5a5' rx='5'/><text x='20' y='35' font-family='Arial' font-size='14' font-weight='bold' fill='#7f1d1d' text-anchor='middle'>x</text><rect x='40' y='10' width='20' height='40' fill='#fca5a5' rx='5'/><text x='50' y='35' font-family='Arial' font-size='14' font-weight='bold' fill='#7f1d1d' text-anchor='middle'>x</text><rect x='70' y='10' width='20' height='40' fill='#fca5a5' rx='5'/><text x='80' y='35' font-family='Arial' font-size='14' font-weight='bold' fill='#7f1d1d' text-anchor='middle'>x</text><rect x='100' y='10' width='20' height='40' fill='#fca5a5' rx='5'/><text x='110' y='35' font-family='Arial' font-size='14' font-weight='bold' fill='#7f1d1d' text-anchor='middle'>x</text></svg></div>",
+        options: ["4x", "x + 4", "x : 4", "4 - x"],
+        correctAnswer: 0,
+        hint: "כאשר קונים כמה יחידות מאותו סוג, כופלים את הכמות במחיר ליחידה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המחיר ליחידה הוא x. הכמות היא 4.&rlm;", math_expression: "" },
+            { verbal_explanation: "נכפול את הכמות במחיר.&rlm;", math_expression: "4 × x" },
+            { verbal_explanation: "באלגברה נהוג להשמיט את סימן הכפל בין מספר לאות, ולכתוב פשוט 4x.&rlm;", math_expression: "4x" }
         ],
-        "final_answer": "Y - 3",
-        "options": ["Y - 3", "3 - Y", "3Y", "Y / 3"],
-        "correctAnswer": 0
+        final_answer: "4x"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Medium",
-        "question_text": "כיצד נכתוב בצורה מקוצרת ונכונה את המשפט: <strong>'מספר הגדול פי 4 מהמספר A'</strong>?",
-        "hint": "המילה 'פי' מצביעה על כפל. באלגברה, נהוג לכתוב את המספר (המקדם) לפני האות, ללא סימן כפל ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 'גדול פי 4' משמעותו לקחת את המספר (A) ולהכפיל אותו ב-4.", "math_expression": "4 * A" },
-            { "verbal_explanation": "שלב 2: בשפת האלגברה, כדי למנוע בלבול בין סימן הכפל (X) לאות X, אנו משמיטים את נקודת הכפל כשהיא בין מספר לאות.", "math_expression": "4A" },
-            { "verbal_explanation": "שלב 3: תמיד רושמים קודם את המספר ואז את האות.", "math_expression": "4A" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "גילו של יוני הוא y שנים. אחיו הקטן צעיר ממנו ב-3 שנים. איזה ביטוי מתאר את גילו של האח הקטן?&rlm;",
+        options: ["y - 3", "3y", "y + 3", "3 - y"],
+        correctAnswer: 0,
+        hint: "המילה 'צעיר ב-' מרמזת על פעולת חיסור. מי הגדול ומי הקטן?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הגיל של יוני הוא הבסיס שלנו (y).&rlm;", math_expression: "" },
+            { verbal_explanation: "האח צעיר ממנו ב-3 שנים, כלומר גילו קטן ב-3 מגילו של יוני. לכן נחסר 3 מ-y.&rlm;", math_expression: "y - 3" }
         ],
-        "final_answer": "4A",
-        "options": ["A + 4", "A4", "4A", "A / 4"],
-        "correctAnswer": 2
+        final_answer: "y - 3"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Low",
-        "question_text": "איזה ביטוי מתאר <strong>'מחצית מהמספר X'</strong>?",
-        "hint": "מחצית (חצי) פירושה לחלק את המספר ב-2. אפשר לכתוב זאת גם בעזרת קו שבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: לקחת מחצית ממשהו אומר לחלק אותו ל-2 חלקים שווים.", "math_expression": "X / 2" },
-            { "verbal_explanation": "שלב 2: באלגברה, נהוג ויפה יותר לכתוב פעולת חילוק בעזרת קו שבר. ה-X במונה וה-2 במכנה.", "math_expression": "X / 2" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "כתבו ביטוי אלגברי עבור: 'מספר שגדול פי 5 מהמספר a'.&rlm;",
+        options: ["5a", "a + 5", "a : 5", "5 - a"],
+        correctAnswer: 0,
+        hint: "המילה 'פי' (למשל גדול פי...) מרמזת על פעולת כפל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר אומרים 'גדול פי 5', מתכוונים לכפל ב-5.&rlm;", math_expression: "5 × a" },
+            { verbal_explanation: "כתיבה מקוצרת מקובלת באלגברה משמיטה את סימן הכפל.&rlm;", math_expression: "5a" }
         ],
-        "final_answer": "X / 2",
-        "options": ["X - 2", "2X", "X / 2", "X + 0.5"],
-        "correctAnswer": 2
+        final_answer: "5a"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Medium",
-        "question_text": "כתבו ביטוי עבור: <strong>'כפלו את המספר X ב-2, ולאחר מכן הוסיפו לתוצאה 7'</strong>.",
-        "hint": "עקבו אחרי סדר הפעולות בסיפור. קודם כפל (2X), ואז הוספה (+7).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל בפעולה הראשונה. כפל של המספר X ב-2 נכתב באלגברה כ-2X.", "math_expression": "2X" },
-            { "verbal_explanation": "שלב 2: כעת ניקח את התוצאה הזו (2X) ונוסיף לה את המספר 7 בעזרת פעולת חיבור.", "math_expression": "2X + 7" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "בקופסה היו m סוכריות. טל הוציא מהקופסה 8 סוכריות. איזה ביטוי מתאר את מספר הסוכריות שנשארו בקופסה?&rlm;",
+        options: ["m - 8", "8 - m", "8m", "m + 8"],
+        correctAnswer: 0,
+        hint: "התחלנו עם כמות m, והוצאנו ממנה. הוצאה היא פעולת חיסור.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכמות ההתחלתית היא m.&rlm;", math_expression: "" },
+            { verbal_explanation: "טל לקח (החסיר) 8 סוכריות. נחסר 8 מהכמות ההתחלתית.&rlm;", math_expression: "m - 8" }
         ],
-        "final_answer": "2X + 7",
-        "options": ["2(X + 7)", "X + 14", "2X + 7", "7X + 2"],
-        "correctAnswer": 2
+        final_answer: "m - 8"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Medium",
-        "question_text": "גילו של דן היום הוא <strong>X שנים</strong>. מה יהיה גילו של דן בעוד <strong>10 שנים</strong>?",
-        "hint": "כשאדם מתבגר, הגיל שלו גדל. איזו פעולת חשבון מתאימה לתהליך של הוספת שנים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אנו יודעים שהגיל הנוכחי מיוצג על ידי המשתנה X.", "math_expression": "גיל כיום = X" },
-            { "verbal_explanation": "שלב 2: בעוד 10 שנים, יתווספו לגילו של דן בדיוק 10 שנים.", "math_expression": "+ 10" },
-            { "verbal_explanation": "שלב 3: נחבר את כמות השנים שחלפו לגיל הנוכחי.", "math_expression": "X + 10" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "איזה ביטוי אלגברי מתאר את המשפט: 'כפלו את המספר c ב-2 ולאחר מכן הוסיפו 1'?&rlm;",
+        options: ["2c + 1", "c + 2 × 1", "2(c + 1)", "c + 1 × 2"],
+        correctAnswer: 0,
+        hint: "עקבו אחר הפעולות לפי סדר הופעתן במשפט.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "פעולה ראשונה: כפל המספר c ב-2.&rlm;", math_expression: "2c" },
+            { verbal_explanation: "פעולה שנייה: הוספת המספר 1 לתוצאה הקודמת.&rlm;", math_expression: "2c + 1" }
         ],
-        "final_answer": "X + 10",
-        "options": ["10X", "X + 10", "X - 10", "10 / X"],
-        "correctAnswer": 1
+        final_answer: "2c + 1"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Medium",
-        "question_text": "מחיר של קילוגרם עגבניות הוא <strong>M שקלים</strong>. מה יהיה המחיר של <strong>3 קילוגרמים</strong> עגבניות?",
-        "hint": "אם קילו אחד עולה M, שני קילו יעלו פעמיים M, ושלושה קילו יעלו...",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מחיר של יחידה אחת נתון לנו בתור M.", "math_expression": "1 קילו = M" },
-            { "verbal_explanation": "שלב 2: כדי למצוא מחיר של כמות גדולה יותר, אנו מכפילים את הכמות במחיר ליחידה.", "math_expression": "3 * M" },
-            { "verbal_explanation": "שלב 3: נכתוב את התוצאה לפי כללי האלגברה (מספר לפני אות, ללא סימן כפל).", "math_expression": "3M" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "אורך צלע של ריבוע הוא a ס\"מ. מהו הביטוי האלגברי שמתאר את היקף הריבוע?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='100%' height='100' style='max-width:100px;'><rect x='20' y='20' width='60' height='60' fill='none' stroke='#3b82f6' stroke-width='2'/><text x='50' y='15' font-family='Arial' font-size='14' font-weight='bold' fill='#0f172a' text-anchor='middle'>a</text></svg></div>",
+        options: ["4a", "a²", "a + 4", "a : 4"],
+        correctAnswer: 0,
+        hint: "היקף הוא סכום כל הצלעות. לריבוע יש 4 צלעות שוות שכל אחת מהן באורך a.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "היקף הריבוע הוא חיבור של 4 הצלעות יחד.&rlm;", math_expression: "a + a + a + a" },
+            { verbal_explanation: "זהה לכפל של הצלע ב-4.&rlm;", math_expression: "4 × a = 4a" }
         ],
-        "final_answer": "3M",
-        "options": ["M + 3", "M / 3", "3M", "3 - M"],
-        "correctAnswer": 2
+        final_answer: "4a"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "High",
-        "question_text": "אם מספר שלם מסוים הוא <strong>N</strong>, איזה ביטוי מתאר את <strong>המספר העוקב לו</strong> (המספר שבא מיד אחריו בספירה)?",
-        "hint": "חשבו על מספרים רגילים. המספר העוקב ל-5 הוא 6. המספר העוקב ל-10 הוא 11. בכמה גדל המספר בכל פעם?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בסדרת המספרים השלמים (1, 2, 3...), כל מספר גדול מקודמו בדיוק ב-1.", "math_expression": "+ 1" },
-            { "verbal_explanation": "שלב 2: לכן, אם אנו נמצאים על המספר N, כדי להגיע למספר הבא בתור עלינו פשוט להוסיף לו 1.", "math_expression": "N + 1" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "בחניון חונות 20 מכוניות לבנות ועוד x מכוניות שחורות. מהו הביטוי המתאר את סך כל המכוניות בחניון?&rlm;",
+        options: ["20 + x", "20x", "x - 20", "20 - x"],
+        correctAnswer: 0,
+        hint: "כדי למצוא כמות כוללת, מחברים את הקבוצות השונות יחד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכמות הכוללת היא חיבור של מספר המכוניות הלבנות ומספר המכוניות השחורות.&rlm;", math_expression: "20 + x" }
         ],
-        "final_answer": "N + 1",
-        "options": ["2N", "N + 1", "N - 1", "N + 2"],
-        "correctAnswer": 1
+        final_answer: "20 + x"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "High",
-        "question_text": "ידוע ש- <strong>K</strong> הוא מספר שלם כלשהו (זוגי או אי-זוגי). איזה ביטוי יבטיח שהתוצאה תהיה <strong>תמיד מספר זוגי</strong>?",
-        "hint": "איזו פעולת חשבון, אם נפעיל אותה על כל מספר בעולם (כמו 3, 4, או 7), תמיד תהפוך אותו לזוגי?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הגדרה של מספר זוגי היא מספר שמתחלק ב-2 ללא שארית.", "math_expression": "זוגי = מתחלק ב-2" },
-            { "verbal_explanation": "שלב 2: לכן, כל מספר (בין אם הוא במקור זוגי ובין אם אי-זוגי), אם נכפיל אותו ב-2, הוא יהפוך בהכרח למספר זוגי.", "math_expression": "2 * K" },
-            { "verbal_explanation": "שלב 3: הביטוי המייצג תמיד מספר זוגי באלגברה הוא 2K.", "math_expression": "2K" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "מספר זוגי כלשהו מסומן כ- 2n (כאשר n הוא מספר שלם). איזה ביטוי מתאר את המספר הזוגי הבא אחריו בסדרה?&rlm;",
+        options: ["2n + 2", "2n + 1", "3n", "2(n + 2)"],
+        correctAnswer: 0,
+        hint: "בסדרת המספרים (2, 4, 6, 8...), מהו ההפרש בין מספר זוגי אחד לבא אחריו?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "מספרים זוגיים קופצים בקפיצות של 2 (לדוגמה מ-4 ל-6).&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן, כדי להגיע למספר הזוגי הבא, עלינו להוסיף 2 למספר הנוכחי.&rlm;", math_expression: "2n + 2" }
         ],
-        "final_answer": "2K",
-        "options": ["K + 2", "K / 2", "2K", "K - 2"],
-        "correctAnswer": 2
+        final_answer: "2n + 2"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Low",
-        "question_text": "אורך צלע של ריבוע הוא <strong>A ס\"מ</strong>. מהו <strong>היקף הריבוע</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='100' height='100'><rect x='10' y='10' width='80' height='80' fill='#fefce8' stroke='#1e293b' stroke-width='2'/><text x='50' y='105' font-size='16' font-weight='bold' text-anchor='middle'>A</text><text x='105' y='55' font-size='16' font-weight='bold' text-anchor='middle'>A</text></svg></div>",
-        "hint": "היקף הוא סכום כל הצלעות של הצורה. לריבוע יש 4 צלעות שוות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בריבוע יש 4 צלעות. נתון לנו שכל צלע אורכה A.", "math_expression": "A , A , A , A" },
-            { "verbal_explanation": "שלב 2: היקף מחשבים על ידי חיבור כל הצלעות: A + A + A + A.", "math_expression": "A + A + A + A" },
-            { "verbal_explanation": "שלב 3: כתיבה מקוצרת לחיבור של אותו איבר 4 פעמים היא פשוט כפל ב-4.", "math_expression": "4A" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "איזה ביטוי מתאר את המשפט: 'המספר b חלקי 3'?&rlm;",
+        options: ["b/3", "3/b", "3b", "b - 3"],
+        correctAnswer: 0,
+        hint: "פעולת החילוק מיוצגת גם על ידי קו שבר. המספר שמחלקים הוא המונה, והמספר שמחלק הוא המכנה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המילה 'חלקי' אומרת שאנו מחלקים את b ב-3.&rlm;", math_expression: "b : 3" },
+            { verbal_explanation: "ביטוי זה שקול לחלוטין לשבר b/3.&rlm;", math_expression: "b/3" }
         ],
-        "final_answer": "4A",
-        "options": ["A + 4", "4A", "A / 4", "A²"],
-        "correctAnswer": 1
+        final_answer: "b/3"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Low",
-        "question_text": "אורך מלבן הוא <strong>a</strong> ורוחבו הוא <strong>b</strong>. מהו הביטוי המייצג את <strong>שטח המלבן</strong>?",
-        "hint": "שטח מלבן מחושב על ידי הכפלת האורך ברוחב.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הנוסחה לחישוב שטח מלבן היא צלע אחת כפול הצלע הסמוכה לה (אורך כפול רוחב).", "math_expression": "אורך * רוחב" },
-            { "verbal_explanation": "שלב 2: נציב את האותיות הנתונות שלנו בנוסחה.", "math_expression": "a * b" },
-            { "verbal_explanation": "שלב 3: באלגברה, כשמכפילים שני משתנים שונים, אפשר פשוט לכתוב אותם צמודים זה לזה.", "math_expression": "ab" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "בקבוצה יש 15 ילדים, חלקם בנים וחלקם בנות. אם נסמן את מספר הבנים ב- x, איזה ביטוי יתאר את מספר הבנות?&rlm;",
+        options: ["15 - x", "x - 15", "15x", "x + 15"],
+        correctAnswer: 0,
+        hint: "מספר הבנות הוא מה שנשאר מתוך 15 הילדים, אחרי שמורידים מהם את מספר הבנים (x).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הכמות הכוללת היא 15.&rlm;", math_expression: "" },
+            { verbal_explanation: "כדי למצוא חלק אחד מתוך השלם, נחסר מהשלם את החלק הידוע (הבנים).&rlm;", math_expression: "15 - x" }
         ],
-        "final_answer": "ab",
-        "options": ["a + b", "2a + 2b", "ab", "a / b"],
-        "correctAnswer": 2
+        final_answer: "15 - x"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Medium",
-        "question_text": "רונית נכנסה לחנות עם <strong>50 שקלים</strong>. היא קנתה ספר שמחירו <strong>X שקלים</strong>. כמה <strong>עודף</strong> היא תקבל?",
-        "hint": "העודף הוא מה שנשאר לה מהכסף ההתחלתי אחרי שהיא שילמה על הספר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הסכום ההתחלתי שהיה ברשותה של רונית הוא 50.", "math_expression": "50" },
-            { "verbal_explanation": "שלב 2: כשהיא קונה ספר, הכסף הזה יורד מהסכום הכולל שלה. כלומר, פעולת חיסור.", "math_expression": "- X" },
-            { "verbal_explanation": "שלב 3: לכן, העודף הוא הסכום ההתחלתי פחות מחיר הקנייה.", "math_expression": "50 - X" }
+        topic: "algebraic_expressions",
+        subTopic: "מושג המשתנה",
+        question_text: "לנועה יש פי 2 יותר מדבקות מאשר לרוני, ולדן יש 5 מדבקות יותר מאשר לרוני. אם לרוני יש x מדבקות, איזה ביטוי מתאר את סך כל המדבקות של שלושתם יחד?&rlm;",
+        options: ["x + 2x + (x + 5)", "x + 2x + 5x", "3x + 5", "x² + 5"],
+        correctAnswer: 0,
+        hint: "כתבו ביטוי לכל ילד בנפרד (רוני=x, נועה=2x, דן=x+5) וחברו אותם יחד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המדבקות של רוני: x.&rlm;", math_expression: "x" },
+            { verbal_explanation: "המדבקות של נועה (פי 2 מרוני): 2x.&rlm;", math_expression: "2x" },
+            { verbal_explanation: "המדבקות של דן (5 יותר מרוני): x + 5.&rlm;", math_expression: "x + 5" },
+            { verbal_explanation: "סכום כולם יחד:&rlm;", math_expression: "x + 2x + (x + 5)" }
         ],
-        "final_answer": "50 - X",
-        "options": ["X - 50", "50 - X", "50X", "50 + X"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 13,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "Medium",
-        "question_text": "בביטוי האלגברי <strong>5m</strong>, המספר 5 נקרא 'מקדם'. מה המשמעות המתמטית של ביטוי זה?",
-        "hint": "כאשר מספר ואות צמודים זה לזה ללא סימן ביניהם, איזו פעולת חשבון מתחבאת שם?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ביטוי כמו 5m הוא למעשה דרך מקוצרת לכתוב חיבור חוזר: m + m + m + m + m.", "math_expression": "m + m + m + m + m" },
-            { "verbal_explanation": "שלב 2: המשמעות של חיבור חוזר היא פעולת כפל.", "math_expression": "5 * m" },
-            { "verbal_explanation": "שלב 3: לכן, המספר 5 'מכפיל' את המשתנה m.", "math_expression": "5 כפול m" }
-        ],
-        "final_answer": "5 כפול m",
-        "options": ["5 ועוד m", "5 כפול m", "m בחזקת 5", "5 פחות m"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "High",
-        "question_text": "איזה מהביטויים הבאים <strong>אינו</strong> מייצג את המשפט 'מחצית מ-X'?",
-        "hint": "יש כמה דרכים לכתוב חצי מכמות: לחלק ב-2, או להכפיל בשבר חצי, או להכפיל ב-0.5 עשרוני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק את X/2. זהו שבר שמייצג חלוקה של X ב-2. זה נכון.", "math_expression": "X / 2" },
-            { "verbal_explanation": "שלב 2: נבדוק את 0.5X. זהו חצי עשרוני כפול X, שזה בדיוק מחצית מ-X. זה נכון.", "math_expression": "0.5X" },
-            { "verbal_explanation": "שלב 3: נבדוק את X - 0.5. כאן אנו מחסרים חצי שקל (למשל) מכמות ה-X, ולא לוקחים חצי מתוך ה-X עצמו. זהו הביטוי השגוי.", "math_expression": "X - 0.5" }
-        ],
-        "final_answer": "X - 0.5",
-        "options": ["X / 2", "0.5X", "1/2 * X", "X - 0.5"],
-        "correctAnswer": 3
-    },
-    {
-        "id": 15,
-        "subTopic": "מושג המשתנה",
-        "difficulty": "High",
-        "question_text": "איזה ביטוי מתאר את המשפט: <strong>'מספר הקטן ב-3 מפעמיים המספר P'</strong>?",
-        "hint": "פרקו את המשפט: קודם בנו את 'פעמיים P', ורק לאחר מכן 'קטן ב-3' (החסרו ממנו 3).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתרגם את החלק 'פעמיים המספר P'. המשמעות היא להכפיל את P ב-2.", "math_expression": "2P" },
-            { "verbal_explanation": "שלב 2: עכשיו נטפל בחלק של 'קטן ב-3'. עלינו לקחת את התוצאה שקיבלנו (2P) ולהחסיר ממנה 3.", "math_expression": "2P - 3" },
-            { "verbal_explanation": "שלב 3: חיבור של שני החלקים נותן את הביטוי המבוקש.", "math_expression": "2P - 3" }
-        ],
-        "final_answer": "2P - 3",
-        "options": ["2P - 3", "3 - 2P", "2(P - 3)", "P/2 - 3"],
-        "correctAnswer": 0
+        final_answer: "x + 2x + (x + 5)"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: הצבה (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: הצבה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "הצבה",
-        "difficulty": "Low",
-        "question_text": "חשבו את ערכו של הביטוי <strong> X + 7 </strong> כאשר נתון כי <strong> X = 3 </strong>.",
-        "hint": "פשוט החליפו את האות X במספר 3, וחשבו את התרגיל הרגיל שנוצר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ניקח את הביטוי המקורי ובמקום האות X נכתוב (נציב) את המספר 3 שקיבלנו.", "math_expression": "3 + 7" },
-            { "verbal_explanation": "שלב 2: נחשב את תרגיל החיבור הפשוט שנוצר.", "math_expression": "10" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "נתון הביטוי האלגברי: 3x + 2. חשבו את ערך הביטוי כאשר מציבים x = 4.&rlm;",
+        options: ["14", "18", "9", "24"],
+        correctAnswer: 0,
+        hint: "החליפו את האות x במספר 4. זכרו ש- 3x פירושו 3 כפול x. (3 כפול 4, ואז להוסיף 2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את המספר 4 במקום ה-x בביטוי.&rlm;", math_expression: "3 × 4 + 2" },
+            { verbal_explanation: "שלב ב': נבצע כפל קודם לחיבור לפי סדר פעולות חשבון.&rlm;", math_expression: "12 + 2" },
+            { verbal_explanation: "שלב ג': נחבר.&rlm;", math_expression: "14" }
         ],
-        "final_answer": "10",
-        "options": ["21", "4", "10", "11"],
-        "correctAnswer": 2
+        final_answer: "14"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "הצבה",
-        "difficulty": "Low",
-        "question_text": "נתון הביטוי <strong> 4Y </strong>. מה יהיה ערכו אם נציב <strong> Y = 5 </strong>?",
-        "hint": "זכרו שבין המספר 4 לאות Y מסתתר סימן כפל! זה לא המספר 45.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזכור שהביטוי 4Y משמעותו 4 כפול Y.", "math_expression": "4 * Y" },
-            { "verbal_explanation": "שלב 2: נציב את המספר 5 במקום האות Y בתרגיל הכפל.", "math_expression": "4 * 5" },
-            { "verbal_explanation": "שלב 3: נחשב את המכפלה.", "math_expression": "20" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "חשבו את ערך הביטוי 10 - 2y עבור ההצבה y = 3.&rlm;",
+        options: ["4", "24", "16", "6"],
+        correctAnswer: 0,
+        hint: "הציבו את 3. כפלו 2 ב-3, ואת התוצאה חסרו מ-10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 3 במקום y.&rlm;", math_expression: "10 - 2 × 3" },
+            { verbal_explanation: "שלב ב': נבצע את פעולת הכפל קודם.&rlm;", math_expression: "10 - 6" },
+            { verbal_explanation: "שלב ג': נחסר.&rlm;", math_expression: "4" }
         ],
-        "final_answer": "20",
-        "options": ["45", "9", "20", "1"],
-        "correctAnswer": 2
+        final_answer: "4"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "חשבו את ערך הביטוי <strong> 2a + 3 </strong> כאשר <strong> a = 4 </strong>.",
-        "hint": "הקפידו על סדר פעולות חשבון: קודם בצעו את הכפל (2 כפול 4), ורק אחר כך את החיבור (+3).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את המספר 4 במקום האות a. נזכור שיש כפל בין ה-2 ל-a.", "math_expression": "2 * 4 + 3" },
-            { "verbal_explanation": "שלב 2: לפי סדר פעולות חשבון, כפל קודם לחיבור. נחשב קודם 2 כפול 4.", "math_expression": "8 + 3" },
-            { "verbal_explanation": "שלב 3: כעת נבצע את פעולת החיבור כדי לקבל את התוצאה הסופית.", "math_expression": "11" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "נתון הביטוי a + 3b. הציבו בו a = 5 ו- b = 2 וחשבו את התוצאה.&rlm;",
+        options: ["11", "16", "10", "13"],
+        correctAnswer: 0,
+        hint: "החליפו את a ב-5 ואת b ב-2. התרגיל יהיה 5 ועוד 3 כפול 2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את שני המשתנים בביטוי.&rlm;", math_expression: "5 + 3 × 2" },
+            { verbal_explanation: "שלב ב': נחשב כפל קודם.&rlm;", math_expression: "5 + 6" },
+            { verbal_explanation: "שלב ג': נחבר.&rlm;", math_expression: "11" }
         ],
-        "final_answer": "11",
-        "options": ["11", "14", "9", "243"],
-        "correctAnswer": 0
+        final_answer: "11"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "הציבו <strong> X = -2 </strong> בביטוי <strong> X + 5 </strong> וחשבו את התוצאה.",
-        "hint": "איך מחברים מספר שלילי לחיובי? חשבו על זה כחוב של 2 שקלים שיש להוסיף לו 5 שקלים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את המספר השלילי (-2) במקום האות X בתוך הביטוי.", "math_expression": "-2 + 5" },
-            { "verbal_explanation": "שלב 2: יש לנו חוב של 2, ואנו מוסיפים לו 5. מכיוון שהפלוס גדול מהמינוס, התוצאה תהיה חיובית (5 פחות 2).", "math_expression": "3" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "הציבו x = 3 בביטוי x² + 5 וחשבו:&rlm;",
+        options: ["14", "11", "25", "8"],
+        correctAnswer: 0,
+        hint: "x² פירושו x כפול x (במקרה שלנו 3 כפול 3). לאחר מכן הוסיפו 5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 3 במקום x ונחשב את החזקה (3 בריבוע).&rlm;", math_expression: "3² + 5" },
+            { verbal_explanation: "שלב ב': 3 כפול 3 שווה 9.&rlm;", math_expression: "9 + 5" },
+            { verbal_explanation: "שלב ג': נחבר את התוצאות.&rlm;", math_expression: "14" }
         ],
-        "final_answer": "3",
-        "options": ["7-", "3", "7", "3-"],
-        "correctAnswer": 1
+        final_answer: "14"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "מה יהיה הערך של <strong> 3m </strong> אם <strong> m = -4 </strong>?",
-        "hint": "הכפילו את 3 במינוס 4. זכרו את חוקי הסימנים: פלוס כפול מינוס נותן...",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזכור שהביטוי אומר לנו להכפיל את 3 ב-m.", "math_expression": "3 * m" },
-            { "verbal_explanation": "שלב 2: נציב את המספר השלילי (-4) בתוך התרגיל. נשתמש בסוגריים כדי שיהיה מסודר.", "math_expression": "3 * (-4)" },
-            { "verbal_explanation": "שלב 3: כפל של מספר חיובי במספר שלילי נותן תוצאה שלילית.", "math_expression": "-12" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "הצבת מספר שלילי: נתון הביטוי 4m + 10. הציבו בו m = -2 וחשבו.&rlm;",
+        options: ["2", "-18", "-2", "18"],
+        correctAnswer: 0,
+        hint: "הכפילו את 4 ב-(2-). התוצאה תהיה שלילית (8-). לזה הוסיפו 10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 2- במקום m.&rlm;", math_expression: "4 × (-2) + 10" },
+            { verbal_explanation: "שלב ב': נבצע כפל. פלוס כפול מינוס זה מינוס.&rlm;", math_expression: "-8 + 10" },
+            { verbal_explanation: "שלב ג': חוב של 8 שקלים ועוד 10 שקלים ייתן יתרה חיובית.&rlm;", math_expression: "2" }
         ],
-        "final_answer": "12-",
-        "options": ["1-", "12", "12-", "7"],
-        "correctAnswer": 2
+        final_answer: "2"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "הצבה",
-        "difficulty": "High",
-        "question_text": "זהירות, מוקש מיוחד! חשבו את ערך הביטוי <strong> 10 - X </strong> כאשר <strong> X = -3 </strong>.<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='40'><rect x='20' y='5' width='140' height='30' fill='#fefce8' stroke='#b09151' stroke-width='2'/><text x='90' y='25' font-size='16' font-weight='bold' text-anchor='middle'>- ( - ) = +</text></svg></div>",
-        "hint": "בביטוי יש כבר סימן מינוס. כשמציבים מספר שלילי (-3), ייווצרו לנו שני סימני מינוס רצופים!",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את (3-) במקום ה-X בדיוק איפה שהוא נמצא. נשמור על המינוס המקורי של הביטוי.", "math_expression": "10 - (-3)" },
-            { "verbal_explanation": "שלב 2: באלגברה, כששני סימני מינוס נפגשים ברצף (חיסור של מספר שלילי), הם מתבטלים והופכים לפעולת חיבור.", "math_expression": "10 + 3" },
-            { "verbal_explanation": "שלב 3: נחשב את פעולת החיבור הפשוטה שנותרה.", "math_expression": "13" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "חשבו את ערך הביטוי 2(x - 3) עבור x = 8.&rlm;",
+        options: ["10", "13", "16", "22"],
+        correctAnswer: 0,
+        hint: "הציבו את 8 בסוגריים (8 פחות 3). את מה שיצא בסוגריים הכפילו ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 8 במקום x בתוך הסוגריים.&rlm;", math_expression: "2 × (8 - 3)" },
+            { verbal_explanation: "שלב ב': נפתור את הפעולה שבתוך הסוגריים (חיסור).&rlm;", math_expression: "2 × 5" },
+            { verbal_explanation: "שלב ג': נכפול את התוצאה ב-2.&rlm;", math_expression: "10" }
         ],
-        "final_answer": "13",
-        "options": ["7", "13", "7-", "13-"],
-        "correctAnswer": 1
+        final_answer: "10"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "הצבה",
-        "difficulty": "Low",
-        "question_text": "חשבו את ערכו של שבר: <strong> X / 4 </strong>, אם ידוע ש- <strong> X = 20 </strong>.",
-        "hint": "הציבו את 20 במקום ה-X שבמונה, ובצעו את פעולת החילוק שמייצג קו השבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: קו שבר מסמל תמיד פעולת חילוק. נציב את 20 במקום ה-X למעלה.", "math_expression": "20 / 4" },
-            { "verbal_explanation": "שלב 2: נשאל את עצמנו: כמה פעמים נכנס 4 בתוך 20? נבצע את החילוק.", "math_expression": "5" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "הציבו x = 10 בביטוי x/2 + 5 וחשבו את הערך (שימו לב ש- x/2 אומר x חלקי 2).&rlm;",
+        options: ["10", "25", "15", "7.5"],
+        correctAnswer: 0,
+        hint: "חלקו את 10 ב-2, ואז הוסיפו לתוצאה 5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את 10 במונה של השבר.&rlm;", math_expression: "10/2 + 5" },
+            { verbal_explanation: "שלב ב': נבצע חילוק (קו שבר שווה ערך לפעולת חילוק).&rlm;", math_expression: "5 + 5" },
+            { verbal_explanation: "שלב ג': נחבר.&rlm;", math_expression: "10" }
         ],
-        "final_answer": "5",
-        "options": ["80", "16", "5", "0.2"],
-        "correctAnswer": 2
+        final_answer: "10"
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "הציבו שני משתנים: חשבו את <strong> a + b </strong> כאשר נתון ש- <strong> a = 5 </strong> וכן <strong> b = -2 </strong>.",
-        "hint": "הציבו את שני המספרים במקומם המתאים בביטוי וחברו אותם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחליף את a ב-5 ואת b ב-(2-).", "math_expression": "5 + (-2)" },
-            { "verbal_explanation": "שלב 2: חיבור של מספר שלילי שקול לפעולת חיסור רגילה.", "math_expression": "5 - 2" },
-            { "verbal_explanation": "שלב 3: נחשב את החיסור.", "math_expression": "3" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "הצבה רבת משתנים: חשבו את ערך הביטוי (a × b) + c, כאשר ידוע ש: a=2, b=4, c=5.&rlm;",
+        options: ["13", "18", "22", "11"],
+        correctAnswer: 0,
+        hint: "הציבו את כל המספרים בהתאמה לאותיות: 2 במקום a, 4 במקום b, ו-5 במקום c. פתרו קודם את הסוגריים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את כל הערכים בביטוי במקומות המתאימים.&rlm;", math_expression: "(2 × 4) + 5" },
+            { verbal_explanation: "שלב ב': נפתור את פעולת הכפל שבסוגריים.&rlm;", math_expression: "8 + 5" },
+            { verbal_explanation: "שלב ג': נחבר את ה-5.&rlm;", math_expression: "13" }
         ],
-        "final_answer": "3",
-        "options": ["7", "3", "3-", "7-"],
-        "correctAnswer": 1
+        final_answer: "13"
     },
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "הצבה",
-        "difficulty": "High",
-        "question_text": "חשבו את ערך הביטוי <strong> 3x - 2y </strong> כאשר מציבים <strong> x = 4 </strong> ו- <strong> y = 1 </strong>.",
-        "hint": "הציבו את המספרים בזהירות. קודם בצעו את פעולות הכפל בכל צד, ואז את החיסור ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הערכים בתרגיל ונחשוף את פעולות הכפל המוסתרות.", "math_expression": "3 * 4 - 2 * 1" },
-            { "verbal_explanation": "שלב 2: לפי סדר פעולות חשבון, נחשב קודם את משימות הכפל.", "math_expression": "12 - 2" },
-            { "verbal_explanation": "שלב 3: נבצע את פעולת החיסור לקבלת התוצאה הסופית.", "math_expression": "10" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "חשבו את הערך של y² כאשר מציבים y = -3 (מינוס שלוש).&rlm;",
+        options: ["9", "-9", "6", "-6"],
+        correctAnswer: 0,
+        hint: "כשמעלים מספר בחזקה (במיוחד שלילי), הוא נכנס כולו לתוך סוגריים. (-3)² זה מינוס 3 כפול מינוס 3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הצבת מספר שלילי בחזקה מחייבת שימוש בסוגריים.&rlm;", math_expression: "(-3)²" },
+            { verbal_explanation: "שלב ב': חזקה שנייה אומרת לכפול את המספר בעצמו.&rlm;", math_expression: "(-3) × (-3)" },
+            { verbal_explanation: "שלב ג': מינוס כפול מינוס נותן פלוס. 3 כפול 3 נותן 9.&rlm;", math_expression: "9" }
         ],
-        "final_answer": "10",
-        "options": ["10", "14", "8", "5"],
-        "correctAnswer": 0
+        final_answer: "9"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "הציבו <strong> x = 5 </strong> בביטוי עם חזקה: <strong> x² </strong>.",
-        "hint": "החזקה 'בריבוע' אומרת לקחת את המספר ולהכפיל אותו בעצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את המספר 5 במקום הבסיס X.", "math_expression": "5²" },
-            { "verbal_explanation": "שלב 2: המשמעות של חזקת 2 (בריבוע) היא הכפלת המספר בעצמו פעם אחת.", "math_expression": "5 * 5" },
-            { "verbal_explanation": "שלב 3: נחשב את תוצאת הכפל.", "math_expression": "25" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "נתון הביטוי 20 - x². מה ערכו של הביטוי עבור ההצבה x = 4?&rlm;",
+        options: ["4", "36", "12", "-16"],
+        correctAnswer: 0,
+        hint: "סדר פעולות: קודם חשבו את 4², ואז חסרו את התוצאה מ-20.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 4 במקום x בביטוי.&rlm;", math_expression: "20 - 4²" },
+            { verbal_explanation: "שלב ב': חזקה קודמת לחיסור. נחשב את 4² (4 כפול 4).&rlm;", math_expression: "20 - 16" },
+            { verbal_explanation: "שלב ג': נבצע את פעולת החיסור.&rlm;", math_expression: "4" }
         ],
-        "final_answer": "25",
-        "options": ["10", "25", "5", "7"],
-        "correctAnswer": 1
+        final_answer: "4"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "הצבה",
-        "difficulty": "High",
-        "question_text": "חשבו את ערך הביטוי <strong> x² </strong> כאשר מציבים מספר שלילי: <strong> x = -3 </strong>.",
-        "hint": "כשמעלים מספר שלילי בריבוע, חובה לשים אותו בסוגריים! המינוס מוכפל בעצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מכיוון שה-X כולו מועלה בריבוע, אנו חייבים להציב את כל המספר השלילי (-3) בתוך סוגריים לפני החזקה.", "math_expression": "(-3)²" },
-            { "verbal_explanation": "שלב 2: המשמעות היא להכפיל את המינוס 3 בעצמו.", "math_expression": "(-3) * (-3)" },
-            { "verbal_explanation": "שלב 3: לפי חוקי הכפל, מינוס כפול מינוס נותן תוצאה חיובית! לכן התוצאה היא 9 פלוס.", "math_expression": "9" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "מהו שטחו של מלבן שצלעותיו מיוצגות על ידי המשתנים x ו- y, אם נתון כי x = 6 ס\"מ ו- y = 5 ס\"מ?&rlm;",
+        options: ["30 סמ\"ר", "11 סמ\"ר", "22 סמ\"ר", "65 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "שטח מלבן הוא אורך כפול רוחב (x כפול y). הציבו את המספרים וחשבו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "הביטוי הכללי לשטח מלבן הוא מכפלת הצלעות.&rlm;", math_expression: "S = x × y" },
+            { verbal_explanation: "נציב את הערכים הנתונים בשאלה.&rlm;", math_expression: "S = 6 × 5" },
+            { verbal_explanation: "התוצאה היא 30.&rlm;", math_expression: "30" }
         ],
-        "final_answer": "9",
-        "options": ["9-", "6-", "9", "6"],
-        "correctAnswer": 2
+        final_answer: "30 סמ\"ר"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "הצבה",
-        "difficulty": "High",
-        "question_text": "הציבו <strong> x = 4 </strong> בביטוי המכיל סוגריים: <strong> 2(x + 3) </strong>.",
-        "hint": "לפי סדר פעולות חשבון, חייבים קודם לחשב את התוצאה שבתוך הסוגריים, ורק אז להכפיל במספר שבחוץ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את המספר 4 במקום ה-x בתוך הסוגריים.", "math_expression": "2(4 + 3)" },
-            { "verbal_explanation": "שלב 2: סוגריים תמיד קודמים לכל. נחשב את החיבור שבפנים (4 ועוד 3).", "math_expression": "2 * (7)" },
-            { "verbal_explanation": "שלב 3: נכפיל את התוצאה ב-2 שהמתין בחוץ.", "math_expression": "14" }
+        topic: "algebraic_expressions",
+        subTopic: "הצבה",
+        question_text: "הציבו a = 0 בביטוי 5a + 12 וחשבו:&rlm;",
+        options: ["12", "5", "17", "0"],
+        correctAnswer: 0,
+        hint: "5a פירושו 5 כפול a. זכרו שכל מספר שכופלים באפס נותן אפס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב 0 במקום a בביטוי.&rlm;", math_expression: "5 × 0 + 12" },
+            { verbal_explanation: "שלב ב': נבצע כפל. 5 כפול 0 מתאפס.&rlm;", math_expression: "0 + 12" },
+            { verbal_explanation: "שלב ג': נחבר.&rlm;", math_expression: "12" }
         ],
-        "final_answer": "14",
-        "options": ["11", "14", "10", "24"],
-        "correctAnswer": 1
+        final_answer: "12"
     },
+
+    // ==========================================================
+    // תת נושא 3: פישוט וכינוס איברים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 28,
-        "subTopic": "הצבה",
-        "difficulty": "High",
-        "question_text": "חשבו את הערך של <strong> (x + 2) / 3 </strong> (קו שבר ארוך) כאשר נציב <strong> x = 10 </strong>.",
-        "hint": "קו שבר מתנהג כמו סוגריים: חובה לחשב קודם את כל המונה למעלה, ורק בסוף לבצע את משימת החילוק.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הערך 10 במונה במקום ה-x.", "math_expression": "(10 + 2) / 3" },
-            { "verbal_explanation": "שלב 2: נחשב את פעולת החיבור שמופיעה במונה השבר.", "math_expression": "12 / 3" },
-            { "verbal_explanation": "שלב 3: כעת נבצע את החילוק: 12 לחלק ל-3.", "math_expression": "4" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "כנסו את האיברים הדומים בביטוי הבא: 3x + 4x = ?&rlm;",
+        options: ["7x", "12x", "x", "7x²"],
+        correctAnswer: 0,
+        hint: "חשבו על x כעל תפוח. 3 תפוחים ועוד 4 תפוחים הם...&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר יש לנו איברים עם אותו משתנה (x), אנחנו יכולים לחבר את המקדמים שלהם.&rlm;", math_expression: "" },
+            { verbal_explanation: "3 ועוד 4 הם 7.&rlm;", math_expression: "(3 + 4)x = 7x" }
         ],
-        "final_answer": "4",
-        "options": ["12", "5", "4", "6"],
-        "correctAnswer": 2
+        final_answer: "7x"
     },
+    // שאלה 26
     {
-        "id": 29,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "הציבו את המספר אפס <strong> x = 0 </strong> בתוך הביטוי: <strong> 5x - 7 </strong>.",
-        "hint": "זכרו שכל מספר שמוכפל באפס, הופך לאפס ו'נעלם'.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את האפס בתרגיל ונזכור את פעולת הכפל.", "math_expression": "5 * 0 - 7" },
-            { "verbal_explanation": "שלב 2: כפל באפס מאפס את כל האיבר הראשון.", "math_expression": "0 - 7" },
-            { "verbal_explanation": "שלב 3: נשארנו רק עם פעולת החיסור.", "math_expression": "-7" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "פשטו את הביטוי על ידי כינוס איברים דומים: 5a + 2 + 3a + 4 = ?&rlm;",
+        options: ["8a + 6", "14a", "8a + 8", "15a + 8"],
+        correctAnswer: 0,
+        hint: "חברו את האיברים עם ה-a (5a ו-3a) בנפרד, ואת המספרים 'החופשיים' (2 ו-4) בנפרד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נקבץ את האיברים עם האות a.&rlm;", math_expression: "5a + 3a = 8a" },
+            { verbal_explanation: "שלב ב': נקבץ את המספרים (איברים חופשיים).&rlm;", math_expression: "2 + 4 = 6" },
+            { verbal_explanation: "שלב ג': נרשום את הביטוי המפושט יחד.&rlm;", math_expression: "8a + 6" }
         ],
-        "final_answer": "7-",
-        "options": ["0", "7", "7-", "12-"],
-        "correctAnswer": 2
+        final_answer: "8a + 6"
     },
+    // שאלה 27
     {
-        "id": 30,
-        "subTopic": "הצבה",
-        "difficulty": "Medium",
-        "question_text": "נוסחת המרחק בפיזיקה היא: מרחק = מהירות × זמן ( <strong> d = v * t </strong> ). מהו המרחק (d) אם המהירות היא <strong> v = 60 </strong> והזמן הוא <strong> t = 2 </strong>?",
-        "hint": "הציבו את שני הנתונים שקיבלתם בתוך הנוסחה להחלפת האותיות v ו-t.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הביטוי מורה לנו להכפיל את המהירות בזמן.", "math_expression": "v * t" },
-            { "verbal_explanation": "שלב 2: נציב במקום האותיות את המספרים שניתנו לנו בבעיה.", "math_expression": "60 * 2" },
-            { "verbal_explanation": "שלב 3: נחשב את התוצאה למציאת המרחק הסופי בקילומטרים.", "math_expression": "120" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "מה תהיה התוצאה של כינוס האיברים: 10y - 3y + 2y ?&rlm;",
+        options: ["9y", "5y", "15y", "8y"],
+        correctAnswer: 0,
+        hint: "פתרו משמאל לימין. 10 פחות 3, ואז הוסיפו 2. ה-y נשאר לאורך כל הדרך.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כולם איברים דומים כי בכולם יש y. נפתור לפי סדר הפעולות מ-שמאל לימין.&rlm;", math_expression: "" },
+            { verbal_explanation: "נחסר: 10y פחות 3y שווים ל-7y.&rlm;", math_expression: "10y - 3y = 7y" },
+            { verbal_explanation: "נוסיף את 2y הנותרים.&rlm;", math_expression: "7y + 2y = 9y" }
         ],
-        "final_answer": "120",
-        "options": ["62", "120", "30", "260"],
-        "correctAnswer": 1
-    },,
-    // ==============================================================
-    // --- תת נושא 3: פישוט וכינוס איברים (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Low",
-        "question_text": "פשטו את הביטוי הבא על ידי כינוס איברים דומים: <strong> 3x + 4x </strong>",
-        "hint": "חשבו על ה-x כמו על חפץ. כמה זה 3 תפוחים ועוד 4 תפוחים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה ששני האיברים שייכים לאותה 'משפחה' מכיוון שלשניהם יש את המשתנה x.", "math_expression": "3x , 4x" },
-            { "verbal_explanation": "שלב 2: כדי לכנס (לחבר) אותם, אנו פשוט מחברים את המספרים שמופיעים לפניהם (המקדמים).", "math_expression": "3 + 4 = 7" },
-            { "verbal_explanation": "שלב 3: כעת נצמיד חזרה את המשתנה x לתוצאה שקיבלנו.", "math_expression": "7x" }
-        ],
-        "final_answer": "7x",
-        "options": ["7x", "12x", "x7", "7"],
-        "correctAnswer": 0
+        final_answer: "9y"
     },
+    // שאלה 28
     {
-        "id": 32,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Low",
-        "question_text": "פשטו את הביטוי: <strong> 8y - 3y </strong>",
-        "hint": "כמו בחיבור, גם בחיסור אפשר לחסר איברים אם הם מאותה 'משפחה' (אותו משתנה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: שני האיברים מכילים את המשתנה y, לכן מותר לחסר ביניהם.", "math_expression": "8y , -3y" },
-            { "verbal_explanation": "שלב 2: נחסר את המקדמים: 8 פחות 3 נותן 5.", "math_expression": "8 - 3 = 5" },
-            { "verbal_explanation": "שלב 3: נצמיד את ה-y לתוצאה.", "math_expression": "5y" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "שימו לב היטב! פשטו את הביטוי: 4x + 7 - 4x + 3 = ?&rlm;",
+        options: ["10", "8x + 10", "8x", "4"],
+        correctAnswer: 0,
+        hint: "מה קורה כשיש לנו 4x ואנחנו מחסרים ממנו 4x? ה-x נעלם! חברו את המספרים שנותרו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכנס איברי x. יש לנו 4x ומיד אחר כך מינוס 4x. הם מקזזים זה את זה לאפס.&rlm;", math_expression: "4x - 4x = 0x = 0" },
+            { verbal_explanation: "שלב ב': נכנס את המספרים.&rlm;", math_expression: "7 + 3 = 10" },
+            { verbal_explanation: "נשארנו רק עם המספרים.&rlm;", math_expression: "10" }
         ],
-        "final_answer": "5y",
-        "options": ["5y", "11y", "5", "y5"],
-        "correctAnswer": 0
+        final_answer: "10"
     },
+    // שאלה 29
     {
-        "id": 33,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Medium",
-        "question_text": "כנסו איברים דומים בביטוי המעורב: <strong> 5x + 2 + 3x + 4 </strong>",
-        "hint": "מיינו למשפחות: חברו את משפחת ה-x בנפרד, ואת המספרים הרגילים (ללא אותיות) בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נקבץ יחד את כל האיברים שמכילים x. יש לנו 5x ועוד 3x. סך הכל קיבלנו 8x.", "math_expression": "5x + 3x = 8x" },
-            { "verbal_explanation": "שלב 2: כעת נקבץ את המספרים החופשיים (אלו ללא האות x). יש לנו 2 ועוד 4, שהם 6.", "math_expression": "2 + 4 = 6" },
-            { "verbal_explanation": "שלב 3: נרשום את שתי התוצאות זו לצד זו כביטוי אחד. אסור לחבר ביניהן!", "math_expression": "8x + 6" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "פשטו את הביטוי על ידי פתיחת סוגריים (חוק הפילוג): 2(x + 5) = ?&rlm;",
+        options: ["2x + 10", "2x + 5", "x + 10", "7x"],
+        correctAnswer: 0,
+        hint: "הכפילו את ה-2 שנמצא בחוץ בכל אחד מהאיברים שבפנים (גם ב-x וגם ב-5).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכפול את הגורם החיצוני באיבר הראשון (x).&rlm;", math_expression: "2 × x = 2x" },
+            { verbal_explanation: "שלב ב': נכפול את הגורם החיצוני באיבר השני (5).&rlm;", math_expression: "2 × 5 = 10" },
+            { verbal_explanation: "שלב ג': נרשום יחד את תוצאות הכפל כביטוי.&rlm;", math_expression: "2x + 10" }
         ],
-        "final_answer": "8x + 6",
-        "options": ["14x", "8x + 6", "15x", "8 + 6x"],
-        "correctAnswer": 1
+        final_answer: "2x + 10"
     },
+    // שאלה 30
     {
-        "id": 34,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Medium",
-        "question_text": "פשטו את הביטוי הבא: <strong> 7m - 2m - 4m </strong>",
-        "hint": "בצעו את החיסור צעד אחר צעד, משמאל לימין. כולם מאותה משפחה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל עם שני האיברים הראשונים. 7m פחות 2m נותן לנו 5m.", "math_expression": "7m - 2m = 5m" },
-            { "verbal_explanation": "שלב 2: ניקח את התוצאה שקיבלנו (5m) ונחסיר ממנה את האיבר האחרון (4m).", "math_expression": "5m - 4m" },
-            { "verbal_explanation": "שלב 3: 5 פחות 4 זה 1. קיבלנו 1m, שזה פשוט m אחד בודד.", "math_expression": "m" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "פשטו את הביטוי (שלב ראשון פתיחת סוגריים, שלב שני כינוס איברים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3(x + 2) + 4x = ?</div>",
+        options: ["7x + 6", "7x + 2", "3x + 6", "13x"],
+        correctAnswer: 0,
+        hint: "פתחו את הסוגריים ל- 3x + 6. אחר כך, הוסיפו את ה-4x שנמצאים בחוץ לאיברי ה-x.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': פתיחת סוגריים (חוק הפילוג).&rlm;", math_expression: "3 × x + 3 × 2 = 3x + 6" },
+            { verbal_explanation: "שלב ב': נכתוב את הביטוי המעודכן בשלמותו.&rlm;", math_expression: "3x + 6 + 4x" },
+            { verbal_explanation: "שלב ג': נכנס את האיברים הדומים (3x ועוד 4x).&rlm;", math_expression: "7x + 6" }
         ],
-        "final_answer": "m",
-        "options": ["m", "0", "2m", "11m"],
-        "correctAnswer": 0
+        final_answer: "7x + 6"
     },
+    // שאלה 31
     {
-        "id": 35,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "High",
-        "question_text": "פשטו את הביטוי הכולל מינוסים: <strong> 6a - 5 + 2a - 3 </strong>",
-        "hint": "שימו לב היטב לסימנים! המספרים הם 5- ו- 3-. חברו חובות לחובות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נטפל קודם במשפחת האותיות. יש לנו 6a ועוד 2a (הפלוס שייך ל-2a). סך הכל 8a.", "math_expression": "6a + 2a = 8a" },
-            { "verbal_explanation": "שלב 2: נטפל במשפחת המספרים. יש לנו מינוס 5 ומינוס 3. שניהם חובות, לכן החוב גדל למינוס 8.", "math_expression": "-5 - 3 = -8" },
-            { "verbal_explanation": "שלב 3: נרכיב את הביטוי הסופי מהתוצאות של שתי המשפחות.", "math_expression": "8a - 8" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "שימו לב לסימן המינוס! פשטו את הביטוי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>8m - 2(m + 3) = ?</div>",
+        options: ["6m - 6", "6m + 3", "6m + 6", "10m - 6"],
+        correctAnswer: 0,
+        hint: "כאשר אתם פותחים סוגריים, אתם מכפילים ב-מינוס 2. לכן, -2 כפול m זה -2m, ו-מינוס 2 כפול 3 זה -6.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתח סוגריים תוך תשומת לב שגורם הכפל הוא שלילי (-2).&rlm;", math_expression: "-2 × m = -2m" },
+            { verbal_explanation: "מינוס כפול פלוס נותן מינוס.&rlm;", math_expression: "-2 × 3 = -6" },
+            { verbal_explanation: "שלב ב': הביטוי כעת הוא 8m - 2m - 6. נכנס את ה-mים.&rlm;", math_expression: "8m - 2m = 6m" },
+            { verbal_explanation: "התוצאה הסופית:&rlm;", math_expression: "6m - 6" }
         ],
-        "final_answer": "8a - 8",
-        "options": ["8a - 8", "4a - 8", "8a + 2", "4a - 2"],
-        "correctAnswer": 0
+        final_answer: "6m - 6"
     },
+    // שאלה 32
     {
-        "id": 36,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Medium",
-        "question_text": "מה קורה בביטוי הזה כשמכנסים איברים? פשטו: <strong> 4x + 7 - 4x </strong>",
-        "hint": "מה קורה כשלוקחים 4 תפוחים, אבל מיד אחר כך מחסרים 4 תפוחים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נאסוף את איברי ה-x. יש לנו בתחילת הביטוי 4x, ובסוף הביטוי מחסרים 4x.", "math_expression": "4x - 4x" },
-            { "verbal_explanation": "שלב 2: 4x פחות 4x שווה בדיוק לאפס. משפחת ה-x למעשה 'התבטלה' ונעלמה מהביטוי.", "math_expression": "0" },
-            { "verbal_explanation": "שלב 3: מה שנשאר לנו בביטוי הוא רק המספר הרגיל 7.", "math_expression": "7" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "כיצד נרשום את הביטוי הבא בדרך הקצרה ביותר?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x + x + x + x = ?</div>",
+        options: ["4x", "x⁴", "x + 4", "4 + x"],
+        correctAnswer: 0,
+        hint: "חיבור חוזר של אותו איבר זהה לכפל. 4 פעמים x נכתב כ-4x. (שימו לב: x⁴ זה כפל של x בעצמו, לא חיבור!).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "האות x מופיעה בחיבור 4 פעמים.&rlm;", math_expression: "" },
+            { verbal_explanation: "חיבור חוזר הוא כפל. אנו למעשה אומרים '4 פעמים x'.&rlm;", math_expression: "4 × x = 4x" }
         ],
-        "final_answer": "7",
-        "options": ["x + 7", "7", "0", "8x + 7"],
-        "correctAnswer": 1
+        final_answer: "4x"
     },
+    // שאלה 33
     {
-        "id": 37,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "High",
-        "question_text": "כנסו את האיברים הדומים בביטוי המעורב הבא: <strong> 3x + 2y + 4x + 5y </strong>",
-        "hint": "יש כאן שלוש משפחות! משפחת x, משפחת y, ו... זהו. חברו כל אות רק לאות הזהה לה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתמקד קודם רק ב-x. נחבר 3x ו-4x ונקבל 7x.", "math_expression": "3x + 4x = 7x" },
-            { "verbal_explanation": "שלב 2: כעת נתמקד רק ב-y. נחבר 2y ו-5y ונקבל 7y.", "math_expression": "2y + 5y = 7y" },
-            { "verbal_explanation": "שלב 3: נרשום את התוצאות יחד. אי אפשר לכנס x עם y, ולכן התשובה נשארת עם שני איברים.", "math_expression": "7x + 7y" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "פשטו את הביטוי (זכרו ש- a לבדו הוא בעצם 1a):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5a - a = ?</div>",
+        options: ["4a", "5", "a", "5a²"],
+        correctAnswer: 0,
+        hint: "אם יש לכם 5 תפוחים ואתם אוכלים תפוח אחד, נשארו 4 תפוחים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "האיבר a ללא מקדם הוא למעשה 1a.&rlm;", math_expression: "5a - 1a" },
+            { verbal_explanation: "נחסר את המקדמים: 5 פחות 1 שווה ל-4.&rlm;", math_expression: "4a" }
         ],
-        "final_answer": "7x + 7y",
-        "options": ["14xy", "7x + 7y", "7xy", "14x + y"],
-        "correctAnswer": 1
+        final_answer: "4a"
     },
+    // שאלה 34
     {
-        "id": 38,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Low",
-        "question_text": "מהו הביטוי המפושט של: <strong> x + x + x </strong>?",
-        "hint": "כשמופיעה אות לבדה ללא מספר, מסתתר לפניה המקדם 1.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: באלגברה, כתיבת האות x שקולה לחלוטין לכתיבה 1x.", "math_expression": "1x + 1x + 1x" },
-            { "verbal_explanation": "שלב 2: נחבר את המקדמים הנסתרים. 1 ועוד 1 ועוד 1 נותן 3.", "math_expression": "3" },
-            { "verbal_explanation": "שלב 3: נצמיד חזרה את האות לקבלת הביטוי הקצר ביותר.", "math_expression": "3x" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "חזקות לא מתערבבות! כנסו את האיברים הבאים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2x² + 3x + 4x² - x = ?</div>",
+        options: ["6x² + 2x", "5x² + 3x", "6x + 2x²", "8x²"],
+        correctAnswer: 0,
+        hint: "איברים עם x² ואיברים עם x רגיל הם 'משפחות' שונות. חברו את ה-x² יחד (2 ו-4), ואת ה-x הרגיל יחד (3x פחות 1x).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נקבץ את איברי ה-x² (שניים פלוס ארבעה).&rlm;", math_expression: "2x² + 4x² = 6x²" },
+            { verbal_explanation: "שלב ב': נקבץ את איברי ה-x הרגיל (3x פחות 1x).&rlm;", math_expression: "3x - x = 2x" },
+            { verbal_explanation: "שלב ג': נרשום את התוצאות זו לצד זו מבלי לערבב אותן.&rlm;", math_expression: "6x² + 2x" }
         ],
-        "final_answer": "3x",
-        "options": ["x³", "3 + x", "3x", "x3"],
-        "correctAnswer": 2
+        final_answer: "6x² + 2x"
     },
+    // שאלה 35
     {
-        "id": 39,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Medium",
-        "question_text": "פשטו את הביטוי: <strong> 5k - k </strong>",
-        "hint": "מה קורה כשיש לנו 5 יחידות ממשהו, ואנחנו לוקחים יחידה אחת (נסתרת) החוצה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזכור שהביטוי -k זהה למינוס 1k.", "math_expression": "5k - 1k" },
-            { "verbal_explanation": "שלב 2: נחסר את המקדמים: 5 פחות 1 שווה ל-4.", "math_expression": "4" },
-            { "verbal_explanation": "שלב 3: נצמיד חזרה את המשתנה k.", "math_expression": "4k" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "זהו תהליך הפוך (הוצאת גורם משותף). איזה ביטוי שקול לביטוי 6x + 12?&rlm;",
+        options: ["6(x + 2)", "6(x + 12)", "2(3x + 12)", "x(6 + 12)"],
+        correctAnswer: 0,
+        hint: "מהו המספר הגדול ביותר שמחלק גם את 6 וגם את 12? הוציאו את 6 אל מחוץ לסוגריים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נזהה שהמספר 6 משותף ומחלק את שני האיברים.&rlm;", math_expression: "6 × x + 6 × 2" },
+            { verbal_explanation: "נוציא את 6 מחוץ לסוגריים, ובפנים נרשום את השאריות (x ועוד 2).&rlm;", math_expression: "6(x + 2)" }
         ],
-        "final_answer": "4k",
-        "options": ["5", "4k", "5k", "6k"],
-        "correctAnswer": 1
+        final_answer: "6(x + 2)"
     },
+    // שאלה 36
     {
-        "id": 40,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "High",
-        "question_text": "פשטו את הביטוי על ידי פתיחת סוגריים וכינוס איברים: <strong> 2(x + 4) + 3x </strong>",
-        "hint": "סדר הפעולות קובע שקודם כל מטפלים בסוגריים (בעזרת חוק הפילוג), ורק אז מחברים איברים דומים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפתח את הסוגריים לפי חוק הפילוג. נכפיל את ה-2 גם ב-x וגם ב-4.", "math_expression": "2x + 8" },
-            { "verbal_explanation": "שלב 2: נרשום את הביטוי המלא החדש. נוסיף לו את ה-3x שחיכה בסבלנות בחוץ.", "math_expression": "2x + 8 + 3x" },
-            { "verbal_explanation": "שלב 3: כעת נכנס את האיברים הדומים. נחבר את 2x עם 3x ונקבל 5x. המספר 8 נשאר ללא שינוי.", "math_expression": "5x + 8" }
+        topic: "algebraic_expressions",
+        subTopic: "פישוט וכינוס איברים",
+        question_text: "פשטו את הביטוי, וזכרו שמינוס לפני סוגריים הופך את כל הסימנים שבפנים!&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-(2x - 5) + 3x = ?</div>",
+        options: ["x + 5", "x - 5", "5x - 5", "-x + 5"],
+        correctAnswer: 0,
+        hint: "המינוס יהפוך את 2x ל- (2x-), ואת (5-) ל- (5+). לאחר מכן הוסיפו 3x.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': פתיחת סוגריים עם מינוס לפני היא כמו הכפלה במינוס 1. כל סימן מתהפך.&rlm;", math_expression: "-2x + 5" },
+            { verbal_explanation: "שלב ב': נעדכן את התרגיל המלא ונכנס את איברי ה-x (שלושה x פחות שני x זה x אחד).&rlm;", math_expression: "-2x + 5 + 3x = x + 5" }
         ],
-        "final_answer": "5x + 8",
-        "options": ["5x + 8", "5x + 4", "2x + 12", "10x"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 41,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "High",
-        "question_text": "פשטו את הביטוי הבא (זהירות עם המינוס): <strong> 10 - 2(x + 3) </strong>",
-        "hint": "המספר שמכפיל את הסוגריים הוא 2-. הוא יהפוך את כל מה שבפנים לשלילי.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתמקד בכפל הסוגריים. אנו מכפילים את x ואת 3 במספר שלילי (מינוס 2).", "math_expression": "-2x - 6" },
-            { "verbal_explanation": "שלב 2: נציב זאת חזרה בביטוי השלם, יחד עם ה-10 שהמתין בהתחלה.", "math_expression": "10 - 2x - 6" },
-            { "verbal_explanation": "שלב 3: נכנס איברים דומים. משפחת ה-x כוללת רק את 2x-. במשפחת המספרים נחשב: 10 פחות 6 שווה 4.", "math_expression": "4 - 2x" }
-        ],
-        "final_answer": "4 - 2x",
-        "options": ["4 - 2x", "8 - 2x", "16 - 2x", "4 + 2x"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 42,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Medium",
-        "question_text": "פשטו את הביטוי הכולל שברים: <strong> 1/2x + 1/2x </strong>",
-        "hint": "חצי פלוס חצי זה שלם אחד. כיצד רושמים שלם אחד של x?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: האיברים דומים (לשניהם יש x). נחבר את המקדמים: חצי ועוד חצי.", "math_expression": "1/2 + 1/2 = 1" },
-            { "verbal_explanation": "שלב 2: קיבלנו 1 שלם. לכן התוצאה היא 1x.", "math_expression": "1x" },
-            { "verbal_explanation": "שלב 3: כזכור, אין צורך לכתוב את המספר 1 לפני משתנה, לכן פשוט נכתוב x.", "math_expression": "x" }
-        ],
-        "final_answer": "x",
-        "options": ["1/4x", "x", "2x", "0.25x"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 43,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "High",
-        "question_text": "אורכי צלעות של מלבן הם <strong> x </strong> ו- <strong> x + 2 </strong>. איזה ביטוי אלגברי מפושט מתאר את <strong>היקף המלבן</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='80'><rect x='20' y='20' width='120' height='50' fill='#fdfbf7' stroke='#1e293b' stroke-width='2'/><text x='80' y='15' font-size='12' font-weight='bold' text-anchor='middle'>x + 2</text><text x='10' y='50' font-size='12' font-weight='bold'>x</text></svg></div>",
-        "hint": "למלבן יש 4 צלעות! שתיים שהן x, ושתיים שהן (x+2). חברו את כולן וכנסו איברים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את סכום כל ארבעת הצלעות. אורך ועוד אורך ועוד רוחב ועוד רוחב.", "math_expression": "x + (x+2) + x + (x+2)" },
-            { "verbal_explanation": "שלב 2: נכנס את משפחת ה-x. יש לנו בסך הכל 4 פעמים את האות x.", "math_expression": "4x" },
-            { "verbal_explanation": "שלב 3: נכנס את המספרים החופשיים. 2 ועוד 2 שווה 4. נחבר את שתי התוצאות.", "math_expression": "4x + 4" }
-        ],
-        "final_answer": "4x + 4",
-        "options": ["4x + 4", "2x + 2", "x² + 2x", "4x + 2"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 44,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "Medium",
-        "question_text": "פשטו את הביטוי הארוך: <strong> 12p - 3 + p - 7 </strong>",
-        "hint": "אל תשכחו שהאות p היא בעצם 1p. בנוסף, חברו את שני החובות (-3 ו- -7) יחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכנס את איברי ה-p. 12p ועוד p אחד (1p) שווים ל-13p.", "math_expression": "12p + 1p = 13p" },
-            { "verbal_explanation": "שלב 2: נכנס את המספרים. מינוס 3 ומינוס 7 שווים יחד למינוס 10.", "math_expression": "-3 - 7 = -10" },
-            { "verbal_explanation": "שלב 3: נחבר את שתי המשפחות לקבלת הביטוי המפושט הסופי.", "math_expression": "13p - 10" }
-        ],
-        "final_answer": "13p - 10",
-        "options": ["13p + 4", "13p - 10", "11p - 10", "11p + 4"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "פישוט וכינוס איברים",
-        "difficulty": "High",
-        "question_text": "פשטו את הביטוי עם המינוס לפני הסוגריים: <strong> -(x - 5) + 2x </strong>",
-        "hint": "המינוס לפני הסוגריים הופך את ה-x לשלילי ואת ה-5 לחיובי! לאחר מכן, כנסו עם ה-2x.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפתח סוגריים. המינוס משנה את הסימנים בפנים: מינוס כפול x הופך ל-x שלילי. מינוס כפול מינוס 5 הופך ל-5 חיובי.", "math_expression": "-x + 5" },
-            { "verbal_explanation": "שלב 2: נרשום את הביטוי המלא עם ה-2x שחיכה בחוץ.", "math_expression": "-x + 5 + 2x" },
-            { "verbal_explanation": "שלב 3: נכנס איברים. יש לנו שני איקסים (2x) פחות איקס אחד (-x). זה משאיר אותנו עם איקס יחיד. המספר 5 נשאר.", "math_expression": "x + 5" }
-        ],
-        "final_answer": "x + 5",
-        "options": ["x + 5", "3x - 5", "x - 5", "-3x + 5"],
-        "correctAnswer": 0
+        final_answer: "x + 5"
     }
+
 ];

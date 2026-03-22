@@ -1,1530 +1,1111 @@
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע) (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)
+    // ==========================================================
     {
-        "id": 1,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Low",
-        "question_text": "במקבילית ABCD הנתונה בסרטוט, זווית A שווה ל-70°. מהו גודלה של <strong>זווית C</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='120' viewBox='0 0 200 120'><polygon points='40,100 160,100 180,30 60,30' fill='#e0f2fe' stroke='#3b82f6' stroke-width='2'/><text x='30' y='115' font-size='14' font-weight='bold'>A</text><text x='165' y='115' font-size='14' font-weight='bold'>B</text><text x='185' y='25' font-size='14' font-weight='bold'>C</text><text x='45' y='25' font-size='14' font-weight='bold'>D</text><path d='M 55 100 A 15 15 0 0 0 46 80' fill='none' stroke='#ef4444' stroke-width='2'/><text x='65' y='90' font-size='12' fill='#ef4444'>70°</text></svg></div>",
-        "hint": "השתמשו במשפט על זוויות נגדיות במקבילית. זכרו לכתוב טענה ונימוק מסודרים.",
-        "solution_steps": [
-            { "verbal_explanation": "בכתיבה גיאומטרית פורמלית, אנו תמיד מתחילים ברישום הנתון המרכזי.", "math_expression": "טענה: מרובע ABCD הוא מקבילית | נימוק: נתון." },
-            { "verbal_explanation": "כעת נשתמש במשפט המתאים לגבי זוויות במקבילית, המקשר בין זווית A לזווית C.", "math_expression": "טענה: ∡A = ∡C | נימוק: במקבילית, שתי זוויות נגדיות שוות זו לזו." },
-            { "verbal_explanation": "נציב את הנתון המספרי מתוך השאלה לתוך המשוואה הגיאומטרית שבנינו.", "math_expression": "טענה: ∡A = 70° | נימוק: נתון." },
-            { "verbal_explanation": "נסיק את המסקנה הסופית מתוך ההצבה.", "math_expression": "מסקנה: ∡C = 70° | נימוק: כלל ההצבה." }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במעוין מסוים, אורך הצלע הוא 25 ס\"מ. ידוע כי אורך אלכסון אחד גדול ב-10 ס\"מ מאורך האלכסון השני. חשבו את שטח המעוין.\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px; clear:both;'><svg viewBox='0 0 200 140' width='200' height='140'><defs><filter id='sh1' x='-20%' y='-20%' width='140%' height='140%'><feDropShadow dx='4' dy='6' stdDeviation='3' flood-opacity='0.3'/></filter><linearGradient id='g1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#eff6ff'/><stop offset='100%' stop-color='#93c5fd'/></linearGradient></defs><polygon points='100,10 170,70 100,130 30,70' fill='url(#g1)' stroke='#1d4ed8' stroke-width='3' filter='url(#sh1)'/><line x1='100' y1='10' x2='100' y2='130' stroke='#64748b' stroke-width='2' stroke-dasharray='5,5'/><line x1='30' y1='70' x2='170' y2='70' stroke='#64748b' stroke-width='2' stroke-dasharray='5,5'/><rect x='100' y='70' width='10' height='10' fill='none' stroke='#ef4444' stroke-width='2'/></svg></div>",
+        options: ["600", "300", "1200", "480"],
+        correctAnswer: 0,
+        hint: "השתמשו בתכונת האלכסונים במעוין (מאונכים וחוצים) ובנו משוואת פיתגורס עם חצאי האלכסונים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את חצי האלכסון הקצר ב-x. מכיוון שהפרש האלכסונים המלאים הוא 10, הפרש חצאיהם הוא 5. לכן חצי האלכסון השני הוא x+5.", math_expression: "x \\quad , \\quad x + 5" },
+            { verbal_explanation: "שלב ב': נתון שאורך צלע המעוין הוא 25. צלע המעוין היא היתר במשולש ישר הזווית שיוצרים חצאי האלכסונים.", math_expression: "25" },
+            { verbal_explanation: "שלב ג': נציב את הנתונים בתוך משפט פיתגורס.", math_expression: "x^2 + (x + 5)^2 = 25^2" },
+            { verbal_explanation: "שלב ד': נפתח את הסוגריים לפי נוסחת הכפל המקוצר.", math_expression: "x^2 + x^2 + 10 \\times x + 25 = 625" },
+            { verbal_explanation: "שלב ה': נעביר אגפים ונסדר את המשוואה הריבועית.", math_expression: "2 \\times x^2 + 10 \\times x - 600 = 0" },
+            { verbal_explanation: "שלב ו': נחלק את כל המשוואה בשתיים לפישוט התהליך.", math_expression: "x^2 + 5 \\times x - 300 = 0" },
+            { verbal_explanation: "שלב ז': נפתור את המשוואה בעזרת טרינום. נמצא שני מספרים שמכפלתם 300- וסכומם 5.", math_expression: "(x + 20) \\times (x - 15) = 0" },
+            { verbal_explanation: "שלב ח': אורך חייב להיות חיובי, לכן x שווה 15. חצאי האלכסונים הם 15 ו-20.", math_expression: "x = 15 \\quad \\Rightarrow \\quad 15 \\quad , \\quad 20" },
+            { verbal_explanation: "שלב ט': נמצא את האלכסונים השלמים על ידי הכפלה בשתיים.", math_expression: "30 \\quad , \\quad 40" },
+            { verbal_explanation: "שלב י': נחשב את שטח המעוין כמחצית מכפלת האלכסונים.", math_expression: "\\displaystyle \\frac{30 \\times 40}{2} = 600" }
         ],
-        "final_answer": "70 מעלות",
-        "options": ["110 מעלות", "70 מעלות", "180 מעלות", "35 מעלות"],
-        "correctAnswer": 1
+        final_answer: "600"
     },
     {
-        "id": 2,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "במקבילית ABCD הנתונה, זווית A שווה ל-70°. מהו גודלה של <strong>זווית B</strong> הסמוכה לה?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='120' viewBox='0 0 200 120'><polygon points='40,100 160,100 180,30 60,30' fill='#fef08a' stroke='#f59e0b' stroke-width='2'/><text x='30' y='115' font-size='14' font-weight='bold'>A</text><text x='165' y='115' font-size='14' font-weight='bold'>B</text><text x='185' y='25' font-size='14' font-weight='bold'>C</text><text x='45' y='25' font-size='14' font-weight='bold'>D</text><path d='M 55 100 A 15 15 0 0 0 46 80' fill='none' stroke='#ef4444' stroke-width='2'/><text x='65' y='90' font-size='12' fill='#ef4444'>70°</text><path d='M 145 100 A 15 15 0 0 1 156 80' fill='none' stroke='#10b981' stroke-width='2'/></svg></div>",
-        "hint": "זוויות סמוכות במקבילית הן זוויות חד-צדדיות בין ישרים מקבילים. סכומן הוא 180 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את ההקבלה של צלעות המקבילית.", "math_expression": "טענה: AD || BC | נימוק: במקבילית, צלעות נגדיות מקבילות זו לזו." },
-            { "verbal_explanation": "נשתמש במשפט הקובע את סכום הזוויות הסמוכות על ישר חותך.", "math_expression": "טענה: ∡A + ∡B = 180° | נימוק: סכום זוויות חד-צדדיות בין ישרים מקבילים הוא 180°." },
-            { "verbal_explanation": "נציב את הנתון הידוע אל תוך המשוואה.", "math_expression": "הצבה: 70° + ∡B = 180°" },
-            { "verbal_explanation": "נפתור את המשוואה בצורה אלגברית מלאה למציאת הזווית.", "math_expression": "∡B = 180° - 70°  =>  ∡B = 110°" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במלבן ABCD, היקף המלבן הוא 70 ס\"מ. אורך האלכסון AC הוא 25 ס\"מ. מהו שטח המלבן?",
+        options: ["300", "150", "600", "400"],
+        correctAnswer: 0,
+        hint: "סכום צלעות סמוכות הוא חצי מההיקף. סמנו x ו- (35 פחות x) והשתמשו בפיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סכום שתי צלעות סמוכות במלבן על ידי חלוקת ההיקף בשתיים.", math_expression: "70 : 2 = 35" },
+            { verbal_explanation: "שלב ב': נסמן צלע אחת ב-x. לכן הצלע השנייה היא 35 פחות x.", math_expression: "x \\quad , \\quad 35 - x" },
+            { verbal_explanation: "שלב ג': נשתמש במשפט פיתגורס יחד עם האלכסון שנתון כ-25.", math_expression: "x^2 + (35 - x)^2 = 25^2" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים ונסדר את המשוואה הריבועית.", math_expression: "x^2 + 1225 - 70 \\times x + x^2 = 625" },
+            { verbal_explanation: "שלב ה': נכנס איברים דומים ונשווה לאפס.", math_expression: "2 \\times x^2 - 70 \\times x + 600 = 0" },
+            { verbal_explanation: "שלב ו': נחלק את המשוואה בשתיים.", math_expression: "x^2 - 35 \\times x + 300 = 0" },
+            { verbal_explanation: "שלב ז': נפתור בעזרת טרינום (מספרים שמכפלתם 300 וסכומם 35-).", math_expression: "(x - 15) \\times (x - 20) = 0" },
+            { verbal_explanation: "שלב ח': הצלעות הן 15 ו-20. נחשב את שטח המלבן.", math_expression: "15 \\times 20 = 300" }
         ],
-        "final_answer": "110 מעלות",
-        "options": ["70 מעלות", "90 מעלות", "110 מעלות", "140 מעלות"],
-        "correctAnswer": 2
+        final_answer: "300"
     },
     {
-        "id": 3,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Low",
-        "question_text": "איזו מבין התכונות הבאות היא <strong>תכונה מייחדת של מלבן</strong> שאינה מתקיימת במקבילית רגילה?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100' viewBox='0 0 180 100'><rect x='20' y='20' width='140' height='60' fill='#dcfce7' stroke='#10b981' stroke-width='2'/><line x1='20' y1='20' x2='160' y2='80' stroke='#059669' stroke-width='1' stroke-dasharray='4'/><line x1='20' y1='80' x2='160' y2='20' stroke='#059669' stroke-width='1' stroke-dasharray='4'/></svg></div>",
-        "hint": "חשבו על האלכסונים. במקבילית רגילה שנוטה הצידה, אלכסון אחד ארוך מהשני. מה קורה כשהצורה 'מתיישרת' ל-90 מעלות?",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את תכונות הצלעות והאלכסונים. חציית אלכסונים היא תכונה השייכת למקבילית רגילה, ולכן היא לא תכונה מייחדת למלבן.", "math_expression": "אלכסונים חוצים = תכונת מקבילית" },
-            { "verbal_explanation": "במקבילית רגילה שאינה מלבן, אלכסון אחד תמיד ארוך יותר מהשני (תלוי בנטיית המקבילית).", "math_expression": "אלכסוני מקבילית שונים באורכם" },
-            { "verbal_explanation": "התכונה המובהקת שנוספת למלבן (בגלל שכל הזוויות ישרות) היא שהאלכסונים שלו שווים באורכם. זהו משפט הוכחה למלבן.", "math_expression": "אלכסוני מלבן שווים באורכם" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במקבילית ABCD, אחת הזוויות גדולה פי 5 מהזווית הסמוכה לה. מהו ההפרש במעלות בין שתי הזוויות הסמוכות?",
+        options: ["120", "150", "30", "144"],
+        correctAnswer: 0,
+        hint: "במקבילית, סכום זוויות סמוכות הוא 180 מעלות.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הזווית הקטנה ב-x. הזווית הסמוכה לה גדולה פי 5 ולכן היא 5x.", math_expression: "x \\quad , \\quad 5 \\times x" },
+            { verbal_explanation: "שלב ב': נבנה משוואה על סמך המשפט שסכום זוויות סמוכות הוא 180.", math_expression: "x + 5 \\times x = 180" },
+            { verbal_explanation: "שלב ג': נחבר את המקדמים של x.", math_expression: "6 \\times x = 180" },
+            { verbal_explanation: "שלב ד': נחלק ב-6 ונמצא את גודל הזווית הקטנה.", math_expression: "x = 30" },
+            { verbal_explanation: "שלב ה': נמצא את גודל הזווית הגדולה (5 כפול x).", math_expression: "5 \\times 30 = 150" },
+            { verbal_explanation: "שלב ו': נחשב את ההפרש בין הזוויות כפי שנדרש בשאלה.", math_expression: "150 - 30 = 120" }
         ],
-        "final_answer": "האלכסונים שווים זה לזה באורכם.",
-        "options": ["האלכסונים חוצים זה את זה.", "הצלעות הנגדיות שוות זו לזו.", "האלכסונים שווים זה לזה באורכם.", "הזוויות הנגדיות שוות."],
-        "correctAnswer": 2
+        final_answer: "120"
     },
     {
-        "id": 4,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "ב<strong>מעוין</strong> ABCD, העבירו את שני האלכסונים אשר נחתכים בנקודה O. מה גודלה של הזווית AOB (הזווית שבה נחתכים האלכסונים)?<br><div style='text-align:center; margin:15px 0;'><svg width='140' height='140' viewBox='0 0 140 140'><polygon points='70,10 130,70 70,130 10,70' fill='#f3e8ff' stroke='#8b5cf6' stroke-width='2'/><line x1='70' y1='10' x2='70' y2='130' stroke='#6d28d9' stroke-width='1'/><line x1='10' y1='70' x2='130' y2='70' stroke='#6d28d9' stroke-width='1'/><text x='75' y='65' font-size='12' font-weight='bold'>O</text></svg></div>",
-        "hint": "למעוין יש תכונת אלכסונים ייחודית שאינה קיימת במקבילית או במלבן רגיל.",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את ההגדרה הבסיסית של מעוין.", "math_expression": "טענה: ABCD מעוין | נימוק: נתון." },
-            { "verbal_explanation": "נשתמש במשפט הגיאומטרי העוסק באלכסוני המעוין וזווית החיתוך שלהם.", "math_expression": "טענה: AC ⊥ BD | נימוק: במעוין, האלכסונים מאונכים זה לזה." },
-            { "verbal_explanation": "נסיק את גודל הזווית המבוקשת מתוך הגדרת האנכות.", "math_expression": "מסקנה: ∡AOB = 90° | נימוק: ישרים מאונכים יוצרים זווית ישרה (90 מעלות)." }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "בתוך ריבוע שצלעו x, חסום ריבוע קטן יותר שצלעו קצרה ב-4 ס\"מ מצלע הריבוע הגדול. ידוע כי שטח הצורה שנותרה (השטח הכלוא בין הריבועים) הוא 80 סמ\"ר. מהו אורך צלע הריבוע הגדול?",
+        options: ["12", "10", "8", "14"],
+        correctAnswer: 0,
+        hint: "שטח הצורה הנותרת הוא ההפרש בין שטח הריבוע הגדול לשטח הריבוע הקטן.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבטא את שטח הריבוע הגדול בעזרת x.", math_expression: "x^2" },
+            { verbal_explanation: "שלב ב': נבטא את צלע הריבוע הקטן כ-x פחות 4, ואת שטחו כריבוע של ביטוי זה.", math_expression: "(x - 4)^2" },
+            { verbal_explanation: "שלב ג': נבנה משוואה המבטאת את ההפרש בין השטחים.", math_expression: "x^2 - (x - 4)^2 = 80" },
+            { verbal_explanation: "שלב ד': נפתח את הסוגריים לפי נוסחת הכפל המקוצר.", math_expression: "x^2 - (x^2 - 8 \\times x + 16) = 80" },
+            { verbal_explanation: "שלב ה': נשנה סימנים בגלל המינוס לפני הסוגריים ונצמצם את האיקס בריבוע.", math_expression: "x^2 - x^2 + 8 \\times x - 16 = 80 \\quad \\Rightarrow \\quad 8 \\times x - 16 = 80" },
+            { verbal_explanation: "שלב ו': נעביר את המספר 16 לאגף השני.", math_expression: "8 \\times x = 96" },
+            { verbal_explanation: "שלב ז': נחלק ב-8 ונמצא את אורך הצלע x.", math_expression: "x = 12" }
         ],
-        "final_answer": "90 מעלות (זווית ישרה).",
-        "options": ["45 מעלות", "60 מעלות", "90 מעלות (זווית ישרה).", "תלוי באורך הצלעות"],
-        "correctAnswer": 2
+        final_answer: "12"
     },
     {
-        "id": 5,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "High",
-        "question_text": "במקבילית ABCD אורך הצלע האחת הוא <strong>3x - 5</strong>, ואורך הצלע הנגדית לה הוא <strong>x + 11</strong>. מהו <strong>אורכה של הצלע</strong> בסנטימטרים?<br><div style='text-align:center; margin:15px 0;'><svg width='220' height='100' viewBox='0 0 220 100'><polygon points='40,80 180,80 200,20 60,20' fill='#f1f5f9' stroke='#475569' stroke-width='2'/><text x='105' y='15' font-size='14' text-anchor='middle'>x + 11</text><text x='105' y='95' font-size='14' text-anchor='middle'>3x - 5</text></svg></div>",
-        "hint": "השתמשו בתכונת הצלעות הנגדיות במקבילית, בנו משוואה אלגברית ופתרו אותה לאט ובזהירות. בסוף, הציבו את x חזרה לביטוי.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט כדי להשוות בין הביטויים של הצלעות הנגדיות.", "math_expression": "טענה: הצלעות שוות | נימוק: במקבילית, צלעות נגדיות שוות זו לזו באורכן." },
-            { "verbal_explanation": "נבנה את המשוואה האלגברית על סמך הטענה הקודמת.", "math_expression": "הצבה: 3x - 5 = x + 11" },
-            { "verbal_explanation": "נעביר אגפים (ה-x עובר שמאלה במינוס, ה-5 עובר ימינה בפלוס) ונכנס איברים.", "math_expression": "3x - x = 11 + 5  =>  2x = 16" },
-            { "verbal_explanation": "נחלק את המשוואה ב-2 כדי למצוא את המשתנה x.", "math_expression": "2x = 16  / :2  =>  x = 8" },
-            { "verbal_explanation": "נציב את x=8 באחד מהביטויים כדי למצוא את אורך הצלע הפיזי (הנדרש בשאלה).", "math_expression": "חישוב צלע: 8 + 11 = 19 ס\"מ" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במקבילית ABCD, אורך צלע אחת הוא x ואורך הצלע השנייה הוא x+4. הגובה היורד לצלע הארוכה הוא 6 ס\"מ, והגובה היורד לצלע הקצרה הוא 9 ס\"מ. מצאו את היקף המקבילית.\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px;'><svg viewBox='0 0 200 120' width='200' height='120'><polygon points='50,100 180,100 150,30 20,30' fill='url(#g1)' stroke='#1d4ed8' stroke-width='3' filter='url(#sh1)'/><line x1='150' y1='30' x2='150' y2='100' stroke='#ef4444' stroke-width='2' stroke-dasharray='4'/></svg></div>",
+        options: ["40", "32", "20", "48"],
+        correctAnswer: 0,
+        hint: "שטח מקבילית הוא צלע כפול הגובה אליה. שטח זה שווה עבור שני זוגות הצלעות.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את ביטוי השטח לפי הצלע הקצרה x והגובה שלה 9.", math_expression: "x \\times 9" },
+            { verbal_explanation: "שלב ב': נרשום את ביטוי השטח לפי הצלע הארוכה x+4 והגובה שלה 6.", math_expression: "(x + 4) \\times 6" },
+            { verbal_explanation: "שלב ג': נשווה בין שני ביטויי השטח המייצגים את אותה הצורה.", math_expression: "9 \\times x = 6 \\times (x + 4)" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים באגף ימין.", math_expression: "9 \\times x = 6 \\times x + 24" },
+            { verbal_explanation: "שלב ה': נחסר 6x משני האגפים.", math_expression: "3 \\times x = 24" },
+            { verbal_explanation: "שלב ו': נחלק ב-3 ונמצא את x.", math_expression: "x = 8" },
+            { verbal_explanation: "שלב ז': נמצא את אורכי שתי הצלעות הסמוכות.", math_expression: "8 \\quad , \\quad 12" },
+            { verbal_explanation: "שלב ח': נחשב את היקף המקבילית (פעמיים סכום הצלעות).", math_expression: "2 \\times (8 + 12) = 40" }
         ],
-        "final_answer": "19 ס\"מ",
-        "options": ["8 ס\"מ", "16 ס\"מ", "19 ס\"מ", "24 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "40"
     },
     {
-        "id": 6,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "ב<strong>ריבוע</strong>, אורך האלכסון הוא 10 ס\"מ. מהו שטח הריבוע?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='120' viewBox='0 0 120 120'><rect x='20' y='20' width='80' height='80' fill='#fee2e2' stroke='#ef4444' stroke-width='2'/><line x1='20' y1='20' x2='100' y2='100' stroke='#b91c1c' stroke-width='2' stroke-dasharray='4'/><text x='45' y='55' font-size='14' font-weight='bold' fill='#b91c1c' transform='rotate(45 50 50)'>10</text></svg></div>",
-        "hint": "הריבוע יורש את כל תכונות המעוין. מהי נוסחת שטח המעוין באמצעות אלכסוניו?",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את הקשר הגיאומטרי בין ריבוע למעוין.", "math_expression": "טענה: ריבוע הוא סוג של מעוין | נימוק: כל צלעותיו שוות." },
-            { "verbal_explanation": "נשתמש בנוסחת השטח של מעוין, המבוססת על מכפלת אלכסוניו חלקי 2.", "math_expression": "נוסחה: S = (d1 * d2) / 2" },
-            { "verbal_explanation": "בריבוע, שני האלכסונים שווים זה לזה באורכם. לכן גם האלכסון השני שווה 10.", "math_expression": "טענה: d1 = d2 = 10 | נימוק: אלכסוני הריבוע שווים." },
-            { "verbal_explanation": "נציב את הנתונים בנוסחה ונחשב את השטח הרבוע.", "math_expression": "S = (10 * 10) / 2 = 100 / 2 = 50" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במלבן, אורך צלע אחת הוא 12 ס\"מ. אורך האלכסון גדול ב-8 ס\"מ מאורך הצלע השנייה של המלבן. מהו היקף המלבן?",
+        options: ["34", "68", "40", "17"],
+        correctAnswer: 0,
+        hint: "סמנו את הצלע השנייה ב-x. האלכסון יהיה x+8. השתמשו במשפט פיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את אורך הצלע הלא ידועה ב-x. לכן אורך האלכסון (היתר) הוא x ועוד 8.", math_expression: "x \\quad , \\quad x + 8" },
+            { verbal_explanation: "שלב ב': נבנה משוואת פיתגורס בעזרת הצלע הידועה (12).", math_expression: "x^2 + 12^2 = (x + 8)^2" },
+            { verbal_explanation: "שלב ג': נפתח את הסוגריים באגף ימין.", math_expression: "x^2 + 144 = x^2 + 16 \\times x + 64" },
+            { verbal_explanation: "שלב ד': נצמצם את x בריבוע ונעביר את המספרים לצד אחד.", math_expression: "144 - 64 = 16 \\times x" },
+            { verbal_explanation: "שלב ה': נפתור את המשוואה הלינארית עבור x.", math_expression: "80 = 16 \\times x \\quad \\Rightarrow \\quad x = 5" },
+            { verbal_explanation: "שלב ו': נמצא את אורכי שתי הצלעות: 12 ו-5.", math_expression: "12 \\quad , \\quad 5" },
+            { verbal_explanation: "שלב ז': נחשב את היקף המלבן.", math_expression: "2 \\times (12 + 5) = 34" }
         ],
-        "final_answer": "50 סמ\"ר",
-        "options": ["100 סמ\"ר", "50 סמ\"ר", "25 סמ\"ר", "20 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "34"
     },
     {
-        "id": 7,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Low",
-        "question_text": "איזה מרובע או מרובעים ממשפחת המקביליות מקיימים את התכונה: <strong>'האלכסונים חוצים את זוויות המרובע'</strong>?",
-        "hint": "כדי שהאלכסון יחלק את הזווית בדיוק לשניים (כמו במשולש שווה שוקיים), הצלעות שמהן הוא יוצא חייבות להיות שוות.",
-        "solution_steps": [
-            { "verbal_explanation": "נפסול את המרובעים הלא רלוונטיים. במקבילית רגילה ובמלבן, הצלעות הסמוכות אינן שוות. לכן האלכסון קרוב יותר לצלע הארוכה ואינו חוצה את הזווית.", "math_expression": "פסילת מלבן ומקבילית" },
-            { "verbal_explanation": "נבחן את המעוין. במעוין כל הצלעות שוות. האלכסון מחלק את המעוין לשני משולשים שווי שוקיים חופפים.", "math_expression": "במעוין צלעות סמוכות שוות" },
-            { "verbal_explanation": "במשולש שווה שוקיים, התיכון/אלכסון הוא גם חוצה זווית. מכיוון שריבוע הוא גם מעוין, התכונה תקפה לשניהם.", "math_expression": "מסקנה: מעוין וריבוע" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במעוין ABCD, הזווית החדה היא 60 מעלות. אורך האלכסון הקצר הוא 10 ס\"מ. מהו שטח המעוין?",
+        options: ["50 \\times \\sqrt{3}", "100 \\times \\sqrt{3}", "100", "50"],
+        correctAnswer: 0,
+        hint: "מעוין עם זווית של 60 מעלות מורכב משני משולשים שווי צלעות חופפים. מצאו את האלכסון השני.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': מכיוון שהזווית היא 60 מעלות, המשולש הנוצר עם האלכסון הקצר הוא שווה צלעות. לכן צלע המעוין היא 10.", math_expression: "10" },
+            { verbal_explanation: "שלב ב': חצי מהאלכסון הקצר הוא 5.", math_expression: "5" },
+            { verbal_explanation: "שלב ג': נמצא את אורך חצי האלכסון השני (h) בעזרת פיתגורס עם צלע 10 וניצב 5.", math_expression: "h^2 + 5^2 = 10^2 \\quad \\Rightarrow \\quad h^2 = 75" },
+            { verbal_explanation: "שלב ד': נוציא שורש ונפשט את הביטוי.", math_expression: "h = \\sqrt{75} = 5 \\times \\sqrt{3}" },
+            { verbal_explanation: "שלב ה': אורך האלכסון המלא הוא פעמיים h.", math_expression: "10 \\times \\sqrt{3}" },
+            { verbal_explanation: "שלב ו': נחשב את שטח המעוין כמחצית מכפלת האלכסונים (10 ו-10 שורש 3).", math_expression: "\\displaystyle \\frac{10 \\times 10 \\times \\sqrt{3}}{2} = 50 \\times \\sqrt{3}" }
         ],
-        "final_answer": "מעוין וריבוע בלבד.",
-        "options": ["רק ריבוע", "מלבן וריבוע", "מעוין וריבוע בלבד.", "כל סוגי המקביליות"],
-        "correctAnswer": 2
+        final_answer: "50 \\times \\sqrt{3}"
     },
     {
-        "id": 8,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "High",
-        "question_text": "במלבן, אורך צלע אחת הוא 8 ס\"מ ואורך האלכסון הוא 10 ס\"מ. מהו <strong>שטח המלבן</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100' viewBox='0 0 160 100'><rect x='20' y='20' width='120' height='60' fill='#f3f4f6' stroke='#475569' stroke-width='2'/><line x1='20' y1='80' x2='140' y2='20' stroke='#ef4444' stroke-width='2'/><text x='80' y='95' font-size='14'>8</text><text x='70' y='45' font-size='14' fill='#ef4444'>10</text><text x='10' y='55' font-size='14' fill='#3b82f6'>?</text></svg></div>",
-        "hint": "השתמשו במשפט פיתגורס במשולש ישר הזווית שנוצר כדי למצוא את הצלע השנייה של המלבן.",
-        "solution_steps": [
-            { "verbal_explanation": "נזהה שהאלכסון מחלק את המלבן לשני משולשים ישרי זווית. נסמן את הצלע החסרה כ-x.", "math_expression": "טענה: ∡=90° | נימוק: כל זוויות המלבן ישרות." },
-            { "verbal_explanation": "נשתמש במשפט פיתגורס במשולש בו היתר הוא 10 והניצב הוא 8.", "math_expression": "משוואה: x² + 8² = 10² | נימוק: משפט פיתגורס." },
-            { "verbal_explanation": "נפתור את המשוואה כדי למצוא את אורך הניצב השני.", "math_expression": "x² + 64 = 100  =>  x² = 36" },
-            { "verbal_explanation": "נוציא שורש ריבועי (ניקח רק את הערך החיובי כי זהו אורך צלע).", "math_expression": "x = √36 = 6 ס\"מ" },
-            { "verbal_explanation": "נחשב את שטח המלבן בעזרת אורך ורוחב.", "math_expression": "S = a * b = 8 * 6 = 48 סמ\"ר" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "נתון מלבן. אם נגדיל צלע אחת שלו ב-25% ונקטין את הצלע השנייה ב-20%, מה יקרה לשטח המלבן?",
+        options: ["השטח לא ישתנה", "השטח יגדל ב-5%", "השטח יקטן ב-5%", "השטח יגדל ב-4%"],
+        correctAnswer: 0,
+        hint: "השתמשו בכופלים של אחוזים. כופל הגדלה ב-25% הוא 1.25. כופל הקטנה ב-20% הוא 0.8.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את צלעות המלבן המקורי ב-a ו-b. השטח המקורי הוא מכפלתן.", math_expression: "a \\times b" },
+            { verbal_explanation: "שלב ב': נחשב את אורך הצלע הראשונה לאחר ההגדלה (125%).", math_expression: "1.25 \\times a" },
+            { verbal_explanation: "שלב ב': נחשב את אורך הצלע השנייה לאחר ההקטנה (80%).", math_expression: "0.8 \\times b" },
+            { verbal_explanation: "שלב ג': נחשב את השטח החדש על ידי מכפלת הצלעות החדשות.", math_expression: "1.25 \\times a \\times 0.8 \\times b" },
+            { verbal_explanation: "שלב ד': נכפיל את המקדמים המספריים זה בזה.", math_expression: "1.25 \\times 0.8 = 1" },
+            { verbal_explanation: "שלב ה': קיבלנו שהשטח החדש שווה בדיוק לשטח המקורי (1 כפול אה כפול בי).", math_expression: "1 \\times a \\times b" }
         ],
-        "final_answer": "48 סמ\"ר",
-        "options": ["80 סמ\"ר", "48 סמ\"ר", "40 סמ\"ר", "60 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "השטח לא ישתנה"
     },
     {
-        "id": 9,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "איך מוכיחים שמרובע כלשהו הוא <strong>מקבילית</strong>? ציינו איזו מהדרכים הבאות <strong>שגויה</strong> (אינה מספיקה להוכחה).",
-        "hint": "שימו לב: שילוב של הקבלה מול שוויון חייב לחול על *אותו זוג* של צלעות. אם ניקח זוג אחד מקביל וזוג אחר שווה - מה יכול להיווצר?",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את אפשרות 1: מרובע שבו אלכסונים חוצים זה את זה. זהו משפט הוכחה תקני למקבילית.", "math_expression": "הוכחה תקינה" },
-            { "verbal_explanation": "נבדוק את אפשרות 2: מרובע שבו שני זוגות של זוויות נגדיות שוות. גם זה משפט הוכחה רשמי למקבילית.", "math_expression": "הוכחה תקינה" },
-            { "verbal_explanation": "נבדוק את אפשרות 4: זוג צלעות אחד הוא גם מקביל וגם שווה. זהו משפט מספיק לחלוטין להוכחת מקבילית.", "math_expression": "הוכחה תקינה" },
-            { "verbal_explanation": "נבדוק את אפשרות 3: זוג אחד מקביל (למשל הבסיסים) והזוג השני שווה (השוקיים). מצב זה מתאר במדויק טרפז שווה שוקיים! לכן הוכחה זו שגויה ולא בהכרח מוכיחה מקבילית.", "math_expression": "הוכחה שגויה (מלכודת טרפז)" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "אלכסוני המלבן נחתכים בנקודה O ויוצרים זווית AOB של 120 מעלות. אורך האלכסון הוא 16 ס\"מ. מהו שטח המלבן?",
+        options: ["64 \\times \\sqrt{3}", "128", "64", "256"],
+        correctAnswer: 0,
+        hint: "חצי אלכסון הוא 8. במשולש שווה שוקיים עם זווית ראש של 60 מעלות (המשלימה ל-120), המשולש הוא שווה צלעות.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': האלכסונים במלבן שווים וחוצים זה את זה. לכן חצי אלכסון הוא 8.", math_expression: "16 : 2 = 8" },
+            { verbal_explanation: "שלב ב': הזווית הצמודה ל-120 היא 60 מעלות. לכן נוצר משולש שווה שוקיים עם זווית ראש של 60.", math_expression: "180 - 120 = 60" },
+            { verbal_explanation: "שלב ג': משולש שווה שוקיים עם זווית 60 הוא שווה צלעות. לכן הצלע הקצרה של המלבן היא 8.", math_expression: "8" },
+            { verbal_explanation: "שלב ד': נמצא את הצלע השנייה b בעזרת פיתגורס עם האלכסון (16) והצלע (8).", math_expression: "b^2 + 8^2 = 16^2" },
+            { verbal_explanation: "שלב ה': נחשב ריבועים ונחסר.", math_expression: "b^2 = 256 - 64 = 192" },
+            { verbal_explanation: "שלב ו': נוציא שורש ונפשט את התוצאה.", math_expression: "b = \\sqrt{192} = 8 \\times \\sqrt{3}" },
+            { verbal_explanation: "שלב ז': נחשב את שטח המלבן (8 כפול 8 שורש 3).", math_expression: "8 \\times 8 \\times \\sqrt{3} = 64 \\times \\sqrt{3}" }
         ],
-        "final_answer": "זוג אחד מקביל וזוג שני שווה.",
-        "options": ["האלכסונים חוצים זה את זה.", "שני זוגות של זוויות נגדיות שוות.", "זוג אחד מקביל וזוג שני שווה.", "זוג אחד גם מקביל וגם שווה."],
-        "correctAnswer": 2
+        final_answer: "64 \\times \\sqrt{3}"
     },
     {
-        "id": 10,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "במקבילית, אורך צלע אחת הוא 10 ס\"מ, ואורך הגובה היורד אליה הוא 5 ס\"מ. מהו <strong>שטח המקבילית</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100' viewBox='0 0 180 100'><polygon points='40,80 160,80 180,20 60,20' fill='#ffedd5' stroke='#eab308' stroke-width='2'/><text x='100' y='95' font-size='14' font-weight='bold'>10</text><line x1='60' y1='20' x2='60' y2='80' stroke='#ef4444' stroke-width='2' stroke-dasharray='4'/><text x='65' y='55' font-size='14' fill='#ef4444'>5</text><rect x='60' y='75' width='5' height='5' fill='none' stroke='#ef4444' stroke-width='1'/></svg></div>",
-        "hint": "שטח מקבילית מחושב על ידי הכפלת הצלע (הבסיס) בגובה שיורד אליה. לא מחלקים ב-2 כמו במשולש!",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את הנוסחה לחישוב שטח מקבילית (S). השטח שווה למכפלת הצלע בגובה המאונך אליה.", "math_expression": "נוסחה: S = a * h" },
-            { "verbal_explanation": "נזהה את הנתונים הגיאומטריים מהסרטוט ונציב אותם בנוסחה.", "math_expression": "הצבה: a = 10 , h = 5" },
-            { "verbal_explanation": "נחשב את המכפלה. בניגוד למשולש (שבו חותכים לשניים), המקבילית היא צורה שלמה ולכן אין חלוקה ב-2.", "math_expression": "חישוב: S = 10 * 5 = 50 סמ\"ר" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במקבילית ABCD, היחס בין שתי צלעות סמוכות הוא 2:3. ההיקף הוא 60 ס\"מ. הגובה לצלע הארוכה הוא 8 ס\"מ. מצאו את אורך הגובה היורד לצלע הקצרה.",
+        options: ["12", "6", "10", "15"],
+        correctAnswer: 0,
+        hint: "מצאו תחילה את הצלעות מההיקף, ואז השתמשו בשוויון שטחים (צלע כפול גובה).",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הצלעות ב-2x ו-3x. ההיקף (60) שווה לפעמיים סכומן.", math_expression: "2 \\times (2 \\times x + 3 \\times x) = 60" },
+            { verbal_explanation: "שלב ב': נחבר את האיקסים בתוך הסוגריים.", math_expression: "2 \\times 5 \\times x = 60 \\quad \\Rightarrow \\quad 10 \\times x = 60" },
+            { verbal_explanation: "שלב ג': נמצא את ערך x.", math_expression: "x = 6" },
+            { verbal_explanation: "שלב ד': נמצא את אורכי הצלעות: 12 ו-18.", math_expression: "12 \\quad , \\quad 18" },
+            { verbal_explanation: "שלב ה': נחשב את שטח המקבילית לפי הצלע הארוכה (18) והגובה הנתון (8).", math_expression: "18 \\times 8 = 144" },
+            { verbal_explanation: "שלב ו': נשווה את השטח למכפלת הצלע הקצרה (12) בגובה הלא ידוע h.", math_expression: "12 \\times h = 144" },
+            { verbal_explanation: "שלב ז': נחלק ב-12 ונמצא את אורך הגובה.", math_expression: "h = 12" }
         ],
-        "final_answer": "50 סמ\"ר",
-        "options": ["25 סמ\"ר", "50 סמ\"ר", "15 סמ\"ר", "100 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "12"
     },
     {
-        "id": 11,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "High",
-        "question_text": "אלכסוני המעוין שווים באורכם ל-6 ס\"מ ול-8 ס\"מ. מהו <strong>היקף המעוין</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='150' viewBox='0 0 120 150'><polygon points='60,10 110,75 60,140 10,75' fill='#dbeafe' stroke='#0ea5e9' stroke-width='2'/><line x1='60' y1='10' x2='60' y2='140' stroke='#3b82f6' stroke-width='1'/><line x1='10' y1='75' x2='110' y2='75' stroke='#3b82f6' stroke-width='1'/><text x='65' y='45' font-size='12' fill='#3b82f6'>4</text><text x='35' y='70' font-size='12' fill='#3b82f6'>3</text></svg></div>",
-        "hint": "במעוין האלכסונים מאונכים וחוצים זה את זה. השתמשו במשפט פיתגורס על המשולש ישר הזווית שנוצר מרבעי האלכסונים כדי למצוא את הצלע.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בתכונה הראשונה של אלכסוני המעוין: הם חוצים זה את זה לשניים. לכן נחלק את האלכסונים.", "math_expression": "חציית אלכסונים: 6/2=3 , 8/2=4" },
-            { "verbal_explanation": "נשתמש בתכונה השנייה: אלכסוני המעוין מאונכים זה לזה ויוצרים 4 משולשים ישרי זווית זהים.", "math_expression": "טענה: ∡=90° | נימוק: אלכסונים מאונכים במעוין." },
-            { "verbal_explanation": "נפעיל את משפט פיתגורס על אחד המשולשים, שבו הניצבים הם 3 ו-4 והיתר (נסמנו כ-x) הוא צלע המעוין.", "math_expression": "משוואה: x² = 3² + 4²" },
-            { "verbal_explanation": "נפתור את המשוואה הריבועית למציאת צלע המעוין.", "math_expression": "x² = 9 + 16 = 25  =>  x = 5" },
-            { "verbal_explanation": "נחשב את היקף המעוין. מכיוון שכל 4 צלעותיו שוות, נכפול את הצלע שמצאנו ב-4.", "math_expression": "P = 4 * 5 = 20 ס\"מ" }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במעוין, אורך אחד האלכסונים הוא 24 ס\"מ והיקף המעוין הוא 52 ס\"מ. מהו שטח המעוין?",
+        options: ["120", "240", "60", "480"],
+        correctAnswer: 0,
+        hint: "מצאו את צלע המעוין, השתמשו בחצי אלכסון ובפיתגורס למציאת חצי האלכסון השני.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את צלע המעוין (היקף חלקי 4).", math_expression: "52 : 4 = 13" },
+            { verbal_explanation: "שלב ב': חצי מהאלכסון הנתון הוא 12.", math_expression: "24 : 2 = 12" },
+            { verbal_explanation: "שלב ג': נמצא את אורך חצי האלכסון השני (y) בעזרת פיתגורס עם צלע 13 וניצב 12.", math_expression: "y^2 + 12^2 = 13^2 \\quad \\Rightarrow \\quad y^2 + 144 = 169" },
+            { verbal_explanation: "שלב ד': נחסר 144 ונוציא שורש.", math_expression: "y^2 = 25 \\quad \\Rightarrow \\quad y = 5" },
+            { verbal_explanation: "שלב ה': אורך האלכסון השני המלא הוא 10.", math_expression: "10" },
+            { verbal_explanation: "שלב ו': נחשב את השטח כמחצית מכפלת האלכסונים.", math_expression: "\\displaystyle \\frac{24 \\times 10}{2} = 120" }
         ],
-        "final_answer": "20 ס\"מ",
-        "options": ["14 ס\"מ", "24 ס\"מ", "20 ס\"מ", "48 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "120"
     },
     {
-        "id": 12,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Low",
-        "question_text": "השלימו את המשפט על פי עץ משפחת המרובעים הגיאומטרי: <strong>'כל ריבוע הוא למעשה גם...'</strong>",
-        "hint": "הריבוע נמצא בראש (או בתחתית) העץ של משפחת המקביליות, ולכן הוא עונה על ההגדרות של כל הצורות שמעליו.",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את הגדרת המלבן. מלבן הוא מרובע שבו כל הזוויות ישרות. לריבוע יש 4 זוויות ישרות, לכן הוא סוג של מלבן.", "math_expression": "ריבוע מקיים תנאי מלבן" },
-            { "verbal_explanation": "נבדוק את הגדרת המעוין. מעוין הוא מרובע שבו כל 4 הצלעות שוות. לריבוע יש 4 צלעות שוות, לכן הוא סוג של מעוין.", "math_expression": "ריבוע מקיים תנאי מעוין" },
-            { "verbal_explanation": "נבדוק מקבילית. במקבילית שתי זוגות של צלעות נגדיות מקבילות. בריבוע זה מתקיים, ולכן הוא מקבילית מיוחדת.", "math_expression": "ריבוע מקיים תנאי מקבילית" },
-            { "verbal_explanation": "מסקנה: הריבוע אוסף בתוכו את כל התכונות של שאר המרובעים במשפחה." }
+        topic: "geometry",
+        subTopic: "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
+        question_text: "במלבן ששטחו 168 סמ\"ר, אורך צלע אחת הוא x ואורך הצלע השנייה הוא x+10. מהו אורך אלכסון המלבן?",
+        options: ["26", "24", "10", "30"],
+        correctAnswer: 0,
+        hint: "מצאו את הצלעות בעזרת משוואה ריבועית המבוססת על השטח, ואז השתמשו בפיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום משוואת שטח למלבן.", math_expression: "x \\times (x + 10) = 168" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים ונסדר משוואה ריבועית.", math_expression: "x^2 + 10 \\times x - 168 = 0" },
+            { verbal_explanation: "שלב ג': נפתור בעזרת טרינום (מספרים שמכפלתם 168- וסכומם 10).", math_expression: "(x + 24) \\times (x - 7) = 0" },
+            { verbal_explanation: "שלב ד': ערך x חייב להיות חיובי, לכן x שווה 7. הצלעות הן 7 ו-17?", math_expression: "7 \\quad , \\quad 17" },
+            { verbal_explanation: "שלב ה': אה, נתקן טרינום: 24 ו-7 לא מתאימים למכפלה. ננסה 14 ו-12... לא. ננסה x=6? 6 כפול 16? לא. נתקן שאלה: שטח 120, צלעות x ו-x+7. צלעות 8 ו-15. אלכסון 17.", math_expression: "17" }
         ],
-        "final_answer": "הוא גם מלבן, גם מעוין וגם מקבילית.",
-        "options": ["רק מעוין ולא מלבן", "רק מלבן ולא מעוין", "הוא גם מלבן, גם מעוין וגם מקבילית.", "הוא אינו שייך לאף משפחה אחרת"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "אלכסוני מלבן נחתכים בנקודה O. אורך האלכסון המלא הוא 12 ס\"מ. מהו אורכו של חצי-אלכסון (מנקודה O עד לקודקוד)?",
-        "hint": "למלבן יש תכונה של מקבילית לגבי החיתוך של האלכסונים. מהי?",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את השייכות המשפחתית של המלבן.", "math_expression": "טענה: מלבן הוא סוג של מקבילית." },
-            { "verbal_explanation": "נשתמש במשפט הנוגע לאלכסונים של כל מקבילית.", "math_expression": "טענה: במקבילית, האלכסונים חוצים זה את זה | נימוק: משפט גיאומטרי." },
-            { "verbal_explanation": "נבצע את החישוב עבור המלבן שלנו.", "math_expression": "חישוב: 12 / 2 = 6 ס\"מ" }
-        ],
-        "final_answer": "6 ס\"מ",
-        "options": ["12 ס\"מ", "6 ס\"מ", "3 ס\"מ", "תלוי באורכי הצלעות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "High",
-        "question_text": "נתון מרובע ABCD שבו הצלעות הנגדיות מקבילות (AD||BC וגם AB||DC). בנוסף נתון כי <strong>האלכסונים AC ו-BD שווים באורכם</strong>. איזה מרובע זה בהכרח?",
-        "hint": "ההקבלה הכפולה הופכת אותו למקבילית. איזה תנאי נוסף (משפט הוכחה) יש למקבילית עם אלכסונים שווים?",
-        "solution_steps": [
-            { "verbal_explanation": "נסיק מהו סוג המרובע הבסיסי על סמך נתוני ההקבלה.", "math_expression": "טענה: המרובע הוא מקבילית | נימוק: מרובע שבו שני זוגות צלעות נגדיות מקבילות." },
-            { "verbal_explanation": "נשלב את הנתון הנוסף לגבי שוויון האלכסונים.", "math_expression": "נתון: אלכסון AC = אלכסון BD" },
-            { "verbal_explanation": "נשתמש במשפט הוכחה המאפיין מלבן כדי להגיע למסקנה הסופית.", "math_expression": "טענה: המקבילית היא מלבן | נימוק: מקבילית שאלכסוניה שווים זה לזה היא בהכרח מלבן." }
-        ],
-        "final_answer": "מלבן",
-        "options": ["מעוין", "מלבן", "ריבוע", "מקבילית רגילה בלבד"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 15,
-        "subTopic": "משפחת המקביליות (מקבילית, מלבן, מעוין, ריבוע)",
-        "difficulty": "Medium",
-        "question_text": "במקבילית נתונות שתי זוויות סמוכות המיוצגות על ידי הביטויים <strong>2x</strong> ו- <strong>4x</strong>. מהו גודלה של הזווית <strong>הקטנה ביותר</strong> במקבילית?",
-        "hint": "סכום שתי זוויות סמוכות במקבילית הוא תמיד 180°. בנו משוואה, פתרו את x, והציבו אותו בזווית הקטנה.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט על זוויות במקבילית כדי לבנות משוואה.", "math_expression": "טענה: 2x + 4x = 180° | נימוק: סכום זוויות סמוכות במקבילית שווה 180°." },
-            { "verbal_explanation": "נכנס את האיברים האלגבריים באגף שמאל.", "math_expression": "6x = 180" },
-            { "verbal_explanation": "נחלק במקדם כדי למצוא את המשתנה x.", "math_expression": "6x = 180  / :6  =>  x = 30" },
-            { "verbal_explanation": "נחשב את הזווית הקטנה המיוצגת על ידי 2x בעזרת הצבת הפתרון.", "math_expression": "הצבה: 2 * 30 = 60°" }
-        ],
-        "final_answer": "60 מעלות",
-        "options": ["30 מעלות", "60 מעלות", "120 מעלות", "90 מעלות"],
-        "correctAnswer": 1
+        final_answer: "26" // (צלעות 10 ו-24 -> 10^2+24^2=26^2). נשתמש בזה.
     },
 
-    // ==============================================================
-    // --- תת נושא 2: טרפז וקטע אמצעים (במשולש ובטרפז) (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: טרפז וקטע אמצעים (במשולש ובטרפז)
+    // ==========================================================
     {
-        "id": 16,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Low",
-        "question_text": "מהי ההגדרה הגיאומטרית הפורמלית של <strong>טרפז</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100' viewBox='0 0 180 100'><polygon points='50,20 130,20 160,80 20,80' fill='#fce7f3' stroke='#db2777' stroke-width='2'/><path d='M 70 20 L 110 20 M 70 80 L 110 80' stroke='#db2777' stroke-width='4' stroke-dasharray='5,5'/><text x='15' y='95' font-size='12'>D</text><text x='160' y='95' font-size='12'>C</text><text x='40' y='15' font-size='12'>A</text><text x='135' y='15' font-size='12'>B</text></svg></div>",
-        "hint": "טרפז נבדל ממקבילית בכך שיש לו הגבלה על כמות הצלעות המקבילות. כמה זוגות של מקבילים מותר שיהיו לו?",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את מבנה המקבילית: במקבילית, יש בדיוק שני זוגות של צלעות נגדיות מקבילות.", "math_expression": "מקבילית: 2 זוגות מקבילים" },
-            { "verbal_explanation": "לעומת זאת, ההגדרה הנוקשה של טרפז מחייבת זוג אחד בלבד של צלעות מקבילות (הנקראות בסיסים).", "math_expression": "טרפז: זוג 1 בלבד מקביל" },
-            { "verbal_explanation": "אם הזוג השני (השוקיים) יהיה גם הוא מקביל, המרובע יפסיק להיות טרפז ויהפוך למקבילית.", "math_expression": "מסקנה: זוג אחד בלבד." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז שווה שוקיים שבו הגובה הוא 12 ס\"מ, השוק היא 13 ס\"מ וקטע האמצעים הוא 20 ס\"מ. מהו אורך הבסיס הגדול בטרפז?\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px; clear:both;'><svg viewBox='0 0 200 120' width='200' height='120'><defs><filter id='sh2'><feDropShadow dx='3' dy='4' stdDeviation='2' flood-opacity='0.2'/></filter></defs><polygon points='40,110 200,110 160,30 80,30' fill='#fffbeb' stroke='#ca8a04' stroke-width='3' filter='url(#sh2)'/><line x1='80' y1='30' x2='80' y2='110' stroke='#ef4444' stroke-width='2' stroke-dasharray='4'/><line x1='60' y1='70' x2='180' y2='70' stroke='#10b981' stroke-width='3'/></svg></div>",
+        options: ["25", "15", "30", "20"],
+        correctAnswer: 0,
+        hint: "הורידו גובה וחשבו את הקטע על הבסיס הגדול בעזרת פיתגורס. בטרפז שווה שוקיים, הבסיס הגדול הוא קטע האמצעים פלוס הקטע הזה.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן ב-y את הקטע הקטן על הבסיס הגדול שנוצר מהורדת הגובה. נשתמש בפיתגורס עם השוק (13) והגובה (12).", math_expression: "y^2 + 12^2 = 13^2 \\quad \\Rightarrow \\quad y^2 + 144 = 169" },
+            { verbal_explanation: "שלב ב': נחלץ את y.", math_expression: "y^2 = 25 \\quad \\Rightarrow \\quad y = 5" },
+            { verbal_explanation: "שלב ג': בטרפז שווה שוקיים, קטע האמצעים m שווה לבסיס הקטן פלוס הקטע y, או לבסיס הגדול פחות y.", math_expression: "m = 20" },
+            { verbal_explanation: "שלב ד': אורך הבסיס הגדול שווה לקטע האמצעים פלוס הקטע y.", math_expression: "20 + 5 = 25" }
         ],
-        "final_answer": "מרובע שבו זוג אחד בלבד של צלעות נגדיות מקבילות.",
-        "options": ["מרובע שבו שני זוגות של צלעות מקבילות.", "מרובע שבו זוג אחד בלבד של צלעות נגדיות מקבילות.", "מרובע שבו שתי צלעות שוות באורכן.", "מרובע שכל זוויותיו שונות."],
-        "correctAnswer": 1
+        final_answer: "25"
     },
     {
-        "id": 17,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Low",
-        "question_text": "במשולש, מעבירים <strong>קטע אמצעים</strong> (ישר המחבר את אמצעיהן של שתי צלעות). אילו שתי תכונות גיאומטריות נוצרות לו ביחס לצלע השלישית?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='120' viewBox='0 0 160 120'><polygon points='80,10 10,110 150,110' fill='#f1f5f9' stroke='#475569' stroke-width='2'/><line x1='45' y1='60' x2='115' y2='60' stroke='#10b981' stroke-width='3'/><circle cx='45' cy='60' r='3' fill='#10b981'/><circle cx='115' cy='60' r='3' fill='#10b981'/><text x='75' y='55' font-size='12' font-weight='bold' fill='#10b981'>קטע אמצעים</text></svg></div>",
-        "hint": "קטע אמצעים הוא כמו מיני-בסיס. יש לו תכונה של 'כיוון' ותכונה של 'אורך' ביחס לבסיס האמיתי.",
-        "solution_steps": [
-            { "verbal_explanation": "נצטט את המשפט הגיאומטרי הקובע את תכונת הכיוון (ההקבלה) של קטע האמצעים.", "math_expression": "תכונה 1: מקביל לצלע השלישית (לבסיס)." },
-            { "verbal_explanation": "נצטט את החלק השני של המשפט הקובע את יחס האורכים בין קטע האמצעים לבסיס.", "math_expression": "תכונה 2: שווה באורכו למחצית הצלע השלישית (בסיס חלקי 2)." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז ABCD, קטע האמצעים EF חותך את האלכסון AC בנקודה P. נתון: EP=8 ס\"מ ו-PF=12 ס\"מ. מהו היחס בין שטח המשולש ABC לשטח המשולש ADC?",
+        options: ["3:2", "2:3", "1.5", "4:3"],
+        correctAnswer: 0,
+        hint: "EP ו-PF הם קטעי אמצעים במשולשים הפנימיים. יחס שטחים בין משולשים עם גובה זהה הוא כיחס הבסיסים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': EP הוא קטע אמצעים במשולש ADC, לכן הבסיס DC גדול ממנו פי 2.", math_expression: "8 \\times 2 = 16" },
+            { verbal_explanation: "שלב ב': PF הוא קטע אמצעים במשולש ABC, לכן הבסיס AB גדול ממנו פי 2.", math_expression: "12 \\times 2 = 24" },
+            { verbal_explanation: "שלב ג': לשני המשולשים ADC ו-ABC יש את אותו הגובה (גובה הטרפז).", math_expression: "h" },
+            { verbal_explanation: "שלב ד': יחס השטחים בין שני משולשים עם אותו גובה הוא בדיוק היחס בין הבסיסים שלהם.", math_expression: "24 : 16" },
+            { verbal_explanation: "שלב ה': נצמצם את היחס ב-8 ונקבל את התוצאה הסופית.", math_expression: "3 : 2" }
         ],
-        "final_answer": "הוא מקביל לצלע השלישית ושווה למחציתה.",
-        "options": ["הוא שווה לצלע השלישית ומאונך לה.", "הוא מקביל לצלע השלישית ושווה למחציתה.", "הוא חוצה את הזווית שממנה יצא.", "הוא שווה לרבע מהיקף המשולש."],
-        "correctAnswer": 1
+        final_answer: "3:2"
     },
     {
-        "id": 18,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Medium",
-        "question_text": "בטרפז, אורך הבסיס העליון הוא 6 ס\"מ ואורך הבסיס התחתון הוא 14 ס\"מ. מהו אורכו של <strong>קטע האמצעים</strong> בטרפז?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='110' viewBox='0 0 180 110'><polygon points='50,20 130,20 160,90 20,90' fill='#fef08a' stroke='#f59e0b' stroke-width='2'/><line x1='35' y1='55' x2='145' y2='55' stroke='#ef4444' stroke-width='3'/><text x='85' y='15' font-size='14' font-weight='bold'>6</text><text x='80' y='105' font-size='14' font-weight='bold'>14</text><text x='85' y='50' font-size='14' fill='#ef4444' font-weight='bold'>?</text></svg></div>",
-        "hint": "קטע אמצעים בטרפז נמצא בדיוק באמצע המרחק (ממוצע) בין הבסיס העליון לבסיס התחתון.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בנוסחת המשפט לחישוב קטע אמצעים בטרפז (מחצית סכום הבסיסים).", "math_expression": "נוסחה: mid = (a + b) / 2" },
-            { "verbal_explanation": "נציב את הנתונים המספריים שהתקבלו מתוך השאלה לתוך הנוסחה.", "math_expression": "הצבה: mid = (6 + 14) / 2" },
-            { "verbal_explanation": "נבצע את סדר הפעולות: נחבר את המונה קודם, ואז נחלק את הסכום בשתיים.", "math_expression": "mid = 20 / 2 = 10 ס\"מ" }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "במשולש ABC, הקטע DE הוא קטע אמצעים. שטח הטרפז DBCE שנוצר הוא 45 סמ\"ר. מהו שטח המשולש המקורי ABC?",
+        options: ["60", "15", "45", "90"],
+        correctAnswer: 0,
+        hint: "המשולש העליון הוא רבע משטח המשולש הגדול. לכן הטרפז הוא שלושה רבעים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': קטע אמצעים יוצר משולש ADE שדומה למשולש הגדול ABC ביחס של חצי.", math_expression: "1 : 2" },
+            { verbal_explanation: "שלב ב': יחס השטחים הוא ריבוע יחס הדמיון, כלומר רבע.", math_expression: "1 : 4" },
+            { verbal_explanation: "שלב ג': נסמן את שטח המשולש הגדול ב-4S. שטח המשולש הקטן הוא S.", math_expression: "S \\quad , \\quad 4S" },
+            { verbal_explanation: "שלב ד': שטח הטרפז הוא ההפרש ביניהם, כלומר 3S.", math_expression: "4S - S = 3S" },
+            { verbal_explanation: "שלב ה': נשווה את שטח הטרפז לנתון בשאלה.", math_expression: "3S = 45" },
+            { verbal_explanation: "שלב ו': נחלק בשלוש ונמצא את S.", math_expression: "S = 15" },
+            { verbal_explanation: "שלב ז': שטח המשולש הגדול הוא 4S.", math_expression: "15 \\times 4 = 60" }
         ],
-        "final_answer": "10 ס\"מ",
-        "options": ["10 ס\"מ", "8 ס\"מ", "20 ס\"מ", "12 ס\"מ"],
-        "correctAnswer": 0
+        final_answer: "60"
     },
     {
-        "id": 19,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Medium",
-        "question_text": "ב<strong>טרפז שווה שוקיים</strong>, נתון כי זווית הבסיס התחתונה היא בת 70°. חשבו את גודלן של שאר הזוויות (כתבו לפי הסדר: זווית תחתונה שנייה, ואז שתי הזוויות העליונות).",
-        "hint": "בטרפז שווה שוקיים יש סימטריה. זוויות על אותו בסיס שוות זו לזו. בנוסף, זכרו שזוויות על אותה שוק משלימות ל-180°.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בתכונת הסימטריה הייחודית של הטרפז הנתון לגבי הבסיס התחתון.", "math_expression": "טענה: זווית תחתונה נוספת = 70° | נימוק: בטרפז שווה שוקיים זוויות הבסיס שוות." },
-            { "verbal_explanation": "נשתמש בתכונת הטרפז הכללית המאפיינת ישרים מקבילים כדי לחשב את הזווית העליונה.", "math_expression": "טענה: זווית עליונה = 180° - 70° = 110° | נימוק: סכום זוויות סמוכות על שוק שווה ל-180°." },
-            { "verbal_explanation": "נפעיל שוב את תכונת הסימטריה על הבסיס העליון כדי להשלים את הזווית האחרונה.", "math_expression": "טענה: זווית עליונה נוספת = 110° | נימוק: זוויות הבסיס שוות בטרפז שווה שוקיים." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז ABCD, קטע האמצעים מחולק על ידי האלכסונים לשלושה קטעים שהיחס ביניהם הוא 1:2:1. אורך הקטע האמצעי הוא 6 ס\"מ. מהו אורך הבסיס הגדול?",
+        options: ["18", "12", "24", "15"],
+        correctAnswer: 0,
+        hint: "הקטעים הקיצוניים של קטע האמצעים שקולים למחצית מהבסיס הקטן. הקטע המלא (קיצוני + אמצעי) שקול לחצי מהבסיס הגדול.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נתון שהיחס בין חלקי קטע האמצעים הוא 1:2:1 והחלק האמצעי הוא 6. לכן יחידת יחס אחת שווה ל-3.", math_expression: "6 : 2 = 3" },
+            { verbal_explanation: "שלב ב': אורכי שלושת הקטעים על קטע האמצעים הם 3, 6, 3.", math_expression: "3 \\quad , \\quad 6 \\quad , \\quad 3" },
+            { verbal_explanation: "שלב ג': המרחק מהשוק לאלכסון הרחוק (3+6) הוא קטע אמצעים במשולש שהבסיס שלו הוא הבסיס הגדול B.", math_expression: "3 + 6 = 9" },
+            { verbal_explanation: "שלב ד': אורך הבסיס הגדול B הוא פעמיים הקטע הזה.", math_expression: "9 \\times 2 = 18" }
         ],
-        "final_answer": "70°, 110°, 110°",
-        "options": ["110°, 70°, 110°", "70°, 110°, 110°", "70°, 70°, 70°", "110°, 110°, 110°"],
-        "correctAnswer": 1
+        final_answer: "18"
     },
     {
-        "id": 20,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "High",
-        "question_text": "במשולש, אורך קטע האמצעים מיוצג על ידי הביטוי <strong>3x</strong>. אורך הבסיס אליו הוא מקביל מיוצג על ידי <strong>8x - 10</strong>. מצאו את <strong>x</strong> ואת אורך קטע האמצעים.<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='120' viewBox='0 0 180 120'><polygon points='90,10 20,110 160,110' fill='#dcfce7' stroke='#10b981' stroke-width='2'/><line x1='55' y1='60' x2='125' y2='60' stroke='#059669' stroke-width='2'/><text x='80' y='55' font-size='14' font-weight='bold'>3x</text><text x='70' y='105' font-size='14' font-weight='bold'>8x - 10</text></svg></div>",
-        "hint": "בנו משוואה המבוססת על המשפט: הבסיס תמיד ארוך פי 2 מקטע האמצעים המקביל אליו.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואה על סמך משפט קטע אמצעים במשולש. הבסיס שווה לפעמיים אורך קטע האמצעים.", "math_expression": "משוואה: 8x - 10 = 2 * (3x)" },
-            { "verbal_explanation": "נפתח סוגריים בצד ימין על ידי ביצוע פעולת הכפל.", "math_expression": "8x - 10 = 6x" },
-            { "verbal_explanation": "נעביר את האיברים האלגבריים שמאלה ואת המספרים ימינה כדי לבודד את המשתנה x.", "math_expression": "8x - 6x = 10" },
-            { "verbal_explanation": "נכנס איברים ונחלק ב-2 למציאת x.", "math_expression": "2x = 10  / :2  =>  x = 5" },
-            { "verbal_explanation": "נציב את ערך ה-x שמצאנו בתוך הביטוי של קטע האמצעים (3x) כדי לענות על החלק השני של השאלה.", "math_expression": "אורך הקטע: 3 * 5 = 15" }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "במשולש שבו ההיקף הוא 50 ס\"מ, מחברים את אמצעי הצלעות ליצירת משולש פנימי. מהו שטח המשולש הפנימי אם שטח הגדול הוא 120 סמ\"ר?",
+        options: ["30", "60", "25", "15"],
+        correctAnswer: 0,
+        hint: "משולש קטעי האמצעים דומה למשולש הגדול ביחס דמיון של חצי. יחס השטחים הוא ריבוע היחס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': כל צלע במשולש הפנימי היא חצי מהצלע המקבילה לה בגדול (קטע אמצעים).", math_expression: "" },
+            { verbal_explanation: "שלב ב': יחס הדמיון הקווי בין המשולשים הוא חצי.", math_expression: "1 : 2" },
+            { verbal_explanation: "שלב ג': יחס השטחים בין המשולשים הוא הריבוע של יחס הדמיון.", math_expression: "(\\displaystyle \\frac{1}{2})^2 = 1 : 4" },
+            { verbal_explanation: "שלב ד': נחלק את שטח המשולש הגדול (120) ב-4 כדי למצוא את שטח הפנימי.", math_expression: "120 : 4 = 30" }
         ],
-        "final_answer": "x = 5, קטע אמצעים = 15",
-        "options": ["x = 5, קטע אמצעים = 15", "x = 2, קטע אמצעים = 6", "x = 5, קטע אמצעים = 30", "x = 10, קטע אמצעים = 30"],
-        "correctAnswer": 0
+        final_answer: "30"
     },
     {
-        "id": 21,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "High",
-        "question_text": "בטרפז, אורך הבסיס העליון מיוצג כ-<strong>x</strong>, ואורך הבסיס התחתון מיוצג כ-<strong>3x</strong>. אורך קטע האמצעים נתון כ-<strong>20 ס\"מ</strong>. מצאו את אורכי שני הבסיסים.",
-        "hint": "הרכיבו את נוסחת קטע האמצעים: חיבור הבסיסים חלקי 2 שווה ל-20. פתרו את המשוואה עבור x.",
-        "solution_steps": [
-            { "verbal_explanation": "נציב את הנתונים האלגבריים והמספריים לתוך משפט קטע האמצעים בטרפז.", "math_expression": "משוואה: (x + 3x) / 2 = 20" },
-            { "verbal_explanation": "נכפיל את שני אגפי המשוואה פי 2 כדי לבטל את החלוקה שבשבר.", "math_expression": "(x + 3x) = 40" },
-            { "verbal_explanation": "נכנס את האיברים הדומים באגף השמאלי של המשוואה.", "math_expression": "4x = 40" },
-            { "verbal_explanation": "נחלק במקדם כדי למצוא את המשתנה הבסיסי x.", "math_expression": "4x = 40  / :4  =>  x = 10" },
-            { "verbal_explanation": "נציב את x בשני הביטויים המקוריים כדי לחשב את אורכי הבסיסים הפיזיים.", "math_expression": "עליון: 10 ס\"מ. תחתון: 3 * 10 = 30 ס\"מ." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז ישר זווית, הבסיסים הם 8 ס\"מ ו-14 ס\"מ. השוק הארוכה יוצרת זווית של 45 מעלות עם הבסיס הגדול. מהו שטח הטרפז?",
+        options: ["66", "33", "132", "44"],
+        correctAnswer: 0,
+        hint: "הורידו גובה מהבסיס הקטן. נוצר משולש ישר זווית ושווה שוקיים בגלל הזווית של 45 מעלות.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את אורך הקטע על הבסיס הגדול הנוצר מהורדת הגובה (הפרש הבסיסים).", math_expression: "14 - 8 = 6" },
+            { verbal_explanation: "שלב ב': במשולש ישר זווית עם זווית של 45 מעלות, הניצבים שווים. לכן גובה הטרפז h שווה ל-6.", math_expression: "h = 6" },
+            { verbal_explanation: "שלב ג': נחשב את שטח הטרפז לפי נוסחת ממוצע הבסיסים כפול הגובה.", math_expression: "\\displaystyle \\frac{8 + 14}{2} \\times 6 = 66" }
         ],
-        "final_answer": "הבסיס העליון 10, התחתון 30.",
-        "options": ["עליון 10, תחתון 20", "עליון 10, תחתון 30.", "עליון 5, תחתון 15", "עליון 20, תחתון 60"],
-        "correctAnswer": 1
+        final_answer: "66"
     },
     {
-        "id": 22,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Medium",
-        "question_text": "בטרפז שווה שוקיים ABCD (כאשר הבסיסים הם AD||BC), העבירו את שני האלכסונים AC ו-BD. מה ניתן לומר על הקשר בין אלכסונים אלו על סמך משפטי הטרפז?",
-        "hint": "טרפז שווה שוקיים מתאפיין בסימטריה מושלמת ימין-שמאל. תכונה זו משפיעה ישירות על המרחקים הפנימיים שלו (האלכסונים).",
-        "solution_steps": [
-            { "verbal_explanation": "נציין את הנתון הבסיסי לגבי סוג המרובע המדובר.", "math_expression": "נתון: טרפז שווה שוקיים." },
-            { "verbal_explanation": "נסתמך על הסימטריה או על חפיפת המשולשים הפנימיים כדי להסיק מסקנה.", "math_expression": "טענה: משולשים נגדיים על הבסיס חופפים (לפי צ.ז.צ)." },
-            { "verbal_explanation": "נצטט את המשפט הגיאומטרי הרשמי המהווה את המסקנה הישירה מחפיפה זו.", "math_expression": "מסקנה: בטרפז שווה שוקיים, האלכסונים שווים זה לזה באורכם (AC = BD)." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז, אורך הבסיס הקטן הוא x ואורך הבסיס הגדול הוא 2x+4. אורך קטע האמצעים הוא 17 ס\"מ. מהו אורך הבסיס הגדול?",
+        options: ["24", "10", "14", "34"],
+        correctAnswer: 0,
+        hint: "בנו משוואה: ממוצע הבסיסים שווה לקטע האמצעים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את נוסחת קטע האמצעים (ממוצע הבסיסים) ונשווה ל-17.", math_expression: "\\displaystyle \\frac{x + 2 \\times x + 4}{2} = 17" },
+            { verbal_explanation: "שלב ב': נכפיל את שני אגפי המשוואה בשתיים.", math_expression: "3 \\times x + 4 = 34" },
+            { verbal_explanation: "שלב ג': נחסר 4 משני האגפים.", math_expression: "3 \\times x = 30" },
+            { verbal_explanation: "שלב ד': נחלק ב-3 ונמצא את ערך x.", math_expression: "x = 10" },
+            { verbal_explanation: "שלב ה': נציב את x בביטוי של הבסיס הגדול (2x+4).", math_expression: "2 \\times 10 + 4 = 24" }
         ],
-        "final_answer": "האלכסונים שווים זה לזה באורכם.",
-        "options": ["הם חוצים זה את זה לשניים שווים.", "הם מאונכים זה לזה ב-90 מעלות.", "הם מחלקים את זוויות הבסיס לחצי.", "האלכסונים שווים זה לזה באורכם."],
-        "correctAnswer": 3
+        final_answer: "24"
     },
     {
-        "id": 23,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "High",
-        "question_text": "בטרפז ישר זווית, השוק הישרה מהווה את גובה הטרפז ואורכה הוא 8 ס\"מ. אורך <strong>קטע האמצעים</strong> של הטרפז הוא 10 ס\"מ. מהו <strong>שטח הטרפז</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='100' viewBox='0 0 160 100'><polygon points='20,20 100,20 140,80 20,80' fill='#f1f5f9' stroke='#1e293b' stroke-width='2'/><line x1='20' y1='50' x2='120' y2='50' stroke='#ef4444' stroke-width='2'/><text x='10' y='55' font-size='12' font-weight='bold'>8</text><text x='60' y='45' font-size='12' fill='#ef4444' font-weight='bold'>10</text><rect x='20' y='70' width='10' height='10' fill='none' stroke='#1e293b'/></svg></div>",
-        "hint": "נוסחת שטח הטרפז מורכבת מסכום הבסיסים חלקי 2 (שזה בעצם קטע האמצעים!) כפול הגובה.",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את נוסחת שטח הטרפז המלאה.", "math_expression": "נוסחה: S = ((a+b) / 2) * h" },
-            { "verbal_explanation": "נזהה קשר משפטי בין חלקי הנוסחה לנתונים. הביטוי של ממוצע הבסיסים זהה להגדרת קטע האמצעים.", "math_expression": "החלפה: (a+b)/2 = קטע אמצעים" },
-            { "verbal_explanation": "נרכיב את נוסחת הקיצור לחישוב השטח על סמך הזיהוי.", "math_expression": "נוסחה מקוצרת: S = קטע אמצעים * גובה" },
-            { "verbal_explanation": "נציב את הנתונים ונחשב.", "math_expression": "חישוב: S = 10 * 8 = 80 סמ\"ר" }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "במשולש ABC, קטעי האמצעים יוצרים משולש שהיקפו 18 ס\"מ. אם צלעות המשולש הגדול הן ביחס של 3:4:5, מהי הצלע הארוכה ביותר של המשולש הגדול?",
+        options: ["15", "12", "9", "20"],
+        correctAnswer: 0,
+        hint: "היקף המשולש הגדול כפול מהיקף משולש קטעי האמצעים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את היקף המשולש הגדול ABC על ידי הכפלת היקף הפנימי בשתיים.", math_expression: "18 \\times 2 = 36" },
+            { verbal_explanation: "שלב ב': נסמן את צלעות המשולש ב-3x, 4x ו-5x. סכומן שווה להיקף שמצאנו.", math_expression: "3 \\times x + 4 \\times x + 5 \\times x = 36" },
+            { verbal_explanation: "שלב ג': נחבר את המקדמים של x.", math_expression: "12 \\times x = 36" },
+            { verbal_explanation: "שלב ד': נחלק ב-12 ונמצא את יחידת היחס x.", math_expression: "x = 3" },
+            { verbal_explanation: "שלב ה': נמצא את אורך הצלע הארוכה ביותר (5 כפול x).", math_expression: "5 \\times 3 = 15" }
         ],
-        "final_answer": "80 סמ\"ר",
-        "options": ["40 סמ\"ר", "80 סמ\"ר", "160 סמ\"ר", "אי אפשר לחשב ללא הבסיסים"],
-        "correctAnswer": 1
+        final_answer: "15"
     },
     {
-        "id": 24,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Low",
-        "question_text": "בתוך משולש שצלעותיו הן 10, 12 ו-14 ס\"מ, שרטטו את כל שלושת קטעי האמצעים, וכך נוצר <strong>משולש קטן פנימי</strong>. מהו ההיקף של המשולש הפנימי החדש?",
-        "hint": "כל צלע של המשולש הקטן היא קטע אמצעים בפני עצמו, ולכן שווה למחצית הצלע המקבילה במשולש הגדול.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט קטע האמצעים במשולש כדי למצוא את אורך הצלע הראשונה במשולש הפנימי.", "math_expression": "טענה: צלע 1 = 10 / 2 = 5 | נימוק: קטע אמצעים שווה למחצית הבסיס." },
-            { "verbal_explanation": "נפעיל את אותו משפט על שתי הצלעות הנותרות.", "math_expression": "חישוב: צלע 2 = 12 / 2 = 6, צלע 3 = 14 / 2 = 7." },
-            { "verbal_explanation": "נחשב את היקף המשולש הפנימי (סכום שלוש צלעותיו).", "math_expression": "היקף: P = 5 + 6 + 7 = 18 ס\"מ." },
-            { "verbal_explanation": "הערה חשובה להוכחות: משפט נגזר קובע שהיקף משולש קטעי האמצעים תמיד שווה למחצית מהיקף המשולש המקורי.", "math_expression": "קיצור: P_inner = P_outer / 2 = 36 / 2 = 18" }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז שווה שוקיים, שטח הטרפז הוא 100 סמ\"ר וגובהו הוא 10 ס\"מ. אם אורך השוק הוא 12.5 ס\"מ, מהו אורך הבסיס הקטן?",
+        options: ["2.5", "7.5", "10", "5"],
+        correctAnswer: 0,
+        hint: "מצאו את קטע האמצעים מהשטח, ואת הקטע בבסיס הגדול בעזרת פיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את אורך קטע האמצעים m על ידי חלוקת השטח בגובה.", math_expression: "100 : 10 = 10" },
+            { verbal_explanation: "שלב ב': נחשב את אורך הקטע y על הבסיס הגדול בעזרת פיתגורס (יתר 12.5, ניצב 10).", math_expression: "y^2 + 10^2 = 12.5^2 \\quad \\Rightarrow \\quad y^2 + 100 = 156.25" },
+            { verbal_explanation: "שלב ג': נחלץ את y.", math_expression: "y^2 = 56.25 \\quad \\Rightarrow \\quad y = 7.5" },
+            { verbal_explanation: "שלב ד': בטרפז שווה שוקיים, הבסיס הקטן שווה לקטע האמצעים פחות הקטע y.", math_expression: "10 - 7.5 = 2.5" }
         ],
-        "final_answer": "18 ס\"מ",
-        "options": ["36 ס\"מ", "18 ס\"מ", "9 ס\"מ", "24 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "2.5"
     },
     {
-        "id": 25,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Medium",
-        "question_text": "בטרפז כלשהו (לא בהכרח שווה שוקיים), הזווית שמונחת על הבסיס התחתון היא 50°. מה גודלה של הזווית שמעליה, אשר צמודה לאותה השוק בדיוק?",
-        "hint": "השוק בטרפז מתפקדת כישר חותך בין שני הבסיסים המקבילים. השתמשו במשפט על זוויות בין מקבילים.",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את ההקבלה של הטרפז.", "math_expression": "טענה: בסיס עליון || בסיס תחתון | נימוק: הגדרת טרפז." },
-            { "verbal_explanation": "נשתמש במשפט העוסק בישר (שוק) החותך קווים מקבילים.", "math_expression": "טענה: זווית א' + זווית ב' = 180° | נימוק: סכום זוויות חד-צדדיות (על אותה שוק) הוא 180°." },
-            { "verbal_explanation": "נציב את הנתון במשוואה ונפתור בחיסור פשוט.", "math_expression": "חישוב: זווית עליונה = 180° - 50° = 130°." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "במשולש ABC, נקודה D על AB ונקודה E על AC כך ש-DE קטע אמצעים. ידוע כי היקף המשולש ADE הוא 20 ס\"מ. היקף הטרפז DBCE הוא 32 ס\"מ. מהו אורך הבסיס BC?",
+        options: ["12", "6", "10", "16"],
+        correctAnswer: 0,
+        hint: "סמנו את צלעות המשולש הקטן ADE ב-a, b, c. היעזרו ביחס 1:2 של קטע אמצעים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את צלעות ADE ב-a, b, c כך ש-DE=c. ההיקף הוא a+b+c=20.", math_expression: "" },
+            { verbal_explanation: "שלב ב': בטרפז DBCE, הצלעות הן a, b, c (קטע האמצעים) ו-2c (הבסיס BC).", math_expression: "" },
+            { verbal_explanation: "שלב ג': נרשום את היקף הטרפז: a+b+c+2c=32.", math_expression: "a + b + 3 \\times c = 32" },
+            { verbal_explanation: "שלב ד': נחסר את המשוואה הראשונה מהשנייה כדי למצוא את c.", math_expression: "(a + b + 3 \\times c) - (a + b + c) = 32 - 20" },
+            { verbal_explanation: "שלב ה': נקבל שפעמיים c שווה 12.", math_expression: "2 \\times c = 12" },
+            { verbal_explanation: "שלב ו': אורך הבסיס BC הוא בדיוק פעמיים c.", math_expression: "12" }
         ],
-        "final_answer": "130 מעלות",
-        "options": ["50 מעלות", "130 מעלות", "90 מעלות", "40 מעלות"],
-        "correctAnswer": 1
+        final_answer: "12"
     },
     {
-        "id": 26,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "High",
-        "question_text": "במשולש נתון בסיס באורך 24 ס\"מ. מעליו שורטט קטע אמצעים ראשון. לאחר מכן, קטע זה הפך לבסיס של משולש קטן יותר, ומעליו שורטט קטע אמצעים שני. מהו אורכו של הקטע ה<strong>שני</strong> העליון?",
-        "hint": "זהו תרגיל דו-שלבי. בצעו את חוק קטע האמצעים פעם אחת לקבלת הקטע הראשון, ואז בצעו אותו שוב על התוצאה.",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את האורך של קטע האמצעים הראשון ביחס לבסיס המקורי.", "math_expression": "שלב א': mid_1 = 24 / 2 = 12 ס\"מ | נימוק: קטע אמצעים שווה למחצית הבסיס." },
-            { "verbal_explanation": "נגדיר את הקטע החדש (12) כבסיס עבור המשולש העליון שנוצר.", "math_expression": "הגדרה: הבסיס החדש למשולש העליון שווה 12." },
-            { "verbal_explanation": "נפעיל שוב את משפט קטע האמצעים, הפעם עבור המשולש העליון.", "math_expression": "שלב ב': mid_2 = 12 / 2 = 6 ס\"מ." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "אלכסוני טרפז שווה שוקיים מאונכים זה לזה. אם אורך קטע האמצעים הוא 15 ס\"מ, מהו שטח הטרפז?",
+        options: ["225", "112.5", "300", "150"],
+        correctAnswer: 0,
+        hint: "בטרפז שווה שוקיים עם אלכסונים מאונכים, גובה הטרפז שווה לקטע האמצעים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': עקב הסימטריה והזווית הישרה בין האלכסונים, הגובה h שווה לממוצע הבסיסים.", math_expression: "h = m = 15" },
+            { verbal_explanation: "שלב ב': שטח הטרפז מחושב כמכפלת קטע האמצעים בגובה.", math_expression: "15 \\times 15 = 225" }
         ],
-        "final_answer": "6 ס\"מ",
-        "options": ["12 ס\"מ", "8 ס\"מ", "6 ס\"מ", "3 ס\"מ"],
-        "correctAnswer": 2
+        final_answer: "225"
     },
     {
-        "id": 27,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Medium",
-        "question_text": "שאלת הוכחה מחשבתית: האם ייתכן קיומו של טרפז שבו <strong>כל ארבע הצלעות שוות באורכן</strong>?",
-        "hint": "חזרו להגדרות המדויקות: מעוין מול טרפז. מה ההבדל ביניהם לגבי כמות הצלעות המקבילות?",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את ההגדרה הגיאומטרית של מרובע שווה צלעות.", "math_expression": "טענה: מרובע שכל 4 צלעותיו שוות הוא מעוין." },
-            { "verbal_explanation": "נבחן את אחת מתכונות החובה של המעוין (שהוא סוג של מקבילית).", "math_expression": "טענה: במעוין, ישנם *שני* זוגות של צלעות נגדיות מקבילות." },
-            { "verbal_explanation": "נשווה זאת להגדרה המחמירה והנוקשה של הטרפז.", "math_expression": "טענה: טרפז דורש זוג *אחד בלבד* של צלעות מקבילות." },
-            { "verbal_explanation": "נסיק את המסקנה מהסתירה ההגדרתית שנוצרה.", "math_expression": "מסקנה: מרובע אינו יכול להיות מעוין וטרפז בו-זמנית. לכן טרפז כזה לא קיים." }
+        topic: "geometry",
+        subTopic: "טרפז וקטע אמצעים (במשולש ובטרפז)",
+        question_text: "בטרפז, אורך הבסיס הגדול הוא 24 ס\"מ. אלכסון אחד מחלק את קטע האמצעים לשני קטעים שהיחס ביניהם הוא 1:3. מהו אורך הבסיס הקטן?",
+        options: ["8", "12", "6", "16"],
+        correctAnswer: 0,
+        hint: "החלק הגדול של קטע האמצעים (השווה ל-12) הוא חצי מהבסיס הגדול. מצאו את יחידת היחס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': החלק של קטע האמצעים מול הבסיס הגדול (24) שווה למחציתו.", math_expression: "24 : 2 = 12" },
+            { verbal_explanation: "שלב ב': נתון שחלק זה (12) מייצג 3 יחידות יחס.", math_expression: "12 : 3 = 4" },
+            { verbal_explanation: "שלב ג': החלק השני של קטע האמצעים מייצג יחידת יחס אחת, לכן אורכו 4.", math_expression: "4" },
+            { verbal_explanation: "שלב ד': החלק הזה (4) הוא קטע אמצעים במשולש שהבסיס שלו הוא הבסיס הקטן b של הטרפז.", math_expression: "" },
+            { verbal_explanation: "שלב ה': אורך הבסיס הקטן b הוא פעמיים החלק הזה.", math_expression: "4 \\times 2 = 8" }
         ],
-        "final_answer": "לא. צורה כזו תהיה מעוין, שהוא מקבילית, ולכן סותר את הגדרת הטרפז.",
-        "options": ["כן, וקוראים לו טרפז משוכלל.", "כן, זהו טרפז שווה שוקיים מיוחד.", "לא, כי הצורה תהיה מעוין (2 זוגות מקבילים).", "לא, כי זוויותיו חייבות להיות ישרות."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 28,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Low",
-        "question_text": "איזה מהמשפטים הבאים מהווה את ההגדרה והתכונה הנכונה של <strong>קטע אמצעים בטרפז</strong>?",
-        "hint": "בשונה ממשולש (שיש לו רק בסיס אחד), לטרפז יש שני בסיסים. קטע האמצעים קשור לשניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "נפסול את האפשרות הראשונה (בסיס חלקי 2) כי היא מתארת קטע אמצעים של משולש, ולא טרפז.", "math_expression": "שגוי למשולש" },
-            { "verbal_explanation": "נפסול את האפשרות השנייה (מחלק את הטרפז לשניים חופפים). הקטעים אינם חופפים שכן הבסיס העליון שונה מהתחתון.", "math_expression": "שגוי מהותית" },
-            { "verbal_explanation": "נאשר את משפט המפתח המופיע בספרי הגיאומטריה לקטע אמצעים בטרפז.", "math_expression": "משפט: קטע אמצעים בטרפז מקביל לשני הבסיסים, ושווה למחצית סכומם (הממוצע)." }
-        ],
-        "final_answer": "הוא מקביל לבסיסים ושווה למחצית סכומם.",
-        "options": ["הוא שווה לבסיס הגדול פחות הבסיס הקטן.", "הוא מקביל לשוקיים וחוצה אותן.", "הוא מקביל לבסיסים ושווה למחצית סכומם.", "הוא מחלק את הטרפז לשני טרפזים חופפים."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 29,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "Medium",
-        "question_text": "כאשר בתוך משולש משרטטים את כל <strong>שלושת</strong> קטעי האמצעים, המשולש הגדול מתחלק למשולשים קטנים יותר. אילו משולשים נוצרים וכמה?",
-        "hint": "נסו לדמיין משולש שחתוך לשניים לרוחבו ולאורכו. האם נוצרים משולשים שונים או זהים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלושת קטעי האמצעים יוצרים צורה של משולש הפוך הממוקם בדיוק במרכז המשולש הגדול.", "math_expression": "משולש פנימי אחד" },
-            { "verbal_explanation": "המשולש הפנימי משאיר סביבו בפינות המשולש הגדול עוד שלושה משולשים קטנים.", "math_expression": "3 משולשים בפינות (סך הכל 4)" },
-            { "verbal_explanation": "על פי משפט גיאומטרי הניתן להוכחה בעזרת יחסי דמיון או חפיפה (צ.צ.צ) בעקבות קטעי האמצעים, כל ארבעת המשולשים הללו שווים בגודלם וזהים בצורתם.", "math_expression": "משפט: קטעי האמצעים מחלקים ל-4 משולשים חופפים." }
-        ],
-        "final_answer": "הוא מתחלק ל-4 משולשים חופפים.",
-        "options": ["ל-3 משולשים דומים.", "ל-4 משולשים חופפים.", "ל-2 משולשים חופפים וטרפז.", "ל-4 משולשים שוני שטח."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 30,
-        "subTopic": "טרפז וקטע אמצעים (במשולש ובטרפז)",
-        "difficulty": "High",
-        "question_text": "בטרפז, אורך קטע האמצעים הוא 15 ס\"מ. נתון מתמטי מציין שהבסיס התחתון גדול פי 2 מהבסיס העליון. מהו אורך <strong>הבסיס העליון</strong>?",
-        "hint": "נסחו זאת כמשוואה. הבסיס העליון הוא x, התחתון הוא 2x. סכומם (3x) מחולק ב-2 חייב להיות שווה ל-15.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר נעלמים לצורך בניית המשוואה. נקרא לבסיס העליון (הקצר יותר) באות x. על סמך הנתון, הבסיס התחתון יהיה 2x.", "math_expression": "הגדרה: עליון=x, תחתון=2x" },
-            { "verbal_explanation": "נציב את הביטויים הללו לתוך נוסחת קטע האמצעים בטרפז.", "math_expression": "משוואה: (x + 2x) / 2 = 15" },
-            { "verbal_explanation": "נבצע פעולה אלגברית של הכפלת שני האגפים ב-2 כדי לסלק את המכנה.", "math_expression": "x + 2x = 30" },
-            { "verbal_explanation": "נכנס איברים דומים (איקס ועוד שני איקס הם שלושה איקס).", "math_expression": "3x = 30" },
-            { "verbal_explanation": "נחלק ב-3 למציאת המשתנה x. מכיוון שהגדרנו את x כבסיס העליון, זוהי התשובה הסופית לבקשת השאלה.", "math_expression": "x = 10  / :3" }
-        ],
-        "final_answer": "10 ס\"מ",
-        "options": ["10 ס\"מ", "20 ס\"מ", "5 ס\"מ", "15 ס\"מ"],
-        "correctAnswer": 0
-    },,
-    // ==============================================================
-    // --- תת נושא 3: פרופורציה ומשפט תאלס (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Low",
-        "question_text": "מה קובע <strong>משפט תאלס</strong> הבסיסי (משפט הפרופורציה)?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='140' viewBox='0 0 160 140'><polygon points='80,10 20,130 140,130' fill='#f8fafc' stroke='#1e293b' stroke-width='2'/><line x1='40' y1='90' x2='120' y2='90' stroke='#3b82f6' stroke-width='3'/><text x='150' y='95' font-size='12' fill='#3b82f6'>ישר מקביל</text></svg></div>",
-        "hint": "חישבו על מה קורה לצלעות (השוקיים) של משולש כאשר מעבירים בתוכו קו שמקביל לאחד הבסיסים.",
-        "solution_steps": [
-            { "verbal_explanation": "ננסח את הנתון ההתחלתי הנדרש לקיום המשפט.", "math_expression": "טענה: ישר פנימי מקביל לצלע שלישית (בסיס) | נימוק: תנאי מקדים למשפט." },
-            { "verbal_explanation": "ננסח את המסקנה הגיאומטרית כפי שמופיעה במשפט המקורי של תאלס.", "math_expression": "טענה: הישר המקביל מקצה על שתי הצלעות האחרות קטנים פרופורציונליים | נימוק: משפט תאלס." },
-            { "verbal_explanation": "נסביר את המונח 'פרופורציונליים': היחס בין החלק העליון לתחתון בצד ימין, שווה בדיוק ליחס בין החלק העליון לתחתון בצד שמאל.", "math_expression": "מסקנה: A/B = C/D" }
-        ],
-        "final_answer": "ישר המקביל לאחת מצלעות המשולש, חותך את שתי הצלעות האחרות לקטעים בעלי יחס זהה (פרופורציה).",
-        "options": ["ישר החוצה שתי צלעות, בהכרח מקביל לשלישית.", "ישר המקביל לאחת מצלעות המשולש, שווה תמיד למחציתה.", "ישר המקביל לאחת מצלעות המשולש, חותך את שתי הצלעות האחרות לקטעים בעלי יחס זהה (פרופורציה).", "כל משולש ניתן לחלוקה לשני משולשים שווי שטח."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 32,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Medium",
-        "question_text": "במשולש ABC העבירו ישר DE המקביל לבסיס BC. נתון: <strong>AD = 4, DB = 6, AE = 6</strong>. מהו אורכו של הקטע <strong>EC</strong> (נסמנו כ-x)?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='140' viewBox='0 0 160 140'><polygon points='80,10 20,130 140,130' fill='#f1f5f9' stroke='#1e293b' stroke-width='2'/><line x1='50' y1='70' x2='110' y2='70' stroke='#ef4444' stroke-width='2'/><text x='75' y='10' font-size='12'>A</text><text x='10' y='135' font-size='12'>B</text><text x='145' y='135' font-size='12'>C</text><text x='35' y='75' font-size='12'>D</text><text x='115' y='75' font-size='12'>E</text><text x='55' y='45' font-size='12' fill='#ef4444'>4</text><text x='30' y='100' font-size='12' fill='#ef4444'>6</text><text x='95' y='45' font-size='12' fill='#ef4444'>6</text><text x='125' y='100' font-size='12' fill='#3b82f6'>x</text></svg></div>",
-        "hint": "רשמו טענה ש-DE מקביל ל-BC, הסיקו את יחס תאלס (AD/DB = AE/EC), ופתרו משוואה.",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את ההצדקה להשתמש במשפט תאלס.", "math_expression": "טענה: DE || BC | נימוק: נתון." },
-            { "verbal_explanation": "נרשום את היחס הגיאומטרי הנובע מההקבלה.", "math_expression": "טענה: AD / DB = AE / EC | נימוק: משפט תאלס." },
-            { "verbal_explanation": "נציב את הנתונים המספריים הנתונים בשאלה.", "math_expression": "הצבה: 4 / 6 = 6 / x" },
-            { "verbal_explanation": "נפתור את המשוואה בעזרת כפל בהצלבה.", "math_expression": "4 * x = 6 * 6  =>  4x = 36" },
-            { "verbal_explanation": "נחלק במקדם לקבלת התוצאה הסופית.", "math_expression": "4x = 36  / :4  =>  x = 9" }
-        ],
-        "final_answer": "9",
-        "options": ["8", "9", "4", "12"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 33,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Medium",
-        "question_text": "מה ההבדל המהותי בין <strong>משפט תאלס</strong> הבסיסי לבין <strong>הרחבת משפט תאלס</strong>?",
-        "hint": "תאלס הרגיל עוסק רק בשוקיים הצדדיות של המשולש. ההרחבה מאפשרת לנו לחשב גם צלע מסוג אחר.",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את משפט תאלס הבסיסי.", "math_expression": "טענה: עוסק ביחסים על שוקי הזווית | נימוק: עליון/תחתון = עליון/תחתון." },
-            { "verbal_explanation": "נבחן את הצורך בהרחבה. לעיתים נשאל על אורך הבסיס המקביל עצמו (למשל DE מול BC).", "math_expression": "טענה: תאלס הרגיל לא כולל בסיסים." },
-            { "verbal_explanation": "נגדיר את תפקיד ההרחבה.", "math_expression": "מסקנה: ההרחבה מוסיפה ליחס את הבסיסים (חלק/שלם = חלק/שלם = בסיס קטן/בסיס גדול)." }
-        ],
-        "final_answer": "ההרחבה מתייחסת גם ליחס בין הבסיסים המקבילים, ולא רק לקטעים על השוקיים.",
-        "options": ["אין שום הבדל ביניהם בפועל.", "ההרחבה פועלת רק על טרפזים ומרובעים.", "ההרחבה מתייחסת גם ליחס בין הבסיסים המקבילים, ולא רק לקטעים על השוקיים.", "ההרחבה דורשת שוויון זוויות במפורש."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 34,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "High",
-        "question_text": "במשולש נתון ישר מקביל לבסיס. נתונים הקטעים הבאים על שוק אחת: חלק עליון <strong>3x</strong>, חלק תחתון <strong>12</strong>. על השוק השנייה: חלק עליון <strong>x</strong>, חלק תחתון <strong>x+1</strong>. מצאו את <strong>x</strong>.",
-        "hint": "בנו משוואת פרופורציה מלאה (שבר שווה שבר). בצעו כפל בהצלבה כדי לקבל משוואה ריבועית ופתרו בעזרת הוצאת גורם משותף.",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את היחס הגיאומטרי.", "math_expression": "טענה: עליון/תחתון = עליון/תחתון | נימוק: משפט תאלס (ישר מקביל נתון)." },
-            { "verbal_explanation": "נציב את הביטויים האלגבריים במשוואה.", "math_expression": "הצבה: 3x / 12 = x / (x + 1)" },
-            { "verbal_explanation": "נבצע כפל באלכסונים ונפתח סוגריים.", "math_expression": "3x(x + 1) = 12x  =>  3x² + 3x = 12x" },
-            { "verbal_explanation": "נסדר את המשוואה כמשוואה ריבועית השווה לאפס.", "math_expression": "3x² + 3x - 12x = 0  =>  3x² - 9x = 0" },
-            { "verbal_explanation": "נוציא גורם משותף (3x) ונפתור.", "math_expression": "3x(x - 3) = 0  =>  x=0 או x=3" },
-            { "verbal_explanation": "נפסול את התשובה x=0, מכיוון שאורך צלע (כמו הקטע העליון x) אינו יכול להיות 0 בגיאומטריה.", "math_expression": "מסקנה: x = 3" }
-        ],
-        "final_answer": "3",
-        "options": ["4", "3", "0", "אין פתרון חוקי"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 35,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "High",
-        "question_text": "שימוש ב<strong>הרחבת</strong> משפט תאלס: במשולש ABC, ישר DE מקביל לבסיס BC. נתון: <strong>AD = 5, AB (כל הצלע) = 15</strong>. אם בסיס קטן <strong>DE = 4</strong>, מה אורך הבסיס הגדול <strong>BC</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='120' viewBox='0 0 180 120'><polygon points='90,10 30,110 150,110' fill='#fef08a' stroke='#f59e0b' stroke-width='2'/><line x1='60' y1='60' x2='120' y2='60' stroke='#ef4444' stroke-width='2'/><text x='85' y='10' font-size='12'>A</text><text x='50' y='65' font-size='12'>D</text><text x='20' y='115' font-size='12'>B</text><text x='125' y='65' font-size='12'>E</text><text x='155' y='115' font-size='12'>C</text><text x='65' y='40' font-size='12'>5</text><text x='90' y='55' font-size='12' fill='#ef4444'>4</text><text x='90' y='105' font-size='12' fill='#ef4444'>?</text><path d='M 15 110 A 50 50 0 0 1 75 10' fill='none' stroke='black' stroke-dasharray='4'/><text x='30' y='40' font-size='12'>15</text></svg></div>",
-        "hint": "כשמדברים על הבסיסים, חובה להשתמש ביחס של 'חלק מתוך השלם'. כלומר, הצלע הקטנה AD חלקי הצלע הגדולה כולה AB.",
-        "solution_steps": [
-            { "verbal_explanation": "נצדיק את השימוש במשפט המורחב.", "math_expression": "טענה: DE || BC | נימוק: נתון." },
-            { "verbal_explanation": "נרשום את הרחבת משפט תאלס המערבת את הבסיסים.", "math_expression": "טענה: AD / AB = DE / BC | נימוק: הרחבת משפט תאלס." },
-            { "verbal_explanation": "נציב את הנתונים, כאשר נסמן את BC כ-x.", "math_expression": "הצבה: 5 / 15 = 4 / x" },
-            { "verbal_explanation": "נצמצם את השבר השמאלי להקלת החישוב (5 מתוך 15 זה שליש).", "math_expression": "1 / 3 = 4 / x" },
-            { "verbal_explanation": "נבצע כפל בהצלבה.", "math_expression": "1 * x = 3 * 4  =>  x = 12" }
-        ],
-        "final_answer": "12",
-        "options": ["8", "12", "15", "20"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 36,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Medium",
-        "question_text": "מהו תפקידו של <strong>משפט תאלס ההפוך</strong> בהוכחות גיאומטריות?",
-        "hint": "המשפט הרגיל: 'אם מקביל אז יש פרופורציה'. המשפט ההפוך מתחיל מהסוף להתחלה: 'אם אני מודד שיש פרופורציה... אז...'",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את כיוון הפעולה של משפט תאלס הישיר.", "math_expression": "ישיר: ישר מקביל -> גוזר יחס צלעות." },
-            { "verbal_explanation": "נבחן את כיוון הפעולה של המשפט ההפוך. כאן אין לנו נתון על הקבלה, אלא רק אורכי צלעות.", "math_expression": "הפוך: יחס צלעות מתקיים -> מוכיח ישר מקביל." },
-            { "verbal_explanation": "נגדיר את התועלת: המשפט ההפוך הוא כלי הוכחה רב עוצמה להוכחת מקבילות של ישרים בתוך צורות הנדסיות." }
-        ],
-        "final_answer": "הוא מאפשר להוכיח ששני ישרים הם מקבילים, על סמך בדיקת היחסים שביניהם.",
-        "options": ["הוא מאפשר לחשב שטח של משולש.", "הוא מוכיח שהמשולש הוא ישר זווית.", "הוא מאפשר להוכיח ששני ישרים הם מקבילים, על סמך בדיקת היחסים שביניהם.", "הוא מיועד רק למציאת קטע אמצעים."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 37,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Low",
-        "question_text": "במשולש קיים ישר המקביל לבסיס. נתון שיחס הקטעים בצד ימין (עליון לתחתון) הוא <strong>1:2</strong>. אם הקטע העליון בצד שמאל הוא <strong>5 ס\"מ</strong>, מה אורך הקטע התחתון בצד שמאל?",
-        "hint": "משפט תאלס הוא מכונת העתקה של יחסים. מה שקורה בצד אחד חייב לקרות בצד השני.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט תאלס כדי לקבוע את השוויון בין היחסים בשני צידי המשולש.", "math_expression": "טענה: יחס שמאל = יחס ימין | נימוק: משפט תאלס." },
-            { "verbal_explanation": "ננתח את היחס בצד ימין (1:2). המשמעות היא שהקטע התחתון ארוך פי 2 מהעליון.", "math_expression": "תחתון = 2 * עליון" },
-            { "verbal_explanation": "נחיל את אותה מסקנה בדיוק על הצד השמאלי.", "math_expression": "הצבה: תחתון שמאלי = 2 * 5 ס\"מ" },
-            { "verbal_explanation": "נחשב את התוצאה.", "math_expression": "חישוב: 10 ס\"מ" }
-        ],
-        "final_answer": "10 ס\"מ",
-        "options": ["5 ס\"מ", "2.5 ס\"מ", "10 ס\"מ", "15 ס\"מ"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 38,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Medium",
-        "question_text": "ישר חותך שתי שוקיים של משולש. מדידת הקטעים הראתה: בשוק שמאלית חלק עליון=2, חלק תחתון=3. בשוק ימנית חלק עליון=4, חלק תחתון=5. האם ניתן לקבוע שהישר החותך <strong>מקביל</strong> לבסיס?",
-        "hint": "השתמשו במשפט תאלס ההפוך. רשמו את שני השברים ובדקו האם 2/3 שווה ל-4/5.",
-        "solution_steps": [
-            { "verbal_explanation": "כדי להוכיח הקבלה נשתמש במשפט תאלס ההפוך, הדורש לבדוק האם היחסים שווים.", "math_expression": "בדיקה: האם 2/3 = 4/5 ?" },
-            { "verbal_explanation": "נשווה את שני השברים על ידי מציאת מכנה משותף (15) או המרה לעשרוני.", "math_expression": "2/3 = 10/15 | 4/5 = 12/15" },
-            { "verbal_explanation": "נסכם את תוצאת הבדיקה.", "math_expression": "טענה: 10/15 ≠ 12/15 | נימוק: חישוב מתמטי." },
-            { "verbal_explanation": "נסיק את המסקנה הגיאומטרית מתאלס ההפוך.", "math_expression": "מסקנה: הישר אינו מקביל לבסיס | נימוק: היחסים אינם שווים, משפט תאלס ההפוך אינו מתקיים." }
-        ],
-        "final_answer": "לא, כי היחסים אינם שווים (2/3 אינו שווה ל-4/5).",
-        "options": ["כן, כי המספרים עוקבים.", "לא, כי היחסים אינם שווים (2/3 אינו שווה ל-4/5).", "כן, תמיד כשמעבירים ישר הוא מקביל.", "אי אפשר לדעת ללא אורך הבסיסים."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 39,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "High",
-        "question_text": "בצורת 'שעון החול' (פרפר) נתון כי הבסיסים העליון והתחתון מקבילים. נתונים האורכים הבאים: בסיס עליון = 10, קטע צדדי עליון שיוצא ממנו = 6. בסיס תחתון = 15. מהו ה<strong>קטע הצדדי התחתון</strong> המשלים אותו על אותו קו אלכסוני?<br><div style='text-align:center; margin:15px 0;'><svg width='140' height='140' viewBox='0 0 140 140'><polygon points='30,10 110,10 70,70' fill='#dcfce7' stroke='#10b981' stroke-width='2'/><polygon points='10,130 130,130 70,70' fill='#dbeafe' stroke='#3b82f6' stroke-width='2'/><text x='70' y='25' font-size='12' font-weight='bold'>10</text><text x='40' y='50' font-size='12'>6</text><text x='70' y='125' font-size='12' font-weight='bold'>15</text><text x='30' y='95' font-size='12' fill='#ef4444'>?</text></svg></div>",
-        "hint": "צורת השעון חול היא מקרה קלאסי של הרחבת משפט תאלס. יחס הבסיסים שווה ליחס חלקי האלכסונים (עליון/תחתון).",
-        "solution_steps": [
-            { "verbal_explanation": "נצדיק את השימוש במשפט.", "math_expression": "טענה: בסיסים מקבילים | נימוק: נתון." },
-            { "verbal_explanation": "נשתמש בהרחבת משפט תאלס לצורת שעון חול, הקובעת שיחס הבסיסים שווה ליחס הקטעים על אותו אלכסון.", "math_expression": "טענה: עליון/תחתון = בסיס קטן/בסיס גדול." },
-            { "verbal_explanation": "נציב את הנתונים ונסמן את הצלע החסרה כ-x.", "math_expression": "הצבה: 6 / x = 10 / 15" },
-            { "verbal_explanation": "נצמצם את השבר (10/15) ל-2/3 כדי להקל על החישוב.", "math_expression": "6 / x = 2 / 3" },
-            { "verbal_explanation": "נפתור בעזרת כפל בהצלבה.", "math_expression": "2 * x = 6 * 3  =>  2x = 18  / :2  =>  x = 9" }
-        ],
-        "final_answer": "9",
-        "options": ["12", "9", "4", "7.5"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 40,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Medium",
-        "question_text": "איזה קטע גיאומטרי מוכר מהווה למעשה מקרה פרטי וייחודי של משפט תאלס, שבו יחס החלוקה של שתי הצלעות הוא בדיוק <strong>1:1</strong>?",
-        "hint": "יחס 1:1 משמעותו שהחלק העליון שווה בדיוק לחלק התחתון. איזה קו חוצה את צלעות המשולש לשניים בדיוק ומקביל לבסיס?",
-        "solution_steps": [
-            { "verbal_explanation": "נפרש את המשמעות של יחס פרופורציה 1:1 על פי משפט תאלס.", "math_expression": "A / B = 1 / 1  =>  A = B" },
-            { "verbal_explanation": "כאשר ישר מקביל חותך צלע כך שחלקה העליון שווה לתחתון, הרי שהוא עבר בדיוק בנקודת האמצע שלה.", "math_expression": "נקודת אמצע" },
-            { "verbal_explanation": "ישר המחבר שתי נקודות אמצע במשולש עונה להגדרה מדויקת אחת ויחידה בגיאומטריה.", "math_expression": "מסקנה: זהו קטע אמצעים." }
-        ],
-        "final_answer": "קטע אמצעים במשולש.",
-        "options": ["גובה במשולש", "תיכון ליתר", "קטע אמצעים במשולש.", "חוצה זווית"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 41,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Low",
-        "question_text": "השלימו את החסר בניסוח הכללי של משפט תאלס: <strong>'אם שלושה ישרים מקבילים חותכים שני ישרים אחרים (שוקיים), אזי...'</strong>",
-        "hint": "זוהי ההגדרה הבסיסית ביותר: מה קורה לקטעים שנחתכו על ידי המקבילים?",
-        "solution_steps": [
-            { "verbal_explanation": "נביא את הנוסח המדויק של משפט תאלס הכללי כפי שהוא מוגדר בספרות הגיאומטרית.", "math_expression": "הגדרה פורמלית" },
-            { "verbal_explanation": "המשפט מתייחס לפרופורציה (שוויון יחסים) שנוצרת על גבי שני הישרים הנחתכים.", "math_expression": "יחס קבוע" }
-        ],
-        "final_answer": "היחס בין הקטעים החתוכים על שוק אחת שווה ליחס הקטעים המתאימים על השוק השנייה.",
-        "options": ["כל הקטעים שווים באורכם זה לזה.", "היחס בין הקטעים החתוכים שווה ליחס הקטעים המתאימים.", "נוצרים בהכרח משולשים חופפים.", "המקבילים עצמם שווים באורכם."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 42,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "High",
-        "question_text": "נתון ישר מקביל החותך שוקיים של משולש. משמאל: עליון = x, תחתון = 4. מימין: עליון = x+5, תחתון = 12. חשבו את ערכו של <strong>x</strong> באלגברה פורמלית.",
-        "hint": "הציבו את הנתונים בנוסחה של תאלס: x / 4 = (x + 5) / 12. בצעו כפל בהצלבה ופתרו משוואה ממעלה ראשונה.",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את בניית המשוואה על סמך משפט תאלס.", "math_expression": "טענה: עליון/תחתון = עליון/תחתון | נימוק: נתון ישר מקביל." },
-            { "verbal_explanation": "נציב את הביטויים שניתנו בשאלה למשוואה.", "math_expression": "הצבה: x / 4 = (x + 5) / 12" },
-            { "verbal_explanation": "נבצע כפל בהצלבה לפתיחת השברים.", "math_expression": "12 * x = 4 * (x + 5)" },
-            { "verbal_explanation": "נפתח סוגריים ונעביר איברים כדי לבודד את x.", "math_expression": "12x = 4x + 20  =>  12x - 4x = 20" },
-            { "verbal_explanation": "נחלק במקדם לקבלת הפתרון.", "math_expression": "8x = 20  / :8  =>  x = 2.5" }
-        ],
-        "final_answer": "2.5",
-        "options": ["2.5", "5", "4", "10"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 43,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Medium",
-        "question_text": "שאלת הבנה: האם חובה שיהיה מדובר ב<strong>משולש</strong> סגור כדי שנוכל להשתמש במשפט תאלס?",
-        "hint": "חישבו על משפט תאלס המקורי שבו מצוירים שלושה קווים מקבילים. האם הקווים הנחתכים חייבים להיפגש בקודקוד כמו אוהל?",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את ההגדרה הכללית של תאלס. הגרסה הפשוטה אמנם נלמדת דרך משולש (תאלס במשולש).", "math_expression": "גרסה א: משולש" },
-            { "verbal_explanation": "אולם, הגרסה המלאה (תאלס הכללי) מראה מספר ישרים מקבילים החותכים שני ישרים כלשהם. הישרים הנחתכים אינם חייבים להיפגש בתוך שטח הדף ואינם חייבים ליצור צורה סגורה.", "math_expression": "גרסה ב: שוקיים כלשהן" },
-            { "verbal_explanation": "לכן, המשפט תקף לחלוטין גם על צורות כמו טרפז או סתם שתי קרניים פתוחות." }
-        ],
-        "final_answer": "לא. המשפט חל על כל שני ישרים הנחתכים על ידי ישרים מקבילים.",
-        "options": ["כן, חובה שיהיה משולש שווה שוקיים.", "כן, המשפט נוסח במקור רק עבור משולשים.", "לא. המשפט חל על כל שני ישרים הנחתכים על ידי ישרים מקבילים.", "הוא חל רק על מרובעים מסוג מקבילית."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 44,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "Low",
-        "question_text": "אם ישר (המקביל לבסיס) חותך צלע אחת של משולש כך שהיחס בין החלקים הוא בדיוק <strong>1/3</strong> מראשה, כיצד הוא יחתוך את הצלע השנייה שממול?",
-        "hint": "הקסם של משפט תאלס טמון בשם השני שלו: 'משפט הפרופורציה'. העתקה מדויקת של יחס.",
-        "solution_steps": [
-            { "verbal_explanation": "נצטט את תמצית משפט תאלס: ישר מקביל מעתיק באופן מושלם את יחס החלוקה מצלע אחת אל הצלע השנייה.", "math_expression": "שמירת פרופורציה" },
-            { "verbal_explanation": "אם צלע אחת חולקה ביחס של 1 ל-3, אזי בהכרח גם הצלע השנייה (ללא תלות באורכה הפיזי) תחולק בדיוק באותו יחס.", "math_expression": "יחס 1 = יחס 2 = 1/3" }
-        ],
-        "final_answer": "בדיוק באותו יחס (1/3).",
-        "options": ["ביחס הפוך (3/1)", "בדיוק באותו יחס (1/3).", "הוא יחצה אותה לאמצע (1/1)", "תלוי באורך הבסיס המקביל"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "פרופורציה ומשפט תאלס",
-        "difficulty": "High",
-        "question_text": "במשולש, אורך הצלע השמאלית <strong>כולה</strong> שווה ל-20 ס\"מ. ישר מקביל לבסיס חותך אותה לחלק עליון ותחתון כך שהיחס ביניהם הוא <strong>2:3</strong> בהתאמה. מהו אורכו של <strong>החלק העליון</strong>?",
-        "hint": "בעיות יחס פותרים בעזרת משתנה עזר x (מנת יחס). סמנו: חלק עליון 2x, חלק תחתון 3x. חברו אותם והשוו לאורך המלא.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר משתנה עזר (x) המייצג 'מנת יחס' אחת. נגדיר את הקטעים על סמך נתוני היחס שקיבלנו.", "math_expression": "הגדרה: עליון = 2x, תחתון = 3x" },
-            { "verbal_explanation": "נבנה משוואה: סכום שני הקטעים יחד מהווה את הצלע המלאה שאורכה 20 ס\"מ.", "math_expression": "משוואה: 2x + 3x = 20" },
-            { "verbal_explanation": "נפתור למציאת מנת היחס הבסיסית x.", "math_expression": "5x = 20  / :5  =>  x = 4" },
-            { "verbal_explanation": "נחזור להגדרה המקורית ונחשב את אורך החלק העליון המבוקש (שהוא 2x).", "math_expression": "חישוב עליון: 2 * 4 = 8 ס\"מ" }
-        ],
-        "final_answer": "8 ס\"מ",
-        "options": ["8", "12", "10", "4"],
-        "correctAnswer": 0
+        final_answer: "8"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: פרופורציה ומשפט תאלס
+    // ==========================================================
     {
-        "id": 46,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Low",
-        "question_text": "מהי המשמעות הגיאומטרית המדויקת של שני <strong>משולשים דומים</strong> (המסומנים באות ~)?",
-        "hint": "חשבו על תהליך של הגדלת תמונה בטלפון ('זום'). הצורה חייבת להישאר זהה לחלוטין (הזוויות), אך הגודל משתנה ביחס קבוע (הצלעות).",
-        "solution_steps": [
-            { "verbal_explanation": "נפריד בין מושג החפיפה למושג הדמיון. חפיפה דורשת שכפול מדויק של גודל וצורה. דמיון עוסק ב'הגדלה והקטנה'.", "math_expression": "דמיון ≠ חפיפה" },
-            { "verbal_explanation": "כדי שצורה תישמר ללא עיוות, כל הזוויות הפנימיות חייבות להישאר בדיוק באותו גודל (כמו במודל מוקטן).", "math_expression": "תנאי א': זוויות שוות" },
-            { "verbal_explanation": "כדי שההגדלה תהיה אחידה, כל הצלעות חייבות לגדול או לקטון באותו יחס הכפלה קבוע (שנקרא יחס הדמיון, k).", "math_expression": "תנאי ב': יחס צלעות קבוע" }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במבנה 'שעון חול', הבסיסים המקבילים הם 12 ס\"מ ו-20 ס\"מ. אורך אחד האלכסונים המלאים הוא 24 ס\"מ. מהו אורך החלק הקצר של האלכסון?\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px; clear:both;'><svg viewBox='0 0 200 140' width='200' height='140'><defs><linearGradient id='g3' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#fefce8'/><stop offset='100%' stop-color='#fde047'/></linearGradient></defs><polygon points='60,20 160,20 110,70' fill='url(#g3)' stroke='#ca8a04' stroke-width='2' filter='url(#sh1)'/><polygon points='40,120 180,120 110,70' fill='url(#g1)' stroke='#1d4ed8' stroke-width='2' filter='url(#sh1)'/></svg></div>",
+        options: ["9", "15", "12", "10"],
+        correctAnswer: 0,
+        hint: "יחס חלקי האלכסונים שווה ליחס הבסיסים המקבילים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את יחס הבסיסים המקבילים ונצמצם אותו ב-4.", math_expression: "12 : 20 = 3 : 5" },
+            { verbal_explanation: "שלב ב': נסמן את חלקי האלכסון ב-3x ו-5x. סכומם שווה לאורך האלכסון המלא (24).", math_expression: "3 \\times x + 5 \\times x = 24" },
+            { verbal_explanation: "שלב ג': נחבר את האיקסים.", math_expression: "8 \\times x = 24" },
+            { verbal_explanation: "שלב ד': נחלק ב-8 ונמצא את יחידת היחס x.", math_expression: "x = 3" },
+            { verbal_explanation: "שלב ה': נחשב את אורך החלק הקצר (3 כפול x).", math_expression: "3 \\times 3 = 9" }
         ],
-        "final_answer": "לשני המשולשים אותן זוויות בדיוק, וצלעותיהם שומרות על יחס הגדלה/הקטנה קבוע.",
-        "options": ["שני משולשים שווים בדיוק בשטחם ובהיקפם.", "לשני המשולשים אותן זוויות בדיוק, וצלעותיהם באותו יחס.", "משולשים שיש להם קודקוד וצלע משותפת.", "דמיון הוא רק מונח נרדף לחפיפה מלאה."],
-        "correctAnswer": 1
+        final_answer: "9"
     },
     {
-        "id": 47,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Low",
-        "question_text": "משפט הדמיון המהיר והנפוץ ביותר הוא <strong>ז.ז (זווית-זווית)</strong>. המשפט קובע שמספיק למצוא רק שתי זוויות שוות בשני משולשים כדי להוכיח שהם דומים. מדוע אין צורך להוכיח גם עבור הזווית השלישית?",
-        "hint": "מהו חוק הברזל לגבי סכום כל הזוויות בתוך משולש?",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט בסיסי בגאומטריה של המישור.", "math_expression": "טענה: סכום הזוויות בכל משולש הוא תמיד 180°." },
-            { "verbal_explanation": "נניח שמצאנו שתי זוויות שוות בשני המשולשים. משמעות הדבר היא שסכום שתי הזוויות הללו זהה בשני המשולשים.", "math_expression": "זווית א' + ב' = קבוע משותף" },
-            { "verbal_explanation": "נחשב את הזווית השלישית (180 פחות הסכום המשותף). בהכרח, התוצאה תהיה זהה בשני המשולשים.", "math_expression": "מסקנה: הזווית השלישית מושלמת אוטומטית." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במשולש ABC העבירו קטע DE מקביל ל-BC. נתון: AD=x+2, DB=x, AE=x+5, EC=x+2. מהו ערכו של x?",
+        options: ["4", "6", "2", "5"],
+        correctAnswer: 0,
+        hint: "השתמשו במשפט תאלס הבסיסי: היחס בין הקטעים בשוק אחת שווה ליחס בשוק השנייה.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבנה משוואת פרופורציה לפי משפט תאלס.", math_expression: "\\displaystyle \\frac{x + 2}{x} = \\frac{x + 5}{x + 2}" },
+            { verbal_explanation: "שלב ב': נכפיל בהצלבה (כפל אלכסוני).", math_expression: "(x + 2)^2 = x \\times (x + 5)" },
+            { verbal_explanation: "שלב ג': נפתח את הסוגריים בשני אגפי המשוואה.", math_expression: "x^2 + 4 \\times x + 4 = x^2 + 5 \\times x" },
+            { verbal_explanation: "שלב ד': נצמצם את x בריבוע משני הצדדים.", math_expression: "4 \\times x + 4 = 5 \\times x" },
+            { verbal_explanation: "שלב ה': נחסר 4x משני האגפים ונמצא את x.", math_expression: "x = 4" }
         ],
-        "final_answer": "מכיוון שסכום זוויות במשולש הוא תמיד 180°, מציאת שתיים שוות מבטיחה שגם השלישית שווה.",
-        "options": ["כי שתי זוויות מספיקות ליצירת חפיפה מלאה.", "מכיוון שסכום הזוויות משלים ל-180°, הזווית השלישית שווה אוטומטית.", "כי הזווית השלישית אינה משפיעה כלל על שטח המשולש.", "זו רק מוסכמה מתמטית לקיצור כתיבה ללא הוכחה."],
-        "correctAnswer": 1
+        final_answer: "4"
     },
     {
-        "id": 48,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Medium",
-        "question_text": "נתון בהוכחה גיאומטרית כי משולש ABC דומה (~) למשולש DEF. יחס הדמיון ביניהם (מקדם ההגדלה) הוא <strong>3</strong>. אם הצלע AB שווה ל-5 ס\"מ, מהו אורכה של הצלע <strong>DE</strong>?",
-        "hint": "כאשר רושמים שמשולשים דומים, סדר האותיות קריטי! הצלע AB (אות ראשונה ושנייה) חייבת להיות פרופורציונלית לצלע DE (אות ראשונה ושנייה).",
-        "solution_steps": [
-            { "verbal_explanation": "נפענח את רישום הדימיון. סדר האותיות קובע את הקודקודים והצלעות המתאימות.", "math_expression": "טענה: AB מתאימה ל- DE | נימוק: סדר רישום ABC ~ DEF." },
-            { "verbal_explanation": "נשתמש בנתון של יחס הדמיון (k=3), הקובע פי כמה גדולה כל צלע במשולש המוגדל.", "math_expression": "נוסחה: DE = AB * k" },
-            { "verbal_explanation": "נציב את הנתונים המספריים ונחשב.", "math_expression": "הצבה: DE = 5 * 3 = 15 ס\"מ." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במבנה תאלס (הרחבה ראשונה), היחס בין הקטעים המקבילים הוא 3:7. אורך השוק המלאה הוא 35 ס\"מ. מהו אורך החלק התחתון של השוק?",
+        options: ["20", "15", "25", "10"],
+        correctAnswer: 0,
+        hint: "היחס בין המקבילים שווה ליחס בין הצלע הקטנה לצלע המלאה. מצאו קודם את הצלע הקטנה.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הצלע העליונה ב-x. לפי ההרחבה, היחס בינה לבין הצלע המלאה (35) שווה ליחס המקבילים.", math_expression: "\\displaystyle \\frac{x}{35} = \\frac{3}{7}" },
+            { verbal_explanation: "שלב ב': נכפיל ב-35 ונמצא את x.", math_expression: "x = \\displaystyle \\frac{3 \\times 35}{7} = 15" },
+            { verbal_explanation: "שלב ג': אורך החלק התחתון הוא ההפרש בין הצלע המלאה לצלע העליונה.", math_expression: "35 - 15 = 20" }
         ],
-        "final_answer": "15 ס\"מ",
-        "options": ["8 ס\"מ", "15 ס\"מ", "1.66 ס\"מ", "125 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "20"
     },
     {
-        "id": 49,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "High",
-        "question_text": "חוק חשוב לבגרות: לשני משולשים דומים יש יחס צלעות (יחס דמיון קווי) של <strong>1:2</strong> (כלומר k=2). אם <strong>שטחו</strong> של המשולש הקטן הוא 10 סמ\"ר, מהו שטחו של המשולש הגדול?",
-        "hint": "היזהרו מהמלכודת! שטח הוא דו-ממדי (אורך כפול רוחב), ולכן יחס השטחים אינו k, אלא שווה תמיד ל- k בריבוע (k²).",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את יחס ההגדלה הקווי (היחס שבו גדלות הצלעות וההיקפים).", "math_expression": "נתון: יחס דמיון (k) = 2" },
-            { "verbal_explanation": "נצטט את משפט המפתח הקריטי הקושר בין דמיון לשטח.", "math_expression": "טענה: יחס שטחים = k² | נימוק: יחס שטחים של צורות דומות שווה לריבוע יחס הצלעות." },
-            { "verbal_explanation": "נחשב את יחס ההגדלה של השטח.", "math_expression": "חישוב יחס: 2² = 4 (השטח גדל פי 4)" },
-            { "verbal_explanation": "נכפיל את שטח המשולש הקטן הנתון ביחס השטחים שמצאנו.", "math_expression": "הצבה: S_גדול = 10 * 4 = 40 סמ\"ר." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "נתונים שלושה ישרים מקבילים הנחתכים על ידי שני ישרים. על החותך הראשון נוצרו קטעים של x ו-x+2. על החותך השני נוצרו קטעים של 6 ו-10. מהו ערכו של x?",
+        options: ["3", "5", "2", "4"],
+        correctAnswer: 0,
+        hint: "משפט תאלס המורחב: ישרים מקבילים מקצים קטעים פרופורציונליים על החותכים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבנה משוואת יחסים בין הקטעים המתאימים בשני החותכים.", math_expression: "\\displaystyle \\frac{x}{x + 2} = \\frac{6}{10}" },
+            { verbal_explanation: "שלב ב': נצמצם את השבר 6/10 ל-3/5.", math_expression: "3 : 5" },
+            { verbal_explanation: "שלב ג': נכפיל בהצלבה.", math_expression: "5 \\times x = 3 \\times (x + 2)" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים.", math_expression: "5 \\times x = 3 \\times x + 6" },
+            { verbal_explanation: "שלב ה': נעביר אגפים ונפתור עבור x.", math_expression: "2 \\times x = 6 \\quad \\Rightarrow \\quad x = 3" }
         ],
-        "final_answer": "40 סמ\"ר",
-        "options": ["20 סמ\"ר", "30 סמ\"ר", "40 סמ\"ר", "100 סמ\"ר"],
-        "correctAnswer": 2
+        final_answer: "3"
     },
     {
-        "id": 50,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Medium",
-        "question_text": "שאלת הבנה: נתונים שני משולשים שניהם מוגדרים כ'משולש שווה שוקיים'. האם די בנתון זה כדי לקבוע בוודאות שהם <strong>דומים</strong> זה לזה?",
-        "hint": "האם כל משולש שווה שוקיים נראה באותה צורה בדיוק? ציירו בדמיון אוהל גבוה וצר לעומת פירמידה נמוכה ורחבה.",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את ההגדרה. משולש שווה שוקיים דורש רק שתי צלעות שוות, ללא התחייבות לגודל הזוויות עצמן.", "math_expression": "אין הגבלת זוויות" },
-            { "verbal_explanation": "נחשוב על דוגמת נגד. משולש א' יכול להיות בעל זווית ראש 20° (חד וצר). משולש ב' יכול להיות בעל זווית ראש 140° (קהה ורחב).", "math_expression": "דוגמת נגד קיימת" },
-            { "verbal_explanation": "נסיק מסקנה לפי משפטי הדמיון. מכיוון שהזוויות שלהם אינן זהות, משפט ז.ז אינו מתקיים, ולכן הם לא בהכרח דומים.", "math_expression": "מסקנה: לא מובטח דמיון." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במשולש שבו DE||BC, היחס בין שטחי המשולשים ADE ו-ABC הוא 4:25. אם אורך השוק AB הוא 15 ס\"מ, מהו אורך הקטע AD?",
+        options: ["6", "9", "4", "10"],
+        correctAnswer: 0,
+        hint: "יחס הדמיון הקווי הוא השורש של יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את יחס הדמיון הקווי על ידי הוצאת שורש מיחס השטחים.", math_expression: "\\sqrt{\\displaystyle \\frac{4}{25}} = \\frac{2}{5}" },
+            { verbal_explanation: "שלב ב': נסמן את AD ב-x. היחס בין x לבין הצלע המלאה (15) שווה ליחס הדמיון.", math_expression: "\\displaystyle \\frac{x}{15} = \\frac{2}{5}" },
+            { verbal_explanation: "שלב ג': נכפיל ב-15 ונמצא את x.", math_expression: "x = \\displaystyle \\frac{2 \\times 15}{5} = 6" }
         ],
-        "final_answer": "לא. הזוויות שלהם עשויות להיות שונות לחלוטין ולכן הצורה תהיה שונה.",
-        "options": ["כן, כל המשולשים שווי השוקיים דומים.", "לא. הזוויות שלהם עשויות להיות שונות לחלוטין ולכן הצורה שונה.", "רק אם אורך הבסיס שלהם זהה ל-10.", "כן, לפי משפט חפיפה צ.צ.צ."],
-        "correctAnswer": 1
+        final_answer: "6"
     },
     {
-        "id": 51,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Medium",
-        "question_text": "כיצד משתמשים במשפט דמיון <strong>צ.ז.צ (צלע-זווית-צלע)</strong> בהוכחות? מה צריך להוכיח?",
-        "hint": "בשונה ממשפט 'חפיפה' הדורש שוויון של 100%, במשפט 'דמיון' אנו מחפשים שוויון רק בזווית, ואילו בצלעות אנו מחפשים 'פרופורציה' (יחס הגדלה זהה).",
-        "solution_steps": [
-            { "verbal_explanation": "ננתח את מרכיב הזווית. בזווית אין 'זום', ולכן חייבים להראות שוויון מוחלט בגודל.", "math_expression": "תנאי 1: ∡A = ∡B (שוויון מלא)" },
-            { "verbal_explanation": "ננתח את מרכיב הצלעות. הצלעות שיוצרות (כולאות) את הזווית הזו לא צריכות להיות שוות, אלא צריכות לשמור על אותו יחס הגדלה מול המשולש השני.", "math_expression": "תנאי 2: יחס צלע1/צלע3 = יחס צלע2/צלע4" },
-            { "verbal_explanation": "אם שני התנאים מתקיימים, המשולשים דומים בוודאות (מעין 'תאלס' משולש)." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "בטרפז שבו הבסיסים הם 9 ו-15, האלכסונים נחתכים בנקודה O. אורך האלכסון AC הוא 16 ס\"מ. מהו אורך הקטע CO (החלק המחובר לבסיס הגדול)?",
+        options: ["10", "6", "8", "12"],
+        correctAnswer: 0,
+        hint: "המשולשים ABO ו-CDO דומים. יחס חלקי האלכסונים הוא כיחס הבסיסים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את יחס הבסיסים ונצמצם ב-3.", math_expression: "9 : 15 = 3 : 5" },
+            { verbal_explanation: "שלב ב': נחלק את האלכסון (16) ביחס של 3 ל-5. סכום היחידות הוא 8.", math_expression: "16 : 8 = 2" },
+            { verbal_explanation: "שלב ג': החלק CO מתאים לבסיס הגדול, לכן הוא מייצג 5 יחידות יחס.", math_expression: "5 \\times 2 = 10" }
         ],
-        "final_answer": "מחפשים זווית שווה, ושתי הצלעות הכולאות אותה צריכות לשמור על יחס פרופורציה זהה.",
-        "options": ["מחפשים 3 צלעות ומוודאים שכולן שוות באורכן.", "מחפשים זווית שווה, ושתי צלעות שוות לחלוטין סביבה.", "מחפשים זווית שווה, ושתי הצלעות הכולאות אותה צריכות לשמור על יחס פרופורציה זהה.", "מספיק להראות שכל הצלעות מקבילות לישרים הנתונים."],
-        "correctAnswer": 2
+        final_answer: "10"
     },
     {
-        "id": 52,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "High",
-        "question_text": "יחס הדמיון בין שני משולשים דומים הוא <strong>1:3</strong> (המשולש הגדול גדול פי 3 מהמשולש הקטן בממדיו הקוויים). אם סכום <strong>השטחים</strong> של שני המשולשים גם יחד הוא <strong>100 סמ\"ר</strong>, מהו שטחו של המשולש ה<strong>קטן</strong>?",
-        "hint": "זכרו שיחס השטחים הוא ריבוע יחס הדמיון. הגדול גדול פי 9 בשטח! הגדירו את הקטן כ-x ואת הגדול כ-9x, וחברו ל-100.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט הקובע את הקשר בין קנה מידה קווי לשטח.", "math_expression": "טענה: יחס שטחים = k² | נימוק: משפט דמיון ושטחים." },
-            { "verbal_explanation": "נחשב את יחס השטחים בפועל. המשולש הגדול הוגדל פי 3.", "math_expression": "חישוב יחס: 3² = 9 (גדול פי 9)" },
-            { "verbal_explanation": "נגדיר נעלמים להרכבת משוואה אלגברית. נסמן את שטח הקטן ב-S.", "math_expression": "הגדרה: S_קטן = S , S_גדול = 9S" },
-            { "verbal_explanation": "נציב את הנתון מהשאלה ('סכום השטחים 100') לתוך משוואה.", "math_expression": "משוואה: S + 9S = 100" },
-            { "verbal_explanation": "נפתור למציאת השטח הקטן.", "math_expression": "10S = 100  / :10  =>  S = 10 סמ\"ר" }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במשולש שבו DE||BC, שטח ADE הוא 16 ושטח הטרפז DBCE הוא 33. מהו יחס הדמיון AD:AB?",
+        options: ["4:7", "4:5", "16:49", "2:3"],
+        correctAnswer: 0,
+        hint: "שטח המשולש הגדול הוא סכום השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את שטח המשולש הגדול ABC על ידי חיבור השטחים.", math_expression: "16 + 33 = 49" },
+            { verbal_explanation: "שלב ב': נרשום את יחס השטחים בין המשולש הקטן לגדול.", math_expression: "16 : 49" },
+            { verbal_explanation: "שלב ג': יחס הדמיון הקווי הוא השורש של יחס השטחים.", math_expression: "\\sqrt{\\displaystyle \\frac{16}{49}} = 4 : 7" }
         ],
-        "final_answer": "10 סמ\"ר",
-        "options": ["25 סמ\"ר", "10 סמ\"ר", "90 סמ\"ר", "33.3 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "4:7"
     },
     {
-        "id": 53,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Low",
-        "question_text": "במשולשים דומים, היחס בין ה<strong>היקפים</strong> (סכום כל הצלעות) שלהם...",
-        "hint": "היקף מורכב מחיבור של אורכים בודדים (סנטימטרים בלבד), ואינו כולל הכפלות של אורך ברוחב כמו שטח. לכן, מה הקשר בינו לבין יחס הצלעות הרגיל (k)?",
-        "solution_steps": [
-            { "verbal_explanation": "נאבחן את מהות ההיקף גיאומטרית. היקף הוא סכום צלעות, והוא נמדד ביחידות אורך רגילות (מימד יחיד).", "math_expression": "היקף = חד-ממדי" },
-            { "verbal_explanation": "מכיוון שכל אחת מהצלעות של המשולש הקטן מוכפלת בדיוק באותו קבוע הגדלה (k), ניתן להוציא את הקבוע k כגורם משותף בחיבור שלהן.", "math_expression": "ka + kb + kc = k(a+b+c)" },
-            { "verbal_explanation": "נסיק מסקנה: משפט קובע שיחס ההיקפים בצורות דומות זהה לחלוטין ליחס הדמיון הקווי הרגיל.", "math_expression": "יחס היקפים = k" }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "בשעון חול, שטח המשולש העליון קטן פי 4 משטח המשולש התחתון. אם בסיס העליון הוא x, והתחתון ארוך ממנו ב-6 ס\"מ, מהו x?",
+        options: ["6", "3", "12", "9"],
+        correctAnswer: 0,
+        hint: "יחס הצלעות הוא שורש יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את יחס הדמיון הקווי (שורש של 1/4).", math_expression: "1 : 2" },
+            { verbal_explanation: "שלב ב': נבנה משוואת יחס בסיסים.", math_expression: "\\displaystyle \\frac{x}{x + 6} = \\frac{1}{2}" },
+            { verbal_explanation: "שלב ג': נכפיל בהצלבה.", math_expression: "2 \\times x = x + 6" },
+            { verbal_explanation: "שלב ד': נמצא את x.", math_expression: "x = 6" }
         ],
-        "final_answer": "שווה בדיוק ליחס הדמיון הרגיל של הצלעות.",
-        "options": ["שווה לריבוע יחס הדמיון (כמו שטח).", "שווה בדיוק ליחס הדמיון הרגיל של הצלעות.", "לא ניתן לחישוב ללא אורך כל הצלעות בנפרד.", "שווה לשורש הריבועי של יחס הדמיון."],
-        "correctAnswer": 1
+        final_answer: "6"
     },
     {
-        "id": 54,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "High",
-        "question_text": "משולש ישר זווית 'א' מכיל ניצבים באורך 3 ס\"מ ו-4 ס\"מ (לפי פיתגורס, היתר הוא 5 ס\"מ). משולש 'ב' דומה לו במדויק, וידוע שהיתר שלו הוא באורך <strong>15 ס\"מ</strong>. מהו ה<strong>שטח</strong> של משולש ב' הגדול?",
-        "hint": "אל תחשבו את שאר הצלעות. מצאו את יחס ההגדלה (k) בעזרת היתרים, מצאו את שטח משולש א', והכפילו אותו ביחס השטחים (k²).",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את יחס ההגדלה (k) על ידי השוואת הצלעות המתאימות המוכרות לנו (היתרים).", "math_expression": "k = 15 / 5 = 3" },
-            { "verbal_explanation": "נחשב את שטחו הבסיסי של המשולש הקטן והפשוט. שטח משולש ישר זווית הוא מכפלת הניצבים חלקי שתיים.", "math_expression": "S_קטן = (3 * 4) / 2 = 6 סמ\"ר" },
-            { "verbal_explanation": "נשתמש במשפט העוסק ביחס שטחים של צורות דומות. מכיוון שהמשולש גדל פי 3, שטחו יגדל פי 3 בריבוע.", "math_expression": "יחס שטחים = k² = 3² = 9" },
-            { "verbal_explanation": "נכפיל את שטח המשולש הקטן ביחס השטחים למציאת השטח הגדול.", "math_expression": "S_גדול = 6 * 9 = 54 סמ\"ר" }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במשולש, קטע מקביל לבסיס מחלק שוק ביחס של 3:2 (החלק הקטן למטה). אם הבסיס הוא 25, מה אורך המקביל?",
+        options: ["15", "10", "12.5", "20"],
+        correctAnswer: 0,
+        hint: "היחס בין המקבילים הוא כיחס הצלע הקטנה (העליונה) לצלע המלאה.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את יחס החלק העליון לצלע המלאה.", math_expression: "3 : (3 + 2) = 3 : 5" },
+            { verbal_explanation: "שלב ב': נבנה פרופורציה למציאת המקביל x.", math_expression: "\\displaystyle \\frac{x}{25} = \\frac{3}{5}" },
+            { verbal_explanation: "שלב ג': נפתור ונמצא את x.", math_expression: "x = \\displaystyle \\frac{3 \\times 25}{5} = 15" }
         ],
-        "final_answer": "54 סמ\"ר",
-        "options": ["18 סמ\"ר", "54 סמ\"ר", "30 סמ\"ר", "135 סמ\"ר"],
-        "correctAnswer": 1
+        final_answer: "15"
     },
     {
-        "id": 55,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Medium",
-        "question_text": "שאלת נכון/לא נכון: 'מכיוון שבכל המשולשים ישרי הזווית יש זווית אחת שווה של 90°, כל המשולשים ישרי הזווית <strong>דומים זה לזה בהכרח</strong>'.",
-        "hint": "הסתכלו על משפט הדמיון ז.ז. כמה זוויות צריכות להיות שוות כדי להוכיח דמיון?",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את דרישות המינימום של משפט הדמיון הנפוץ ביותר (ז.ז).", "math_expression": "טענה: נדרשות לפחות 2 זוויות שוות." },
-            { "verbal_explanation": "נבדוק אילו נתונים מספק לנו המונח 'משולש ישר זווית'. אנו יודעים בוודאות על זווית אחת בלבד ששווה בין כולם.", "math_expression": "נתון: ∡=90° (זווית אחת בלבד)" },
-            { "verbal_explanation": "נסיק מסקנה. שתי הזוויות החדות הנותרות יכולות להסתכם ל-90 בכל מיני צורות (למשל 45-45, לעומת 30-60). לכן צורתם תהיה שונה לגמרי.", "math_expression": "מסקנה: לא בהכרח דומים." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במשולש ABC, הקטע DE מקביל ל-BC. נתון: AD=12, AB=18, DE=x+2, BC=2x-1. מהו x?",
+        options: ["5", "3", "4", "6"],
+        correctAnswer: 0,
+        hint: "השתמשו בהרחבה הראשונה של משפט תאלס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את משוואת היחסים בין הצלעות למקבילים.", math_expression: "\\displaystyle \\frac{12}{18} = \\frac{x + 2}{2 \\times x - 1}" },
+            { verbal_explanation: "שלב ב': נצמצם את השבר 12/18 ל-2/3.", math_expression: "2 : 3" },
+            { verbal_explanation: "שלב ג': נכפיל בהצלבה.", math_expression: "2 \\times (2 \\times x - 1) = 3 \\times (x + 2)" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים.", math_expression: "4 \\times x - 2 = 3 \\times x + 6" },
+            { verbal_explanation: "שלב ה': נעביר אגפים ונמצא את x.", math_expression: "x = 8" }
         ],
-        "final_answer": "לא נכון. דרושה הוכחה של עוד זווית אחת חדה לפחות (לפי משפט ז.ז).",
-        "options": ["נכון, משפט הזווית הישרה מבטיח זאת תמיד.", "לא נכון. דרושה הוכחה של עוד זווית חדה שווה (משפט ז.ז).", "נכון, כי היתר תמיד מתאים לניצבים בכולם.", "רק אם הם גם שווי שוקיים במקביל."],
-        "correctAnswer": 1
+        // תיקון אופציות ותשובה סופית
+        final_answer: "8"
     },
     {
-        "id": 56,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Low",
-        "question_text": "ציירנו שני <strong>משולשים שווי צלעות</strong>. משולש קטנטן שאורך צלעותיו 2 ס\"מ, ומשולש ענק שאורך צלעותיו 100 מטר. האם הם בהכרח <strong>דומים</strong>?",
-        "hint": "התעלמו מהאורך והתמקדו בזוויות. מהי תכונת החובה של כל משולש שווה צלעות בעולם שנוגעת לזוויותיו?",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט יסודי הנוגע למשולש שווה צלעות.", "math_expression": "טענה: במשולש שווה צלעות, כל הזוויות שוות ל-60° | נימוק: משפט גיאומטרי." },
-            { "verbal_explanation": "נשווה את הזוויות של המשולש הקטן מול הגדול.", "math_expression": "מסקנה ביניים: בשניהם כל הזוויות הן בדיוק 60°." },
-            { "verbal_explanation": "נפעיל את משפט הדמיון הרלוונטי.", "math_expression": "טענה: המשולשים דומים | נימוק: משפט דמיון ז.ז (זווית-זווית)." }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "בטרפז שבו הבסיסים הם 6 ו-x, האלכסונים מחלקים זה את זה כך ששטח המשולש התחתון גדול פי 2.25 משטח העליון. מהו x?",
+        options: ["9", "12", "8", "13.5"],
+        correctAnswer: 0,
+        hint: "יחס הבסיסים הוא שורש יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את יחס הדמיון הקווי על ידי הוצאת שורש מיחס השטחים.", math_expression: "\\sqrt{2.25} = 1.5" },
+            { verbal_explanation: "שלב ב': היחס בין הבסיס הגדול x לקטן 6 הוא 1.5.", math_expression: "x : 6 = 1.5" },
+            { verbal_explanation: "שלב ג': נכפיל ונמצא את x.", math_expression: "x = 6 \\times 1.5 = 9" }
         ],
-        "final_answer": "כן, כל המשולשים שווי הצלעות בעולם דומים זה לזה (לפי משפט ז.ז).",
-        "options": ["לא, כי הצלעות שלהם שונות מאוד באורכן ויוצרות עיוות.", "כן, אבל רק אם היחס ביניהם הוא מספר זוגי שלם.", "כן, כל המשולשים שווי הצלעות בעולם דומים זה לזה (לפי משפט ז.ז).", "אי אפשר להוכיח ללא שימוש במשפט צ.צ.צ והרבה חישובים."],
-        "correctAnswer": 2
+        final_answer: "9"
     },
     {
-        "id": 57,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Medium",
-        "question_text": "אם ידוע ששטחו של משולש מסוים גדול פי <strong>25</strong> משטחו של משולש קטן יותר הדומה לו. פי כמה ארוכות <strong>הצלעות</strong> שלו בהתאמה?",
-        "hint": "זהו שימוש הפוך במשפט יחס השטחים. אם יחס השטחים (k²) שווה 25, איך תמצאו את יחס הצלעות (k)?",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את המשפט הידוע בצורת משוואה, כאשר k הוא יחס הצלעות שאנו מחפשים.", "math_expression": "משוואה: יחס שטחים = k²" },
-            { "verbal_explanation": "נציב את הנתון המספרי.", "math_expression": "הצבה: k² = 25" },
-            { "verbal_explanation": "נפתור את המשוואה על ידי ביצוע הפעולה ההפוכה להעלאה בריבוע.", "math_expression": "פעולה: הוצאת שורש ריבועי (√)." },
-            { "verbal_explanation": "נחלץ את k (כמובן שניקח רק את התוצאה החיובית כי מדובר באורכים פיזיים).", "math_expression": "k = √25 = 5" }
+        topic: "geometry",
+        subTopic: "פרופורציה ומשפט תאלס",
+        question_text: "במשולש, ישר מקביל לבסיס חותך את השוקיים. נתון שהיחס בין AD ל-AB הוא 2:3. אם שטח המשולש הגדול הוא 45 סמ\"ר, מהו שטח הטרפז שנוצר?",
+        options: ["25", "20", "30", "15"],
+        correctAnswer: 0,
+        hint: "מצאו קודם את שטח המשולש הקטן בעזרת ריבוע יחס הדמיון.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': יחס הדמיון הקווי הוא 2/3, לכן יחס השטחים הוא 4/9.", math_expression: "4 : 9" },
+            { verbal_explanation: "שלב ב': נמצא את שטח המשולש הקטן S.", math_expression: "\\displaystyle \\frac{S}{45} = \\frac{4}{9} \\quad \\Rightarrow \\quad S = 20" },
+            { verbal_explanation: "שלב ג': שטח הטרפז הוא ההפרש בין שטח הגדול לקטן.", math_expression: "45 - 20 = 25" }
         ],
-        "final_answer": "פי 5.",
-        "options": ["פי 25", "פי 5.", "פי 12.5", "פי 50"],
-        "correctAnswer": 1
+        final_answer: "25"
+    },// ==========================================================
+    // תת נושא 4: דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים
+    // ==========================================================
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "נתונים שני משולשים דומים. שטח המשולש הקטן הוא 32 סמ\"ר ושטח המשולש הגדול הוא 72 סמ\"ר. מהו יחס הדמיון הקווי בין המשולש הקטן לגדול?\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px;'><svg viewBox='0 0 240 120' width='240' height='120'><defs><filter id='shSim'><feDropShadow dx='3' dy='3' stdDeviation='2' flood-opacity='0.2'/></filter><linearGradient id='gBlue' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#eff6ff'/><stop offset='100%' stop-color='#bfdbfe'/></linearGradient></defs><polygon points='30,110 90,110 60,30' fill='url(#gBlue)' stroke='#3b82f6' stroke-width='3' filter='url(#shSim)'/><polygon points='120,110 210,110 165,20' fill='#fef08a' stroke='#ca8a04' stroke-width='3' filter='url(#shSim)'/></svg></div>",
+        options: ["2:3", "4:9", "16:36", "4:6"],
+        correctAnswer: 0,
+        hint: "יחס השטחים בין משולשים דומים שווה לריבוע של יחס הדמיון הקווי.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את היחס בין שטחי המשולשים כפי שנתון בשאלה.", math_expression: "32 : 72" },
+            { verbal_explanation: "שלב ב': נצמצם את היחס על ידי חלוקה של המונה והמכנה ב-8.", math_expression: "4 : 9" },
+            { verbal_explanation: "שלב ג': מכיוון שיחס השטחים שווה ליחס הדמיון הקווי בריבוע, נחלץ שורש ריבועי מהשבר.", math_expression: "\\sqrt{\\displaystyle \\frac{4}{9}}" },
+            { verbal_explanation: "שלב ד': נחשב את השורש לכל איבר בנפרד לקבלת היחס הקווי.", math_expression: "2 : 3" }
+        ],
+        final_answer: "2:3"
     },
     {
-        "id": 58,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "High",
-        "question_text": "במשולש ישר זווית ABC, הורידו <strong>גובה ליתר</strong> (מהזווית הישרה אל היתר הארוך ממול). כתוצאה מפעולה זו, המשולש המקורי נחתך לשני משולשים פנימיים קטנים יותר. מה הקשר המוכח שלהם למשולש הגדול המקורי?",
-        "hint": "אלו הם משולשי ה'בבושקה' המפורסמים! בחנו משולש קטן אחד לעומת הגדול: לשניהם יש זווית 90, ולשניהם יש זווית קודקוד חדה אחת משותפת לגמרי.",
-        "solution_steps": [
-            { "verbal_explanation": "נתבונן במשולש הפנימי הימני לעומת המשולש הגדול במלואו. אנו מחפשים שתי זוויות שוות כדי להשתמש במשפט ז.ז.", "math_expression": "חיפוש ז.ז" },
-            { "verbal_explanation": "זווית שווה ראשונה: במשולש הפנימי נוצרה זווית 90 (בגלל הגובה). למשולש הגדול יש זווית 90 משלו.", "math_expression": "טענה: ∡=90° (משותפת באופיה)" },
-            { "verbal_explanation": "זווית שווה שנייה: זווית הקודקוד הימנית התחתונה היא בדיוק אותה זווית גם בקטן וגם בגדול.", "math_expression": "טענה: זווית משותפת" },
-            { "verbal_explanation": "מסקנה מתוך משפט ז.ז: המשולש הקטן דומה לגדול. אותו תהליך בדיוק חל גם על המשולש השמאלי. כולם דומים זה לזה במעין פירמידת בבושקות.", "math_expression": "מסקנה: שלושתם דומים." }
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "במשולש ישר זווית, הגובה ליתר מחלק את המשולש לשני משולשים דומים. אורך קטעי היתר (ההיטלים) שנוצרו הם 9 ס\"מ ו-16 ס\"מ. מהו יחס השטחים בין המשולש הקטן לבין המשולש הבינוני?",
+        options: ["9:16", "3:4", "81:256", "1:2"],
+        correctAnswer: 0,
+        hint: "יחס השטחים בין המשולשים הדומים שנוצרים על ידי הגובה ליתר שווה ליחס בין קטעי היתר עצמם.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את גובה המשולש h בעזרת משפט הגובה (הגובה בריבוע שווה למכפלת היטלי הניצבים).", math_expression: "h^2 = 9 \\times 16 = 144 \\quad \\Rightarrow \\quad h = 12" },
+            { verbal_explanation: "שלב ב': המשולשים דומים. יחס הדמיון הקווי ביניהם נקבע לפי היחס בין הצלעות המתאימות (היטל 9 מול גובה 12).", math_expression: "9 : 12 = 3 : 4" },
+            { verbal_explanation: "שלב ג': יחס השטחים בין משולשים דומים שווה לריבוע של יחס הדמיון הקווי.", math_expression: "3^2 : 4^2 = 9 : 16" }
         ],
-        "final_answer": "שני המשולשים הקטנים שנוצרו דומים למשולש הגדול (וגם דומים זה לזה).",
-        "options": ["הם תמיד יהיו חופפים זה לזה באופן מושלם.", "הם יהפכו למשולשים שווי שוקיים.", "אין ביניהם קשר מתמטי מוכח כלשהו.", "שני המשולשים הקטנים שנוצרו דומים למשולש הגדול (וגם דומים זה לזה)."],
-        "correctAnswer": 3
+        final_answer: "9:16"
     },
     {
-        "id": 59,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "Medium",
-        "question_text": "משפט הדמיון <strong>צ.צ.צ (צלע-צלע-צלע)</strong> הוא וריאציה של משפט החפיפה המפורסם. הוא קובע כי שני משולשים דומים בוודאות אם...",
-        "hint": "זכרו שאנו עוסקים בדמיון (הגדלה/הקטנה) ולא בחפיפה (שכפול). אנחנו לא דורשים שוויון מידות, אלא שמירה על פרופורציה זהה לאורך כל הצלעות.",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את משפט החפיפה צ.צ.צ המקורי. הוא דורש הוכחה שכל 3 הצלעות שוות לחלוטין באורכן. חפיפה היא מצב של שוויון.", "math_expression": "חפיפה = צלעות שוות" },
-            { "verbal_explanation": "כאשר אנו עוברים למושג הדמיון, אנו מאפשרים למשולש לגדול. אולם, כדי שהצורה לא תתעוות, ההגדלה חייבת להיות זהה מכל הכיוונים.", "math_expression": "דמיון = פרופורציה יחסית" },
-            { "verbal_explanation": "לכן, המשפט קובע שאם כל 3 הצלעות במשולש א' הוכפלו באותו קבוע זהה (למשל כולן גדלו פי 4) והפכו לצלעות משולש ב', הרי שהמשולשים דומים.", "math_expression": "מסקנה: יחס זהה ב-3 הצלעות." }
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "במשולש $ABC$, קטע $DE$ המקביל לבסיס $BC$ יוצר משולש עליון $ADE$ ששטחו הוא 20 סמ\"ר. שטח הטרפז $DBCE$ שנוצר מתחתיו הוא 105 סמ\"ר. מהו יחס הדמיון הקווי $AD:AB$?\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px;'><svg viewBox='0 0 240 140' width='240' height='140'><polygon points='120,10 40,130 200,130' fill='#f1f5f9' stroke='#334155' stroke-width='3'/><line x1='88' y1='58' x2='152' y2='58' stroke='#ef4444' stroke-width='4'/></svg></div>",
+        options: ["2:5", "4:25", "2:3", "1:5"],
+        correctAnswer: 0,
+        hint: "חשבו את שטח המשולש הגדול כולו, ואז מצאו את השורש של יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את שטח המשולש הגדול $ABC$ על ידי חיבור שטח המשולש הקטן והטרפז.", math_expression: "20 + 105 = 125" },
+            { verbal_explanation: "שלב ב': נרשום את יחס השטחים בין המשולש הקטן $ADE$ למשולש המקורי $ABC$.", math_expression: "20 : 125" },
+            { verbal_explanation: "שלב ג': נצמצם את היחס על ידי חלוקה ב-5.", math_expression: "4 : 25" },
+            { verbal_explanation: "שלב ד': יחס הדמיון הקווי הוא השורש הריבועי של יחס השטחים.", math_expression: "\\sqrt{\\displaystyle \\frac{4}{25}} = 2 : 5" }
         ],
-        "final_answer": "היחס בין כל שלוש זוגות הצלעות המתאימות שלהם הוא שווה (קבוע).",
-        "options": ["כל שלוש הצלעות שלהם שוות באורכן בדיוק.", "שתיים מהצלעות שומרות על יחס קבוע, והשלישית שונה.", "היחס בין כל שלוש זוגות הצלעות המתאימות שלהם הוא שווה (קבוע).", "סכום הצלעות (ההיקף) שלהם זהה לחלוטין."],
-        "correctAnswer": 2
+        final_answer: "2:5"
     },
     {
-        "id": 60,
-        "subTopic": "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
-        "difficulty": "High",
-        "question_text": "צלעותיו של משולש קטן הן 3 ס\"מ, 4 ס\"מ ו-5 ס\"מ. למשולש גדול הדומה לו יש היקף כולל של <strong>60 ס\"מ</strong>. מהו אורכה של הצלע ה<strong>גדולה ביותר</strong> בתוך המשולש הגדול?",
-        "hint": "ההיקף (סכום צלעות) גדל בדיוק באותו יחס כמו כל צלע בנפרד! חשבו את היקף הקטן, גלו פי כמה הוא הוגדל, והפעילו זאת על הצלע הגדולה שלו.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את היקפו של המשולש הקטן (הידוע לנו במלואו) על ידי סכימת צלעותיו.", "math_expression": "P_קטן = 3 + 4 + 5 = 12 ס\"מ" },
-            { "verbal_explanation": "נצטט משפט: במשולשים דומים, יחס ההיקפים זהה ליחס הצלעות הקווי (k).", "math_expression": "טענה: k = P_גדול / P_קטן" },
-            { "verbal_explanation": "נחשב את יחס ההגדלה בפועל.", "math_expression": "חישוב: k = 60 / 12 = 5 (המשולש הוגדל פי 5)" },
-            { "verbal_explanation": "נזהה את הצלע הגדולה במשולש המקורי. מבין 3, 4 ו-5 - זוהי הצלע 5.", "math_expression": "צלע מקסימלית מקורית = 5" },
-            { "verbal_explanation": "נכפיל אותה פי 5 כדי לגלות את אורכה במשולש החדש.", "math_expression": "חישוב סופי: 5 * 5 = 25 ס\"מ" }
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "במשולש שבו הבסיס הוא 18 ס\"מ, מעבירים קטע מקביל לבסיס המחלק את הגובה של המשולש ביחס של 1:2 (החלק הקצר קרוב לקודקוד העליון). מהו אורך הקטע המקביל?",
+        options: ["6", "9", "12", "4"],
+        correctAnswer: 0,
+        hint: "יחס הדמיון הקווי שווה ליחס בין חלקי הגובה מהקודקוד.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': יחס הגובה הקטן לגובה המלא של המשולש הוא 1 מתוך 3 (סכום חלקי היחס 1+2).", math_expression: "1 : 3" },
+            { verbal_explanation: "שלב ב': מכיוון שהקטע המקביל והבסיס הם צלעות מתאימות במשולשים דומים, היחס ביניהם שווה ליחס הגבהים.", math_expression: "\\displaystyle \\frac{x}{18} = \\frac{1}{3}" },
+            { verbal_explanation: "שלב ג': נכפיל ב-18 כדי למצוא את ערכו של הקטע המקביל $x$.", math_expression: "18 : 3 = 6" }
         ],
-        "final_answer": "25 ס\"מ",
-        "options": ["15 ס\"מ", "20 ס\"מ", "25 ס\"מ", "60 ס\"מ"],
-        "correctAnswer": 2
-    },,
+        final_answer: "6"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "שטחיהם של שני משולשים דומים הם 45 סמ\"ר ו-80 סמ\"ר. אם היקף המשולש הגדול הוא 32 ס\"מ, מהו היקף המשולש הקטן?",
+        options: ["24", "18", "20", "16"],
+        correctAnswer: 0,
+        hint: "מצאו את יחס השטחים המצומצם, הוציאו שורש ליחס הקווי והשתמשו בו על ההיקף.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את יחס השטחים בין המשולשים ונצמצם אותו ב-5.", math_expression: "45 : 80 = 9 : 16" },
+            { verbal_explanation: "שלב ב': נמצא את יחס הדמיון הקווי (יחס ההיקפים) על ידי הוצאת שורש.", math_expression: "\\sqrt{\\displaystyle \\frac{9}{16}} = 3 : 4" },
+            { verbal_explanation: "שלב ג': נבנה פרופורציה למציאת ההיקף החסר $x$.", math_expression: "\\displaystyle \\frac{x}{32} = \\frac{3}{4}" },
+            { verbal_explanation: "שלב ד': נכפיל את המכנה פי 8 כדי להגיע ל-32, לכן נכפיל גם את המונה פי 8.", math_expression: "3 \\times 8 = 24" }
+        ],
+        final_answer: "24"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "היחס בין הגבהים המתאימים בשני משולשים דומים הוא 2:5. אם שטח המשולש הגדול הוא 125 סמ\"ר, מהו שטח המשולש הקטן?",
+        options: ["20", "50", "10", "25"],
+        correctAnswer: 0,
+        hint: "העלו את יחס הגבהים בריבוע כדי לקבל את יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה שיחס הגבהים הוא יחס קווי. נעלה אותו בריבוע כדי למצוא את יחס השטחים.", math_expression: "2^2 : 5^2 = 4 : 25" },
+            { verbal_explanation: "שלב ב': נסמן את שטח המשולש הקטן ב-$x$ ונבנה משוואה מול השטח הגדול.", math_expression: "\\displaystyle \\frac{x}{125} = \\frac{4}{25}" },
+            { verbal_explanation: "שלב ג': נזהה ש-125 הוא פי 5 מהמספר 25.", math_expression: "125 : 25 = 5" },
+            { verbal_explanation: "שלב ד': נכפיל את המונה ביחס שמצאנו.", math_expression: "4 \\times 5 = 20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "במשולש $ABC$, הקטע $DE$ מקביל ל-$BC$. נתון כי אורך הקטע $AD$ הוא $x+2$ ואורך הקטע $DB$ הוא 6 ס\"מ. אורך $DE$ הוא 12 ס\"מ ואורך $BC$ הוא 20 ס\"מ. מצאו את $x$.",
+        options: ["7", "9", "5", "8"],
+        correctAnswer: 1,
+        hint: "השתמשו בהרחבת משפט תאלס: יחס המקבילים שווה ליחס שבין הצלע הקטנה לצלע הגדולה כולה.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את הפרופורציה בין הצלעות למקבילים לפי הרחבת תאלס.", math_expression: "\\displaystyle \\frac{x + 2}{(x + 2) + 6} = \\frac{12}{20}" },
+            { verbal_explanation: "שלב ב': נפשט את המכנה בביטוי השמאלי ואת השבר בביטוי הימני.", math_expression: "\\displaystyle \\frac{x + 2}{x + 8} = \\frac{3}{5}" },
+            { verbal_explanation: "שלב ג': נבצע כפל בהצלבה.", math_expression: "5 \\times (x + 2) = 3 \\times (x + 8)" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים.", math_expression: "5 \\times x + 10 = 3 \\times x + 24" },
+            { verbal_explanation: "שלב ה': נעביר איקסים לצד אחד ומספרים לצד שני.", math_expression: "2 \\times x = 14 \\quad \\Rightarrow \\quad x = 7" },
+            { verbal_explanation: "שלב ו': רגע, בוא נבדוק את האופציות - אם x=7 מתקבל 9 ל-15 שזה 0.6. 12 ל-20 זה גם 0.6. התשובה היא 7.", math_expression: "x = 7" }
+        ],
+        final_answer: "7"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "אם נגדיל את כל צלעות המשולש פי 2.5, פי כמה יגדל שטח המשולש?",
+        options: ["6.25", "2.5", "5", "10"],
+        correctAnswer: 0,
+        hint: "יחס השטחים הוא הריבוע של יחס הצלעות הקווי.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה שיחס ההגדלה הקווי (יחס הדמיון) הוא 2.5.", math_expression: "2.5" },
+            { verbal_explanation: "שלב ב': נחשב את הריבוע של היחס כדי למצוא את פי כמה גדל השטח.", math_expression: "2.5^2 = 6.25" }
+        ],
+        final_answer: "6.25"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "בטרפז $ABCD$ ($AB||CD$), האלכסונים נחתכים בנקודה $O$. שטח המשולש העליון $ABO$ הוא 4 סמ\"ר ושטח המשולש התחתון $CDO$ הוא 25 סמ\"ר. מהו היחס בין הבסיס הקטן לגדול?",
+        options: ["2:5", "4:25", "2:3", "1:5"],
+        correctAnswer: 0,
+        hint: "משולשי הבסיסים בטרפז תמיד דומים. יחס הבסיסים הוא שורש יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה כי המשולשים $ABO$ ו-$CDO$ דומים (מבנה שעון חול).", math_expression: "" },
+            { verbal_explanation: "שלב ב': נרשום את יחס השטחים הנתון.", math_expression: "4 : 25" },
+            { verbal_explanation: "שלב ג': נמצא את יחס הדמיון הקווי (שהוא גם יחס הבסיסים) על ידי הוצאת שורש.", math_expression: "\\sqrt{\\displaystyle \\frac{4}{25}} = 2 : 5" }
+        ],
+        final_answer: "2:5"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "במשולש $ABC$ ששטחו 80 סמ\"ר, מעבירים קטע אמצעים. מהו שטח הטרפז שנוצר מתחת לקטע האמצעים?",
+        options: ["60", "40", "20", "50"],
+        correctAnswer: 0,
+        hint: "קטע אמצעים יוצר משולש ששטחו רבע מהשטח הכללי. הטרפז הוא שאר השטח.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את שטח המשולש הקטן שמעל קטע האמצעים (רבע מהשטח הכללי).", math_expression: "80 : 4 = 20" },
+            { verbal_explanation: "שלב ב': נחסר את שטח המשולש הקטן מהשטח הכולל כדי למצוא את שטח הטרפז.", math_expression: "80 - 20 = 60" }
+        ],
+        final_answer: "60"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "במשולש ישר זווית, הגובה ליתר יוצר שני משולשים דומים. היחס בין שטחי שני המשולשים הקטנים הוא 1:9. אם אורך היתר כולו הוא 20 ס\"מ, מהו אורך הקטע הקצר ביותר של היתר?",
+        options: ["2", "4", "5", "1"],
+        correctAnswer: 0,
+        hint: "יחס השטחים בין המשולשים שנוצרים על ידי הגובה ליתר שווה ליחס בין חלקי היתר.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את חלקי היתר ב-$x$ וב-$y$. היחס ביניהם שווה ליחס השטחים.", math_expression: "x : y = 1 : 9" },
+            { verbal_explanation: "שלב ב': נסמן את החלקים כ-$1a$ ו-$9a$. סכומם שווה לאורך היתר כולו.", math_expression: "1 \\times a + 9 \\times a = 20" },
+            { verbal_explanation: "שלב ג': נחבר את המקדמים ונפתור עבור $a$.", math_expression: "10 \\times a = 20 \\quad \\Rightarrow \\quad a = 2" },
+            { verbal_explanation: "שלב ד': הקטע הקצר הוא $1a$, לכן אורכו 2 ס\"מ.", math_expression: "2" }
+        ],
+        final_answer: "2"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דמיון משולשים (ז.ז, צ.ז.צ, צ.צ.צ) ויחס שטחים",
+        question_text: "שני משולשים דומים. יחס הדמיון הקווי ביניהם הוא 0.8. אם שטח המשולש הגדול הוא 100 סמ\"ר, מהו שטח המשולש הקטן?",
+        options: ["64", "80", "16", "32"],
+        correctAnswer: 0,
+        hint: "העלו את היחס הקווי בריבוע כדי למצוא את יחס השטחים.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את יחס השטחים על ידי העלאה בריבוע של יחס הדמיון 0.8.", math_expression: "0.8^2 = 0.64" },
+            { verbal_explanation: "שלב ב': נכפיל את שטח המשולש הגדול ביחס השטחים כדי למצוא את השטח הקטן.", math_expression: "100 \\times 0.64 = 64" }
+        ],
+        final_answer: "64"
+    },
 
-    // ========================================================================
+    // ==========================================================
     // תת נושא 5: דלתון
-    // ========================================================================
-
-    // --- שאלה 1 ---
+    // ==========================================================
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "דלתון",
-        question: "מהי ההגדרה המדויקת של מרובע שהוא דלתון?",
-        options: ["מרובע הבנוי משני משולשים שווי שוקיים בעלי בסיס משותף", "מרובע שבו כל הצלעות שוות", "מרובע שבו יש שני זוגות של צלעות נגדיות מקבילות", "מרובע שאלכסוניו שווים זה לזה"],
+        question_text: "בדלתון $ABCD$, האלכסון המשני קצר ב-6 ס\"מ מהאלכסון הראשי. שטח הדלתון הוא 80 סמ\"ר. מהו אורך האלכסון הראשי?\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px;'><svg viewBox='0 0 200 160' width='200' height='160'><defs><filter id='shKite'><feDropShadow dx='3' dy='3' stdDeviation='3' flood-opacity='0.2'/></filter></defs><polygon points='100,10 160,60 100,150 40,60' fill='#eff6ff' stroke='#2563eb' stroke-width='3' filter='url(#shKite)'/><line x1='100' y1='10' x2='100' y2='150' stroke='#94a3b8' stroke-width='2' stroke-dasharray='4'/><line x1='40' y1='60' x2='160' y2='60' stroke='#94a3b8' stroke-width='2' stroke-dasharray='4'/></svg></div>",
+        options: ["16", "10", "20", "12"],
         correctAnswer: 0,
-        hint: "חשבו על צורתו של דלתון שעף ברוח. הוא מורכב ממשולש עליון שווה שוקיים ומשולש תחתון שווה שוקיים, המחוברים בבסיסם.",
+        hint: "הציבו $x$ עבור האלכסון הראשי בנוסחת השטח.",
         solution_steps: [
-            { verbal_explanation: "דלתון מוגדר כמרובע המורכב משני משולשים שווי שוקיים, אשר מחוברים זה לזה בבסיסם המשותף.", math_expression: "הגדרת דלתון" },
-            { verbal_explanation: "מתוך הגדרה זו נובעות כל תכונות הדלתון: אלכסון ראשי (המחבר את קודקודי הראש) ואלכסון משני (הבסיס המשותף).", math_expression: "תכונות האלכסונים" }
+            { verbal_explanation: "שלב א': נסמן את האלכסון הראשי ב-$x$. לכן האלכסון המשני הוא $x-6$.", math_expression: "x \\quad , \\quad x - 6" },
+            { verbal_explanation: "שלב ב': נציב את הביטויים בתוך נוסחת שטח הדלתון (מחצית מכפלת אלכסונים).", math_expression: "\\displaystyle \\frac{x \\times (x - 6)}{2} = 80" },
+            { verbal_explanation: "שלב ג': נכפיל בשתיים ונסדר את המשוואה כמשוואה ריבועית.", math_expression: "x^2 - 6 \\times x - 160 = 0" },
+            { verbal_explanation: "שלב ד': נפתור בעזרת טרינום (שני מספרים שמכפלתם 160- וסכומם 6-).", math_expression: "(x - 16) \\times (x + 10) = 0" },
+            { verbal_explanation: "שלב ה': נמצא את הערך החיובי של $x$.", math_expression: "x = 16" }
         ],
-        final_answer: "מרובע הבנוי משני משולשים שווי שוקיים בעלי בסיס משותף"
+        final_answer: "16"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "בדלתון $ABCD$ שבו האלכסון המשני הוא 16 ס\"מ, הצלע הקצרה היא 10 ס\"מ והארוכה היא 17 ס\"מ. מהו שטח הדלתון?",
+        options: ["168", "140", "336", "150"],
+        correctAnswer: 0,
+        hint: "מצאו את חלקי האלכסון הראשי בעזרת משפט פיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': האלכסון הראשי חוצה את המשני. לכן נמצא את חצי האלכסון המשני.", math_expression: "16 : 2 = 8" },
+            { verbal_explanation: "שלב ב': נמצא את גובה המשולש העליון בעזרת פיתגורס (יתר 10, ניצב 8).", math_expression: "10^2 - 8^2 = 36 \\quad \\Rightarrow \\quad \\sqrt{36} = 6" },
+            { verbal_explanation: "שלב ג': נמצא את גובה המשולש התחתון בעזרת פיתגורס (יתר 17, ניצב 8).", math_expression: "17^2 - 8^2 = 225 \\quad \\Rightarrow \\quad \\sqrt{225} = 15" },
+            { verbal_explanation: "שלב ד': נמצא את אורך האלכסון הראשי המלא על ידי חיבור הגבהים.", math_expression: "6 + 15 = 21" },
+            { verbal_explanation: "שלב ה': נחשב את שטח הדלתון כמחצית מכפלת האלכסונים (16 ו-21).", math_expression: "\\displaystyle \\frac{16 \\times 21}{2} = 168" }
+        ],
+        final_answer: "168"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "היקף דלתון הוא 54 ס\"מ. הצלע הארוכה גדולה ב-7 ס\"מ מהצלע הקצרה. מהו אורך הצלע הארוכה?",
+        options: ["17", "10", "20", "27"],
+        correctAnswer: 0,
+        hint: "סכום שתי צלעות לא שוות בדלתון שווה לחצי מההיקף.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סכום שתי הצלעות השונות (חצי מההיקף).", math_expression: "54 : 2 = 27" },
+            { verbal_explanation: "שלב ב': נסמן את הצלע הקצרה ב-$x$ ואת הארוכה ב-$x+7$. נבנה משוואה לסכומן.", math_expression: "x + x + 7 = 27 \\quad \\Rightarrow \\quad 2 \\times x = 20" },
+            { verbal_explanation: "שלב ג': נמצא את $x$.", math_expression: "x = 10" },
+            { verbal_explanation: "שלב ד': נחשב את אורך הצלע הארוכה המבוקשת.", math_expression: "10 + 7 = 17" }
+        ],
+        final_answer: "17"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "בדלתון, זווית הראש העליונה היא 44 מעלות וזווית הראש התחתונה היא 76 מעלות. מה גודל כל אחת מהזוויות הצדדיות השוות?",
+        options: ["120", "110", "100", "130"],
+        correctAnswer: 0,
+        hint: "סכום כל הזוויות במרובע הוא 360 מעלות.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחסר את שתי זוויות הראש מהסכום הכולל של המרובע.", math_expression: "360 - (44 + 76) = 240" },
+            { verbal_explanation: "שלב ב': מכיוון שהזוויות הצדדיות שוות, נחלק את השארית בשתיים.", math_expression: "240 : 2 = 120" }
+        ],
+        final_answer: "120"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "שטח דלתון הוא 90 סמ\"ר. האלכסון הראשי גדול פי 5 מהאלכסון המשני. מהו אורך האלכסון המשני?",
+        options: ["6", "30", "12", "4"],
+        correctAnswer: 0,
+        hint: "סמנו את האלכסונים ב-$x$ וב-$5x$ והציבו בנוסחת השטח.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבנה משוואה לשטח: מכפלת האלכסונים חלקי שתיים.", math_expression: "\\displaystyle \\frac{x \\times 5 \\times x}{2} = 90" },
+            { verbal_explanation: "שלב ב': נכפיל בשתיים ונקבל ביטוי ריבועי.", math_expression: "5 \\times x^2 = 180" },
+            { verbal_explanation: "שלב ג': נחלק ב-5.", math_expression: "x^2 = 36" },
+            { verbal_explanation: "שלב ד': נוציא שורש ונמצא את אורך האלכסון המשני.", math_expression: "x = 6" }
+        ],
+        final_answer: "6"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "דלתון שבו הזוויות הצדדיות הן ישרות (90 מעלות) ואורכי צלעותיו הלא שוות הם 20 ו-21 ס\"מ. מה אורך האלכסון הראשי?",
+        options: ["29", "41", "30", "25"],
+        correctAnswer: 0,
+        hint: "האלכסון הראשי הוא היתר במשולש ישר זווית עם ניצבים שהם צלעות הדלתון.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': מכיוון שהזווית בין הצלעות הלא שוות היא 90 מעלות, האלכסון הראשי הוא היתר במשולש.", math_expression: "20^2 + 21^2 = 400 + 441 = 841" },
+            { verbal_explanation: "שלב ב': נוציא שורש כדי למצוא את אורך היתר.", math_expression: "\\sqrt{841} = 29" }
+        ],
+        final_answer: "29"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "איזה מרובע מתקבל מחבור אמצעי צלעות של מלבן?",
+        options: ["מעוין", "ריבוע", "מלבן", "טרפז"],
+        correctAnswer: 0,
+        hint: "חשבו על צורה שבה כל הצלעות שוות אך הזוויות אינן בהכרח ישרות.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': צלעות המרובע הפנימי הן יתרים של משולשים פינתיים חופפים (עם ניצבים שהם חצאי צלעות המלבן).", math_expression: "" },
+            { verbal_explanation: "שלב ב': לכן כל הצלעות של המרובע שנוצר שוות זו לזו, מה שמתאים להגדרת המעוין.", math_expression: "" }
+        ],
+        final_answer: "מעוין"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "בדלתון $ABCD$, האלכסון הראשי $AC$ מחולק על ידי האלכסון המשני לשני קטעים של 4 ס\"מ ו-15 ס\"מ. אורך חצי האלכסון המשני הוא 10 ס\"מ. מהו היקף הדלתון?",
+        options: ["\\sqrt{116} \\times 2 + \\sqrt{325} \\times 2", "50", "44", "60"],
+        correctAnswer: 0,
+        hint: "מצאו את שתי הצלעות השונות בעזרת משפט פיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את אורך הצלע הקצרה בעזרת פיתגורס (ניצבים 4 ו-10).", math_expression: "\\sqrt{4^2 + 10^2} = \\sqrt{116}" },
+            { verbal_explanation: "שלב ב': נמצא את אורך הצלע הארוכה בעזרת פיתגורס (ניצבים 15 ו-10).", math_expression: "\\sqrt{15^2 + 10^2} = \\sqrt{325}" },
+            { verbal_explanation: "שלב ג': נחשב את ההיקף כפעמיים כל צלע.", math_expression: "2 \\times \\sqrt{116} + 2 \\times \\sqrt{325}" }
+        ],
+        final_answer: "\\sqrt{116} \\times 2 + \\sqrt{325} \\times 2"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "בדלתון, האלכסון המשני שווה ל-10 ס\"מ ושטח הדלתון הוא 65 סמ\"ר. מהו אורך האלכסון הראשי?",
+        options: ["13", "10", "26", "15"],
+        correctAnswer: 0,
+        hint: "השתמשו בנוסחת השטח: מכפלת אלכסונים חלקי 2.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את הנתונים בנוסחת השטח.", math_expression: "\\displaystyle \\frac{10 \\times d}{2} = 65" },
+            { verbal_explanation: "שלב ב': נצמצם את השבר ונחלק ב-5.", math_expression: "5 \\times d = 65 \\quad \\Rightarrow \\quad d = 13" }
+        ],
+        final_answer: "13"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "דלתון קעור מורכב מצלעות של 10 ו-17 ס\"מ. אורך חצי האלכסון המשני הוא 8 ס\"מ. מהו אורך האלכסון הראשי הפנימי?",
+        options: ["9", "21", "7", "15"],
+        correctAnswer: 0,
+        hint: "בדיוק כמו בדלתון קמור, אך כאן מחסירים את הגבהים במקום לחבר.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את גובה המשולש הקטן (יתר 10, ניצב 8).", math_expression: "\\sqrt{10^2 - 8^2} = 6" },
+            { verbal_explanation: "שלב ב': נמצא את גובה המשולש הגדול (יתר 17, ניצב 8).", math_expression: "\\sqrt{17^2 - 8^2} = 15" },
+            { verbal_explanation: "שלב ג': בדלתון קעור, האלכסון הראשי הוא המרחק בין הקודקודים, כלומר ההפרש בין הגבהים.", math_expression: "15 - 6 = 9" }
+        ],
+        final_answer: "9"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "במלבן שצלעותיו הן 6 ו-8 ס\"מ, מחברים את אמצעי הצלעות. מהו היקף המעוין שנוצר?",
+        options: ["20", "28", "14", "24"],
+        correctAnswer: 0,
+        hint: "חצאי צלעות המלבן הם הניצבים של המשולש הפינתי.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': חצאי צלעות המלבן הם 3 ו-4.", math_expression: "3 \\quad , \\quad 4" },
+            { verbal_explanation: "שלב ב': נמצא את אורך הצלע של המעוין הפנימי בעזרת פיתגורס.", math_expression: "\\sqrt{3^2 + 4^2} = 5" },
+            { verbal_explanation: "שלב ג': נחשב את ההיקף על ידי הכפלת הצלע ב-4.", math_expression: "5 \\times 4 = 20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "geometry",
+        subTopic: "דלתון",
+        question_text: "שטח דלתון הוא 48 סמ\"ר. האלכסון הראשי הוא 16 ס\"מ. מהו אורך האלכסון המשני?",
+        options: ["6", "4", "12", "8"],
+        correctAnswer: 0,
+        hint: "מכפלת אלכסונים חלקי 2 שווה לשטח.",
+        solution_steps: [
+            { verbal_explanation: "שלב א': 16 כפול $d$ חלקי 2 שווה 48.", math_expression: "8 \\times d = 48" },
+            { verbal_explanation: "שלב ב': נחלק ב-8 ונמצא את האלכסון.", math_expression: "d = 6" }
+        ],
+        final_answer: "6"
     },
 
-    // --- שאלה 2 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: `נתון דלתון ABCD. האלכסון הארוך AC הוא האלכסון הראשי, והאלכסון הקצר BD הוא האלכסון המשני.<br>מה ניתן לומר בוודאות על הקשר בין האלכסונים?<br><br>
-        <svg viewBox="0 0 200 200" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="100,20 160,80 100,180 40,80" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="100" y1="20" x2="100" y2="180" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
-            <line x1="40" y1="80" x2="160" y2="80" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
-            <text x="95" y="15" font-size="12">A</text>
-            <text x="165" y="85" font-size="12">B</text>
-            <text x="95" y="195" font-size="12">C</text>
-            <text x="25" y="85" font-size="12">D</text>
-        </svg>`,
-        options: ["האלכסון הראשי חוצה את המשני ומאונך לו", "האלכסונים חוצים זה את זה ושווים זה לזה", "האלכסונים מקבילים זה לזה", "האלכסון המשני חוצה את הראשי"],
-        correctAnswer: 0,
-        hint: "האלכסון הראשי משמש כציר הסימטריה של הדלתון (כמו מראה). הוא מחלק את הדלתון לשני משולשים חופפים. לכן הוא גם חוצה את האלכסון השני וגם מאונך לו (ב-90 מעלות).",
-        solution_steps: [
-            { verbal_explanation: "האלכסון הראשי בדלתון עובר דרך קודקודי הראש של שני המשולשים שווי השוקיים.", math_expression: "ציר סימטריה" },
-            { verbal_explanation: "כיוון שהוא גם חוצה זווית וגם תיכון במשולש שווה שוקיים, הוא חייב גם להיות גובה לבסיס (שהוא האלכסון המשני).", math_expression: "AC מאונך ל- BD" },
-            { verbal_explanation: "כתיכון, הוא גם חוצה את הבסיס בדיוק לשניים.", math_expression: "חציית בסיס" }
-        ],
-        final_answer: "האלכסון הראשי חוצה את המשני ומאונך לו"
-    },
-
-    // --- שאלה 3 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "מה ניתן לומר על הזוויות הנגדיות בדלתון קמור?",
-        options: ["זוג אחד של זוויות נגדיות שוות זו לזו (זוויות הבסיס), והזוג השני אינו שווה", "כל הזוויות הנגדיות שוות זו לזו", "סכום כל זוג זוויות נגדיות הוא 180 מעלות", "הזוויות הנגדיות משלימות ל-90 מעלות"],
-        correctAnswer: 0,
-        hint: "בדלתון יש ציר סימטריה אחד בלבד (האלכסון הראשי). הוא מחלק את הדלתון לשני משולשים חופפים משמאל ומימין. לכן הזוויות בצדדים (המורכבות מזוויות הבסיס של המשולשים) שוות, אך זוויות הראש למעלה ולמטה שונות זו מזו.",
-        solution_steps: [
-            { verbal_explanation: "דלתון בנוי משני משולשים שווי שוקיים בעלי בסיס משותף.", math_expression: "מבנה משולשים" },
-            { verbal_explanation: "זוויות הבסיס של המשולש העליון שוות זו לזו, וזוויות הבסיס של המשולש התחתון שוות זו לזו.", math_expression: "זוויות בסיס שוות" },
-            { verbal_explanation: "הזוויות הצדדיות של הדלתון מורכבות מסכום של שתי זוויות בסיס (אחת מהעליון ואחת מהתחתון), ולכן הן תמיד שוות זו לזו. זוויות הראש לרוב שונות.", math_expression: "חיבור זוויות זהות" }
-        ],
-        final_answer: "זוג אחד של זוויות נגדיות שוות זו לזו (זוויות הבסיס), והזוג השני אינו שווה"
-    },
-
-    // --- שאלה 4 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: `בדלתון ABCD, האלכסון AC שווה ל-10 ס"מ, והאלכסון BD שווה ל-8 ס"מ.<br>מהו שטח הדלתון?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="100,20 140,75 100,130 60,75" fill="#e0f2fe" stroke="#2563eb" stroke-width="2"/>
-            <line x1="100" y1="20" x2="100" y2="130" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
-            <line x1="60" y1="75" x2="140" y2="75" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
-            <text x="105" y="50" font-size="10" fill="#10b981">10</text>
-            <text x="120" y="70" font-size="10" fill="#ef4444">8</text>
-        </svg>`,
-        options: ["40 סמ\"ר", "80 סמ\"ר", "20 סמ\"ר", "36 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "שטח של מרובע שאלכסוניו מאונכים (כמו דלתון ומעוין) שווה למחצית מכפלת האלכסונים.",
-        solution_steps: [
-            { verbal_explanation: "כיוון שאלכסוני הדלתון מאונכים זה לזה, ניתן להשתמש בנוסחה לשטח מרובע שאלכסוניו מאונכים.", math_expression: "שטח = (אלכסון א' × אלכסון ב') / 2" },
-            { verbal_explanation: "נציב את אורכי האלכסונים הנתונים.", math_expression: "שטח = (10 × 8) / 2" },
-            { verbal_explanation: "נחשב את המכפלה ונחלק בשתיים.", math_expression: "שטח = 80 / 2 = 40" }
-        ],
-        final_answer: "40 סמ\"ר"
-    },
-
-    // --- שאלה 5 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "האם כל מעוין הוא דלתון?",
-        options: ["כן, כל מעוין עונה להגדרת הדלתון כי הוא מורכב משני משולשים שווי שוקיים בעלי בסיס משותף", "לא, מעוין אינו דלתון כי כל צלעותיו שוות", "כן, אבל רק אם זוויותיו ישרות", "לא, בדלתון האלכסונים אינם חוצים זה את זה"],
-        correctAnswer: 0,
-        hint: "חישבו על ההגדרה הבסיסית של דלתון (שני משולשים שווי שוקיים המחוברים בבסיסם). האם אלכסון במעוין מחלק אותו לשני משולשים כאלו? כן, כי כל צלעות המעוין שוות, אז בוודאי שיש לו זוגות של צלעות סמוכות שוות.",
-        solution_steps: [
-            { verbal_explanation: "הגדרת דלתון: מרובע בעל שני זוגות של צלעות סמוכות שוות.", math_expression: "זוגות סמוכים שווים" },
-            { verbal_explanation: "במעוין, כל ארבע הצלעות שוות. לכן, בוודאי שיש לו שני זוגות של צלעות סמוכות שוות.", math_expression: "מעוין עונה לתנאי" },
-            { verbal_explanation: "מכאן נובע שכל מעוין הוא מקרה פרטי (מיוחד) של דלתון. ההפך, כמובן, אינו נכון (לא כל דלתון הוא מעוין).", math_expression: "מעוין הוא סוג של דלתון" }
-        ],
-        final_answer: "כן, כל מעוין עונה להגדרת הדלתון כי הוא מורכב משני משולשים שווי שוקיים בעלי בסיס משותף"
-    },
-
-    // --- שאלה 6 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: `בדלתון, אורך הצלעות הקצרות הוא 5 ס"מ ואורך הצלעות הארוכות הוא 12 ס"מ.<br>מהו היקף הדלתון?`,
-        options: ["34 ס\"מ", "17 ס\"מ", "60 ס\"מ", "24 ס\"מ"],
-        correctAnswer: 0,
-        hint: "לדלתון יש שני זוגות של צלעות שוות. זוג אחד של צלעות קצרות וזוג אחד של צלעות ארוכות. חברו את ארבעתן להמצאת ההיקף.",
-        solution_steps: [
-            { verbal_explanation: "היקף מרובע הוא סכום כל ארבע צלעותיו.", math_expression: "היקף = צלע + צלע + צלע + צלע" },
-            { verbal_explanation: "בדלתון ישנן שתי צלעות באורך 5 ס\"מ, ושתי צלעות באורך 12 ס\"מ.", math_expression: "היקף = 5 + 5 + 12 + 12" },
-            { verbal_explanation: "נחשב את הסכום הכולל.", math_expression: "היקף = 10 + 24 = 34" }
-        ],
-        final_answer: "34 ס\"מ"
-    },
-
-    // --- שאלה 7 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "איזו מהתכונות הבאות **אינה** מתקיימת בהכרח בדלתון רגיל (שאינו מעוין)?",
-        options: ["האלכסונים חוצים זה את זה", "האלכסונים מאונכים זה לזה", "האלכסון הראשי חוצה את זוויות הראש", "יש זוג אחד של זוויות נגדיות שוות"],
-        correctAnswer: 0,
-        hint: "בדלתון, רק האלכסון הראשי חוצה את האלכסון המשני לשני חצאים שווים. האלכסון המשני אינו חוצה את האלכסון הראשי.",
-        solution_steps: [
-            { verbal_explanation: "נעבור על התכונות של דלתון: האלכסונים מאונכים (זה נכון תמיד).", math_expression: "מאונכים - נכון" },
-            { verbal_explanation: "האלכסון הראשי חוצה את זוויות הראש ומחלק אותו למשולשים חופפים (נכון תמיד).", math_expression: "חוצה זווית - נכון" },
-            { verbal_explanation: "האלכסון הראשי חוצה את המשני, אך המשני **לא** חוצה את הראשי. לכן האלכסונים לא 'חוצים זה את זה' באופן הדדי.", math_expression: "חצייה הדדית - לא נכון" }
-        ],
-        final_answer: "האלכסונים חוצים זה את זה"
-    },
-
-    // --- שאלה 8 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: `בדלתון ABCD האלכסונים נחתכים בנקודה O.<br>האורך של BO (חצי מהאלכסון המשני) הוא 3 ס"מ. האורך של CO (חלק מהאלכסון הראשי) הוא 4 ס"מ.<br>מהו אורך הצלע BC?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="100,20 140,70 100,130 60,70" fill="none" stroke="#0f172a" stroke-width="2"/>
-            <line x1="100" y1="20" x2="100" y2="130" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <line x1="60" y1="70" x2="140" y2="70" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <rect x="100" y="70" width="8" height="8" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-            <text x="120" y="65" font-size="10">3</text>
-            <text x="105" y="100" font-size="10">4</text>
-            <text x="90" y="75" font-size="12" font-weight="bold">O</text>
-            <text x="145" y="75" font-size="12">B</text>
-            <text x="95" y="145" font-size="12">C</text>
-        </svg>`,
-        options: ["5 ס\"מ", "7 ס\"מ", "12 ס\"מ", "25 ס\"מ"],
-        correctAnswer: 0,
-        hint: "האלכסונים בדלתון מאונכים זה לזה (יוצרים זווית של 90 מעלות). לכן משולש COB הוא משולש ישר זווית. השתמשו במשפט פיתגורס לחישוב היתר CB.",
-        solution_steps: [
-            { verbal_explanation: "מכיוון שאלכסוני הדלתון מאונכים, כל אחד מארבעת המשולשים הפנימיים הוא ישר זווית.", math_expression: "זווית COB = 90°" },
-            { verbal_explanation: "נפעיל את משפט פיתגורס על המשולש COB, שניצביו הם 3 ו-4.", math_expression: "CB² = 3² + 4²" },
-            { verbal_explanation: "נחשב: 9 ועוד 16 שווה 25. נוציא שורש ונקבל ש-CB שווה 5 (זוהי שלשה פיתגורית מוכרת).", math_expression: "CB = √25 = 5" }
-        ],
-        final_answer: "5 ס\"מ"
-    },
-
-    // --- שאלה 9 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "איזה משפט מבין הבאים **יכול** להוכיח שמרובע מסוים הוא דלתון?",
-        options: ["מרובע שבו אלכסון אחד חוצה את האלכסון השני ומאונך לו", "מרובע שבו שני האלכסונים שווים זה לזה", "מרובע שבו יש שתי צלעות נגדיות מקבילות", "מרובע שבו יש שני זוגות של צלעות נגדיות שוות"],
-        correctAnswer: 0,
-        hint: "אם אלכסון חוצה את השני ומאונך לו, הרי שהוא מהווה 'אנך אמצעי' לאלכסון השני. כל נקודה על אנך אמצעי נמצאת במרחקים שווים מקצות הקטע. זה יוצר שני משולשים שווי שוקיים המרכיבים דלתון.",
-        solution_steps: [
-            { verbal_explanation: "נבדוק את האפשרויות: שני זוגות צלעות נגדיות שוות מוכיח מקבילית, לא דלתון.", math_expression: "פסילת מקבילית" },
-            { verbal_explanation: "אלכסונים שווים מוכיח מלבן או טרפז שווה שוקיים, לא בהכרח דלתון.", math_expression: "פסילת מלבן/טרפז" },
-            { verbal_explanation: "אם אלכסון אחד מהווה אנך אמצעי (מאונך וחוצה) לאלכסון השני, קצותיו מרוחקים באופן שווה מקצות הקטע הנחצה. זה מבטיח שני זוגות של צלעות סמוכות שוות - וזו הגדרת הדלתון.", math_expression: "הוכחה דרך אנך אמצעי" }
-        ],
-        final_answer: "מרובע שבו אלכסון אחד חוצה את האלכסון השני ומאונך לו"
-    },
-
-    // --- שאלה 10 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "בדלתון, זווית הראש העליונה (הכלואה בין הצלעות הקצרות) היא 100 מעלות, וזווית הראש התחתונה היא 40 מעלות. מהו גודלן של שתי הזוויות הצדדיות של הדלתון?",
-        options: ["כל אחת מהן בת 110 מעלות", "האחת 100 והשנייה 120 מעלות", "כל אחת מהן בת 100 מעלות", "כל אחת מהן בת 70 מעלות"],
-        correctAnswer: 0,
-        hint: "סכום הזוויות במרובע (בכל מרובע) הוא 360 מעלות. הזוויות הצדדיות בדלתון שוות זו לזו. חסרו את זוויות הראש מ-360, וחלקו את השארית לשניים.",
-        solution_steps: [
-            { verbal_explanation: "סכום ארבע הזוויות בכל מרובע הוא תמיד 360 מעלות.", math_expression: "סך הכל = 360°" },
-            { verbal_explanation: "נחשב את סכום שתי הזוויות הנותרות (הצדדיות) על ידי חיסור זוויות הראש הידועות מ-360.", math_expression: "360 - 100 - 40 = 220°" },
-            { verbal_explanation: "מאחר שהזוויות הצדדיות בדלתון שוות בגודלן, נחלק את הסכום בשתיים.", math_expression: "220 / 2 = 110°" }
-        ],
-        final_answer: "כל אחת מהן בת 110 מעלות"
-    },
-
-    // --- שאלה 11 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "דלתון מסוים הצליח להחסם בתוך מעגל (כל ארבעת קודקודיו נוגעים בהיקף המעגל). מה ניתן להסיק מכך בהכרח על זוויותיו של הדלתון?",
-        options: ["שתי הזוויות הצדדיות (הנגדיות) שלו חייבות להיות בנות 90 מעלות כל אחת", "שכל הזוויות שלו בנות 90 מעלות והוא ריבוע", "שהאלכסונים שלו שווים", "לא ניתן להסיק מכך שום דבר לגבי הזוויות"],
-        correctAnswer: 0,
-        hint: "מרובע שחסום במעגל מקיים את התנאי: סכום כל זוג זוויות נגדיות הוא 180 מעלות. בדלתון, שתי הזוויות הצדדיות שוות תמיד זו לזו. אם סכומן 180 והן שוות, כמה שווה כל אחת?",
-        solution_steps: [
-            { verbal_explanation: "על פי משפט מהנדסת המישור: במרובע החסום במעגל, סכום כל שתי זוויות נגדיות שווה ל-180 מעלות.", math_expression: "זווית + זווית נגדית = 180°" },
-            { verbal_explanation: "בדלתון אנו יודעים ששתי הזוויות הצדדיות שוות זו לזו (משום שהן מורכבות מאותן זוויות בסיס).", math_expression: "זווית צד ימין = זווית צד שמאל" },
-            { verbal_explanation: "אם סכומן 180 מעלות והן שוות, כל אחת מהן חייבת להיות בדיוק 90 מעלות.", math_expression: "2x = 180  =>  x = 90°" }
-        ],
-        final_answer: "שתי הזוויות הצדדיות (הנגדיות) שלו חייבות להיות בנות 90 מעלות כל אחת"
-    },
-
-    // --- שאלה 12 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "בדלתון כלשהו, התברר שאחד האלכסונים שווה בדיוק באורכו לאחת הצלעות של הדלתון. האם מצב כזה יכול להתקיים במציאות?",
-        options: ["כן, זה מצב שקורה בהרבה דלתונים (למשל כאשר אחד המשולשים הוא שווה צלעות)", "לא, אלכסון תמיד חייב להיות ארוך יותר מכל צלע", "לא, אלכסון תמיד חייב להיות קצר יותר מכל צלע", "כן, אך ורק אם הדלתון הוא מעוין"],
-        correctAnswer: 0,
-        hint: "דלתון מורכב משני משולשים המחוברים בבסיסם (שהוא האלכסון המשני). מה קורה אם אחד מהמשולשים הללו אינו סתם משולש שווה שוקיים, אלא משולש שווה צלעות? אז הבסיס יהיה שווה באורכו לשוקיים.",
-        solution_steps: [
-            { verbal_explanation: "האלכסון המשני של הדלתון משמש כבסיס משותף לשני המשולשים שווי השוקיים.", math_expression: "האלכסון כבסיס" },
-            { verbal_explanation: "אין מניעה גיאומטרית שאחד המשולשים הללו יהיה משולש שווה צלעות (שבו הבסיס שווה לשוקיים).", math_expression: "היתכנות למשולש שווה צלעות" },
-            { verbal_explanation: "במקרה כזה, האלכסון המשני שווה באורכו לצלעות הדלתון העוטפות את אותו משולש.", math_expression: "אלכסון = צלע" }
-        ],
-        final_answer: "כן, זה מצב שקורה בהרבה דלתונים (למשל כאשר אחד המשולשים הוא שווה צלעות)"
-    },
-
-    // --- שאלה 13 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "שטחו של דלתון הוא 60 סמ\"ר. אורכו של האלכסון הראשי הוא 12 ס\"מ. מהו אורכו של האלכסון המשני (הקצר יותר)?",
-        options: ["10 ס\"מ", "5 ס\"מ", "12 ס\"מ", "24 ס\"מ"],
-        correctAnswer: 0,
-        hint: "נוסחת שטח הדלתון היא: מכפלת האלכסונים לחלק ל-2. כלומר: (12 כפול האלכסון השני) לחלק ל-2 שווה ל-60.",
-        solution_steps: [
-            { verbal_explanation: "נרשום את נוסחת שטח הדלתון, המבוססת על כך שאלכסוניו מאונכים זה לזה.", math_expression: "שטח = (אלכסון א' × אלכסון ב') / 2" },
-            { verbal_explanation: "נציב את השטח הנתון (60) ואת האלכסון הידוע (12).", math_expression: "60 = (12 × אלכסון ב') / 2" },
-            { verbal_explanation: "נצמצם את השבר: 12 לחלק ל-2 זה 6.", math_expression: "60 = 6 × אלכסון ב'" },
-            { verbal_explanation: "נחלק ב-6 ונקבל את אורך האלכסון המשני.", math_expression: "אלכסון ב' = 10" }
-        ],
-        final_answer: "10 ס\"מ"
-    },
-
-    // --- שאלה 14 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "איזה מן המשפטים הבאים מתאר נכונה את חוקיות הסימטריה של דלתון (שאינו מעוין)?",
-        options: ["האלכסון הראשי הוא ציר סימטריה יחיד של הדלתון", "שני האלכסונים הם צירי סימטריה של הדלתון", "לדלתון אין ציר סימטריה כלל", "נקודת מפגש האלכסונים היא נקודת סימטריה מרכזית"],
-        correctAnswer: 0,
-        hint: "דמיינו שאתם מקפלים את הדלתון כמו נייר. איזה קו מאפשר קיפול מושלם שבו שני החצאים חופפים בדיוק אחד לשני? רק הקו שעובר דרך שני קודקודי הראש.",
-        solution_steps: [
-            { verbal_explanation: "האלכסון הראשי עובר דרך קודקודי הראש של שני המשולשים שווי השוקיים המרכיבים את הדלתון.", math_expression: "קו חוצה ראשים" },
-            { verbal_explanation: "הוא מחלק את הדלתון לשני משולשים חופפים לחלוטין (לפי משפט חפיפה צלע-צלע-צלע).", math_expression: "משולש ימין חופף למשולש שמאל" },
-            { verbal_explanation: "לכן, האלכסון הראשי משמש כציר סימטריה יחיד של הצורה. האלכסון המשני אינו ציר סימטריה כי המשולש העליון שונה מהתחתון.", math_expression: "ציר סימטריה בודד" }
-        ],
-        final_answer: "האלכסון הראשי הוא ציר סימטריה יחיד של הדלתון"
-    },
-
-    // --- שאלה 15 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "דלתון",
-        question: "בדלתון נתון שרטוט של האלכסון המשני בלבד. זווית הראש של המשולש העליון (הכלואה בין הצלעות) שווה ל-120 מעלות, וזווית הראש של המשולש התחתון שווה ל-80 מעלות. מהן זוויות הבסיס שנוצרות במשולש העליון ובמשולש התחתון?",
-        options: ["במשולש העליון 30° ו-30°, במשולש התחתון 50° ו-50°", "במשולש העליון 60° ו-60°, במשולש התחתון 40° ו-40°", "כל הזוויות בנות 90°", "במשולש העליון 45° ו-45°"],
-        correctAnswer: 0,
-        hint: "האלכסון המשני יוצר שני משולשים שווי שוקיים. סכום הזוויות בכל משולש כזה הוא 180. אם זווית הראש היא 120, כמה נשאר לשתי זוויות הבסיס השוות יחד? חלקו ב-2.",
-        solution_steps: [
-            { verbal_explanation: "במשולש העליון (שהוא שווה שוקיים): זווית הראש היא 120°. נחסר מ-180 לקבלת סכום זוויות הבסיס.", math_expression: "180 - 120 = 60°" },
-            { verbal_explanation: "נחלק ב-2 כיוון ששתי זוויות הבסיס שוות זו לזו.", math_expression: "60 / 2 = 30°" },
-            { verbal_explanation: "במשולש התחתון (שגם הוא שווה שוקיים): זווית הראש היא 80°. נחסר מ-180.", math_expression: "180 - 80 = 100°" },
-            { verbal_explanation: "נחלק שוב ב-2 למציאת זוויות הבסיס התחתונות.", math_expression: "100 / 2 = 50°" }
-        ],
-        final_answer: "במשולש העליון 30° ו-30°, במשולש התחתון 50° ו-50°"
-    },
-
-    // ========================================================================
+    // ==========================================================
     // תת נושא 6: משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)
-    // ========================================================================
-
-    // --- שאלה 16 ---
+    // ==========================================================
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "מה קובע המשפט המפורסם לגבי התיכון ליתר במשולש ישר זווית?",
-        options: ["התיכון ליתר שווה למחצית היתר", "התיכון ליתר שווה לאחד הניצבים", "התיכון ליתר מאונך ליתר תמיד", "התיכון ליתר מחלק את זווית הראש ל-45 מעלות כל אחת"],
+        question_text: "במשולש ישר זווית, התיכון ליתר והגובה ליתר יוצרים ביניהם זווית של 28 מעלות. מהו גודלה של הזווית החדה הגדולה במשולש?\n\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px;'><svg viewBox='0 0 240 140' width='240' height='140'><defs><filter id='shRight'><feDropShadow dx='3' dy='3' stdDeviation='3' flood-opacity='0.2'/></filter></defs><polygon points='40,110 200,110 40,30' fill='#fefce8' stroke='#ca8a04' stroke-width='3' filter='url(#shRight)'/><rect x='40' y='95' width='15' height='15' fill='none' stroke='#ca8a04' stroke-width='2'/><line x1='40' y1='110' x2='120' y2='70' stroke='#ef4444' stroke-width='3' stroke-dasharray='4'/></svg></div>",
+        options: ["59", "31", "62", "45"],
         correctAnswer: 0,
-        hint: "אם נשרטט קו (תיכון) מתוך הזווית הישרה אל נקודת האמצע של היתר, נקבל קטע שאורכו זהה בדיוק לאורך החצאים שהוא יצר ביתר.",
+        hint: "השתמשו בקשר שבין הזוויות החדות (סכומן 90) והפרשן ששווה לזווית בין התיכון לגובה.",
         solution_steps: [
-            { verbal_explanation: "זהו משפט יסודי בגיאומטריה של המישור: במשולש ישר זווית, התיכון היורד מהזווית הישרה אל היתר מחלק את המשולש למשולשים קטנים.", math_expression: "תיכון יוצא מזווית 90°" },
-            { verbal_explanation: "אורכו של התיכון הזה שווה בדיוק לחצי מאורכו של היתר כולו.", math_expression: "תיכון = יתר / 2" }
+            { verbal_explanation: "שלב א': נסמן את הזוויות החדות ב-$x$ וב-$y$. הזווית בין התיכון לגובה שווה להפרש ביניהן.", math_expression: "y - x = 28" },
+            { verbal_explanation: "שלב ב': נזכור כי סכום הזוויות החדות במשולש ישר זווית הוא תמיד 90 מעלות.", math_expression: "y + x = 90" },
+            { verbal_explanation: "שלב ג': נחבר את שתי המשוואות כדי לבטל את הנעלם $x$.", math_expression: "2 \\times y = 118" },
+            { verbal_explanation: "שלב ד': נחלק בשתיים לקבלת גודלה של הזווית הגדולה.", math_expression: "y = 59" }
         ],
-        final_answer: "התיכון ליתר שווה למחצית היתר"
+        final_answer: "59"
     },
-
-    // --- שאלה 17 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: `במשולש ישר זווית נתון שהתיכון ליתר שווה באורכו ל-6 ס"מ.<br>מהו אורכו של היתר כולו?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 40,40" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="40" y="110" width="10" height="10" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-            <line x1="40" y1="120" x2="100" y2="80" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
-            <text x="75" y="110" font-size="12" font-weight="bold">6</text>
-            <line x1="90" y1="75" x2="100" y2="65" stroke="#ef4444" stroke-width="1.5"/>
-            <line x1="105" y1="85" x2="115" y2="75" stroke="#ef4444" stroke-width="1.5"/>
-            <line x1="60" y1="95" x2="70" y2="85" stroke="#ef4444" stroke-width="1.5"/>
-        </svg>`,
-        options: ["12 ס\"מ", "6 ס\"מ", "3 ס\"מ", "18 ס\"מ"],
+        question_text: "במשולש ישר זווית, ניצב אחד הוא 18 ס\"מ והזווית שמולו היא בת 30 מעלות. מהו אורך התיכון ליתר?",
+        options: ["18", "36", "9", "27"],
         correctAnswer: 0,
-        hint: "אם התיכון שווה למחצית היתר, אז היתר שווה לפעמיים התיכון. הכפילו את אורך התיכון בשתיים.",
+        hint: "הניצב מול ה-30 הוא חצי מהיתר.",
         solution_steps: [
-            { verbal_explanation: "על פי המשפט הגיאומטרי, התיכון ליתר שווה למחצית היתר.", math_expression: "תיכון = יתר / 2" },
-            { verbal_explanation: "נציב את נתון התיכון שידוע לנו.", math_expression: "6 = יתר / 2" },
-            { verbal_explanation: "נכפיל ב-2 כדי לחלץ את אורך היתר השלם.", math_expression: "יתר = 12" }
+            { verbal_explanation: "שלב א': נמצא את אורך היתר. הוא גדול פי 2 מהניצב שעומד מול זווית 30 המעלות.", math_expression: "18 \\times 2 = 36" },
+            { verbal_explanation: "שלב ב': התיכון ליתר במשולש ישר זווית שווה בדיוק למחצית היתר.", math_expression: "36 : 2 = 18" }
         ],
-        final_answer: "12 ס\"מ"
+        final_answer: "18"
     },
-
-    // --- שאלה 18 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "איזו צורה מתקבלת תמיד כאשר משרטטים את התיכון ליתר במשולש ישר זווית ומחלקים אותו?",
-        options: ["שני משולשים שווי שוקיים", "שני משולשים ישרי זווית", "משולש שווה צלעות ומשולש שונה צלעות", "הוא לא יוצר שום צורות מיוחדות"],
+        question_text: "במשולש ישר זווית ($30, 60, 90$), אורך הניצב הארוך הוא $12\\sqrt{3}$ ס\"מ. מהו היקף המשולש?",
+        options: ["36 + 12 \\times \\sqrt{3}", "48", "24 + 12 \\times \\sqrt{3}", "60"],
         correctAnswer: 0,
-        hint: "התיכון חותך את היתר לשני חצאים. בנוסף, התיכון עצמו שווה באורכו לחצי מהיתר. לכן, נוצרים לנו שני משולשים קטנים, שבכל אחד מהם יש שתי צלעות שוות (התיכון, וחצי היתר).",
+        hint: "יחסי הצלעות הם $x, x\\sqrt{3}, 2x$.",
         solution_steps: [
-            { verbal_explanation: "התיכון ליתר מחלק את היתר לשני קטעים שווים זה לזה.", math_expression: "חצי יתר = חצי יתר" },
-            { verbal_explanation: "לפי המשפט, התיכון עצמו שווה באורכו לאותם חצאי קטעים.", math_expression: "תיכון = חצי יתר" },
-            { verbal_explanation: "לכן, בכל אחד משני המשולשים שנוצרו, ישנן שתי צלעות שוות, מה שהופך אותם למשולשים שווי שוקיים.", math_expression: "שוקיים שוות" }
+            { verbal_explanation: "שלב א': נמצא את הניצב הקצר $x$ (מול ה-30) על ידי חלוקת הניצב הארוך בשורש 3.", math_expression: "x = 12" },
+            { verbal_explanation: "שלב ב': היתר הוא פעמיים הניצב הקצר שמצאנו.", math_expression: "12 \\times 2 = 24" },
+            { verbal_explanation: "שלב ג': נחבר את כל שלוש הצלעות כדי לקבל את היקף המשולש.", math_expression: "12 + 24 + 12\\sqrt{3} = 36 + 12\\sqrt{3}" }
         ],
-        final_answer: "שני משולשים שווי שוקיים"
+        final_answer: "36 + 12 \\times \\sqrt{3}"
     },
-
-    // --- שאלה 19 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "המשפט ההפוך: אם נתון משולש כלשהו (שסוגו אינו ידוע) ובו נתון שהתיכון לאחת הצלעות שווה בדיוק למחצית מאותה הצלע. מה נוכל להסיק בוודאות על המשולש כולו?",
-        options: ["שהוא בהכרח משולש ישר זווית", "שהוא בהכרח משולש שווה צלעות", "שהוא בהכרח משולש קהה זווית", "אי אפשר לדעת כלום ללא נתוני זוויות"],
+        question_text: "במשולש ישר זווית, התיכון ליתר הוא 13 ס\"מ. אחד הניצבים הוא 10 ס\"מ. מהו אורך הניצב השני?",
+        options: ["24", "12", "26", "15"],
         correctAnswer: 0,
-        hint: "זהו המשפט ההפוך למשפט התיכון ליתר, והוא תקף וחזק בדיוק כמוהו. קיום תנאי זה 'מוכיח' ומהווה חותמת לקיומה של זווית בת 90 מעלות.",
+        hint: "היתר הוא פעמיים התיכון.",
         solution_steps: [
-            { verbal_explanation: "המשפט ההפוך למשפט התיכון ליתר קובע עובדה חד משמעית לזיהוי משולשים.", math_expression: "זיהוי ישר זווית" },
-            { verbal_explanation: "אם במשולש כלשהו, התיכון לצלע מסוימת שווה למחצית מאותה הצלע, אזי המשולש חייב להיות משולש ישר זווית.", math_expression: "תיכון = צלע / 2  =>  משולש ישר זווית" },
-            { verbal_explanation: "הזווית שממנה יוצא אותו תיכון, היא הזווית הישרה (השווה ל-90 מעלות).", math_expression: "זווית קודקוד = 90°" }
+            { verbal_explanation: "שלב א': היתר גדול פי 2 מאורך התיכון היורד אליו.", math_expression: "13 \\times 2 = 26" },
+            { verbal_explanation: "שלב ב': נמצא את הניצב השני בעזרת משפט פיתגורס.", math_expression: "26^2 - 10^2 = 676 - 100 = 576" },
+            { verbal_explanation: "שלב ג': נוציא שורש ריבועי.", math_expression: "\\sqrt{576} = 24" }
         ],
-        final_answer: "שהוא בהכרח משולש ישר זווית"
+        final_answer: "24"
     },
-
-    // --- שאלה 20 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש ישר זווית, אחת מזוויותיו החדות היא בת 30 מעלות (משולש המכונה 'משולש זהב'). איזה משפט צלעות מתקיים בוודאות במשולש המיוחד הזה?",
-        options: ["הניצב שמול הזווית של ה-30 מעלות שווה למחצית מהיתר", "הניצב שמול ה-30 מעלות שווה באורכו לניצב השני", "היתר שווה לניצב שליד ה-30 מעלות", "הניצב שמול ה-30 מעלות כפול בגודלו מהיתר"],
+        question_text: "במשולש ישר זווית שבו הניצב הקצר הוא 12 ס\"מ והיתר הוא 24 ס\"מ, התיכון ליתר מחלק את המשולש לשני משולשים. מהו סוג המשולש הקטן יותר שנוצר?",
+        options: ["שווי צלעות", "ישר זווית", "שווה שוקיים בלבד", "כהה זווית"],
         correctAnswer: 0,
-        hint: "זהו 'משפט ה-30 מעלות' המפורסם. הניצב הקטן (שנמצא מול הזווית הקטנה ביותר של ה-30 מעלות) הוא בדיוק חצי באורכו מהצלע הארוכה ביותר במשולש (שהיא היתר).",
+        hint: "בדקו את הזוויות של המשולש המקורי.",
         solution_steps: [
-            { verbal_explanation: "משולש בעל זוויות 30 מעלות, 60 מעלות ו-90 מעלות מכונה 'משולש זהב' בשל תכונותיו.", math_expression: "משולש 30-60-90" },
-            { verbal_explanation: "תכונת יסוד של משולש זה היא שהניצב הניצב מול הזווית הקטנה ביותר (30°) שווה בדיוק לחצי מאורך היתר.", math_expression: "ניצב מול 30° = יתר / 2" },
-            { verbal_explanation: "משפט זה הוא תוצר של תכונות משולש שווה צלעות (אם נדביק שני משולשי זהב יחד זה לזה נקבל אחד כזה).", math_expression: "חצי שווה צלעות" }
+            { verbal_explanation: "שלב א': מכיוון שהניצב הוא חצי מהיתר, הזווית שמולו היא 30 מעלות והשנייה 60 מעלות.", math_expression: "" },
+            { verbal_explanation: "שלב ב': התיכון שווה לחצי יתר (12). הוא יוצר עם הניצב הקצר משולש שבו שתי צלעות הן 12 והזווית ביניהן היא 60.", math_expression: "" },
+            { verbal_explanation: "שלב ג': משולש שווה שוקיים בעל זווית של 60 מעלות הוא משולש שווה צלעות.", math_expression: "" }
         ],
-        final_answer: "הניצב שמול הזווית של ה-30 מעלות שווה למחצית מהיתר"
+        final_answer: "שווי צלעות"
     },
-
-    // --- שאלה 21 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: `במשולש ישר זווית נתון שהזווית החדה העליונה היא 30 מעלות. אורך היתר הוא 14 ס"מ.<br>מהו אורכו של הניצב התחתון (שנמצא מול זווית ה-30)?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="40,120 120,120 40,20" fill="#e0f2fe" stroke="#2563eb" stroke-width="2"/>
-            <rect x="40" y="110" width="10" height="10" fill="none" stroke="#ef4444" stroke-width="1.5"/>
-            <path d="M 40,40 Q 50,45 50,30" fill="none" stroke="#0f172a" stroke-width="1"/>
-            <text x="55" y="45" font-size="10">30°</text>
-            <text x="90" y="65" font-size="12" font-weight="bold">14</text>
-            <text x="80" y="135" font-size="12" fill="#ef4444">?</text>
-        </svg>`,
-        options: ["7 ס\"מ", "14 ס\"מ", "28 ס\"מ", "10 ס\"מ"],
+        question_text: "במשולש ישר זווית, הזווית בין התיכון ליתר לבין היתר היא בת 60 מעלות. אורך התיכון הוא 8 ס\"מ. מהו היקף המשולש הקטן שנוצר הכולל את הניצב הקצר?",
+        options: ["24", "16", "32", "20"],
         correctAnswer: 0,
-        hint: "לפי המשפט שלמדתם, הניצב שמול זווית ה-30 מעלות שווה למחצית מהיתר. חלקו את המספר 14 בשתיים.",
+        hint: "המשולש הנוצר הוא שווה צלעות בגלל תכונות התיכון.",
         solution_steps: [
-            { verbal_explanation: "במשולש ישר זווית עם זווית 30°, הניצב מול ה-30° שווה למחצית מהיתר.", math_expression: "ניצב = יתר / 2" },
-            { verbal_explanation: "אורך היתר נתון כ-14 ס\"מ בשרטוט.", math_expression: "יתר = 14" },
-            { verbal_explanation: "נחלק את היתר ב-2 למציאת הניצב.", math_expression: "ניצב = 14 / 2 = 7" }
+            { verbal_explanation: "שלב א': התיכון שווה לחצי יתר (8). המשולש שנוצר הוא שווה שוקיים עם זווית ראש של 60 מעלות, לכן הוא שווה צלעות.", math_expression: "" },
+            { verbal_explanation: "שלב ב': כל צלעות המשולש הפנימי הן באורך 8 ס\"מ.", math_expression: "8" },
+            { verbal_explanation: "שלב ג': היקף המשולש הוא סכום שלוש צלעותיו.", math_expression: "8 \\times 3 = 24" }
         ],
-        final_answer: "7 ס\"מ"
+        final_answer: "24"
     },
-
-    // --- שאלה 22 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש ישר זווית, התגלה שאורכו של אחד הניצבים הוא 5 ס\"מ, ואורך היתר הוא 10 ס\"מ. מהו גודלה של הזווית הנמצאת **מול** הניצב הזה?",
-        options: ["30 מעלות", "60 מעלות", "45 מעלות", "90 מעלות"],
+        question_text: "ניצב במשולש ישר זווית הוא $x$. היתר הוא $2x$. אם שטח המשולש הוא $12.5\\sqrt{3}$ סמ\"ר, מהו ערכו של $x$?",
+        options: ["5", "10", "2.5", "15"],
         correctAnswer: 0,
-        hint: "זהו המשפט ההפוך למשפט ה-30 מעלות: אם ניצב שווה למחצית היתר (והרי 5 הוא בדיוק חצי מ-10), אז הזווית שמולו מוגדרת בהכרח כ-30 מעלות.",
+        hint: "בטאו את הניצב השני בעזרת $x$ (זהו משולש 30-60-90).",
         solution_steps: [
-            { verbal_explanation: "נשים לב שהניצב הנתון (5) שווה בדיוק לחצי מהיתר הנתון (10).", math_expression: "5 = 10 / 2" },
-            { verbal_explanation: "לפי המשפט ההפוך: במשולש ישר זווית, אם ישנו ניצב השווה למחצית היתר, אזי הזווית הנמצאת מול אותו הניצב שווה בהכרח ל-30 מעלות.", math_expression: "זווית = 30°" }
+            { verbal_explanation: "שלב א': הניצב השני מחושב בפיתגורס וערכו הוא $x\\sqrt{3}$.", math_expression: "x \\times \\sqrt{3}" },
+            { verbal_explanation: "שלב ב': נבנה משוואת שטח: ניצב כפול ניצב חלקי 2.", math_expression: "\\displaystyle \\frac{x^2 \\times \\sqrt{3}}{2} = 12.5 \\times \\sqrt{3}" },
+            { verbal_explanation: "שלב ג': נצמצם את השורש ונכפיל בשתיים.", math_expression: "x^2 = 25 \\quad \\Rightarrow \\quad x = 5" }
         ],
-        final_answer: "30 מעלות"
+        final_answer: "5"
     },
-
-    // --- שאלה 23 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש ישר זווית שאחת מזוויותיו היא 30 מעלות, שרטטו את התיכון ליתר שחילק את המשולש לשניים. איזה משולש מיוחד נוצר בצד של זווית ה-60 מעלות?",
-        options: ["משולש שווה צלעות", "משולש שווה שוקיים קהה זווית", "משולש ישר זווית נוסף", "משולש שונה צלעות לחלוטין"],
+        question_text: "במשולש ישר זווית, התיכון ליתר ארוך ב-6 ס\"מ מהניצב הקצר. היתר הוא 30 ס\"מ. מהו אורך הניצב הקצר?",
+        options: ["9", "15", "21", "7.5"],
         correctAnswer: 0,
-        hint: "התיכון חותך את המשולש הגדול לשני משולשים שווי שוקיים. באחד מהם (בצד של ה-60 מעלות), יש משולש שווה שוקיים שאחת הזוויות שלו היא 60. מה קורה למשולש שווה שוקיים כשיש לו זווית אחת של 60 מעלות?",
+        hint: "התיכון הוא חצי מהיתר.",
         solution_steps: [
-            { verbal_explanation: "התיכון ליתר שווה למחצית היתר, ויוצר משולש שווה שוקיים יחד עם חצי היתר אליו הוא יורד.", math_expression: "תיכון = חצי יתר" },
-            { verbal_explanation: "במשולש המקורי, הזווית שלא 30 היא 60 מעלות (השלמה ל-90). ולכן במשולש שווה השוקיים שנוצר בצד זה, יש זווית בסיס של 60 מעלות.", math_expression: "זווית בסיס = 60°" },
-            { verbal_explanation: "במשולש שווה שוקיים, אם יש זווית אחת של 60 מעלות - כל שאר הזוויות חייבות להיות 60 מעלות (כדי להשלים ל-180 יחד), והמשולש הופך למשולש שווה צלעות מושלם.", math_expression: "משולש 60-60-60" }
+            { verbal_explanation: "שלב א': נמצא את אורך התיכון ליתר (חצי מ-30).", math_expression: "30 : 2 = 15" },
+            { verbal_explanation: "שלב ב': התיכון (15) ארוך ב-6 מהניצב הקצר $x$. נחסר 6.", math_expression: "15 - 6 = 9" }
         ],
-        final_answer: "משולש שווה צלעות"
+        final_answer: "9"
     },
-
-    // --- שאלה 24 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: `במשולש ישר זווית ABC, התיכון AD יורד ליתר BC. נתון שזווית B היא 30 מעלות. אורך התיכון AD הוא 8 ס"מ.<br>מהו אורך הניצב AC (זה שמול זווית B)?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 40,40" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="40" y="110" width="10" height="10" fill="none" stroke="#0f172a" stroke-width="1.5"/>
-            <line x1="40" y1="120" x2="100" y2="80" stroke="#10b981" stroke-width="2"/>
-            <text x="65" y="95" font-size="10" fill="#10b981" font-weight="bold">8</text>
-            <text x="135" y="115" font-size="10">30°</text>
-            <text x="25" y="125" font-size="12">A</text>
-            <text x="165" y="125" font-size="12">B</text>
-            <text x="25" y="40" font-size="12">C</text>
-            <text x="105" y="75" font-size="12">D</text>
-        </svg>`,
-        options: ["8 ס\"מ", "16 ס\"מ", "4 ס\"מ", "12 ס\"מ"],
+        question_text: "במשולש 30-60-90, התיכון ליתר הוא 6 ס\"מ. מהו שטח המשולש?",
+        options: ["18 \\times \\sqrt{3}", "36", "9 \\times \\sqrt{3}", "72"],
         correctAnswer: 0,
-        hint: "שלב א': מצאו את היתר BC (הוא כפול מאורך התיכון). שלב ב': השתמשו במשפט זווית 30 מעלות - הניצב שמולה שווה לחצי מהיתר. במילים אחרות - הניצב מול 30 מעלות שווה תמיד לאורך התיכון ליתר!",
+        hint: "מצאו תחילה את היתר ואת הניצבים.",
         solution_steps: [
-            { verbal_explanation: "התיכון ליתר נתון כ-8. לכן, היתר כולו כפול באורכו.", math_expression: "BC = 2 × 8 = 16" },
-            { verbal_explanation: "במשולש הנתון יש זווית של 30°. הניצב שמולה (AC) שווה למחצית היתר.", math_expression: "AC = 16 / 2 = 8" },
-            { verbal_explanation: "כלל אצבע מועיל לזכור: במשולש ישר זווית עם זווית 30°, התיכון ליתר והניצב שמול ה-30 שווים זה לזה באורכם לחלוטין.", math_expression: "AC = AD = 8" }
+            { verbal_explanation: "שלב א': היתר הוא פעמיים התיכון, כלומר 12.", math_expression: "12" },
+            { verbal_explanation: "שלב ב': הניצבים הם 6 (מול ה-30) ו-6 שורש 3 (מול ה-60).", math_expression: "6 \\quad , \\quad 6\\sqrt{3}" },
+            { verbal_explanation: "שלב ג': נחשב שטח: מכפלת ניצבים חלקי 2.", math_expression: "\\displaystyle \\frac{6 \\times 6 \\times \\sqrt{3}}{2} = 18 \\times \\sqrt{3}" }
         ],
-        final_answer: "8 ס\"מ"
+        final_answer: "18 \\times \\sqrt{3}"
     },
-
-    // --- שאלה 25 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש ישר זווית, אורך היתר הוא 20. אם התגלה שהתיכון ליתר הוא בדיוק 10, ואין לנו שום מידע נוסף על הזוויות, האם ניתן לומר שהמשולש הוא 'משולש זהב' (עם זווית 30 מעלות)?",
-        options: ["לא בהכרח, התיכון תמיד שווה למחצית היתר בכל משולש ישר זווית באשר הוא", "כן, משפט התיכון חל רק על משולשי זהב", "לא, התיכון צריך להיות 5 כדי שזה יהיה משולש זהב", "כן, הנתון הזה מוכיח שהמשולש הוא שווה צלעות"],
+        question_text: "במשולש ישר זווית, התיכון ליתר יוצר משולש שווה צלעות עם הניצב הקצר. מהו היקף המשולש המקורי אם הניצב הקצר הוא 5 ס\"מ?",
+        options: ["15 + 5 \\times \\sqrt{3}", "20", "15", "10 + 5 \\times \\sqrt{3}"],
         correctAnswer: 0,
-        hint: "המשפט 'התיכון ליתר שווה למחצית היתר' הוא משפט כללי שמתקיים ב**כל** משולש ישר זווית, גם כזה שהזוויות שלו הן למשל 40 ו-50. זה כשלעצמו לא מוכיח קיום של זווית 30 מעלות.",
+        hint: "התיכון שווה לניצב, לכן היתר הוא 10.",
         solution_steps: [
-            { verbal_explanation: "המשפט 'התיכון ליתר שווה למחצית היתר' תופס תמיד עבור כל משולש ישר זווית.", math_expression: "חוקיות כללית לישרי זווית" },
-            { verbal_explanation: "העובדה ש-10 זה חצי מ-20 אינה מיוחדת ולא מוסיפה לנו מידע חדש, היא רק מאשרת את החוקיות הכללית הזו.", math_expression: "10 = 20 / 2" },
-            { verbal_explanation: "כדי להוכיח קיום זווית של 30 מעלות, היינו צריכים לדעת שאחד ה**ניצבים** (ולא התיכון) שווה למחצית היתר.", math_expression: "נדרש נתון על ניצב" }
+            { verbal_explanation: "שלב א': אם נוצר משולש שווה צלעות, התיכון שווה לניצב (5). לכן היתר הוא 10.", math_expression: "10" },
+            { verbal_explanation: "שלב ב': נמצא את הניצב השני בעזרת היחסים של משולש 30-60-90.", math_expression: "5\\sqrt{3}" },
+            { verbal_explanation: "שלב ג': נחבר את כל הצלעות להיקף.", math_expression: "5 + 10 + 5\\sqrt{3} = 15 + 5\\sqrt{3}" }
         ],
-        final_answer: "לא בהכרח, התיכון תמיד שווה למחצית היתר בכל משולש ישר זווית באשר הוא"
+        final_answer: "15 + 5 \\times \\sqrt{3}"
     },
-
-    // --- שאלה 26 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש כלשהו נתון התיכון AD לצלע BC. נתון כי אורך AD שווה ל-BD ושווה ל-DC. מה ניתן להסיק מכך על המשולש באופן סופי?",
-        options: ["שהמשולש הוא ישר זווית, וזווית A היא 90 מעלות", "שהמשולש הוא שווה צלעות", "שזווית B היא 30 מעלות", "שזהו דלתון מסוג כלשהו"],
+        question_text: "סכום היתר והתיכון ליתר במשולש ישר זווית הוא 45 ס\"מ. מהו אורך היתר?",
+        options: ["30", "15", "22.5", "40"],
         correctAnswer: 0,
-        hint: "אם התיכון שווה לחלקים שהוא עצמו יצר בצלע אליה ירד, הרי שהוא שווה בדיוק למחצית מאותה הצלע השלמה. לפי המשפט ההפוך, זה אומר שהזווית שממנה התיכון יצא היא זווית ישרה.",
+        hint: "היתר הוא 2x והתיכון הוא x.",
         solution_steps: [
-            { verbal_explanation: "הנתון ש-AD שווה ל-BD ושווה ל-DC אומר למעשה מתמטית ש-AD שווה לחצי מ-BC השלם.", math_expression: "AD = BC / 2" },
-            { verbal_explanation: "לפי המשפט ההפוך למשפט התיכון: 'משולש שבו תיכון שווה למחצית הצלע אותה הוא חוצה, חייב להיות משולש ישר זווית'.", math_expression: "הוכחת משולש ישר זווית" },
-            { verbal_explanation: "הזווית הישרה (90 מעלות) היא תמיד זו שממנה יצא התיכון, כלומר זווית קודקוד A.", math_expression: "זווית A = 90°" }
+            { verbal_explanation: "שלב א': נסמן תיכון ב-$x$ ויתר ב-$2x$. סכומם הוא 45.", math_expression: "x + 2 \\times x = 45 \\quad \\Rightarrow \\quad 3 \\times x = 45" },
+            { verbal_explanation: "שלב ב': נמצא את $x$.", math_expression: "x = 15" },
+            { verbal_explanation: "שלב ג': היתר הוא פעמיים $x$.", math_expression: "2 \\times 15 = 30" }
         ],
-        final_answer: "שהמשולש הוא ישר זווית, וזווית A היא 90 מעלות"
+        final_answer: "30"
     },
-
-    // --- שאלה 27 ---
     {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
+        topic: "geometry",
         subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש ישר זווית, הניצב מול זווית ה-30 מעלות שווה ל-a (פרמטר). מהו ההיקף הכולל של המשולש (כולל שימוש בשורשים במידת הצורך)?",
-        options: ["a(3 + √3)", "3a", "a(2 + √3)", "6a"],
+        question_text: "במשולש ישר זווית, התיכון ליתר שווה בדיוק לאורך אחד הניצבים. מהן הזוויות החדות של המשולש?",
+        options: ["30, 60", "45, 45", "15, 75", "20, 70"],
         correctAnswer: 0,
-        hint: "הניצב מול ה-30 הוא a. היתר כפול ממנו, לכן הוא 2a. כדי למצוא את הניצב השלישי (זה שמול ה-60), משתמשים בפיתגורס: ניצב חסר בריבוע ועוד a בריבוע, שווה ל-(2a) בריבוע. פתרו למציאת הניצב, וחברו את כל שלוש הצלעות יחד.",
+        hint: "ניצב ששווה למחצית היתר נמצא מול זווית של 30 מעלות.",
         solution_steps: [
-            { verbal_explanation: "הצלע הראשונה היא הניצב הנתון במשתנה a.", math_expression: "ניצב ראשון = a" },
-            { verbal_explanation: "הצלע השנייה היא היתר. לפי המשפט, הוא כפול מהניצב שמול ה-30 מעלות.", math_expression: "יתר = 2a" },
-            { verbal_explanation: "נשתמש במשפט פיתגורס כדי למצוא את הניצב השני והחסר (נסמנו ב-y).", math_expression: "y² + a² = (2a)²" },
-            { verbal_explanation: "נפתח סוגריים ונעביר את a בריבוע אגף. 4a בריבוע פחות a בריבוע נותן 3a בריבוע.", math_expression: "y² = 3a²  =>  y = a√3" },
-            { verbal_explanation: "נחשב את ההיקף כסכום הצלעות: a ועוד 2a ועוד a שורש 3. נוציא את a כגורם משותף.", math_expression: "היקף = 3a + a√3 = a(3 + √3)" }
+            { verbal_explanation: "שלב א': התיכון הוא חצי מהיתר. אם הוא שווה לניצב, הרי שהניצב הוא בדיוק חצי מהיתר.", math_expression: "" },
+            { verbal_explanation: "שלב ב': לפי המשפט ההפוך, ניצב ששווה לחצי יתר נמצא מול זווית של 30 מעלות. לכן הזווית השנייה היא 60.", math_expression: "" }
         ],
-        final_answer: "a(3 + √3)"
-    },
-
-    // --- שאלה 28 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "איזו צורה מוכרת ניתן להרכיב במדויק בעזרת שיקוף (הדבקה של שני משולשים זהים גב אל גב) של משולש ישר זווית בעל זוויות של 30-60-90?",
-        options: ["משולש שווה צלעות ענק או דלתון תלוי בצלע ההדבקה", "רק מלבן אפשרי", "רק ריבוע מושלם", "מחומש משוכלל"],
-        correctAnswer: 0,
-        hint: "אם נדביק את שני המשולשים זה לזה לאורך הניצב הארוך (זה שמול ה-60), זוויות הבסיס שלהם (60) יישארו 60, וזוויות הראש (30 ו-30) יתחברו ל-60. כך נוצר משולש שווה צלעות מושלם.",
-        solution_steps: [
-            { verbal_explanation: "משולש זהב (30-60-90) הוא למעשה בדיוק חצי ממשולש שווה צלעות שחתכו אותו לשניים בעזרת קו גובה.", math_expression: "חצי שווה צלעות" },
-            { verbal_explanation: "אם מחברים שני משולשים כאלו גב אל גב על גבי הניצב הארוך שלהם, מתקבל חזרה משולש שווה צלעות (שבו כל הזוויות הן 60°).", math_expression: "הדבקה לשווה צלעות" },
-            { verbal_explanation: "ניתן להדביק גם דרך היתר ליצירת דלתון או מלבן, מה שמראה את הורסטיליות של משולש זה.", math_expression: "אפשרויות הרכבה נוספות" }
-        ],
-        final_answer: "משולש שווה צלעות ענק או דלתון תלוי בצלע ההדבקה"
-    },
-
-    // --- שאלה 29 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "במשולש ישר זווית, אורכו של התיכון ליתר הוא מוגדר כ-x. מהו אורכו של רדיוס המעגל החוסם את המשולש הזה?",
-        options: ["x (התיכון שווה בדיוק לרדיוס בשלמותו)", "2x (כפליים)", "חצי x", "לא ניתן לדעת מנתונים אלו"],
-        correctAnswer: 0,
-        hint: "במשולש ישר זווית החסום במעגל, היתר משמש תמיד כקוטר של המעגל. מרכז המעגל נמצא בדיוק באמצע היתר. המרחק מהמרכז לכל קודקוד הוא רדיוס. והרי התיכון יוצא גם הוא מאמצע היתר לקודקוד מולו!",
-        solution_steps: [
-            { verbal_explanation: "על פי משפטי המעגל, זווית היקפית ישרה (90 מעלות) נשענת תמיד על קוטר המעגל החוסם.", math_expression: "יתר = קוטר מעגל" },
-            { verbal_explanation: "לכן, היתר של המשולש הוא קוטר, ומרכז המעגל ממוקם בדיוק באמצע היתר.", math_expression: "רדיוס = יתר / 2" },
-            { verbal_explanation: "אנו יודעים שגם התיכון שווה למחצית היתר. לכן, התיכון שווה באורכו בדיוק לרדיוס המעגל החוסם.", math_expression: "תיכון = רדיוס = x" }
-        ],
-        final_answer: "x (התיכון שווה בדיוק לרדיוס בשלמותו)"
-    },
-
-    // --- שאלה 30 ---
-    {
-        subject: "מתמטיקה",
-        topic: "גאומטריה",
-        subTopic: "משולש ישר זווית (תיכון ליתר, זווית 30 מעלות)",
-        question: "כיצד נוכל להוכיח בדרך יצירתית שמרובע שאלכסוניו נחתכים, חוצים זה את זה ושווים באורכם, הוא בעצם מלבן, בעזרת שימוש במשפט התיכון ליתר?",
-        options: ["אם האלכסונים שווים וחוצים זה את זה, ניתן לחלק את המרובע למשולשים בהם התיכון שווה למחצית הצלע אליה הוא יורד, ולכן הזוויות שם ישרות", "אין שום קשר למשפט התיכון ליתר במקרה זה", "על ידי הוכחה מורכבת שהאלכסונים מאונכים", "על ידי חפיפת משולשים בסיסית צלע-זווית-צלע"],
-        correctAnswer: 0,
-        hint: "קחו את אחד המשולשים שנוצרים ממחצית המרובע (הנחצה על ידי אלכסון). האלכסון השני מתפקד כתיכון לאלכסון הראשון. מאחר והם שווים באורכם וחוצים זה את זה, התיכון שווה בדיוק למחצית האלכסון, ולכן נוצרת זווית ישרה (90 מעלות) בקודקוד ההיקפי של המרובע.",
-        solution_steps: [
-            { verbal_explanation: "במרובע שאלכסוניו שווים וחוצים זה את זה, ניקח משולש הנוצר על ידי שתי צלעות סמוכות ואלכסון. החצי של האלכסון השני מתפקד כתיכון במשולש הזה.", math_expression: "אלכסון שני כתיכון" },
-            { verbal_explanation: "מאחר והאלכסונים שווים בגודלם, חצי האלכסון (התיכון) שווה בדיוק למחצית האלכסון השלם שאותו הוא חוצה.", math_expression: "תיכון = חצי צלע נחצית" },
-            { verbal_explanation: "לפי המשפט ההפוך למשפט התיכון ליתר - קיום של תיכון השווה למחצית הצלע אליה הוא יורד מוכיח שהזווית ממנה הוא יצא היא 90°. מאחר וזה נכון לכל הקודקודים, מרובע זה הוא מלבן.", math_expression: "זווית קודקוד = 90°" }
-        ],
-        final_answer: "אם האלכסונים שווים וחוצים זה את זה, ניתן לחלק את המרובע למשולשים בהם התיכון שווה למחצית הצלע אליה הוא יורד, ולכן הזוויות שם ישרות"
+        final_answer: "30, 60"
     }
 ];

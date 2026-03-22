@@ -1,1173 +1,749 @@
+// ========================================================================
+// שכבת גיל: כיתה ח' | נושא: יחס ופרופורציה
+// 4 תתי נושאים | 48 שאלות סה"כ
+// פתרונות מפורטים מאוד בשלבים (האכלה בכפית), כולל המרות יחידות ומשוואות.
+// כתיבה נקייה ובטוחה: × לכפל, : לחילוק, 1/2 לשברים. ללא LaTeX.
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: מושג היחס (20 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: מושג היחס (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "מושג היחס",
-        "difficulty": "Low",
-        "question_text": "בקלמר יש 6 עפרונות ו-10 עטים. מהו <strong>היחס</strong> בין מספר העפרונות למספר העטים?<br><div style='text-align:center; margin:15px 0;'><svg width='160' height='60'><circle cx='20' cy='30' r='8' fill='#b09151'/><circle cx='45' cy='30' r='8' fill='#b09151'/><circle cx='70' cy='30' r='8' fill='#b09151'/><rect x='95' y='20' width='10' height='25' fill='#1e293b'/><rect x='115' y='20' width='10' height='25' fill='#1e293b'/><rect x='135' y='20' width='10' height='25' fill='#1e293b'/></svg></div>",
-        "hint": "יחס כותבים בעזרת נקודתיים. שימו לב לסדר: מה שמופיע ראשון בשאלה, נכתב משמאל ביחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את הכמויות שניתנו לנו. מספר העפרונות הוא 6 ומספר העטים הוא 10.", "math_expression": "6 , 10" },
-            { "verbal_explanation": "שלב 2: נרשום את היחס לפי הסדר שהתבקש (עפרונות לעטים).", "math_expression": "6 : 10" },
-            { "verbal_explanation": "שלב 3: נצמצם את היחס על ידי חלוקת שני הצדדים במספר 2.", "math_expression": "3 : 5" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "בכיתה יש 15 בנים ו-10 בנות. מהו היחס בין מספר הבנים למספר הבנות בכיתה (בצמצום המקסימלי)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 50' width='100%' height='50' style='max-width:150px;'><circle cx='30' cy='25' r='10' fill='#3b82f6'/><circle cx='60' cy='25' r='10' fill='#3b82f6'/><circle cx='90' cy='25' r='10' fill='#ef4444'/><circle cx='120' cy='25' r='10' fill='#ef4444'/></svg></div>",
+        options: ["3:2", "2:3", "15:10", "1:2"],
+        correctAnswer: 0,
+        hint: "יחס כותבים לפי הסדר שביקשו בשאלה (קודם בנים, אחר כך בנות). מצאו מספר שאפשר לחלק בו גם את 15 וגם את 10 כדי לצמצם.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את היחס ההתחלתי לפי הסדר המבוקש. בנים משמאל לנקודתיים, בנות מימין.&rlm;", math_expression: "15 : 10" },
+            { verbal_explanation: "שלב ב': יחס מתנהג כמו שבר ואפשר לצמצם אותו. נחפש את המחלק המשותף הגדול ביותר של 15 ו-10, שהוא המספר 5.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ג': נחלק את שני המספרים ב-5. 15 לחלק ל-5 זה 3, ו-10 לחלק ל-5 זה 2.&rlm;", math_expression: "3 : 2" }
         ],
-        "final_answer": "3 : 5",
-        "options": ["6 : 10", "3 : 5", "5 : 3", "10 : 6"],
-        "correctAnswer": 1
+        final_answer: "3:2"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "מושג היחס",
-        "difficulty": "Low",
-        "question_text": "מהו היחס המצומצם ביותר של <strong>15 : 20</strong>?",
-        "hint": "חפשו את המספר הגדול ביותר שמחלק גם את 15 וגם את 20 ללא שארית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את המחלק המשותף הגדול ביותר של 15 ו-20, שהוא המספר 5.", "math_expression": "מחלק = 5" },
-            { "verbal_explanation": "שלב 2: נחלק את שני צידי היחס ב-5.", "math_expression": "(15 / 5) : (20 / 5)" },
-            { "verbal_explanation": "שלב 3: נרשום את התוצאה המצומצמת.", "math_expression": "3 : 4" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "בהמשך לשאלה הקודמת (15 בנים ו-10 בנות), מהו היחס בין מספר הבנות לבין **סך כל התלמידים** בכיתה?&rlm;",
+        options: ["2:5", "10:15", "5:2", "2:3"],
+        correctAnswer: 0,
+        hint: "קודם כל חשבו כמה תלמידים יש בכיתה בסך הכל. לאחר מכן רשמו את היחס: בנות משמאל, סך הכל מימין, וצמצמו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את המספר הכולל של התלמידים בכיתה.&rlm;", math_expression: "15 + 10 = 25" },
+            { verbal_explanation: "שלב ב': נרשום את היחס המבוקש: בנות (10) לסך הכל (25).&rlm;", math_expression: "10 : 25" },
+            { verbal_explanation: "שלב ג': נצמצם את היחס על ידי חלוקה של שני המספרים ב-5.&rlm;", math_expression: "(10 : 5) : (25 : 5) = 2 : 5" }
         ],
-        "final_answer": "3 : 4",
-        "options": ["3 : 4", "5 : 4", "15 : 20", "3 : 5"],
-        "correctAnswer": 0
+        final_answer: "2:5"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "בכיתה יש 30 תלמידים בסך הכל, מתוכם 12 בנים והשאר בנות. מהו היחס בין מספר <strong>הבנות</strong> למספר <strong>הבנים</strong>?",
-        "hint": "קודם כל עליכם לחשב כמה בנות יש בכיתה על ידי חיסור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את מספר הבנות. נחסיר את מספר הבנים (12) מסך כל התלמידים (30).", "math_expression": "30 - 12 = 18" },
-            { "verbal_explanation": "שלב 2: נרשום את היחס הנדרש (בנות לבנים).", "math_expression": "18 : 12" },
-            { "verbal_explanation": "שלב 3: נצמצם את היחס על ידי חלוקה ב-6.", "math_expression": "3 : 2" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "מהו היחס בין צלעותיו של מלבן שאורכו 12 ס\"מ ורוחבו 8 ס\"מ? (היחס בין הרוחב לאורך)&rlm;",
+        options: ["2:3", "3:2", "8:12", "4:6"],
+        correctAnswer: 0,
+        hint: "שימו לב לסדר שביקשו: קודם הרוחב (8) ואז האורך (12). חלקו את שני המספרים ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את היחס: רוחב אל אורך.&rlm;", math_expression: "8 : 12" },
+            { verbal_explanation: "שלב ב': נצמצם את היחס. המספר הגדול ביותר שמחלק גם את 8 וגם את 12 הוא 4.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ג': 8 לחלק ל-4 זה 2. 12 לחלק ל-4 זה 3.&rlm;", math_expression: "2 : 3" }
         ],
-        "final_answer": "3 : 2",
-        "options": ["12 : 18", "2 : 3", "3 : 2", "30 : 12"],
-        "correctAnswer": 2
+        final_answer: "2:3"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "מהו היחס בין <strong>40 סנטימטר</strong> ל-<strong>2 מטרים</strong>?",
-        "hint": "זהירות! לפני שכותבים יחס, חייבים להפוך את שתי היחידות לאותה יחידת מידה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את 2 המטרים לסנטימטרים (בכל מטר יש 100 סנטימטר).", "math_expression": "2 * 100 = 200" },
-            { "verbal_explanation": "שלב 2: כעת נרשום את היחס בין הכמויות באותן יחידות.", "math_expression": "40 : 200" },
-            { "verbal_explanation": "שלב 3: נצמצם את היחס על ידי חלוקה ב-40.", "math_expression": "1 : 5" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "מלכודת יחידות מידה! מהו היחס בין 30 דקות לבין 2 שעות?&rlm;",
+        options: ["1:4", "15:1", "30:2", "1:2"],
+        correctAnswer: 0,
+        hint: "אי אפשר לחשב יחס בין יחידות שונות! קודם כל, הפכו את השעתיים לדקות (כמה דקות יש בשעתיים?), ורק אז רשמו וצמצמו את היחס.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': כדי לחשב יחס, שני הגדלים חייבים להיות באותן יחידות מידה. נמיר את השעות לדקות.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': בשעה יש 60 דקות, ולכן ב-2 שעות יש 120 דקות.&rlm;", math_expression: "2 × 60 = 120" },
+            { verbal_explanation: "שלב ג': נרשום את היחס: 30 דקות אל 120 דקות.&rlm;", math_expression: "30 : 120" },
+            { verbal_explanation: "שלב ד': נצמצם ב-30.&rlm;", math_expression: "1 : 4" }
         ],
-        "final_answer": "1 : 5",
-        "options": ["40 : 2", "1 : 5", "20 : 1", "4 : 2"],
-        "correctAnswer": 1
+        final_answer: "1:4"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "מושג היחס",
-        "difficulty": "High",
-        "question_text": "נתון כי היחס בין שתי זוויות הוא <strong>2 : 7</strong>. אם הזווית הקטנה היא בת <strong>40 מעלות</strong>, מה גודל הזווית הגדולה?",
-        "hint": "מצאו פי כמה גדלה הזווית הקטנה מהערך היחסי שלה (2), ועשו את אותה פעולה על הערך 7.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא מהו הערך של 'יחידת יחס' אחת. נחלק את גודל הזווית (40) בערך היחסי שלה (2).", "math_expression": "40 / 2 = 20" },
-            { "verbal_explanation": "שלב 2: נכפול את הערך של יחידת היחס (20) בערך היחסי של הזווית הגדולה (7).", "math_expression": "7 * 20 = 140" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "מהו היחס בין 500 גרם לבין 2 קילוגרם?&rlm;",
+        options: ["1:4", "250:1", "500:2", "1:2"],
+        correctAnswer: 0,
+        hint: "זכרו שבקילוגרם אחד יש 1,000 גרם. כמה גרם יש ב-2 ק\"ג?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמיר קילוגרמים לגרמים כדי שהיחידות יהיו זהות.&rlm;", math_expression: "2 kg = 2000 g" },
+            { verbal_explanation: "שלב ב': נרשום את היחס בין הגרמים.&rlm;", math_expression: "500 : 2000" },
+            { verbal_explanation: "שלב ג': נצמצם את היחס. אפשר קודם לחלק ב-100 (להוריד שני אפסים) ונקבל 5:20.&rlm;", math_expression: "5 : 20" },
+            { verbal_explanation: "שלב ד': נחלק ב-5 את שני הצדדים.&rlm;", math_expression: "1 : 4" }
         ],
-        "final_answer": "140 מעלות",
-        "options": ["70 מעלות", "140 מעלות", "80 מעלות", "90 מעלות"],
-        "correctAnswer": 1
+        final_answer: "1:4"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "האם היחס <strong>3 : 8</strong> שווה ליחס <strong>12 : 32</strong>?",
-        "hint": "בדקו האם ניתן להגיע מהיחס הראשון לשני על ידי הכפלת שני הצדדים באותו מספר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק פי כמה גדל הצד השמאלי. 12 חלקי 3 שווה ל-4.", "math_expression": "3 * 4 = 12" },
-            { "verbal_explanation": "שלב 2: נבדוק האם גם הצד הימני גדל פי 4. 8 כפול 4 שווה ל-32.", "math_expression": "8 * 4 = 32" },
-            { "verbal_explanation": "שלב 3: מכיוון ששני הצדדים הוכפלו באותו מספר, היחסים שווים.", "math_expression": "כן" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "מהו היחס בין 40 סנטימטרים לבין 2 מטרים?&rlm;",
+        options: ["1:5", "20:1", "40:2", "1:2"],
+        correctAnswer: 0,
+        hint: "במטר אחד יש 100 סנטימטרים. הפכו את 2 המטרים לסנטימטרים ואז צמצמו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמיר את המטרים לסנטימטרים.&rlm;", math_expression: "2 m = 200 cm" },
+            { verbal_explanation: "שלב ב': נרשום את היחס המלא.&rlm;", math_expression: "40 : 200" },
+            { verbal_explanation: "שלב ג': נצמצם תחילה ב-10 (נוריד אפס).&rlm;", math_expression: "4 : 20" },
+            { verbal_explanation: "שלב ד': נחלק ב-4 את שני הצדדים.&rlm;", math_expression: "1 : 5" }
         ],
-        "final_answer": "כן, הם שווים.",
-        "options": ["כן", "לא", "רק אם המספרים שלמים", "אי אפשר לדעת"],
-        "correctAnswer": 0
+        final_answer: "1:5"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "מושג היחס",
-        "difficulty": "Low",
-        "question_text": "במתכון לעוגה משתמשים ב-4 כוסות קמח על כל 3 כוסות סוכר. מהו היחס בין <strong>הסוכר</strong> ל<strong>קמח</strong>?",
-        "hint": "שימו לב היטב לסדר המילים בשאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את הכמויות. קמח = 4, סוכר = 3.", "math_expression": "4 , 3" },
-            { "verbal_explanation": "שלב 2: השאלה מבקשת את היחס של סוכר לקמח, לכן נרשום קודם את הסוכר.", "math_expression": "3 : 4" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "היחס בין מספר התפוחים למספר התפוזים בסלסלה הוא 3:5. אם יש בסלסלה 12 תפוחים, כמה תפוזים יש בה?&rlm;",
+        options: ["20 תפוזים", "15 תפוזים", "12 תפוזים", "8 תפוזים"],
+        correctAnswer: 0,
+        hint: "היחס המקורי הוא 3 לתפוחים. במציאות יש 12 תפוחים. פי כמה הוגדלה הכמות? (12 לחלק ל-3). הכפילו את יחס התפוזים (5) באותו המספר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבדוק פי כמה הורחב היחס של התפוחים. החלק של התפוחים הוא 3, והכמות בפועל היא 12.&rlm;", math_expression: "12 : 3 = 4" },
+            { verbal_explanation: "שלב ב': גורם ההרחבה הוא 4. לכן, עלינו להכפיל גם את החלק של התפוזים (5) ב-4.&rlm;", math_expression: "5 × 4 = 20" }
         ],
-        "final_answer": "3 : 4",
-        "options": ["4 : 3", "3 : 4", "7 : 3", "3 : 7"],
-        "correctAnswer": 1
+        final_answer: "20 תפוזים"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "מושג היחס",
-        "difficulty": "High",
-        "question_text": "היחס בין אורכי הצלעות של מלבן הוא <strong>3 : 5</strong>. אם היקף המלבן הוא <strong>48 סנטימטר</strong>, מה אורך הצלע הקצרה?",
-        "hint": "היקף מלבן מורכב מפעמיים האורך ופעמיים הרוחב. מצאו קודם את סכום שתי צלעות סמוכות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את סכום שתי צלעות סמוכות (חצי היקף).", "math_expression": "48 / 2 = 24" },
-            { "verbal_explanation": "שלב 2: נחבר את חלקי היחס כדי לדעת לכמה יחידות לחלק את הסכום.", "math_expression": "3 + 5 = 8" },
-            { "verbal_explanation": "שלב 3: נמצא את הערך של יחידה אחת. 24 חלקי 8 שווה ל-3.", "math_expression": "24 / 8 = 3" },
-            { "verbal_explanation": "שלב 4: נכפול את ערך היחידה (3) בחלק של הצלע הקצרה (3).", "math_expression": "3 * 3 = 9" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "מה משמעות היחס 1:1 בין שתי כמויות?&rlm;",
+        options: ["ששתי הכמויות שוות בדיוק זו לזו.", "שהכמות הראשונה גדולה מהשנייה.", "שיש פריט אחד מכל סוג בלבד.", "שהכמות השנייה גדולה מהראשונה."],
+        correctAnswer: 0,
+        hint: "יחס מציין את הקשר (הפרופורציה) בין הכמויות, לא את הכמות המדויקת. על כל 1 מהסוג הראשון יש 1 מהסוג השני.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "יחס של 1:1 אומר שעל כל פריט מסוג א', יש פריט אחד מסוג ב'.&rlm;", math_expression: "" },
+            { verbal_explanation: "זה אומר שיש להם את אותה הכמות בדיוק (למשל 10 בנים ו-10 בנות, שזה 10:10, המצטמצם ל-1:1).&rlm;", math_expression: "" }
         ],
-        "final_answer": "9 סנטימטר",
-        "options": ["9 סנטימטר", "15 סנטימטר", "18 סנטימטר", "12 סנטימטר"],
-        "correctAnswer": 0
+        final_answer: "ששתי הכמויות שוות בדיוק זו לזו."
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "מושג היחס",
-        "difficulty": "Low",
-        "question_text": "איזה מהיחסים הבאים שונה מהשאר?",
-        "hint": "צמצמו את כל היחסים לצורתם הפשוטה ביותר והשוו ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נצמצם את 2:4 ל-1:2.", "math_expression": "1 : 2" },
-            { "verbal_explanation": "שלב 2: נצמצם את 5:10 ל-1:2.", "math_expression": "1 : 2" },
-            { "verbal_explanation": "שלב 3: נצמצם את 3:9 ל-1:3.", "math_expression": "1 : 3" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "היחס בין כמות הקמח לכמות המים במתכון הוא 5:2. מה יהיה היחס אם נרשום קודם את המים ואז את הקמח?&rlm;",
+        options: ["2:5", "5:2", "1:2.5", "10:4"],
+        correctAnswer: 0,
+        hint: "סדר הרישום של המילים חייב להיות תואם לסדר המספרים. אם הופכים את המילים, הופכים גם את המספרים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נתון שיחס קמח למים הוא 5:2. כלומר 5 שייך לקמח ו-2 שייך למים.&rlm;", math_expression: "" },
+            { verbal_explanation: "אם נבקש את היחס 'מים אל קמח', נרשום קודם את המספר של המים (2) ואז של הקמח (5).&rlm;", math_expression: "2 : 5" }
         ],
-        "final_answer": "3 : 9",
-        "options": ["2 : 4", "5 : 10", "3 : 9", "10 : 20"],
-        "correctAnswer": 2
+        final_answer: "2:5"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "בגינה יש 40 פרחים. היחס בין הפרחים האדומים לצהובים הוא <strong>1 : 4</strong>. כמה פרחים <strong>אדומים</strong> יש בגינה?<br><div style='text-align:center; margin:10px 0;'><svg width='120' height='40'><rect x='5' y='10' width='20' height='20' fill='red' stroke='black'/><rect x='30' y='10' width='20' height='20' fill='yellow' stroke='black'/><rect x='55' y='10' width='20' height='20' fill='yellow' stroke='black'/><rect x='80' y='10' width='20' height='20' fill='yellow' stroke='black'/><rect x='105' y='10' width='20' height='20' fill='yellow' stroke='black'/></svg></div>",
-        "hint": "חברו את חלקי היחס כדי לדעת לכמה קבוצות לחלק את כל הפרחים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את סך כל יחידות היחס. 1 ועוד 4.", "math_expression": "1 + 4 = 5" },
-            { "verbal_explanation": "שלב 2: נחלק את סך הפרחים במספר היחידות כדי למצוא כמה פרחים יש בכל יחידה.", "math_expression": "40 / 5 = 8" },
-            { "verbal_explanation": "שלב 3: מכיוון שהפרחים האדומים מייצגים יחידה אחת ביחס, ישנם 8 פרחים אדומים.", "math_expression": "1 * 8 = 8" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "איזה יחס מתאר את התמונה שלפניכם? (מספר העיגולים הירוקים למספר העיגולים האפורים)&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 50' width='100%' height='50' style='max-width:200px;'><circle cx='25' cy='25' r='10' fill='#22c55e'/><circle cx='55' cy='25' r='10' fill='#22c55e'/><circle cx='85' cy='25' r='10' fill='#22c55e'/><circle cx='115' cy='25' r='10' fill='#64748b'/><circle cx='145' cy='25' r='10' fill='#64748b'/><circle cx='175' cy='25' r='10' fill='#64748b'/></svg></div>",
+        options: ["1:1", "3:6", "1:2", "6:3"],
+        correctAnswer: 0,
+        hint: "ספרו כמה עיגולים מכל צבע יש, רשמו את היחס וצמצמו אותו.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נספור. יש 3 עיגולים ירוקים ו-3 עיגולים אפורים.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נרשום את היחס.&rlm;", math_expression: "3 : 3" },
+            { verbal_explanation: "שלב ג': נצמצם את היחס על ידי חלוקה ב-3 ונקבל כמויות שוות.&rlm;", math_expression: "1 : 1" }
         ],
-        "final_answer": "8 פרחים",
-        "options": ["10 פרחים", "8 פרחים", "32 פרחים", "4 פרחים"],
-        "correctAnswer": 1
+        final_answer: "1:1"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "מושג היחס",
-        "difficulty": "High",
-        "question_text": "היחס בין הגיל של דני לגיל של אחותו הוא <strong>2 : 3</strong>. אם סכום הגילאים שלהם הוא 25, מהו גילו של <strong>דני</strong>?",
-        "hint": "חלקו את סכום הגילאים לסך כל חלקי היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את חלקי היחס: 2 ועוד 3.", "math_expression": "2 + 3 = 5" },
-            { "verbal_explanation": "שלב 2: נמצא את ערכה של 'שנה יחסית' אחת. 25 חלקי 5.", "math_expression": "25 / 5 = 5" },
-            { "verbal_explanation": "שלב 3: נכפול את החלק של דני (2) בערך שמצאנו.", "math_expression": "2 * 5 = 10" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "נתונה המשוואה 3x = 4y. מהו היחס בין x ל-y (כלומר מהו x:y)?&rlm;",
+        options: ["4:3", "3:4", "1:1", "12:1"],
+        correctAnswer: 0,
+        hint: "חישבו בהצלבה: כדי שהשוויון יתקיים, ה-x צריך 'לקבל' את ה-4, וה-y צריך 'לקבל' את ה-3 (כך ש- 3*4 = 4*3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי למצוא את היחס x:y, עלינו לבודד את השבר x/y במשוואה.&rlm;", math_expression: "3x = 4y" },
+            { verbal_explanation: "נחלק את שני האגפים ב-y.&rlm;", math_expression: "(3x) / y = 4" },
+            { verbal_explanation: "נחלק את שני האגפים ב-3.&rlm;", math_expression: "x / y = 4 / 3" },
+            { verbal_explanation: "השבר 4/3 נכתב כיחס 4:3.&rlm;", math_expression: "4 : 3" }
         ],
-        "final_answer": "10 שנים",
-        "options": ["10 שנים", "15 שנים", "12 שנים", "8 שנים"],
-        "correctAnswer": 0
+        final_answer: "4:3"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "מהו היחס המצומצם בין <strong>חצי שעה</strong> ל-<strong>15 דקות</strong>?",
-        "hint": "הפכו את חצי השעה לדקות לפני שתכתבו את היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמיר חצי שעה לדקות. חצי משעה (60 דקות) הוא 30 דקות.", "math_expression": "30" },
-            { "verbal_explanation": "שלב 2: נרשום את היחס בין 30 דקות ל-15 דקות.", "math_expression": "30 : 15" },
-            { "verbal_explanation": "שלב 3: נצמצם את היחס על ידי חלוקה ב-15.", "math_expression": "2 : 1" }
+        topic: "ratios",
+        subTopic: "מושג היחס",
+        question_text: "איזה יחס מייצג כמות גדולה יותר (החלק היחסי גדול יותר)? 2:3 או 3:4?&rlm;",
+        options: ["3:4", "2:3", "הם שווים", "אי אפשר להשוות"],
+        correctAnswer: 0,
+        hint: "הפכו את היחסים לשברים רגילים (2/3 לעומת 3/4) והשוו ביניהם בעזרת מכנה משותף (12).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': יחס ניתן לכתוב כשבר. נשווה בין שני שלישים (2/3) לשלושה רבעים (3/4).&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נמצא מכנה משותף שהוא 12.&rlm;", math_expression: "2/3 = 8/12" },
+            { verbal_explanation: "שלב ג': נרחיב את השבר השני.&rlm;", math_expression: "3/4 = 9/12" },
+            { verbal_explanation: "שלב ד': 9 חלקי 12 גדול יותר מ-8 חלקי 12. לכן 3:4 הוא יחס גדול יותר.&rlm;", math_expression: "" }
         ],
-        "final_answer": "2 : 1",
-        "options": ["1 : 2", "2 : 1", "30 : 15", "15 : 30"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 13,
-        "subTopic": "מושג היחס",
-        "difficulty": "High",
-        "question_text": "במפה, היחס בין המרחק לבין המציאות הוא <strong>1 : 100,000</strong>. אם המרחק במפה הוא <strong>4 סנטימטר</strong>, מהו המרחק במציאות ב<strong>קילומטרים</strong>?",
-        "hint": "מצאו קודם את המרחק בסנטימטרים ואז המירו לקילומטרים (1 קילומטר = 100,000 סנטימטר).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפול את המרחק במפה (4) ביחס ההגדלה.", "math_expression": "4 * 100,000 = 400,000" },
-            { "verbal_explanation": "שלב 2: נמיר סנטימטרים לקילומטרים על ידי חלוקה ב-100,000.", "math_expression": "400,000 / 100,000 = 4" }
-        ],
-        "final_answer": "4 קילומטרים",
-        "options": ["40 קילומטרים", "4 קילומטרים", "400 מטרים", "100 קילומטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "מושג היחס",
-        "difficulty": "Low",
-        "question_text": "מה משמעות היחס <strong>1 : 1</strong>?",
-        "hint": "חשבו על מצב שבו לשני אנשים יש בדיוק את אותה כמות.",
-        "solution_steps": [
-            { "verbal_explanation": "יחס של 1 ל-1 אומר שעל כל יחידה של הצד הראשון יש בדיוק יחידה אחת של הצד השני.", "math_expression": "כמויות שוות" }
-        ],
-        "final_answer": "הכמויות שוות זו לזו.",
-        "options": ["צד אחד גדול פי 2", "הכמויות שוות זו לזו.", "אין קשר בין הכמויות", "הסכום הוא 1"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 15,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "במגרש חניה היחס בין מכוניות לבנות למכוניות כחולות הוא <strong>5 : 2</strong>. אם יש 20 מכוניות לבנות, כמה מכוניות <strong>כחולות</strong> יש?",
-        "hint": "בדקו פי כמה גדל מספר המכוניות הלבנות לעומת הערך 5 שביחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את מקדם ההרחבה. 20 חלקי 5 שווה ל-4.", "math_expression": "20 / 5 = 4" },
-            { "verbal_explanation": "שלב 2: נכפול את חלק המכוניות הכחולות (2) במקדם שמצאנו.", "math_expression": "2 * 4 = 8" }
-        ],
-        "final_answer": "8 מכוניות",
-        "options": ["8 מכוניות", "10 מכוניות", "4 מכוניות", "12 מכוניות"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 16,
-        "subTopic": "מושג היחס",
-        "difficulty": "High",
-        "question_text": "נתונים שלושה מספרים ביחס של <strong>1 : 2 : 4</strong>. אם המספר הגדול ביותר הוא <strong>20</strong>, מהו המספר הקטן ביותר?",
-        "hint": "השוו את המספר 20 לחלק הכי גדול ביחס (4).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את ערך היחידה. נחלק את המספר הגדול (20) בחלק היחסי שלו (4).", "math_expression": "20 / 4 = 5" },
-            { "verbal_explanation": "שלב 2: נכפול את ערך היחידה (5) בחלק של המספר הקטן ביותר (1).", "math_expression": "1 * 5 = 5" }
-        ],
-        "final_answer": "5",
-        "options": ["5", "10", "4", "2"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 17,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "היחס בין כמות המים לכמות המיץ בתרכיז הוא <strong>1 : 6</strong>. מהי הכמות הכוללת של המשקה אם השתמשנו ב-2 ליטרים תרכיז מיץ?",
-        "hint": "שימו לב: המשקה כולל גם את המים וגם את המיץ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את חלקי היחס. מים = 6, מיץ = 1.", "math_expression": "6 : 1" },
-            { "verbal_explanation": "שלב 2: אם יחידת מיץ אחת שווה ל-2 ליטרים, נחשב כמה מים צריך. 6 כפול 2.", "math_expression": "6 * 2 = 12" },
-            { "verbal_explanation": "שלב 3: נחבר את כמות המים (12) וכמות המיץ (2) לקבלת הכמות הכוללת.", "math_expression": "12 + 2 = 14" }
-        ],
-        "final_answer": "14 ליטרים",
-        "options": ["12 ליטרים", "14 ליטרים", "13 ליטרים", "7 ליטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 18,
-        "subTopic": "מושג היחס",
-        "difficulty": "Low",
-        "question_text": "האם ניתן לצמצם את היחס <strong>7 : 11</strong>?",
-        "hint": "בדקו האם קיים מספר (מלבד 1) שמחלק את 7 וגם את 11.",
-        "solution_steps": [
-            { "verbal_explanation": "המספרים 7 ו-11 הם מספרים ראשוניים. אין להם שום מחלק משותף מלבד המספר 1.", "math_expression": "לא ניתן לצמצם" }
-        ],
-        "final_answer": "לא, זהו יחס מצומצם.",
-        "options": ["כן, על ידי 7", "לא, זהו יחס מצומצם.", "רק אם נשתמש בשברים", "כן, על ידי 2"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 19,
-        "subTopic": "מושג היחס",
-        "difficulty": "High",
-        "question_text": "במשולש, היחס בין הזוויות הוא <strong>1 : 2 : 3</strong>. מהו גודלה של הזווית הגדולה ביותר?",
-        "hint": "זכרו שסכום הזוויות במשולש הוא תמיד 180 מעלות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את סך כל חלקי היחס. 1 ועוד 2 ועוד 3.", "math_expression": "1 + 2 + 3 = 6" },
-            { "verbal_explanation": "שלב 2: נחלק את סכום המעלות במשולש (180) במספר החלקים.", "math_expression": "180 / 6 = 30" },
-            { "verbal_explanation": "שלב 3: נכפול את ערך החלק (30) בחלק של הזווית הגדולה ביותר (3).", "math_expression": "3 * 30 = 90" }
-        ],
-        "final_answer": "90 מעלות",
-        "options": ["60 מעלות", "90 מעלות", "120 מעלות", "100 מעלות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 20,
-        "subTopic": "מושג היחס",
-        "difficulty": "Medium",
-        "question_text": "נתון יחס של <strong>0.5 : 2</strong>. כיצד נכתוב אותו בעזרת מספרים שלמים בלבד?",
-        "hint": "הכפילו את שני צידי היחס במספר שיבטל את השבר העשרוני (למשל 2).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפול את שני האגפים ב-2 כדי להפוך את חצי למספר שלם.", "math_expression": "(0.5 * 2) : (2 * 2)" },
-            { "verbal_explanation": "שלב 2: נרשום את התוצאה החדשה.", "math_expression": "1 : 4" }
-        ],
-        "final_answer": "1 : 4",
-        "options": ["1 : 2", "1 : 4", "5 : 20", "2 : 8"],
-        "correctAnswer": 1
+        final_answer: "3:4"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: חלוקה לפי יחס (20 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: חלוקה לפי יחס (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 21,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Low",
-        "question_text": "חלקו את הסכום <strong>100 שקלים</strong> בין שני ילדים לפי יחס של <strong>2 : 3</strong>. כמה יקבל הילד הראשון?",
-        "hint": "חברו את חלקי היחס כדי לדעת לכמה מנות לחלק את הכסף.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את חלקי היחס: 2 ועוד 3.", "math_expression": "2 + 3 = 5" },
-            { "verbal_explanation": "שלב 2: נמצא את הערך של 'מנה' אחת. נחלק 100 ב-5.", "math_expression": "100 / 5 = 20" },
-            { "verbal_explanation": "שלב 3: נכפול את המנה (20) בחלק של הילד הראשון (2).", "math_expression": "2 * 20 = 40" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "חילקו 40 סוכריות בין דנה לרועי ביחס של 3:5 (דנה קיבלה 3, רועי 5). כמה סוכריות קיבלה דנה?&rlm;",
+        options: ["15", "25", "3", "5"],
+        correctAnswer: 0,
+        hint: "חברו את כל ה'חלקים' של היחס יחד (3+5=8). חלקו את סך כל הסוכריות ב-8 כדי לגלות כמה שווה 'חלק' אחד. לאחר מכן הכפילו בחלק של דנה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את מספר החלקים הכולל ביחס.&rlm;", math_expression: "3 + 5 = 8" },
+            { verbal_explanation: "שלב ב': נחלק את הכמות הכוללת של הסוכריות במספר החלקים, כדי למצוא את ערכו של חלק אחד.&rlm;", math_expression: "40 : 8 = 5" },
+            { verbal_explanation: "שלב ג': לדנה יש 3 חלקים. נכפול 3 בערך של חלק אחד (5).&rlm;", math_expression: "3 × 5 = 15" }
         ],
-        "final_answer": "40 שקלים",
-        "options": ["40 שקלים", "60 שקלים", "50 שקלים", "20 שקלים"],
-        "correctAnswer": 0
+        final_answer: "15"
     },
+    // שאלה 14
     {
-        "id": 22,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Low",
-        "question_text": "אורך חבל הוא <strong>35 מטרים</strong>. חלקו אותו לשני קטעים ביחס של <strong>3 : 4</strong>. מה אורך הקטע הארוך?",
-        "hint": "בצעו את שלושת השלבים: חיבור חלקים, חלוקת השלם, והכפלה בחלק המבוקש.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סכום חלקי היחס הוא 7.", "math_expression": "3 + 4 = 7" },
-            { "verbal_explanation": "שלב 2: אורך כל יחידת יחס הוא 35 חלקי 7.", "math_expression": "35 / 7 = 5" },
-            { "verbal_explanation": "שלב 3: אורך הקטע הארוך (4 יחידות) הוא 4 כפול 5.", "math_expression": "4 * 5 = 20" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "שני אחים קיבלו דמי כיס בסך 120 שקלים וחילקו אותם ביחס של 1:3. מהו הסכום הקטן יותר שחולק מתוך ה-120?&rlm;",
+        options: ["30 שקלים", "40 שקלים", "90 שקלים", "10 שקלים"],
+        correctAnswer: 0,
+        hint: "סך החלקים הוא 4 (1+3). חלקו 120 ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סך כל החלקים ביחס הוא 4.&rlm;", math_expression: "1 + 3 = 4" },
+            { verbal_explanation: "שלב ב': נחלק את הסכום הכולל ב-4 למציאת השווי של יחידת יחס אחת.&rlm;", math_expression: "120 : 4 = 30" },
+            { verbal_explanation: "שלב ג': האח שקיבל פחות קיבל חלק 1 בלבד, כלומר 30 שקלים.&rlm;", math_expression: "1 × 30 = 30" }
         ],
-        "final_answer": "20 מטרים",
-        "options": ["15 מטרים", "20 מטרים", "25 מטרים", "21 מטרים"],
-        "correctAnswer": 1
+        final_answer: "30 שקלים"
     },
+    // שאלה 15
     {
-        "id": 23,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "שני שותפים הרוויחו <strong>15,000 שקלים</strong>. הם החליטו לחלק את הרווחים ביחס של <strong>2 : 1</strong> לטובת השותף הוותיק. כמה יקבל השותף החדש?",
-        "hint": "שימו לב שהשותף החדש מקבל את החלק הקטן (1).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סך כל החלקים הוא 2 ועוד 1.", "math_expression": "2 + 1 = 3" },
-            { "verbal_explanation": "שלב 2: נמצא את ערכו של חלק אחד. 15,000 חלקי 3.", "math_expression": "15,000 / 3 = 5,000" },
-            { "verbal_explanation": "שלב 3: השותף החדש מקבל חלק אחד, לכן הוא יקבל 5,000 שקלים.", "math_expression": "1 * 5,000 = 5,000" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "סכום הזוויות במשולש הוא 180 מעלות. הזוויות במשולש מתייחסות זו לזו ביחס של 1:2:3. מהי הזווית הגדולה ביותר במשולש זה?&rlm;",
+        options: ["90 מעלות", "60 מעלות", "100 מעלות", "120 מעלות"],
+        correctAnswer: 0,
+        hint: "חברו את כל חלקי היחס (1+2+3). חלקו את 180 בסכום, ואז הכפילו בחלק הגדול ביותר (3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סך החלקים הכולל.&rlm;", math_expression: "1 + 2 + 3 = 6" },
+            { verbal_explanation: "שלב ב': נחלק את סכום הזוויות הכולל במספר החלקים.&rlm;", math_expression: "180 : 6 = 30" },
+            { verbal_explanation: "שלב ג': הזווית הגדולה ביותר היא בת 3 חלקים. נכפיל ב-30.&rlm;", math_expression: "3 × 30 = 90" }
         ],
-        "final_answer": "5,000 שקלים",
-        "options": ["10,000 שקלים", "5,000 שקלים", "7,500 שקלים", "3,000 שקלים"],
-        "correctAnswer": 1
+        final_answer: "90 מעלות"
     },
+    // שאלה 16
     {
-        "id": 24,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "בסל פירות יש תפוחים ואגסים ביחס של <strong>3 : 2</strong>. אם בסך הכל יש בסל <strong>25 פירות</strong>, כמה <strong>תפוחים</strong> יש בו?",
-        "hint": "חברו את 3 ו-2 כדי למצוא את המספר הכולל של היחידות בסל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את חלקי היחס: 3 פלוס 2.", "math_expression": "3 + 2 = 5" },
-            { "verbal_explanation": "שלב 2: נחלק את כל הפירות ב-5. נמצא שבכל יחידת יחס יש 5 פירות.", "math_expression": "25 / 5 = 5" },
-            { "verbal_explanation": "שלב 3: נכפול את 3 (חלק התפוחים) ב-5.", "math_expression": "3 * 5 = 15" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "נגר חתך קרש עץ שאורכו 100 ס\"מ לשני חלקים שהיחס ביניהם הוא 2:3. מהו אורכו של החלק הארוך יותר?&rlm;",
+        options: ["60 ס\"מ", "40 ס\"מ", "50 ס\"מ", "70 ס\"מ"],
+        correctAnswer: 0,
+        hint: "סך החלקים 5. 100 חלקי 5 שווה 20. החלק הארוך מקבל 3 חלקים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סך כל החלקים ביחס.&rlm;", math_expression: "2 + 3 = 5" },
+            { verbal_explanation: "שלב ב': גודל של חלק אחד.&rlm;", math_expression: "100 : 5 = 20" },
+            { verbal_explanation: "שלב ג': החלק הארוך מיוצג על ידי המספר 3. נכפיל 3 ב-20.&rlm;", math_expression: "3 × 20 = 60" }
         ],
-        "final_answer": "15 תפוחים",
-        "options": ["10 תפוחים", "15 תפוחים", "20 תפוחים", "12 תפוחים"],
-        "correctAnswer": 1
+        final_answer: "60 ס\"מ"
     },
+    // שאלה 17
     {
-        "id": 25,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "חלקו את המספר <strong>60</strong> לשלושה חלקים לפי היחס <strong>1 : 2 : 3</strong>. מהו המספר האמצעי?",
-        "hint": "עבדו בדיוק לפי אותם שלבים, גם כשיש שלושה חלקים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את כל חלקי היחס: 1 פלוס 2 פלוס 3.", "math_expression": "1 + 2 + 3 = 6" },
-            { "verbal_explanation": "שלב 2: נמצא את ערך היחידה. 60 חלקי 6.", "math_expression": "60 / 6 = 10" },
-            { "verbal_explanation": "שלב 3: נכפול את ערך היחידה (10) בחלק האמצעי ביחס (2).", "math_expression": "2 * 10 = 20" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "בחוג מסוים היחס בין מספר הבנים למספר הבנות הוא 4:5. ידוע שיש 16 בנים בחוג. כמה חניכים (בנים ובנות יחד) יש בסך הכל בחוג?&rlm;",
+        options: ["36", "20", "45", "16"],
+        correctAnswer: 0,
+        hint: "אם 4 חלקים שווים ל-16, כמה שווה חלק אחד? (16 חלקי 4). מצאו את סך כל החלקים יחד (4+5) והכפילו בתוצאה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הבנים הם 4 חלקים מתוך היחס. נחשב כמה חניכים יש בחלק אחד.&rlm;", math_expression: "16 : 4 = 4" },
+            { verbal_explanation: "שלב ב': נחשב כמה חלקים יש בסך הכל בקבוצה (בנים + בנות).&rlm;", math_expression: "4 + 5 = 9" },
+            { verbal_explanation: "שלב ג': נכפיל את סך החלקים בגודל של חלק אחד.&rlm;", math_expression: "9 × 4 = 36" }
         ],
-        "final_answer": "20",
-        "options": ["10", "20", "30", "15"],
-        "correctAnswer": 1
+        final_answer: "36"
     },
+    // שאלה 18
     {
-        "id": 26,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "היחס בין כמות המלח לכמות המים בתמיסה הוא <strong>1 : 9</strong>. אם משקל התמיסה כולה הוא <strong>500 גרם</strong>, כמה גרם <strong>מלח</strong> יש בה?",
-        "hint": "התמיסה הכוללת מורכבת מ-10 חלקים (1 של מלח ו-9 של מים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את חלקי היחס: 1 + 9 = 10.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 2: נמצא כמה גרם יש בכל חלק. 500 חלקי 10.", "math_expression": "50" },
-            { "verbal_explanation": "שלב 3: המלח הוא חלק אחד מתוך 10, לכן יש 50 גרם מלח.", "math_expression": "50" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "היקף של מלבן הוא 40 ס\"מ. היחס בין רוחב המלבן לאורכו הוא 2:3. מהו שטח המלבן?&rlm;",
+        options: ["96 סמ\"ר", "192 סמ\"ר", "24 סמ\"ר", "48 סמ\"ר"],
+        correctAnswer: 0,
+        hint: "היקף מורכב מפעמיים אורך ופעמיים רוחב. חצי היקף (אורך אחד ורוחב אחד) הוא 20. חלקו את ה-20 לפי היחס 2:3 כדי למצוא את הצלעות. לבסוף, כפלו את הצלעות לשטח.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': חצי היקף (אורך + רוחב) שווה ל-20.&rlm;", math_expression: "40 : 2 = 20" },
+            { verbal_explanation: "שלב ב': נחלק את ה-20 לפי היחס 2:3. סך החלקים הוא 5. גודל של חלק הוא 4.&rlm;", math_expression: "20 : 5 = 4" },
+            { verbal_explanation: "שלב ג': נמצא את הצלעות. רוחב (2 חלקים): 2 כפול 4 = 8. אורך (3 חלקים): 3 כפול 4 = 12.&rlm;", math_expression: "W = 8 , L = 12" },
+            { verbal_explanation: "שלב ד': שטח מלבן הוא אורך כפול רוחב.&rlm;", math_expression: "12 × 8 = 96" }
         ],
-        "final_answer": "50 גרם",
-        "options": ["50 גרם", "450 גרם", "100 גרם", "10 גרם"],
-        "correctAnswer": 0
+        final_answer: "96 סמ\"ר"
     },
+    // שאלה 19
     {
-        "id": 27,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "שני מספרים נמצאים ביחס של <strong>4 : 5</strong>. אם <strong>ההפרש</strong> ביניהם הוא 12, מהו המספר הקטן?",
-        "hint": "שימו לב: הפעם נתון ההפרש ולא הסכום. ההפרש בין חלקי היחס (5 פחות 4) הוא חלק אחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את ההפרש בין חלקי היחס. 5 פחות 4.", "math_expression": "5 - 4 = 1" },
-            { "verbal_explanation": "שלב 2: מכיוון שההפרש האמיתי הוא 12 וההפרש ביחס הוא 1, הרי שערך כל יחידה הוא 12.", "math_expression": "12" },
-            { "verbal_explanation": "שלב 3: נכפול את ערך היחידה (12) בחלק של המספר הקטן (4).", "math_expression": "4 * 12 = 48" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "שלושה שותפים הקימו עסק והשקיעו בו כספים ביחס של 2:3:5. בסוף השנה העסק הרוויח 10,000 שקלים שיש לחלק ביניהם. כמה שקלים יקבל השותף שהשקיע הכי הרבה?&rlm;",
+        options: ["5,000", "2,000", "3,000", "10,000"],
+        correctAnswer: 0,
+        hint: "סך החלקים הוא 10. חלקו את הרווח הכולל ל-10 חלקים. השותף הגדול מקבל 5 חלקים (שזה בעצם חצי!).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סך חלקי ההשקעה.&rlm;", math_expression: "2 + 3 + 5 = 10" },
+            { verbal_explanation: "שלב ב': נחלק את הרווח ב-10 כדי לדעת כמה שווה חלק אחד.&rlm;", math_expression: "10000 : 10 = 1000" },
+            { verbal_explanation: "שלב ג': השותף שהשקיע הכי הרבה זכאי ל-5 חלקים. נכפול 5 ב-1000.&rlm;", math_expression: "5 × 1000 = 5000" }
         ],
-        "final_answer": "48",
-        "options": ["48", "60", "36", "12"],
-        "correctAnswer": 0
+        final_answer: "5,000"
     },
+    // שאלה 20
     {
-        "id": 28,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "במסיבה יש 80 משתתפים. היחס בין המבוגרים לילדים הוא <strong>3 : 7</strong>. כמה <strong>ילדים</strong> יש במסיבה?",
-        "hint": "סכום החלקים הוא 10. מצאו את ערך היחידה והכפילו בחלק של הילדים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סך כל החלקים הוא 3 + 7 = 10.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 2: ערך כל יחידת יחס הוא 80 חלקי 10.", "math_expression": "8" },
-            { "verbal_explanation": "שלב 3: מספר הילדים הוא 7 יחידות כפול 8.", "math_expression": "7 * 8 = 56" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "בשקית יש כדורים בצבעים אדום, כחול וירוק ביחס של 2:5:1 (אדום 2, כחול 5, ירוק 1). אם ידוע שיש 15 כדורים כחולים, כמה כדורים ירוקים יש בשקית?&rlm;",
+        options: ["3", "5", "6", "15"],
+        correctAnswer: 0,
+        hint: "הכחולים הם 5 חלקים והם שווים 15 כדורים. חלקו 15 ב-5 כדי למצוא את הערך של חלק אחד. הירוקים הם חלק אחד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הצבע הכחול מיוצג על ידי המספר 5 ביחס. הכמות בפועל היא 15. נמצא גודל חלק יחיד.&rlm;", math_expression: "15 : 5 = 3" },
+            { verbal_explanation: "שלב ב': כעת אנו יודעים שיחידת יחס אחת שווה ל-3 כדורים.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ג': הצבע הירוק מיוצג על ידי המספר 1 ביחס. לכן יש בדיוק 3 כדורים ירוקים.&rlm;", math_expression: "1 × 3 = 3" }
         ],
-        "final_answer": "56 ילדים",
-        "options": ["24 ילדים", "56 ילדים", "40 ילדים", "70 ילדים"],
-        "correctAnswer": 1
+        final_answer: "3"
     },
+    // שאלה 21
     {
-        "id": 29,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "זווית שטוחה (180 מעלות) חולקה לשלוש זוויות ביחס של <strong>2 : 3 : 4</strong>. מה גודל הזווית הקטנה ביותר?",
-        "hint": "חלקו את ה-180 לסך כל חלקי היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את חלקי היחס: 2 + 3 + 4 = 9.", "math_expression": "9" },
-            { "verbal_explanation": "שלב 2: נמצא את ערך היחידה. 180 חלקי 9.", "math_expression": "20" },
-            { "verbal_explanation": "שלב 3: נכפול את 20 בחלק הקטן ביותר (2).", "math_expression": "2 * 20 = 40" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "צבעי מערבב צבע לבן וצבע אדום ביחס של 2:3 ליצירת צבע ורוד מיוחד (2 כוסות לבן לכל 3 כוסות אדום). הוא רוצה להכין 30 כוסות של צבע ורוד. בכמה כוסות של צבע אדום עליו להשתמש?&rlm;",
+        options: ["18", "12", "20", "15"],
+        correctAnswer: 0,
+        hint: "סך החלקים בכל 'מנת עבודה' הוא 5. חלקו 30 ב-5, והכפילו בחלק של האדום (3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': מנה אחת של התערובת מורכבת מ-5 כוסות יחד (2 לבן + 3 אדום).&rlm;", math_expression: "2 + 3 = 5" },
+            { verbal_explanation: "שלב ב': נבדוק כמה 'מנות' כאלו נכנסות ב-30 כוסות.&rlm;", math_expression: "30 : 5 = 6" },
+            { verbal_explanation: "שלב ג': עלינו להשתמש ב-6 מנות. בכל מנה יש 3 כוסות צבע אדום. נכפיל.&rlm;", math_expression: "6 × 3 = 18" }
         ],
-        "final_answer": "40 מעלות",
-        "options": ["40 מעלות", "60 מעלות", "80 מעלות", "20 מעלות"],
-        "correctAnswer": 0
+        final_answer: "18"
     },
+    // שאלה 22
     {
-        "id": 30,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "קבוצת כדורגל ניצחה והפסידה משחקים ביחס של <strong>5 : 2</strong>. אם הקבוצה שיחקה 28 משחקים בסך הכל (ולא היו תיקו), כמה משחקים היא <strong>ניצחה</strong>?",
-        "hint": "חלקו את כל המשחקים לפי היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סכום חלקי היחס הוא 7.", "math_expression": "5 + 2 = 7" },
-            { "verbal_explanation": "שלב 2: נמצא כמה משחקים יש בכל יחידת יחס. 28 חלקי 7.", "math_expression": "4" },
-            { "verbal_explanation": "שלב 3: הקבוצה ניצחה 5 יחידות כאלו. 5 כפול 4.", "math_expression": "20" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "חלוקה עם נעלמים: חילקו כסף בין אורן לרועי ביחס של 3:7. ידוע שרועי קיבל 20 שקלים *יותר* מאורן. כמה כסף חולק בסך הכל בין שניהם?&rlm;",
+        options: ["50 שקלים", "100 שקלים", "20 שקלים", "70 שקלים"],
+        correctAnswer: 0,
+        hint: "רועי קיבל 7x ואורן קיבל 3x. ההפרש ביניהם הוא 4x. ההפרש הזה שווה ל-20! מצאו את x.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נסמן את הסכומים ב-x. אורן קיבל 3x, רועי קיבל 7x.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחשב את ההפרש בחלקים ביניהם. הוא קיבל 4 חלקים יותר.&rlm;", math_expression: "7x - 3x = 4x" },
+            { verbal_explanation: "שלב ג': נתון שההפרש הוא 20 שקלים.&rlm;", math_expression: "4x = 20  =>  x = 5" },
+            { verbal_explanation: "שלב ד': הסכום הכולל הוא 10 חלקים (3+7).&rlm;", math_expression: "10 × 5 = 50" }
         ],
-        "final_answer": "20 משחקים",
-        "options": ["20 משחקים", "8 משחקים", "14 משחקים", "25 משחקים"],
-        "correctAnswer": 0
+        final_answer: "50 שקלים"
     },
+    // שאלה 23
     {
-        "id": 31,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Low",
-        "question_text": "חלקו <strong>24 סוכריות</strong> בין דנה לרון ביחס של <strong>1 : 1</strong>. כמה סוכריות יקבל כל אחד?",
-        "hint": "יחס של 1:1 אומר חלוקה שווה בדיוק.",
-        "solution_steps": [
-            { "verbal_explanation": "כאשר היחס הוא 1:1, אנו פשוט מחלקים את הסכום ל-2 חלקים שווים.", "math_expression": "24 / 2 = 12" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "סכום הזוויות במרובע הוא 360 מעלות. הזוויות במרובע מסוים מתייחסות זו לזו ביחס של 1:1:2:2. מה גודלה של הזווית הגדולה ביותר במרובע?&rlm;",
+        options: ["120 מעלות", "60 מעלות", "180 מעלות", "90 מעלות"],
+        correctAnswer: 0,
+        hint: "ישנם 6 חלקים בסך הכל (1+1+2+2). חלקו 360 ב-6 והכפילו ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את סך כל החלקים.&rlm;", math_expression: "1 + 1 + 2 + 2 = 6" },
+            { verbal_explanation: "שלב ב': נחלק 360 מעלות ב-6.&rlm;", math_expression: "360 : 6 = 60" },
+            { verbal_explanation: "שלב ג': הזווית הגדולה מיוצגת על ידי הספרה 2. נכפיל את ה-60 ב-2.&rlm;", math_expression: "60 × 2 = 120" }
         ],
-        "final_answer": "12 סוכריות",
-        "options": ["24 סוכריות", "12 סוכריות", "1 סוכריה", "10 סוכריות"],
-        "correctAnswer": 1
+        final_answer: "120 מעלות"
     },
+    // שאלה 24
     {
-        "id": 32,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "היחס בין אורכי שלוש צלעות של משולש הוא <strong>3 : 4 : 5</strong>. אם היקף המשולש הוא <strong>60 סנטימטר</strong>, מהו אורך הצלע הארוכה ביותר?",
-        "hint": "סכמו את כל חלקי היחס וחלקו בהם את ההיקף.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סכום חלקי היחס הוא 3 + 4 + 5 = 12.", "math_expression": "12" },
-            { "verbal_explanation": "שלב 2: נמצא את ערך היחידה. 60 חלקי 12.", "math_expression": "5" },
-            { "verbal_explanation": "שלב 3: נכפול את ערך היחידה (5) בחלק של הצלע הארוכה (5).", "math_expression": "5 * 5 = 25" }
+        topic: "ratios",
+        subTopic: "חלוקה לפי יחס",
+        question_text: "היחס בין הגיל של יעל לגיל של אחיה הגדול הוא 3:4. ידוע שהאח הוא בן 16. בת כמה יעל?&rlm;",
+        options: ["12", "15", "8", "16"],
+        correctAnswer: 0,
+        hint: "גיל האח (4 חלקים) הוא 16. מצאו את הערך של חלק אחד, והכפילו בחלקים של יעל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': האח מיוצג ביחס על ידי הספרה 4. גילו הוא 16. נמצא חלק אחד.&rlm;", math_expression: "16 : 4 = 4" },
+            { verbal_explanation: "שלב ב': יעל מיוצגת על ידי הספרה 3. נכפיל את ה-3 בחלק אחד (שמצאנו שהוא 4).&rlm;", math_expression: "3 × 4 = 12" }
         ],
-        "final_answer": "25 סנטימטר",
-        "options": ["15 סנטימטר", "20 סנטימטר", "25 סנטימטר", "30 סנטימטר"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 33,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "חלקו <strong>45 דקות</strong> לשני חלקים ביחס של <strong>2 : 7</strong>. מהו החלק הקטן?",
-        "hint": "חברו 2 ו-7 וחלקו את 45 בתוצאה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סכום חלקי היחס הוא 9.", "math_expression": "2 + 7 = 9" },
-            { "verbal_explanation": "שלב 2: ערך כל חלק הוא 45 חלקי 9.", "math_expression": "5" },
-            { "verbal_explanation": "שלב 3: נכפול 5 בחלק הקטן (2).", "math_expression": "10" }
-        ],
-        "final_answer": "10 דקות",
-        "options": ["10 דקות", "35 דקות", "5 דקות", "20 דקות"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 34,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "במפעל מייצרים ברגים ואומים ביחס של <strong>10 : 3</strong>. אם ביום אחד יוצרו <strong>210 אומים</strong>, כמה <u>ברגים</u> יוצרו באותו יום?",
-        "hint": "שימו לב: האומים הם החלק של ה-3 ביחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את ערך היחידה. נחלק את מספר האומים (210) בחלק היחסי שלהם (3).", "math_expression": "210 / 3 = 70" },
-            { "verbal_explanation": "שלב 2: נכפול את ערך היחידה (70) בחלק של הברגים (10).", "math_expression": "10 * 70 = 700" }
-        ],
-        "final_answer": "700 ברגים",
-        "options": ["630 ברגים", "700 ברגים", "2100 ברגים", "300 ברגים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 35,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "סכום כסף חולק בין שלושה אנשים ביחס של <strong>2 : 5 : 8</strong>. ידוע שהאדם שקיבל את החלק הגדול ביותר קיבל <strong>400 שקלים</strong>. מה היה הסכום הכולל שחולק?",
-        "hint": "מצאו קודם את ערך היחידה מהחלק הגדול (8), ואז הכפילו בסכום כל חלקי היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את ערך היחידה. 400 חלקי 8.", "math_expression": "50" },
-            { "verbal_explanation": "שלב 2: נמצא את סך כל חלקי היחס. 2 + 5 + 8.", "math_expression": "15" },
-            { "verbal_explanation": "שלב 3: נכפול את סך החלקים (15) בערך היחידה (50).", "math_expression": "15 * 50 = 750" }
-        ],
-        "final_answer": "750 שקלים",
-        "options": ["750 שקלים", "1500 שקלים", "400 שקלים", "600 שקלים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 36,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "בארגז יש 72 כדורים בצבעים שחור ולבן. היחס ביניהם הוא <strong>1 : 3</strong> לטובת הלבנים. כמה כדורים <strong>לבנים</strong> יש בארגז?",
-        "hint": "חברו את 1 ו-3 וחלקו את 72 ב-4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: סך כל החלקים הוא 4.", "math_expression": "1 + 3 = 4" },
-            { "verbal_explanation": "שלב 2: בכל חלק יש 72 חלקי 4 כדורים.", "math_expression": "18" },
-            { "verbal_explanation": "שלב 3: מספר הכדורים הלבנים הוא 3 חלקים של 18.", "math_expression": "3 * 18 = 54" }
-        ],
-        "final_answer": "54 כדורים",
-        "options": ["18 כדורים", "54 כדורים", "36 כדורים", "60 כדורים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 37,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "היחס בין מספר הבנים למספר הבנות בחוג הוא <strong>4 : 5</strong>. אם יש <strong>4 בנות יותר</strong> מאשר בנים, כמה ילדים יש בסך הכל בחוג?",
-        "hint": "ההפרש בין חלקי היחס (5 פחות 4) הוא חלק 1. חלק זה שווה ל-4 ילדים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את ההפרש ביחס. 5 פחות 4 שווה ל-1.", "math_expression": "1" },
-            { "verbal_explanation": "שלב 2: נתון שהפרש זה שווה ל-4 ילדים. לכן ערך כל יחידה הוא 4.", "math_expression": "4" },
-            { "verbal_explanation": "שלב 3: נמצא את סך כל יחידות היחס. 4 פלוס 5.", "math_expression": "9" },
-            { "verbal_explanation": "שלב 4: נכפול 9 יחידות ב-4 ילדים ליחידה.", "math_expression": "9 * 4 = 36" }
-        ],
-        "final_answer": "36 ילדים",
-        "options": ["36 ילדים", "20 ילדים", "16 ילדים", "40 ילדים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 38,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Medium",
-        "question_text": "חלקו את המספר <strong>120</strong> ביחס של <strong>1 : 5</strong>. מהו החלק הגדול?",
-        "hint": "סכום החלקים הוא 6.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 1 + 5 = 6.", "math_expression": "6" },
-            { "verbal_explanation": "שלב 2: 120 חלקי 6 שווה ל-20.", "math_expression": "20" },
-            { "verbal_explanation": "שלב 3: 5 כפול 20 שווה ל-100.", "math_expression": "100" }
-        ],
-        "final_answer": "100",
-        "options": ["100", "20", "60", "110"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 39,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "High",
-        "question_text": "בכד יש סוכריות בשלושה צבעים: אדום, ירוק וכחול ביחס של <strong>2 : 3 : 5</strong>. אם יש <strong>50 סוכריות כחולות</strong>, כמה סוכריות יש בסך הכל בכד?",
-        "hint": "הכחולות הן החלק של ה-5 ביחס. מצאו את ערך היחידה והכפילו בסכום היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את ערך היחידה. 50 חלקי 5.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 2: סכום חלקי היחס הוא 2 + 3 + 5 = 10.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 3: נכפול את ערך היחידה (10) בסך היחידות (10).", "math_expression": "10 * 10 = 100" }
-        ],
-        "final_answer": "100 סוכריות",
-        "options": ["100 סוכריות", "50 סוכריות", "150 סוכריות", "200 סוכריות"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 40,
-        "subTopic": "חלוקה לפי יחס",
-        "difficulty": "Low",
-        "question_text": "מהו הצעד הראשון שחובה לבצע בכל תרגיל של חלוקת שלם לפי יחס?",
-        "hint": "חשבו על מציאת הסך הכל של ה'חלקים'.",
-        "solution_steps": [
-            { "verbal_explanation": "כדי לדעת לכמה מנות לחלק את השלם, עלינו קודם כל לחבר את כל המספרים המופיעים ביחס.", "math_expression": "חיבור חלקי היחס" }
-        ],
-        "final_answer": "חיבור כל חלקי היחס יחד.",
-        "options": ["חיסור חלקי היחס", "הכפלת חלקי היחס", "חיבור כל חלקי היחס יחד.", "אין צורך בצעד מקדים"],
-        "correctAnswer": 2
-    },,
-    // ==============================================================
-    // --- תת נושא 3: קנה מידה (20 שאלות) ---
-    // ==============================================================
-    {
-        "id": 41,
-        "subTopic": "קנה מידה",
-        "difficulty": "Low",
-        "question_text": "מה הפירוש של קנה מידה <strong>1 : 100</strong> בתוכנית בנייה?",
-        "hint": "המספר השמאלי מייצג את הגודל בסרטוט (בתוכנית), והמספר הימני מייצג את הגודל במציאות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבין את מבנה היחס. המספר 1 מייצג יחידת מידה אחת בסרטוט (למשל 1 סנטימטר).", "math_expression": "1 (סרטוט)" },
-            { "verbal_explanation": "שלב 2: המספר 100 מייצג את הגודל האמיתי במציאות.", "math_expression": "100 (מציאות)" },
-            { "verbal_explanation": "שלב 3: נסיק שכל סנטימטר אחד בתוכנית שווה ל-100 סנטימטרים במציאות.", "math_expression": "1 סנטימטר = 1 מטר" }
-        ],
-        "final_answer": "כל סנטימטר בסרטוט שווה ל-100 סנטימטרים במציאות.",
-        "options": ["המציאות גדולה פי 100", "הסרטוט גדול פי 100", "הם שווים בגודלם", "המציאות קטנה פי 100"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 42,
-        "subTopic": "קנה מידה",
-        "difficulty": "Low",
-        "question_text": "קנה המידה במפה הוא <strong>1 : 50,000</strong>. אורך כביש במפה הוא <strong>2 סנטימטר</strong>. מהו אורך הכביש במציאות (בסנטימטרים)?",
-        "hint": "הכפילו את האורך במפה במספר הימני של קנה המידה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את יחס ההגדלה. כל יחידה במפה שווה ל-50,000 יחידות במציאות.", "math_expression": "50,000" },
-            { "verbal_explanation": "שלב 2: נכפול את האורך שנתון לנו במפה במקדם ההגדלה.", "math_expression": "2 * 50,000 = 100,000" }
-        ],
-        "final_answer": "100,000 סנטימטרים",
-        "options": ["100,000 סנטימטרים", "50,000 סנטימטרים", "25,000 סנטימטרים", "200,000 סנטימטרים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 43,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "אורך חדר במציאות הוא <strong>6 מטרים</strong>. בסרטוט שנעשה בקנה מידה <strong>1 : 100</strong>, מה יהיה אורך החדר?<br><div style='text-align:center; margin:15px 0;'><svg width='150' height='100'><rect x='30' y='30' width='90' height='50' fill='#f1f5f9' stroke='#1e293b' stroke-width='2'/><text x='55' y='60' font-size='14'>6 מטרים</text><path d='M10,10 L40,10' stroke='blue' stroke-width='2'/><text x='15' y='25' font-size='10'>? בסרטוט</text></svg></div>",
-        "hint": "הפכו קודם את המטרים לסנטימטרים, ואז חלקו ב-100.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמיר את אורך החדר במציאות לסנטימטרים. 6 מטרים כפול 100 סנטימטר למטר.", "math_expression": "6 * 100 = 600" },
-            { "verbal_explanation": "שלב 2: נחלק את האורך האמיתי ביחס של קנה המידה (100) כדי לקבל את האורך המוקטן.", "math_expression": "600 / 100 = 6" }
-        ],
-        "final_answer": "6 סנטימטרים",
-        "options": ["60 סנטימטרים", "6 סנטימטרים", "100 סנטימטרים", "600 סנטימטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 44,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "גובה של בניין הוא 20 מטרים. ציירו אותו בגובה של 10 סנטימטרים. מהו <strong>קנה המידה</strong> של הציור?",
-        "hint": "כתבו את שני הערכים בסנטימטרים, ואז צמצמו את היחס כך שהצד השמאלי יהיה 1.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך את גובה הבניין לסנטימטרים.", "math_expression": "20 * 100 = 2,000" },
-            { "verbal_explanation": "שלב 2: נרשום את היחס בין הציור למציאות.", "math_expression": "10 : 2,000" },
-            { "verbal_explanation": "שלב 3: נצמצם את היחס על ידי חלוקה ב-10.", "math_expression": "1 : 200" }
-        ],
-        "final_answer": "1 : 200",
-        "options": ["1 : 20", "1 : 200", "1 : 2", "1 : 100"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "קנה מידה",
-        "difficulty": "High",
-        "question_text": "קנה המידה של מפה הוא <strong>1 : 1,000,000</strong>. המרחק בין שתי ערים במפה הוא <strong>4.5 סנטימטר</strong>. מהו המרחק ביניהן במציאות ב<strong>קילומטרים</strong>?",
-        "hint": "זכרו שבכל קילומטר יש 100,000 סנטימטרים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את המרחק במציאות בסנטימטרים על ידי הכפלה בקנה המידה.", "math_expression": "4.5 * 1,000,000 = 4,500,000" },
-            { "verbal_explanation": "שלב 2: נמיר סנטימטרים לקילומטרים על ידי חלוקה ב-100,000 (מורידים 5 אפסים).", "math_expression": "4,500,000 / 100,000 = 45" }
-        ],
-        "final_answer": "45 קילומטרים",
-        "options": ["4.5 קילומטרים", "45 קילומטרים", "450 קילומטרים", "4,500 מטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 46,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "בציור טכני של בורג השתמשו בקנה מידה של <strong>5 : 1</strong>. מה ניתן להסיק על גודל הבורג בציור לעומת המציאות?",
-        "hint": "כאשר המספר השמאלי גדול מהימני, מדובר בהגדלה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה שהמספר השמאלי (סרטוט) הוא 5, והימני (מציאות) הוא 1.", "math_expression": "5 (סרטוט) : 1 (מציאות)" },
-            { "verbal_explanation": "שלב 2: נסיק שהציור גדול פי 5 מהבורג האמיתי.", "math_expression": "הגדלה פי 5" }
-        ],
-        "final_answer": "הציור גדול מהבורג המקורי.",
-        "options": ["הבורג גדול מהציור", "הציור גדול מהבורג המקורי.", "הם באותו גודל", "הציור קטן פי 5"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 47,
-        "subTopic": "קנה מידה",
-        "difficulty": "High",
-        "question_text": "שני ריבועים דומים בקנה מידה <strong>1 : 3</strong>. אם שטח הריבוע הקטן הוא <strong>10 סמ\"ר</strong>, מהו שטח הריבוע הגדול?",
-        "hint": "יחס השטחים הוא תמיד יחס קנה המידה בריבוע.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את יחס השטחים. נעלה את יחס הצלעות (3) בריבוע.", "math_expression": "3 * 3 = 9" },
-            { "verbal_explanation": "שלב 2: נכפול את שטח הריבוע הקטן ביחס השטחים שמצאנו.", "math_expression": "10 * 9 = 90" }
-        ],
-        "final_answer": "90 סמ\"ר",
-        "options": ["30 סמ\"ר", "60 סמ\"ר", "90 סמ\"ר", "100 סמ\"ר"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 48,
-        "subTopic": "קנה מידה",
-        "difficulty": "Low",
-        "question_text": "איזה קנה מידה מייצג הקטנה?",
-        "hint": "חפשו יחס שבו המספר השמאלי קטן מהמספר הימני.",
-        "solution_steps": [
-            { "verbal_explanation": "כאשר המספר בסרטוט (שמאל) קטן מהמספר במציאות (ימין), מדובר בהקטנה של העצם האמיתי.", "math_expression": "1 : 20" }
-        ],
-        "final_answer": "1 : 20",
-        "options": ["1 : 20", "5 : 1", "1 : 1", "10 : 2"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 49,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "אורך של מגרש בסרטוט הוא <strong>5 סנטימטר</strong>. קנה המידה הוא <strong>1 : 400</strong>. מהו אורך המגרש במציאות ב<strong>מטרים</strong>?",
-        "hint": "הכפילו את הסנטימטרים ואז חלקו ב-100 כדי להגיע למטרים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את האורך בסנטימטרים במציאות.", "math_expression": "5 * 400 = 2,000" },
-            { "verbal_explanation": "שלב 2: נמיר מטרים על ידי חלוקה ב-100.", "math_expression": "2,000 / 100 = 20" }
-        ],
-        "final_answer": "20 מטרים",
-        "options": ["2,000 מטרים", "20 מטרים", "400 מטרים", "40 מטרים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 50,
-        "subTopic": "קנה מידה",
-        "difficulty": "High",
-        "question_text": "גובהה של בובה קטנה הוא <strong>15 סנטימטר</strong>. היא נבנתה כדגם של אדם שגובהו <strong>1.8 מטרים</strong>. מהו קנה המידה?",
-        "hint": "הפכו את המטרים לסנטימטרים ואז צמצמו את היחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נהפוך 1.8 מטר לסנטימטרים.", "math_expression": "1.8 * 100 = 180" },
-            { "verbal_explanation": "שלב 2: נרשום את היחס: דגם למציאות.", "math_expression": "15 : 180" },
-            { "verbal_explanation": "שלב 3: נצמצם את היחס על ידי חלוקה ב-15.", "math_expression": "1 : 12" }
-        ],
-        "final_answer": "1 : 12",
-        "options": ["1 : 10", "1 : 12", "1 : 1.8", "1 : 180"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 51,
-        "subTopic": "קנה מידה",
-        "difficulty": "Low",
-        "question_text": "אם אורך חרק במציאות הוא <strong>2 מ\"מ</strong> ובציור הוא <strong>20 מ\"מ</strong>, מהו קנה המידה?",
-        "hint": "רשמו ציור מול מציאות וצמצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נרשום את היחס (ציור : מציאות).", "math_expression": "20 : 2" },
-            { "verbal_explanation": "שלב 2: נצמצם על ידי חלוקה ב-2.", "math_expression": "10 : 1" }
-        ],
-        "final_answer": "10 : 1",
-        "options": ["1 : 10", "10 : 1", "20 : 2", "1 : 1"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 52,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "במפה שקנה המידה שלה הוא <strong>1 : 250,000</strong>, המרחק בין שתי נקודות הוא <strong>8 סנטימטר</strong>. מהו המרחק ביניהן בקילומטרים?",
-        "hint": "8 כפול 250,000 ואז חלוקה ב-100,000.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חישוב בסנטימטרים במציאות.", "math_expression": "8 * 250,000 = 2,000,000" },
-            { "verbal_explanation": "שלב 2: המרה לקילומטרים.", "math_expression": "2,000,000 / 100,000 = 20" }
-        ],
-        "final_answer": "20 קילומטרים",
-        "options": ["20 קילומטרים", "200 קילומטרים", "2 קילומטרים", "25 קילומטרים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 53,
-        "subTopic": "קנה מידה",
-        "difficulty": "High",
-        "question_text": "קנה המידה של מפה הוא <strong>1 : 5,000</strong>. שטח מגרש כדורגל במפה הוא <strong>4 סמ\"ר</strong>. מהו השטח האמיתי במציאות ב<strong>מטרים רבועים</strong>?",
-        "hint": "שימו לב: יחס השטחים הוא ריבוע קנה המידה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את יחס השטחים (5,000 בריבוע).", "math_expression": "25,000,000" },
-            { "verbal_explanation": "שלב 2: נכפול את שטח המפה ביחס.", "math_expression": "4 * 25,000,000 = 100,000,000 (סמ\"ר)" },
-            { "verbal_explanation": "שלב 3: נמיר למטרים רבועים (נחלק ב-10,000).", "math_expression": "10,000" }
-        ],
-        "final_answer": "10,000 מ\"ר",
-        "options": ["20,000 מ\"ר", "10,000 מ\"ר", "40,000 מ\"ר", "5,000 מ\"ר"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 54,
-        "subTopic": "קנה מידה",
-        "difficulty": "Low",
-        "question_text": "בתוכנית דירה, אורך קיר הוא <strong>4 סנטימטר</strong> וקנה המידה הוא <strong>1 : 50</strong>. מהו אורך הקיר במציאות?",
-        "hint": "4 כפול 50.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפול את האורך בסרטוט במקדם קנה המידה.", "math_expression": "4 * 50 = 200 (ס\"מ) = 2 מטר" }
-        ],
-        "final_answer": "2 מטרים",
-        "options": ["2 מטרים", "4 מטרים", "200 מטרים", "50 סנטימטר"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 55,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "דגם של מטוס נבנה בקנה מידה של <strong>1 : 72</strong>. אורך כנף המטוס במציאות הוא <strong>14.4 מטרים</strong>. מה אורך הכנף בדגם?",
-        "hint": "המרה לסנטימטרים וחלוקה ב-72.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרה לסנטימטרים.", "math_expression": "14.4 * 100 = 1,440" },
-            { "verbal_explanation": "שלב 2: חלוקה בקנה מידה.", "math_expression": "1,440 / 72 = 20" }
-        ],
-        "final_answer": "20 סנטימטרים",
-        "options": ["20 סנטימטרים", "14.4 סנטימטרים", "72 סנטימטרים", "10 סנטימטרים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 56,
-        "subTopic": "קנה מידה",
-        "difficulty": "High",
-        "question_text": "במפה א' קנה המידה הוא <strong>1 : 20,000</strong>. במפה ב' קנה המידה הוא <strong>1 : 40,000</strong>. באיזו מפה המרחק בין שתי נקודות ייראה <strong>גדול יותר</strong>?",
-        "hint": "קנה מידה עם מספר ימני קטן יותר פירושו הקטנה פחות משמעותית (כלומר דמות גדולה יותר).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבין שקנה המידה 1:20,000 מקטין את המציאות פי 20,000.", "math_expression": "מפה א'" },
-            { "verbal_explanation": "שלב 2: קנה המידה 1:40,000 מקטין את המציאות פי 40,000 (יותר הקטנה).", "math_expression": "מפה ב'" },
-            { "verbal_explanation": "שלב 3: ככל שההקטנה קטנה יותר (מפה א'), כך האובייקט ייראה גדול יותר בסרטוט.", "math_expression": "א' > ב'" }
-        ],
-        "final_answer": "במפה א'",
-        "options": ["במפה א'", "במפה ב'", "המרחק יהיה זהה", "לא ניתן לדעת"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 57,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "אורך של נמלה בטבע הוא <strong>5 מ\"מ</strong>. איזה קנה מידה יאפשר לצייר אותה באורך של <strong>10 סנטימטר</strong>?",
-        "hint": "הפכו את הסנטימטרים למ\"מ (10 ס\"מ = 100 מ\"מ) ורשמו יחס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרה למ\"מ.", "math_expression": "100" },
-            { "verbal_explanation": "שלב 2: כתיבת יחס (ציור : מציאות).", "math_expression": "100 : 5" },
-            { "verbal_explanation": "שלב 3: צמצום.", "math_expression": "20 : 1" }
-        ],
-        "final_answer": "20 : 1",
-        "options": ["1 : 20", "20 : 1", "2 : 1", "10 : 5"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 58,
-        "subTopic": "קנה מידה",
-        "difficulty": "High",
-        "question_text": "קנה מידה של מפה הוא <strong>1 : 200,000</strong>. מרחק של <strong>100 ק\"מ</strong> יוצג במפה ב...",
-        "hint": "100 ק\"מ הם 10,000,000 סנטימטר. חלקו בקנה המידה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרה לסנטימטרים.", "math_expression": "100,000 * 100 = 10,000,000" },
-            { "verbal_explanation": "שלב 2: חלוקה ביחס המפה.", "math_expression": "10,000,000 / 200,000 = 50" }
-        ],
-        "final_answer": "50 סנטימטרים",
-        "options": ["50 סנטימטרים", "5 סנטימטרים", "20 סנטימטרים", "10 סנטימטרים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 59,
-        "subTopic": "קנה מידה",
-        "difficulty": "Low",
-        "question_text": "קנה מידה <strong>1 : 1</strong> פירושו:",
-        "hint": "השוו בין המונה למכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "המספרים בשני הצדדים זהים, לכן אין הגדלה ואין הקטנה.", "math_expression": "גודל טבעי" }
-        ],
-        "final_answer": "האובייקט מצויר בגודלו הטבעי.",
-        "options": ["הקטנה פי 2", "הגדלה פי 2", "גודל טבעי.", "ציור לא מדויק"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 60,
-        "subTopic": "קנה מידה",
-        "difficulty": "Medium",
-        "question_text": "אורך של גשר במציאות הוא <strong>0.5 קילומטר</strong>. באיזה אורך הוא יופיע במפה של <strong>1 : 10,000</strong>?",
-        "hint": "הפכו חצי קילומטר לסנטימטרים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המרה לסנטימטרים.", "math_expression": "0.5 * 100,000 = 50,000" },
-            { "verbal_explanation": "שלב 2: חלוקה בקנה מידה.", "math_expression": "50,000 / 10,000 = 5" }
-        ],
-        "final_answer": "5 סנטימטרים",
-        "options": ["50 סנטימטרים", "5 סנטימטרים", "500 סנטימטרים", "0.5 סנטימטר"],
-        "correctAnswer": 1
+        final_answer: "12"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: פרופורציה (20 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: קנה מידה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 61,
-        "subTopic": "פרופורציה",
-        "difficulty": "Low",
-        "question_text": "מהי <strong>פרופורציה</strong> במתמטיקה?",
-        "hint": "חשבו על הקשר בין שני יחסים שונים.",
-        "solution_steps": [
-            { "verbal_explanation": "פרופורציה היא שוויון בין שני יחסים או בין שני שברים.", "math_expression": "A / B = C / D" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "קנה המידה של מפה הוא 1:100,000 (כל ס\"מ במפה שווה ל-100,000 ס\"מ במציאות). המרחק במפה בין שתי ערים הוא 5 ס\"מ. מהו המרחק במציאות בקילומטרים?&rlm;",
+        options: ["5 ק\"מ", "50 ק\"מ", "500 ק\"מ", "0.5 ק\"מ"],
+        correctAnswer: 0,
+        hint: "הכפילו את 5 ב-100,000 כדי למצוא את המרחק בסנטימטרים. כדי להמיר מקילומטר לסנטימטר יש להוריד 5 אפסים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את המרחק האמיתי בסנטימטרים.&rlm;", math_expression: "5 × 100000 = 500000" },
+            { verbal_explanation: "שלב ב': נמיר מקילומטרים למטרים (חלוקה ב-100).&rlm;", math_expression: "500000 : 100 = 5000 m" },
+            { verbal_explanation: "שלב ג': נמיר ממטרים לקילומטרים (חלוקה ב-1000).&rlm;", math_expression: "5000 : 1000 = 5 km" }
         ],
-        "final_answer": "שוויון בין שני יחסים.",
-        "options": ["סכום של שני יחסים", "שוויון בין שני יחסים.", "הפרש בין כמויות", "פעולת כפל"],
-        "correctAnswer": 1
+        final_answer: "5 ק\"מ"
     },
+    // שאלה 26
     {
-        "id": 62,
-        "subTopic": "פרופורציה",
-        "difficulty": "Low",
-        "question_text": "מצאו את x בפרופורציה הבאה: <strong>2 / 3 = x / 9</strong>",
-        "hint": "השתמשו בשיטת 'כפל בהצלבה': המונה של צד אחד כפול המכנה של הצד השני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפול בהצלבה. 2 כפול 9 שווה ל-3 כפול x.", "math_expression": "2 * 9 = 3x" },
-            { "verbal_explanation": "שלב 2: נחשב את התוצאה של הצד השמאלי.", "math_expression": "18 = 3x" },
-            { "verbal_explanation": "שלב 3: נחלק ב-3 כדי למצוא את x.", "math_expression": "x = 6" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "המרחק האמיתי בין שתי שכונות הוא 10 ק\"מ. במפה מסוימת, המרחק נמדד כ-20 ס\"מ. מהו קנה המידה של המפה?&rlm;",
+        options: ["1:50,000", "1:5,000", "1:200,000", "1:10,000"],
+        correctAnswer: 0,
+        hint: "המירו את ה-10 ק\"מ לסנטימטרים (הוסיפו 5 אפסים). לאחר מכן רשמו את היחס: 20 ס\"מ למול המרחק הגדול, וצמצמו את 20 ל-1.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמיר 10 ק\"מ לסנטימטרים. 1 ק\"מ = 100,000 ס\"מ.&rlm;", math_expression: "10 × 100000 = 1000000" },
+            { verbal_explanation: "שלב ב': נרשום את היחס בין המפה (20) למציאות (1,000,000).&rlm;", math_expression: "20 : 1000000" },
+            { verbal_explanation: "שלב ג': נחלק את שני המספרים ב-20.&rlm;", math_expression: "1 : 50000" }
         ],
-        "final_answer": "6",
-        "options": ["3", "6", "9", "4"],
-        "correctAnswer": 1
+        final_answer: "1:50,000"
     },
+    // שאלה 27
     {
-        "id": 63,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "פתרו את המשוואה: <strong>5 / x = 15 / 12</strong>",
-        "hint": "כפל בהצלבה: 5 כפול 12 שווה ל-x כפול 15.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפול באלכסון.", "math_expression": "5 * 12 = 15x" },
-            { "verbal_explanation": "שלב 2: נחשב את המכפלה.", "math_expression": "60 = 15x" },
-            { "verbal_explanation": "שלב 3: נחלק ב-15.", "math_expression": "x = 4" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "קנה המידה של תרשים בית הוא 1:50. האורך האמיתי של הסלון הוא 4 מטרים. מה יהיה אורך הסלון בתרשים (בסנטימטרים)?&rlm;",
+        options: ["8 ס\"מ", "2 ס\"מ", "4 ס\"מ", "80 ס\"מ"],
+        correctAnswer: 0,
+        hint: "הפכו את המטרים לסנטימטרים (400 ס\"מ). קנה מידה של 1:50 אומר שהמציאות גדולה פי 50. לכן, חלקו את המציאות ב-50.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמיר את המטרים לסנטימטרים כדי לעבוד עם יחידות נוחות למפה.&rlm;", math_expression: "4 m = 400 cm" },
+            { verbal_explanation: "שלב ב': התרשים קטן פי 50 מהמציאות. נחלק את האורך האמיתי ב-50.&rlm;", math_expression: "400 : 50 = 8" }
         ],
-        "final_answer": "4",
-        "options": ["4", "5", "3", "10"],
-        "correctAnswer": 0
+        final_answer: "8 ס\"מ"
     },
+    // שאלה 28
     {
-        "id": 64,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "במתכון ל-4 סועדים צריך 2 ביצים. כמה ביצים צריך ל-10 סועדים?",
-        "hint": "בנו פרופורציה: 2 ל-4 שווה x ל-10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבנה את המשוואה.", "math_expression": "2 / 4 = x / 10" },
-            { "verbal_explanation": "שלב 2: נכפול בהצלבה.", "math_expression": "2 * 10 = 4x" },
-            { "verbal_explanation": "שלב 3: נפתור.", "math_expression": "20 = 4x -> x = 5" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "קנה מידה מגדיל: בספר מדע צויר חרק קטנטן בקנה מידה של 10:1 (כל 10 ס\"מ בציור שווים ל-1 ס\"מ במציאות). אורך החרק בציור הוא 15 ס\"מ. מה אורכו האמיתי של החרק?&rlm;",
+        options: ["1.5 ס\"מ", "150 ס\"מ", "15 ס\"מ", "0.15 ס\"מ"],
+        correctAnswer: 0,
+        hint: "קנה מידה 10:1 אומר שהציור *גדול* פי 10 מהמציאות. חלקו את הציור ב-10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "היחס הוא ציור אל מציאות: 10 אל 1. כלומר, הציור גדול פי 10.&rlm;", math_expression: "" },
+            { verbal_explanation: "כדי למצוא את הגודל האמיתי, נחלק את גודל הציור ב-10.&rlm;", math_expression: "15 : 10 = 1.5" }
         ],
-        "final_answer": "5 ביצים",
-        "options": ["4 ביצים", "5 ביצים", "6 ביצים", "8 ביצים"],
-        "correctAnswer": 1
+        final_answer: "1.5 ס\"מ"
     },
+    // שאלה 29
     {
-        "id": 65,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "פתרו את הפרופורציה המורכבת: <strong>(x + 1) / 4 = 3 / 2</strong>",
-        "hint": "כפלו את (x+1) ב-2, ואת 3 ב-4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפול בהצלבה.", "math_expression": "2(x + 1) = 3 * 4" },
-            { "verbal_explanation": "שלב 2: נפתח סוגריים ונחשב את צד ימין.", "math_expression": "2x + 2 = 12" },
-            { "verbal_explanation": "שלב 3: נעביר אגפים.", "math_expression": "2x = 10" },
-            { "verbal_explanation": "שלב 4: נחלק ב-2.", "math_expression": "x = 5" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "קנה מידה של שרטוט דירה הוא 1:100. שרטטו בו חדר שצורתו מלבן במידות 4 ס\"מ על 5 ס\"מ. מהו השטח **האמיתי** של החדר במ\"ר?&rlm;",
+        options: ["20 מ\"ר", "2,000 מ\"ר", "200,000 מ\"ר", "40 מ\"ר"],
+        correctAnswer: 0,
+        hint: "חשבו את המידות האמיתיות *לפני* שאתם מחשבים שטח! 4 ס\"מ במפה הם 4 מטר במציאות (פי 100). 5 ס\"מ הם 5 מטר.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את האורך האמיתי. 4 ס\"מ במפה כפול 100 שווים 400 ס\"מ (4 מטר).&rlm;", math_expression: "4 × 100 = 400 cm = 4 m" },
+            { verbal_explanation: "שלב ב': נחשב את הרוחב האמיתי. 5 ס\"מ במפה כפול 100 שווים 500 ס\"מ (5 מטר).&rlm;", math_expression: "5 × 100 = 500 cm = 5 m" },
+            { verbal_explanation: "שלב ג': נחשב את השטח במטרים מרובעים.&rlm;", math_expression: "4 × 5 = 20" }
         ],
-        "final_answer": "5",
-        "options": ["5", "6", "4", "11"],
-        "correctAnswer": 0
+        final_answer: "20 מ\"ר"
     },
+    // שאלה 30
     {
-        "id": 66,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "אם 3 ק\"ג תפוחים עולים 12 שקלים, כמה יעלו 7 ק\"ג תפוחים?",
-        "hint": "בנו יחס של מחיר למשקל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבנה פרופורציה.", "math_expression": "12 / 3 = x / 7" },
-            { "verbal_explanation": "שלב 2: נזהה ש-12 חלקי 3 זה 4 (מחיר לקילו).", "math_expression": "4 = x / 7" },
-            { "verbal_explanation": "שלב 3: נכפול ב-7.", "math_expression": "x = 28" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "המרחק האמיתי בין אילת למטולה הוא בערך 400 ק\"מ. במפה קטנה, המרחק הזה מצויר כאורך של 10 ס\"מ. איזה תרגיל מראה את החישוב למציאת קנה המידה של המפה?&rlm;",
+        options: ["10 : (400 × 100,000)", "10 : 400", "400 : 10", "100,000 : 10"],
+        correctAnswer: 0,
+        hint: "היחס הוא 'מפה חלקי מציאות'. المפה היא 10 ס\"מ. المציאות היא 400 ק\"מ, שצריך להפוך לסנטימטרים על ידי כפל ב-100,000.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "קנה מידה מוגדר כיחס שבין המרחק במפה (10) למרחק במציאות (באותן יחידות).&rlm;", math_expression: "" },
+            { verbal_explanation: "נמיר 400 ק\"מ לסנטימטרים: 400 כפול 100,000.&rlm;", math_expression: "400 × 100000 = 40,000,000" },
+            { verbal_explanation: "היחס הוא 10 ל- 40,000,000.&rlm;", math_expression: "10 : (400 × 100000)" }
         ],
-        "final_answer": "28 שקלים",
-        "options": ["21 שקלים", "28 שקלים", "35 שקלים", "24 שקלים"],
-        "correctAnswer": 1
+        final_answer: "10 : (400 × 100,000)"
     },
+    // שאלה 31
     {
-        "id": 67,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "מצאו את x אם: <strong>x / (x + 2) = 1 / 2</strong>",
-        "hint": "כפל בהצלבה והעברת אגפים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל בהצלבה.", "math_expression": "2x = 1(x + 2)" },
-            { "verbal_explanation": "שלב 2: העברת x שמאלה.", "math_expression": "2x - x = 2" },
-            { "verbal_explanation": "שלב 3: תוצאה.", "math_expression": "x = 2" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "דגם מוקטן של מכונית נבנה בקנה מידה של 1:24. אורך הדגם הוא 20 ס\"מ. מהו אורך המכונית האמיתית (במטרים)?&rlm;",
+        options: ["4.8 מטרים", "480 מטרים", "2.4 מטרים", "0.48 מטרים"],
+        correctAnswer: 0,
+        hint: "הכפילו את אורך הדגם ב-24 כדי למצוא את האורך האמיתי בסנטימטרים. אל תשכחו להמיר למטרים בסוף (חלוקה ב-100).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': המכונית האמיתית גדולה פי 24 מהדגם. נכפול את אורך הדגם ב-24.&rlm;", math_expression: "20 × 24 = 480 cm" },
+            { verbal_explanation: "שלב ב': האורך שהתקבל הוא בסנטימטרים. המרה למטרים נעשית על ידי חלוקה ב-100.&rlm;", math_expression: "480 : 100 = 4.8 m" }
         ],
-        "final_answer": "2",
-        "options": ["1", "2", "4", "0"],
-        "correctAnswer": 1
+        final_answer: "4.8 מטרים"
     },
+    // שאלה 32
     {
-        "id": 68,
-        "subTopic": "פרופורציה",
-        "difficulty": "Low",
-        "question_text": "האם היחסים <strong>1 : 2</strong> ו- <strong>4 : 8</strong> הם בפרופורציה?",
-        "hint": "בדקו האם השברים שווים.",
-        "solution_steps": [
-            { "verbal_explanation": "נצמצם את היחס השני (4 חלקי 8) ונראה אם נגיע לראשון.", "math_expression": "4 / 8 = 1 / 2" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "אם 2 ס\"מ במפה מייצגים 8 ק\"מ במציאות, מהו קנה המידה של המפה?&rlm;",
+        options: ["1:400,000", "1:4,000", "1:40,000", "1:800,000"],
+        correctAnswer: 0,
+        hint: "הפכו 8 ק\"מ לסנטימטרים (800,000). היחס הוא 2 ל-800,000. חלקו ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמיר את הקילומטרים לסנטימטרים.&rlm;", math_expression: "8 km = 800,000 cm" },
+            { verbal_explanation: "שלב ב': נרשום את היחס.&rlm;", math_expression: "2 : 800000" },
+            { verbal_explanation: "שלב ג': נצמצם את שני המספרים על ידי חלוקה ב-2.&rlm;", math_expression: "1 : 400000" }
         ],
-        "final_answer": "כן, הם שווים.",
-        "options": ["כן", "לא", "רק אם נחבר אותם", "לא ניתן לדעת"],
-        "correctAnswer": 0
+        final_answer: "1:400,000"
     },
+    // שאלה 33
     {
-        "id": 69,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "משאבה מוציאה 50 ליטרים מים ב-2 דקות. כמה ליטרים היא תוציא ב-5 דקות?",
-        "hint": "50 ל-2 שווה x ל-5.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא קצב לדקה. 50 חלקי 2.", "math_expression": "25 (ליטר לדקה)" },
-            { "verbal_explanation": "שלב 2: נכפול את הקצב בזמן הנדרש.", "math_expression": "25 * 5 = 125" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "תא חידק שאורכו האמיתי הוא 0.2 מ\"מ משורטט בספר. בשרטוט, אורך התא הוא 8 ס\"מ (שהם 80 מ\"מ). איזה קנה מידה (ציור:מציאות) מציג השרטוט?&rlm;",
+        options: ["400:1", "1:400", "40:1", "80:2"],
+        correctAnswer: 0,
+        hint: "השרטוט (80 מ\"מ) מול המציאות (0.2 מ\"מ). היחס הוא 80 ל-0.2. הכפילו ב-10 כדי להיפטר מהנקודה (800 ל-2) וחלקו ב-2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את היחס באותן יחידות (מ\"מ). ציור (80) אל מול מציאות (0.2).&rlm;", math_expression: "80 : 0.2" },
+            { verbal_explanation: "שלב ב': נכפיל את שני הצדדים ב-10 כדי להיפטר מהשבר העשרוני.&rlm;", math_expression: "800 : 2" },
+            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "400 : 1" }
         ],
-        "final_answer": "125 ליטרים",
-        "options": ["100 ליטרים", "125 ליטרים", "150 ליטרים", "250 ליטרים"],
-        "correctAnswer": 1
+        final_answer: "400:1"
     },
+    // שאלה 34
     {
-        "id": 70,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "פתרו: <strong>3 / 4 = 15 / (2x)</strong>",
-        "hint": "שימו לב שהנעלם נמצא בתוך המכנה כ-2x.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל בהצלבה.", "math_expression": "3 * 2x = 4 * 15" },
-            { "verbal_explanation": "שלב 2: חישוב המכפלות.", "math_expression": "6x = 60" },
-            { "verbal_explanation": "שלב 3: חלוקה ב-6.", "math_expression": "x = 10" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "יש לכם שתי מפות של אותה ארץ. מפה א' בקנה מידה 1:100,000. מפה ב' בקנה מידה 1:50,000. המרחק בין שתי ערים במפה א' הוא 4 ס\"מ. מה יהיה המרחק בין אותן ערים במפה ב'?&rlm;",
+        options: ["8 ס\"מ", "2 ס\"מ", "4 ס\"מ", "10 ס\"מ"],
+        correctAnswer: 0,
+        hint: "מפה ב' 'קרובה' פי 2 ממפה א' (היא מכווצת את המציאות רק פי 50 אלף במקום מאה אלף). לכן הכל ייראה בה כפול בגודל.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': נמצא את המרחק האמיתי ממפה א' (4 כפול 100,000).&rlm;", math_expression: "400,000 cm" },
+            { verbal_explanation: "כעת נבדוק כמה זה במפה ב' על ידי חלוקה בקנה המידה שלה.&rlm;", math_expression: "400000 : 50000 = 8" },
+            { verbal_explanation: "דרך ב': מפה ב' (1:50,000) מוגדלת פי 2 ממפה א' (1:100,000). לכן נכפיל את המרחק ב-2.&rlm;", math_expression: "4 × 2 = 8" }
         ],
-        "final_answer": "10",
-        "options": ["10", "20", "5", "15"],
-        "correctAnswer": 0
+        final_answer: "8 ס\"מ"
     },
+    // שאלה 35
     {
-        "id": 71,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "מכונית עוברת 180 ק\"מ ב-3 שעות. באיזה מרחק תהיה המכונית לאחר 5 שעות (באותה מהירות)?",
-        "hint": "מצאו את המהירות לשעה (180/3).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מהירות המכונית.", "math_expression": "180 / 3 = 60" },
-            { "verbal_explanation": "שלב 2: מרחק לאחר 5 שעות.", "math_expression": "60 * 5 = 300" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "קנה מידה של מפה הוא 1:20,000. פארק מיוצג במפה כמלבן באורך 3 ס\"מ ורוחב 2 ס\"מ. מהו ההיקף **האמיתי** של הפארק במטרים?&rlm;",
+        options: ["2,000 מטרים", "1,000 מטרים", "400 מטרים", "200 מטרים"],
+        correctAnswer: 0,
+        hint: "חשבו קודם את ההיקף על המפה (3+2+3+2 = 10 ס\"מ). הכפילו אותו בקנה המידה, והמירו למטרים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את היקף המלבן במפה.&rlm;", math_expression: "3 + 2 + 3 + 2 = 10 cm" },
+            { verbal_explanation: "שלב ב': נכפיל בקנה המידה כדי למצוא את ההיקף האמיתי בסנטימטרים.&rlm;", math_expression: "10 × 20000 = 200000 cm" },
+            { verbal_explanation: "שלב ג': נמיר למטרים (100 ס\"מ = 1 מטר, לכן נחלק ב-100).&rlm;", math_expression: "200000 : 100 = 2000 m" }
         ],
-        "final_answer": "300 ק\"מ",
-        "options": ["240 ק\"מ", "300 ק\"מ", "360 ק\"מ", "200 ק\"מ"],
-        "correctAnswer": 1
+        final_answer: "2,000 מטרים"
     },
+    // שאלה 36
     {
-        "id": 72,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "מצאו את x: <strong>5 / 2 = 10 / (x - 1)</strong>",
-        "hint": "כפל בהצלבה: 5 כפול (x-1) שווה ל-20.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל אלכסוני.", "math_expression": "5(x - 1) = 20" },
-            { "verbal_explanation": "שלב 2: חלוקה ב-5.", "math_expression": "x - 1 = 4" },
-            { "verbal_explanation": "שלב 3: העברת 1 אגף.", "math_expression": "x = 5" }
+        topic: "ratios",
+        subTopic: "קנה מידה",
+        question_text: "איזה מבין קני המידה הבאים מתאר את המפה ה'מפורטת' ביותר (זום גדול יותר, מראה אזור קטן יותר בפירוט רב יותר)?&rlm;",
+        options: ["1:10,000", "1:100,000", "1:1,000,000", "1:500,000"],
+        correctAnswer: 0,
+        hint: "מפה מפורטת מקטינה פחות את המציאות. מספר קטן יותר בצד ימין (המספר של המציאות) אומר שההקטנה פחות חזקה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "קנה מידה הוא שבר (למשל 1 חלקי 10,000).&rlm;", math_expression: "" },
+            { verbal_explanation: "ככל שהמחלק (המכנה) קטן יותר, כך השבר גדול יותר, כלומר אנו רואים את המציאות גדולה ומפורטת יותר.&rlm;", math_expression: "1/10000 > 1/1000000" }
         ],
-        "final_answer": "5",
-        "options": ["5", "4", "6", "10"],
-        "correctAnswer": 0
+        final_answer: "1:10,000"
     },
+
+    // ==========================================================
+    // תת נושא 4: פרופורציה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 73,
-        "subTopic": "פרופורציה",
-        "difficulty": "Low",
-        "question_text": "אם היחס בין חולצות לכובעים הוא <strong>3 : 1</strong>, כמה חולצות יש אם ישנם 10 כובעים?",
-        "hint": "החולצות הן פי 3 מהכובעים.",
-        "solution_steps": [
-            { "verbal_explanation": "נכפול את מספר הכובעים ביחס החולצות.", "math_expression": "10 * 3 = 30" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "פתרו את הפרופורציה הבאה (מצאו את x):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x / 6 = 10 / 15</div>",
+        options: ["4", "5", "6", "3"],
+        correctAnswer: 0,
+        hint: "כפל בהצלבה: הכפילו באלכסונים. x כפול 15 שווה ל-6 כפול 10. לחלופין, צמצמו את 10/15 לשני שלישים, ושאלו מה חלקי 6 נותן שני שלישים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבצע כפל בהצלבה.&rlm;", math_expression: "15 × x = 6 × 10" },
+            { verbal_explanation: "שלב ב': נחשב את המכפלה.&rlm;", math_expression: "15x = 60" },
+            { verbal_explanation: "שלב ג': נחלק ב-15.&rlm;", math_expression: "x = 60 : 15 = 4" }
         ],
-        "final_answer": "30 חולצות",
-        "options": ["10", "20", "30", "40"],
-        "correctAnswer": 2
+        final_answer: "4"
     },
+    // שאלה 38
     {
-        "id": 74,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "במבחן היו 25 שאלות. תלמיד ענה נכון על 80% מהשאלות. כמה שאלות נכונות היו לו?",
-        "hint": "בנו פרופורציה: x מתוך 25 שווה ל-80 מתוך 100.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בניית הפרופורציה.", "math_expression": "x / 25 = 80 / 100" },
-            { "verbal_explanation": "שלב 2: צמצום 80/100 ל-4/5.", "math_expression": "x / 25 = 4 / 5" },
-            { "verbal_explanation": "שלב 3: כפל בהצלבה.", "math_expression": "5x = 100 -> x = 20" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "השלימו את ה-x החסר בפרופורציה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 / x = 12 / 21</div>",
+        options: ["7", "14", "9", "6"],
+        correctAnswer: 0,
+        hint: "תראו מה קרה למונה: הוא גדל פי 3 (מ-4 ל-12). לכן, גם המכנה צריך לגדול פי 3 כדי להגיע ל-21.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': נסתכל על הקשר האופקי. המונה 4 הוכפל פי 3 כדי להפוך ל-12.&rlm;", math_expression: "4 × 3 = 12" },
+            { verbal_explanation: "לכן, המכנה x גם הוא הוכפל פי 3 כדי להפוך ל-21.&rlm;", math_expression: "x × 3 = 21  =>  x = 7" },
+            { verbal_explanation: "דרך ב' (כפל בהצלבה): 12x = 4 * 21 = 84. נחלק 84 ב-12 ונקבל 7.&rlm;", math_expression: "" }
         ],
-        "final_answer": "20 שאלות",
-        "options": ["15", "20", "22", "18"],
-        "correctAnswer": 1
+        final_answer: "7"
     },
+    // שאלה 39
     {
-        "id": 75,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "היחס בין השטח של שני עיגולים הוא <strong>4 : 9</strong>. מהו היחס בין ה<strong>רדיוסים</strong> שלהם?",
-        "hint": "זכרו שיחס השטחים הוא ריבוע יחס הרדיוסים. הוציאו שורש.",
-        "solution_steps": [
-            { "verbal_explanation": "נבצע פעולת שורש ריבועי על שני מספרי היחס.", "math_expression": "שורש(4) : שורש(9) = 2 : 3" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "פרופורציה עם ביטוי אלגברי. מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x + 2) / 5 = 12 / 10</div>",
+        options: ["4", "6", "8", "2"],
+        correctAnswer: 0,
+        hint: "השבר 12/10 ניתן לצמצום. אפשר גם לראות שהמכנה (5) הוכפל פי 2 כדי להגיע ל-10. לכן, הביטוי במונה (x+2) צריך להיות מוכפל פי 2 כדי לתת 12.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבצע כפל בהצלבה.&rlm;", math_expression: "10 × (x + 2) = 5 × 12" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים ונחשב.&rlm;", math_expression: "10x + 20 = 60" },
+            { verbal_explanation: "שלב ג': נחסר 20.&rlm;", math_expression: "10x = 40" },
+            { verbal_explanation: "שלב ד': נחלק ב-10.&rlm;", math_expression: "x = 4" }
         ],
-        "final_answer": "2 : 3",
-        "options": ["2 : 3", "4 : 9", "16 : 81", "1 : 2"],
-        "correctAnswer": 0
+        final_answer: "4"
     },
+    // שאלה 40
     {
-        "id": 76,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "פתרו: <strong>x / 10 = 0.4 / 2</strong>",
-        "hint": "אל תיבהלו מהשבר העשרוני, עבדו כרגיל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כפל בהצלבה.", "math_expression": "2x = 10 * 0.4" },
-            { "verbal_explanation": "שלב 2: חישוב צד ימין.", "math_expression": "2x = 4" },
-            { "verbal_explanation": "שלב 3: חלוקה.", "math_expression": "x = 2" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "מחירם של 3 ק\"ג תפוחים הוא 18 שקלים. כמה יעלו 8 ק\"ג תפוחים מאותו הסוג?&rlm;",
+        options: ["48 שקלים", "54 שקלים", "40 שקלים", "64 שקלים"],
+        correctAnswer: 0,
+        hint: "בנו פרופורציה: 3 ק\"ג חלקי 18 שקלים שווה ל-8 ק\"ג חלקי x שקלים. או פשוט מצאו מחיר לקילו אחד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א': נמצא את המחיר לקילו אחד. 18 שקלים ל-3 קילו.&rlm;", math_expression: "18 : 3 = 6" },
+            { verbal_explanation: "עכשיו נכפול במחיר החדש (8 קילו).&rlm;", math_expression: "8 × 6 = 48" },
+            { verbal_explanation: "דרך ב' (פרופורציה): 3/18 = 8/x. כפל בהצלבה נותן 3x = 144. נחלק ב-3 ונקבל 48.&rlm;", math_expression: "" }
         ],
-        "final_answer": "2",
-        "options": ["2", "4", "0.2", "20"],
-        "correctAnswer": 0
+        final_answer: "48 שקלים"
     },
+    // שאלה 41
     {
-        "id": 77,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "בספרייה יש 3 ספרים באנגלית על כל 7 ספרים בעברית. אם יש 210 ספרים בעברית, כמה ספרים ב<strong>אנגלית</strong> יש?",
-        "hint": "3 ל-7 שווה x ל-210.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כמה פעמים 7 נכנס ב-210?", "math_expression": "210 / 7 = 30" },
-            { "verbal_explanation": "שלב 2: נכפול את היחס של אנגלית (3) ב-30.", "math_expression": "3 * 30 = 90" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "מכונית עוברת מרחק של 150 ק\"מ ב-2 שעות. מה המרחק שתעבור ב-5 שעות (בהנחה שמהירותה נשארת קבועה)?&rlm;",
+        options: ["375 ק\"מ", "300 ק\"מ", "400 ק\"מ", "250 ק\"מ"],
+        correctAnswer: 0,
+        hint: "זהו יחס ישר. אפשר למצוא את המהירות לשעה אחת, ולהכפיל ב-5.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את המהירות (מרחק לשעה אחת).&rlm;", math_expression: "150 : 2 = 75" },
+            { verbal_explanation: "שלב ב': נכפול את המהירות (75) בזמן המבוקש (5 שעות).&rlm;", math_expression: "75 × 5 = 375" }
         ],
-        "final_answer": "90 ספרים",
-        "options": ["90", "70", "100", "60"],
-        "correctAnswer": 0
+        final_answer: "375 ק\"מ"
     },
+    // שאלה 42
     {
-        "id": 78,
-        "subTopic": "פרופורציה",
-        "difficulty": "High",
-        "question_text": "במשולשים דומים, היחס בין הצלעות הוא <strong>1 : 5</strong>. אם היקף המשולש הקטן הוא 12 ס\"מ, מהו היקף המשולש הגדול?",
-        "hint": "ההיקף גדל בדיוק לפי יחס הצלעות (לא בריבוע!).",
-        "solution_steps": [
-            { "verbal_explanation": "נכפול את היקף המשולש הקטן ביחס ההגדלה.", "math_expression": "12 * 5 = 60" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "מתכון לעוגה דורש 2 כוסות סוכר לכל 5 כוסות קמח. אופה רוצה להכין עוגת ענק ויש לו 15 כוסות קמח. כמה כוסות סוכר הוא יצטרך?&rlm;",
+        options: ["6", "10", "8", "4"],
+        correctAnswer: 0,
+        hint: "היחס הוא סוכר/קמח = 2/5. אנו מחפשים כמה סוכר יש אם הקמח הוא 15. המכנה גדל פי 3 (מ-5 ל-15).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרכיב משוואת פרופורציה (סוכר חלקי קמח).&rlm;", math_expression: "2 / 5 = x / 15" },
+            { verbal_explanation: "שלב ב': נראה ש-5 הוכפל פי 3 כדי להגיע ל-15.&rlm;", math_expression: "5 × 3 = 15" },
+            { verbal_explanation: "שלב ג': נכפיל גם את המונה (2) פי 3.&rlm;", math_expression: "2 × 3 = 6" }
         ],
-        "final_answer": "60 ס\"מ",
-        "options": ["60 ס\"מ", "30 ס\"מ", "120 ס\"מ", "24 ס\"מ"],
-        "correctAnswer": 0
+        final_answer: "6"
     },
+    // שאלה 43
     {
-        "id": 79,
-        "subTopic": "פרופורציה",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <strong>8 / 4 = x / 0.5</strong>",
-        "hint": "8 חלקי 4 זה 2. איזה מספר חלקי חצי נותן 2?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: צמצום צד שמאל.", "math_expression": "2 = x / 0.5" },
-            { "verbal_explanation": "שלב 2: כפל בחצי.", "math_expression": "x = 2 * 0.5 = 1" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "בשער חליפין מסוים, 5 דולרים שווים 18 שקלים. כמה שקלים נקבל עבור 20 דולרים?&rlm;",
+        options: ["72 שקלים", "90 שקלים", "60 שקלים", "70 שקלים"],
+        correctAnswer: 0,
+        hint: "20 דולרים הם בדיוק פי 4 מאשר 5 דולרים. לכן גם השקלים יוכפלו פי 4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה שכמות הדולרים גדלה פי 4 (מ-5 ל-20).&rlm;", math_expression: "20 : 5 = 4" },
+            { verbal_explanation: "שלב ב': נכפול את סכום השקלים המקביל (18) גם כן פי 4.&rlm;", math_expression: "18 × 4 = 72" }
         ],
-        "final_answer": "1",
-        "options": ["1", "4", "2", "0.5"],
-        "correctAnswer": 0
+        final_answer: "72 שקלים"
     },
+    // שאלה 44
     {
-        "id": 80,
-        "subTopic": "פרופורציה",
-        "difficulty": "Low",
-        "question_text": "מה קורה לערך x בפרופורציה <strong>1 / 2 = x / 10</strong> אם נגדיל את ה-10 ל-20?",
-        "hint": "כדי לשמור על יחס של חצי, המונה חייב להיות תמיד חצי מהמכנה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: במצב המקורי x שווה ל-5 (חצי מ-10).", "math_expression": "5" },
-            { "verbal_explanation": "שלב 2: אם המכנה גדל ל-20, x החדש חייב להיות חצי מ-20.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 3: נסיק ש-x יגדל גם הוא.", "math_expression": "גדל" }
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "פרופורציה בין משולשים דומים: משולש א' דומה למשולש ב'. צלע בבסיס משולש א' אורכה 4 ס\"מ וצלע שמאלית אורכה 6 ס\"מ. במשולש ב', צלע הבסיס המתאימה היא 10 ס\"מ. מהו אורך הצלע השמאלית במשולש ב'?&rlm;",
+        options: ["15 ס\"מ", "12 ס\"מ", "20 ס\"מ", "8 ס\"מ"],
+        correctAnswer: 0,
+        hint: "היחס בין הצלעות נשמר: בסיס חלקי בסיס שווה שמאלית חלקי שמאלית (4/10 = 6/x).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבנה פרופורציה. צלע קצרה למשולש א' / צלע קצרה למשולש ב' = צלע ארוכה א' / צלע ארוכה ב'.&rlm;", math_expression: "4 / 10 = 6 / x" },
+            { verbal_explanation: "שלב ב': נבצע כפל בהצלבה.&rlm;", math_expression: "4 × x = 10 × 6" },
+            { verbal_explanation: "שלב ג': נפתור את המשוואה.&rlm;", math_expression: "4x = 60  =>  x = 15" }
         ],
-        "final_answer": "הערך של x יגדל.",
-        "options": ["x יקטן", "x יגדל.", "x יישאר ללא שינוי", "x יהפוך ל-0"],
-        "correctAnswer": 1
+        final_answer: "15 ס\"מ"
+    },
+    // שאלה 45
+    {
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "פתרו את משוואת הפרופורציה המורכבת:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7 / 3 = 35 / (2x - 1)</div>",
+        options: ["8", "16", "7", "10"],
+        correctAnswer: 0,
+        hint: "המונה 7 הוכפל פי 5 כדי להגיע ל-35. לכן גם המכנה 3 חייב להיות מוכפל ב-5 כדי להגיע לערך שווה ל- (2x-1).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נשים לב שהמונה הוכפל פי 5 (מ-7 ל-35). לכן גם המכנה צריך לגדול פי 5.&rlm;", math_expression: "3 × 5 = 15" },
+            { verbal_explanation: "שלב ב': המכנה השני כולו (2x-1) חייב להיות שווה ל-15.&rlm;", math_expression: "2x - 1 = 15" },
+            { verbal_explanation: "שלב ג': נפתור את המשוואה. נעביר 1 ימינה בחיבור.&rlm;", math_expression: "2x = 16" },
+            { verbal_explanation: "שלב ד': נחלק ב-2.&rlm;", math_expression: "x = 8" }
+        ],
+        final_answer: "8"
+    },
+    // שאלה 46
+    {
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "איך נוכל לבדוק בקלות האם השוויון 4/10 = 6/15 הוא פרופורציה נכונה ואמיתית?&rlm;",
+        options: ["נבדוק 'כפל בהצלבה': האם 4 כפול 15 שווה ל-10 כפול 6.", "נחבר את המונים ואת המכנים ונראה אם יוצא אותו מספר.", "זה לא נכון כי 4 לא שווה ל-6.", "נחסר 4 מ-10 ו-6 מ-15."],
+        correctAnswer: 0,
+        hint: "שתי דרכים לבדוק פרופורציה: כפל באלכסון (צריך לצאת שווה), או צמצום שני השברים (שניהם מצטמצמים ל-2/5).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "תכונת הפרופורציה קובעת ששני שברים שווים זה לזה אם מכפלת האלכסונים שלהם שווה.&rlm;", math_expression: "" },
+            { verbal_explanation: "אלכסון ראשון: 4 כפול 15 שווה 60.&rlm;", math_expression: "4 × 15 = 60" },
+            { verbal_explanation: "אלכסון שני: 10 כפול 6 שווה 60.&rlm;", math_expression: "10 × 6 = 60" },
+            { verbal_explanation: "מכיוון שהתוצאות שוות, הפרופורציה נכונה.&rlm;", math_expression: "" }
+        ],
+        final_answer: "נבדוק 'כפל בהצלבה': האם 4 כפול 15 שווה ל-10 כפול 6."
+    },
+    // שאלה 47
+    {
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "מכונת דפוס מדפיסה 400 עמודים ב-3 דקות. כמה עמודים היא תדפיס ב-12 דקות (בהנחה שקצב העבודה נשאר קבוע)?&rlm;",
+        options: ["1,600", "1,200", "800", "4,800"],
+        correctAnswer: 0,
+        hint: "הזמן גדל מ-3 דקות ל-12 דקות (פי 4). לכן גם כמות ההדפסה תגדל פי 4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את יחס ההגדלה של הזמן.&rlm;", math_expression: "12 : 3 = 4" },
+            { verbal_explanation: "שלב ב': נכפיל את כמות ההדפסה המקורית (400) ביחס ההגדלה (4).&rlm;", math_expression: "400 × 4 = 1600" }
+        ],
+        final_answer: "1,600"
+    },
+    // שאלה 48
+    {
+        topic: "ratios",
+        subTopic: "פרופורציה",
+        question_text: "ילד שגובהו 2 מטרים מטיל צל באורך 3 מטרים. באותה שעה, עץ הנמצא לידו מטיל צל באורך 15 מטרים. מהו גובהו של העץ? (שימוש בפרופורציה של צל וגובה)&rlm;",
+        options: ["10 מטרים", "12 מטרים", "8 מטרים", "30 מטרים"],
+        correctAnswer: 0,
+        hint: "היחס בין הגובה לצל נשמר. גובה (2) / צל (3) = עץ (x) / צל עץ (15). הצל של העץ גדול פי 5 מהצל של הילד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבנה פרופורציה (גובה לחלק לצל).&rlm;", math_expression: "2 / 3 = x / 15" },
+            { verbal_explanation: "שלב ב': נזהה ש-3 הוכפל ב-5 כדי להגיע ל-15.&rlm;", math_expression: "3 × 5 = 15" },
+            { verbal_explanation: "שלב ג': נכפיל את גובה הילד (2) ב-5 כדי למצוא את גובה העץ.&rlm;", math_expression: "2 × 5 = 10" }
+        ],
+        final_answer: "10 מטרים"
     }
+
 ];

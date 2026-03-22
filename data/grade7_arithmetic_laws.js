@@ -1,684 +1,558 @@
+// ========================================================================
+// שכבת גיל: כיתה ז' | נושא: חוקי פעולות החשבון
+// 3 תתי נושאים | 36 שאלות סה"כ
+// פתרונות מפורטים בשלבים. 
+// כתיבה בטוחה: חילוק מוצג כ- (:) בלבד! כפל כ- (×), שברים כ- (1/2), חזקות כ- (²).
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: חוק החילוף והקיבוץ (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: חוק החילוף והקיבוץ (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Low",
-        "question_text": "נתון הביטוי: <strong>12 + 5 = 5 + ___</strong>. איזה מספר משלים את השוויון לפי חוק החילוף?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='60'><path d='M20,50 L180,50' stroke='#1e293b' stroke-width='2' stroke-dasharray='4'/><circle cx='60' cy='40' r='15' fill='#b09151'/><circle cx='140' cy='40' r='15' fill='#94a3b8'/><text x='100' y='20' font-family='Heebo' font-size='12' text-anchor='middle'>חוק החילוף</text></svg></div>",
-        "hint": "חוק החילוף קובע שבפעולת חיבור, שינוי סדר המספרים לא משנה את התוצאה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את המספר החסר כ-X. אנו מחפשים מספר שישמור על שוויון בין שני האגפים.", "math_expression": "12 + 5 = 5 + X" },
-            { "verbal_explanation": "שלב 2: לפי חוק החילוף בחיבור, הסדר אינו קובע. לכן, אם באגף שמאל מופיע 12, הוא חייב להופיע גם באגף ימין כדי שהתוצאה תהיה זהה.", "math_expression": "12 + 5 = 17" },
-            { "verbal_explanation": "שלב 3: נסיק ש-X חייב להיות 12.", "math_expression": "X = 12" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "איזה חוק מתמטי בא לידי ביטוי בשוויון הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>17 + 45 = 45 + 17</div>",
+        options: ["חוק החילוף בחיבור", "חוק הקיבוץ בחיבור", "חוק הפילוג", "חוק החילוף בכפל"],
+        correctAnswer: 0,
+        hint: "שימו לב שהמספרים רק החליפו מקומות (הראשון הפך לשני והשני לראשון), ופעולת החשבון היא חיבור.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר אנו משנים את סדר המספרים בתרגיל חיבור והתוצאה נשארת זהה, אנו משתמשים בחוק החילוף.&rlm;", math_expression: "a + b = b + a" }
         ],
-        "final_answer": "12",
-        "options": ["5", "12", "17", "0"],
-        "correctAnswer": 1
+        final_answer: "חוק החילוף בחיבור"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Medium",
-        "question_text": "חשבו בדרך הקצרה ביותר בעזרת חוק הקיבוץ: <strong>(17 + 48) + 52 = ?</strong>",
-        "hint": "חוק הקיבוץ מאפשר לנו להזיז את הסוגריים. חפשו שני מספרים שסכומם נותן מספר עגול (כמו 100).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את התרגיל מחדש. נשים לב שהמספרים 48 ו-52 משלימים אחד את השני בדיוק ל-100.", "math_expression": "48 + 52 = 100" },
-            { "verbal_explanation": "שלב 2: נשתמש בחוק הקיבוץ כדי לשנות את מיקום הסוגריים ולחבר את הזוג הזה קודם.", "math_expression": "17 + (48 + 52)" },
-            { "verbal_explanation": "שלב 3: נפתור את מה שבתוך הסוגריים ונוסיף לתוצאה את המספר שנותר.", "math_expression": "17 + 100 = 117" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "כיצד חוק הקיבוץ יכול לעזור לנו לפתור את התרגיל הבא בעל פה ובקלות?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>23 + (77 + 45) = ?</div>",
+        options: ["נחבר קודם את 23 ו-77, שנותנים 100, ונוסיף 45", "נחבר קודם את 77 ו-45", "נכפול 23 ב-77", "נחסר 23 מ-77"],
+        correctAnswer: 0,
+        hint: "חוק הקיבוץ מאפשר לנו להזיז את הסוגריים ולחבר קודם מספרים שמשלימים לעשרות או מאות שלמות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': לפי חוק הקיבוץ, מותר לשנות את מיקום הסוגריים בתרגיל שכולו חיבור.&rlm;", math_expression: "23 + (77 + 45) = (23 + 77) + 45" },
+            { verbal_explanation: "שלב ב': נחבר את 23 ו-77, כי הם משלימים למאה עגולה בקלות.&rlm;", math_expression: "23 + 77 = 100" },
+            { verbal_explanation: "שלב ג': כעת נוסיף את ה-45.&rlm;", math_expression: "100 + 45 = 145" }
         ],
-        "final_answer": "117",
-        "options": ["100", "117", "115", "120"],
-        "correctAnswer": 1
+        final_answer: "נחבר קודם את 23 ו-77, שנותנים 100, ונוסיף 45"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Low",
-        "question_text": "איזה מהביטויים הבאים <strong>אינו</strong> נכון לפי חוקי החילוף והקיבוץ?",
-        "hint": "זכרו שחוקים אלו עובדים בחיבור ובכפל, אך לא בחיסור או בחילוק.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק את האפשרות של חיסור. נבחר מספרים פשוטים כמו 10 ו-4.", "math_expression": "10 - 4 = 6" },
-            { "verbal_explanation": "שלב 2: נחליף את הסדר ונראה אם התוצאה נשמרת.", "math_expression": "4 - 10 = -6" },
-            { "verbal_explanation": "שלב 3: מכיוון ש-6 אינו שווה למינוס 6, חוק החילוף אינו תקף בחיסור.", "math_expression": "6 \u2260 -6" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "באילו מפעולות החשבון הבאות מתקיים חוק החילוף תמיד?&rlm;",
+        options: ["חיבור וכפל", "חיסור וחילוק", "כפל וחילוק", "חיבור וחיסור"],
+        correctAnswer: 0,
+        hint: "נסו להציב מספרים. האם 5 פחות 2 שווה ל-2 פחות 5? לא. האם 5 ועוד 2 שווה ל-2 ועוד 5? כן.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "בחיבור: סדר המספרים אינו משנה את התוצאה.&rlm;", math_expression: "3 + 4 = 4 + 3 = 7" },
+            { verbal_explanation: "בכפל: סדר המספרים אינו משנה את התוצאה.&rlm;", math_expression: "3 × 4 = 4 × 3 = 12" },
+            { verbal_explanation: "בחיסור וחילוק חוק החילוף אינו מתקיים (למשל, 10 : 2 אינו שווה ל- 2 : 10).&rlm;", math_expression: "10 : 2 = 5 , 2 : 10 = 0.2" }
         ],
-        "final_answer": "8 - 3 = 3 - 8",
-        "options": ["5 + 4 = 4 + 5", "2 × 3 = 3 × 2", "8 - 3 = 3 - 8", "(1+2)+3 = 1+(2+3)"],
-        "correctAnswer": 2
+        final_answer: "חיבור וכפל"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "High",
-        "question_text": "נתון התרגיל: <strong>25 × (4 × 13)</strong>. איך ניתן לפתור אותו בקלות בעל פה?",
-        "hint": "חוק הקיבוץ בכפל מאפשר לנו להחליט אילו מספרים להכפיל קודם. חפשו זוג שנותן 100.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בחוק הקיבוץ כדי להזיז את הסוגריים כך שיקיפו את 25 ו-4.", "math_expression": "(25 × 4) × 13" },
-            { "verbal_explanation": "שלב 2: נחשב את המכפלה שבתוך הסוגריים. אנו יודעים ש-4 פעמים 25 הם בדיוק 100.", "math_expression": "100 × 13" },
-            { "verbal_explanation": "שלב 3: כפל ב-100 הוא פשוט. מוסיפים שני אפסים לסוף המספר.", "math_expression": "1300" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "איזה תרגיל שקול לתרגיל הבא, לפי חוק הקיבוץ בכפל?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 × (25 × 13)</div>",
+        options: ["(4 × 25) × 13", "(4 × 13) + 25", "4 + 25 + 13", "4 × 25 + 4 × 13"],
+        correctAnswer: 0,
+        hint: "חוק הקיבוץ מאפשר לנו 'לקבץ' (לשנות את מיקום הסוגריים) סביב גורמים שונים בכפל כדי להקל על החישוב.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חוק הקיבוץ בכפל אומר שמותר להזיז סוגריים בתרגיל שכולו כפל.&rlm;", math_expression: "a × (b × c) = (a × b) × c" },
+            { verbal_explanation: "כאן, עדיף להכפיל קודם 4 ב-25 (ששווה 100), ואז להכפיל ב-13. התוצאה תהיה 1300.&rlm;", math_expression: "(4 × 25) × 13" }
         ],
-        "final_answer": "1300",
-        "options": ["1300", "130", "2500", "520"],
-        "correctAnswer": 0
+        final_answer: "(4 × 25) × 13"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Medium",
-        "question_text": "השלימו את החסר לפי חוק הקיבוץ בחיבור: <strong>(X + 10) + 20 = X + (___)</strong>",
-        "hint": "חוק הקיבוץ אומר שאפשר לקבץ את המחברים בכל דרך שנבחר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתבונן באגף שמאל. הסוגריים מקבצים את ה-X עם ה-10.", "math_expression": "(X + 10) + 20" },
-            { "verbal_explanation": "שלב 2: באגף ימין, אנו רוצים להשאיר את ה-X לבד ולקבץ את שני המספרים יחד.", "math_expression": "X + (10 + 20)" },
-            { "verbal_explanation": "שלב 3: נחשב את סכום המספרים שקובצו יחד.", "math_expression": "10 + 20 = 30" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "חשבו את התרגיל הבא בעל פה בעזרת חוקי החילוף והקיבוץ:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 × 17 × 50 = ?</div>",
+        options: ["1700", "1750", "850", "100"],
+        correctAnswer: 0,
+        hint: "החליפו מקומות (חוק החילוף) בין 17 ל-50, ואז קבצו את 2 ו-50 יחד. כמה זה 2 כפול 50?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נשנה את סדר הגורמים בעזרת חוק החילוף כדי לקרב את המספרים שנוח לכפול.&rlm;", math_expression: "17 × 2 × 50" },
+            { verbal_explanation: "שלב ב': נקבץ את 2 ו-50 ונכפול אותם קודם.&rlm;", math_expression: "17 × (2 × 50)" },
+            { verbal_explanation: "שלב ג': נפתור בתוך הסוגריים (100) ונכפול ב-17.&rlm;", math_expression: "17 × 100 = 1700" }
         ],
-        "final_answer": "30",
-        "options": ["10", "20", "30", "X"],
-        "correctAnswer": 2
+        final_answer: "1700"
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "High",
-        "question_text": "השתמשו בחוקי החילוף והקיבוץ כדי לחשב: <strong>0.25 × 7 × 40 = ?</strong>",
-        "hint": "זכרו ש-0.25 הוא רבע. מה קורה כשמכפילים רבע ב-40?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בחוק החילוף כדי לסדר את המספרים כך שהמספרים שנוח להכפיל יהיו סמוכים.", "math_expression": "(0.25 × 40) × 7" },
-            { "verbal_explanation": "שלב 2: נחשב את הסוגריים. רבע של 40 הוא בדיוק 10.", "math_expression": "10 × 7" },
-            { "verbal_explanation": "שלב 3: נכפיל את התוצאה ב-7.", "math_expression": "70" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "איזה מהשוויונות הבאים הוא **שגוי** (אינו נכון)?&rlm;",
+        options: ["10 : 2 = 2 : 10", "5 × 8 = 8 × 5", "10 + 2 = 2 + 10", "(3 × 4) × 2 = 3 × (4 × 2)"],
+        correctAnswer: 0,
+        hint: "זכרו: חוק החילוף עובד בחיבור ובכפל, אבל אינו עובד בחילוק ובחיסור!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "חוק החילוף פועל בחיבור ובכפל.&rlm;", math_expression: "" },
+            { verbal_explanation: "נבדוק את החילוק: 10 לחלק ל-2 שווה 5.&rlm;", math_expression: "10 : 2 = 5" },
+            { verbal_explanation: "לעומת זאת, 2 לחלק ל-10 שווה 0.2 (חמישית).&rlm;", math_expression: "2 : 10 = 0.2" },
+            { verbal_explanation: "מכאן שהמשוואה של החילוק שגויה.&rlm;", math_expression: "5 ≠ 0.2" }
         ],
-        "final_answer": "70",
-        "options": ["7", "70", "700", "28"],
-        "correctAnswer": 1
+        final_answer: "10 : 2 = 2 : 10"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Medium",
-        "question_text": "מדוע חוק החילוף <strong>אינו</strong> מתקיים בפעולת החילוק? השתמשו בדוגמה: <strong>10 \u00f7 2</strong>.",
-        "hint": "השוו בין התוצאה של 10 חלקי 2 לבין התוצאה של 2 חלקי 10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את התרגיל המקורי: 10 חלקי 2.", "math_expression": "10 \u00f7 2 = 5" },
-            { "verbal_explanation": "שלב 2: נחליף את הסדר (חוק החילוף) ונחשב: 2 חלקי 10.", "math_expression": "2 \u00f7 10 = 0.2" },
-            { "verbal_explanation": "שלב 3: נראה שהתוצאות שונות לחלוטין (5 לעומת חמישית). לכן הסדר בחילוק הוא קריטי.", "math_expression": "5 \u2260 0.2" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "השתמשו בחוקי החשבון כדי לפתור את התרגיל בקלות:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>14 + 38 + 86 = ?</div>",
+        options: ["138", "128", "148", "114"],
+        correctAnswer: 0,
+        hint: "חפשו שני מספרים שספרת האחדות שלהם משלימה ל-10 (המספרים 4 ו-6). חברו אותם קודם!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נשנה סדר ונקבץ את 14 ו-86 יחד.&rlm;", math_expression: "(14 + 86) + 38" },
+            { verbal_explanation: "שלב ב': 14 ועוד 86 הם בדיוק 100.&rlm;", math_expression: "100 + 38" },
+            { verbal_explanation: "שלב ג': נחבר 100 ו-38 ונקבל 138.&rlm;", math_expression: "138" }
         ],
-        "final_answer": "כי התוצאה משתנה כשמחליפים את סדר המספרים",
-        "options": ["כי חילוק תמיד נותן שבר", "כי התוצאה משתנה כשמחליפים את סדר המספרים", "כי אי אפשר לחלק ב-0", "חוק החילוף דווקא כן עובד בחילוק"],
-        "correctAnswer": 1
+        final_answer: "138"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Low",
-        "question_text": "איזה ביטוי שווה לביטוי <strong>A + B + C</strong> לפי חוק הקיבוץ?",
-        "hint": "חפשו אפשרות שבה הסוגריים מקבצים חלק מהאותיות יחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חוק הקיבוץ מאפשר לנו להוסיף סוגריים מסביב לכל זוג מחברים שנרצה.", "math_expression": "A + B + C" },
-            { "verbal_explanation": "שלב 2: נוכל לקבץ את שני הראשונים, או את שני האחרונים.", "math_expression": "(A + B) + C = A + (B + C)" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "השלימו את המספר החסר בעזרת חוק הקיבוץ:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(12 × 5) × ? = 12 × (5 × 7)</div>",
+        options: ["7", "12", "5", "60"],
+        correctAnswer: 0,
+        hint: "בשני האגפים צריכים להיות בדיוק אותם גורמים בכפל, רק שהסוגריים מוקמו אחרת.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "באגף ימין הגורמים הם 12, 5 ו-7.&rlm;", math_expression: "" },
+            { verbal_explanation: "באגף שמאל הגורמים הם 12, 5 ומספר חסר.&rlm;", math_expression: "" },
+            { verbal_explanation: "על מנת שיתקיים חוק הקיבוץ (הזזת סוגריים בלבד), המספר החסר חייב להיות 7.&rlm;", math_expression: "" }
         ],
-        "final_answer": "A + (B + C)",
-        "options": ["A × (B + C)", "A - (B + C)", "A + (B + C)", "(A + B) \u00f7 C"],
-        "correctAnswer": 2
+        final_answer: "7"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Medium",
-        "question_text": "חשבו בעל פה: <strong>2 × 13 × 5 × 3 = ?</strong>",
-        "hint": "השתמשו בחוק החילוף כדי לקרב את ה-2 וה-5 זה לזה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה ש-2 כפול 5 נותן 10, מספר שנוח מאוד להכפיל בו.", "math_expression": "(2 \u00d7 5) \u00d7 (13 \u00d7 3)" },
-            { "verbal_explanation": "שלב 2: נחשב כל סוגריים בנפרד.", "math_expression": "10 \u00d7 39" },
-            { "verbal_explanation": "שלב 3: נוסיף אפס ל-39.", "math_expression": "390" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "חשבו את המכפלה בעזרת חוק החילוף (כדי להקל על החישוב):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.5 × 13 × 2 = ?</div>",
+        options: ["13", "26", "6.5", "13.5"],
+        correctAnswer: 0,
+        hint: "החליפו מקומות והכפילו קודם את 0.5 (חצי) ב-2. כמה זה חצי כפול 2?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נשנה סדר ונקבץ: חצי כפול 2 קודם.&rlm;", math_expression: "(0.5 × 2) × 13" },
+            { verbal_explanation: "שלב ב': 0.5 כפול 2 נותן שלם אחד (1).&rlm;", math_expression: "1 × 13" },
+            { verbal_explanation: "שלב ג': 1 כפול 13 שווה ל-13.&rlm;", math_expression: "13" }
         ],
-        "final_answer": "390",
-        "options": ["390", "130", "260", "39"],
-        "correctAnswer": 0
+        final_answer: "13"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "High",
-        "question_text": "נתון ש- <strong>X + Y = 50</strong>. למה שווה הערך של <strong>(X + 15) + Y</strong>?",
-        "hint": "השתמשו בחוקי החילוף והקיבוץ כדי 'להוציא' את ה-15 מהסוגריים ולחבר קודם את X ו-Y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בחוק הקיבוץ והחילוף כדי לסדר מחדש את הביטוי.", "math_expression": "(X + Y) + 15" },
-            { "verbal_explanation": "שלב 2: נציב במקום (X + Y) את הערך הידוע לנו מהנתון (50).", "math_expression": "50 + 15" },
-            { "verbal_explanation": "שלב 3: נחשב את הסכום הסופי.", "math_expression": "65" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "האם המשוואה הבאה נכונה? מדוע?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(a + b) + c = a + (c + b)</div>",
+        options: ["נכונה, שילוב של חוק החילוף וחוק הקיבוץ", "לא נכונה, כי האותיות שונות", "נכונה רק אם כל האותיות שוות ל-0", "לא נכונה, אי אפשר להזיז את b"],
+        correctAnswer: 0,
+        hint: "שימו לב: גם הסוגריים זזו (קיבוץ) וגם האותיות b ו-c החליפו מקומות (חילוף).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "באגף שמאל, קובצו תחילה a ו-b.&rlm;", math_expression: "" },
+            { verbal_explanation: "באגף ימין, הופעלו שתי פעולות: קובצו a עם הסוגריים החדשים, ובנוסף c ו-b החליפו מקום בתוך הסוגריים.&rlm;", math_expression: "" },
+            { verbal_explanation: "בחיבור הכל מותר וזה תמיד שומר על השוויון.&rlm;", math_expression: "" }
         ],
-        "final_answer": "65",
-        "options": ["50", "65", "35", "15"],
-        "correctAnswer": 1
+        final_answer: "נכונה, שילוב של חוק החילוף וחוק הקיבוץ"
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Medium",
-        "question_text": "איזה חוק מתמטי מאפשר לנו לכתוב <strong>A \u00d7 B \u00d7 C = C \u00d7 A \u00d7 B</strong>?",
-        "hint": "הסתכלו על סדר האותיות. האם הוא השתנה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נראה שכל האותיות המקוריות נמצאות, אך המיקום שלהן בתוך המכפלה השתנה.", "math_expression": "חילוף מקומות" },
-            { "verbal_explanation": "שלב 2: החוק המאפשר זאת בכפל נקרא 'חוק החילוף'.", "math_expression": "חוק החילוף" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "במוכר הירקות סידר ארגזים: 4 שורות, בכל שורה 5 ארגזים, ובכל ארגז 10 תפוחים. איזה תרגיל משקף את הדרך המהירה ביותר לחשב את סך התפוחים בעזרת חוק הקיבוץ?&rlm;",
+        options: ["(4 × 5) × 10", "(4 × 10) × 5", "4 + 5 + 10", "(5 × 10) + 4"],
+        correctAnswer: 0,
+        hint: "4 כפול 5 זה 20. 20 כפול 10 זה מאוד קל לחישוב בראש (מוסיפים אפס)!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "התרגיל הכללי הוא מכפלת השורות, הארגזים והתפוחים.&rlm;", math_expression: "4 × 5 × 10" },
+            { verbal_explanation: "לפי חוק הקיבוץ, קל יותר לכפול קודם 4 ב-5 לקבלת 20 עגול.&rlm;", math_expression: "(4 × 5) × 10 = 20 × 10" },
+            { verbal_explanation: "20 כפול 10 שווה 200 תפוחים.&rlm;", math_expression: "200" }
         ],
-        "final_answer": "חוק החילוף בכפל",
-        "options": ["חוק הקיבוץ", "חוק החילוף בכפל", "חוק הפילוג", "חוק האפס"],
-        "correctAnswer": 1
+        final_answer: "(4 × 5) × 10"
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "High",
-        "question_text": "האם ניתן להשתמש בחוק הקיבוץ בתרגיל הכולל גם כפל וגם חיבור, כמו: <strong>2 × (3 + 4)</strong>?",
-        "hint": "נסו לשנות את מיקום הסוגריים ל- (2 × 3) + 4 ובדקו אם התוצאה נשארת זהה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב לפי הסדר המקורי (סוגריים קודם).", "math_expression": "2 \u00d7 7 = 14" },
-            { "verbal_explanation": "שלב 2: ננסה 'להזיז' את הסוגריים בניגוד לחוק.", "math_expression": "(2 \u00d7 3) + 4 = 6 + 4 = 10" },
-            { "verbal_explanation": "שלב 3: התוצאות שונות (14 לעומת 10). מסקנה: חוק הקיבוץ עובד רק כשיש את *אותה פעולה* לאורך כל התרגיל.", "math_expression": "14 \u2260 10" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק החילוף והקיבוץ",
+        question_text: "חשבו במדויק וביעילות (שימוש בשברים עשרוניים במקום שברים פשוטים כדי להקל):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2.25 + 5.5 + 0.75 = ?</div>",
+        options: ["8.5", "8.75", "9", "7.5"],
+        correctAnswer: 0,
+        hint: "חברו קודם את המספרים שמשלימים לשלם: 2.25 (שניים ורבע) יחד עם 0.75 (שלושה רבעים).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נשנה סדר ונקבץ את השברים שמשלימים לשלם נוח.&rlm;", math_expression: "(2.25 + 0.75) + 5.5" },
+            { verbal_explanation: "שלב ב': 2.25 ועוד 0.75 הם בדיוק 3 שלמים.&rlm;", math_expression: "3 + 5.5" },
+            { verbal_explanation: "שלב ג': נחבר 3 ל-5.5 ונקבל 8 וחצי.&rlm;", math_expression: "8.5" }
         ],
-        "final_answer": "לא, חוק הקיבוץ דורש פעולה אחידה (רק חיבור או רק כפל)",
-        "options": ["כן, תמיד", "לא, חוק הקיבוץ דורש פעולה אחידה", "רק אם המספרים חיוביים", "רק עם משתנים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 13,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Low",
-        "question_text": "חשבו בעזרת חוק הקיבוץ: <strong>(99 + 125) + 1 = ?</strong>",
-        "hint": "חברו את 99 ו-1 קודם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נקבץ את 99 ו-1 יחד כדי לקבל מאה עגולה.", "math_expression": "(99 + 1) + 125" },
-            { "verbal_explanation": "שלב 2: נחשב את הסוגריים.", "math_expression": "100 + 125" },
-            { "verbal_explanation": "שלב 3: נחבר בקלות.", "math_expression": "225" }
-        ],
-        "final_answer": "225",
-        "options": ["224", "225", "226", "230"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "Medium",
-        "question_text": "האם השוויון הבא נכון: <strong> (12 \u00f7 6) \u00f7 2 = 12 \u00f7 (6 \u00f7 2) </strong>?",
-        "hint": "פתרו כל צד בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: צד שמאל: 12 חלקי 6 הם 2, ואז 2 חלקי 2.", "math_expression": "2 \u00f7 2 = 1" },
-            { "verbal_explanation": "שלב 2: צד ימין: 6 חלקי 2 הם 3, ואז 12 חלקי 3.", "math_expression": "12 \u00f7 3 = 4" },
-            { "verbal_explanation": "שלב 3: 1 לא שווה ל-4. לכן השוויון לא נכון.", "math_expression": "1 \u2260 4" }
-        ],
-        "final_answer": "לא נכון",
-        "options": ["נכון", "לא נכון", "נכון רק עבור X=1", "תלוי בסימנים"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 15,
-        "subTopic": "חוק החילוף והקיבוץ",
-        "difficulty": "High",
-        "question_text": "השתמשו בחוק הקיבוץ כדי למצוא את הערך של X בביטוי: <strong> (X + 45) + 55 = 200 </strong>",
-        "hint": "קבצו את 45 ו-55 יחד קודם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזיז את הסוגריים כדי לחבר את המספרים הידועים.", "math_expression": "X + (45 + 55) = 200" },
-            { "verbal_explanation": "שלב 2: נחשב את הסכום שבסוגריים (45 ועוד 55 הם בדיוק 100).", "math_expression": "X + 100 = 200" },
-            { "verbal_explanation": "שלב 3: נחסיר 100 מהתוצאה כדי למצוא את X.", "math_expression": "X = 100" }
-        ],
-        "final_answer": "100",
-        "options": ["100", "155", "45", "110"],
-        "correctAnswer": 0
+        final_answer: "8.5"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: חוק הפילוג (8 שאלות ראשונות לחלק א') ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: חוק הפילוג (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 16,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Low",
-        "question_text": "פתחו סוגריים בעזרת חוק הפילוג: <strong> 3 × (X + 5) </strong><br><div style='text-align:center; margin:15px 0;'><svg width='200' height='100'><rect x='20' y='20' width='160' height='50' fill='none' stroke='#1e293b' stroke-width='2'/><line x1='80' y1='20' x2='80' y2='70' stroke='#1e293b'/><text x='50' y='50' font-size='14'>X</text><text x='130' y='50' font-size='14'>5</text><text x='10' y='50' font-size='14' text-anchor='end'>3</text></svg></div>",
-        "hint": "חוק הפילוג אומר שצריך להכפיל את המספר שבחוץ בכל אחד מהאיברים שבתוך הסוגריים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המספר 3 בנעלם הראשון X.", "math_expression": "3 \u00d7 X = 3X" },
-            { "verbal_explanation": "שלב 2: נכפיל את המספר 3 במספר השני 5.", "math_expression": "3 \u00d7 5 = 15" },
-            { "verbal_explanation": "שלב 3: נחבר את שתי התוצאות לביטוי אחד.", "math_expression": "3X + 15" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "פתחו את הסוגריים בעזרת חוק הפילוג:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 × (x + 5) = ?</div>",
+        options: ["3x + 15", "3x + 5", "x + 15", "8x"],
+        correctAnswer: 0,
+        hint: "יש לכפול את ה-3 הנמצא מחוץ לסוגריים בכל אחד מהאיברים שבתוך הסוגריים (גם ב-x וגם ב-5).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכפול את 3 ב-x.&rlm;", math_expression: "3 × x = 3x" },
+            { verbal_explanation: "שלב ב': נכפול את 3 ב-5.&rlm;", math_expression: "3 × 5 = 15" },
+            { verbal_explanation: "שלב ג': נרשום את התוצאה כמחרוזת של איברים מחוברים.&rlm;", math_expression: "3x + 15" }
         ],
-        "final_answer": "3X + 15",
-        "options": ["3X + 5", "3X + 15", "8X", "15X"],
-        "correctAnswer": 1
+        final_answer: "3x + 15"
     },
+    // שאלה 14
     {
-        "id": 17,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Medium",
-        "question_text": "חשבו בעל פה בעזרת חוק הפילוג: <strong> 7 × 102 = ? </strong>",
-        "hint": "פרקו את 102 ל- (100 + 2).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את 102 כסכום של שני מספרים שנוח להכפיל ב-7.", "math_expression": "7 \u00d7 (100 + 2)" },
-            { "verbal_explanation": "שלב 2: נשתמש בחוק הפילוג: נכפיל 7 ב-100 וגם 7 ב-2.", "math_expression": "700 + 14" },
-            { "verbal_explanation": "שלב 3: נחבר את התוצאות.", "math_expression": "714" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "חשבו את התרגיל הבא בדרך הקלה ביותר בעזרת חוק הפילוג:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7 × 102 = ?</div>",
+        options: ["714", "702", "712", "804"],
+        correctAnswer: 0,
+        hint: "פרקו את 102 ל- (100 + 2) וכפלו את 7 בכל חלק בנפרד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכתוב את 102 כסכום נוח לחישוב בתוך סוגריים.&rlm;", math_expression: "7 × (100 + 2)" },
+            { verbal_explanation: "שלב ב': נכפול 7 ב-100 וגם 7 ב-2.&rlm;", math_expression: "700 + 14" },
+            { verbal_explanation: "שלב ג': נחבר ונקבל 714.&rlm;", math_expression: "714" }
         ],
-        "final_answer": "714",
-        "options": ["702", "714", "720", "800"],
-        "correctAnswer": 1
+        final_answer: "714"
     },
+    // שאלה 15
     {
-        "id": 18,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "פתחו סוגריים ופשטו: <strong> 4(2X - 3) + 10 </strong>",
-        "hint": "קודם כל פתחו את הסוגריים (הכפילו 4 ב-2X ובמינוס 3), ורק אז הוסיפו 10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בחוק הפילוג על הסוגריים. 4 כפול 2X הם 8X, ו-4 כפול מינוס 3 הם מינוס 12.", "math_expression": "8X - 12 + 10" },
-            { "verbal_explanation": "שלב 2: כעת נבצע 'כינוס איברים' - נחבר את המספרים החופשיים (מינוס 12 ועוד 10).", "math_expression": "8X - 2" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "חוק הפילוג ה'הפוך' (הוצאת גורם משותף). כנסו איברים בביטוי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5x + 15 = ?</div>",
+        options: ["5(x + 3)", "5(x + 15)", "15x", "x(5 + 15)"],
+        correctAnswer: 0,
+        hint: "מהו המספר הגדול ביותר שמחלק גם את 5 וגם את 15? זהו המספר שייצא מחוץ לסוגריים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה את הגורם המשותף המקסימלי ל-5 ול-15, שהוא 5.&rlm;", math_expression: "5 × x + 5 × 3" },
+            { verbal_explanation: "שלב ב': נרשום את ה-5 מחוץ לסוגריים, ונכניס את 'מה שנשאר' לתוך הסוגריים.&rlm;", math_expression: "5(x + 3)" }
         ],
-        "final_answer": "8X - 2",
-        "options": ["8X - 2", "8X + 10", "6X - 2", "8X - 12"],
-        "correctAnswer": 0
+        final_answer: "5(x + 3)"
     },
+    // שאלה 16
     {
-        "id": 19,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Medium",
-        "question_text": "איזה ביטוי מתאר את שטח המלבן הגדול שבשרטוט?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='100'><rect x='20' y='20' width='160' height='50' fill='none' stroke='#b09151' stroke-width='2'/><line x1='100' y1='20' x2='100' y2='70' stroke='#b09151'/><text x='60' y='50' font-size='14'>A</text><text x='140' y='50' font-size='14'>B</text><text x='10' y='50' font-size='14' text-anchor='end'>H</text></svg></div>",
-        "hint": "שטח מלבן הוא צלע כפול צלע. צלע אחת היא H, והצלע השנייה מורכבת מ- A ו- B.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את אורך המלבן השלם כחיבור של שני החלקים.", "math_expression": "A + B" },
-            { "verbal_explanation": "שלב 2: נכפיל את הגובה H בכל האורך.", "math_expression": "H × (A + B)" },
-            { "verbal_explanation": "שלב 3: לפי חוק הפילוג, זה שווה לסכום השטחים של שני המלבנים הקטנים.", "math_expression": "HA + HB" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "פשטו את הביטוי על ידי כינוס איברים דומים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4a + 7 + 2a - 3 = ?</div>",
+        options: ["6a + 4", "11a - 3", "6a - 4", "10a"],
+        correctAnswer: 0,
+        hint: "חברו את כל האיברים עם האות a בנפרד, ואת המספרים החופשיים בנפרד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחבר את איברי ה-a: 4 פעמים a ועוד 2 פעמים a.&rlm;", math_expression: "4a + 2a = 6a" },
+            { verbal_explanation: "שלב ב': נחשב את המספרים החופשיים: 7 פחות 3.&rlm;", math_expression: "7 - 3 = 4" },
+            { verbal_explanation: "שלב ג': נחבר את התוצאות לביטוי אחד פשוט.&rlm;", math_expression: "6a + 4" }
         ],
-        "final_answer": "H(A + B)",
-        "options": ["H + A + B", "H(A + B)", "HAB", "H + AB"],
-        "correctAnswer": 1
+        final_answer: "6a + 4"
     },
+    // שאלה 17
     {
-        "id": 20,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "בצעו 'פירוק לגורמים' (הוצאת גורם משותף) לביטוי: <strong> 6X + 18 </strong>",
-        "hint": "חפשו את המספר הגדול ביותר שגם 6 וגם 18 מתחלקים בו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה ששני המספרים מתחלקים ב-6.", "math_expression": "6, 18" },
-            { "verbal_explanation": "שלב 2: נוציא את 6 מחוץ לסוגריים. נשאל: 6 כפול מה ייתן 6X? (תשובה: X). 6 כפול מה ייתן 18? (תשובה: 3).", "math_expression": "6 \u00d7 (X + 3)" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "איך נחשב 8 × 99 בעזרת חוק הפילוג (עם חיסור)?&rlm;",
+        options: ["8 × (100 - 1) = 800 - 8 = 792", "8 × 90 + 9 = 729", "8 × 100 - 1 = 799", "800 - 99 = 701"],
+        correctAnswer: 0,
+        hint: "99 קרוב מאוד ל-100. נוכל לכתוב אותו בתוך סוגריים כ- (100 פחות 1).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציג את 99 כהפרש מ-100 בסוגריים.&rlm;", math_expression: "8 × (100 - 1)" },
+            { verbal_explanation: "שלב ב': נכפול 8 ב-100, ונחסר 8 כפול 1.&rlm;", math_expression: "800 - 8" },
+            { verbal_explanation: "שלב ג': התוצאה היא 792.&rlm;", math_expression: "792" }
         ],
-        "final_answer": "6(X + 3)",
-        "options": ["6(X + 18)", "6(X + 3)", "3(2X + 6)", "X(6 + 18)"],
-        "correctAnswer": 1
+        final_answer: "8 × (100 - 1) = 800 - 8 = 792"
     },
+    // שאלה 18
     {
-        "id": 21,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Low",
-        "question_text": "איזה חוק מאפשר לנו לכתוב <strong> 5 × 12 = 5 \u00d7 10 + 5 \u00d7 2 </strong>?",
-        "hint": "המספר 12 'התפלג' (התחלק) ל-10 ול-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: פירקנו את אחד הגורמים לסכום והכפלנו את הגורם השני בכל חלק בנפרד.", "math_expression": "a(b + c) = ab + ac" },
-            { "verbal_explanation": "שלב 2: חוק זה נקרא 'חוק הפילוג'.", "math_expression": "חוק הפילוג" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "שימו לב לסימנים השליליים! פתחו את הסוגריים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-2 × (x + 4) = ?</div>",
+        options: ["-2x - 8", "-2x + 8", "2x - 8", "-2x + 4"],
+        correctAnswer: 0,
+        hint: "מינוס כפול פלוס שווה למינוס. לכן, מינוס 2 כפול פלוס 4 שווה למינוס 8.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נכפול 2- באיבר הראשון (x).&rlm;", math_expression: "-2 × x = -2x" },
+            { verbal_explanation: "שלב ב': נכפול 2- באיבר השני (+4).&rlm;", math_expression: "-2 × 4 = -8" },
+            { verbal_explanation: "שלב ג': נרשום את התוצאה הסופית.&rlm;", math_expression: "-2x - 8" }
         ],
-        "final_answer": "חוק הפילוג",
-        "options": ["חוק החילוף", "חוק הקיבוץ", "חוק הפילוג", "חוק האפס"],
-        "correctAnswer": 2
+        final_answer: "-2x - 8"
     },
+    // שאלה 19
     {
-        "id": 22,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Medium",
-        "question_text": "חשבו בעזרת חוק הפילוג: <strong> 8 × 99 = ? </strong>",
-        "hint": "חשבו על 99 כ- (100 פחות 1).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את 99 כהפרש בין 100 ל-1.", "math_expression": "8 \u00d7 (100 - 1)" },
-            { "verbal_explanation": "שלב 2: נפעיל את חוק הפילוג: 8 כפול 100 פחות 8 כפול 1.", "math_expression": "800 - 8" },
-            { "verbal_explanation": "שלב 3: נחשב את התוצאה הסופית.", "math_expression": "792" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "מהו הגורם המשותף הגדול ביותר שניתן להוציא מהביטוי 12x + 18y ?&rlm;",
+        options: ["6", "2", "3", "12"],
+        correctAnswer: 0,
+        hint: "חפשו את המספר הגדול ביותר שמחלק ללא שארית גם את 12 וגם את 18.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המחלקים של 12 הם 1, 2, 3, 4, 6, 12.&rlm;", math_expression: "" },
+            { verbal_explanation: "המחלקים של 18 הם 1, 2, 3, 6, 9, 18.&rlm;", math_expression: "" },
+            { verbal_explanation: "המחלק המשותף הגדול ביותר של שניהם הוא 6.&rlm;", math_expression: "6 × (2x + 3y)" }
         ],
-        "final_answer": "792",
-        "options": ["800", "792", "788", "720"],
-        "correctAnswer": 1
+        final_answer: "6"
     },
+    // שאלה 20
     {
-        "id": 23,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "פתחו סוגריים ופשטו: <strong> -2(X - 5) </strong>",
-        "hint": "שימו לב לסימן המינוס! מינוס כפול מינוס נותן פלוס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את המינוס 2 ב-X.", "math_expression": "-2X" },
-            { "verbal_explanation": "שלב 2: נכפיל את המינוס 2 במינוס 5. זכרו ששני סימני מינוס בכפל הופכים לפלוס.", "math_expression": "-2 \u00d7 (-5) = +10" },
-            { "verbal_explanation": "שלב 3: נחבר את התוצאות לביטוי אחד.", "math_expression": "-2X + 10" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "פשטו את הביטוי הבא (פתיחת סוגריים וכינוס):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5(x + 2) + 3(x - 1) = ?</div>",
+        options: ["8x + 7", "8x + 1", "8x + 9", "15x"],
+        correctAnswer: 0,
+        hint: "פתחו קודם את שני זוגות הסוגריים בנפרד לפי חוק הפילוג, ואז כנסו איברים דומים (x עם x, מספרים עם מספרים).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתח את הסוגריים הראשונים.&rlm;", math_expression: "5x + 10" },
+            { verbal_explanation: "שלב ב': נפתח את הסוגריים השניים.&rlm;", math_expression: "3x - 3" },
+            { verbal_explanation: "שלב ג': נחבר איברי x בנפרד ומספרים בנפרד: (5x+3x) וגם (10-3).&rlm;", math_expression: "8x + 7" }
         ],
-        "final_answer": "-2X + 10",
-        "options": ["-2X - 10", "-2X + 10", "2X - 10", "-2X - 5"],
-        "correctAnswer": 1
+        final_answer: "8x + 7"
     },
-    // ==============================================================
-    // --- המשך תת נושא 2: חוק הפילוג (שאלות 24-30) ---
-    // ==============================================================
+    // שאלה 21
     {
-        "id": 24,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "פשטו את הביטוי הבא בעזרת חוק הפילוג וכינוס איברים: <strong>5(X + 2) + 3(X - 1)</strong>",
-        "hint": "פתחו כל זוג סוגריים בנפרד, ואז חברו את כל ה-X יחד ואת כל המספרים יחד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בחוק הפילוג על הסוגריים הראשונים. נכפיל 5 ב-X וגם 5 ב-2.", "math_expression": "5X + 10" },
-            { "verbal_explanation": "שלב 2: כעת נפתח את הסוגריים השניים. נכפיל 3 ב-X וגם 3 במינוס 1.", "math_expression": "3X - 3" },
-            { "verbal_explanation": "שלב 3: נחבר את שתי התוצאות לביטוי אחד ארוך.", "math_expression": "5X + 10 + 3X - 3" },
-            { "verbal_explanation": "שלב 4: נבצע 'כינוס איברים'. נחבר את ה-X (5 ועוד 3) ואת המספרים (10 פחות 3).", "math_expression": "8X + 7" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "חשבו בדרך חכמה (חוק הפילוג הפוך / הוצאת גורם משותף):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>13 × 17 + 13 × 3 = ?</div>",
+        options: ["260", "130", "200", "221"],
+        correctAnswer: 0,
+        hint: "הוציאו את 13 כגורם משותף מחוץ לסוגריים (17 + 3).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נזהה ש-13 מוכפל בשני האיברים. נוציא אותו כגורם משותף.&rlm;", math_expression: "13 × (17 + 3)" },
+            { verbal_explanation: "שלב ב': נחשב את הסוגריים: 17 ועוד 3 שווה 20.&rlm;", math_expression: "13 × 20" },
+            { verbal_explanation: "שלב ג': מכפלה פשוטה: 13 כפול 2 זה 26, בתוספת אפס זה 260.&rlm;", math_expression: "260" }
         ],
-        "final_answer": "8X + 7",
-        "options": ["8X + 7", "8X + 13", "15X + 7", "8X - 7"],
-        "correctAnswer": 0
+        final_answer: "260"
     },
+    // שאלה 22
     {
-        "id": 25,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Medium",
-        "question_text": "מהו הביטוי הפשוט ביותר עבור: <strong>10 - (X + 4)</strong>?",
-        "hint": "שימו לב: המינוס שלפני הסוגריים פועל כמו 'מינוס 1' שמוכפל בכל מה שבפנים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתייחס למינוס שלפני הסוגריים כאל פעולת כפל במינוס 1. נפתח את הסוגריים ונשנה את הסימנים של כל מה שבפנים.", "math_expression": "10 - X - 4" },
-            { "verbal_explanation": "שלב 2: נבצע חיסור בין המספרים החופשיים (10 פחות 4).", "math_expression": "6 - X" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "פשטו את הביטוי: 10x - 2(3x + 1) = ?&rlm;",
+        options: ["4x - 2", "4x + 2", "7x - 2", "10x - 6x + 1"],
+        correctAnswer: 0,
+        hint: "שימו לב: אתם מכפילים ב- (2-). המינוס משפיע על כל מה שבתוך הסוגריים!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתח סוגריים. מינוס 2 כפול 3x הם מינוס 6x. ומינוס 2 כפול פלוס 1 הם מינוס 2.&rlm;", math_expression: "10x - 6x - 2" },
+            { verbal_explanation: "שלב ב': נחסר איברי x: עשר פחות שש הם 4.&rlm;", math_expression: "4x - 2" }
         ],
-        "final_answer": "6 - X",
-        "options": ["14 - X", "6 - X", "6 + X", "10 - X + 4"],
-        "correctAnswer": 1
+        final_answer: "4x - 2"
     },
+    // שאלה 23
     {
-        "id": 26,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "פתרו את המשוואה בעזרת חוק הפילוג: <strong>X(X + 3) = X² + 12</strong>",
-        "hint": "פתחו את הסוגריים בצד שמאל. שימו לב שה-X בריבוע יתבטל משני הצדדים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפתח את הסוגריים באגף שמאל. נכפיל X ב-X וגם X ב-3.", "math_expression": "X² + 3X = X² + 12" },
-            { "verbal_explanation": "שלב 2: נחסיר X² משני אגפי המשוואה כדי לפשט אותה.", "math_expression": "3X = 12" },
-            { "verbal_explanation": "שלב 3: נחלק ב-3 כדי למצוא את ערכו של X.", "math_expression": "X = 4" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "איזה ביטוי שווה ל- 6x + 9?&rlm;",
+        options: ["3(2x + 3)", "6(x + 9)", "3(2x + 9)", "15x"],
+        correctAnswer: 0,
+        hint: "נסו להוציא את הגורם המשותף 3 מחוץ לסוגריים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': המחלק המשותף הגדול של 6 ו-9 הוא 3.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נחלק את שני האיברים ב-3.&rlm;", math_expression: "6x : 3 = 2x , 9 : 3 = 3" },
+            { verbal_explanation: "שלב ג': נרשום את ה-3 בחוץ ואת התוצאות בפנים.&rlm;", math_expression: "3(2x + 3)" }
         ],
-        "final_answer": "4",
-        "options": ["3", "4", "12", "0"],
-        "correctAnswer": 1
+        final_answer: "3(2x + 3)"
     },
+    // שאלה 24
     {
-        "id": 27,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Medium",
-        "question_text": "מצאו את הגורם המשותף הגבוה ביותר ופרקו לגורמים: <strong>12X + 8</strong>",
-        "hint": "חפשו את המספר הגדול ביותר שגם 12 וגם 8 מתחלקים בו ללא שארית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבדוק באילו מספרים מתחלקים 12 ו-8. שניהם מתחלקים ב-2, אך המספר הגדול ביותר ששניהם מתחלקים בו הוא 4.", "math_expression": "4" },
-            { "verbal_explanation": "שלב 2: נוציא את 4 מחוץ לסוגריים. בתוך הסוגריים נרשום את התוצאה של חלוקת כל איבר ב-4.", "math_expression": "4 \u00d7 (12X ÷ 4 + 8 ÷ 4)" },
-            { "verbal_explanation": "שלב 3: נרשום את הביטוי הסופי.", "math_expression": "4(3X + 2)" }
+        topic: "arithmetic_laws",
+        subTopic: "חוק הפילוג",
+        question_text: "תלמיד ניסה לפשט את הביטוי 5(x + 2) ורשם כתשובה 5x + 2. מה הייתה הטעות שלו?&rlm;",
+        options: ["הוא שכח להכפיל את המספר 5 גם באיבר השני (ה-2).", "הוא שכח להוסיף את סימן הכפל.", "לא הייתה טעות, הוא צדק.", "הוא היה צריך לחבר את 5 ל-x."],
+        correctAnswer: 0,
+        hint: "חוק הפילוג אומר שחייבים לפלג (לכפול) את הגורם החיצוני ל*כל* האיברים שבתוך הסוגריים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "לפי חוק הפילוג, יש לכפול את 5 גם ב-x וגם ב-2.&rlm;", math_expression: "5 × x + 5 × 2" },
+            { verbal_explanation: "התלמיד כפל נכון את 5 ב-x, אך התעלם מהכפלת ה-5 ב-2.&rlm;", math_expression: "5 × 2 = 10" },
+            { verbal_explanation: "התשובה הנכונה הייתה צריכה להיות 5x + 10.&rlm;", math_expression: "" }
         ],
-        "final_answer": "4(3X + 2)",
-        "options": ["2(6X + 4)", "4(3X + 2)", "4(3X + 8)", "12(X + 8)"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 28,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "נתונים שני מלבנים צמודים. גובה שניהם הוא 5. רוחב הראשון הוא X ורוחב השני הוא 7. מהו הביטוי ל<strong>שטח הכולל</strong> של שניהם?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100'><rect x='20' y='20' width='60' height='50' fill='none' stroke='#1e293b' stroke-width='2'/><rect x='80' y='20' width='80' height='50' fill='none' stroke='#1e293b' stroke-width='2'/><text x='50' y='50' font-size='14'>X</text><text x='120' y='50' font-size='14'>7</text><text x='10' y='50' font-size='14' text-anchor='end'>5</text></svg></div>",
-        "hint": "ניתן לחשב את השטח כסכום שני מלבנים או כמלבן אחד גדול שרוחבו הוא (X+7).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את אסטרטגיית החישוב. השטח הכולל הוא הגובה (5) כפול הרוחב המשותף של שניהם.", "math_expression": "5 \u00d7 (X + 7)" },
-            { "verbal_explanation": "שלב 2: נשתמש בחוק הפילוג כדי לפתוח את הביטוי. נכפיל 5 בכל חלק של הרוחב.", "math_expression": "5X + 35" }
-        ],
-        "final_answer": "5X + 35",
-        "options": ["5X + 7", "5X + 35", "12X", "5 + X + 7"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 29,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "Medium",
-        "question_text": "מהו הערך של הביטוי <strong>-(X - 10)</strong> כאשר <strong>X = 3</strong>?",
-        "hint": "הציבו קודם את המספר בתוך הסוגריים, ואז הפכו את הסימן של התוצאה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הערך 3 במקום הנעלם X בתוך הסוגריים.", "math_expression": "-(3 - 10)" },
-            { "verbal_explanation": "שלב 2: נחשב את הערך שבתוך הסוגריים. 3 פחות 10 נותן מינוס 7.", "math_expression": "-(-7)" },
-            { "verbal_explanation": "שלב 3: מינוס של מינוס הופך לפלוס.", "math_expression": "7" }
-        ],
-        "final_answer": "7",
-        "options": ["7-", "7", "13", "13-"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 30,
-        "subTopic": "חוק הפילוג",
-        "difficulty": "High",
-        "question_text": "פשטו את הביטוי: <strong>2(X + 3) - 2X</strong>",
-        "hint": "פתחו את הסוגריים וראו מה קורה ל-X.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשתמש בחוק הפילוג כדי להכפיל את ה-2 בכל מה שבתוך הסוגריים.", "math_expression": "2X + 6 - 2X" },
-            { "verbal_explanation": "שלב 2: נבצע כינוס איברים. נשים לב ש- 2X פחות 2X זה אפס.", "math_expression": "0 + 6" },
-            { "verbal_explanation": "שלב 3: נשארנו עם המספר החופשי בלבד.", "math_expression": "6" }
-        ],
-        "final_answer": "6",
-        "options": ["4X + 6", "6", "0", "2X"],
-        "correctAnswer": 1
+        final_answer: "הוא שכח להכפיל את המספר 5 גם באיבר השני (ה-2)."
     },
 
-    // ==============================================================
-    // --- תת נושא 3: סדר פעולות מורחב (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: סדר פעולות מורחב (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 31,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Low",
-        "question_text": "חשבו את תוצאת התרגיל: <strong>3 + 4²</strong>",
-        "hint": "לפי סדר פעולות חשבון, חזקה קודמת לחיבור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את סדר העבודה. קודם עלינו לחשב את ערך החזקה.", "math_expression": "4\u00b2 = 4 \u00d7 4 = 16" },
-            { "verbal_explanation": "שלב 2: כעת נוסיף את ה-3 לתוצאה שקיבלנו.", "math_expression": "3 + 16 = 19" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "חשבו את תוצאת התרגיל הבא (זכרו כפל קודם לחיבור/חיסור):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>20 - 4 × 3 + 2 = ?</div>",
+        options: ["10", "50", "12", "6"],
+        correctAnswer: 0,
+        hint: "פתרו קודם את 4 × 3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבצע תחילה את פעולת הכפל.&rlm;", math_expression: "4 × 3 = 12" },
+            { verbal_explanation: "שלב ב': נעדכן את התרגיל ונפתור לפי הסדר משמאל לימין (חיסור לפני חיבור כאן).&rlm;", math_expression: "20 - 12 = 8" },
+            { verbal_explanation: "שלב ג': נוסיף את ה-2 שנותר.&rlm;", math_expression: "8 + 2 = 10" }
         ],
-        "final_answer": "19",
-        "options": ["11", "19", "49", "25"],
-        "correctAnswer": 1
+        final_answer: "10"
     },
+    // שאלה 26
     {
-        "id": 32,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "מהי התוצאה של: <strong>[2 \u00d7 (3 + 1)]²</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100'><path d='M20,20 L40,10 L140,10 L160,20' fill='none' stroke='#b09151' stroke-width='2'/><text x='90' y='55' font-family='Heebo' font-size='16' text-anchor='middle'>סוגריים בתוך סוגריים</text></svg></div>",
-        "hint": "פתרו מהסוגריים הפנימיים ביותר החוצה, ורק בסוף העלו בריבוע.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפתור את הסוגריים העגולים (הפנימיים). 3 ועוד 1.", "math_expression": "[2 \u00d7 4]\u00b2" },
-            { "verbal_explanation": "שלב 2: נפתור את הסוגריים המרובעים. 2 כפול 4.", "math_expression": "8\u00b2" },
-            { "verbal_explanation": "שלב 3: נבצע את פעולת החזקה האחרונה. 8 בריבוע.", "math_expression": "64" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "חשבו את הערך של הביטוי הבא הכולל סוגריים וחזקה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(10 - 2²) × 5 = ?</div>",
+        options: ["30", "40", "20", "25"],
+        correctAnswer: 0,
+        hint: "בתוך הסוגריים, פעולת החזקה קודמת לחיסור. חשבו קודם 2² (שזה 2 כפול 2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתור את החזקה בתוך הסוגריים.&rlm;", math_expression: "2² = 4" },
+            { verbal_explanation: "שלב ב': נשלים את הפעולה בתוך הסוגריים (חיסור).&rlm;", math_expression: "10 - 4 = 6" },
+            { verbal_explanation: "שלב ג': נכפול את התוצאה ב-5.&rlm;", math_expression: "6 × 5 = 30" }
         ],
-        "final_answer": "64",
-        "options": ["16", "32", "64", "100"],
-        "correctAnswer": 2
+        final_answer: "30"
     },
+    // שאלה 27
     {
-        "id": 33,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "חשבו: <strong>\u221a25 + 2 \u00d7 3</strong>",
-        "hint": "שורש נחשב באותה דרגת עדיפות של חזקה, לכן הוא מתבצע לפני הכפל והחיבור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא את הערך של שורש 25 (איזה מספר כפול עצמו נותן 25?).", "math_expression": "\u221a25 = 5" },
-            { "verbal_explanation": "שלב 2: נבצע את פעולת הכפל לפי סדר הפעולות.", "math_expression": "2 \u00d7 3 = 6" },
-            { "verbal_explanation": "שלב 3: נחבר את שתי התוצאות.", "math_expression": "5 + 6 = 11" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "מהי התוצאה של התרגיל הבא? (שימו לב לסדר הפעולות מימין לשמאל או משמאל לימין):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>36 : 6 : 2 = ?</div>",
+        options: ["3", "12", "18", "6"],
+        correctAnswer: 0,
+        hint: "כאשר ישנן רק פעולות של חילוק (באותה דרגת קדימות), חובה לפתור לפי הסדר משמאל לימין.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבצע את החילוק הראשון משמאל.&rlm;", math_expression: "36 : 6 = 6" },
+            { verbal_explanation: "שלב ב': נחלק את התוצאה ב-2.&rlm;", math_expression: "6 : 2 = 3" }
         ],
-        "final_answer": "11",
-        "options": ["21", "11", "15", "30"],
-        "correctAnswer": 1
+        final_answer: "3"
     },
+    // שאלה 28
     {
-        "id": 34,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "High",
-        "question_text": "מה ההבדל בין <strong>(-2)\u00b2</strong> לבין <strong>-2\u00b2</strong>?",
-        "hint": "בביטוי הראשון המינוס בתוך הסוגריים והוא מוכפל בעצמו. בשני, החזקה פועלת רק על ה-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את הביטוי הראשון. סוגריים אומרים שמינוס 2 כולו מוכפל במינוס 2. מינוס כפול מינוס נותן פלוס.", "math_expression": "(-2) \u00d7 (-2) = 4" },
-            { "verbal_explanation": "שלב 2: נחשב את הביטוי השני. כאן החזקה חלה רק על המספר, והמינוס 'מחכה' בחוץ.", "math_expression": "-(2 \u00d7 2) = -4" },
-            { "verbal_explanation": "שלב 3: המסקנה היא שהתוצאות הפוכות.", "math_expression": "4 \u2260 -4" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "השלימו את הסוגריים במקום הנכון כדי שהשוויון יהיה נכון:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 + 3 × 4 - 2 = 30</div>",
+        options: ["(5 + 3) × 4 - 2", "5 + (3 × 4) - 2", "5 + 3 × (4 - 2)", "(5 + 3 × 4) - 2"],
+        correctAnswer: 0,
+        hint: "נסו להציב את הסוגריים סביב פעולת החיבור. כמה זה 8 כפול 4? פחות 2?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "ללא סוגריים, התוצאה היא 15 (כי 3x4=12).&rlm;", math_expression: "" },
+            { verbal_explanation: "נבדוק את האפשרות הראשונה: נשים סוגריים סביב ה- 5+3.&rlm;", math_expression: "(5 + 3) × 4 - 2" },
+            { verbal_explanation: "נחשב: 8 כפול 4 שווה 32. 32 פחות 2 שווה 30. השוויון מתקיים.&rlm;", math_expression: "8 × 4 - 2 = 30" }
         ],
-        "final_answer": "הראשון הוא 4 והשני הוא 4-",
-        "options": ["שניהם שווים ל-4", "שניהם שווים ל-4-", "הראשון הוא 4 והשני הוא 4-", "הראשון הוא 4- והשני הוא 4"],
-        "correctAnswer": 2
+        final_answer: "(5 + 3) × 4 - 2"
     },
+    // שאלה 29
     {
-        "id": 35,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "High",
-        "question_text": "חשבו את ערך הביטוי בשבר: <strong>(10 + 2 \u00d7 5) \u00f7 (2\u00b3 - 3)</strong>",
-        "hint": "חשבו את המונה בנפרד ואת המכנה בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את המונה (החלק העליון). כפל לפני חיבור.", "math_expression": "10 + 10 = 20" },
-            { "verbal_explanation": "שלב 2: נחשב את המכנה (החלק התחתון). חזקה לפני חיסור.", "math_expression": "8 - 3 = 5" },
-            { "verbal_explanation": "שלב 3: נבצע את החילוק בין המונה למכנה.", "math_expression": "20 \u00f7 5 = 4" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "חשבו את תוצאת התרגיל (חיבור של שתי חזקות):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2³ + 3² = ?</div>",
+        options: ["17", "12", "25", "13"],
+        correctAnswer: 0,
+        hint: "2³ פירושו 2 כפול 2 כפול 2. 3² פירושו 3 כפול 3.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את החזקה הראשונה: 2 בשלישית.&rlm;", math_expression: "2 × 2 × 2 = 8" },
+            { verbal_explanation: "שלב ב': נחשב את החזקה השנייה: 3 בריבוע.&rlm;", math_expression: "3 × 3 = 9" },
+            { verbal_explanation: "שלב ג': נחבר את התוצאות.&rlm;", math_expression: "8 + 9 = 17" }
         ],
-        "final_answer": "4",
-        "options": ["2", "4", "5", "10"],
-        "correctAnswer": 1
+        final_answer: "17"
     },
+    // שאלה 30
     {
-        "id": 36,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "מהי התוצאה של: <strong>5 + 20 \u00f7 4 \u00d7 2</strong>?",
-        "hint": "זכרו: כפל וחלוילוק הם באותה דרגה. מבצעים אותם לפי הסדר משמאל לימין.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתחיל עם החילוק (הפעולה הראשונה מבין הכפל והחילוק משמאל).", "math_expression": "20 \u00f7 4 = 5" },
-            { "verbal_explanation": "שלב 2: כעת נבצע את הכפל בתוצאה שקיבלנו.", "math_expression": "5 \u00d7 2 = 10" },
-            { "verbal_explanation": "שלב 3: לסיום, נוסיף את ה-5 שבתחילת התרגיל.", "math_expression": "5 + 10 = 15" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "פתרו את התרגיל המורכב הבא (זכרו: סוגריים פנימיים קודמים לחיצוניים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>100 - [ 20 + (5 + 3) × 2 ] = ?</div>",
+        options: ["64", "36", "72", "40"],
+        correctAnswer: 0,
+        hint: "התחילו בתוך הסוגריים העגולים, אחר כך פתרו את כל מה שבתוך הסוגריים המרובעים (כפל קודם לחיבור!), ולבסוף חסרו מ-100.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתור את הסוגריים הפנימיים.&rlm;", math_expression: "5 + 3 = 8" },
+            { verbal_explanation: "שלב ב': נפתור בתוך הסוגריים המרובעים (כפל קודם לחיבור).&rlm;", math_expression: "20 + 8 × 2 = 20 + 16 = 36" },
+            { verbal_explanation: "שלב ג': נבצע את הפעולה האחרונה: חיסור מ-100.&rlm;", math_expression: "100 - 36 = 64" }
         ],
-        "final_answer": "15",
-        "options": ["7.5", "15", "12.5", "25"],
-        "correctAnswer": 1
+        final_answer: "64"
     },
+    // שאלה 31
     {
-        "id": 37,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Low",
-        "question_text": "חשבו: <strong>7\u00b0 + 5\u00b9</strong>",
-        "hint": "כל מספר (חוץ מאפס) בחזקת 0 שווה ל-1. כל מספר בחזקת 1 שווה לעצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את האיבר הראשון. חוק החזקות קובע שכל מספר בחזקת אפס הוא 1.", "math_expression": "7\u00b0 = 1" },
-            { "verbal_explanation": "שלב 2: נחשב את האיבר השני. חמש בחזקת אחת הוא פשוט 5.", "math_expression": "5\u00b9 = 5" },
-            { "verbal_explanation": "שלב 3: נחבר את התוצאות.", "math_expression": "1 + 5 = 6" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "מהו הערך של x במשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 4 + 5 = 8</div>",
+        options: ["12", "7", "3", "32"],
+        correctAnswer: 0,
+        hint: "עבדו בשיטת הפעולות ההפוכות (מהסוף להתחלה). חסרו 5 מה-8, ואז כפלו ב-4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבודד את הביטוי עם ה-x. נעביר את ה-5 אגף במינוס.&rlm;", math_expression: "x : 4 = 8 - 5 = 3" },
+            { verbal_explanation: "שלב ב': נפעיל פעולה הפוכה לחילוק - נכפול את שני האגפים ב-4.&rlm;", math_expression: "x = 3 × 4 = 12" }
         ],
-        "final_answer": "6",
-        "options": ["0", "6", "12", "35"],
-        "correctAnswer": 1
+        final_answer: "12"
     },
+    // שאלה 32
     {
-        "id": 38,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "מהו הערך של הביטוי <strong>2X\u00b2 + 5</strong> אם ידוע ש- <strong>X = 3</strong>?",
-        "hint": "הציבו 3 ב-X. זכרו להעלות בריבוע לפני שמכפילים ב-2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את המספר 3 במקום X.", "math_expression": "2 \u00d7 3\u00b2 + 5" },
-            { "verbal_explanation": "שלב 2: נחשב את החזקה קודם כל.", "math_expression": "3\u00b2 = 9" },
-            { "verbal_explanation": "שלב 3: נבצע את הכפל ב-2.", "math_expression": "2 \u00d7 9 = 18" },
-            { "verbal_explanation": "שלב 4: נוסיף 5 לתוצאה.", "math_expression": "18 + 5 = 23" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "חשבו את תוצאת התרגיל הבא, שימו לב לחילוק בסוגריים כפולים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'> (12 + 8) : (2 × 5) = ?</div>",
+        options: ["2", "4", "10", "20"],
+        correctAnswer: 0,
+        hint: "חשבו קודם את הסוגריים השמאליים, ואז את הסוגריים הימניים, ובסוף בצעו את חילוק התוצאות.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את הסוגריים השמאליים.&rlm;", math_expression: "12 + 8 = 20" },
+            { verbal_explanation: "שלב ב': נחשב את הסוגריים הימניים.&rlm;", math_expression: "2 × 5 = 10" },
+            { verbal_explanation: "שלב ג': נחלק את התוצאות.&rlm;", math_expression: "20 : 10 = 2" }
         ],
-        "final_answer": "23",
-        "options": ["41", "23", "14", "31"],
-        "correctAnswer": 1
+        final_answer: "2"
     },
+    // שאלה 33
     {
-        "id": 39,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "חשבו: <strong>\u221a100 - \u221a64</strong>",
-        "hint": "חשבו כל שורש בנפרד ואז החסירו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נמצא איזה מספר כפול עצמו נותן 100.", "math_expression": "10" },
-            { "verbal_explanation": "שלב 2: נמצא איזה מספר כפול עצמו נותן 64.", "math_expression": "8" },
-            { "verbal_explanation": "שלב 3: נבצע את החיסור ביניהם.", "math_expression": "10 - 8 = 2" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "חשבו את ערך הביטוי (מלכודת הכפל באפס):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 + 0 × (15 - 3) + 12 : 3 = ?</div>",
+        options: ["8", "16", "20", "4"],
+        correctAnswer: 0,
+        hint: "שימו לב שהכפלה באפס מבטלת את כל מה שצמוד אליו (את כל הסוגריים).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': הביטוי האמצעי מוכפל ב-0, לכן ערכו כולו הוא 0.&rlm;", math_expression: "0 × 12 = 0" },
+            { verbal_explanation: "שלב ב': נחשב את פעולת החילוק בסוף (קודמת לחיבור).&rlm;", math_expression: "12 : 3 = 4" },
+            { verbal_explanation: "שלב ג': נחבר את הכל: ה-4 מההתחלה, ה-0 מהאמצע וה-4 מהסוף.&rlm;", math_expression: "4 + 0 + 4 = 8" }
         ],
-        "final_answer": "2",
-        "options": ["6", "4", "2", "36"],
-        "correctAnswer": 2
+        final_answer: "8"
     },
+    // שאלה 34
     {
-        "id": 40,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "High",
-        "question_text": "חשבו: <strong>100 \u00f7 (2 \u00d7 5)\u00b2</strong>",
-        "hint": "בצעו את הפעולות בתוך הסוגריים, העלו את התוצאה בריבוע, ורק אז חלקו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפתור את מה שבתוך הסוגריים. 2 כפול 5.", "math_expression": "100 \u00f7 10\u00b2" },
-            { "verbal_explanation": "שלב 2: נחשב את החזקה של ה-10.", "math_expression": "10\u00b2 = 100" },
-            { "verbal_explanation": "שלב 3: נחלק 100 ב-100.", "math_expression": "1" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "תרגיל רב-שלבי עם חזקות:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 × 2³ = ?</div>",
+        options: ["24", "18", "216", "12"],
+        correctAnswer: 0,
+        hint: "פעולת החזקה קודמת לפעולת הכפל. חשבו קודם כמה זה 2³ (2 כפול 2 כפול 2).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את החזקה תחילה (2 בשלישית).&rlm;", math_expression: "2 × 2 × 2 = 8" },
+            { verbal_explanation: "שלב ב': נכפול את התוצאה ב-3.&rlm;", math_expression: "3 × 8 = 24" }
         ],
-        "final_answer": "1",
-        "options": ["1", "10", "5", "0.5"],
-        "correctAnswer": 0
+        final_answer: "24"
     },
+    // שאלה 35
     {
-        "id": 41,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "מהי התוצאה של: <strong>2\u00b3 + 3\u00b2</strong>?",
-        "hint": "חזקה שלישית (בשלישית) וחזקה שנייה (בריבוע).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב 2 בחזקת 3 (2 כפול 2 כפול 2).", "math_expression": "8" },
-            { "verbal_explanation": "שלב 2: נחשב 3 בחזקת 2 (3 כפול 3).", "math_expression": "9" },
-            { "verbal_explanation": "שלב 3: נחבר את התוצאות.", "math_expression": "8 + 9 = 17" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "חיסור של שתי חזקות:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10² - 4² = ?</div>",
+        options: ["84", "36", "6", "116"],
+        correctAnswer: 0,
+        hint: "חשבו כל חזקה בנפרד (100 ו-16), ואז בצעו את החיסור.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחשב את ערך החזקה הראשונה (עשר בריבוע).&rlm;", math_expression: "10² = 100" },
+            { verbal_explanation: "שלב ב': נחשב את ערך החזקה השנייה (ארבע בריבוע).&rlm;", math_expression: "4² = 16" },
+            { verbal_explanation: "שלב ג': נחסר את התוצאות.&rlm;", math_expression: "100 - 16 = 84" }
         ],
-        "final_answer": "17",
-        "options": ["12", "15", "17", "25"],
-        "correctAnswer": 2
+        final_answer: "84"
     },
+    // שאלה 36
     {
-        "id": 42,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "High",
-        "question_text": "חשבו את הביטוי הכולל ערך מוחלט: <strong>|3 - 8| \u00d7 2</strong>",
-        "hint": "חשבו קודם את הביטוי בתוך הערך המוחלט. זכרו שערך מוחלט תמיד הופך את התוצאה לחיובית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את החיסור בתוך הקווים האנכיים. 3 פחות 8.", "math_expression": "|-5|" },
-            { "verbal_explanation": "שלב 2: נפעיל את הערך המוחלט. המרחק של מינוס 5 מהאפס הוא 5 חיובי.", "math_expression": "5" },
-            { "verbal_explanation": "שלב 3: נכפיל את התוצאה ב-2.", "math_expression": "5 \u00d7 2 = 10" }
+        topic: "arithmetic_laws",
+        subTopic: "סדר פעולות מורחב",
+        question_text: "מלכודת קלאסית! חשבו את התרגיל הבא לפי הסדר הנכון (משמאל לימין בכפל וחילוק):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>24 : 6 × 2 = ?</div>",
+        options: ["8", "2", "12", "4"],
+        correctAnswer: 0,
+        hint: "כפל וחילוק הם באותה דרגת חשיבות (אין קדימות לכפל). לכן, פותרים תמיד לפי הסדר, משמאל לימין.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר ישנן רק פעולות כפל וחילוק, חובה לפתור לפי סדר הופעתן, משמאל לימין.&rlm;", math_expression: "" },
+            { verbal_explanation: "נבצע קודם את החילוק השמאלי.&rlm;", math_expression: "24 : 6 = 4" },
+            { verbal_explanation: "כעת נכפול את התוצאה ב-2.&rlm;", math_expression: "4 × 2 = 8" }
         ],
-        "final_answer": "10",
-        "options": ["10-", "10", "5", "22"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 43,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Medium",
-        "question_text": "רוני קנתה 3 חבילות מדבקות ב-10 ש\"ח כל אחת, וקיבלה הנחה של 2 ש\"ח על כל חבילה. איזה ביטוי מייצג את המחיר ששילמה?",
-        "hint": "החסירו את ההנחה מהמחיר המקורי בתוך סוגריים, ואז הכפילו בכמות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את המחיר של חבילה אחת לאחר ההנחה.", "math_expression": "10 - 2" },
-            { "verbal_explanation": "שלב 2: מכיוון שהיא קנתה 3 חבילות כאלו, נכפיל את כל הביטוי ב-3.", "math_expression": "3 \u00d7 (10 - 2)" },
-            { "verbal_explanation": "שלב 3: נחשב את התוצאה (3 כפול 8).", "math_expression": "24" }
-        ],
-        "final_answer": "3 \u00d7 (10 - 2)",
-        "options": ["3 \u00d7 10 - 2", "3 \u00d7 (10 - 2)", "3 + 10 - 2", "10 \u00d7 (3 - 2)"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 44,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "Low",
-        "question_text": "חשבו: <strong>20 \u00f7 (2 + 3)</strong>",
-        "hint": "סוגריים הם תמיד במקום הראשון!",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב קודם את הסכום שבתוך הסוגריים.", "math_expression": "2 + 3 = 5" },
-            { "verbal_explanation": "שלב 2: כעת נחלק את ה-20 בתוצאה שקיבלנו.", "math_expression": "20 \u00f7 5 = 4" }
-        ],
-        "final_answer": "4",
-        "options": ["13", "4", "7", "10"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "סדר פעולות מורחב",
-        "difficulty": "High",
-        "question_text": "חשבו את הביטוי המורכב הבא: <strong>10\u00b2 \u00f7 (2 \u00d7 5) + 3</strong>",
-        "hint": "בצעו חזקה וסוגריים, אחר כך חילוק, ובסוף חיבור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את ערך החזקה ואת מה שבתוך הסוגריים.", "math_expression": "100 \u00f7 10 + 3" },
-            { "verbal_explanation": "שלב 2: נבצע את פעולת החילוק (לפני החיבור).", "math_expression": "10 + 3" },
-            { "verbal_explanation": "שלב 3: נחבר את ה-3 לתוצאה.", "math_expression": "13" }
-        ],
-        "final_answer": "13",
-        "options": ["13", "8", "23", "4"],
-        "correctAnswer": 0
+        final_answer: "8"
     }
+
 ];

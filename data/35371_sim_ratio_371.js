@@ -1,549 +1,590 @@
 const questionsDB = [
-    // ========================================================================
-    // תת נושא 1: יחס אורכים בדומים
-    // ========================================================================
+    // ==========================================
+    // תת נושא 1: יחס אורכים בדומים (12 שאלות)
+    // ==========================================
 
-    // --- שאלה 1 ---
+    // שאלה מספר 1
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יחס אורכים בדומים",
-        question: "נתונים שני משולשים דומים. אורך צלע במשולש הקטן הוא 4 ס\"מ, ואורך הצלע המתאימה לה במשולש הגדול הוא 12 ס\"מ. אם אורך צלע נוספת במשולש הקטן הוא 5 ס\"מ, מהו אורכה של הצלע המתאימה לה במשולש הגדול?",
-        options: ["15 ס\"מ", "20 ס\"מ", "10 ס\"מ", "12.5 ס\"מ"],
+        question_text: "שני משולשים דומים זה לזה. יחס הדמיון בין המשולש הגדול למשולש הקטן הוא 3. היקף המשולש הקטן הוא 12. מהו היקף המשולש הגדול?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='10,120 70,120 40,40' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='100,140 280,140 190,-100' fill='none' stroke='#ef4444' stroke-width='2'/><text x='35' y='100' font-size='12' fill='#334155'>12</text></svg></div>",
+        options: ["36", "4", "15", "108"],
         correctAnswer: 0,
-        hint: "חשבו את יחס הדמיון הקווי (k) על ידי חלוקת הצלע הגדולה בקטנה (12 חלקי 4). לאחר מכן, הכפילו את הצלע השנייה של המשולש הקטן באותו יחס בדיוק.",
+        hint: "יחס ההיקפים של מצולעים דומים שווה בדיוק ליחס הדמיון הקווי.",
         solution_steps: [
-            { verbal_explanation: "נחשב את יחס ההגדלה הקווי (מסומן באות קיי) על ידי חלוקת שתי צלעות מתאימות נתונות.", math_expression: "\u202Ak = 12 / 4 = 3\u202C" },
-            { verbal_explanation: "יחס הדמיון קבוע לכל הצלעות. נבנה משוואה עבור הצלע החסרה.", math_expression: "\u202Ax / 5 = 3\u202C" },
-            { verbal_explanation: "נכפיל את הצלע הקטנה ביחס הדמיון כדי למצוא את הצלע במשולש הגדול.", math_expression: "\u202Ax = 5 \u00D7 3 = 15\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי יחס הדמיון והיקף המשולש הקטן.", math_expression: "k = 3 , P_1 = 12" },
+            { verbal_explanation: "שלב 2: כתיבת משוואת יחס ההיקפים השווה ליחס הדמיון.", math_expression: "\\dfrac{P_2}{P_1} = k" },
+            { verbal_explanation: "שלב 3: הצבת הנתונים במשוואה.", math_expression: "\\dfrac{P_2}{12} = 3" },
+            { verbal_explanation: "שלב 4: הכפלת היקף הקטן ביחס הדמיון לבידוד ההיקף הגדול.", math_expression: "P_2 = 12 \\times 3" },
+            { verbal_explanation: "שלב 5: ביצוע פעולת החישוב הסופית.", math_expression: "36" }
         ],
-        final_answer: "15 ס\"מ"
+        final_answer: "36"
     },
 
-    // --- שאלה 2 ---
+    // שאלה מספר 2
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יחס אורכים בדומים",
-        question: `משפט תאלס ומשולשים דומים: הקטע DE מקביל לבסיס BC. נתון כי אורך קטע עליון בשוק הוא 2 ואורך החלק התחתון הוא 4. אורך הבסיס הקטן DE הוא 3. מהו אורך הבסיס הגדול BC?<br><br>
-        <svg viewBox="0 0 200 180" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="100,20 40,150 160,150" fill="rgba(59, 130, 246, 0.1)" stroke="#0f172a" stroke-width="2"/>
-            <line x1="80" y1="63" x2="120" y2="63" stroke="#ef4444" stroke-width="2"/>
-            <text x="95" y="15" font-size="14" font-weight="bold">A</text>
-            <text x="25" y="160" font-size="14" font-weight="bold">B</text>
-            <text x="165" y="160" font-size="14" font-weight="bold">C</text>
-            <text x="60" y="65" font-size="14" font-weight="bold">D</text>
-            <text x="130" y="65" font-size="14" font-weight="bold">E</text>
-        </svg>`,
-        options: ["9", "6", "12", "15"],
+        question_text: "במשולשים דומים, יחס הדמיון הוא 4. התיכון לצלע במשולש הקטן הוא 5. מהו אורך התיכון המתאים לו במשולש הגדול?&rlm;",
+        options: ["20", "1.25", "9", "80"],
         correctAnswer: 0,
-        hint: "שימו לב היטב: הצלע של המשולש הגדול היא החיבור של שני חלקי השוק (2+4=6). לכן יחס הדמיון בין המשולש הגדול לקטן הוא 6 חלקי 2.",
+        hint: "יחס הדמיון חל על כל קטע פנימי מתאים במשולשים דומים (גבהים, תיכונים וחוצי זוויות).",
         solution_steps: [
-            { verbal_explanation: "נחשב את האורך הכולל של הצלע במשולש הגדול.", math_expression: "\u202A2 + 4 = 6\u202C" },
-            { verbal_explanation: "נחשב את יחס הדמיון בין המשולש הגדול למשולש הקטן.", math_expression: "\u202Ak = 6 / 2 = 3\u202C" },
-            { verbal_explanation: "נכפיל את בסיס המשולש הקטן ביחס הדמיון כדי למצוא את הבסיס הגדול.", math_expression: "\u202A3 \u00D7 3 = 9\u202C" }
+            { verbal_explanation: "שלב 1: רישום יחס הדמיון והתיכון הידוע.", math_expression: "k = 4 , m_1 = 5" },
+            { verbal_explanation: "שלב 2: קביעת היחס בין התיכונים השווה ליחס הדמיון.", math_expression: "\\dfrac{m_2}{m_1} = k" },
+            { verbal_explanation: "שלב 3: הצבת הערכים במשוואה.", math_expression: "\\dfrac{m_2}{5} = 4" },
+            { verbal_explanation: "שלב 4: חילוץ אורך התיכון על ידי כפל.", math_expression: "m_2 = 5 \\times 4" },
+            { verbal_explanation: "שלב 5: תוצאת הכפל.", math_expression: "20" }
         ],
-        final_answer: "9"
+        final_answer: "20"
     },
 
-    // --- שאלה 3 ---
+    // שאלה מספר 3
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יחס אורכים בדומים",
-        question: "שני משולשים דומים זה לזה ביחס של 1:4. היקפו של המשולש הקטן הוא 12 ס\"מ. מהו היקפו של המשולש הגדול?",
-        options: ["48 ס\"מ", "16 ס\"מ", "144 ס\"מ", "3 ס\"מ"],
+        question_text: "שני משושים משוכללים דומים זה לזה. צלע המשוש הקטן היא 2 וצלע המשוש הגדול היא 8. היקף המשוש הגדול הוא 48. מהו היקף המשוש הקטן?&rlm;",
+        options: ["12", "6", "24", "16"],
         correctAnswer: 0,
-        hint: "יחס ההיקפים במשולשים דומים שווה בדיוק ליחס הצלעות (יחס הדמיון הרגיל, ללא העלאה בריבוע). פשוט הכפילו את ההיקף ב-4.",
+        hint: "מצאו תחילה את יחס הדמיון על ידי חלוקת הצלעות, ואז חלקו את ההיקף הגדול ביחס זה.",
         solution_steps: [
-            { verbal_explanation: "יחס ההיקפים זהה תמיד ליחס הדמיון הקווי.", math_expression: "\u202AP_2 / P_1 = k\u202C" },
-            { verbal_explanation: "נציב את הנתונים במשוואת היחס.", math_expression: "\u202AP_2 / 12 = 4\u202C" },
-            { verbal_explanation: "נכפיל את היקף המשולש הקטן בארבע.", math_expression: "\u202AP_2 = 12 \u00D7 4 = 48\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס הדמיון בין המשושים בעזרת הצלעות.", math_expression: "k = 8 : 2 = 4" },
+            { verbal_explanation: "שלב 2: הגדרת יחס ההיקפים.", math_expression: "\\dfrac{P_2}{P_1} = 4" },
+            { verbal_explanation: "שלב 3: הצבת ההיקף הגדול במשוואה.", math_expression: "48 : P_1 = 4" },
+            { verbal_explanation: "שלב 4: חילוץ ההיקף הקטן על ידי חלוקה.", math_expression: "P_1 = 48 : 4" },
+            { verbal_explanation: "שלב 5: ביצוע פעולת החישוב.", math_expression: "12" }
         ],
-        final_answer: "48 ס\"מ"
+        final_answer: "12"
     },
 
-    // --- שאלה 4 ---
+    // שאלה מספר 4
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יחס אורכים בדומים",
-        question: "במשולשים דומים, היחס בין התיכונים שווה ליחס בין הצלעות. אם יחס הדמיון בין משולש גדול לקטן הוא 2.5, ואורך התיכון במשולש הגדול הוא 15 ס\"מ, מהו אורך התיכון המתאים במשולש הקטן?",
-        options: ["6 ס\"מ", "37.5 ס\"מ", "12.5 ס\"מ", "5 ס\"מ"],
+        question_text: "היקפיהם של שני משולשים דומים הם 10 ו-30. צלע במשולש הקטן אורכה 4. מה אורך הצלע המתאימה לה במשולש הגדול?&rlm;",
+        options: ["12", "1.33", "20", "9"],
         correctAnswer: 0,
-        hint: "נתון לכם הנתון של המשולש הגדול ויחס ההגדלה. כדי לחזור אחורה למשולש הקטן, יש לחלק (15 לחלק ל-2.5).",
+        hint: "יחס ההיקפים שווה ליחס הצלעות הקווי.",
         solution_steps: [
-            { verbal_explanation: "יחס התיכונים שומר על יחס הדמיון הבסיסי.", math_expression: "\u202Ak = 2.5\u202C" },
-            { verbal_explanation: "נציב את אורך התיכון של המשולש הגדול במונה.", math_expression: "\u202A15 / x = 2.5\u202C" },
-            { verbal_explanation: "נחלק את התיכון הגדול ביחס כדי למצוא את אורך התיכון במשולש הקטן.", math_expression: "\u202Ax = 15 / 2.5 = 6\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס הדמיון מתוך ההיקפים.", math_expression: "k = 30 : 10 = 3" },
+            { verbal_explanation: "שלב 2: בניית המשוואה למציאת הצלע במשולש הגדול.", math_expression: "x : 4 = 3" },
+            { verbal_explanation: "שלב 3: חילוץ הנעלם על ידי כפל.", math_expression: "x = 4 \\times 3" },
+            { verbal_explanation: "שלב 4: קבלת התוצאה הסופית.", math_expression: "12" }
         ],
-        final_answer: "6 ס\"מ"
+        final_answer: "12"
     },
 
-    // --- שאלה 5 ---
+    // שאלה מספר 5
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יחס אורכים בדומים",
-        question: "משולש א' שווה צלעות והיקפו 30 ס\"מ. משולש ב' גם הוא שווה צלעות והיקפו 90 ס\"מ. מהו יחס הדמיון בין משולש ב' למשולש א'?",
-        options: ["3", "1/3", "9", "60"],
+        question_text: "יחס הדמיון בין שני משולשים הוא 2.5. הגובה לצלע במשולש הקטן הוא 4. מהו הגובה לצלע המתאימה במשולש הגדול?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='10,120 70,120 40,40' fill='none' stroke='#10b981' stroke-width='2'/><line x1='40' y1='40' x2='40' y2='120' stroke='#f59e0b' stroke-dasharray='4,4' stroke-width='2'/><polygon points='100,140 250,140 175,-60' fill='none' stroke='#10b981' stroke-width='2'/><line x1='175' y1='-60' x2='175' y2='140' stroke='#f59e0b' stroke-dasharray='4,4' stroke-width='2'/><text x='25' y='90' font-size='12' fill='#334155'>4</text><text x='155' y='60' font-size='12' fill='#334155'>x</text></svg></div>",
+        options: ["10", "1.6", "12.5", "100"],
         correctAnswer: 0,
-        hint: "כל המשולשים שווי הצלעות דומים זה לזה. יחס הדמיון שווה ליחס ההיקפים. חלקו את היקף ב' בהיקף א'.",
+        hint: "יחס הגבהים בין משולשים דומים שווה ליחס הדמיון הקווי.",
         solution_steps: [
-            { verbal_explanation: "מאחר וכל המשולשים שווי הצלעות דומים, נשתמש ביחס ההיקפים כדי למצוא את יחס הדמיון.", math_expression: "\u202Ak = P_2 / P_1\u202C" },
-            { verbal_explanation: "נציב את הנתונים ונחלק נתון גדול בנתון קטן.", math_expression: "\u202Ak = 90 / 30\u202C" },
-            { verbal_explanation: "נחשב את היחס הסופי.", math_expression: "\u202Ak = 3\u202C" }
+            { verbal_explanation: "שלב 1: הצבת יחס הדמיון והגובה הקטן.", math_expression: "k = 2.5 , h_1 = 4" },
+            { verbal_explanation: "שלב 2: כתיבת משוואת יחס הגבהים.", math_expression: "h_2 : h_1 = k" },
+            { verbal_explanation: "שלב 3: הצבת הנתונים במשוואה.", math_expression: "h_2 : 4 = 2.5" },
+            { verbal_explanation: "שלב 4: ביבוד הגובה הגדול על ידי כפל.", math_expression: "h_2 = 4 \\times 2.5" },
+            { verbal_explanation: "שלב 5: חישוב התוצאה.", math_expression: "10" }
+        ],
+        final_answer: "10"
+    },
+
+    // שאלה מספר 6
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס אורכים בדומים",
+        question_text: "שני מלבנים דומים זה לזה. אורך המלבן הקטן הוא 5 ורוחבו 2. אורך המלבן הגדול הוא 15. מהו היקף המלבן הגדול?&rlm;",
+        options: ["42", "14", "30", "150"],
+        correctAnswer: 0,
+        hint: "מצאו את יחס הדמיון דרך האורכים, חשבו את היקף המלבן הקטן והכפילו ביחס.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס הדמיון מהאורכים המתאימים.", math_expression: "k = 15 : 5 = 3" },
+            { verbal_explanation: "שלב 2: חישוב היקף המלבן הקטן.", math_expression: "P_1 = 2 \\times (5 + 2)" },
+            { verbal_explanation: "שלב 3: תוצאת ההיקף הראשון.", math_expression: "14" },
+            { verbal_explanation: "שלב 4: חישוב היקף המלבן הגדול בעזרת היחס הקווי.", math_expression: "P_2 = 14 \\times 3" },
+            { verbal_explanation: "שלב 5: קבלת התוצאה הסופית.", math_expression: "42" }
+        ],
+        final_answer: "42"
+    },
+
+    // שאלה מספר 7
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס אורכים בדומים",
+        question_text: "יחס ההיקפים של שני מצולעים דומים הוא 1.5. אורך צלע במצולע הגדול הוא 12. מהו אורך הצלע המתאימה במצולע הקטן?&rlm;",
+        options: ["8", "18", "10", "4"],
+        correctAnswer: 0,
+        hint: "מכיוון שנדרשת צלע המצולע הקטן, חלקו את הצלע הגדולה ביחס.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: זיהוי יחס ההיקפים כיחס דמיון קווי.", math_expression: "k = 1.5" },
+            { verbal_explanation: "שלב 2: בניית המשוואה המקשרת בין הצלעות.", math_expression: "12 : x = 1.5" },
+            { verbal_explanation: "שלב 3: בידוד הנעלם על ידי חלוקה.", math_expression: "x = 12 : 1.5" },
+            { verbal_explanation: "שלב 4: ביצוע החישוב.", math_expression: "8" }
+        ],
+        final_answer: "8"
+    },
+
+    // שאלה מספר 8
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס אורכים בדומים",
+        question_text: "היקף המשולש הראשון הוא 24 והיקף המשולש השני הוא 72. מהו יחס הדמיון ביניהם (השני חלקי הראשון)?&rlm;",
+        options: ["3", "1/3", "9", "6"],
+        correctAnswer: 0,
+        hint: "יחס הדמיון שווה ליחס ההיקפים.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הגדרת יחס הדמיון כיחס בין ההיקפים.", math_expression: "k = 72 : 24" },
+            { verbal_explanation: "שלב 2: ביצוע החלוטה לקבלת היחס הקבוע.", math_expression: "3" }
         ],
         final_answer: "3"
     },
 
-    // --- שאלה 6 ---
+    // שאלה מספר 9
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יחס אורכים בדומים",
-        question: `צורת "שעון חול": נתון כי יחס הדמיון בין המשולש התחתון לעליון הוא 4. הצלע השמאלית במשולש העליון שווה ל- \u202Ax + 1\u202C, והצלע המקבילה/מתאימה לה במשולש התחתון שווה ל- \u202A5x - 2\u202C. מצאו את \u202Ax\u202C.`,
-        options: ["6", "4", "2", "8"],
+        question_text: "במשולשים דומים, יחס הדמיון הוא 4. רדיוס המעגל החסום במשולש הקטן הוא 2. מהו רדיוס המעגל החסום במשולש הגדול?&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='10,120 70,120 40,40' fill='none' stroke='#64748b' stroke-width='2'/><circle cx='40' cy='95' r='25' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='100,140 250,140 175,-60' fill='none' stroke='#64748b' stroke-width='2'/><circle cx='175' cy='75' r='65' fill='none' stroke='#ef4444' stroke-width='2'/><text x='35' y='95' font-size='10' fill='#334155'>2</text><text x='170' y='75' font-size='12' fill='#334155'>R</text></svg></div>",
+        options: ["8", "16", "6", "0.5"],
         correctAnswer: 0,
-        hint: "הכפילו את הצלע הקטנה (העליונה) ביחס הדמיון (4), והשוו אותה לצלע הגדולה. כלומר: 4 פעמים (x+1) שווה ל- 5x-2.",
+        hint: "יחס הרדיוסים של מעגלים חסומים או חוסמים במשולשים דומים שווה ליחס הדמיון הקווי.",
         solution_steps: [
-            { verbal_explanation: "הצלע הגדולה שווה למכפלת הצלע הקטנה ביחס הדמיון הנתון.", math_expression: "\u202A4(x + 1) = 5x - 2\u202C" },
-            { verbal_explanation: "נפתח את הסוגריים באגף השמאלי.", math_expression: "\u202A4x + 4 = 5x - 2\u202C" },
-            { verbal_explanation: "נעביר אגפים, משתנים לצד אחד ומספרים לצד שני.", math_expression: "\u202A4 + 2 = 5x - 4x\u202C" },
-            { verbal_explanation: "נחשב את התוצאה הסופית עבור המשתנה.", math_expression: "\u202Ax = 6\u202C" }
+            { verbal_explanation: "שלב 1: הצבת יחס הדמיון והרדיוס הקטן.", math_expression: "k = 4 , r = 2" },
+            { verbal_explanation: "שלב 2: כתיבת המשוואה ליחס הרדיוסים.", math_expression: "R : 2 = 4" },
+            { verbal_explanation: "שלב 3: חילוץ הרדיוס הגדול על ידי כפל.", math_expression: "R = 2 \\times 4" },
+            { verbal_explanation: "שלב 4: תוצאת החישוב.", math_expression: "8" }
+        ],
+        final_answer: "8"
+    },
+
+    // שאלה מספר 10
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס אורכים בדומים",
+        question_text: "שני טרפזים דומים. בסיס בטרפז הקטן הוא 5, והבסיס המתאים בגדול הוא 15. אלכסון בטרפז הגדול הוא 21. מה אורך האלכסון המתאים בקטן?&rlm;",
+        options: ["7", "63", "11", "3"],
+        correctAnswer: 0,
+        hint: "מצאו את יחס הדמיון מהבסיסים וחלקו בו את האלכסון הגדול.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס הדמיון מהבסיסים המתאימים.", math_expression: "k = 15 : 5 = 3" },
+            { verbal_explanation: "שלב 2: בניית המשוואה לאלכסונים.", math_expression: "21 : x = 3" },
+            { verbal_explanation: "שלב 3: בידוד הנעלם על ידי חלוקה.", math_expression: "x = 21 : 3" },
+            { verbal_explanation: "שלב 4: תוצאת החישוב.", math_expression: "7" }
+        ],
+        final_answer: "7"
+    },
+
+    // שאלה מספר 11
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס אורכים בדומים",
+        question_text: "סכום ההיקפים של שני משולשים דומים הוא 60. יחס הדמיון ביניהם הוא 2. מהו ההיקף של המשולש הקטן?&rlm;",
+        options: ["20", "40", "30", "15"],
+        correctAnswer: 0,
+        hint: "ההיקף הגדול הוא פעמיים ההיקף הקטן. סכומם הוא 3 פעמים ההיקף הקטן.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הגדרת הקשר בין ההיקפים.", math_expression: "P_2 = 2 \\times P_1" },
+            { verbal_explanation: "שלב 2: כתיבת משוואת הסכום.", math_expression: "P_1 + 2 \\times P_1 = 60" },
+            { verbal_explanation: "שלב 3: כינוס נעלמים.", math_expression: "3 \\times P_1 = 60" },
+            { verbal_explanation: "שלב 4: חלוקה בשלוש.", math_expression: "20" }
+        ],
+        final_answer: "20"
+    },
+
+    // שאלה מספר 12
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס אורכים בדומים",
+        question_text: "במשולש שהיקפו 12, יחס הדמיון למשולש אחר הוא 1.5. מהו היקף המשולש השני?&rlm;",
+        options: ["18", "12", "15", "20"],
+        correctAnswer: 0,
+        hint: "הכפילו את ההיקף הידוע ביחס הדמיון.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הצבת הנתונים.", math_expression: "12 \\times 1.5 = 18" },
+            { verbal_explanation: "שלב 2: התוצאה.", math_expression: "18" }
+        ],
+        final_answer: "18"
+    },
+
+    // ==========================================
+    // תת נושא 2: יחס שטחים בדומים (12 שאלות)
+    // ==========================================
+
+    // שאלה מספר 13
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "יחס הדמיון הקווי בין שני משולשים הוא 3. שטח המשולש הקטן הוא 10. מהו שטח המשולש הגדול?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='10,120 70,120 40,40' fill='#3b82f6' opacity='0.2' stroke='#3b82f6' stroke-width='2'/><polygon points='100,140 280,140 190,-100' fill='#ef4444' opacity='0.2' stroke='#ef4444' stroke-width='2'/><text x='35' y='110' font-size='12' fill='#334155'>10</text></svg></div>",
+        options: ["90", "30", "60", "100"],
+        correctAnswer: 0,
+        hint: "יחס השטחים שווה לריבוע יחס הדמיון הקווי.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: העלאת יחס הדמיון הקווי בריבוע.", math_expression: "3^2 = 9" },
+            { verbal_explanation: "שלב 2: הכפלת השטח הקטן ביחס השטחים.", math_expression: "10 \\times 9 = 90" },
+            { verbal_explanation: "שלב 3: התוצאה הסופית.", math_expression: "90" }
+        ],
+        final_answer: "90"
+    },
+
+    // שאלה מספר 14
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "צלע במצולע קטן היא 2, וצלע מתאימה בגדול היא 8. שטח הקטן הוא 5. מהו שטח המצולע הגדול?&rlm;",
+        options: ["80", "20", "16", "40"],
+        correctAnswer: 0,
+        hint: "מצאו את יחס הדמיון הקווי, העלו בריבוע והכפילו בשטח הנתון.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס הדמיון הקווי.", math_expression: "k = 8 : 2 = 4" },
+            { verbal_explanation: "שלב 2: חישוב יחס השטחים.", math_expression: "4^2 = 16" },
+            { verbal_explanation: "שלב 3: הכפלת השטח הקטן ביחס השטחים.", math_expression: "5 \\times 16 = 80" },
+            { verbal_explanation: "שלב 4: תוצאה.", math_expression: "80" }
+        ],
+        final_answer: "80"
+    },
+
+    // שאלה מספר 15
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "שטח משולש קטן הוא 25 ושטח גדול דומה לו הוא 100. מהו יחס הדמיון הקווי (הצלעות)?&rlm;",
+        options: ["2", "4", "25", "16"],
+        correctAnswer: 0,
+        hint: "חלקו את השטחים לקבלת יחס השטחים, ואז הוציאו שורש ריבועי.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "100 : 25 = 4" },
+            { verbal_explanation: "שלב 2: הוצאת שורש ריבועי.", math_expression: "\\sqrt{4} = 2" },
+            { verbal_explanation: "שלב 3: קבלת התוצאה.", math_expression: "2" }
+        ],
+        final_answer: "2"
+    },
+
+    // שאלה מספר 16
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "שטחי שני מחומשים דומים הם 18 ו-50. מהו יחס הדמיון הקווי (הגדול חלקי הקטן)?&rlm;",
+        options: ["5/3", "25/9", "50/18", "3/5"],
+        correctAnswer: 0,
+        hint: "רשמו את יחס השטחים, צמצמו בשתיים והוציאו שורש.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: כתיבת יחס השטחים.", math_expression: "50 : 18" },
+            { verbal_explanation: "שלב 2: צמצום השבר.", math_expression: "25 : 9" },
+            { verbal_explanation: "שלב 3: הוצאת שורש ריבועי.", math_expression: "\\sqrt{25 : 9}" },
+            { verbal_explanation: "שלב 4: תוצאה.", math_expression: "5 : 3" }
+        ],
+        final_answer: "5/3"
+    },
+
+    // שאלה מספר 17
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "יחס הדמיון בין מלבנים הוא 1.5. שטח המלבן הגדול הוא 90. מה שטח המלבן הקטן?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='20' y='50' width='80' height='50' fill='#f59e0b' opacity='0.2' stroke='#f59e0b' stroke-width='2'/><rect x='120' y='20' width='120' height='75' fill='#10b981' opacity='0.2' stroke='#10b981' stroke-width='2'/><text x='150' y='65' font-size='14' fill='#334155'>90</text></svg></div>",
+        options: ["40", "60", "202.5", "45"],
+        correctAnswer: 0,
+        hint: "העלו את היחס הקווי בריבוע וחלקו את השטח הגדול בתוצאה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "1.5^2 = 2.25" },
+            { verbal_explanation: "שלב 2: חלוקת השטח הגדול ביחס השטחים.", math_expression: "90 : 2.25 = 40" },
+            { verbal_explanation: "שלב 3: תוצאת החישוב.", math_expression: "40" }
+        ],
+        final_answer: "40"
+    },
+
+    // שאלה מספר 18
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "יחס ההיקפים של שתי צורות דומות הוא 3. שטח הגדולה הוא 90. מה שטח הקטנה?&rlm;",
+        options: ["10", "30", "810", "270"],
+        correctAnswer: 0,
+        hint: "יחס ההיקפים שווה ליחס הקווי. יחס השטחים הוא ריבוע היחס הזה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "3^2 = 9" },
+            { verbal_explanation: "שלב 2: חלוקת השטח הגדול ביחס השטחים.", math_expression: "90 : 9 = 10" }
+        ],
+        final_answer: "10"
+    },
+
+    // שאלה מספר 19
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "שטח משולש קטן הוא 5, ושטח גדול דומה לו הוא 45. צלע בקטן היא 2. מה אורך הצלע המתאימה בגדול?&rlm;",
+        options: ["6", "18", "9", "4"],
+        correctAnswer: 0,
+        hint: "מצאו את יחס השטחים, הוציאו שורש והכפילו בצלע הקטנה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "45 : 5 = 9" },
+            { verbal_explanation: "שלב 2: הוצאת שורש למציאת יחס הדמיון הקווי.", math_expression: "\\sqrt{9} = 3" },
+            { verbal_explanation: "שלב 3: הכפלת הצלע הקטנה ביחס הקווי.", math_expression: "2 \\times 3 = 6" }
         ],
         final_answer: "6"
     },
 
-    // --- שאלה 7 ---
+    // שאלה מספר 20
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס אורכים בדומים",
-        question: "במשולשים דומים, סכום ההיקפים של שני המשולשים הוא 100 ס\"מ. ידוע שיחס הדמיון ביניהם הוא 1:4. מהו היקפו של המשולש הקטן?",
-        options: ["20 ס\"מ", "25 ס\"מ", "80 ס\"מ", "15 ס\"מ"],
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "רדיוס המעגל הגדול הוא פי 2 מרדיוס הקטן. פי כמה גדול שטח המעגל הגדול?&rlm;",
+        options: ["4", "2", "8", "16"],
         correctAnswer: 0,
-        hint: "אם היחס הוא 1:4, נסמן את היקף הקטן כ-x ואת היקף הגדול כ-4x. יחד הם שווים ל-100 (x + 4x = 100).",
+        hint: "יחס הרדיוסים הוא יחס קווי. יחס השטחים הוא ריבוע היחס.",
         solution_steps: [
-            { verbal_explanation: "נסמן את היקף המשולש הקטן באיקס. לפי יחס הדמיון, היקף המשולש הגדול יהיה ארבע איקס.", math_expression: "\u202AP_1 = x , P_2 = 4x\u202C" },
-            { verbal_explanation: "סכום ההיקפים נתון במשוואה.", math_expression: "\u202Ax + 4x = 100\u202C" },
-            { verbal_explanation: "נכנס איברים.", math_expression: "\u202A5x = 100\u202C" },
-            { verbal_explanation: "נחלק בחמש למציאת היקפו של המשולש הקטן.", math_expression: "\u202Ax = 20\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "2^2 = 4" }
         ],
-        final_answer: "20 ס\"מ"
+        final_answer: "4"
     },
 
-    // --- שאלה 8 ---
+    // שאלה מספר 21
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס אורכים בדומים",
-        question: "במשולש נתון שהיחס בין שתי צלעותיו הוא 3:5. במשולש שדומה לו, הצלע הגדולה מבין השתיים היא באורך 45. מה אורכה של הצלע הקטנה מאותו זוג?",
-        options: ["27", "15", "30", "18"],
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "יחס הדמיון בין משולשים הוא 0.5. שטח הגדול הוא 40. מה שטח הקטן?&rlm;",
+        options: ["10", "20", "80", "5"],
         correctAnswer: 0,
-        hint: "היחס הפנימי בין הצלעות נשמר במשולשים דומים. לכן 3 חלקי 5 שווה ל-x חלקי 45. בצעו כפל בהצלבה.",
+        hint: "העלו את 0.5 בריבוע והכפילו בשטח הגדול.",
         solution_steps: [
-            { verbal_explanation: "נבנה משוואת יחסים. היחס המקורי חייב להיות שווה ליחס הצלעות החדש.", math_expression: "\u202A3 / 5 = x / 45\u202C" },
-            { verbal_explanation: "נכפיל בארבעים וחמש את שני האגפים כדי לבודד את המשתנה.", math_expression: "\u202A(3 \u00D7 45) / 5 = x\u202C" },
-            { verbal_explanation: "נצמצם את ארבעים וחמש בחמש (יוצא תשע) ונכפיל בשלוש.", math_expression: "\u202Ax = 3 \u00D7 9 = 27\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "0.5^2 = 0.25" },
+            { verbal_explanation: "שלב 2: הכפלת השטח הגדול ביחס השטחים.", math_expression: "40 \\times 0.25 = 10" }
         ],
-        final_answer: "27"
+        final_answer: "10"
     },
 
-    // --- שאלה 9 ---
+    // שאלה מספר 22
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס אורכים בדומים",
-        question: "היקף משולש א' הוא 24 וצלעותיו הן 6, 8, 10. משולש ב' דומה לו והצלע הקטנה ביותר שלו היא 18. מהו היקף משולש ב'?",
-        options: ["72", "48", "96", "54"],
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "יחס השטחים הוא 16. היקף הקטן הוא 10. מה היקף הגדול?&rlm;",
+        options: ["40", "160", "2.5", "256"],
         correctAnswer: 0,
-        hint: "מצאו את יחס הדמיון על פי הצלעות הקטנות (18 חלקי 6). לאחר שמצאתם את היחס, הכפילו את היקף משולש א' ביחס זה.",
+        hint: "הוציאו שורש מיחס השטחים לקבלת יחס ההיקפים.",
         solution_steps: [
-            { verbal_explanation: "נחשב את יחס ההגדלה על ידי חלוקת הצלע הקטנה החדשה בצלע הקטנה המקורית.", math_expression: "\u202Ak = 18 / 6 = 3\u202C" },
-            { verbal_explanation: "יחס ההיקפים שווה ליחס הצלעות. נכפיל את ההיקף המקורי ביחס שמצאנו.", math_expression: "\u202AP_2 = 24 \u00D7 3\u202C" },
-            { verbal_explanation: "נחשב את התוצאה להשלמת הפתרון.", math_expression: "\u202AP_2 = 72\u202C" }
+            { verbal_explanation: "שלב 1: מציאת יחס ההיקפים.", math_expression: "\\sqrt{16} = 4" },
+            { verbal_explanation: "שלב 2: הכפלת ההיקף הקטן ביחס.", math_expression: "10 \\times 4 = 40" }
         ],
-        final_answer: "72"
+        final_answer: "40"
     },
 
-    // --- שאלה 10 ---
+    // שאלה מספר 23
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס אורכים בדומים",
-        question: "קטע אמצעים במשולש מחבר אמצעים של שתי צלעות ויוצר משולש קטן. ידוע שקטע אמצעים תמיד שווה למחצית הבסיס שאליו הוא מקביל. מהו יחס הדמיון בין המשולש הגדול למשולש הקטן שנוצר?",
-        options: ["2", "4", "0.5", "1.5"],
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "סכום השטחים הוא 50. יחס הדמיון הקווי הוא 2. מה שטח הקטן?&rlm;",
+        options: ["10", "40", "12.5", "25"],
         correctAnswer: 0,
-        hint: "אם בסיס המשולש הקטן (קטע האמצעים) שווה לחצי מהבסיס הגדול, אז הבסיס הגדול כפול ממנו בגודלו. לכן היחס מהגדול לקטן הוא 2.",
+        hint: "השטח הגדול הוא פי 4 מהקטן. חמש פעמים הקטן שווה לחמישים.",
         solution_steps: [
-            { verbal_explanation: "על פי משפט קטע אמצעים, אורך הבסיס הגדול שווה לפעמיים אורך קטע האמצעים.", math_expression: "\u202Ax_2 = 2 \u00D7 x_1\u202C" },
-            { verbal_explanation: "נחלץ את יחס הדמיון (בסיס גדול חלקי בסיס קטן).", math_expression: "\u202Ak = x_2 / x_1\u202C" },
-            { verbal_explanation: "היחס הוא בדיוק שתיים.", math_expression: "\u202Ak = 2\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים.", math_expression: "2^2 = 4" },
+            { verbal_explanation: "שלב 2: הצבה במשוואת סכום.", math_expression: "x + 4 \\times x = 50" },
+            { verbal_explanation: "שלב 3: פתרון המשוואה.", math_expression: "5 \\times x = 50 \\Rightarrow x = 10" }
+        ],
+        final_answer: "10"
+    },
+
+    // שאלה מספר 24
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יחס שטחים בדומים",
+        question_text: "תיכון בקטן הוא 3 ובגדול הוא 12. מהו יחס השטחים (הגדול חלקי הקטן)?&rlm;",
+        options: ["16", "4", "9", "144"],
+        correctAnswer: 0,
+        hint: "מצאו יחס תיכונים והעלו בריבוע.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס קווי.", math_expression: "12 : 3 = 4" },
+            { verbal_explanation: "שלב 2: חישוב יחס שטחים.", math_expression: "4^2 = 16" }
+        ],
+        final_answer: "16"
+    },
+
+    // ==========================================
+    // תת נושא 3: יישומים ופתרון בעיות בדמיון (12 שאלות)
+    // ==========================================
+
+    // שאלה מספר 25
+    {
+        topic: "similarity_ratio_35371",
+        subTopic: "יישומים ופתרון בעיות",
+        question_text: "במפה בקנה מידה 1:50,000, אורך כביש הוא 4 סנטימטר. מה אורכו במציאות בקילומטרים?&rlm;",
+        options: ["2", "20", "200", "0.2"],
+        correctAnswer: 0,
+        hint: "הכפילו ב-50,000 וחלקו ב-100,000 להמרה לקילומטרים.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב אורך אמיתי בסנטימטרים.", math_expression: "4 \\times 50000 = 200000" },
+            { verbal_explanation: "שלב 2: המרה לקילומטרים.", math_expression: "200000 : 100000 = 2" }
         ],
         final_answer: "2"
     },
 
-    // ========================================================================
-    // תת נושא 2: יחס שטחים בדומים
-    // ========================================================================
-
-    // --- שאלה 11 ---
+    // שאלה מספר 26
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "שני משולשים דומים זה לזה ויחס הצלעות (יחס הדמיון) ביניהם הוא 3. מהו יחס השטחים בין המשולש הגדול לקטן?",
-        options: ["9", "3", "6", "27"],
+        topic: "similarity_ratio_35371",
+        subTopic: "יישומים ופתרון בעיות",
+        question_text: "אדם בגובה 1.8 מטר מטיל צל של 1.2 מטר. עץ מטיל צל של 6 מטרים. מה גובה העץ?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 200' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><line x1='20' y1='180' x2='280' y2='180' stroke='#64748b' stroke-width='2'/><line x1='60' y1='180' x2='60' y2='80' stroke='#3b82f6' stroke-width='4'/><line x1='200' y1='180' x2='200' y2='120' stroke='#10b981' stroke-width='4'/></svg></div>",
+        options: ["9", "4", "10.8", "7.2"],
         correctAnswer: 0,
-        hint: "חוק ברזל בגיאומטריה: יחס השטחים של צורות דומות שווה תמיד לריבוע של יחס הצלעות (היחס בחזקת 2).",
+        hint: "היחס בין הגובה לצל שווה בשני המקרים.",
         solution_steps: [
-            { verbal_explanation: "נגדיר את יחס הדמיון הקווי הנתון בשאלה.", math_expression: "\u202Ak = 3\u202C" },
-            { verbal_explanation: "נפעיל את המשפט הקובע כי יחס השטחים שווה ליחס הדמיון מועלה בריבוע.", math_expression: "\u202AS_2 / S_1 = k&sup2;\u202C" },
-            { verbal_explanation: "נחשב את ריבועו של שלוש.", math_expression: "\u202A3&sup2; = 9\u202C" }
+            { verbal_explanation: "שלב 1: בניית פרופורציה.", math_expression: "x : 1.8 = 6 : 1.2" },
+            { verbal_explanation: "שלב 2: בידוד הנעלם.", math_expression: "x = 1.8 \\times (6 : 1.2)" },
+            { verbal_explanation: "שלב 3: ביצוע החישוב.", math_expression: "1.8 \\times 5 = 9" }
         ],
         final_answer: "9"
     },
 
-    // --- שאלה 12 ---
+    // שאלה מספר 27
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "יחס השטחים של שני מלבנים דומים הוא 16:25. מהו היחס בין ההיקפים של מלבנים אלו?",
-        options: ["4:5", "16:25", "8:12.5", "256:625"],
-        correctAnswer: 0,
-        hint: "יחס השטחים הוא k². כדי למצוא את יחס הצלעות וההיקפים (k), יש להוציא שורש ריבועי מכל אחד מהמספרים של יחס השטחים.",
-        solution_steps: [
-            { verbal_explanation: "נתון יחס השטחים. אנו יודעים כי הוא שווה לריבוע יחס הדמיון הקווי.", math_expression: "\u202Ak&sup2; = 16 / 25\u202C" },
-            { verbal_explanation: "כדי למצוא את היחס הרגיל, נוציא שורש ריבועי מהמונה ומהמכנה.", math_expression: "\u202Ak = \u221A16 / \u221A25\u202C" },
-            { verbal_explanation: "נקבל את יחס הצלעות, שזהה לחלוטין ליחס ההיקפים.", math_expression: "\u202Ak = 4 / 5\u202C" }
-        ],
-        final_answer: "4:5"
-    },
-
-    // --- שאלה 13 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "שטחו של משולש קטן הוא 20 סמ\"ר. משולש נוסף דומה לו, וכל אחת מצלעותיו ארוכה פי 2 מהצלעות של המשולש הקטן. מהו שטחו של המשולש הגדול?",
-        options: ["80 סמ\"ר", "40 סמ\"ר", "60 סמ\"ר", "100 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "אם הצלעות גדלו פי 2, השטח גדל פי 2 בריבוע, כלומר פי 4. הכפילו את השטח הנתון ב-4.",
-        solution_steps: [
-            { verbal_explanation: "נתון שיחס הצלעות (יחס ההגדלה) הוא שתיים.", math_expression: "\u202Ak = 2\u202C" },
-            { verbal_explanation: "נחשב את יחס השטחים באמצעות העלאה בריבוע של יחס הצלעות.", math_expression: "\u202Ak&sup2; = 2&sup2; = 4\u202C" },
-            { verbal_explanation: "נכפיל את שטח המשולש הקטן ביחס השטחים כדי לקבל את השטח הגדול.", math_expression: "\u202AS_2 = 20 \u00D7 4 = 80\u202C" }
-        ],
-        final_answer: "80 סמ\"ר"
-    },
-
-    // --- שאלה 14 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "שטח משולש א' הוא 50 סמ\"ר ושטח משולש ב' הדומה לו הוא 200 סמ\"ר. אורך בסיס משולש א' הוא 8 ס\"מ. מהו אורך הבסיס המתאים במשולש ב'?",
-        options: ["16 ס\"מ", "32 ס\"מ", "4 ס\"מ", "24 ס\"מ"],
-        correctAnswer: 0,
-        hint: "חשבו קודם את יחס השטחים (200 חלקי 50 שווה 4). יחס השטחים הוא 4, לכן יחס הצלעות הרגיל (k) הוא השורש של 4 (כלומר 2). הכפילו את הבסיס ב-2.",
-        solution_steps: [
-            { verbal_explanation: "נמצא את יחס ההגדלה של השטחים על ידי חלוקת השטח הגדול בקטן.", math_expression: "\u202Ak&sup2; = 200 / 50 = 4\u202C" },
-            { verbal_explanation: "נוציא שורש כדי למצוא את יחס ההגדלה של הצלעות.", math_expression: "\u202Ak = \u221A4 = 2\u202C" },
-            { verbal_explanation: "נכפיל את אורך בסיס המשולש הקטן פי שתיים.", math_expression: "\u202Ax = 8 \u00D7 2 = 16\u202C" }
-        ],
-        final_answer: "16 ס\"מ"
-    },
-
-    // --- שאלה 15 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: `במשולש הגדול העבירו קו מקביל לבסיס, בדיוק באמצע הגובה (קטע אמצעים). נוצר משולש קטן עליון ששטחו 10 סמ"ר. מהו שטחו של הטרפז התחתון שנוצר מתחתיו?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="100,20 40,140 160,140" fill="none" stroke="#0f172a" stroke-width="2"/>
-            <polygon points="100,20 70,80 130,80" fill="rgba(59, 130, 246, 0.4)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="100" y="65" font-size="14" fill="#1e40af" font-weight="bold" text-anchor="middle">S=10</text>
-            <text x="100" y="115" font-size="14" fill="#0f172a" font-weight="bold" text-anchor="middle">?</text>
-        </svg>`,
-        options: ["30 סמ\"ר", "20 סמ\"ר", "40 סמ\"ר", "15 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "יחס הצלעות בין הגדול לקטן הוא 2. לכן יחס השטחים הוא 4. שטח כל המשולש הגדול הוא 40. הטרפז הוא השטח הגדול פחות השטח הקטן (40 פחות 10).",
-        solution_steps: [
-            { verbal_explanation: "קטע אמצעים יוצר משולש קטן הדומה לגדול ביחס צלעות של שתיים לאחד.", math_expression: "\u202Ak = 2\u202C" },
-            { verbal_explanation: "נחשב את יחס השטחים בין המשולש הגדול לקטן.", math_expression: "\u202Ak&sup2; = 4\u202C" },
-            { verbal_explanation: "נחשב את שטחו הכולל של המשולש הגדול.", math_expression: "\u202AS_2 = 10 \u00D7 4 = 40\u202C" },
-            { verbal_explanation: "שטח הטרפז התחתון הוא השטח הכולל פחות שטח המשולש העליון.", math_expression: "\u202AS_3 = 40 - 10 = 30\u202C" }
-        ],
-        final_answer: "30 סמ\"ר"
-    },
-
-    // --- שאלה 16 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "שני משושים משוכללים דומים זה לזה. היקף הראשון הוא 12 ס\"מ והיקף השני הוא 36 ס\"מ. אם שטח המשושה הראשון הוא S, מהו שטח המשושה השני?",
-        options: ["9S", "3S", "6S", "12S"],
-        correctAnswer: 0,
-        hint: "מצאו את יחס ההיקפים (36 חלקי 12 שווה 3). יחס ההיקפים זהה ליחס הצלעות. השטח גדל לפי היחס בריבוע, כלומר 3 בריבוע.",
-        solution_steps: [
-            { verbal_explanation: "נמצא את יחס ההיקפים, אשר מהווה את יחס הדמיון הקווי הרגיל.", math_expression: "\u202Ak = 36 / 12 = 3\u202C" },
-            { verbal_explanation: "יחס השטחים בכל צורה גיאומטרית דומה, יהיה ריבוע יחס הדמיון.", math_expression: "\u202Ak&sup2; = 3&sup2; = 9\u202C" },
-            { verbal_explanation: "לכן השטח החדש גדול פי תשעה מהשטח המקורי.", math_expression: "\u202AS_2 = 9 \u00D7 S\u202C" }
-        ],
-        final_answer: "9S"
-    },
-
-    // --- שאלה 17 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "צייר הגדיל תמונה מלבנית כך שכל צלע הוכפלה ב-1.5 (הגדלה של 50%). פי כמה גדל השטח הכולל של התמונה המודפסת?",
-        options: ["פי 2.25", "פי 1.5", "פי 3", "פי 2"],
-        correctAnswer: 0,
-        hint: "יחס הדמיון הוא 1.5. יחס השטחים הוא ריבוע של יחס זה: 1.5 כפול 1.5.",
-        solution_steps: [
-            { verbal_explanation: "יחס ההגדלה הקווי של התמונה מוגדר בשאלה כאחת וחצי.", math_expression: "\u202Ak = 1.5\u202C" },
-            { verbal_explanation: "יחס השטחים מחושב על ידי הכפלת היחס בעצמו.", math_expression: "\u202Ak&sup2; = 1.5 \u00D7 1.5\u202C" },
-            { verbal_explanation: "נבצע את פעולת הכפל של השברים העשרוניים.", math_expression: "\u202A2.25\u202C" }
-        ],
-        final_answer: "פי 2.25"
-    },
-
-    // --- שאלה 18 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "יחס השטחים בין שני משולשים דומים הוא 1:100. אם אורך הגובה במשולש הגדול הוא 50 ס\"מ, מהו אורך הגובה המתאים לו במשולש הקטן?",
-        options: ["5 ס\"מ", "10 ס\"מ", "0.5 ס\"מ", "2 ס\"מ"],
-        correctAnswer: 0,
-        hint: "יחס השטחים הוא 100. לכן היחס הקווי (היחס של הגבהים, במקרה זה) הוא השורש הריבועי של 100, שהוא 10. חלוקת 50 ב-10 תיתן את הגובה הקטן.",
-        solution_steps: [
-            { verbal_explanation: "יחס השטחים הנתון הוא מאה לאחד. נשתמש בו לחילוץ יחס הקווים.", math_expression: "\u202Ak&sup2; = 100\u202C" },
-            { verbal_explanation: "נוציא שורש ריבועי כדי למצוא את יחס הגבהים.", math_expression: "\u202Ak = \u221A100 = 10\u202C" },
-            { verbal_explanation: "נחלק את גובה המשולש הגדול בעשר כדי למצוא את הקטן.", math_expression: "\u202Ah_1 = 50 / 10 = 5\u202C" }
-        ],
-        final_answer: "5 ס\"מ"
-    },
-
-    // --- שאלה 19 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: "משולש A דומה למשולש B. יחס הצלעות הוא 2:3. סכום השטחים של שני המשולשים יחד הוא 130 סמ\"ר. מהו שטחו של משולש A (הקטן מביניהם)?",
-        options: ["40 סמ\"ר", "90 סמ\"ר", "52 סמ\"ר", "65 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "יחס הצלעות הוא 2:3, לכן יחס השטחים הוא 4:9. ניתן לבטא את השטחים כ-4x ו-9x. סכומם 13x שווה 130. מצאו את x וחשבו את השטח של A (שהוא 4x).",
-        solution_steps: [
-            { verbal_explanation: "נחשב את יחס השטחים על ידי העלאה בריבוע של יחס הצלעות הנתון.", math_expression: "\u202A2&sup2; : 3&sup2; = 4 : 9\u202C" },
-            { verbal_explanation: "נבטא את השטחים בעזרת נעלם עזר לפי חלקי היחס ונשווה לסכום הכללי.", math_expression: "\u202A4x + 9x = 130\u202C" },
-            { verbal_explanation: "נכנס איברים ונחלק למציאת יחידת יחס אחת.", math_expression: "\u202A13x = 130  =>  x = 10\u202C" },
-            { verbal_explanation: "שטח המשולש הקטן מורכב מארבע חלקי יחס. נכפיל.", math_expression: "\u202AS_1 = 4 \u00D7 10 = 40\u202C" }
-        ],
-        final_answer: "40 סמ\"ר"
-    },
-
-    // --- שאלה 20 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
-        subTopic: "יחס שטחים בדומים",
-        question: `בריבוע שחור חסום ריבוע כחול שנוצר על ידי חיבור אמצעי הצלעות. יחס הצלעות ביניהם הוא שורש שתיים. מהו יחס השטחים ביניהם?<br><br>
-        <svg viewBox="0 0 200 200" style="width:100%; max-width:200px; display:block; margin:15px auto; background:#f8fafc;">
-            <rect x="20" y="20" width="160" height="160" fill="#0f172a"/>
-            <polygon points="100,20 180,100 100,180 20,100" fill="#3b82f6"/>
-        </svg>`,
-        options: ["2", "1.414", "4", "1"],
-        correctAnswer: 0,
-        hint: "זהו תרגיל פשוט של העלאה בריבוע. יחס הצלעות הוא שורש 2. מה קורה כשמעלים שורש 2 בריבוע?",
-        solution_steps: [
-            { verbal_explanation: "נתון כי יחס הצלעות שווה לשורש שתיים.", math_expression: "\u202Ak = \u221A2\u202C" },
-            { verbal_explanation: "יחס שטחים תמיד שווה ליחס הדמיון בריבוע.", math_expression: "\u202Ak&sup2; = (\u221A2)&sup2;\u202C" },
-            { verbal_explanation: "פעולת החזקה השנייה מבטלת את השורש הריבועי לחלוטין.", math_expression: "\u202A2\u202C" }
-        ],
-        final_answer: "2"
-    },
-
-    // ========================================================================
-    // תת נושא 3: יישומים ופתרון בעיות
-    // ========================================================================
-
-    // --- שאלה 21 ---
-    {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "צל עמוד חשמל הוא באורך 6 מטרים. באותו רגע, צלו של פח אשפה שגובהו 1 מטר הוא באורך 0.8 מטרים. מהו גובה עמוד החשמל?",
-        options: ["7.5 מטרים", "6.8 מטרים", "4.8 מטרים", "8 מטרים"],
+        question_text: "במשולש הועבר קטע אמצעים. שטח המשולש הקטן שנוצר הוא 10. מה שטח הגדול?&rlm;",
+        options: ["40", "20", "30", "100"],
         correctAnswer: 0,
-        hint: "היחס בין הצל של עמוד החשמל לצל הפח שווה ליחס בין גובה עמוד החשמל לגובה הפח. חשבו 6 חלקי 0.8.",
+        hint: "יחס דמיון של קטע אמצעים הוא 2. יחס השטחים הוא 4.",
         solution_steps: [
-            { verbal_explanation: "נבנה משוואת דמיון המבוססת על היחס שבין הגובה האמיתי לאורך הצל בשני העצמים.", math_expression: "\u202Ax / 6 = 1 / 0.8\u202C" },
-            { verbal_explanation: "נכפיל את שני האגפים בשש כדי לבודד את הנעלם.", math_expression: "\u202Ax = (1 \u00D7 6) / 0.8\u202C" },
-            { verbal_explanation: "נבצע את פעולת החילוק. שש לחלק לשמונה עשיריות שווה לשבע וחצי.", math_expression: "\u202Ax = 7.5\u202C" }
+            { verbal_explanation: "שלב 1: קביעת יחס קווי.", math_expression: "k = 2" },
+            { verbal_explanation: "שלב 2: קביעת יחס שטחים.", math_expression: "2^2 = 4" },
+            { verbal_explanation: "שלב 3: הכפלת השטח הקטן ביחס השטחים.", math_expression: "10 \\times 4 = 40" }
         ],
-        final_answer: "7.5 מטרים"
+        final_answer: "40"
     },
 
-    // --- שאלה 22 ---
+    // שאלה מספר 28
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "במפה טופוגרפית מופיע קנה מידה של 1:50,000. המרחק בין שתי ערים על המפה הוא 4 ס\"מ. מהו המרחק האמיתי בין הערים בקילומטרים?",
-        options: ["2 ק\"מ", "20 ק\"מ", "5 ק\"מ", "200 ק\"מ"],
+        question_text: "שטח עליון קטן הוא 9 ושטח גדול כולו הוא 25. מה היחס בין הגבהים (גדול חלקי קטן)?&rlm;",
+        options: ["5/3", "25/9", "3/5", "16/9"],
         correctAnswer: 0,
-        hint: "קנה מידה הוא יחס דמיון לכל דבר. הכפילו 4 ס\"מ ב-50,000 כדי לקבל את המרחק במציאות בסנטימטרים. לאחר מכן המירו לקילומטרים (1 ק\"מ = 100,000 ס\"מ).",
+        hint: "הוציאו שורש מיחס השטחים.",
         solution_steps: [
-            { verbal_explanation: "נשתמש ביחס הדמיון כדי למצוא את המרחק האמיתי בסנטימטרים.", math_expression: "\u202A4 \u00D7 50000 = 200000\u202C" },
-            { verbal_explanation: "נמיר את התוצאה למטרים על ידי חלוקה במאה.", math_expression: "\u202A200000 / 100 = 2000\u202C" },
-            { verbal_explanation: "נמיר מקילומטרים למטרים על ידי חלוקה באלף.", math_expression: "\u202A2000 / 1000 = 2\u202C" }
+            { verbal_explanation: "שלב 1: רישום יחס שטחים.", math_expression: "25 : 9" },
+            { verbal_explanation: "שלב 2: הוצאת שורש למציאת יחס גבהים.", math_expression: "\\sqrt{25 : 9} = 5 : 3" }
         ],
-        final_answer: "2 ק\"מ"
+        final_answer: "5/3"
     },
 
-    // --- שאלה 23 ---
+    // שאלה מספר 29
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "עלות גידור חלקה מרובעת היא 1500 שקלים. מציעים לכם לגדר חלקה חקלאית אחרת שדומה לחלקה הראשונה, אך כל אחת מצלעותיה ארוכה פי 3. מה תהיה עלות הגידור המשוערת?",
-        options: ["4500 שקלים", "13500 שקלים", "3000 שקלים", "15000 שקלים"],
+        question_text: "בניין בגובה 20 מטר מטיל צל של 15 מטר. עמוד בגובה 4 מטרים מטיל צל של איקס. מצאו את איקס.&rlm;",
+        options: ["3", "5.33", "75", "12"],
         correctAnswer: 0,
-        hint: "גידור תלוי בהיקף (אורך הקווים החיצוניים), לא בשטח. יחס ההיקפים שווה בדיוק ליחס הצלעות. אם הצלעות גדלו פי 3, ההיקף גדל פי 3, ולכן המחיר מוכפל ב-3.",
+        hint: "היחס בין הגובה לצל קבוע.",
         solution_steps: [
-            { verbal_explanation: "עלות גידור נמדדת במימד קווי (אורך), ולכן היא גדלה בדיוק באותו יחס שבו גדלות צלעות החלקה.", math_expression: "\u202AP_2 / P_1 = 3\u202C" },
-            { verbal_explanation: "יחס ההגדלה של הצלעות הוא שלוש.", math_expression: "\u202Ak = 3\u202C" },
-            { verbal_explanation: "נכפיל את עלות הגידור המקורית פי שלושה.", math_expression: "\u202A1500 \u00D7 3 = 4500\u202C" }
+            { verbal_explanation: "שלב 1: הצבה בפרופורציה.", math_expression: "20 : 15 = 4 : x" },
+            { verbal_explanation: "שלב 2: בידוד הנעלם.", math_expression: "x = (4 \\times 15) : 20" },
+            { verbal_explanation: "שלב 3: ביצוע החישוב.", math_expression: "60 : 20 = 3" }
         ],
-        final_answer: "4500 שקלים"
+        final_answer: "3"
     },
 
-    // --- שאלה 24 ---
+    // שאלה מספר 30
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "בהמשך לשאלה הקודמת: עלות ריצוף החלקה הקטנה באריחים היא 2000 שקלים. מה תהיה עלות הריצוף עבור החלקה הגדולה (שבה כל צלע גדולה פי 3)?",
-        options: ["18000 שקלים", "6000 שקלים", "12000 שקלים", "9000 שקלים"],
+        question_text: "קנה מידה 1:20. אורך צעצוע הוא 25 סנטימטר. מה אורך האמיתי במטרים?&rlm;",
+        options: ["5", "500", "12.5", "0.8"],
         correctAnswer: 0,
-        hint: "ריצוף ממלא שטח (פנים הצורה). יחס השטחים שווה ליחס הדמיון בריבוע. אם הצלעות גדלו פי 3, השטח גדל פי 9. ולכן המחיר יגדל פי 9.",
+        hint: "הכפילו ב-20 וחלקו במאה.",
         solution_steps: [
-            { verbal_explanation: "ריצוף מכסה את מלוא שטח החלקה, ולכן עלותו נקבעת על פי יחס השטחים ולא יחס ההיקפים.", math_expression: "\u202AS_2 / S_1 = k&sup2;\u202C" },
-            { verbal_explanation: "יחס השטחים שווה לריבוע יחס הצלעות (שלוש בריבוע).", math_expression: "\u202Ak&sup2; = 3&sup2; = 9\u202C" },
-            { verbal_explanation: "נכפיל את עלות הריצוף ההתחלתית פי תשעה למציאת העלות הכוללת.", math_expression: "\u202A2000 \u00D7 9 = 18000\u202C" }
+            { verbal_explanation: "שלב 1: חישוב בסנטימטרים.", math_expression: "25 \\times 20 = 500" },
+            { verbal_explanation: "שלב 2: המרה למטרים.", math_expression: "500 : 100 = 5" }
         ],
-        final_answer: "18000 שקלים"
+        final_answer: "5"
     },
 
-    // --- שאלה 25 ---
+    // שאלה מספר 31
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "בניית דגם של מכונית: מהנדס בונה דגם של רכב ביחס דמיון של 1:15 למציאות. אורך המכונית האמיתית הוא 4.5 מטרים. מה יהיה אורכו של הדגם בסנטימטרים?",
-        options: ["30 ס\"מ", "3 ס\"מ", "67.5 ס\"מ", "15 ס\"מ"],
+        question_text: "קנה מידה במפה 1:10. שטח במפה הוא 5. מה השטח במציאות?&rlm;",
+        options: ["500", "50", "25", "100"],
         correctAnswer: 0,
-        hint: "קודם המירו מטרים לסנטימטרים (4.5 מטרים = 450 ס\"מ). כעת, חלקו את הגודל במציאות ביחס הדמיון (15) כדי למצוא את אורך הדגם המוקטן.",
+        hint: "הכפילו בריבוע קנה המידה.",
         solution_steps: [
-            { verbal_explanation: "נמיר את מידות הרכב האמיתי ממטרים לסנטימטרים לשם נוחות.", math_expression: "\u202A4.5 \u00D7 100 = 450\u202C" },
-            { verbal_explanation: "יחס הדמיון המוקטן קובע שיש לחלק את המידה במציאות בחמש עשרה.", math_expression: "\u202Ax = 450 / 15\u202C" },
-            { verbal_explanation: "נחשב ונקבל את מידתו של הדגם.", math_expression: "\u202Ax = 30\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס שטחים.", math_expression: "10^2 = 100" },
+            { verbal_explanation: "שלב 2: הכפלת השטח ביחס.", math_expression: "5 \\times 100 = 500" }
         ],
-        final_answer: "30 ס\"מ"
+        final_answer: "500"
     },
 
-    // --- שאלה 26 ---
+    // שאלה מספר 32
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "לשני מגרשי כדורגל דומים יש יחס אורכים של 4:5. במגרש הקטן נשתל דשא בעלות של 8,000 שקלים. כמה יעלה לשתול דשא במגרש הגדול (באותו סוג דשא)?",
-        options: ["12,500 שקלים", "10,000 שקלים", "6,400 שקלים", "15,000 שקלים"],
+        question_text: "בטרפז בסיסים 4 ו-12. מהו היחס בין שטח המשולש התחתון (על הבסיס הגדול) לעליון?&rlm;",
+        options: ["9", "3", "16", "1/3"],
         correctAnswer: 0,
-        hint: "דשא הוא שטח. יחס השטחים הוא ריבוע של יחס האורכים (16:25). מצאו כמה עולה 'יחידת שטח' אחת (8000 חלקי 16 = 500) והכפילו ב-25 חלקי השטח של המגרש הגדול.",
+        hint: "חשבו יחס בסיסים והעלו בריבוע.",
         solution_steps: [
-            { verbal_explanation: "יחס הדמיון הקווי בין המגרשים הוא שבר של ארבע חמישיות.", math_expression: "\u202Ak = 4 / 5\u202C" },
-            { verbal_explanation: "נחשב את יחס השטחים להשוואת עלויות הדשא. נעלה בריבוע את המונה והמכנה.", math_expression: "\u202Ak&sup2; = 16 / 25\u202C" },
-            { verbal_explanation: "נבנה משוואת פרופורציה עלויות.", math_expression: "\u202A16 / 25 = 8000 / x\u202C" },
-            { verbal_explanation: "נחלץ את המשתנה באמצעות חלוקה והכפלה מתאימה.", math_expression: "\u202Ax = (8000 \u00D7 25) / 16 = 12500\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס קווי.", math_expression: "12 : 4 = 3" },
+            { verbal_explanation: "שלב 2: חישוב יחס שטחים.", math_expression: "3^2 = 9" }
         ],
-        final_answer: "12,500 שקלים"
+        final_answer: "9"
     },
 
-    // --- שאלה 27 ---
+    // שאלה מספר 33
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: `בריכת מים נחתכת בחתך רוחבי בצורת משולש ישר זווית.<br>בקצה הבריכה, במרחק 12 מטרים מהקצה הרדוד, העומק המקסימלי הוא 3 מטרים. אדם הולך אל תוך המים ועוצר במרחק של 4 מטרים מהקצה הרדוד. מהו עומק המים בנקודה בה הוא עומד?`,
-        options: ["1 מטר", "1.5 מטרים", "0.75 מטר", "2 מטרים"],
+        question_text: "תמונה מוגדלת ב-150% (יחס 1.5). שטח מקורי הוא 20. מה השטח החדש?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 200' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='20' y='50' width='60' height='40' fill='#f59e0b' opacity='0.3' stroke='#f59e0b' stroke-width='2'/><rect x='120' y='30' width='90' height='60' fill='#10b981' opacity='0.3' stroke='#10b981' stroke-width='2'/></svg></div>",
+        options: ["45", "30", "60", "22.5"],
         correctAnswer: 0,
-        hint: "הקרקעית יוצרת שיפוע אחיד (קווים מקבילים לפני המים), ולכן המשולש הקטן דומה למשולש הכללי. יחס הבסיסים הוא 4 ל-12 (שזה 1/3). לכן גם עומק המים יהיה 1/3 מהעומק המקסימלי.",
+        hint: "הכפילו ב-1.5 בריבוע.",
         solution_steps: [
-            { verbal_explanation: "המשולש המתאר את מיקום האדם דומה למשולש הבריכה הכולל. נחשב את יחס הדמיון דרך מרחקי ההליכה.", math_expression: "\u202Ak = 4 / 12 = 1 / 3\u202C" },
-            { verbal_explanation: "העומק שהאדם חווה שווה למכפלת העומק המקסימלי ביחס הדמיון.", math_expression: "\u202Ax = 3 \u00D7 (1 / 3)\u202C" },
-            { verbal_explanation: "התוצאה היא מספר שלם.", math_expression: "\u202Ax = 1\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס שטחים.", math_expression: "1.5^2 = 2.25" },
+            { verbal_explanation: "שלב 2: הכפלה בשטח המקורי.", math_expression: "20 \\times 2.25 = 45" }
         ],
-        final_answer: "1 מטר"
+        final_answer: "45"
     },
 
-    // --- שאלה 28 ---
+    // שאלה מספר 34
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "צילום ממזל\"ט: בטיסה בגובה 50 מטר, המצלמה קולטת שטח אדמה של 200 מ\"ר. אם המזל\"ט יעלה לגובה של 150 מטר (פי 3 גבוה יותר), מה יהיה גודל שטח האדמה שיקלט במצלמה?",
-        options: ["1800 מ\"ר", "600 מ\"ר", "450 מ\"ר", "2000 מ\"ר"],
+        question_text: "יחס שטחים הוא 4. צלע בגדול היא 10. מה הצלע המתאימה בקטן?&rlm;",
+        options: ["5", "2.5", "2", "20"],
         correctAnswer: 0,
-        hint: "גובה המצלמה יוצר 'פירמידת צילום'. כשהגובה משלש את עצמו (יחס דמיון קווי של 3), השטח המצולם למטה גדל פי יחס הדמיון בריבוע (כלומר פי 9).",
+        hint: "הוציאו שורש מיחס השטחים וחלקו.",
         solution_steps: [
-            { verbal_explanation: "נמצא את יחס ההגדלה הקווי של הטיסה.", math_expression: "\u202Ak = 150 / 50 = 3\u202C" },
-            { verbal_explanation: "שטח הכיסוי המצולם גדל בריבוע יחס ההתרחקות.", math_expression: "\u202Ak&sup2; = 3&sup2; = 9\u202C" },
-            { verbal_explanation: "נכפיל את השטח הראשוני ביחס ההגדלה הריבועי.", math_expression: "\u202AS_2 = 200 \u00D7 9 = 1800\u202C" }
+            { verbal_explanation: "שלב 1: מציאת יחס קווי.", math_expression: "\\sqrt{4} = 2" },
+            { verbal_explanation: "שלב 2: חלוקת הצלע ביחס.", math_expression: "10 : 2 = 5" }
         ],
-        final_answer: "1800 מ\"ר"
+        final_answer: "5"
     },
 
-    // --- שאלה 29 ---
+    // שאלה מספר 35
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "על מסך טלפון הממדים הם 6 ס\"מ על 10 ס\"מ. מקרינים את המסך על גבי טלוויזיה תוך שמירה על יחס ממדים. אם רוחב התמונה בטלוויזיה הוא 24 ס\"מ, מהו האלכסון של התמונה המוקרנת?",
-        options: ["47 ס\"מ", "40 ס\"מ", "12 ס\"מ", "55 ס\"מ"],
+        question_text: "שטח קטן הוא 6 ושטח גדול הוא 54. יתר בקטן הוא 5. מה יתר בגדול?&rlm;",
+        options: ["15", "45", "18", "12"],
         correctAnswer: 0,
-        hint: "חשבו את יחס הדמיון (24 חלקי 6 שווה 4). אורך הטלוויזיה יהיה 40. חשבו את האלכסון בעזרת משפט פיתגורס למשולש 24 ו-40 (שורש של 24 בריבוע ועוד 40 בריבוע).",
+        hint: "מצאו יחס שטחים, הוציאו שורש והכפילו.",
         solution_steps: [
-            { verbal_explanation: "נחשב את יחס ההגדלה מהטלפון לטלוויזיה בעזרת הרוחב.", math_expression: "\u202Ak = 24 / 6 = 4\u202C" },
-            { verbal_explanation: "נחשב את אורך התמונה בטלוויזיה.", math_expression: "\u202Ay = 10 \u00D7 4 = 40\u202C" },
-            { verbal_explanation: "נשתמש במשפט פיתגורס למציאת האלכסון במסך המוגדל.", math_expression: "\u202Ac = \u221A(24&sup2; + 40&sup2;)\u202C" },
-            { verbal_explanation: "נחשב את הריבועים ונחבר אותם.", math_expression: "\u202Ac = \u221A(576 + 1600) = \u221A(2176)\u202C" },
-            { verbal_explanation: "נוציא שורש מקורב.", math_expression: "\u202A\u2248 46.64\u202C" }
+            { verbal_explanation: "שלב 1: חישוב יחס שטחים.", math_expression: "54 : 6 = 9" },
+            { verbal_explanation: "שלב 2: מציאת יחס קווי.", math_expression: "\\sqrt{9} = 3" },
+            { verbal_explanation: "שלב 3: הכפלה ביתר הקטן.", math_expression: "5 \\times 3 = 15" }
         ],
-        final_answer: "47 ס\"מ"
+        final_answer: "15"
     },
 
-    // --- שאלה 30 ---
+    // שאלה מספר 36
     {
-        subject: "מתמטיקה",
-        topic: "יחס דמיון",
+        topic: "similarity_ratio_35371",
         subTopic: "יישומים ופתרון בעיות",
-        question: "אתגר פיצה: פיצה אישית בקוטר 20 ס\"מ עולה 20 שקלים. פיצה משפחתית (הדומה לה גיאומטרית כמעגל) היא בקוטר 40 ס\"מ. המוכר גובה עליה 60 שקלים. האם הפיצה המשפחתית משתלמת יותר?",
-        options: ["כן, היא נותנת פי 4 שטח אך המחיר עלה רק פי 3", "לא, עדיף לקנות שתי פיצות אישיות", "היחס זהה לחלוטין ולכן אין הבדל כדאיות", "לא, כי שטחה גדול רק פי 2 מפיצה קטנה"],
+        question_text: "מרחק אמיתי 10 ק''מ. במפה הוא 5 ס''מ. מה קנה המידה?&rlm;",
+        options: ["1:200,000", "1:20,000", "1:50,000", "1:2,000,000"],
         correctAnswer: 0,
-        hint: "בדקו מהו יחס הקטרים (הגדלה קווית - שיצא 2). עכשיו, חשבו כמה השטח גדל (יחס קווי בריבוע). השטח הוא פי 4, כלומר כמות הפיצה גדלה פי 4. המחיר גדל רק מ-20 ל-60 (פי 3).",
+        hint: "המירו קילומטרים לסנטימטרים וחלקו ב-5.",
         solution_steps: [
-            { verbal_explanation: "נחשב את יחס ההגדלה הקווי של הפיצות.", math_expression: "\u202Ak = 40 / 20 = 2\u202C" },
-            { verbal_explanation: "כמות הפיצה שמקבלים נמדדת בשטח, ולכן יחס הכמות שווה ליחס ההגדלה מועלה בריבוע.", math_expression: "\u202Ak&sup2; = 2&sup2; = 4\u202C" },
-            { verbal_explanation: "כמות הפיצה גדלה פי ארבעה, ולכן המחיר ההוגן היה צריך להיות שמונים שקלים. בפועל המחיר הוא שישים, מה שהופך אותה למשתלמת.", math_expression: "\u202A60 < 20 \u00D7 4\u202C" }
+            { verbal_explanation: "שלב 1: המרה לסנטימטרים.", math_expression: "10 \\times 100000 = 1000000" },
+            { verbal_explanation: "שלב 2: חישוב היחס.", math_expression: "1000000 : 5 = 200000" }
         ],
-        final_answer: "כן, היא נותנת פי 4 שטח אך המחיר עלה רק פי 3"
+        final_answer: "1:200,000"
     }
 ];

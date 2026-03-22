@@ -1,985 +1,982 @@
+// ========================================================================
+// שכבת גיל: כיתה ט' | נושא: תרגול ומבחנים מסכמים (48 שאלות)
+// >>> גרסה 9 - גופנים מוגדלים למשוואות, שברים אנכיים ו-Display Mode <<<
+// תתי-נושאים: בעיות מילוליות (תנועה, הספק ואחוזים), שאלות משולבות (אלגברה וגרפים), 
+//             חזרה כללית בגיאומטריה, פתרון מבחני מפמר מסכמים.
+// ========================================================================
+
+// ==========================================
+// מאגר איורי פרימיום (משולבים באופן מפוזר)
+// ==========================================
+const wSvg = (svg) => `\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px; clear:both;'><svg viewBox='0 0 200 120' width='200' height='120'><defs><filter id='sh' x='-20%' y='-20%' width='140%' height='140%'><feDropShadow dx='2' dy='4' stdDeviation='3' flood-opacity='0.2'/></filter><linearGradient id='gGold' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#fde047'/><stop offset='100%' stop-color='#ca8a04'/></linearGradient><linearGradient id='gBlue' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#93c5fd'/><stop offset='100%' stop-color='#2563eb'/></linearGradient><radialGradient id='rRed' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='#fca5a5'/><stop offset='100%' stop-color='#dc2626'/></radialGradient><radialGradient id='rGreen' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='#86efac'/><stop offset='100%' stop-color='#16a34a'/></radialGradient></defs>${svg}</svg></div>`;
+
+const svgMotion = wSvg(`<line x1='20' y1='80' x2='180' y2='80' stroke='#94a3b8' stroke-width='4' stroke-dasharray='10,5'/><rect x='30' y='50' width='45' height='20' fill='url(#gBlue)' rx='4' filter='url(#sh)'/><circle cx='40' cy='75' r='7' fill='#1e293b'/><circle cx='65' cy='75' r='7' fill='#1e293b'/><path d='M85 60 L115 60 M105 50 L115 60 L105 70' fill='none' stroke='#1e293b' stroke-width='3'/>`);
+const svgWork = wSvg(`<rect x='70' y='40' width='60' height='60' fill='#f1f5f9' stroke='#94a3b8' stroke-width='3' filter='url(#sh)'/><line x1='85' y1='55' x2='115' y2='55' stroke='#3b82f6' stroke-width='4'/><line x1='85' y1='70' x2='105' y2='70' stroke='#3b82f6' stroke-width='4'/><path d='M60 40 L100 15 L140 40 Z' fill='url(#gGold)' stroke='#ca8a04' stroke-width='2' filter='url(#sh)'/>`);
+const svgPercent = wSvg(`<circle cx='100' cy='60' r='45' fill='none' stroke='#3b82f6' stroke-width='8' filter='url(#sh)'/><path d='M100 15 A45 45 0 0 1 140 80' fill='none' stroke='url(#gGold)' stroke-width='8'/><text x='100' y='72' font-family='sans-serif' font-size='32' font-weight='bold' fill='#1e293b' text-anchor='middle'>%</text>`);
+const svgGraphParabola = wSvg(`<line x1='30' y1='100' x2='170' y2='100' stroke='#1e293b' stroke-width='2'/><line x1='100' y1='20' x2='100' y2='110' stroke='#1e293b' stroke-width='2'/><path d='M40 30 Q100 150 160 30' fill='none' stroke='url(#gBlue)' stroke-width='4' filter='url(#sh)'/><circle cx='100' cy='82' r='4' fill='#ef4444'/>`);
+const svgGraphLines = wSvg(`<line x1='30' y1='100' x2='170' y2='100' stroke='#1e293b' stroke-width='2'/><line x1='100' y1='20' x2='100' y2='110' stroke='#1e293b' stroke-width='2'/><line x1='40' y1='80' x2='160' y2='40' stroke='url(#gGold)' stroke-width='3' filter='url(#sh)'/><line x1='60' y1='30' x2='140' y2='110' stroke='#ef4444' stroke-width='3' filter='url(#sh)'/><circle cx='106' cy='58' r='5' fill='#1e293b'/>`);
+const svgTriangle = wSvg(`<polygon points='40,90 160,90 100,30' fill='#f8fafc' stroke='url(#gBlue)' stroke-width='4' filter='url(#sh)'/><line x1='100' y1='30' x2='100' y2='90' stroke='#94a3b8' stroke-width='2' stroke-dasharray='4,4'/><rect x='100' y='80' width='10' height='10' fill='none' stroke='#94a3b8' stroke-width='2'/>`);
+const svgCircle = wSvg(`<circle cx='100' cy='60' r='45' fill='none' stroke='#94a3b8' stroke-width='3' filter='url(#sh)'/><line x1='55' y1='60' x2='145' y2='60' stroke='#ef4444' stroke-width='2'/><circle cx='100' cy='60' r='3' fill='#1e293b'/><text x='100' y='52' font-family='sans-serif' font-size='14' font-weight='bold' fill='#1e293b' text-anchor='middle'>R</text>`);
+const svgExam = wSvg(`<rect x='60' y='10' width='80' height='100' fill='#f8fafc' stroke='#cbd5e1' stroke-width='3' rx='5' filter='url(#sh)'/><line x1='75' y1='30' x2='125' y2='30' stroke='#94a3b8' stroke-width='2'/><line x1='75' y1='50' x2='125' y2='50' stroke='#94a3b8' stroke-width='2'/><path d='M80 75 L86 82 L98 68' fill='none' stroke='#22c55e' stroke-width='4' filter='url(#sh)'/>`);
+
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: בעיות מילוליות (תנועה, הספק ואחוזים) (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: בעיות מילוליות (תנועה, הספק ואחוזים)
+    // ==========================================================
+    
     {
-        "id": 1,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Low",
-        "question_text": "<strong>בעיית תנועה:</strong> שתי מכוניות יוצאות באותו זמן משתי ערים שהמרחק ביניהן הוא 300 ק\"מ, ונוסעות זו לקראת זו. מכונית א' נוסעת במהירות 60 קמ\"ש ומכונית ב' במהירות 90 קמ\"ש. כעבור כמה <strong>שעות</strong> הן ייפגשו?<br><div style='text-align:center; margin:15px 0;'><svg width='200' height='60' viewBox='0 0 200 60'><line x1='20' y1='30' x2='180' y2='30' stroke='#1e293b' stroke-width='3' stroke-dasharray='5,5'/><circle cx='30' cy='30' r='8' fill='#3b82f6'/><circle cx='170' cy='30' r='8' fill='#ef4444'/><text x='30' y='15' font-size='12' font-weight='bold' fill='#3b82f6'>60 קמ\"ש</text><text x='170' y='15' font-size='12' font-weight='bold' fill='#ef4444'>90 קמ\"ש</text><path d='M 45 40 L 75 40 L 65 35 M 45 40 L 65 45' fill='none' stroke='#3b82f6' stroke-width='2'/><path d='M 155 40 L 125 40 L 135 35 M 155 40 L 135 45' fill='none' stroke='#ef4444' stroke-width='2'/></svg></div>",
-        "hint": "כאשר גופים נעים זה לקראת זה, מהירויותיהם מתחברות. חשבו את קצב ההתקרבות המשותף שלהם.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את משתנה הזמן עד הפגישה כ-t. שתי המכוניות נסעו בדיוק את אותו הזמן.", "math_expression": "זמן = t" },
-            { "verbal_explanation": "נחשב את הדרך שעברה מכונית א' (מהירות כפול זמן).", "math_expression": "דרך א' = 60t" },
-            { "verbal_explanation": "נחשב את הדרך שעברה מכונית ב' (מהירות כפול זמן).", "math_expression": "דרך ב' = 90t" },
-            { "verbal_explanation": "סכום הדרכים של שתיהן יחד חייב לכסות את כל המרחק בין הערים (300).", "math_expression": "משוואה: 60t + 90t = 300" },
-            { "verbal_explanation": "נכנס איברים ונפתור את המשוואה למציאת הזמן.", "math_expression": "150t = 300  / :150  =>  t = 2" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "מכונית ומשאית יצאו בו-זמנית משתי ערים שהמרחק ביניהן 300 ק\"מ ונסעו זו לקראת זו. מהירות המכונית גדולה ב-20 קמ\"ש ממהירות המשאית. הן נפגשו כעבור שעתיים. מה הייתה מהירות המכונית?" + svgMotion,
+        options: [
+            "85", 
+            "65", 
+            "75", 
+            "90"
         ],
-        "final_answer": "שעתיים",
-        "options": ["3 שעות", "שעתיים", "4 שעות", "1.5 שעות"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "סכום הדרכים שעברו שני כלי הרכב שווה למרחק הכולל (300 ק\"מ). בנו משוואה כאשר המהירויות הן x ו-x+20.",
+        solution_steps: [
+            { verbal_explanation: "נסמן את המהירויות של המשאית והמכונית בהתאמה.", math_expression: "\\displaystyle x \\quad , \\quad x + 20" },
+            { verbal_explanation: "שניהם נסעו שעתיים. סכום הדרכים שווה לשלוש מאות.", math_expression: "\\displaystyle 2x + 2(x + 20) = 300" },
+            { verbal_explanation: "נפתח סוגריים ונסדר את המשוואה.", math_expression: "\\displaystyle 4x + 40 = 300 \\quad \\Rightarrow \\quad 4x = 260 \\quad \\Rightarrow \\quad x = 65" },
+            { verbal_explanation: "מהירות המכונית גדולה בעשרים ממהירות המשאית שמצאנו.", math_expression: "\\displaystyle 65 + 20 = 85" }
+        ],
+        final_answer: "85"
     },
     {
-        "id": 2,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Medium",
-        "question_text": "<strong>בעיית תנועה (מרדף):</strong> רוכב אופניים יצא לדרך במהירות 15 קמ\"ש. <strong>שעתיים לאחר מכן</strong>, יצא בעקבותיו רוכב אופנוע מאותו מקום ובאותו כיוון, במהירות 45 קמ\"ש. כמה <strong>שעות מרגע יציאת האופנוע</strong> הוא ישיג את רוכב האופניים?",
-        "hint": "האופנוע נסע t שעות. האופניים נסעו שעתיים יותר (t+2). בנקודת המפגש, הדרך של שניהם שווה.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר משתנה: t הוא זמן הנסיעה של האופנוע עד למפגש.", "math_expression": "זמן אופנוע = t" },
-            { "verbal_explanation": "רוכב האופניים יצא שעתיים קודם, ולכן היה על הכביש שעתיים יותר.", "math_expression": "זמן אופניים = t + 2" },
-            { "verbal_explanation": "נבטא את הדרך שעבר האופנוע (מהירות 45).", "math_expression": "דרך אופנוע = 45 * t" },
-            { "verbal_explanation": "נבטא את הדרך שעברו האופניים (מהירות 15).", "math_expression": "דרך אופניים = 15 * (t + 2)" },
-            { "verbal_explanation": "בנקודת המפגש, הדרכים שוות. נשווה ונקבל משוואה.", "math_expression": "45t = 15(t + 2)" },
-            { "verbal_explanation": "נפתח סוגריים, נעביר אגפים ונפתור.", "math_expression": "45t = 15t + 30  =>  30t = 30  / :30  =>  t = 1" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "רוכב אופניים תכנן לרכוב 120 ק\"מ במהירות קבועה. בפועל, הוא רכב במהירות הנמוכה ב-5 קמ\"ש ממהירותו המתוכננת, ולכן דרכו התארכה בשעתיים. מה הייתה מהירותו המתוכננת?",
+        options: [
+            "20", 
+            "15", 
+            "25", 
+            "30"
         ],
-        "final_answer": "שעה אחת",
-        "options": ["שעתיים", "3 שעות", "שעה אחת", "1.5 שעות"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הזמן בפועל (עם המהירות האיטית) פחות הזמן המתוכנן שווה ל-2.",
+        solution_steps: [
+            { verbal_explanation: "הזמן המתוכנן שווה לדרך חלקי המהירות המקורית.", math_expression: "\\displaystyle \\frac{120}{x}" },
+            { verbal_explanation: "הזמן בפועל (במהירות נמוכה יותר) התארך בשעתיים.", math_expression: "\\displaystyle \\frac{120}{x - 5} - \\frac{120}{x} = 2" },
+            { verbal_explanation: "הכפלה במכנה המשותף כדי לסלק שברים.", math_expression: "\\displaystyle 60x - 60(x - 5) = x(x - 5)" },
+            { verbal_explanation: "פתיחת סוגריים וסידור למשוואה ריבועית שפתרונה החיובי הוא התשובה.", math_expression: "\\displaystyle x^2 - 5x - 300 = 0 \\quad \\Rightarrow \\quad x = 20" }
+        ],
+        final_answer: "20"
     },
     {
-        "id": 3,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית תנועה:</strong> סירה שטה לאורך נהר. מהירות הסירה במים עומדים היא 12 קמ\"ש, ומהירות זרם הנהר היא 3 קמ\"ש. הסירה שטה 45 ק\"מ עם כיוון הזרם, ואז חזרה את אותם 45 ק\"מ נגד כיוון הזרם. כמה <strong>זמן</strong> ארך כל המסע הלוך וחזור?",
-        "hint": "עם הזרם המהירויות מתחברות (12+3=15). נגד הזרם הזרם מפריע (12-3=9). חשבו זמנים בנפרד (דרך חלקי מהירות) וחברו.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את מהירות הסירה עם כיוון הזרם (הזרם דוחף ועוזר).", "math_expression": "מהירות עם הזרם = 12 + 3 = 15 קמ\"ש" },
-            { "verbal_explanation": "נחשב את מהירות הסירה נגד כיוון הזרם (הזרם מתנגד ומעכב).", "math_expression": "מהירות נגד הזרם = 12 - 3 = 9 קמ\"ש" },
-            { "verbal_explanation": "נחשב את הזמן שלקח לשוט 45 ק\"מ עם הזרם (זמן = דרך חלקי מהירות).", "math_expression": "t1 = 45 / 15 = 3 שעות" },
-            { "verbal_explanation": "נחשב את הזמן שלקח לחזור 45 ק\"מ נגד הזרם.", "math_expression": "t2 = 45 / 9 = 5 שעות" },
-            { "verbal_explanation": "נחשב את סך כל הזמן של המסע הלוך וחזור.", "math_expression": "t_total = 3 + 5 = 8 שעות" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "בריכה מתמלאת על ידי שני צינורות. הצינור הראשון יכול למלא את הבריכה לבדו ב-6 שעות. אם שני הצינורות פועלים יחד, הבריכה מתמלאת ב-4 שעות. בכמה שעות ימלא הצינור השני את הבריכה לבדו?" + svgWork,
+        options: [
+            "12", 
+            "10", 
+            "8", 
+            "14"
         ],
-        "final_answer": "8 שעות",
-        "options": ["4 שעות", "15 שעות", "8 שעות", "7.5 שעות"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הספק מחושב כאחד חלקי הזמן הנדרש. ההספק המשותף (רבע) שווה לסכום ההספקים של שני הצינורות.",
+        solution_steps: [
+            { verbal_explanation: "הספק הצינור הראשון והשני בהתאמה (לחלק לשעה).", math_expression: "\\displaystyle \\frac{1}{6} \\quad , \\quad \\frac{1}{x}" },
+            { verbal_explanation: "סכום ההספקים שווה להספק המשותף של שני הצינורות (רבע בריכה בשעה).", math_expression: "\\displaystyle \\frac{1}{6} + \\frac{1}{x} = \\frac{1}{4}" },
+            { verbal_explanation: "נחסיר מונים כדי למצוא את ההספק הנעלם של הצינור השני.", math_expression: "\\displaystyle \\frac{1}{x} = \\frac{3}{12} - \\frac{2}{12} = \\frac{1}{12}" },
+            { verbal_explanation: "הספק של אחת חלקי שתים-עשרה מעיד על זמן פעולה של תריסר שעות.", math_expression: "\\displaystyle x = 12" }
+        ],
+        final_answer: "12"
     },
     {
-        "id": 4,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Low",
-        "question_text": "<strong>בעיית הספק:</strong> פועל א' יכול לסיים בניית קיר ב-6 שעות. פועל ב' יכול לסיים את אותו קיר ב-3 שעות. אם שניהם יעבדו <strong>יחד</strong> באותו זמן, תוך כמה שעות הם יסיימו לבנות את הקיר?",
-        "hint": "בבעיות הספק מחברים 'קצבים'. קצב א' הוא 1/6 (שישית קיר בשעה). קצב ב' הוא 1/3 (שליש קיר בשעה). חברו קצבים כדי למצוא את ההספק המשותף.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את ההספק של פועל א' בשעה אחת. אם העבודה לוקחת 6 שעות, בשעה הוא עושה שישית ממנה.", "math_expression": "הספק א' = 1/6" },
-            { "verbal_explanation": "נגדיר את ההספק של פועל ב' בשעה אחת.", "math_expression": "הספק ב' = 1/3" },
-            { "verbal_explanation": "נחשב את ההספק המשותף שלהם כשהם עובדים יחד בשעה אחת (נחבר את השברים עם מכנה משותף 6).", "math_expression": "הספק משותף = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2" },
-            { "verbal_explanation": "ההספק המשותף הוא 1/2 (חצי קיר בשעה). לכן, כדי לסיים קיר שלם 1, יידרשו להם שעתיים.", "math_expression": "זמן סופי = 2 שעות" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "פועל א' מסיים עבודה מסוימת ב-15 ימים. פועל ב' יכול לסיים אותה ב-10 ימים. שני הפועלים עבדו יחד במשך 3 ימים, ולאחר מכן המשיך פועל ב' לבדו. כמה ימים בסך הכל עבד פועל ב' מתחילת העבודה ועד סופה?",
+        options: [
+            "8", 
+            "5", 
+            "6", 
+            "7"
         ],
-        "final_answer": "שעתיים",
-        "options": ["9 שעות", "4.5 שעות", "שעתיים", "3 שעות"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "חשבו איזה חלק מהעבודה בוצע בשלושת הימים המשותפים, ואז בדקו כמה ימים נדרשים לפועל ב' כדי לסיים את השארית.",
+        solution_steps: [
+            { verbal_explanation: "חיבור ההספקים המשותפים ליום אחד בודד של עבודה.", math_expression: "\\displaystyle \\frac{1}{15} + \\frac{1}{10} = \\frac{5}{30} = \\frac{1}{6}" },
+            { verbal_explanation: "עבודה משותפת של שלושה ימים מכסה בדיוק מחצית מהפרויקט.", math_expression: "\\displaystyle 3 \\times \\frac{1}{6} = \\frac{1}{2}" },
+            { verbal_explanation: "את החצי הנותר מבצע הפועל השני שהספקו הוא עשירית, לכן יידרשו לו חמישה ימים לסיים.", math_expression: "\\displaystyle \\frac{1}{2} : \\frac{1}{10} = 5" },
+            { verbal_explanation: "סך הימים שעבד פועל ב' מורכב מהחלק המשותף והחלק העצמאי.", math_expression: "\\displaystyle 3 + 5 = 8" }
+        ],
+        final_answer: "8"
     },
     {
-        "id": 5,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Medium",
-        "question_text": "<strong>בעיית הספק:</strong> ברז א' ממלא בריכה ריקה ב-4 שעות. ברז ב' (ברז ריקון) <strong>מרוקן</strong> את אותה בריכה (כשהיא מלאה) ב-12 שעות. אם פותחים את שני הברזים יחד כשהבריכה ריקה, תוך כמה שעות היא תתמלא?",
-        "hint": "ברז ריקון עובד במינוס! ההספק המשותף הוא (הספק מילוי פחות הספק ריקון).",
-        "solution_steps": [
-            { "verbal_explanation": "הספק המילוי של ברז א' בשעה אחת הוא רבע בריכה.", "math_expression": "הספק מילוי = 1/4 (+)" },
-            { "verbal_explanation": "הספק הריקון של ברז ב' בשעה אחת הוא חלק ה-12 של הבריכה. מכיוון שזה ריקון, זהו הספק שלילי המעכב את המילוי.", "math_expression": "הספק ריקון = 1/12 (-)" },
-            { "verbal_explanation": "נחשב את ההספק המשותף נטו (מכנה משותף 12: המרה של 1/4 ל-3/12).", "math_expression": "הספק נטו = 1/4 - 1/12 = 3/12 - 1/12 = 2/12 = 1/6" },
-            { "verbal_explanation": "ההספק המשותף הוא שישית בריכה בשעה אחת. כדי למלא בריכה שלמה, נדרשות 6 שעות.", "math_expression": "זמן סופי = 6 שעות" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "מוצר התייקר ב-25%. לאחר מכן, לרגל מבצע מיוחד, הוזל מחירו החדש ב-20%. המחיר הסופי לאחר שתי הפעולות עומד על 150 שקלים. מה היה מחירו המקורי של המוצר בטרם בוצעו שינויים אלו?" + svgPercent,
+        options: [
+            "150", 
+            "200", 
+            "180", 
+            "160"
         ],
-        "final_answer": "6 שעות",
-        "options": ["3 שעות", "8 שעות", "6 שעות", "16 שעות"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הכפילו את המחיר המקורי בכופל ההתייקרות ובכופל ההוזלה יחדיו.",
+        solution_steps: [
+            { verbal_explanation: "מכפלת שני הכופלים המייצגים התייקרות של עשרים וחמישה אחוז והוזלה של עשרים אחוז.", math_expression: "\\displaystyle 1.25 \\times 0.8 = 1" },
+            { verbal_explanation: "כיוון שתוצאת הכופל הכללי היא אחד שלם, המחיר חזר בדיוק למצב ההתחלתי.", math_expression: "\\displaystyle 1 \\times x = 150" }
+        ],
+        final_answer: "150"
     },
     {
-        "id": 6,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית אחוזים משולבת:</strong> מחיר מוצר היה x שקלים. המוצר <strong>התייקר ב-20%</strong>. חודש לאחר מכן, לרגל סוף העונה, המוצר <strong>הוזל ב-20%</strong>. מה מחירו הסופי של המוצר ביחס למחיר המקורי?",
-        "hint": "עלייה וירידה של אותו אחוז אינן מקזזות זו את זו! הירידה חלה על המחיר החדש והגדול יותר. תכפילו ב-1.2 ואז ב-0.8.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את המחיר ההתחלתי. התייקרות של 20% משמעותה שהמחיר הופך ל-120% ממחירו, כלומר מכפילים אותו ב-1.2.", "math_expression": "מחיר אחרי התייקרות = 1.2x" },
-            { "verbal_explanation": "הוזלה של 20% משמעותה שהמוצר נמכר כעת ב-80% ממחירו הקודם. לכן יש להכפיל את *המחיר החדש* ב-0.8.", "math_expression": "מחיר סופי = 0.8 * (1.2x)" },
-            { "verbal_explanation": "נחשב את המכפלה: 0.8 כפול 1.2 שווה 0.96.", "math_expression": "0.96x" },
-            { "verbal_explanation": "המחיר הסופי הוא 96% מהמחיר המקורי. המשמעות היא שהמחיר הסופי זול יותר ב-4% מהמחיר שהיה בהתחלה." }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "משכורתו של עובד הועלתה ב-10%, ולאחר חצי שנה הועלתה שוב פעם באותו שיעור של 10%. כעת הוא מרוויח 12,100 שקלים בחודש. מה הייתה משכורתו ההתחלתית לפני שתי ההעלאות השכר?",
+        options: [
+            "10000", 
+            "11000", 
+            "9000", 
+            "10500"
         ],
-        "final_answer": "הוא זול יותר ב-4% מהמחיר המקורי.",
-        "options": ["הוא חזר בדיוק למחיר המקורי.", "הוא יקר יותר ב-4% מהמחיר המקורי.", "הוא זול יותר ב-4% מהמחיר המקורי.", "אי אפשר לדעת ללא מחיר התחלתי."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "שתי העלאות עוקבות של 10% אינן מהוות 20% תוספת, אלא מכפלת כופלים זהים של 1.1.",
+        solution_steps: [
+            { verbal_explanation: "הכופל עבור העלאת שכר של עשרה אחוזים הוא נקודה אחת. יש לחשב את ריבועו עבור שתי העלאות.", math_expression: "\\displaystyle 1.1 \\times 1.1 = 1.21" },
+            { verbal_explanation: "נשווה את המשכורת ההתחלתית כפול הכופל למשכורת הסופית הנתונה.", math_expression: "\\displaystyle 1.21 \\times x = 12100" },
+            { verbal_explanation: "נחלק במקדם כדי למצוא את משכורתו המקורית של העובד.", math_expression: "\\displaystyle x = \\frac{12100}{1.21} = 10000" }
+        ],
+        final_answer: "10000"
     },
     {
-        "id": 7,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Medium",
-        "question_text": "<strong>בעיית אחוזים אלגברית:</strong> מחירו של כרטיס לסרט כולל עמלת הזמנה של 15%. אם לקוח שילם סך הכל <strong>46 שקלים</strong> (כולל העמלה), מה היה מחירו המקורי של הכרטיס (ללא עמלה)?",
-        "hint": "אל תורידו 15% מ-46! ה-46 שקלים מהווים 115% מהמחיר המקורי (1.15x = 46).",
-        "solution_steps": [
-            { "verbal_explanation": "נסמן את המחיר הבסיסי המקורי באות x. זה ה-100% שלנו.", "math_expression": "מחיר מקורי = x" },
-            { "verbal_explanation": "המחיר הסופי מורכב מ-100% פלוס תוספת של 15%. לכן המחיר הסופי הוא 115% מ-x (קרי, 1.15 כפול x).", "math_expression": "1.15x = 46" },
-            { "verbal_explanation": "כדי למצוא את x, נחלק את המחיר הסופי ששולם במקדם 1.15.", "math_expression": "x = 46 / 1.15" },
-            { "verbal_explanation": "ביצוע החילוק מגלה את המחיר המקורי.", "math_expression": "x = 40" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "סוחר קנה 50 עטים זהים. 10 עטים התגלו כפגומים ולכן נזרקו לאשפה. את שאר העטים מכר הסוחר ברווח של 2 שקלים לעט. בסך הכל הניבה העסקה רווח נקי של 40 שקלים. כמה שקלים עלתה לו קניית עט בודד?",
+        options: [
+            "4", 
+            "5", 
+            "3", 
+            "6"
         ],
-        "final_answer": "40 שקלים",
-        "options": ["39.1 שקלים", "40 שקלים", "31 שקלים", "35 שקלים"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "סך ההכנסות ממכירת 40 עטים שווה לסך ההוצאות על 50 עטים ועוד הרווח הנקי.",
+        solution_steps: [
+            { verbal_explanation: "ההוצאה הכוללת מתבססת על חמישים עטים.", math_expression: "\\displaystyle 50 \\times x" },
+            { verbal_explanation: "פדיון המכירה של ארבעים עטים מכסה את ההוצאה ומוסיף רווח של ארבעים שקלים.", math_expression: "\\displaystyle 40(x + 2) = 50x + 40" },
+            { verbal_explanation: "פתיחת סוגריים וכינוס איברים למציאת הערך הנדרש.", math_expression: "\\displaystyle 40x + 80 = 50x + 40 \\quad \\Rightarrow \\quad 10x = 40" },
+            { verbal_explanation: "חלוקה בעשר תיתן את מחיר הקנייה המקורי לעט יחיד.", math_expression: "\\displaystyle x = 4" }
+        ],
+        final_answer: "4"
     },
     {
-        "id": 8,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית תנועה ומשוואות:</strong> משאית נסעה מעיר א' לעיר ב' מרחק של 120 ק\"מ במהירות מסוימת. בדרכה חזרה, בשל פקקים, היא נסעה במהירות הנמוכה ב-20 קמ\"ש ממהירותה הקודמת. ידוע שזמן החזרה היה ארוך בשעה אחת מזמן ההלוך. מה הייתה <strong>מהירותה בהלוך</strong>?",
-        "hint": "בנו משוואה המבוססת על זמן (זמן = דרך חלקי מהירות). זמן החזרה = זמן הלוך + 1.",
-        "solution_steps": [
-            { "verbal_explanation": "נסמן את מהירות הנסיעה בדרך הלוך באות v.", "math_expression": "מהירות הלוך = v" },
-            { "verbal_explanation": "זמן הנסיעה בהלוך שווה לדרך חלקי המהירות.", "math_expression": "זמן הלוך = 120 / v" },
-            { "verbal_explanation": "מהירות הנסיעה בחזור קטנה ב-20, לכן היא v - 20. הזמן בחזור שווה לדרך (120) חלקי המהירות החדשה.", "math_expression": "זמן חזור = 120 / (v - 20)" },
-            { "verbal_explanation": "נבנה משוואה על סמך הנתון שזמן החזרה גדול בשעה אחת מזמן ההלוך.", "math_expression": "משוואה: 120 / (v - 20) = 120 / v + 1" },
-            { "verbal_explanation": "נכפיל במכנה המשותף v(v-20) ונסדר למשוואה ריבועית.", "math_expression": "120v = 120(v - 20) + v(v - 20)  =>  120v = 120v - 2400 + v² - 20v" },
-            { "verbal_explanation": "נצמצם את 120v משני הצדדים ונקבל: v² - 20v - 2400 = 0. נפתור (60 כפול 40). הפתרון החיובי הוא 60.", "math_expression": "v = 60 קמ\"ש" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "מכונית נסעה 200 ק\"מ במהירות קבועה. בדרכה חזרה, באותו מסלול בדיוק, נאלצה להקטין את מהירותה ב-10 קמ\"ש עקב פקקים. הדרך חזרה ארכה שעה אחת יותר מזמן ההלוך. מה הייתה מהירות המכונית בהלוך?",
+        options: [
+            "50", 
+            "40", 
+            "60", 
+            "70"
         ],
-        "final_answer": "60 קמ\"ש",
-        "options": ["80 קמ\"ש", "40 קמ\"ש", "60 קמ\"ש", "100 קמ\"ש"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "זמן החזור (הארוך יותר) פחות זמן ההלוך (הקצר יותר) שווה לשעה אחת.",
+        solution_steps: [
+            { verbal_explanation: "משוואת הפרש הזמנים קובעת שפער השעות בין הדרך האיטית למהירה הוא אחד.", math_expression: "\\displaystyle \\frac{200}{x - 10} - \\frac{200}{x} = 1" },
+            { verbal_explanation: "הכפלת המשוואה במכנה המשותף לשם סילוק שברים.", math_expression: "\\displaystyle 200x - 200(x - 10) = x(x - 10)" },
+            { verbal_explanation: "פתיחת כלל הסוגריים וסידור לכדי משוואה ריבועית מצומצמת.", math_expression: "\\displaystyle 2000 = x^2 - 10x \\quad \\Rightarrow \\quad x^2 - 10x - 2000 = 0" },
+            { verbal_explanation: "פתרון המשוואה הריבועית מניב שורש חיובי יחיד.", math_expression: "\\displaystyle (x - 50)(x + 40) = 0 \\quad \\Rightarrow \\quad x = 50" }
+        ],
+        final_answer: "50"
     },
     {
-        "id": 9,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Low",
-        "question_text": "במעבדה מערבבים שני חומרים. לחומר א' יש ריכוז אלכוהול של 20% (ב-10 ליטר). מוסיפים לו 10 ליטר של מים מזוקקים (0% אלכוהול). מה יהיה <strong>ריכוז האלכוהול החדש</strong> בתערובת כולה?",
-        "hint": "חשבו כמה ליטרים של אלכוהול נקי יש בחומר הראשון (20% מ-10 ליטר זה 2 ליטר). לאחר מכן, חלקו כמות זו בנפח הכולל החדש של התערובת (20 ליטר).",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את כמות האלכוהול הטהור בחומר א'. עשרים אחוזים מתוך 10 ליטר.", "math_expression": "0.2 * 10 = 2 ליטר אלכוהול" },
-            { "verbal_explanation": "מים מזוקקים אינם מוסיפים אלכוהול, לכן כמות האלכוהול הטהור בתערובת החדשה נשארת 2 ליטר.", "math_expression": "כמות נטו = 2" },
-            { "verbal_explanation": "נחשב את הנפח הכולל החדש של התערובת. חיברנו 10 ליטר של חומר א' עם 10 ליטר של מים.", "math_expression": "נפח כולל = 10 + 10 = 20 ליטר" },
-            { "verbal_explanation": "נחשב את הריכוז החדש (אחוז): כמות החומר הטהור חלקי הנפח הכולל.", "math_expression": "2 / 20 = 1 / 10 = 10%" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "שני פועלים נדרשים לבנות קיר לבנים. הפועל הותיק יכול לסיים את העבודה לבדו ב-4 ימים שלמים. כאשר הם עובדים יחד, הם מסיימים ב-2.4 ימים. כמה ימים נדרשים לפועל הצעיר כדי לסיים את העבודה לבדו?",
+        options: [
+            "6", 
+            "5", 
+            "8", 
+            "7"
         ],
-        "final_answer": "10%",
-        "options": ["20%", "10%", "15%", "0%"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "ההספק המשותף מורכב מסכום ההספקים האישיים. ההספק הוא תמיד ההופכי של זמן העבודה.",
+        solution_steps: [
+            { verbal_explanation: "ההספק המשותף ליום הוא ההופכי של זמן העבודה הכולל.", math_expression: "\\displaystyle \\frac{1}{2.4} = \\frac{10}{24} = \\frac{5}{12}" },
+            { verbal_explanation: "הספקו היומי של הפועל הצעיר הוא ההפרש בין המשותף להספק הותיק (שהוא רבע).", math_expression: "\\displaystyle \\frac{5}{12} - \\frac{1}{4} = \\frac{5}{12} - \\frac{3}{12}" },
+            { verbal_explanation: "חישוב הפער המציג את ההספק המדויק של הצעיר.", math_expression: "\\displaystyle \\frac{2}{12} = \\frac{1}{6}" },
+            { verbal_explanation: "מכיוון שהספק הצעיר הוא שישית, יידרשו לו שישה ימים לסיים את הפרויקט.", math_expression: "\\displaystyle x = 6" }
+        ],
+        final_answer: "6"
     },
     {
-        "id": 10,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Medium",
-        "question_text": "<strong>בעיית תערובת פיננסית:</strong> סוחר קנה 30 ק\"ג תפוחים ב-5 שקלים לקילו, ועוד 20 ק\"ג תפוחים מסוג אחר ב-10 שקלים לקילו. הוא עירבב אותם. מהו ה<strong>מחיר הממוצע לקילוגרם</strong> בתערובת?",
-        "hint": "חשבו כמה שילם בסך הכל על כל התפוחים יחד (עלות כוללת), וחלקו את זה בסך כל הקילוגרמים שקנה.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את העלות הכוללת של סוג התפוחים הראשון. 30 ק\"ג כפול 5 שקלים.", "math_expression": "עלות א' = 30 * 5 = 150 ₪" },
-            { "verbal_explanation": "נחשב את העלות הכוללת של סוג התפוחים השני. 20 ק\"ג כפול 10 שקלים.", "math_expression": "עלות ב' = 20 * 10 = 200 ₪" },
-            { "verbal_explanation": "נחשב את העלות הכוללת ששילם עבור כל הסחורה.", "math_expression": "סה\"כ עלות = 150 + 200 = 350 ₪" },
-            { "verbal_explanation": "נחשב את המשקל הכולל של התפוחים שבידיו.", "math_expression": "סה\"כ ק\"ג = 30 + 20 = 50 ק\"ג" },
-            { "verbal_explanation": "נמצא את המחיר הממוצע לקילו (עלות חלקי כמות).", "math_expression": "350 / 50 = 7 ₪ לקילו" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "ברז א' ממלא מחצית מבריכה ב-4 שעות. ברז ב' ממלא שליש מהבריכה ב-3 שעות. אם שניהם יופעלו בו-זמנית למילוי בריכה שלמה וריקה, כמה שעות בקירוב יידרשו לכך?",
+        options: [
+            "4.23", 
+            "4.5", 
+            "5", 
+            "4.8"
         ],
-        "final_answer": "7 שקלים לקילו",
-        "options": ["7.5 שקלים לקילו", "7 שקלים לקילו", "8 שקלים לקילו", "15 שקלים לקילו"],
-        "correctAnswer": 1
+        correctAnswer: 0, 
+        hint: "חשבו כמה זמן דרוש לכל ברז למלא בריכה שלמה לבדו. לאחר מכן, חברו את הספקיהם השעתיים.",
+        solution_steps: [
+            { verbal_explanation: "זמן מילוי בריכה שלמה על ידי א' הוא שמונה. זמן מילוי על ידי ב' הוא תשע.", math_expression: "\\displaystyle 8 \\quad , \\quad 9" },
+            { verbal_explanation: "נחבר את ההספקים שלהם כדי לקבל את הקצב המשותף.", math_expression: "\\displaystyle \\frac{1}{8} + \\frac{1}{9} = \\frac{17}{72}" },
+            { verbal_explanation: "הזמן המשותף הנדרש למילוי הוא ההופכי של ההספק המשותף.", math_expression: "\\displaystyle \\frac{72}{17} \\approx 4.23" }
+        ],
+        final_answer: "4.23"
     },
     {
-        "id": 11,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית הספק מתקדמת:</strong> שתי מכונות הדפסה עובדות יחד ומסיימות עבודה ב-4 שעות. אם מכונה א' הייתה עובדת לבדה, היא הייתה מסיימת את העבודה ב-6 שעות. כמה זמן היה לוקח למכונה ב' לסיים את <strong>אותה עבודה לבדה</strong>?",
-        "hint": "משוואת הספקים: הספק א' (1/6) ועוד הספק ב' (1/x) שווה להספק המשותף (1/4). פתרו עבור x.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את ההספק (חלק מהעבודה בשעה) של כל גורם.", "math_expression": "הספק א' = 1/6" },
-            { "verbal_explanation": "זמן העבודה העצמאי של מכונה ב' אינו ידוע (x). לכן ההספק שלה בשעה הוא 1 חלקי x.", "math_expression": "הספק ב' = 1/x" },
-            { "verbal_explanation": "ההספק המשותף שלהם נתון מתוך העובדה שיחד הם מסיימים ב-4 שעות. כלומר יחד הם עושים רבע עבודה בשעה.", "math_expression": "הספק משותף = 1/4" },
-            { "verbal_explanation": "נבנה משוואת חיבור הספקים.", "math_expression": "1/6 + 1/x = 1/4" },
-            { "verbal_explanation": "נעביר את 1/6 לאגף הימני בחיסור. 1/4 פחות 1/6 שווה (לאחר מכנה משותף 12) ל- 3/12 פחות 2/12 = 1/12.", "math_expression": "1/x = 1/12" },
-            { "verbal_explanation": "הסקת מסקנה לגבי הזמן (x).", "math_expression": "x = 12 שעות" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "קבלן קנה כסאות תמורת 1200 שקלים. למרבה הצער, 4 כסאות ניזוקו בהובלה. את הכסאות התקינים הוא מכר ב-30 שקלים יותר מהעלות המקורית ששילם, והרוויח בעסקה כולה 240 שקלים. כמה כסאות קנה הקבלן מלכתחילה?",
+        options: [
+            "20", 
+            "24", 
+            "15", 
+            "30"
         ],
-        "final_answer": "12 שעות",
-        "options": ["10 שעות", "2 שעות", "12 שעות", "24 שעות"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "ההוצאות היו 1200 שקלים, ומכיוון שהרוויח 240, הפדיון הכולל היה חייב להיות 1440 שקלים.",
+        solution_steps: [
+            { verbal_explanation: "הפדיון הכולל הנדרש להשגת הרווח המבוקש.", math_expression: "\\displaystyle 1200 + 240 = 1440" },
+            { verbal_explanation: "פדיון זה מתקבל ממכירת הכסאות שנותרו במחיר המשודרג.", math_expression: "\\displaystyle (x - 4)(\\frac{1200}{x} + 30) = 1440" },
+            { verbal_explanation: "פתיחת הסוגריים וכינוס כללי.", math_expression: "\\displaystyle 1200 + 30x - \\frac{4800}{x} - 120 = 1440" },
+            { verbal_explanation: "הכפלה בנעלם וסידור הצורה הריבועית.", math_expression: "\\displaystyle 30x^2 - 360x - 4800 = 0 \\quad \\Rightarrow \\quad x^2 - 12x - 160 = 0" },
+            { verbal_explanation: "פתרון המשוואה הריבועית מניב שני שורשים, שמתוכם הרלוונטי הוא החיובי.", math_expression: "\\displaystyle x = 20" }
+        ],
+        final_answer: "20"
     },
     {
-        "id": 12,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Medium",
-        "question_text": "מחיר מחשב ירד ב-30% והוא עולה כעת 1,400 שקלים. איזו משוואה מאפשרת לחשב את <strong>המחיר המקורי (x)</strong>?",
-        "hint": "אם הוא ירד ב-30%, איזה אחוז הוא מהווה כעת מהמחיר המקורי?",
-        "solution_steps": [
-            { "verbal_explanation": "נסמן את המחיר המקורי והמלא ב-x (זהו ה-100%).", "math_expression": "מחיר התחלתי = x" },
-            { "verbal_explanation": "ירידה של 30% אומרת שהלקוח משלם רק את 70% הנותרים מהמחיר המקורי.", "math_expression": "100% - 30% = 70%" },
-            { "verbal_explanation": "נייצג 70% כשבר עשרוני (0.7) ונכפיל אותו במחיר המקורי כדי להשוות לנתון.", "math_expression": "0.7x = 1400" }
+        topic: "finalReviews",
+        subTopic: "בעיות מילוליות (תנועה, הספק ואחוזים)",
+        question_text: "סכום שטחים של שני ריבועים הוא 130 סמ\"ר. ידוע כי אורך צלעו של הריבוע הגדול ארוך ב-2 ס\"מ מאורך צלעו של הריבוע הקטן. מהו היקפו של הריבוע הגדול?",
+        options: [
+            "36", 
+            "28", 
+            "32", 
+            "40"
         ],
-        "final_answer": "0.7x = 1400",
-        "options": ["0.3x = 1400", "x - 0.3 = 1400", "0.7x = 1400", "1.3x = 1400"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית תנועה (מהירות ממוצעת):</strong> מכונית נוסעת מעיר אחת לשנייה המרוחקת 120 ק\"מ במהירות 60 קמ\"ש. היא חוזרת את אותו מרחק בדיוק במהירות 40 קמ\"ש. מהי <strong>המהירות הממוצעת</strong> שלה לכל המסע?",
-        "hint": "המהירות הממוצעת אינה הממוצע החשבוני של המהירויות (60+40)/2=50! היא שווה לסך כל הדרך לחלק לסך כל הזמן.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את סך הדרך הכוללת שעברה המכונית במסע הלוך וחזור.", "math_expression": "דרך כוללת = 120 + 120 = 240 ק\"מ" },
-            { "verbal_explanation": "נחשב את הזמן שלקח למכונית להגיע ביעד. 120 ק\"מ במהירות 60 קמ\"ש לוקחים שעתיים.", "math_expression": "זמן הלוך = 120 / 60 = 2 שעות" },
-            { "verbal_explanation": "נחשב את הזמן שלקח למכונית לחזור. 120 ק\"מ במהירות 40 קמ\"ש לוקחים 3 שעות.", "math_expression": "זמן חזור = 120 / 40 = 3 שעות" },
-            { "verbal_explanation": "נחשב את הזמן הכולל שהייתה המכונית על הכביש.", "math_expression": "זמן כולל = 2 + 3 = 5 שעות" },
-            { "verbal_explanation": "כעת נשתמש בנוסחה האמיתית למהירות ממוצעת: סך כל הדרך חלקי סך כל הזמן.", "math_expression": "מהירות ממוצעת = 240 / 5 = 48 קמ\"ש" }
+        correctAnswer: 0,
+        hint: "בנו משוואה: ריבוע הצלע הקטנה ועוד ריבוע הצלע הגדולה שווה ל-130.",
+        solution_steps: [
+            { verbal_explanation: "נרכיב את משוואת סכום השטחים הנתונה.", math_expression: "\\displaystyle x^2 + (x + 2)^2 = 130" },
+            { verbal_explanation: "פתיחת סוגריים וכינוס איברים.", math_expression: "\\displaystyle 2x^2 + 4x + 4 = 130 \\quad \\Rightarrow \\quad 2x^2 + 4x - 126 = 0" },
+            { verbal_explanation: "צמצום המשוואה בחלוקה לשתיים ופתרון הטרינום (שבע ומינוס תשע).", math_expression: "\\displaystyle x^2 + 2x - 63 = 0 \\quad \\Rightarrow \\quad x = 7" },
+            { verbal_explanation: "צלע הריבוע הגדול שווה לתשע. נכפיל בארבע לקבלת היקפו המלא.", math_expression: "\\displaystyle 4 \\times 9 = 36" }
         ],
-        "final_answer": "48 קמ\"ש",
-        "options": ["50 קמ\"ש", "48 קמ\"ש", "45 קמ\"ש", "52 קמ\"ש"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "Medium",
-        "question_text": "פועל עושה עבודה ב-x ימים. חברו עושה את אותה עבודה ב-y ימים. אם נרצה לבנות משוואה המתארת את העבודה המשותפת שלהם יחד במשך <strong>3 ימים</strong> רצופים, איזה ביטוי יתאר את החלק מהעבודה שביצעו יחד?",
-        "hint": "ההספק היומי של כל אחד הוא 1 חלקי זמן העבודה שלו. הכפילו כל הספק כזה ב-3 ימים שבהם עבדו וחברו.",
-        "solution_steps": [
-            { "verbal_explanation": "הספק העבודה ביום אחד עבור פועל א' הוא 1/x.", "math_expression": "הספק א' = 1/x" },
-            { "verbal_explanation": "הספק העבודה ביום אחד עבור פועל ב' הוא 1/y.", "math_expression": "הספק ב' = 1/y" },
-            { "verbal_explanation": "החלק בעבודה שמבצע פועל א' במשך 3 ימים הוא ההספק שלו כפול 3.", "math_expression": "עבודת א' = 3 * (1/x) = 3/x" },
-            { "verbal_explanation": "באופן זהה, החלק שעושה פועל ב' הוא 3/y.", "math_expression": "עבודת ב' = 3/y" },
-            { "verbal_explanation": "סך החלק המשותף שבוצע הוא חיבור החלקים.", "math_expression": "3/x + 3/y" }
-        ],
-        "final_answer": "3/x + 3/y",
-        "options": ["3 / (x+y)", "3x + 3y", "3/x + 3/y", "1/3x + 1/3y"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 15,
-        "subTopic": "בעיות מילוליות (תנועה, הספק ואחוזים)",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית תנועה ויחידות זמנים:</strong> רכבת נסעה במהירות קבועה מרחק של 200 ק\"מ. אילו נסעה במהירות הגדולה ב-10 קמ\"ש ממהירותה הרגילה, הייתה מקדימה להגיע ב-<strong>40 דקות</strong>. איזה חלק במשוואה מצריך התייחסות מיוחדת?",
-        "hint": "שימו לב היטב ליחידות הזמן! מהירויות נמדדות בקמ\"ש (שעות). איך ממירים 40 דקות לשעות תקניות במשוואה?",
-        "solution_steps": [
-            { "verbal_explanation": "בבעיות תנועה רגילות (קילומטר לשעה), כל יחידות הזמן חייבות להיות מיוצגות בשעות מלאות או בשברים של שעה.", "math_expression": "המרת יחידות" },
-            { "verbal_explanation": "הנתון של '40 דקות' אינו תואם לנוסחה. אי אפשר לרשום (t - 40) כי זה אומר שהיא חסכה 40 שעות שלמות!", "math_expression": "טעות נפוצה: 40 שעות" },
-            { "verbal_explanation": "כדי להמיר דקות לשעות, נחלק ב-60. 40 חלקי 60 מצטמצם ל-2/3 (שני שליש שעה). ולכן המשוואה תכיל חיסור של 2/3 בלבד.", "math_expression": "40/60 = 2/3 שעה" }
-        ],
-        "final_answer": "המרת 40 הדקות לשעות (יש לכתוב במשוואה 2/3 שעה).",
-        "options": ["המרת 40 הדקות לשעות (יש לכתוב 2/3 שעה).", "הוספת 40 לזמן המקורי במקום חיסור.", "המרת 200 ק\"מ למטרים.", "הפיכת 10 קמ\"ש לדקות."],
-        "correctAnswer": 0
+        final_answer: "36"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: שאלות משולבות (אלגברה וגרפים) (15 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: שאלות משולבות (אלגברה וגרפים)
+    // ==========================================================
+
     {
-        "id": 16,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Low",
-        "question_text": "נתון שרטוט של פרבולה וקו ישר. הפרבולה מיוצגת על ידי המשוואה <strong>y = -x² + 4</strong>, והישר הוא <strong>y = x + 2</strong>. כמה <strong>נקודות חיתוך</strong> יש ביניהם (על סמך פתרון המערכת)?<br><div style='text-align:center; margin:15px 0;'><svg width='150' height='150' viewBox='0 0 150 150'><path d='M 10 140 Q 75 -20 140 140' fill='none' stroke='#3b82f6' stroke-width='2'/><line x1='10' y1='100' x2='140' y2='30' stroke='#ef4444' stroke-width='2'/></svg></div>",
-        "hint": "השוו את המשוואות ופתרו את המשוואה הריבועית. כמה פתרונות קיבלתם?",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה משוואת השוואה למציאת נקודות החיתוך המשותפות לגרפים.", "math_expression": "טענה: -x² + 4 = x + 2" },
-            { "verbal_explanation": "נעביר אגפים כדי לסדר את המשוואה ולקבל את x² בסימן חיובי.", "math_expression": "0 = x² + x - 2" },
-            { "verbal_explanation": "נפתור בעזרת טרינום או נוסחת שורשים. המספרים הם 2 חיובי ומינוס 1 (סכום 1, מכפלה מינוס 2).", "math_expression": "(x + 2)(x - 1) = 0" },
-            { "verbal_explanation": "הפתרונות שיאפסו הם x=-2 ו-x=1. מאחר שקיבלנו שני פתרונות ממשיים שונים, יש שתי נקודות חיתוך.", "math_expression": "2 פתרונות = 2 נקודות חיתוך" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "נתונות שתי פונקציות: קו ישר $y = 2x + 4$ ופרבולה $y = -x^2 + 8x - 4$. מצאו את שיעורי נקודות החיתוך המדויקות ביניהן." + svgGraphLines,
+        options: [
+            "(2, 8) , (4, 12)", 
+            "(1, 6) , (4, 12)", 
+            "(2, 8) , (5, 14)", 
+            "(0, 4) , (4, 12)"
         ],
-        "final_answer": "2 נקודות",
-        "options": ["נקודה אחת", "2 נקודות", "3 נקודות", "אין נקודות חיתוך"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "השוו בין שתי המשוואות כדי למצוא את שיעורי ה-X, ולאחר מכן הציבו אותם במשוואת הקו הישר כדי למצוא את ערכי ה-Y.",
+        solution_steps: [
+            { verbal_explanation: "השוואה בין הפונקציה הקווית לריבועית למציאת נקודות חיתוך.", math_expression: "\\displaystyle -x^2 + 8x - 4 = 2x + 4" },
+            { verbal_explanation: "העברת איברים ליצירת משוואה ריבועית.", math_expression: "\\displaystyle x^2 - 6x + 8 = 0" },
+            { verbal_explanation: "פירוק לטרינום למציאת שורשי המשוואה.", math_expression: "\\displaystyle (x - 2)(x - 4) = 0 \\quad \\Rightarrow \\quad x = 2 , 4" },
+            { verbal_explanation: "הצבת ערכי האיקס בתוך משוואת הישר לשם חילוץ שיעורי הוואי התואמים.", math_expression: "\\displaystyle y_1 = 2(2) + 4 = 8 \\quad ; \\quad y_2 = 2(4) + 4 = 12" }
+        ],
+        final_answer: "(2, 8) , (4, 12)"
     },
     {
-        "id": 17,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "High",
-        "question_text": "שאלת בגרות אופיינית: פרבולה חותכת את ציר ה-x בנקודות <strong>(0,0) ו-(4,0)</strong>. קודקוד הפרבולה נמצא בנקודה <strong>(2, -4)</strong>. מחברים את שלוש הנקודות הללו ליצירת משולש. מהו <strong>שטח המשולש</strong> שנוצר?<br><div style='text-align:center; margin:15px 0;'><svg width='150' height='120' viewBox='0 0 150 120'><path d='M 30 20 Q 75 140 120 20' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='40,50 110,50 75,100' fill='#fef08a' opacity='0.7' stroke='#f59e0b' stroke-width='2'/><circle cx='40' cy='50' r='3' fill='black'/><circle cx='110' cy='50' r='3' fill='black'/><circle cx='75' cy='100' r='3' fill='black'/><line x1='10' y1='50' x2='140' y2='50' stroke='black' stroke-width='1'/></svg></div>",
-        "hint": "בסיס המשולש מונח על ציר ה-x בין 0 ל-4 (אורך 4). הגובה יורד מהבסיס לקודקוד ב-y שווה מינוס 4. מה המרחק (הגובה) מהרצפה לקודקוד?",
-        "solution_steps": [
-            { "verbal_explanation": "נזהה את בסיס המשולש. הוא מחבר את שתי נקודות האפס על ציר ה-x, כלומר מהנקודה x=0 עד הנקודה x=4. לכן אורך הבסיס הוא 4 יחידות.", "math_expression": "בסיס = 4 - 0 = 4" },
-            { "verbal_explanation": "נזהה את גובה המשולש. הגובה יורד מציר ה-x (גובה 0) עד לקודקוד הפרבולה, ששיעור ה-y שלו הוא -4. אורך נמדד תמיד בערך מוחלט חיובי, לכן אורך הגובה הוא 4 יחידות.", "math_expression": "גובה = |-4| = 4" },
-            { "verbal_explanation": "נציב את הנתונים בנוסחת שטח משולש (בסיס כפול גובה חלקי שתיים).", "math_expression": "S = (4 * 4) / 2" },
-            { "verbal_explanation": "נחשב את התוצאה. 16 חלקי 2 שווה 8.", "math_expression": "S = 8" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "נתון שקודקוד הפרבולה שמשוואתה $y = x^2 - 10x + c$ נמצא בדיוק על ציר ה-X. בעזרת נתון זה, חלצו את ערכו של הפרמטר החופשי c." + svgGraphParabola,
+        options: [
+            "25", 
+            "10", 
+            "-25", 
+            "5"
         ],
-        "final_answer": "8 יחידות שטח",
-        "options": ["16 יחידות שטח", "4 יחידות שטח", "8 יחידות שטח", "12 יחידות שטח"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הקודקוד על ציר ה-X אומר ששיעור ה-Y של הקודקוד הוא אפס.",
+        solution_steps: [
+            { verbal_explanation: "חישוב שיעור האיקס של נקודת הקודקוד בעזרת הנוסחה הייעודית.", math_expression: "\\displaystyle \\frac{10}{2} = 5" },
+            { verbal_explanation: "כיוון שהקודקוד נח על הציר האופקי, ערך הוואי שלו מוגדר כאפס.", math_expression: "\\displaystyle y = 0" },
+            { verbal_explanation: "נציב את שיעורי הנקודה בחזרה לתוך תבנית הפרבולה.", math_expression: "\\displaystyle 0 = 5^2 - 10(5) + c" },
+            { verbal_explanation: "פתרון משוואה פשוטה כדי לחשב את הקבוע הנעלם.", math_expression: "\\displaystyle 0 = 25 - 50 + c \\quad \\Rightarrow \\quad c = 25" }
+        ],
+        final_answer: "25"
     },
     {
-        "id": 18,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Medium",
-        "question_text": "נתונות שתי פרבולות: האחת <strong>y = x²</strong> והשנייה <strong>y = -x² + 8</strong>. מהו המרחק האנכי בין הקודקודים שלהן?",
-        "hint": "מצאו את קודקוד הפרבולה הראשונה, ומצאו את קודקוד הפרבולה השנייה (אפס פסיק משהו). חשבו את ההפרש בגובה (y) ביניהן.",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את הקודקוד של הפרבולה הראשונה y = x². זוהי הפרבולה הבסיסית ביותר, וקודקודה מונח בדיוק בראשית הצירים.", "math_expression": "קודקוד 1: (0, 0)" },
-            { "verbal_explanation": "נמצא את הקודקוד של הפרבולה השנייה y = -x² + 8. זוהי פרבולה הפוכה שהוזזה 8 יחידות למעלה על גבי ציר ה-y.", "math_expression": "קודקוד 2: (0, 8)" },
-            { "verbal_explanation": "המרחק האנכי מוגדר על ידי ההפרש בין שיעורי ה-y של שתי הנקודות.", "math_expression": "מרחק: 8 - 0 = 8 יחידות" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "נתונה מערכת משוואות המורכבת מפרבולה וקו ישר. מהו הפתרון עבור המשתנה x?\n$$ y = x^2 - 5x $$\n$$ x - y = 5 $$",
+        options: [
+            "1, 5", 
+            "5, -1", 
+            "2, 3", 
+            "0, 5"
         ],
-        "final_answer": "8 יחידות",
-        "options": ["4 יחידות", "8 יחידות", "16 יחידות", "0 יחידות (הן נפגשות)"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "בודדו את המשתנה y במשוואה הקווית והציבו את התוצאה במשוואה הריבועית.",
+        solution_steps: [
+            { verbal_explanation: "בידוד הנעלם מתוך משוואת הישר הקווית.", math_expression: "\\displaystyle y = x - 5" },
+            { verbal_explanation: "הצבת הביטוי לתוך משוואת הפרבולה.", math_expression: "\\displaystyle x - 5 = x^2 - 5x" },
+            { verbal_explanation: "העברת כלל האיברים לאגף אחד לקבלת צורה תקנית.", math_expression: "\\displaystyle x^2 - 6x + 5 = 0" },
+            { verbal_explanation: "מציאת הפתרונות המדויקים על ידי שימוש בטכניקת פירוק לגורמים.", math_expression: "\\displaystyle (x - 1)(x - 5) = 0 \\quad \\Rightarrow \\quad x = 1 , 5" }
+        ],
+        final_answer: "1, 5"
     },
     {
-        "id": 19,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "High",
-        "question_text": "ישר שמשוואתו <strong>y = k</strong> משיק לפרבולה <strong>y = x² - 4x + 7</strong>. מה חייב להיות הערך של k?",
-        "hint": "ההשקה היחידה של ישר אופקי לפרבולה מתרחשת בדיוק בנקודת הקודקוד שלה. מצאו את ה-y של הקודקוד.",
-        "solution_steps": [
-            { "verbal_explanation": "ישר מהצורה y=k הוא קו אופקי. כדי שקו אופקי ישיק לפרבולה (ייגע בה בנקודה אחת בלבד), הוא חייב להיות בדיוק בגובה של נקודת הקיצון (הקודקוד) שלה.", "math_expression": "k = y_קודקוד" },
-            { "verbal_explanation": "נמצא את שיעור ה-x של קודקוד הפרבולה בעזרת הנוסחה.", "math_expression": "x = -(-4) / 2*1 = 4 / 2 = 2" },
-            { "verbal_explanation": "נציב את x=2 במשוואת הפרבולה כדי לגלות את הגובה הקריטי (y) של הקודקוד.", "math_expression": "y = 2² - 4(2) + 7 = 4 - 8 + 7 = 3" },
-            { "verbal_explanation": "הישר חייב לעבור בדיוק בגובה 3 כדי להשיק. לכן k=3.", "math_expression": "k = 3" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "פשטו את השבר האלגברי הבא, בהנחה שערכו של x תקין לתחום ההגדרה:\n$$ \\frac{x^2 - 9}{x^2 - 6x + 9} $$",
+        options: [
+            "\\displaystyle \\frac{x + 3}{x - 3}", 
+            "\\displaystyle \\frac{x - 3}{x + 3}", 
+            "1", 
+            "\\displaystyle \\frac{1}{x - 3}"
         ],
-        "final_answer": "3",
-        "options": ["2", "4", "3", "7"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "המונה בנוי על תבנית הפרש ריבועים, ואילו המכנה על תבנית כפל מקוצר של הפרש בריבוע.",
+        solution_steps: [
+            { verbal_explanation: "ניתוח המונה ופירוקו לפי חוקי הפרש ריבועי.", math_expression: "\\displaystyle x^2 - 9 = (x - 3)(x + 3)" },
+            { verbal_explanation: "זיהוי המכנה כנוסחת כפל מקוצר ופירוקו בהתאם.", math_expression: "\\displaystyle x^2 - 6x + 9 = (x - 3)^2" },
+            { verbal_explanation: "הצגת הביטויים המפורקים וצמצום הסוגריים הזהים שחוזרים במונה ובמכנה.", math_expression: "\\displaystyle \\frac{(x - 3)(x + 3)}{(x - 3)(x - 3)} = \\frac{x + 3}{x - 3}" }
+        ],
+        final_answer: "\\displaystyle \\frac{x + 3}{x - 3}"
     },
     {
-        "id": 20,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Low",
-        "question_text": "מבלי לפתור עד הסוף, קבעו כמה פתרונות (נקודות חיתוך) יש למערכת הבאה:<br><strong>y = x² + 10</strong><br><strong>y = x - 5</strong>",
-        "hint": "הפרבולה הראשונה 'צוחקת' והקודקוד (הנקודה הכי נמוכה שלה) נמצא בגובה 10. הישר השני חותך את ציר ה-y בגובה מינוס 5 ועולה מתינות. האם הם יפגשו?",
-        "solution_steps": [
-            { "verbal_explanation": "ננתח גרפית: הפרבולה y = x² + 10 היא 'קערה' שכל נקודותיה נמצאות מעל ציר ה-x, והנקודה הנמוכה ביותר שלה היא (0, 10).", "math_expression": "מינימום = 10" },
-            { "verbal_explanation": "ננתח את הישר y = x - 5. הוא חותך במינוס 5. גם אם נציב בו x=10 (שם הפרבולה בגובה 110), הישר רק בגובה 5.", "math_expression": "הישר נמצא מתחת" },
-            { "verbal_explanation": "נבדוק מתמטית (דרך בטוחה): השוואת אגפים ודלתא.", "math_expression": "x² + 10 = x - 5  =>  x² - x + 15 = 0" },
-            { "verbal_explanation": "נחשב דלתא: מינוס 1 בריבוע פחות (4 כפול 15). דלתא היא 1 פחות 60, שהיא שלילית לחלוטין. אין פתרונות.", "math_expression": "Δ < 0" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "נתונה הפונקציה הריבועית $y = -2(x - 3)^2 + 8$. מהם שיעורי קודקוד הפרבולה המדויקים, והאם מדובר בנקודת מינימום או מקסימום מקומית?",
+        options: [
+            "(3, 8)", 
+            "(-3, 8)", 
+            "(3, 8)", 
+            "(8, 3)"
         ],
-        "final_answer": "אין פתרונות כלל",
-        "options": ["פתרון אחד", "שני פתרונות", "אין פתרונות כלל", "אינסוף פתרונות"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הפונקציה נתונה בתבנית ההזזות (קודקוד). שיעורי הקודקוד נלקחים מהמשוואה תוך היפוך סימן הפנים. המקדם קובע את הכיוון.",
+        solution_steps: [
+            { verbal_explanation: "מהמבנה הנתון ניתן לקרוא מיד את שיעור האיקס בסימן ההפוך, ואת שיעור הוואי כפי שהוא.", math_expression: "\\displaystyle (3, 8)" },
+            { verbal_explanation: "המקדם הראשון במשוואה הוא שלילי, ולכן זרועות הפרבולה פונות מטה וזהו מקסימום.", math_expression: "\\displaystyle -2 < 0" }
+        ],
+        final_answer: "(3, 8)"
     },
     {
-        "id": 21,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Medium",
-        "question_text": "נתון שרטוט של פרבולה וישר החותכים זה את זה בנקודות A ו-B. ידוע ששיעור ה-y של שתי הנקודות הללו <strong>זהה לחלוטין</strong>. מה ניתן להסיק מכך על הקו הישר?",
-        "hint": "אם קו מחבר שתי נקודות שנמצאות בדיוק באותו גובה (אותו y), איך הוא נראה? מה השיפוע שלו?",
-        "solution_steps": [
-            { "verbal_explanation": "נפענח את הנתון: 'שיעור ה-y זהה' משמעותו שהנקודה A והנקודה B נמצאות בדיוק באותו גובה מעל ציר ה-x.", "math_expression": "y_A = y_B" },
-            { "verbal_explanation": "נחשב את השיפוע (m) של הישר המחבר אותן על סמך הנוסחה להפרש y חלקי הפרש x.", "math_expression": "m = (y_B - y_A) / (x_B - x_A)" },
-            { "verbal_explanation": "מכיוון שהמונים זהים, ההפרש שלהם (מונה השבר) הוא אפס. לכן השיפוע של הישר כולו הוא 0.", "math_expression": "m = 0 / Δx = 0" },
-            { "verbal_explanation": "מסקנה גיאומטרית: ישר בעל שיפוע אפס הוא ישר אופקי לחלוטין שמקביל לציר ה-x." }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "פתרו את המשוואה הרציונלית הבאה, וודאו שהפתרון תקין מבחינת תחום ההגדרה:\n$$ \\frac{3}{x - 2} + \\frac{2}{x + 2} = \\frac{15}{x^2 - 4} $$",
+        options: [
+            "2.6", 
+            "4", 
+            "1", 
+            "3"
         ],
-        "final_answer": "שהוא ישר אופקי (מקביל לציר ה-x, בעל שיפוע 0).",
-        "options": ["שהוא ישר העובר בראשית הצירים.", "שהוא ישר אופקי (מקביל לציר ה-x, בעל שיפוע 0).", "שהוא ציר הסימטריה של הפרבולה.", "שהוא משיק לפרבולה."],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "המכנה באגף הימני הוא פירוק של שני המכנים משמאל (הפרש ריבועים). הכפילו הכל במכנה משותף זה.",
+        solution_steps: [
+            { verbal_explanation: "זיהוי הקשר ההדוק שבין כל המכנים במשוואה על ידי נוסחת כפל מקוצר.", math_expression: "\\displaystyle x^2 - 4 = (x - 2)(x + 2)" },
+            { verbal_explanation: "הכפלת המשוואה כולה במכנה המורחב כדי למחוק לחלוטין את השברים.", math_expression: "\\displaystyle 3(x + 2) + 2(x - 2) = 15" },
+            { verbal_explanation: "פתיחת הסוגריים באגפי המשוואה החדשה.", math_expression: "\\displaystyle 3x + 6 + 2x - 4 = 15" },
+            { verbal_explanation: "כינוס איברים למציאת הערך הסופי של הנעלם.", math_expression: "\\displaystyle 5x + 2 = 15 \\quad \\Rightarrow \\quad 5x = 13 \\quad \\Rightarrow \\quad x = 2.6" }
+        ],
+        final_answer: "2.6"
     },
     {
-        "id": 22,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "High",
-        "question_text": "מערכת משוואות מעניינת: מצאו את נקודות החיתוך של המעגל <strong>x² + y² = 25</strong> (הרחבת חומר) עם הישר <strong>y = x + 1</strong>.",
-        "hint": "אמנם זו משוואת מעגל, אך עקרון שיטת ההצבה נשאר זהה. הציבו את הביטוי של y לתוך משוואת המעגל ותקבלו משוואה ריבועית (זכרו להשתמש בנוסחת כפל מקוצר).",
-        "solution_steps": [
-            { "verbal_explanation": "שיטת ההצבה במערכת: מכיוון ש-y שווה ל-(x+1), נציב את כל הביטוי הזה לתוך ה-y במשוואת המעגל. נשמור עליו בסוגריים בגלל הריבוע.", "math_expression": "x² + (x + 1)² = 25" },
-            { "verbal_explanation": "נפתח את הסוגריים לפי נוסחת כפל מקוצר של סכום בריבוע (a²+2ab+b²).", "math_expression": "x² + (x² + 2x + 1) = 25" },
-            { "verbal_explanation": "נכנס איברים ונסדר את המשוואה הריבועית להשוואה לאפס.", "math_expression": "2x² + 2x + 1 - 25 = 0  =>  2x² + 2x - 24 = 0" },
-            { "verbal_explanation": "נחלק הכל ב-2 כדי להקל על הפירוק.", "math_expression": "x² + x - 12 = 0" },
-            { "verbal_explanation": "נפתור בעזרת טרינום (כפל 12-, חיבור 1). הפתרונות הם 3 ומינוס 4.", "math_expression": "(x + 4)(x - 3) = 0  =>  x = -4 , x = 3" },
-            { "verbal_explanation": "נציב את ערכי ה-x שמצאנו במשוואת הישר הקלה (y = x + 1) למציאת בני הזוג. עבור x=3 ה-y הוא 4. עבור x=-4 ה-y הוא -3.", "math_expression": "(3, 4) ו- (-4, -3)" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "מלבן שרוחבו 4 יחידות חסום בתוך הפרבולה $y = -x^2 + 9$. צלעו התחתונה מונחת על ציר ה-X, וקודקודיו העליונים נוגעים סימטרית בפרבולה. מהו שטחו של מלבן זה?",
+        options: [
+            "20", 
+            "16", 
+            "24", 
+            "36"
         ],
-        "final_answer": "(3, 4) ו- (4-, 3-)",
-        "options": ["(3, 4) ו- (-4, -3)", "(4, 3) ו- (-3, -4)", "(0, 5) ו- (5, 0)", "אין נקודות חיתוך"],
-        "correctAnswer": 0
+        correctAnswer: 0,
+        hint: "רוחב המלבן מחולק סימטרית ל-2 חלקים של 2 יחידות סביב ציר ה-Y. הציבו X=2 בפרבולה כדי למצוא את הגובה.",
+        solution_steps: [
+            { verbal_explanation: "חצי מרוחב המלבן הסימטרי שווה לשיעור האיקס של נקודת המגע הימנית.", math_expression: "\\displaystyle x = 2" },
+            { verbal_explanation: "הצבת הערך במשוואת הפרבולה כדי למצוא את גובהו של המלבן הכלוא.", math_expression: "\\displaystyle y = -(2)^2 + 9 = -4 + 9 = 5" },
+            { verbal_explanation: "חישוב שטח המלבן באמצעות הכפלת גובהו ברוחבו המקורי.", math_expression: "\\displaystyle 4 \\times 5 = 20" }
+        ],
+        final_answer: "20"
     },
     {
-        "id": 23,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Medium",
-        "question_text": "הפרבולה y = -x² + 8x - 12 יוצרת 'כיפה' מעל ציר ה-x. כמה <strong>יחידות שלמות</strong> על גבי ציר ה-x מכסה הכיפה הזו (מהו רוחב הבסיס שלה)?",
-        "hint": "מצאו את נקודות האפס של הפרבולה וחשבו את המרחק הפיזי ביניהן.",
-        "solution_steps": [
-            { "verbal_explanation": "הרוחב של הכיפה הכלואה מעל ציר ה-x נקבע על ידי המרחק שבין שתי נקודות החיתוך של הפרבולה עם הציר (האפסים).", "math_expression": "מציאת אפסים" },
-            { "verbal_explanation": "נשווה לאפס ונכפול במינוס אחד כדי שיהיה נוח לפתור.", "math_expression": "x² - 8x + 12 = 0" },
-            { "verbal_explanation": "נפתור בעזרת טרינום: שני מספרים שכפלם 12 וסכומם 8- הם 2- ו-6-.", "math_expression": "(x - 2)(x - 6) = 0  =>  x = 2 , x = 6" },
-            { "verbal_explanation": "נקודות החיתוך הן ב-2 וב-6. המרחק ביניהן על הציר הוא ההפרש הגדול פחות הקטן (6 פחות 2).", "math_expression": "מרחק = 6 - 2 = 4 יחידות" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "הישר המתואר על ידי $y = 3x - 6$ חותך את צירי המערכת ויוצר יחד איתם משולש ישר זווית. מצאו את שטחו של המשולש שנוצר.",
+        options: [
+            "6", 
+            "12", 
+            "3", 
+            "9"
         ],
-        "final_answer": "4 יחידות",
-        "options": ["8 יחידות", "4 יחידות", "12 יחידות", "6 יחידות"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "נקודות החיתוך עם הצירים מציינות את אורכם של ניצבי המשולש. חשבו את חצי מכפלתם.",
+        solution_steps: [
+            { verbal_explanation: "מציאת נקודת החיתוך עם ציר הוואי על ידי איפוס איקס.", math_expression: "\\displaystyle y = 3(0) - 6 = -6" },
+            { verbal_explanation: "מציאת נקודת החיתוך השנייה עם ציר האיקס על ידי איפוס וואי.", math_expression: "\\displaystyle 0 = 3x - 6 \\quad \\Rightarrow \\quad x = 2" },
+            { verbal_explanation: "חישוב שטח המשולש כחצי מכפלת אורך הניצבים בערכם המוחלט והחיובי.", math_expression: "\\displaystyle \\frac{2 \\times 6}{2} = 6" }
+        ],
+        final_answer: "6"
     },
     {
-        "id": 24,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "High",
-        "question_text": "נתון ישר בעל שיפוע m = 2 שעובר דרך הנקודה (1, 4). האם ישר זה עובר גם דרך קודקוד הפרבולה <strong>y = x² + 2</strong>?",
-        "hint": "זו שאלה בלשית ב-3 שלבים: בנו את משוואת הישר, מצאו את נקודת הקודקוד של הפרבולה, ובדקו אם הנקודה מקיימת את משוואת הישר.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה את משוואת הישר מתוך הנתונים שלו: m=2 והנקודה (1,4). נציב בתבנית y=mx+b.", "math_expression": "4 = 2(1) + b  =>  b = 2" },
-            { "verbal_explanation": "משוואת הישר שהתקבלה היא y = 2x + 2.", "math_expression": "ישר: y = 2x + 2" },
-            { "verbal_explanation": "כעת, נאתר את הקודקוד של הפרבולה y = x² + 2. זו פרבולה רגילה שהוזזה 2 יחידות מעלה, לכן הקודקוד ב-(0,2).", "math_expression": "קודקוד (0, 2)" },
-            { "verbal_explanation": "השלב הסופי: נבדוק אם הנקודה (0,2) יושבת על הישר שמצאנו. נציב x=0 במשוואת הישר.", "math_expression": "y = 2(0) + 2 = 2" },
-            { "verbal_explanation": "קיבלנו y=2, שזה בדיוק ה-y של הקודקוד. ההתאמה מושלמת." }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "פתרו את מערכת המשוואות וחשבו את ערכה של המכפלה $xy$:\n$$ 2x + 3y = 12 $$\n$$ 4x - y = 10 $$",
+        options: [
+            "6", 
+            "8", 
+            "10", 
+            "12"
         ],
-        "final_answer": "כן, הוא עובר בדיוק דרך הקודקוד (0, 2).",
-        "options": ["כן, הוא עובר בדיוק דרך הקודקוד (0, 2).", "לא, הוא חותך אותה במקום אחר.", "לא, הם לא נחתכים כלל.", "הוא עובר רק דרך האפסים שלה."],
-        "correctAnswer": 0
+        correctAnswer: 0,
+        hint: "שיטת השוואת המקדמים עובדת מצוין. הכפילו את המשוואה השנייה ב-3 וצרפו לראשונה כדי להעלים את Y.",
+        solution_steps: [
+            { verbal_explanation: "הכפלת המשוואה השנייה פי שלוש ליצירת מקדם תואם להעלמת הוואי.", math_expression: "\\displaystyle 12x - 3y = 30" },
+            { verbal_explanation: "חיבור שתי המשוואות יחד מוחק את הוואי מן הפולינום.", math_expression: "\\displaystyle 14x = 42 \\quad \\Rightarrow \\quad x = 3" },
+            { verbal_explanation: "הצבת ערך האיקס שמצאנו במשוואה המקורית לגילוי הוואי.", math_expression: "\\displaystyle 12 - y = 10 \\quad \\Rightarrow \\quad y = 2" },
+            { verbal_explanation: "הכפלת המשתנים כמבוקש בשאלה המסכמת.", math_expression: "\\displaystyle 3 \\times 2 = 6" }
+        ],
+        final_answer: "6"
     },
     {
-        "id": 25,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Low",
-        "question_text": "מה קורה לגרף של הפונקציה <strong>y = (x - c)²</strong> כאשר אנו מגדילים את הערך של הפרמטר החיובי <strong>c</strong> (למשל מ-2 ל-10)?",
-        "hint": "הפרמטר בתוך הסוגריים שולט על ההזזה ימינה ושמאלה. זכרו את ה'היפוך' הלוגי - מינוס c פירושו תזוזה ל...",
-        "solution_steps": [
-            { "verbal_explanation": "התבנית (x - p)² מייצגת הזזה אופקית של הפרבולה לאורך ציר ה-x.", "math_expression": "הזזה אופקית" },
-            { "verbal_explanation": "כאשר אנו רושמים (x - 2)², קודקוד הפרבולה מוסט שמאלה מן הצפוי ונוחת על x=2 החיובי.", "math_expression": "קודקוד ב- x=2" },
-            { "verbal_explanation": "כאשר נגדיל את המספר ונקבל (x - 10)², קודקוד הפרבולה יוסט ימינה וינחת על x=10 החיובי.", "math_expression": "קודקוד ב- x=10" },
-            { "verbal_explanation": "מסקנה: הגדלת הפרמטר c בצורה הזו גוררת את הגרף כולו ימינה לאורך ציר ה-x." }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "פונקציה קווית עוברת דרך שתי נקודות בעלות השיעורים (1, 5) ו-(3, 11). בנו את משוואת הישר העובר דרך נקודות אלו.",
+        options: [
+            "y = 3x + 2", 
+            "y = 2x + 3", 
+            "y = 4x + 1", 
+            "y = 3x - 2"
         ],
-        "final_answer": "הגרף זז ימינה לאורך ציר ה-x.",
-        "options": ["הגרף עולה למעלה לאורך ציר ה-y.", "הגרף הופך להיות צר יותר.", "הגרף זז שמאלה לאורך ציר ה-x.", "הגרף זז ימינה לאורך ציר ה-x."],
-        "correctAnswer": 3
+        correctAnswer: 0,
+        hint: "מציאת השיפוע נעשית על ידי חלוקת ההפרש ב-Y בהפרש ב-X. לאחר מכן, הציבו באחת הנקודות.",
+        solution_steps: [
+            { verbal_explanation: "חישוב השיפוע באמצעות נוסחת ההפרשים של קואורדינטות הנקודות הנתונות.", math_expression: "\\displaystyle m = \\frac{11 - 5}{3 - 1} = \\frac{6}{2} = 3" },
+            { verbal_explanation: "הצבת השיפוע ונתוני הנקודה הראשונה לתוך מבנה משוואת הישר.", math_expression: "\\displaystyle y - 5 = 3(x - 1)" },
+            { verbal_explanation: "פתיחת סוגריים וסידור פונקציה קווית סופית ומפורשת.", math_expression: "\\displaystyle y = 3x - 3 + 5 \\quad \\Rightarrow \\quad y = 3x + 2" }
+        ],
+        final_answer: "y = 3x + 2"
     },
     {
-        "id": 26,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Medium",
-        "question_text": "נתון שקודקוד הפרבולה <strong>y = ax² + bx + c</strong> נמצא בנקודה <strong>(3, 4)</strong>. האם ייתכן שפרבולה זו תחתוך את ציר ה-y בנקודה <strong>(0, 5)</strong> אם נתון ש- a < 0 (היא 'בוכה')?",
-        "hint": "ציירו סקיצה מהירה. הקודקוד (המקסימום המוחלט של ההר) נמצא בגובה 4. האם ייתכן שנקודה כלשהי עליו, כמו החיתוך עם הציר, תהיה בגובה 5?",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את משמעות הנתון a < 0. פרבולה עם a שלילי נפתחת כלפי מטה (צורת הר), ולכן הקודקוד שלה מהווה את הנקודה הגבוהה ביותר האפשרית בכל הגרף (מקסימום מוחלט).", "math_expression": "קודקוד = פסגת ההר" },
-            { "verbal_explanation": "מיקום הקודקוד נתון ב-(3, 4). לכן, הגובה המקסימלי (ערך ה-y) שהפונקציה יכולה להגיע אליו הוא 4.", "math_expression": "y_max = 4" },
-            { "verbal_explanation": "הנקודה הנדונה (0, 5) מתיימרת לשבת על הפונקציה בעודה בעלת גובה (y) של 5.", "math_expression": "y_point = 5" },
-            { "verbal_explanation": "מכיוון ש-5 גדול מ-4 (שזו הפסגה), ברור שאין שום חלק בפרבולה שיכול לטפס לגובה זה. המצב בלתי אפשרי." }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "נתון אי-השוויון הריבועי הבא:\n$$ x^2 - x - 12 < 0 $$\nפתרו את אי-השוויון וציינו את תחום הפתרונות המדויק.",
+        options: [
+            "-3 < x < 4", 
+            "x < -3", 
+            "-4 < x < 3", 
+            "x > 4"
         ],
-        "final_answer": "לא. אם המקסימום הוא בגובה 4, הגרף לא יכול לחתוך בגובה 5.",
-        "options": ["כן, חיתוך ציר y אינו קשור לקודקוד.", "לא. אם המקסימום הוא בגובה 4, הגרף לא יכול לחתוך בגובה 5.", "כן, אבל רק אם היא תחתוך את ציר ה-x גם ב-5.", "אי אפשר לדעת ללא חישוב הדלתא."],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "מצאו את שורשי המשוואה בהשוואה לאפס. הפרבולה מחייכת, ולכן השטח השלילי שלה חבוי בין שתי נקודות החיתוך.",
+        solution_steps: [
+            { verbal_explanation: "שימוש בטכניקת טרינום מורחב למציאת נקודות האפס של הפרבולה.", math_expression: "\\displaystyle x^2 - x - 12 = 0 \\quad \\Rightarrow \\quad (x - 4)(x + 3) = 0" },
+            { verbal_explanation: "חילוץ שני השורשים המספריים.", math_expression: "\\displaystyle 4 \\quad , \\quad -3" },
+            { verbal_explanation: "הפרבולה חיובית בבסיסה ולכן החלק השלילי שלה נמצא בין השורשים.", math_expression: "\\displaystyle -3 < x < 4" }
+        ],
+        final_answer: "-3 < x < 4"
     },
     {
-        "id": 27,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "High",
-        "question_text": "מצאו את המרחק בין שתי נקודות החיתוך של הפרבולה <strong>y = x² - 5x + 4</strong> והישר <strong>y = 4</strong>.",
-        "hint": "כמו תמיד, השוו משוואות קודם. תגלו שה-4 מצטמצם, ותישארו עם משוואה חסרה קלה מאוד. המרחק הוא ההפרש בין האיקסים שתמצאו.",
-        "solution_steps": [
-            { "verbal_explanation": "נשווה את משוואת הפרבולה למשוואת הישר האופקי כדי למצוא את נקודות החיתוך.", "math_expression": "השוואה: x² - 5x + 4 = 4" },
-            { "verbal_explanation": "נחסר 4 משני האגפים. המספר החופשי מתבטל בשני הצדדים.", "math_expression": "x² - 5x = 0" },
-            { "verbal_explanation": "נפתור את המשוואה החסרה על ידי הוצאת גורם משותף.", "math_expression": "x(x - 5) = 0" },
-            { "verbal_explanation": "נחלץ את שני הפתרונות לאיקס.", "math_expression": "x1 = 0 , x2 = 5" },
-            { "verbal_explanation": "נקודות החיתוך הן ב-x=0 ו-x=5. המרחק הפיזי ביניהן על ציר ה-x הוא 5 יחידות.", "math_expression": "מרחק = 5 - 0 = 5" }
+        topic: "finalReviews",
+        subTopic: "שאלות משולבות (אלגברה וגרפים)",
+        question_text: "איזה מהביטויים האלגבריים הבאים שווה באופן מוחלט לביטוי הבא:\n$$ (2x - 5)^2 - (x + 4)^2 $$",
+        options: [
+            "3x^2 - 28x + 9", 
+            "3x^2 - 12x + 9", 
+            "3x^2 - 28x + 41", 
+            "5x^2 - 20x + 9"
         ],
-        "final_answer": "5 יחידות",
-        "options": ["4 יחידות", "9 יחידות", "5 יחידות", "0 יחידות (נקודה אחת)"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "בצעו פתיחת סוגריים לכל חלק בנפרד, ואז חסרו ביניהם. אל תשכחו את כלל היפוך הסימנים בסוגריים המחסרים.",
+        solution_steps: [
+            { verbal_explanation: "פתיחה של הביטוי הראשון באמצעות נוסחת הפרש ריבועי.", math_expression: "\\displaystyle 4x^2 - 20x + 25" },
+            { verbal_explanation: "פתיחה של הביטוי השני על ידי נוסחת סכום ריבועי.", math_expression: "\\displaystyle x^2 + 8x + 16" },
+            { verbal_explanation: "פעולת החיסור הכללית תוך היפוך סימני הסוגריים השניים במלואם.", math_expression: "\\displaystyle (4x^2 - 20x + 25) - (x^2 + 8x + 16)" },
+            { verbal_explanation: "כינוס איברים לקבלת משוואת פולינום יחידה.", math_expression: "\\displaystyle 3x^2 - 28x + 9" }
+        ],
+        final_answer: "3x^2 - 28x + 9"
+    },
+
+    // ==========================================================
+    // תת נושא 3: חזרה כללית בגיאומטריה (שאלות 25-36)
+    // ==========================================================
+
+    {
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "במשולש ישר זווית נתון שאורך הניצב הקצר הוא 6 ס\"מ. שטח המשולש כולו הוא 24 סמ\"ר. חשבו את אורך היתר." + svgTriangle,
+        options: [
+            "10", 
+            "12", 
+            "14", 
+            "8"
+        ],
+        correctAnswer: 0,
+        hint: "שטח משולש ישר זווית הוא מחצית מכפלת הניצבים. מצאו את הניצב השני והפעילו פיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "שימוש בנוסחת השטח לגילוי הניצב החסר.", math_expression: "\\displaystyle \\frac{6 \\times x}{2} = 24 \\quad \\Rightarrow \\quad 3x = 24 \\quad \\Rightarrow \\quad x = 8" },
+            { verbal_explanation: "יישום משפט פיתגורס לטובת חישוב צלע היתר בעזרת הניצבים שמצאנו.", math_expression: "\\displaystyle c^2 = 6^2 + 8^2 = 36 + 64" },
+            { verbal_explanation: "הוצאת שורש למציאת המרחק הסופי.", math_expression: "\\displaystyle c^2 = 100 \\quad \\Rightarrow \\quad c = 10" }
+        ],
+        final_answer: "10"
     },
     {
-        "id": 28,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Medium",
-        "question_text": "נתון ש- a > 0 ו- c < 0 במשוואה <strong>y = ax² + bx + c</strong>. איזה מהמשפטים הבאים נכון בוודאות לגבי גרף הפונקציה?",
-        "hint": "a חיובי אומר 'קערה'. c שלילי אומר שהיא חותכת את ציר ה-y עמוק במינוס. האם יש דרך שקערה כזו לא תחתוך את ציר ה-x בכלל?",
-        "solution_steps": [
-            { "verbal_explanation": "ננתח את הנתון a>0. משמעותו שהפרבולה נפתחת כלפי מעלה, כלומר היא צומחת לשני הכיוונים עד לאינסוף (צורת U).", "math_expression": "פרבולה מחייכת (קערה)" },
-            { "verbal_explanation": "ננתח את הנתון c<0. משמעותו שנקודת החיתוך עם ציר ה-y היא מתחת לאדמה (בערך שלילי).", "math_expression": "חיתוך y מתחת לאפס" },
-            { "verbal_explanation": "נשלב את הממצאים: אם הפרבולה נמצאת בשלב כלשהו מתחת לקרקע (כי הוכחנו שהיא חותכת שם), והיא במקביל חייבת לצמוח מעלה לאינסוף בגלל צורתה, אזי היא חייבת לשבור את קו הקרקע ולחצות את ציר ה-x.", "math_expression": "חייבת לחתוך את האדמה פעמיים" },
-            { "verbal_explanation": "מסקנה: לפרבולה כזו יש בוודאות שתי נקודות אפס ממשיות (הדלתא שלה תמיד תהיה חיובית)." }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "נתונים שני משולשים דומים. צלע אחת בקטן אורכה 4 ס\"מ, והצלע המתאימה בגדול אורכה 12 ס\"מ. אם שטח הקטן 10 סמ\"ר, מהו שטח המשולש הגדול?",
+        options: [
+            "90", 
+            "30", 
+            "120", 
+            "40"
         ],
-        "final_answer": "יש לה בוודאות שתי נקודות חיתוך עם ציר ה-x.",
-        "options": ["היא לעולם לא חותכת את ציר ה-x.", "יש לה נקודת מינימום בחלק החיובי של ציר ה-y.", "יש לה בוודאות שתי נקודות חיתוך עם ציר ה-x.", "ציר הסימטריה שלה חייב להיות ציר ה-y."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "יחס השטחים בין משולשים דומים שווה לריבוע יחס הצלעות הקווי.",
+        solution_steps: [
+            { verbal_explanation: "חישוב יחס הדמיון הקווי.", math_expression: "\\displaystyle k = \\frac{12}{4} = 3" },
+            { verbal_explanation: "העלאת יחס הדמיון בריבוע לקבלת יחס השטחים המלא.", math_expression: "\\displaystyle k^2 = 3^2 = 9" },
+            { verbal_explanation: "הכפלת השטח הקטן ביחס השטחים לשם מציאת שטח המשולש הגדול.", math_expression: "\\displaystyle 10 \\times 9 = 90" }
+        ],
+        final_answer: "90"
     },
     {
-        "id": 29,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "High",
-        "question_text": "מערכת תנאים לגרפים: איזו מערכת משוואות מתארת <strong>פרבולה 'צוחקת' וישר שחותך אותה בדיוק פעם אחת בלבד</strong>?",
-        "hint": "צוחקת = מקדם x² חיובי. חיתוך פעם אחת אומר שאם תשוו ביניהן הדלתא תהיה אפס. האם ישר שמשופע קלות יכול לחתוך רק פעם אחת?",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את אפשרות 1: y=x² ו- y=x-1. ההשוואה מובילה ל- x²-x+1=0. הדלתא כאן היא (1 פחות 4) שלילית. כלומר אין חיתוך בכלל.", "math_expression": "Δ < 0 (אין חיתוך)" },
-            { "verbal_explanation": "נבדוק את אפשרות 2: y=-x² ו- y=5. הפרבולה 'בוכה', בניגוד לדרישת השאלה ('צוחקת').", "math_expression": "a < 0 (בוכה)" },
-            { "verbal_explanation": "נבדוק את אפשרות 3: y=x² ו- y=0 (שזה ציר ה-x). ההשוואה היא x²=0 שפתרונו x=0 בלבד. דלתא 0. זוהי השקה מושלמת בנקודה אחת בדיוק של פרבולה צוחקת.", "math_expression": "Δ = 0 (השקה, חיתוך יחיד)" }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "במעגל חסום מלבן. אלכסון המלבן שווה באורכו לקוטר המעגל. צלעות המלבן הן 5 ו-12. מהו שטח המעגל (הביעו בעזרת $\\pi$)?" + svgCircle,
+        options: [
+            "\\displaystyle 42.25\\pi", 
+            "\\displaystyle 169\\pi", 
+            "\\displaystyle 60\\pi", 
+            "\\displaystyle 84.5\\pi"
         ],
-        "final_answer": "y=x² ו- y=0",
-        "options": ["y=x² ו- y=x-1", "y=-x² ו- y=5", "y=x² ו- y=0", "y=x² ו- y=2x+3"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "אלכסון המלבן, שהוא גם הקוטר, ניתן לחישוב בפיתגורס. חצי ממנו הוא הרדיוס.",
+        solution_steps: [
+            { verbal_explanation: "שימוש בפיתגורס לחישוב הקוטר שהוא יתר משולש המלבן.", math_expression: "\\displaystyle D^2 = 5^2 + 12^2 = 25 + 144 = 169" },
+            { verbal_explanation: "הוצאת שורש ומציאת הקוטר.", math_expression: "\\displaystyle D = 13" },
+            { verbal_explanation: "חילוק הקוטר בשתיים לקבלת הרדיוס להמשך החישוב.", math_expression: "\\displaystyle r = 6.5" },
+            { verbal_explanation: "הצבת הרדיוס בנוסחה לחישוב שטח עיגול.", math_expression: "\\displaystyle 6.5^2 \\times \\pi = 42.25\\pi" }
+        ],
+        final_answer: "\\displaystyle 42.25\\pi"
     },
     {
-        "id": 30,
-        "subTopic": "שאלות משולבות (אלגברה וגרפים)",
-        "difficulty": "Medium",
-        "question_text": "סיום: איזו משוואה מאפשרת לגלות את <strong>נקודות החיתוך בין כל שתי פונקציות f(x) ו-g(x)</strong> בעולם?",
-        "hint": "מה הכלל הבסיסי שעשינו לאורך כל התרגולים למציאת הצטלבות גרפים?",
-        "solution_steps": [
-            { "verbal_explanation": "העיקרון המאחד של כל המתמטיקה התיכונית בגיאומטריה אנליטית (יהיו אלו ישרים, פרבולות או פונקציות מורכבות יותר) הוא אחד.", "math_expression": "עיקרון ההצטלבות" },
-            { "verbal_explanation": "נקודת חיתוך משמעותה שיש נקודה בעלת שיעור x מסוים שנותנת בדיוק את אותה התוצאה (y) בשתי הפונקציות הנפרדות.", "math_expression": "y1 = y2" },
-            { "verbal_explanation": "לכן, השוואת תבניות הפונקציות זו לזו (האגפים המכילים את ה-x) היא תמיד הצעד הראשון והאולטימטיבי למציאת המפגש.", "math_expression": "f(x) = g(x)" }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "במשולש שווה שוקיים נתון כי זווית הבסיס גדולה פי 2 מגודלה של זווית הראש. מהו גודלה במעלות של זווית הראש בלבד?",
+        options: [
+            "36", 
+            "45", 
+            "30", 
+            "40"
         ],
-        "final_answer": "f(x) = g(x)",
-        "options": ["f(x) * g(x) = 0", "f(x) - g(x) = 1", "f(x) = g(x)", "f(0) = g(0)"],
-        "correctAnswer": 2
-    },,
-    // ==============================================================
-    // --- תת נושא 3: חזרה כללית בגיאומטריה (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Low",
-        "question_text": "במרובע ABCD נתון כי האלכסונים חוצים זה את זה. בנוסף, ידוע כי זווית A שווה ל-90 מעלות. איזה מרובע הוא ABCD בוודאות?<br><div style='text-align:center; margin:15px 0;'><svg width='150' height='100' viewBox='0 0 150 100'><rect x='20' y='20' width='110' height='60' fill='#e0f2fe' stroke='#3b82f6' stroke-width='2'/><line x1='20' y1='20' x2='130' y2='80' stroke='#1e293b' stroke-width='1'/><line x1='20' y1='80' x2='130' y2='20' stroke='#1e293b' stroke-width='1'/><rect x='20' y='20' width='10' height='10' fill='none' stroke='#ef4444'/></svg></div>",
-        "hint": "חציית אלכסונים מוכיחה שהמרובע הוא מקבילית. איזו מקבילית מתאפיינת בזווית ישרה?",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש במשפט הוכחה בסיסי כדי לסווג את המרובע.", "math_expression": "טענה: ABCD מקבילית | נימוק: מרובע שאלכסוניו חוצים זה את זה הוא מקבילית." },
-            { "verbal_explanation": "נשלב את הנתון הנוסף הנוגע לזווית.", "math_expression": "טענה: ∡A = 90° | נימוק: נתון." },
-            { "verbal_explanation": "נשתמש במשפט הוכחה למשפחת המלבנים.", "math_expression": "מסקנה: ABCD מלבן | נימוק: מקבילית בעלת זווית ישרה היא מלבן." }
+        correctAnswer: 0,
+        hint: "יש שתי זוויות בסיס שוות. סכום כלל הזוויות במשולש מתכנס למאה ושמונים מעלות.",
+        solution_steps: [
+            { verbal_explanation: "הגדרת זווית הראש וזוג זוויות הבסיס הכפולות ממנה.", math_expression: "\\displaystyle x \\quad , \\quad 2x \\quad , \\quad 2x" },
+            { verbal_explanation: "כתיבת המשוואה לסכום זוויות מלא במשולש תקין.", math_expression: "\\displaystyle x + 2x + 2x = 180" },
+            { verbal_explanation: "כינוס איברים לכדי ערך בודד.", math_expression: "\\displaystyle 5x = 180" },
+            { verbal_explanation: "חלוקה בחמש לחילוץ זווית הראש הנעלמת.", math_expression: "\\displaystyle x = 36" }
         ],
-        "final_answer": "מלבן",
-        "options": ["מעוין", "מלבן", "ריבוע", "טרפז ישר זווית"],
-        "correctAnswer": 1
+        final_answer: "36"
     },
     {
-        "id": 32,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Medium",
-        "question_text": "במשולש שווה שוקיים ABC (AB=AC), העבירו את קטע האמצעים DE (מקביל לבסיס BC). מה ניתן לומר על המשולש הקטן ADE שנוצר למעלה?",
-        "hint": "קטע אמצעים מקביל לבסיס, ולכן הזוויות המתאימות שוות. אם למשולש הגדול יש זוויות בסיס שוות, גם לקטן יהיו.",
-        "solution_steps": [
-            { "verbal_explanation": "נבסס את תכונת ההקבלה של קטע האמצעים.", "math_expression": "טענה: DE || BC | נימוק: קטע אמצעים במשולש מקביל לבסיס." },
-            { "verbal_explanation": "נשתמש במשפט על זוויות מתאימות בין ישרים מקבילים כדי להוכיח שהזוויות הועתקו למעלה.", "math_expression": "טענה: ∡ADE = ∡B וגם ∡AED = ∡C | נימוק: זוויות מתאימות שוות." },
-            { "verbal_explanation": "נשתמש בתכונת המשולש המקורי (שווה שוקיים ולכן זוויות הבסיס שוות).", "math_expression": "טענה: ∡B = ∡C | נימוק: במשולש שווה שוקיים זוויות הבסיס שוות." },
-            { "verbal_explanation": "נסיק לגבי המשולש החדש באמצעות כלל המעבר.", "math_expression": "מסקנה: ∡ADE = ∡AED -> משולש ADE שווה שוקיים | נימוק: משולש בעל שתי זוויות שוות הוא שווה שוקיים." }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "היקף ריבוע גדול ב-4 ס\"מ מהיקפו של משולש שווה צלעות. ידוע כי צלע הריבוע שווה לאורך צלע המשולש. מהו אורך הצלע המשותפת?",
+        options: [
+            "4", 
+            "5", 
+            "3", 
+            "6"
         ],
-        "final_answer": "הוא משולש שווה שוקיים (AD=AE).",
-        "options": ["הוא משולש שווה צלעות.", "הוא משולש ישר זווית.", "הוא משולש שווה שוקיים (AD=AE).", "הוא משולש שונה צלעות."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "היקף ריבוע מורכב מארבע צלעות והיקף משולש משלוש. השוו לפי ההפרש הנתון בבעיה.",
+        solution_steps: [
+            { verbal_explanation: "הגדרת ביטוי להיקף הריבוע ולהיקף המשולש בהתאמה.", math_expression: "\\displaystyle 4x \\quad , \\quad 3x" },
+            { verbal_explanation: "בניית משוואה על סמך פער של ארבע יחידות בין ההיקפים.", math_expression: "\\displaystyle 4x - 3x = 4" },
+            { verbal_explanation: "חיסור מהיר שפותר ישירות ומגלה את אורך הצלע.", math_expression: "\\displaystyle x = 4" }
+        ],
+        final_answer: "4"
     },
     {
-        "id": 33,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "High",
-        "question_text": "במעוין ABCD אלכסון AC שווה ל-10 ס\"מ, ואלכסון BD שווה ל-24 ס\"מ. מהו <strong>שטח המעוין</strong>, ומהו אורך <strong>צלע המעוין</strong>? (בהתאמה)",
-        "hint": "שטח מחושב לפי אלכסונים חלקי 2. למציאת צלע, הסתכלו על אחד מ-4 המשולשים ישרי הזווית, הניצבים שלו הם חצאי האלכסונים (5 ו-12).",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את שטח המעוין (מחצית מכפלת האלכסונים).", "math_expression": "S = (10 * 24) / 2 = 240 / 2 = 120 סמ\"ר" },
-            { "verbal_explanation": "כדי למצוא את הצלע, נשתמש בתכונות האלכסונים.", "math_expression": "טענה: אלכסונים מאונכים וחוצים זה את זה | נימוק: תכונות מעוין." },
-            { "verbal_explanation": "ניצור משולש ישר זווית שניצביו הם חצאי האלכסונים: 5 ס\"מ ו-12 ס\"מ. היתר (x) הוא צלע המעוין.", "math_expression": "x² = 5² + 12²" },
-            { "verbal_explanation": "נפתור את משפט פיתגורס.", "math_expression": "x² = 25 + 144 = 169" },
-            { "verbal_explanation": "נוציא שורש ונקבל את אורך הצלע.", "math_expression": "x = √169 = 13 ס\"מ" }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "במקבילית, אורך צלע אחת הוא 10 ס\"מ והגובה היורד אליה 6 ס\"מ. אורך הצלע השנייה של אותה מקבילית הוא 12 ס\"מ. חשבו את אורך הגובה היורד אל הצלע השנייה.",
+        options: [
+            "5", 
+            "4", 
+            "6", 
+            "7"
         ],
-        "final_answer": "שטח: 120 סמ\"ר, צלע: 13 ס\"מ",
-        "options": ["שטח: 240, צלע: 17", "שטח: 120, צלע: 13", "שטח: 60, צלע: 10", "שטח: 120, צלע: 15"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "מכפלת צלע וגובה אחד תמיד תהיה שווה למכפלת הזוג השני במקבילית, שכן השטח הכולל נשאר קבוע.",
+        solution_steps: [
+            { verbal_explanation: "חישוב שטח המקבילית דרך נתוני הצמד הראשון השלם שבידנו.", math_expression: "\\displaystyle 10 \\times 6 = 60" },
+            { verbal_explanation: "הגדרת משוואה זהה לשטח בעזרת הצלע השנייה והגובה החסר.", math_expression: "\\displaystyle 12 \\times h = 60" },
+            { verbal_explanation: "חלוקה פשוטה למציאת הגובה.", math_expression: "\\displaystyle h = \\frac{60}{12} = 5" }
+        ],
+        final_answer: "5"
     },
     {
-        "id": 34,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Medium",
-        "question_text": "בטרפז ישר זווית, אורך הבסיס העליון 4 ס\"מ, אורך הבסיס התחתון 10 ס\"מ, ואורך השוק הישרה (הגובה) 8 ס\"מ. מהו אורך <strong>השוק המשופעת</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100' viewBox='0 0 180 100'><polygon points='30,20 80,20 150,80 30,80' fill='#fef08a' stroke='#f59e0b' stroke-width='2'/><text x='55' y='15' font-size='12'>4</text><text x='90' y='95' font-size='12'>10</text><text x='15' y='55' font-size='12'>8</text><line x1='80' y1='20' x2='80' y2='80' stroke='black' stroke-dasharray='4'/></svg></div>",
-        "hint": "הורידו גובה מהקודקוד העליון. ייווצר לכם מלבן (4 על 8) ומשולש ישר זווית מימינו. מה אורך הניצב התחתון של המשולש? (10 פחות 4).",
-        "solution_steps": [
-            { "verbal_explanation": "נוריד גובה עזר מהקודקוד העליון אל הבסיס התחתון. גובה זה מקביל ושווה לשוק הישרה.", "math_expression": "h = 8" },
-            { "verbal_explanation": "הגובה פיצל את הטרפז למלבן (רוחב 4) ולמשולש ישר זווית. נחשב את בסיס המשולש (חלק מהבסיס התחתון).", "math_expression": "בסיס משולש = 10 - 4 = 6" },
-            { "verbal_explanation": "במשולש ישר הזווית שנוצר, הניצבים הם 6 ו-8. השוק המשופעת היא היתר (x). נפעיל פיתגורס.", "math_expression": "x² = 6² + 8²" },
-            { "verbal_explanation": "נפתור: 36 ועוד 64 שווה 100.", "math_expression": "x² = 100  =>  x = 10" }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "במעוין, אורכי האלכסונים המצטלבים הם 16 ס\"מ ו-12 ס\"מ. מהו היקפו של המעוין כולו?",
+        options: [
+            "40", 
+            "48", 
+            "20", 
+            "36"
         ],
-        "final_answer": "10 ס\"מ",
-        "options": ["10 ס\"מ", "12 ס\"מ", "14 ס\"מ", "√84 ס\"מ"],
-        "correctAnswer": 0
+        correctAnswer: 0,
+        hint: "אלכסוני המעוין חוצים זה את זה במאונך, ולכן נוצרים 4 משולשים ישרי זווית. השתמשו בחצאי האלכסונים בפיתגורס.",
+        solution_steps: [
+            { verbal_explanation: "מציאת ניצבי המשולשים הפנימיים על ידי חציית האלכסונים במעוין המאונכים זה לזה.", math_expression: "\\displaystyle \\frac{16}{2} = 8 \\quad ; \\quad \\frac{12}{2} = 6" },
+            { verbal_explanation: "חישוב אורך צלע המעוין שמהווה את היתר בעזרת פיתגורס.", math_expression: "\\displaystyle c^2 = 8^2 + 6^2 = 64 + 36 = 100" },
+            { verbal_explanation: "הוצאת שורש למציאת הצלע וחלוקתה בערך מוחלט חיובי בלבד.", math_expression: "\\displaystyle c = 10" },
+            { verbal_explanation: "חישוב היקף המעוין בעזרת הכפלת הצלע בארבע פאות הצורה.", math_expression: "\\displaystyle 4 \\times 10 = 40" }
+        ],
+        final_answer: "40"
     },
     {
-        "id": 35,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Medium",
-        "question_text": "משפט תאלס מורחב: במשולש ABC העבירו ישר DE המקביל ל-BC. נתון: <strong>AD=3, DB=6, DE=4</strong>. מהו אורך הבסיס <strong>BC</strong>?",
-        "hint": "זהירות! כשאנו עובדים עם בסיסים בהרחבת תאלס, היחס הוא תמיד חלק חלקי השלם: AD חלקי AB (שזה 3+6).",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את אורך הצלע הגדולה השלמה AB על ידי חיבור הקטעים המרכיבים אותה.", "math_expression": "AB = AD + DB = 3 + 6 = 9" },
-            { "verbal_explanation": "נרשום את משוואת ההרחבה של משפט תאלס המקשרת בסיסים לצלעות.", "math_expression": "טענה: AD / AB = DE / BC | נימוק: הרחבת תאלס." },
-            { "verbal_explanation": "נציב את הנתונים ונסמן את BC כ-x.", "math_expression": "הצבה: 3 / 9 = 4 / x" },
-            { "verbal_explanation": "נצמצם את השבר (3/9 = 1/3) ונפתור בהצלבה.", "math_expression": "1 / 3 = 4 / x  =>  x = 12" }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "קטע אמצעים במשולש המחבר שתי צלעות שווה ל-7 ס\"מ. מהו שטח המשולש המלא, אם ידוע כי הגובה היורד אל צלע הבסיס המקבילה לקטע זה הוא 10 ס\"מ?",
+        options: [
+            "70", 
+            "140", 
+            "35", 
+            "100"
         ],
-        "final_answer": "12 ס\"מ",
-        "options": ["8 ס\"מ", "12 ס\"מ", "24 ס\"מ", "10 ס\"מ"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "אורכו של קטע אמצעים שווה למחצית הבסיס שאליו הוא מקביל. הכפילו אותו ב-2 כדי למצוא את אורך הבסיס, ואז חשבו שטח לפי גובה ובסיס.",
+        solution_steps: [
+            { verbal_explanation: "התבססות על משפט קטע האמצעים לקביעת גודל בסיס המשולש (כפול באורכו מקטע האמצעים).", math_expression: "\\displaystyle 2 \\times 7 = 14" },
+            { verbal_explanation: "הצבת הבסיס שמצאנו והגובה הנתון בתוך הנוסחה הסטנדרטית למציאת שטח משולשים.", math_expression: "\\displaystyle \\frac{14 \\times 10}{2}" },
+            { verbal_explanation: "הכפלה וחלוקה בשתיים למתן תשובה סופית.", math_expression: "\\displaystyle \\frac{140}{2} = 70" }
+        ],
+        final_answer: "70"
     },
     {
-        "id": 36,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "High",
-        "question_text": "נתונים שני משולשים דומים. צלע אחת במשולש הקטן היא 5 ס\"מ, והצלע המתאימה לה במשולש הגדול היא 15 ס\"מ. אם <strong>היקף</strong> המשולש הקטן הוא 30 ס\"מ, מה <strong>שטחו</strong> של המשולש הגדול? (נתון ששטח הקטן 40 סמ\"ר)",
-        "hint": "הנתון על ההיקף הוא מלכודת כדי לבלבל! התמקדו ביחס הצלעות (15 חלקי 5 = 3). מה זה אומר על יחס השטחים?",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא את יחס ההגדלה הקווי (k) של הצלעות.", "math_expression": "k = 15 / 5 = 3" },
-            { "verbal_explanation": "נשתמש במשפט הקושר בין דמיון לשטח: יחס השטחים שווה לריבוע יחס הצלעות.", "math_expression": "טענה: יחס שטחים = k² = 3² = 9" },
-            { "verbal_explanation": "נכפיל את שטח המשולש הקטן (40) ביחס ההגדלה של השטח (9). נתון ההיקף לא רלוונטי לחישוב השטח כאן.", "math_expression": "S_גדול = 40 * 9 = 360 סמ\"ר" }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "בטרפז שווה שוקיים אורך הבסיס הגדול הוא 20 ס\"מ ואורכו של הבסיס הקטן הוא 10 ס\"מ בלבד. גובה הטרפז הנתון הוא 12 ס\"מ. מהו אורך שוק הטרפז?",
+        options: [
+            "13", 
+            "15", 
+            "14", 
+            "12.5"
         ],
-        "final_answer": "360 סמ\"ר",
-        "options": ["120 סמ\"ר", "90 סמ\"ר", "360 סמ\"ר", "אי אפשר לחשב"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הורידו שני גבהים מנקודות הבסיס העליון. השארית בבסיס התחתון מתחלקת שווה בשווה לניצבים של משולשים בצד.",
+        solution_steps: [
+            { verbal_explanation: "חישוב יתרת אורך הבסיס הנופלת מחוץ למלבן המרכזי שנוצר, וחלוקתה לשתיים.", math_expression: "\\displaystyle \\frac{20 - 10}{2} = \\frac{10}{2} = 5" },
+            { verbal_explanation: "הצבת הנתונים במשוואת פיתגורס לחישוב יתר המשולש הצידי, המהווה את השוק.", math_expression: "\\displaystyle c^2 = 5^2 + 12^2 = 25 + 144 = 169" },
+            { verbal_explanation: "הוצאת השורש הריבועי מניבה את פתרון השוק הנדרש.", math_expression: "\\displaystyle c = 13" }
+        ],
+        final_answer: "13"
     },
     {
-        "id": 37,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Low",
-        "question_text": "במלבן, מעבירים את קטעי האמצעים של כל ארבע הצלעות ומחברים אותם ליצירת מרובע פנימי. איזה מרובע מתקבל <strong>תמיד</strong>?",
-        "hint": "חיבור אמצעי הצלעות במלבן יוצר צורה שכל צלעותיה שוות (אך זוויותיה אינן ישרות כי המלבן במקור נטוי ביחס לאלכסונים).",
-        "solution_steps": [
-            { "verbal_explanation": "נצייר מלבן ונמתח בו אלכסון. האלכסון משמש כבסיס למשולש.", "math_expression": "בניית עזר" },
-            { "verbal_explanation": "קטע המחבר אמצעי שתי צלעות סמוכות במלבן הוא קטע אמצעים במשולש, ולכן שווה למחצית האלכסון.", "math_expression": "קטע = חצי אלכסון" },
-            { "verbal_explanation": "במלבן שני האלכסונים שווים זה לזה. לכן כל ארבעת קטעי האמצעים שושרטטו יהיו שווים למחצית מאותו אורך, ולכן כולם שווים.", "math_expression": "4 צלעות שוות" },
-            { "verbal_explanation": "מרובע בעל 4 צלעות שוות מוגדר כמעוין." }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "חשבו את סכום הזוויות הפנימיות הכולל של משושה משוכלל (מצולע בעל שש צלעות סגורות).",
+        options: [
+            "720", 
+            "540", 
+            "900", 
+            "1080"
         ],
-        "final_answer": "מעוין",
-        "options": ["ריבוע", "מלבן", "מעוין", "טרפז שווה שוקיים"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הנוסחה לחישוב סכום זוויות מצולע מבוססת על מכפלת 180 בהפרש בין מספר צלעותיו לבין המספר 2.",
+        solution_steps: [
+            { verbal_explanation: "כתיבת הנוסחה המקובלת למציאת סכום הזוויות הכולל.", math_expression: "\\displaystyle 180 \\times (n - 2)" },
+            { verbal_explanation: "הצבת כמות הצלעות במשושה בתוך הנוסחה הנתונה.", math_expression: "\\displaystyle 180 \\times (6 - 2)" },
+            { verbal_explanation: "השלמת החישוב של מאה ושמונים מוכפל בארבע.", math_expression: "\\displaystyle 180 \\times 4 = 720" }
+        ],
+        final_answer: "720"
     },
     {
-        "id": 38,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Medium",
-        "question_text": "משפט דמיון ז.ז: נתון משולש ישר זווית (90 מעלות). מעבירים <strong>גובה ליתר</strong> (מזווית ה-90 אל הצלע שממול). נוצרים שני משולשים קטנים. האם המשולש הקטן הימני דומה למשולש הקטן השמאלי?",
-        "hint": "כן! הראו שלשניהם יש זווית 90, והוכיחו שהזווית החדה של האחד משלימה ל-90 את הזווית החדה של השני.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את זוויות המשולש הגדול: זווית קודקוד עליונה היא 90. שתי זוויות הבסיס יקראו אלפא ובתא.", "math_expression": "α + β = 90° (כי סכום במשולש 180)" },
-            { "verbal_explanation": "נבחן את המשולש הקטן הימני. יש בו זווית 90 (מהגובה) וזווית אלפא (זווית הבסיס הימנית). לכן הזווית העליונה שלו חייבת להיות בתא.", "math_expression": "משולש ימני: 90, α, β" },
-            { "verbal_explanation": "נבחן את המשולש השמאלי. יש בו זווית 90 וזווית בתא (בסיס שמאלית). לכן הזווית העליונה שלו חייבת להיות אלפא.", "math_expression": "משולש שמאלי: 90, β, α" },
-            { "verbal_explanation": "מכיוון שבשני המשולשים הקטנים זוויות הפנים הן בדיוק (90, אלפא, בתא), הם דומים זה לזה לפי משפט ז.ז." }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "במשולש ישר זווית אורך היתר ניתן כ-25 ס\"מ, ואורכו של אחד מהניצבים הוא 15 ס\"מ. חשבו את שטח המשולש הכולל.",
+        options: [
+            "150", 
+            "300", 
+            "120", 
+            "200"
         ],
-        "final_answer": "כן, הם תמיד דומים זה לזה (לפי משפט ז.ז).",
-        "options": ["לא, הם רק דומים למשולש הגדול.", "כן, הם תמיד חופפים זה לזה.", "כן, הם תמיד דומים זה לזה.", "אי אפשר להוכיח ללא אורך היתר."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "היעזרו במשפט פיתגורס לחילוץ אורך הניצב השני. שטח יחושב על ידי הכפלת שני הניצבים וחלוקתם בשתיים.",
+        solution_steps: [
+            { verbal_explanation: "הצבת ערך היתר ואחד הניצבים בנוסחת פיתגורס וביצוע חיסור למציאת הניצב הנוסף.", math_expression: "\\displaystyle b^2 = 25^2 - 15^2 = 625 - 225 = 400" },
+            { verbal_explanation: "הוצאת שורש ריבועי לקבלת אורכו הישיר של הניצב שהיה חסר.", math_expression: "\\displaystyle b = 20" },
+            { verbal_explanation: "הצבה בנוסחת השטח להשגת הפתרון הגאומטרי.", math_expression: "\\displaystyle \\frac{15 \\times 20}{2} = 150" }
+        ],
+        final_answer: "150"
     },
     {
-        "id": 39,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "High",
-        "question_text": "הוכחת מקבילית: במרובע ABCD ידוע כי <strong>AB = CD</strong> וכן <strong>∡BAC = ∡DCA</strong> (זוויות מתחלפות שוות). האם המרובע הוא מקבילית?",
-        "hint": "זוויות מתחלפות שוות הן ההוכחה הניצחת לישרים מקבילים! יש לכם זוג צלעות שהוא גם שווה (נתון) וגם מקביל (הוכחתם הרגע).",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בנתון הזוויות המתחלפות כדי להסיק על הקבלת הישרים.", "math_expression": "טענה: AB || CD | נימוק: אם בין שני ישרים (הנחתכים ע\"י שלישי) יש זוויות מתחלפות שוות, הישרים מקבילים." },
-            { "verbal_explanation": "נרשום את הנתון על שוויון הצלעות.", "math_expression": "טענה: AB = CD | נימוק: נתון." },
-            { "verbal_explanation": "נשתמש במשפט הוכחה למקבילית המשלב את שתי הטענות האחרונות על אותו זוג צלעות.", "math_expression": "מסקנה: המרובע מקבילית | נימוק: מרובע שבו זוג צלעות נגדיות גם שווה וגם מקביל הוא מקבילית." }
+        topic: "finalReviews",
+        subTopic: "חזרה כללית בגיאומטריה",
+        question_text: "דלתון מורכב ממשולש עליון שגובהו 4 ס\"מ וממשולש תחתון שגובהו 8 ס\"מ. לשניהם בסיס משותף שאורכו 10 ס\"מ. מהו שטח הדלתון?",
+        options: [
+            "60", 
+            "120", 
+            "80", 
+            "40"
         ],
-        "final_answer": "כן, משום שיש זוג צלעות שווה ומקביל.",
-        "options": ["לא, דרוש מידע על הזוג השני.", "כן, לפי משפט אלכסונים חוצים.", "כן, משום שיש זוג צלעות שווה ומקביל.", "לא, כי זוויות מתחלפות לא מוכיחות הקבלה."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "סכום שני הגבהים המאונכים לבסיס מהווה את האלכסון האנכי של הדלתון. שטח דלתון פועל לפי נוסחת מחצית מכפלת אלכסונים.",
+        solution_steps: [
+            { verbal_explanation: "חיבור שני הגבהים כדי למצוא את מלוא אורכו של האלכסון החוצה.", math_expression: "\\displaystyle 4 + 8 = 12" },
+            { verbal_explanation: "הצבת שני האלכסונים בתוך נוסחת השטח לחשבון סופי.", math_expression: "\\displaystyle \\frac{10 \\times 12}{2} = 60" }
+        ],
+        final_answer: "60"
+    },
+
+    // ==========================================================
+    // תת נושא 4: פתרון מבחני מפמ"ר מסכמים (שאלות 37-48)
+    // ==========================================================
+
+    {
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "מתוך מבחן מסכם: נתונה משוואת שברים הבאה. חשבו את ערכו המדויק של x.\n$$ \\frac{2x-3}{4} - \\frac{x+1}{3} = 2 $$" + svgExam,
+        options: [
+            "18.5", 
+            "16.5", 
+            "20", 
+            "15"
+        ],
+        correctAnswer: 0,
+        hint: "המכנה המשותף לביטול השברים הוא 12. הכפילו כל איבר בגורם המשלים הנדרש לו.",
+        solution_steps: [
+            { verbal_explanation: "הכפלת המשוואה כולה במכנה השלם המשותף (12) כדי לסלק את השברים.", math_expression: "\\displaystyle 3(2x - 3) - 4(x + 1) = 24" },
+            { verbal_explanation: "פתיחת סוגריים. הקפידו על הכפלת מינוס על כל תוכן הסוגריים האחרונים.", math_expression: "\\displaystyle 6x - 9 - 4x - 4 = 24" },
+            { verbal_explanation: "כינוס איברים המכילים את המשתנה מחד והמספרים מאידך.", math_expression: "\\displaystyle 2x - 13 = 24" },
+            { verbal_explanation: "העברת קבועים לאגף הנגדי וחלוקה לקבלת שבר עשרוני תקני.", math_expression: "\\displaystyle 2x = 37 \\quad \\Rightarrow \\quad x = 18.5" }
+        ],
+        final_answer: "18.5"
     },
     {
-        "id": 40,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "High",
-        "question_text": "בטרפז, אורך קטע האמצעים הוא 12 ס\"מ. אורך הבסיס התחתון גדול ב-4 ס\"מ מאורך הבסיס העליון. מהו אורך <strong>הבסיס העליון</strong>?",
-        "hint": "בנו משוואה. בסיס עליון x, תחתון x+4. סכומם (2x+4) חלקי 2 שווה 12.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר משתנים לבסיסי הטרפז.", "math_expression": "עליון = x , תחתון = x + 4" },
-            { "verbal_explanation": "נציב בנוסחת קטע האמצעים בטרפז.", "math_expression": "(x + x + 4) / 2 = 12" },
-            { "verbal_explanation": "נכפיל ב-2 ונכנס איברים במונה.", "math_expression": "2x + 4 = 24" },
-            { "verbal_explanation": "נחסר 4 ונחלק ב-2.", "math_expression": "2x = 20  / :2  =>  x = 10" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "שני מתכנתים יצרו קוד במשך 5 שעות והשלימו בסך הכל 150 שורות יחד. המתכנת המנוסה כתב שורות קוד בקצב כפול מהמתכנת הצעיר. מהו הספקו של הצעיר לשעה?",
+        options: [
+            "10", 
+            "20", 
+            "15", 
+            "5"
         ],
-        "final_answer": "10 ס\"מ",
-        "options": ["8 ס\"מ", "10 ס\"מ", "14 ס\"מ", "12 ס\"מ"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חלוקה של סך השורות בשעות תיתן את ההספק המשותף. פצלו אותו ליחס של אחד לשניים.",
+        solution_steps: [
+            { verbal_explanation: "חישוב קצב העבודה המשותף לשעה אחת מתוך חמש השעות הנתונות.", math_expression: "\\displaystyle \\frac{150}{5} = 30" },
+            { verbal_explanation: "בניית משוואה המייצגת את סכום ההספקים של מתכנת רגיל ואחד מהיר ממנו פי שתיים.", math_expression: "\\displaystyle x + 2x = 30" },
+            { verbal_explanation: "איחוד המשתנים למשוואה אחידה וקלה לפתרון.", math_expression: "\\displaystyle 3x = 30 \\quad \\Rightarrow \\quad x = 10" }
+        ],
+        final_answer: "10"
     },
     {
-        "id": 41,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Medium",
-        "question_text": "במשולש ישר זווית, אורך היתר הוא 20. מהו אורך <strong>התיכון ליתר</strong>?",
-        "hint": "יש משפט זהב על התיכון ליתר במשולש ישר זווית. לא צריך שום חישוב מסובך.",
-        "solution_steps": [
-            { "verbal_explanation": "נצטט את המשפט הגיאומטרי העוסק בתיכון ליתר במשולש ישר זווית.", "math_expression": "טענה: תיכון ליתר = יתר / 2" },
-            { "verbal_explanation": "המשפט קובע שהתיכון ליתר שווה בדיוק למחצית מהיתר אליו הוא יורד.", "math_expression": "נימוק: משפט התיכון ליתר." },
-            { "verbal_explanation": "נבצע את החישוב.", "math_expression": "חישוב: 20 / 2 = 10" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "במבחן קבלה 25 שאלות. תשובה נכונה מעניקה 4 נקודות, ושגויה מפחיתה נקודה אחת מציון סך הכל. תלמיד פתר את המבחן המלא וקיבל 75 נקודות. על כמה שאלות שגה?",
+        options: [
+            "5", 
+            "20", 
+            "10", 
+            "15"
         ],
-        "final_answer": "10",
-        "options": ["10", "20", "5", "אי אפשר לדעת"],
-        "correctAnswer": 0
+        correctAnswer: 0,
+        hint: "סמנו את שאלות ההצלחה בנעלם והגדירו את השגויות כמשלים (עשרים וחמש פחות הנעלם).",
+        solution_steps: [
+            { verbal_explanation: "הרכבת משוואת ניקוד כוללת שמתחשבת בהפחתת קנסות עבור שגיאות במבחן.", math_expression: "\\displaystyle 4x - 1(25 - x) = 75" },
+            { verbal_explanation: "פתיחת סוגריים ושינוי סימן של איבר הקיזוז השני.", math_expression: "\\displaystyle 4x - 25 + x = 75" },
+            { verbal_explanation: "כינוס איברים לצדדים מתאימים וחישוב כמות התשובות הנכונות.", math_expression: "\\displaystyle 5x = 100 \\quad \\Rightarrow \\quad x = 20" },
+            { verbal_explanation: "השאלה מתמקדת בשגויות, ולכן נחסר את ההצלחות מן הסך הכולל של השאלות.", math_expression: "\\displaystyle 25 - 20 = 5" }
+        ],
+        final_answer: "5"
     },
     {
-        "id": 42,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Medium",
-        "question_text": "צורה גיאומטרית בעלת 4 צלעות שבה <strong>כל הזוויות ישרות</strong> (90°), אך לא כל הצלעות שוות בהכרח, נקראת...",
-        "hint": "זוהי ההגדרה הבסיסית ביותר של המרובע הכי מוכר.",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן מרובעים עם זוויות ישרות. מרובע שבו 4 זוויות הן 90° הוא בהגדרה מלבן.", "math_expression": "4 זוויות ישרות = מלבן" },
-            { "verbal_explanation": "האם זה יכול להיות ריבוע? ריבוע דורש בנוסף גם 4 צלעות שוות. מאחר ונאמר שהצלעות לא בהכרח שוות, השם הכללי והמדויק יותר הוא מלבן." }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "נתונה מערכת שתי משוואות קוויות. לפי הפתרון שלהן, מהו ערך הסכום המשותף של המשתנים $x + y$ ?\n$$ 3x + 2y = 17 $$\n$$ x - y = -1 $$",
+        options: [
+            "7", 
+            "8", 
+            "6", 
+            "5"
         ],
-        "final_answer": "מלבן",
-        "options": ["מעוין", "מקבילית", "מלבן", "ריבוע"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "בודדו את אחד המשתנים מהמשוואה הפשוטה (השנייה) והציבו אותו במלואו כביטוי במשוואה העליונה.",
+        solution_steps: [
+            { verbal_explanation: "בידוד משתנה יחיד מתוך משוואת הבסיס הנמוכה.", math_expression: "\\displaystyle x = y - 1" },
+            { verbal_explanation: "הצבת הביטוי כפי שהוא בתוך המשוואה הראשית המסובכת יותר.", math_expression: "\\displaystyle 3(y - 1) + 2y = 17" },
+            { verbal_explanation: "פתיחת המכפלות באגף שמאל וחילול ערכו של הנעלם שנשאר.", math_expression: "\\displaystyle 3y - 3 + 2y = 17 \\quad \\Rightarrow \\quad 5y = 20 \\quad \\Rightarrow \\quad y = 4" },
+            { verbal_explanation: "הצבת התוצאה למשוואת הבידוד כדי למצוא במקביל את ערך האיקס.", math_expression: "\\displaystyle x = 4 - 1 = 3" },
+            { verbal_explanation: "חישוב סכום סופי לשני המשתנים בהתאם לדרישת הבעיה.", math_expression: "\\displaystyle 3 + 4 = 7" }
+        ],
+        final_answer: "7"
     },
     {
-        "id": 43,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "High",
-        "question_text": "נתון מעוין שהיקפו 40 ס\"מ, וגובהו הוא 8 ס\"מ. מהו <strong>שטח המעוין</strong>?",
-        "hint": "מעוין הוא סוג של מקבילית, ולכן אפשר לחשב את שטחו גם בעזרת הנוסחה 'צלע כפול גובה' (ולא רק בעזרת אלכסונים). מצאו קודם את אורך הצלע.",
-        "solution_steps": [
-            { "verbal_explanation": "במעוין כל 4 הצלעות שוות. אם ההיקף הוא 40, נחלק ב-4 כדי למצוא צלע אחת.", "math_expression": "צלע = 40 / 4 = 10 ס\"מ" },
-            { "verbal_explanation": "מעוין הוא למעשה מקבילית, ולכן הנוסחה הסטנדרטית לשטח מקבילית עובדת בו מצוין.", "math_expression": "נוסחה: S = צלע * גובה (a * h)" },
-            { "verbal_explanation": "נציב את הצלע (10) והגובה הנתון (8).", "math_expression": "S = 10 * 8 = 80 סמ\"ר" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "קבעו מהו הפתרון האלגברי הסופי והנכון של אי-השוויון הבא:\n$$ -3x + 12 > 0 $$",
+        options: [
+            "x < 4", 
+            "x > 4", 
+            "x < -4", 
+            "x > -4"
         ],
-        "final_answer": "80 סמ\"ר",
-        "options": ["40 סמ\"ר", "80 סמ\"ר", "160 סמ\"ר", "אי אפשר לחשב ללא אלכסונים"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "כאשר אנו מחלקים או כופלים ביטוי של אי-שוויון במספר בעל ערך שלילי, אנו מחויבים להפוך את כיוון סימן המשוואה.",
+        solution_steps: [
+            { verbal_explanation: "העברת איבר חופשי צד יורדת מתמטית ללא צורך לשנות דבר מעבר לסימנו האישי.", math_expression: "\\displaystyle -3x > -12" },
+            { verbal_explanation: "חלוקת שני הצדדים במינוס שלוש הופכת ישירות את כיוון פעולת אי-השוויון.", math_expression: "\\displaystyle x < 4" }
+        ],
+        final_answer: "x < 4"
     },
     {
-        "id": 44,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "High",
-        "question_text": "במשולש ABC, נקודה D נמצאת על AB ונקודה E על AC. נתון: AD=2, DB=4, AE=3, EC=6. האם הקטע DE <strong>מקביל</strong> לבסיס BC?",
-        "hint": "בדקו בעזרת משפט תאלס ההפוך. האם היחס בשמאל (2/4) שווה ליחס בימין (3/6)?",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את יחס החלוקה של הצלע השמאלית AB.", "math_expression": "יחס שמאל: 2 / 4 = 1 / 2" },
-            { "verbal_explanation": "נבדוק את יחס החלוקה של הצלע הימנית AC.", "math_expression": "יחס ימין: 3 / 6 = 1 / 2" },
-            { "verbal_explanation": "נבצע השוואה לוגית.", "math_expression": "טענה: 1/2 = 1/2  => היחסים שווים." },
-            { "verbal_explanation": "נסיק מסקנה בעזרת משפט תאלס ההפוך.", "math_expression": "מסקנה: DE || BC | נימוק: אם ישר מקצה יחסים שווים על שוקיים, הוא מקביל לבסיס." }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "בצעו פישוט של השבר האלגברי והביאו אותו לצורתו המצומצמת והנקייה ביותר (הניחו שתחום ההגדרה נשמר):\n$$ \\frac{5x^2 - 20}{x^2 - 4x + 4} $$",
+        options: [
+            "\\displaystyle \\frac{5(x + 2)}{x - 2}", 
+            "\\displaystyle \\frac{5(x - 2)}{x + 2}", 
+            "5", 
+            "\\displaystyle \\frac{x + 2}{x - 2}"
         ],
-        "final_answer": "כן, לפי משפט תאלס ההפוך.",
-        "options": ["לא, היחסים לא שווים.", "כן, לפי משפט חפיפה צ.ז.צ.", "כן, לפי משפט תאלס ההפוך.", "לא, כי הצלעות קצרות מדי."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "במונה, הוציאו תחילה גורם משותף מספרי החוצה ואז פרקו הפרש ריבועים. המכנה עונה בדיוק לנוסחת כפל מקוצר מוכרת.",
+        solution_steps: [
+            { verbal_explanation: "הוצאה של הגורם המשותף המקסימלי ויישום ישיר של נוסחת ההפרש הריבועי עליו.", math_expression: "\\displaystyle 5(x^2 - 4) = 5(x - 2)(x + 2)" },
+            { verbal_explanation: "פירוק אגף המכנה על פי הנוסחה לכפל מקוצר של ריבוע הפרש פנימי.", math_expression: "\\displaystyle (x - 2)^2" },
+            { verbal_explanation: "צמצום סוגריים משותפים כפולות מן המונה ומן המכנה כאחד.", math_expression: "\\displaystyle \\frac{5(x - 2)(x + 2)}{(x - 2)(x - 2)} = \\frac{5(x + 2)}{x - 2}" }
+        ],
+        final_answer: "\\displaystyle \\frac{5(x + 2)}{x - 2}"
     },
     {
-        "id": 45,
-        "subTopic": "חזרה כללית בגיאומטריה",
-        "difficulty": "Low",
-        "question_text": "יחס השטחים בין שני משולשים דומים הוא 1:16. מהו <strong>יחס הדמיון</strong> בין הצלעות שלהם?",
-        "hint": "יחס שטחים הוא תמיד כפול מעצמו (k בריבוע). איזו פעולה מחזירה אותנו אחורה ל-k?",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את הקשר המתמטי בין יחס קווי ליחס שטחים.", "math_expression": "יחס שטחים = k²" },
-            { "verbal_explanation": "נציב את הנתון למשוואה.", "math_expression": "k² = 16" },
-            { "verbal_explanation": "נוציא שורש ריבועי כדי למצוא את יחס הצלעות הרגיל k.", "math_expression": "k = √16 = 4" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "בארגז עץ סגור מונחים 4 כדורים כחולים ו-6 כדורים אדומים. שולפים באקראי שני כדורים עוקבים מתוך הארגז (ללא החזרה). חשבו את ההסתברות ששני הכדורים יהיו רק מהצבע הכחול?",
+        options: [
+            "\\displaystyle \\frac{2}{15}", 
+            "\\displaystyle \\frac{16}{100}", 
+            "\\displaystyle \\frac{1}{5}", 
+            "\\displaystyle \\frac{4}{15}"
         ],
-        "final_answer": "1:4",
-        "options": ["1:8", "1:2", "1:4", "1:256"],
-        "correctAnswer": 2
-    },,
-    // ==============================================================
-    // --- תת נושא 4: פתרון מבחני מפמר מסכמים (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 46,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>שאלת מפמר באלגברה:</strong> פתרו את המשוואה הבאה הכוללת שברים אלגבריים: <br><strong>(x² + x) / (x + 1) = 5</strong>",
-        "hint": "אל תכפילו במכנה ישר! הוציאו גורם משותף במונה (x) וצמצמו קודם כל. אך זכרו לרשום תחום הצבה בתחילת התרגיל.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב ראשון והכרחי בכל משוואה עם שברים: הגדרת תחום ההצבה למניעת חלוקה באפס.", "math_expression": "תחום הצבה: x + 1 ≠ 0  =>  x ≠ -1" },
-            { "verbal_explanation": "במקום להסתבך עם כפל, ננסה לפשט. נוציא x כגורם משותף במונה.", "math_expression": "x(x + 1) / (x + 1) = 5" },
-            { "verbal_explanation": "נצמצם את הביטוי (x+1) המופיע גם במונה וגם במכנה.", "math_expression": "x = 5" },
-            { "verbal_explanation": "נבדוק את הפתרון מול תחום ההצבה. 5 אינו מינוס 1, לכן הפתרון חוקי ותקין." }
+        correctAnswer: 0,
+        hint: "מדובר בשליפה ללא החזרה. במשיכה של הכדור השני הכמות הכוללת פוחתת, וכך גם הכמות של הצבע הכחול הנותר.",
+        solution_steps: [
+            { verbal_explanation: "מציאת ההסתברות לבחירת כדור כחול בפעם הראשונה מתבצעת על ידי חלוקת הכמות בסך הכל הכללי.", math_expression: "\\displaystyle \\frac{4}{10}" },
+            { verbal_explanation: "חישוב מחודש להסתברות כדור כחול שני מבוססת על שארית הכדורים במאגר.", math_expression: "\\displaystyle \\frac{3}{9} = \\frac{1}{3}" },
+            { verbal_explanation: "הכפלת שתי ההסתברויות שמייצגות רצף של תרחישים התלויים אחד בשני באופן ישיר.", math_expression: "\\displaystyle \\frac{4}{10} \\times \\frac{1}{3} = \\frac{4}{30}" },
+            { verbal_explanation: "צמצום תוצאת השבר שהתקבלה על ידי חלוקת מונה ומכנה לקבלת תשובה פשוטה.", math_expression: "\\displaystyle \\frac{2}{15}" }
         ],
-        "final_answer": "x = 5",
-        "options": ["x = 4", "x = 5", "x = -1", "אין פתרון"],
-        "correctAnswer": 1
+        final_answer: "\\displaystyle \\frac{2}{15}"
     },
     {
-        "id": 47,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>שאלת מפמר משולבת:</strong> נתונה פרבולה <strong>y = -x² + 4x</strong> וישר <strong>y = x + 2</strong>. מצאו את נקודות החיתוך שלהם.",
-        "hint": "השוו אגפים, העבירו הכל לצד אחד כדי ליצור משוואה ריבועית השווה לאפס, ופתרו לפי טרינום (או נוסחה). לבסוף הציבו למציאת y.",
-        "solution_steps": [
-            { "verbal_explanation": "נשווה בין המשוואות למציאת נקודות משותפות.", "math_expression": "-x² + 4x = x + 2" },
-            { "verbal_explanation": "נעביר את כל איברי הפרבולה ימינה כדי שה-x² יהיה חיובי ונוח לפתרון.", "math_expression": "0 = x² - 4x + x + 2" },
-            { "verbal_explanation": "נכנס איברים למשוואה ריבועית סטנדרטית.", "math_expression": "x² - 3x + 2 = 0" },
-            { "verbal_explanation": "נפרק לטרינום: שני מספרים שכפלם 2 וחיבורם 3- הם מינוס 1 ומינוס 2.", "math_expression": "(x - 1)(x - 2) = 0  =>  x = 1 , x = 2" },
-            { "verbal_explanation": "נציב את ערכי ה-x במשוואת הישר (y=x+2) כדי למצוא את הגובה שלהן.", "math_expression": "x=1 -> y=3 (1,3) | x=2 -> y=4 (2,4)" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "קופסת אריזה מיוחדת אשר עוצבה בצורת תיבה ריבועית מכילה נפח אחסון מקסימלי של 100 סמ\"ק. גובהה האנכי עומד על 4 ס\"מ. על פי הנתונים, מהו שטח הפנים הכולל הנדרש ליצירת התיבה הזו (בסמ\"ר)?",
+        options: [
+            "130", 
+            "100", 
+            "150", 
+            "120"
         ],
-        "final_answer": "(1, 3) ו- (2, 4)",
-        "options": ["(1, 3) ו- (2, 4)", "(0, 2) ו- (4, 0)", "(-1, 1) ו- (-2, 0)", "אין נקודות חיתוך"],
-        "correctAnswer": 0
+        correctAnswer: 0,
+        hint: "שטח בסיס מתקבל מנפח חלקי גובה. לאחר מציאת שטח הבסיס, הוציאו שורש לקבלת צלעו. השטח כולל פעמיים בסיסים וארבע מעטפות צדדיות.",
+        solution_steps: [
+            { verbal_explanation: "ביצוע חלוקה של נפח הקופסה בגובהה לגלות את שטח בסיס התיבה הפנימי.", math_expression: "\\displaystyle \\frac{100}{4} = 25" },
+            { verbal_explanation: "הוצאת שורש מרובע מתוך שטח הבסיס מאפשרת לנו לחלץ את אורך צלעו הבסיסית של התיבה.", math_expression: "\\displaystyle \\sqrt{25} = 5" },
+            { verbal_explanation: "חישוב שטח הפנים הכולל המורכב מסכום שטחי שני הבסיסים בתוספת 4 פאות צידיות של 5 על 4 ס\"מ.", math_expression: "\\displaystyle 2(25) + 4(5 \\times 4)" },
+            { verbal_explanation: "סיכום פשוט והכפלה לקבלת הפתרון האריתמטי השלם.", math_expression: "\\displaystyle 50 + 4(20) = 50 + 80 = 130" }
+        ],
+        final_answer: "130"
     },
     {
-        "id": 48,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>שאלת הסתברות ממבחן:</strong> בכד 3 כדורים אדומים ו-2 כחולים. שולפים 2 כדורים בזה אחר זה <strong>ללא החזרה</strong>. מהי ההסתברות שלפחות אחד מהם הוא <strong>כחול</strong>?",
-        "hint": "דרך מהירה: חשבו את המאורע המשלים ('רק אדומים' = אף כחול). אדום ראשון זה 3/5, אדום שני (ללא החזרה) הוא 2/4. החסירו מ-1.",
-        "solution_steps": [
-            { "verbal_explanation": "במקום לחשב 'כחול ראשון', 'כחול שני' או 'שניהם כחולים', נחשב את האופציה היחידה שלא רצויה: שניהם אדומים.", "math_expression": "מאורע משלים = אדום וגם אדום" },
-            { "verbal_explanation": "הסיכוי לאדום ראשון מתוך כד מלא: 3 אדומים מתוך 5 בסך הכל.", "math_expression": "P(אדום 1) = 3/5" },
-            { "verbal_explanation": "הסיכוי לאדום שני ללא החזרה: נשארו 2 אדומים מתוך 4 כדורים בסך הכל (חצי).", "math_expression": "P(אדום 2) = 2/4 = 1/2" },
-            { "verbal_explanation": "נחשב את מסלול הכישלון (רק אדומים): שלוש חמישיות כפול חצי.", "math_expression": "(3/5) * (1/2) = 3/10" },
-            { "verbal_explanation": "נחסר את הכישלון מהשלם (1) כדי למצוא את הסיכוי להצלחה (לפחות כחול אחד).", "math_expression": "1 - 3/10 = 7/10" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "מצאו ובנו את משוואת הישר, המקביל לקו הפונקציה המקורית $y = 4x - 7$, ונתון כי קו זה חולף דרך הנקודה הקרטזית המסומנת (3, 15).",
+        options: [
+            "y = 4x + 3", 
+            "y = 4x - 3", 
+            "y = -4x + 27", 
+            "y = 3x + 4"
         ],
-        "final_answer": "7/10",
-        "options": ["3/10", "4/25", "7/10", "1/2"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "ישרים מקבילים חולקים שיפוע קבוע והדדי. קחו שיפוע זה ודחפו אותו למשוואת הישר בתוספת נתוני הנקודה.",
+        solution_steps: [
+            { verbal_explanation: "קביעת ההנחה כי קוים מקבילים מאופיינים בשיפוע קבוע וזהה למקורי.", math_expression: "\\displaystyle m = 4" },
+            { verbal_explanation: "הצבה של קבוע השיפוע והנקודה המסופקת לתוך תבנית מציאת פונקציה לינארית.", math_expression: "\\displaystyle 15 = 4(3) + b" },
+            { verbal_explanation: "פתיחת המכפלה, חיסור איברים וגילוי נקודת החיתוך החופשית עם ציר ה-Y.", math_expression: "\\displaystyle 15 = 12 + b \\quad \\Rightarrow \\quad b = 3 \\quad \\Rightarrow \\quad y = 4x + 3" }
+        ],
+        final_answer: "y = 4x + 3"
     },
     {
-        "id": 49,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>בעיית תנועה למתקדמים:</strong> רכב נסע מרחק של 100 ק\"מ במהירות קבועה x. בדרכו חזרה הגדיל את מהירותו ב-25 קמ\"ש (x+25), ולכן דרכו חזרה הייתה קצרה ב-<strong>1 שעה</strong> מדרכו הלוך. איזו משוואה מתארת את הבעיה?",
-        "hint": "זמן שווה לדרך חלקי מהירות. הזמן האיטי (הלוך, מכנה x) שווה לזמן המהיר (חזור, מכנה x+25) פלוס שעה אחת.",
-        "solution_steps": [
-            { "verbal_explanation": "נבטא את זמן הנסיעה הלוך (הדרך חלקי המהירות הרגילה).", "math_expression": "t1 = 100 / x" },
-            { "verbal_explanation": "נבטא את זמן הנסיעה חזור (הדרך חלקי המהירות המוגברת). בגלל שנסע מהר יותר, הזמן הזה קטן יותר.", "math_expression": "t2 = 100 / (x + 25)" },
-            { "verbal_explanation": "נבנה משוואה: הזמן הארוך והאיטי (הלוך) גדול בשעה אחת מהזמן הקצר והמהיר (חזור). לכן נוסיף 1 לצד המהיר כדי לאזן את המשוואה.", "math_expression": "100/x = 100/(x+25) + 1" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "קבוצת חברים גבתה 240 שקלים למשפחה לרכישת ציוד מחנאות קולקטיבי. יומיים לפני, 2 משפחות ביטלו הגעה. כפועל יוצא, שאר המשפחות שנותרו הוסיפו כל אחת 4 שקלים יקרים לתשלומם. כמה משפחות בסך הכל נכללו בתכנון המקורי?",
+        options: [
+            "12", 
+            "10", 
+            "15", 
+            "8"
         ],
-        "final_answer": "100/x = 100/(x+25) + 1",
-        "options": ["100/x + 100/(x+25) = 1", "100/x = 100/(x+25) + 1", "100/(x+25) = 100/x + 1", "x/100 = (x+25)/100 + 1"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "תשלום שמחולק לפחות אנשים עולה ולכן נכנס ראשון למשוואת החיסור המשווה להפרש (4).",
+        solution_steps: [
+            { verbal_explanation: "כתיבה מסודרת למשוואת תעריפים מנוגדים שבה הסכום הכולל מתחלק לכמויות אנשים משתנות.", math_expression: "\\displaystyle \\frac{240}{x - 2} - \\frac{240}{x} = 4" },
+            { verbal_explanation: "חלוקת המרכיבים בארבע להקטנת גודל המספרים לקראת ההכפלות.", math_expression: "\\displaystyle \\frac{60}{x - 2} - \\frac{60}{x} = 1" },
+            { verbal_explanation: "חיסול השברים בעזרת כפל במכנה משותף כולל.", math_expression: "\\displaystyle 60x - 60(x - 2) = x(x - 2)" },
+            { verbal_explanation: "פתיחת סוגריים וארגון משוואה ריבועית סופית סביב אפס.", math_expression: "\\displaystyle 120 = x^2 - 2x \\quad \\Rightarrow \\quad x^2 - 2x - 120 = 0" },
+            { verbal_explanation: "הטרינום נותן שני שורשים (12 ומינוס 10). פתרון של כמות אנשים מחייב מספר חיובי.", math_expression: "\\displaystyle x = 12" }
+        ],
+        final_answer: "12"
     },
     {
-        "id": 50,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>חקירת פונקציה:</strong> מהי נקודת ה<strong>קודקוד</strong> של הפרבולה שמשוואתה <strong>y = 2x² - 12x + 10</strong>?",
-        "hint": "השתמשו בנוסחת המיקום של הקודקוד (x = -b/2a). לאחר מכן הציבו את ה-x חזרה למשוואה כדי למצוא את הגובה שלו (y).",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בנוסחת ה-x של קודקוד פרבולה. a=2, b=-12.", "math_expression": "x = -(-12) / (2 * 2) = 12 / 4 = 3" },
-            { "verbal_explanation": "גילינו שקודקוד הפרבולה נמצא בציר הסימטריה x=3. כעת נציב ערך זה במשוואה המקורית למציאת הגובה.", "math_expression": "y = 2(3)² - 12(3) + 10" },
-            { "verbal_explanation": "נחשב בזהירות את סדר הפעולות: חזקה קודמת לכפל.", "math_expression": "y = 2(9) - 36 + 10 = 18 - 36 + 10" },
-            { "verbal_explanation": "נסכם: 18 פחות 36 זה מינוס 18. מינוס 18 ועוד 10 זה מינוס 8.", "math_expression": "y = -8" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "במשולש גיאומטרי נתון קטע אמצעים. שטחו המלא של המשולש הקטן שנוצר למעלה עומד על סך של 12 סמ\"ר. מהו שיטחו המדויק של הטרפז התחתון שנכלא בתוך המשולש המקורי?",
+        options: [
+            "36", 
+            "48", 
+            "24", 
+            "12"
         ],
-        "final_answer": "(3, 8-)",
-        "options": ["(6, 10)", "(-3, 8)", "(3, -8)", "(2, 10)"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "יחס קטע האמצעים מביא לכך שיחס הדמיון הוא חצי ולכן יחס השטחים הוא רבע. המשולש הקטן הוא רבע משטח המשולש הענק, והטרפז מהווה את השארית.",
+        solution_steps: [
+            { verbal_explanation: "הסקת יחס הדמיון הקווי בין המשולש העליון למשולש הענק מתבססת על יחס קטע האמצעים.", math_expression: "\\displaystyle k = \\frac{1}{2}" },
+            { verbal_explanation: "העלאה בריבוע של היחס כדי לקבוע את הפער בשטחים.", math_expression: "\\displaystyle k^2 = \\frac{1}{4}" },
+            { verbal_explanation: "חישוב פרופורציונלי להוכחת שטחו של המשולש הענק שגדול פי ארבעה מזה הפנימי.", math_expression: "\\displaystyle \\text{Total} = 12 \\times 4 = 48" },
+            { verbal_explanation: "מציאת שטח הטרפז השאריתי בעזרת הפחתת החלק המשולש מתוך גודלה של המעטפת הכוללת.", math_expression: "\\displaystyle 48 - 12 = 36" }
+        ],
+        final_answer: "36"
     },
     {
-        "id": 51,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>שאלת תחומים:</strong> נתונה פרבולה <strong>y = -x² + 9</strong>. באילו ערכי x הפרבולה <strong>חיובית</strong>?",
-        "hint": "זו פרבולה 'בוכה' (a שלילי), לכן היא נראית כמו גבעה. הקודקוד הוא ב-x=0, y=9. איפה היא מעל ציר ה-x? בין נקודות האפס שלה.",
-        "solution_steps": [
-            { "verbal_explanation": "כדי למצוא תחומי חיוביות, נמצא תחילה את נקודות החיתוך עם ציר x (נקודות האפס).", "math_expression": "-x² + 9 = 0  =>  x² = 9  =>  x = ±3" },
-            { "verbal_explanation": "נשרטט בראש את הפרבולה. המקדם a הוא שלילי (-1), לכן זו פרבולה שפתוחה כלפי מטה (הר).", "math_expression": "פרבולה 'בוכה'" },
-            { "verbal_explanation": "הפרבולה חותכת את הקרקע במינוס 3 ובפלוס 3, ופסגת ההר נמצאת באוויר. כלומר, השטח החיובי (מעל הקרקע) כלוא בין שתי הנקודות הללו.", "math_expression": "בין -3 ל- 3" }
+        topic: "finalReviews",
+        subTopic: "פתרון מבחני מפמר מסכמים",
+        question_text: "עליכם לפשט במבחן את מבנה החזקות המעורבות הבא, ולהגיע לידי תוצאה מספרית מוחלטת ללא חזקות שאריתיות:\n$$ \\frac{3^5 \\times 3^4}{(3^2)^3} $$",
+        options: [
+            "27", 
+            "9", 
+            "81", 
+            "3"
         ],
-        "final_answer": "בין 3- ל-3 (-3 < x < 3)",
-        "options": ["x > 3 או x < -3", "בין -3 ל-3 (-3 < x < 3)", "כל x", "x > 0"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 52,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Low",
-        "question_text": "<strong>כתיב מדעי מבחן מסכם:</strong> בצעו את הכפל <strong>(2 * 10³) * (4 * 10⁵)</strong>",
-        "hint": "בכפל של כתיב מדעי, כופלים את המספרים בנפרד ומחברים את החזקות בנפרד.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בחוק החילוף של הכפל כדי לרכז את המקדמים לחוד ואת חזקות ה-10 לחוד.", "math_expression": "(2 * 4) * (10³ * 10⁵)" },
-            { "verbal_explanation": "נכפיל את המקדמים.", "math_expression": "2 * 4 = 8" },
-            { "verbal_explanation": "נכפיל את החזקות על ידי חיבור מעריכיהן (חוקי חזקות של בסיסים זהים).", "math_expression": "10^(3 + 5) = 10⁸" },
-            { "verbal_explanation": "נרכיב חזרה ונוודא שהתוצאה תקנית (8 נמצא בין 1 ל-10).", "math_expression": "8 * 10⁸" }
+        correctAnswer: 0,
+        hint: "במונה קיים כפל בסיסים זהים שדורש חיבור של מעריכים. במכנה חזקה על חזקה שדורשת כפל. ולבסוף הפעלת משפט חלוקת חזקות לחילוץ ערך סופי.",
+        solution_steps: [
+            { verbal_explanation: "איחוד שני איברי המונה למשפחת חזקה אחידה תוך הסתמכות על הכלל שמחבר מעריכים למכפלות מאותו הבסיס במדויק.", math_expression: "\\displaystyle 3^{5+4} = 3^9" },
+            { verbal_explanation: "פישוט חלק המכנה של השבר על ידי הכלל האומר שפעולת חזקה נוספת המופעלת על חזקה קיימת מצריכה כפל מעריכים.", math_expression: "\\displaystyle 3^{2 \\times 3} = 3^6" },
+            { verbal_explanation: "צמצום של המונה מול המכנה על ידי חיסור המעריך התחתון מהעליון.", math_expression: "\\displaystyle \\frac{3^9}{3^6} = 3^{9-6} = 3^3" },
+            { verbal_explanation: "חישוב של השארית המספרית למספר שלם ונקי מחזקות.", math_expression: "\\displaystyle 3 \\times 3 \\times 3 = 27" }
         ],
-        "final_answer": "8 * 10⁸",
-        "options": ["6 * 10¹⁵", "8 * 10¹⁵", "8 * 10⁸", "6 * 10⁸"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 53,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>שאלת חזקות מסכמת:</strong> פשטו את הביטוי: <strong>(x⁻³ * y²) / (x² * y⁻¹)</strong> והציגו אותו ללא חזקות שליליות.",
-        "hint": "חוק חילוק חזקות אומר: מעריך מונה פחות מעריך מכנה. ב-x זה מינוס 3 פחות 2. ב-y זה 2 פחות מינוס 1.",
-        "solution_steps": [
-            { "verbal_explanation": "נבצע פעולת חילוק לחזקות של x: נחסר מהמעריך העליון את התחתון.", "math_expression": "-3 - 2 = -5  =>  x⁻⁵" },
-            { "verbal_explanation": "נבצע חילוק לחזקות של y. היזהרו מהמינוסים: 2 פחות מינוס 1 הופך לחיבור.", "math_expression": "2 - (-1) = 2 + 1 = 3  =>  y³" },
-            { "verbal_explanation": "הביטוי הנוכחי הוא y³ כפול x⁻⁵.", "math_expression": "y³ * x⁻⁵" },
-            { "verbal_explanation": "כדי להפוך את המעריך השלילי של x לחיובי, נוריד אותו למכנה.", "math_expression": "y³ / x⁵" }
-        ],
-        "final_answer": "y³ / x⁵",
-        "options": ["x⁵ / y³", "y³ / x⁵", "1 / (x⁵y³)", "y / x"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 54,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>בעיה מילולית באחוזים:</strong> משכורתה של דינה הועלתה ב-10%. לאחר שנה, בשל קיצוצים, קוצצה משכורתה החדשה ב-10%. איך משכורתה הנוכחית יחסית למשכורתה <strong>המקורית</strong> לפני העלייה?",
-        "hint": "אל תגידו 'זה מתקזז'! הקיצוץ של 10% נעשה מתוך סכום גדול יותר, ולכן הוא פוגע יותר מאשר ההעלאה הראשונית שניתנה על סכום קטן. (1.1 כפול 0.9 = 0.99).",
-        "solution_steps": [
-            { "verbal_explanation": "נסמן את המשכורת ההתחלתית ב-x. העלאה של 10% אומרת כפל ב-1.10.", "math_expression": "משכורת שנייה = 1.1x" },
-            { "verbal_explanation": "קיצוץ של 10% אומר שכעת נשארים 90% מהמשכורת הקיימת. נכפיל את המשכורת השנייה ב-0.90.", "math_expression": "משכורת נוכחית = 0.9 * (1.1x)" },
-            { "verbal_explanation": "נבצע את ההכפלה: 0.9 כפול 1.1 נותן 0.99.", "math_expression": "0.99x" },
-            { "verbal_explanation": "המחיר הסופי הוא 96% מהמחיר המקורי. המשמעות היא שהמחיר הסופי זול יותר ב-4% מהמחיר שהיה בהתחלה." }
-        ],
-        "final_answer": "קטנה יותר",
-        "options": ["גדולה יותר", "שווה בדיוק", "קטנה יותר", "תלוי מה היה הסכום הראשוני"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 55,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>גיאומטריה אנליטית (שטח משולש מגרפים):</strong> נתונים הישרים <strong>y = 2x</strong> ו- <strong>y = -x + 6</strong>. שניהם יוצרים יחד עם ציר ה-x משולש. מהו <strong>שטח המשולש</strong>?",
-        "hint": "מצאו שלוש נקודות: חיתוך ישר א' עם ציר x. חיתוך ישר ב' עם ציר x (אלו ירכיבו את הבסיס). והחיתוך ביניהם (ה-y שלו יהיה הגובה).",
-        "solution_steps": [
-            { "verbal_explanation": "נמצא חיתוך של ישר א' (y=2x) עם ציר x (y=0). התוצאה היא ראשית הצירים (0,0).", "math_expression": "קודקוד 1: (0,0)" },
-            { "verbal_explanation": "נמצא חיתוך של ישר ב' (y=-x+6) עם ציר x (y=0). נעביר את ה-x ונקבל x=6.", "math_expression": "קודקוד 2: (6,0)" },
-            { "verbal_explanation": "אורך בסיס המשולש המונח על ציר ה-x הוא מ-0 ועד 6, כלומר 6 יחידות.", "math_expression": "בסיס = 6" },
-            { "verbal_explanation": "נמצא את קודקוד הראש (מפגש הישרים) כדי לקבל גובה. נשווה: 2x = -x + 6 -> 3x = 6 -> x = 2.", "math_expression": "מפגש ב- x=2" },
-            { "verbal_explanation": "נציב x=2 כדי למצוא את הגובה y של המפגש. y = 2(2) = 4.", "math_expression": "גובה (y) = 4" },
-            { "verbal_explanation": "נחשב שטח: בסיס (6) כפול גובה (4) חלקי 2.", "math_expression": "S = (6 * 4) / 2 = 12" }
-        ],
-        "final_answer": "12 יחידות שטח",
-        "options": ["24 יחידות שטח", "12 יחידות שטח", "6 יחידות שטח", "18 יחידות שטח"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 56,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>פרמטרים בפרבולה:</strong> נתונה הפרבולה <strong>y = x² + 4x + c</strong>. איזה מהערכים הבאים של c יגרום לכך שהפרבולה <strong>תשיק</strong> לציר ה-x (תהיה לה בדיוק נקודת חיתוך אחת)?",
-        "hint": "השקה קורית כשהדלתא שווה ל-0. פתרו את המשוואה: b² - 4ac = 0.",
-        "solution_steps": [
-            { "verbal_explanation": "תנאי להשקה לציר x (פתרון יחיד למשוואה הריבועית) הוא שהדיסקרימיננטה תתאפס.", "math_expression": "Δ = b² - 4ac = 0" },
-            { "verbal_explanation": "נציב את הפרמטרים הידועים מתוך התבנית (a=1, b=4).", "math_expression": "4² - 4 * 1 * c = 0" },
-            { "verbal_explanation": "נחשב ונסדר משוואה עבור c.", "math_expression": "16 - 4c = 0" },
-            { "verbal_explanation": "נעביר אגפים ונפתור.", "math_expression": "16 = 4c  / :4  =>  c = 4" },
-            { "verbal_explanation": "בדיקה: אם c=4, נקבל את הביטוי x²+4x+4 שהוא בדיוק הנוסחה המקוצרת ל-(x+2)² שקודקודו על הציר." }
-        ],
-        "final_answer": "c = 4",
-        "options": ["c = 0", "c = -4", "c = 16", "c = 4"],
-        "correctAnswer": 3
-    },
-    {
-        "id": 57,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>אלגברה מסכמת:</strong> פרקו את הביטוי הבא לגורמים בצורה המלאה ביותר (פירוק לקבוצות): <strong>xy + 3x + 2y + 6</strong>",
-        "hint": "קחו את שני האיברים הראשונים והוציאו מהם x. קחו את השניים האחרונים והוציאו מהם 2. ראו איזה קסם קורה.",
-        "solution_steps": [
-            { "verbal_explanation": "זהו תרגיל קלאסי של פירוק על ידי קבוצות. נחלק את ארבעת האיברים לשני זוגות.", "math_expression": "(xy + 3x) + (2y + 6)" },
-            { "verbal_explanation": "בזוג הראשון, הגורם המשותף הוא x. נוציא אותו.", "math_expression": "x(y + 3)" },
-            { "verbal_explanation": "בזוג השני, הגורם המשותף הוא המספר 2. נוציא אותו.", "math_expression": "+ 2(y + 3)" },
-            { "verbal_explanation": "כעת נוצר ביטוי בעל שני איברים גדולים שלשניהם יש גורם משותף זהה: הסוגריים (y+3).", "math_expression": "x(y + 3) + 2(y + 3)" },
-            { "verbal_explanation": "נוציא את (y+3) החוצה כגורם משותף חדש. השאריות (x ו-2) ירכיבו את הסוגריים השניים.", "math_expression": "(y + 3)(x + 2)" }
-        ],
-        "final_answer": "(y + 3)(x + 2)",
-        "options": ["(x + 3)(y + 2)", "x(y+3) + 2", "(y + 3)(x + 2)", "אי אפשר לפרק יותר מזה"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 58,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>נוסחאות כפל מקוצר:</strong> פתרו את התרגיל <strong>52 * 48</strong> בראש, בעזרת נוסחת 'הפרש ריבועים'.",
-        "hint": "חשבו על 52 בתור (50 ועוד 2) ועל 48 בתור (50 פחות 2). מה אומרת הנוסחה לגבי סכום כפול הפרש?",
-        "solution_steps": [
-            { "verbal_explanation": "נמיר את המספרים המסובכים לייצוג סביב המספר 'העגול' הקרוב אליהם, 50.", "math_expression": "52 = 50 + 2 | 48 = 50 - 2" },
-            { "verbal_explanation": "נרשום את התרגיל כמכפלה של שני סוגריים. נקבל בדיוק את התבנית (a+b)(a-b).", "math_expression": "(50 + 2)(50 - 2)" },
-            { "verbal_explanation": "לפי נוסחת 'הפרש ריבועים', התוצאה שווה לאיבר הראשון בריבוע פחות השני בריבוע.", "math_expression": "a² - b² = 50² - 2²" },
-            { "verbal_explanation": "נחשב את הריבועים. 50 כפול 50 זה 2500. 2 בריבוע זה 4.", "math_expression": "2500 - 4" },
-            { "verbal_explanation": "נחסר בקלות.", "math_expression": "2496" }
-        ],
-        "final_answer": "2496",
-        "options": ["2504", "2496", "2400", "2596"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 59,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "Medium",
-        "question_text": "<strong>הסתברות וטבלאות:</strong> בכיתה יש 40 תלמידים. 25 משחקים כדורגל, 15 משחקים כדורסל. ידוע שיש <strong>10 תלמידים שלא משחקים בשום ספורט</strong>. כמה תלמידים משחקים <strong>בשני הענפים גם יחד</strong>?",
-        "hint": "הוציאו את העצלנים (10) מהסך הכל. נשארו 30 שעושים ספורט. אבל כשמחברים כדורגל וכדורסל מקבלים 40! מאיפה הגיע העודף?",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב כמה תלמידים פעילים ספורטיבית יש בכיתה בסך הכל. נחסיר את הלא-פעילים מכלל הכיתה.", "math_expression": "40 (סה\"כ) - 10 (לא פעילים) = 30 פעילים" },
-            { "verbal_explanation": "נחבר את כמות השחקנים המדווחת בשני הענפים בנפרד.", "math_expression": "25 (כדורגל) + 15 (כדורסל) = 40 דיווחים" },
-            { "verbal_explanation": "יש לנו 40 דיווחים על ספורט, למרות שיש רק 30 ילדים פעילים. הפער נובע מתלמידים שספרנו פעמיים כי הם משחקים בשניהם.", "math_expression": "עודף = 40 - 30" },
-            { "verbal_explanation": "העודף (10) הוא בדיוק מספר הילדים המשחקים בשני הענפים (החיתוך בטבלה/בדיאגרמת ון)." }
-        ],
-        "final_answer": "10 תלמידים",
-        "options": ["0 תלמידים", "15 תלמידים", "5 תלמידים", "10 תלמידים"],
-        "correctAnswer": 3
-    },
-    {
-        "id": 60,
-        "subTopic": "פתרון מבחני מפמר מסכמים",
-        "difficulty": "High",
-        "question_text": "<strong>השאלת האולטימטיבית:</strong> גובה של משולש זהה ל<strong>מרחק הפיזי</strong> שבין קודקוד הפרבולה y = x² - 4x לבין ציר ה-x. בסיס המשולש זהה באורכו למרחק שבין שתי <strong>נקודות האפס</strong> של אותה פרבולה. מהו שטח המשולש?",
-        "hint": "הכל בפרבולה אחת! מצאו את האפסים (זה הבסיס). מצאו את הקודקוד וקחו את ה-y שלו (זה הגובה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: מציאת בסיס המשולש (נקודות אפס). נשווה את הפרבולה לאפס.", "math_expression": "x² - 4x = 0  =>  x(x - 4) = 0" },
-            { "verbal_explanation": "שלב 2: נקודות החיתוך הן ב-x=0 וב-x=4. המרחק ביניהן הוא 4. זהו אורך הבסיס.", "math_expression": "בסיס = 4" },
-            { "verbal_explanation": "שלב 3: מציאת גובה המשולש (מיקום הקודקוד). נמצא את x הקודקוד.", "math_expression": "x = -(-4)/2 = 2" },
-            { "verbal_explanation": "שלב 4: נציב x=2 במשוואה למציאת גובה הקודקוד (y).", "math_expression": "y = 2² - 4(2) = 4 - 8 = -4" },
-            { "verbal_explanation": "שלב 5: הקודקוד נמצא בעומק של מינוס 4. המרחק הפיזי (הגובה) הוא תמיד חיובי, לכן הגובה הוא 4 יחידות.", "math_expression": "גובה = 4" },
-            { "verbal_explanation": "שלב 6: נחשב שטח משולש עם בסיס 4 וגובה 4.", "math_expression": "S = (4 * 4) / 2 = 16 / 2 = 8" }
-        ],
-        "final_answer": "8 יחידות שטח",
-        "options": ["16 יחידות", "8 יחידות שטח", "4 יחידות", "32 יחידות"],
-        "correctAnswer": 1
+        final_answer: "27"
     }
+
 ];

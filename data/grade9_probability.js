@@ -1,962 +1,971 @@
+// ========================================================================
+// שכבת גיל: כיתה ט' | נושא: הסתברות (48 שאלות)
+// >>> גרסה 6 - רמה גבוהה, מתמטיקה טהורה ואיורי 3D סלקטיביים <<<
+// ========================================================================
+
+// ==========================================
+// מאגר איורי פרימיום 3D (16 איורים שונים)
+// ==========================================
+const wSvg = (svg) => `\n<div dir='ltr' style='display:block; text-align:center; margin-top:20px; clear:both;'><svg viewBox='0 0 200 120' width='200' height='120'><defs><filter id='sh' x='-20%' y='-20%' width='140%' height='140%'><feDropShadow dx='2' dy='4' stdDeviation='3' flood-opacity='0.2'/></filter><linearGradient id='gGold' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='#fde047'/><stop offset='100%' stop-color='#ca8a04'/></linearGradient><radialGradient id='rRed' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='#fca5a5'/><stop offset='100%' stop-color='#dc2626'/></radialGradient><radialGradient id='rBlue' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='#93c5fd'/><stop offset='100%' stop-color='#2563eb'/></radialGradient><radialGradient id='rGreen' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='#86efac'/><stop offset='100%' stop-color='#16a34a'/></radialGradient><radialGradient id='rDark' cx='30%' cy='30%' r='70%'><stop offset='0%' stop-color='#94a3b8'/><stop offset='100%' stop-color='#1e293b'/></radialGradient></defs>${svg}</svg></div>`;
+
+// תת נושא 1
+const svg1_coin = wSvg(`<circle cx='100' cy='60' r='40' fill='url(#gGold)' filter='url(#sh)'/><circle cx='100' cy='60' r='30' fill='none' stroke='#a16207' stroke-width='2' stroke-dasharray='4,2'/><text x='100' y='68' font-family='sans-serif' font-size='22' font-weight='bold' fill='#713f12' text-anchor='middle'>עץ</text>`);
+const svg1_dice = wSvg(`<rect x='40' y='30' width='50' height='50' rx='8' fill='url(#rRed)' filter='url(#sh)'/><circle cx='65' cy='55' r='5' fill='#fff'/><rect x='110' y='30' width='50' height='50' rx='8' fill='url(#rBlue)' filter='url(#sh)'/><circle cx='125' cy='45' r='5' fill='#fff'/><circle cx='145' cy='65' r='5' fill='#fff'/><circle cx='125' cy='65' r='5' fill='#fff'/><circle cx='145' cy='45' r='5' fill='#fff'/>`);
+const svg1_spinner = wSvg(`<g filter='url(#sh)'><circle cx='100' cy='60' r='45' fill='#fca5a5'/><path d='M100 60 L145 60 A45 45 0 0 0 100 15 Z' fill='#93c5fd'/><path d='M100 60 L100 15 A45 45 0 0 0 55 60 Z' fill='#86efac'/><path d='M100 60 L55 60 A45 45 0 0 0 100 105 Z' fill='#fde047'/><circle cx='100' cy='60' r='8' fill='#1e293b'/><polygon points='100,60 115,35 95,35' fill='#1e293b'/></g>`);
+const svg1_weather = wSvg(`<circle cx='80' cy='40' r='25' fill='url(#gGold)' filter='url(#sh)'/><path d='M70 70 A 20 20 0 0 1 110 50 A 25 25 0 0 1 155 65 A 15 15 0 0 1 150 90 L 75 90 A 15 15 0 0 1 70 70 Z' fill='#cbd5e1' filter='url(#sh)'/><path d='M90 95 L85 105 M110 95 L105 105 M130 95 L125 105' stroke='#3b82f6' stroke-width='3' stroke-linecap='round'/>`);
+
+// תת נושא 2
+const svg2_tree1 = wSvg(`<line x1='40' y1='60' x2='90' y2='25' stroke='#94a3b8' stroke-width='3'/><line x1='40' y1='60' x2='90' y2='95' stroke='#94a3b8' stroke-width='3'/><circle cx='40' cy='60' r='10' fill='url(#rDark)' filter='url(#sh)'/><circle cx='90' cy='25' r='10' fill='url(#rGreen)' filter='url(#sh)'/><circle cx='90' cy='95' r='10' fill='url(#rRed)' filter='url(#sh)'/><line x1='90' y1='25' x2='140' y2='10' stroke='#94a3b8' stroke-width='3'/><line x1='90' y1='25' x2='140' y2='40' stroke='#94a3b8' stroke-width='3'/><circle cx='140' cy='10' r='8' fill='url(#gGold)' filter='url(#sh)'/><circle cx='140' cy='40' r='8' fill='url(#gGold)' filter='url(#sh)'/>`);
+const svg2_tree2 = wSvg(`<line x1='40' y1='60' x2='90' y2='25' stroke='#94a3b8' stroke-width='3'/><line x1='40' y1='60' x2='90' y2='95' stroke='#94a3b8' stroke-width='3'/><circle cx='40' cy='60' r='10' fill='url(#rBlue)' filter='url(#sh)'/><circle cx='90' cy='25' r='10' fill='url(#gGold)' filter='url(#sh)'/><circle cx='90' cy='95' r='10' fill='url(#rDark)' filter='url(#sh)'/><line x1='90' y1='95' x2='140' y2='80' stroke='#94a3b8' stroke-width='3'/><line x1='90' y1='95' x2='140' y2='110' stroke='#94a3b8' stroke-width='3'/><circle cx='140' cy='80' r='8' fill='url(#rRed)' filter='url(#sh)'/><circle cx='140' cy='110' r='8' fill='url(#rRed)' filter='url(#sh)'/>`);
+const svg2_target = wSvg(`<circle cx='100' cy='60' r='50' fill='#ef4444' filter='url(#sh)'/><circle cx='100' cy='60' r='35' fill='#ffffff'/><circle cx='100' cy='60' r='20' fill='#ef4444'/><circle cx='100' cy='60' r='8' fill='#facc15'/><line x1='50' y1='60' x2='150' y2='60' stroke='#1e293b' stroke-width='1'/><line x1='100' y1='10' x2='100' y2='110' stroke='#1e293b' stroke-width='1'/>`);
+const svg2_factory = wSvg(`<rect x='50' y='50' width='100' height='50' fill='#94a3b8' filter='url(#sh)'/><rect x='60' y='30' width='20' height='20' fill='#64748b'/><rect x='120' y='30' width='20' height='20' fill='#64748b'/><polygon points='50,50 70,10 90,50' fill='#475569'/><polygon points='110,50 130,10 150,50' fill='#475569'/><rect x='70' y='70' width='20' height='30' fill='#1e293b'/>`);
+
+// תת נושא 3
+const svg3_table6x6 = wSvg(`<rect x='50' y='10' width='100' height='100' fill='#ffffff' stroke='#1e293b' stroke-width='2' filter='url(#sh)'/><line x1='50' y1='26.6' x2='150' y2='26.6' stroke='#cbd5e1' stroke-width='1'/><line x1='50' y1='43.3' x2='150' y2='43.3' stroke='#cbd5e1' stroke-width='1'/><line x1='50' y1='60' x2='150' y2='60' stroke='#cbd5e1' stroke-width='1'/><line x1='50' y1='76.6' x2='150' y2='76.6' stroke='#cbd5e1' stroke-width='1'/><line x1='50' y1='93.3' x2='150' y2='93.3' stroke='#cbd5e1' stroke-width='1'/><line x1='66.6' y1='10' x2='66.6' y2='110' stroke='#cbd5e1' stroke-width='1'/><line x1='83.3' y1='10' x2='83.3' y2='110' stroke='#cbd5e1' stroke-width='1'/><line x1='100' y1='10' x2='100' y2='110' stroke='#cbd5e1' stroke-width='1'/><line x1='116.6' y1='10' x2='116.6' y2='110' stroke='#cbd5e1' stroke-width='1'/><line x1='133.3' y1='10' x2='133.3' y2='110' stroke='#cbd5e1' stroke-width='1'/><polygon points='150,10 50,110 66.6,110 150,26.6' fill='#bfdbfe' opacity='0.5'/>`);
+const svg3_table4x4 = wSvg(`<rect x='60' y='20' width='80' height='80' fill='#ffffff' stroke='#1e293b' stroke-width='2' filter='url(#sh)'/><line x1='60' y1='40' x2='140' y2='40' stroke='#cbd5e1' stroke-width='1'/><line x1='60' y1='60' x2='140' y2='60' stroke='#cbd5e1' stroke-width='1'/><line x1='60' y1='80' x2='140' y2='80' stroke='#cbd5e1' stroke-width='1'/><line x1='80' y1='20' x2='80' y2='100' stroke='#cbd5e1' stroke-width='1'/><line x1='100' y1='20' x2='100' y2='100' stroke='#cbd5e1' stroke-width='1'/><line x1='120' y1='20' x2='120' y2='100' stroke='#cbd5e1' stroke-width='1'/><rect x='80' y='60' width='20' height='20' fill='#fca5a5' opacity='0.5'/><rect x='100' y='40' width='20' height='20' fill='#fca5a5' opacity='0.5'/>`);
+const svg3_table_blocks = wSvg(`<g filter='url(#sh)'><path d='M70 40 L100 25 L130 40 L100 55 Z' fill='#bfdbfe' stroke='#3b82f6'/><path d='M70 40 L70 70 L100 85 L100 55 Z' fill='#93c5fd' stroke='#3b82f6'/><path d='M130 40 L130 70 L100 85 L100 55 Z' fill='#60a5fa' stroke='#3b82f6'/></g>`);
+const svg3_axis = wSvg(`<line x1='40' y1='100' x2='160' y2='100' stroke='#1e293b' stroke-width='2'/><line x1='50' y1='110' x2='50' y2='20' stroke='#1e293b' stroke-width='2'/><polygon points='160,100 150,95 150,105' fill='#1e293b'/><polygon points='50,20 45,30 55,30' fill='#1e293b'/><circle cx='100' cy='60' r='4' fill='#ef4444'/><circle cx='120' cy='40' r='4' fill='#ef4444'/><circle cx='80' cy='80' r='4' fill='#ef4444'/>`);
+
+// תת נושא 4
+const svg4_urn_rb = wSvg(`<path d='M60 30 L140 30 L150 100 C150 110 140 115 100 115 C60 115 50 110 50 100 Z' fill='#f8fafc' stroke='#cbd5e1' stroke-width='3' filter='url(#sh)'/><ellipse cx='100' cy='30' rx='40' ry='10' fill='#e2e8f0' stroke='#94a3b8' stroke-width='2'/><circle cx='85' cy='95' r='12' fill='url(#rRed)'/><circle cx='115' cy='95' r='12' fill='url(#rBlue)'/><circle cx='100' cy='75' r='12' fill='url(#rRed)'/><circle cx='75' cy='65' r='12' fill='url(#rBlue)'/><circle cx='125' cy='65' r='12' fill='url(#rRed)'/>`);
+const svg4_urn_gy = wSvg(`<path d='M70 20 L130 20 L145 90 C145 100 130 105 100 105 C70 105 55 100 55 90 Z' fill='#fefce8' stroke='#fde047' stroke-width='3' filter='url(#sh)'/><ellipse cx='100' cy='20' rx='30' ry='8' fill='#fef08a' stroke='#facc15' stroke-width='2'/><circle cx='90' cy='85' r='10' fill='url(#rGreen)'/><circle cx='110' cy='85' r='10' fill='url(#gGold)'/><circle cx='100' cy='68' r='10' fill='url(#gGold)'/><circle cx='80' cy='60' r='10' fill='url(#rGreen)'/><circle cx='120' cy='60' r='10' fill='url(#rGreen)'/>`);
+const svg4_cards = wSvg(`<g filter='url(#sh)'><g transform='translate(60, 20) rotate(-15)'><rect x='0' y='0' width='40' height='60' fill='#fff' stroke='#cbd5e1' stroke-width='2' rx='3'/><text x='8' y='18' font-family='sans-serif' font-size='14' font-weight='bold' fill='#ef4444'>A</text></g><g transform='translate(90, 15) rotate(5)'><rect x='0' y='0' width='40' height='60' fill='#fff' stroke='#cbd5e1' stroke-width='2' rx='3'/><text x='8' y='18' font-family='sans-serif' font-size='14' font-weight='bold' fill='#1e293b'>K</text></g><g transform='translate(120, 30) rotate(20)'><rect x='0' y='0' width='40' height='60' fill='#fff' stroke='#cbd5e1' stroke-width='2' rx='3'/><text x='8' y='18' font-family='sans-serif' font-size='14' font-weight='bold' fill='#ef4444'>Q</text></g></g>`);
+const svg4_box = wSvg(`<rect x='50' y='40' width='100' height='60' fill='#d97706' filter='url(#sh)'/><polygon points='50,40 70,20 170,20 150,40' fill='#f59e0b'/><polygon points='150,40 170,20 170,80 150,100' fill='#b45309'/><circle cx='80' cy='70' r='8' fill='url(#rBlue)'/><circle cx='100' cy='80' r='8' fill='url(#rRed)'/><circle cx='120' cy='65' r='8' fill='url(#rDark)'/>`);
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: הסתברות במאורע דו-שלבי (15 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: הסתברות במאורע דו-שלבי (בלתי תלוי)
+    // ==========================================================
+    
+    // 1-4 עם איורים
     {
-        "id": 1,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Low",
-        "question_text": "מטילים שני מטבעות הוגנים זה אחר זה. מהי ההסתברות לקבל <strong>'עץ' במטבע הראשון וגם 'עץ' במטבע השני</strong>?",
-        "hint": "במאורעות בלתי תלויים, כאשר מבקשים שהתרחשו גם מאורע א' וגם מאורע ב', כופלים את ההסתברויות שלהם זו בזו.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את ההסתברות להצלחה בשלב הראשון (המטבע הראשון). למטבע שני צדדים, ולכן הסיכוי ל'עץ' הוא חצי.", "math_expression": "P(עץ 1) = 1/2" },
-            { "verbal_explanation": "נחשב את ההסתברות להצלחה בשלב השני. המטבע השני אינו מושפע מהראשון, ולכן הסיכוי נשאר חצי.", "math_expression": "P(עץ 2) = 1/2" },
-            { "verbal_explanation": "נשתמש ב'כלל הכפל' (כלל ה'וגם') עבור מאורעות בלתי תלויים: ההסתברות ששניהם יקרו היא מכפלת ההסתברויות.", "math_expression": "P(עץ וגם עץ) = (1/2) * (1/2)" },
-            { "verbal_explanation": "נחשב את המכפלה: מונה כפול מונה, מכנה כפול מכנה.", "math_expression": "1 * 1 = 1 , 2 * 2 = 4  =>  1/4" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "זורקים מטבע הוגן פעמיים ברצף. מה ההסתברות שיתקבל עץ גם בזריקה הראשונה וגם בזריקה השנייה?" + svg1_coin,
+        options: [
+            "\\frac{1}{4}", 
+            "\\frac{1}{2}", 
+            "\\frac{1}{3}", 
+            "\\frac{3}{4}"
         ],
-        "final_answer": "1/4",
-        "options": ["1/2", "1/4", "1/3", "1/8"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "ההסתברות לעץ בהטלה אחת היא חצי. כיוון שההטלות בלתי תלויות, כופלים את ההסתברויות.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לקבל עץ בהטלה הראשונה.", math_expression: "\\frac{1}{2}" },
+            { verbal_explanation: "ההסתברות לקבל עץ בהטלה השנייה.", math_expression: "\\frac{1}{2}" },
+            { verbal_explanation: "כפל הסתברויות של מאורעות בלתי תלויים.", math_expression: "\\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}" }
+        ],
+        final_answer: "\\frac{1}{4}"
     },
     {
-        "id": 2,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Low",
-        "question_text": "זורקים שתי קוביות משחק הוגנות (בעלות 6 פאות כל אחת). מהי ההסתברות לקבל את המספר <strong>6 בשתי הקוביות</strong> ('דאבל 6')?",
-        "hint": "מה ההסתברות ל-6 בקובייה הראשונה? ומה ההסתברות בשנייה? כפלו את התוצאות.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את ההסתברות של השלב הראשון. בקובייה יש 6 פאות, רק אחת מהן היא הספרה 6.", "math_expression": "P(קובייה ראשונה = 6) = 1/6" },
-            { "verbal_explanation": "נגדיר את ההסתברות של השלב השני. שוב, קובייה בלתי תלויה עם סיכוי זהה.", "math_expression": "P(קובייה שנייה = 6) = 1/6" },
-            { "verbal_explanation": "נפעיל את כלל הכפל הדורש קיום של שני התנאים במקביל.", "math_expression": "P(6 וגם 6) = (1/6) * (1/6)" },
-            { "verbal_explanation": "נחשב את המכפלה.", "math_expression": "1/36" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "מטילים שתי קוביות משחק הוגנות. מה ההסתברות שעל הקובייה הראשונה יתקבל המספר 3 ועל השנייה יתקבל מספר זוגי?" + svg1_dice,
+        options: [
+            "\\frac{1}{12}", 
+            "\\frac{1}{6}", 
+            "\\frac{1}{4}", 
+            "\\frac{1}{18}"
         ],
-        "final_answer": "1/36",
-        "options": ["2/6", "1/12", "1/36", "1/6"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "חשבו את ההסתברות לכל קובייה בנפרד (מספר זוגי זה 3 אפשרויות מתוך 6) והכפילו.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לספרה שלוש בקובייה הראשונה.", math_expression: "\\frac{1}{6}" },
+            { verbal_explanation: "ההסתברות למספר זוגי בקובייה השנייה (לאחר צמצום של שלוש שישיות).", math_expression: "\\frac{1}{2}" },
+            { verbal_explanation: "נכפיל את שתי ההסתברויות.", math_expression: "\\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12}" }
+        ],
+        final_answer: "\\frac{1}{12}"
     },
     {
-        "id": 3,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Medium",
-        "question_text": "מטילים מטבע וזורקים קוביית משחק. מהי ההסתברות לקבל <strong>'פלי' במטבע</strong> וגם <strong>מספר זוגי בקובייה</strong>?",
-        "hint": "חשבו כל מאורע בנפרד. כמה מספרים זוגיים יש בקובייה (2, 4, 6)? לאחר מכן הכפילו את השברים וצמצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את הסתברות המטבע לקבל 'פלי'.", "math_expression": "P(פלי) = 1/2" },
-            { "verbal_explanation": "נבחן את הקובייה. פאות זוגיות הן 2, 4, 6 (סה\"כ 3 פאות מתוך 6). לכן ההסתברות למספר זוגי היא 3/6, שזה בדיוק חצי.", "math_expression": "P(זוגי) = 3/6 = 1/2" },
-            { "verbal_explanation": "נכפיל את שתי ההסתברויות לפי כלל הכפל.", "math_expression": "P(הצלחה בשניהם) = (1/2) * (1/2) = 1/4" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "מסובבים סביבון הוגן המחולק לארבע גזרות שוות פעמיים ברציפות. גזרה אחת בלבד צבועה באדום. מה ההסתברות שהסביבון ייעצר על אדום בשתי הפעמים?" + svg1_spinner,
+        options: [
+            "\\frac{1}{16}", 
+            "\\frac{1}{8}", 
+            "\\frac{1}{4}", 
+            "\\frac{2}{16}"
         ],
-        "final_answer": "1/4",
-        "options": ["1/6", "1/4", "1/8", "1/2"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "ההסתברות לאדום בסיבוב יחיד היא רבע.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לאדום בסיבוב הראשון.", math_expression: "\\frac{1}{4}" },
+            { verbal_explanation: "ההסתברות לאדום בסיבוב השני.", math_expression: "\\frac{1}{4}" },
+            { verbal_explanation: "נכפיל את ההסתברויות.", math_expression: "\\frac{1}{4} \\times \\frac{1}{4} = \\frac{1}{16}" }
+        ],
+        final_answer: "\\frac{1}{16}"
     },
     {
-        "id": 4,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Medium",
-        "question_text": "כלל 'החיבור' בהסתברות אומר שכאשר אנו מחפשים את הסיכוי שיתרחש <strong>מאורע א' או מאורע ב'</strong> (מאורעות זרים שלא יכולים לקרות יחד), אנו:",
-        "hint": "המילה 'או' בשאלות הסתברות מתורגמת כמעט תמיד לפעולה חשבונית ספציפית.",
-        "solution_steps": [
-            { "verbal_explanation": "בעוד המילה 'וגם' מתורגמת לפעולת כפל, המילה 'או' פותחת לנו אפשרויות נוספות להצלחה ולכן מגדילה את הסיכוי.", "math_expression": "'וגם' = כפל" },
-            { "verbal_explanation": "לכן, כאשר נתון שמאורעות אינם תלויים ואינם חופפים, חיפוש של מאורע א' *או* ב' מתורגם לפעולת חיבור.", "math_expression": "'או' = חיבור" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "לפי התחזית, ההסתברות לגשם ביום שני היא שליש. ההסתברות לגשם ביום שלישי היא רבע. בהנחה שהימים בלתי תלויים, מה ההסתברות שיירד גשם בשני הימים ברצף?" + svg1_weather,
+        options: [
+            "\\frac{1}{12}", 
+            "\\frac{1}{7}", 
+            "\\frac{2}{12}", 
+            "\\frac{1}{6}"
         ],
-        "final_answer": "מחברים את ההסתברויות שלהם.",
-        "options": ["כופלים את ההסתברויות שלהם.", "מחסרים את ההסתברויות שלהם.", "מחברים את ההסתברויות שלהם.", "ממצעים את ההסתברויות שלהם."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "כפל הסתברויות בסיסי של מאורעות רצופים.",
+        solution_steps: [
+            { verbal_explanation: "הסתברות לגשם ביום שני.", math_expression: "\\frac{1}{3}" },
+            { verbal_explanation: "הסתברות לגשם ביום שלישי.", math_expression: "\\frac{1}{4}" },
+            { verbal_explanation: "מכפלת ההסתברויות.", math_expression: "\\frac{1}{3} \\times \\frac{1}{4} = \\frac{1}{12}" }
+        ],
+        final_answer: "\\frac{1}{12}"
+    },
+    // 5-12 ללא איורים
+    {
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "זורקים שתי קוביות משחק הוגנות. מה ההסתברות שעל שתיהן יתקבל בדיוק המספר 5?",
+        options: [
+            "\\frac{1}{36}", 
+            "\\frac{1}{18}", 
+            "\\frac{2}{6}", 
+            "\\frac{1}{12}"
+        ],
+        correctAnswer: 0,
+        hint: "ההסתברות לחמש בקובייה אחת היא שישית.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לחמש בראשונה.", math_expression: "\\frac{1}{6}" },
+            { verbal_explanation: "ההסתברות לחמש בשנייה.", math_expression: "\\frac{1}{6}" },
+            { verbal_explanation: "נכפיל להתרחשות משותפת.", math_expression: "\\frac{1}{6} \\times \\frac{1}{6} = \\frac{1}{36}" }
+        ],
+        final_answer: "\\frac{1}{36}"
     },
     {
-        "id": 5,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "High",
-        "question_text": "זורקים שתי קוביות משחק. מהי ההסתברות שסכום המספרים שיראו שתי הקוביות יהיה בדיוק <strong>7</strong>?",
-        "hint": "רשמו את כל הזוגות האפשריים שנותנים 7: (1,6), (2,5)... שימו לב ש-(1,6) ו-(6,1) נחשבים כשני אירועים שונים במרחב המדגם!",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את סך כל התוצאות האפשריות בהטלת שתי קוביות. קובייה א' (6) כפול קובייה ב' (6).", "math_expression": "סך הכל תוצאות = 36" },
-            { "verbal_explanation": "נרשום בצורה שיטתית את כל הזוגות (קובייה א', קובייה ב') שסכומם הוא 7.", "math_expression": "זוגות: (1,6), (2,5), (3,4)" },
-            { "verbal_explanation": "נוסיף את הזוגות ההפוכים (שכן כל קובייה היא עצמאית).", "math_expression": "זוגות הפוכים: (6,1), (5,2), (4,3)" },
-            { "verbal_explanation": "נספור את מספר ה'הצלחות'. מצאנו 6 זוגות מנצחים.", "math_expression": "רצוי = 6" },
-            { "verbal_explanation": "נבנה את שבר ההסתברות ונצמצם אותו: 6 הצלחות מתוך 36 אפשרויות.", "math_expression": "P = 6/36 = 1/6" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "בתוך כד שמונה כדורים: חמישה שחורים ושלושה לבנים. דני שולף כדור, מחזיר אותו לכד, ושולף כדור נוסף. מה ההסתברות שישלוף כדור לבן בשתי הפעמים?",
+        options: [
+            "\\frac{9}{64}", 
+            "\\frac{3}{8}", 
+            "\\frac{6}{64}", 
+            "\\frac{9}{56}"
         ],
-        "final_answer": "1/6",
-        "options": ["1/7", "1/6", "1/12", "7/36"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "הוצאה עם החזרה אומרת שההסתברות בשליפה השנייה נשארת זהה לראשונה.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות ללבן בשליפה הראשונה (שלושה מתוך שמונה).", math_expression: "\\frac{3}{8}" },
+            { verbal_explanation: "ההסתברות ללבן בשליפה השנייה.", math_expression: "\\frac{3}{8}" },
+            { verbal_explanation: "נכפיל את השברים.", math_expression: "\\frac{3}{8} \\times \\frac{3}{8} = \\frac{9}{64}" }
+        ],
+        final_answer: "\\frac{9}{64}"
     },
     {
-        "id": 6,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "High",
-        "question_text": "זורקים שתי קוביות משחק. מהי ההסתברות ש<strong>מכפלת</strong> המספרים שתתקבל תהיה בדיוק <strong>12</strong>?",
-        "hint": "אילו מספרים בלוח הכפל שבין 1 ל-6 נותנים 12 כשכופלים אותם? זכרו לספור כל צירוף פעמיים (למשל גם 3*4 וגם 4*3).",
-        "solution_steps": [
-            { "verbal_explanation": "מרחב המדגם לשתי קוביות נשאר קבוע. 6 כפול 6 אפשרויות.", "math_expression": "סך הכל אפשרויות = 36" },
-            { "verbal_explanation": "נחפש גורמים שמכפלתם 12 בטווח של פאות הקובייה (1 עד 6). האפשרויות הן 2 כפול 6, ו-3 כפול 4.", "math_expression": "אפשרויות כפל: 2*6, 3*4" },
-            { "verbal_explanation": "נרשום את הזוגות הסדורים. קובייה א'=2 וקובייה ב'=6, או להיפך. קובייה א'=3 וקובייה ב'=4, או להיפך.", "math_expression": "הצלחות: (2,6), (6,2), (3,4), (4,3)" },
-            { "verbal_explanation": "ספרנו 4 זוגות מנצחים מתוך 36. ניצור שבר ונצמצם ב-4.", "math_expression": "P = 4/36 = 1/9" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "במפעל שני פסי ייצור. פס א' מייצר רכיב פגום בהסתברות של עשירית. פס ב' מייצר פגום בהסתברות של חמישית. דוגמים רכיב מכל פס. מה ההסתברות ששני הרכיבים תקינים?",
+        options: [
+            "\\frac{18}{25}", 
+            "\\frac{9}{50}", 
+            "\\frac{7}{10}", 
+            "\\frac{4}{25}"
         ],
-        "final_answer": "1/9",
-        "options": ["1/12", "4/12", "1/9", "1/18"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "חשבו את ההסתברות לתקין בכל פס (המשלים לאחד) והכפילו.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לרכיב תקין בפס א' (המשלים לעשירית).", math_expression: "\\frac{9}{10}" },
+            { verbal_explanation: "ההסתברות לרכיב תקין בפס ב' (המשלים לחמישית).", math_expression: "\\frac{4}{5}" },
+            { verbal_explanation: "נכפיל את ההסתברויות.", math_expression: "\\frac{9}{10} \\times \\frac{4}{5} = \\frac{36}{50}" },
+            { verbal_explanation: "נצמצם את השבר בחלוקה לשתיים.", math_expression: "\\frac{18}{25}" }
+        ],
+        final_answer: "\\frac{18}{25}"
     },
     {
-        "id": 7,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Medium",
-        "question_text": "מטילים שני מטבעות. מהי ההסתברות שייצא <strong>בדיוק פעם אחת 'עץ'</strong>?",
-        "hint": "הבקשה 'בדיוק פעם אחת עץ' אומרת שמטבע אחד חייב להיות עץ והשני חובה שיהיה פלי. אילו צירופים עונים על כך?",
-        "solution_steps": [
-            { "verbal_explanation": "נרשום את כל מרחב המדגם של הטלת שני מטבעות. יש 4 אופציות.", "math_expression": "(עץ, עץ), (עץ, פלי), (פלי, עץ), (פלי, פלי)" },
-            { "verbal_explanation": "אנו צריכים שיהיה 'עץ' אחד בלבד. נבחן את האופציות: (עץ, עץ) נפסל כי יש שניים. (פלי, פלי) נפסל כי אין בכלל.", "math_expression": "פסילת לא מתאימים" },
-            { "verbal_explanation": "האופציות התקינות הן: קודם 'עץ' ואז 'פלי', או קודם 'פלי' ואז 'עץ'. סך הכל 2 הצלחות.", "math_expression": "(עץ, פלי) או (פלי, עץ)" },
-            { "verbal_explanation": "נחשב: 2 הצלחות מתוך 4 אפשרויות נותנות הסתברות של 2/4 שהם חצי.", "math_expression": "P = 2/4 = 1/2" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "קשת יורה למטרה. ההסתברות שיפגע במרכז היא שבע עשיריות. הוא יורה שתי יריות. מה ההסתברות שיחטיא את המרכז בדיוק בירייה אחת מתוך השתיים?",
+        options: [
+            "\\frac{21}{50}", 
+            "\\frac{42}{100}", 
+            "\\frac{9}{100}", 
+            "\\frac{49}{100}"
         ],
-        "final_answer": "1/2",
-        "options": ["1/4", "1/2", "3/4", "1/3"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "ישנם שני תרחישים רלוונטיים: (פגע ואז החטיא) או (החטיא ואז פגע). חיברו את שניהם.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות להחטיא היא המשלים לשבע עשיריות.", math_expression: "\\frac{3}{10}" },
+            { verbal_explanation: "מסלול ראשון: פגע ואז החטיא.", math_expression: "\\frac{7}{10} \\times \\frac{3}{10} = \\frac{21}{100}" },
+            { verbal_explanation: "המסלול השני (החטיא ואז פגע) נותן תוצאה זהה. נחבר את שניהם.", math_expression: "\\frac{21}{100} + \\frac{21}{100} = \\frac{42}{100}" },
+            { verbal_explanation: "נצמצם בחלוקה לשתיים.", math_expression: "\\frac{21}{50}" }
+        ],
+        final_answer: "\\frac{21}{50}"
     },
     {
-        "id": 8,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "High",
-        "question_text": "זורקים שתי קוביות משחק. מהי ההסתברות שיתקבל 'דאבל' (שני מספרים זהים כמו 1-1, 2-2 וכו')?",
-        "hint": "כמה אפשרויות יש לדאבל? יש אחד כזה עבור כל ספרה מ-1 עד 6.",
-        "solution_steps": [
-            { "verbal_explanation": "מרחב המדגם המלא להטלת שתי קוביות הוא 36.", "math_expression": "סך הכל אפשרויות = 36" },
-            { "verbal_explanation": "נרשום את כל הזוגות המהווים 'דאבל'. יש לנו 6 זוגות כאלו.", "math_expression": "דאבלים: (1,1), (2,2), (3,3), (4,4), (5,5), (6,6)" },
-            { "verbal_explanation": "ניצור שבר: 6 הצלחות מתוך 36 אפשרויות. נצמצם את השבר ב-6.", "math_expression": "P = 6/36 = 1/6" },
-            { "verbal_explanation": "דרך מחשבה חלופית: לא משנה מה יצא בקובייה הראשונה (סיכוי 1). כדי שיהיה דאבל, הקובייה השנייה חייבת להראות בדיוק את אותו מספר שיצא בראשונה (סיכוי 1/6). 1 כפול 1/6 שווה 1/6." }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "זורקים שתי קוביות משחק. מה ההסתברות שלפחות קובייה אחת תראה את המספר 6?",
+        options: [
+            "\\frac{11}{36}", 
+            "\\frac{1}{36}", 
+            "\\frac{10}{36}", 
+            "\\frac{25}{36}"
         ],
-        "final_answer": "1/6",
-        "options": ["1/12", "1/36", "1/6", "2/6"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "במקום לחבר הרבה מקרים, מצאו את ההסתברות שאף קובייה לא תראה 6, וחסרו מ-1.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות שקובייה בודדת לא תראה שש היא חמש שישיות.", math_expression: "\\frac{5}{6}" },
+            { verbal_explanation: "ההסתברות ששתי הקוביות לא יראו שש.", math_expression: "\\frac{5}{6} \\times \\frac{5}{6} = \\frac{25}{36}" },
+            { verbal_explanation: "ההסתברות שלפחות אחת תראה שש היא השלם פחות המאורע המשלים.", math_expression: "1 - \\frac{25}{36} = \\frac{11}{36}" }
+        ],
+        final_answer: "\\frac{11}{36}"
     },
     {
-        "id": 9,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "High",
-        "question_text": "המושג <strong>'מאורע משלים'</strong> יכול לחסוך עבודה קשה. מטילים 2 קוביות. מהי ההסתברות לקבל <strong>לפחות פעם אחת</strong> את הספרה 6?",
-        "hint": "לחשב את כל האופציות ל-6 זה ארוך. קל יותר לחשב את ההסתברות ההפוכה (המשלימה): 'אף פעם לא יוצא 6', ואז לחסר זאת מ-1 שלם (100%).",
-        "solution_steps": [
-            { "verbal_explanation": "במקום לספור את כל הזוגות שיש בהם 6, נחשב את המאורע המשלים: 'בשתי הקוביות לא התקבל המספר 6 כלל'.", "math_expression": "מאורע משלים: אף 6" },
-            { "verbal_explanation": "ההסתברות שלא ייצא 6 בקובייה בודדת היא 5/6 (כל חמש הספרות האחרות).", "math_expression": "P(לא 6) = 5/6" },
-            { "verbal_explanation": "ההסתברות שגם בראשונה לא ייצא 6 וגם בשנייה לא ייצא 6 היא המכפלה שלהם.", "math_expression": "P(אף 6) = (5/6) * (5/6) = 25/36" },
-            { "verbal_explanation": "מאחר ש-25 פעמים מתוך 36 לא יצא 6 בכלל, בכל שאר 11 הפעמים הנותרות חייב היה לצאת לפחות 6 אחד. נחשב: 1 שלם פחות 25/36.", "math_expression": "1 - 25/36 = 11/36" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "מטילים שלוש קוביות משחק הוגנות בבת אחת. מה ההסתברות שכל שלוש הקוביות יראו את אותו המספר בדיוק (למשל 2-2-2)?",
+        options: [
+            "\\frac{1}{36}", 
+            "\\frac{1}{216}", 
+            "\\frac{1}{18}", 
+            "\\frac{1}{72}"
         ],
-        "final_answer": "11/36",
-        "options": ["12/36", "10/36", "11/36", "2/6"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הקובייה הראשונה יכולה להיות כל מספר. הקוביות הבאות חייבות להראות את אותו המספר שהראתה הראשונה.",
+        solution_steps: [
+            { verbal_explanation: "הקובייה הראשונה מראה מספר כלשהו (הסתברות ודאית של אחד).", math_expression: "1" },
+            { verbal_explanation: "הקובייה השנייה חייבת להתאים לראשונה.", math_expression: "\\frac{1}{6}" },
+            { verbal_explanation: "הקובייה השלישית חייבת גם היא להתאים.", math_expression: "\\frac{1}{6}" },
+            { verbal_explanation: "נכפיל הכל.", math_expression: "1 \\times \\frac{1}{6} \\times \\frac{1}{6} = \\frac{1}{36}" }
+        ],
+        final_answer: "\\frac{1}{36}"
     },
     {
-        "id": 10,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Low",
-        "question_text": "רולטה צבעונית מחולקת ל-4 רבעים שווים בגודלם: 2 אדומים, 1 כחול ו-1 ירוק. מסובבים אותה פעמיים. מהי ההסתברות שהיא תעצור על <strong>כחול בסיבוב הראשון, וירוק בסיבוב השני</strong>?",
-        "hint": "ההסתברות לכחול היא 1 מתוך 4. ההסתברות לירוק היא 1 מתוך 4. הפעילו את כלל הכפל.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את הסיכוי לכחול בסיבוב הראשון. רבע אחד מתוך 4 רבעים בסך הכל.", "math_expression": "P(כחול) = 1/4" },
-            { "verbal_explanation": "הסיבוב השני בלתי תלוי. נחשב את הסיכוי לירוק בסיבוב זה. רבע אחד מתוך 4 רבעים.", "math_expression": "P(ירוק) = 1/4" },
-            { "verbal_explanation": "נשתמש בכלל ה'וגם' ונכפיל את שתי ההסתברויות כדי למצוא את הסיכוי לרצף הספציפי הזה.", "math_expression": "P(כחול וגם ירוק) = (1/4) * (1/4)" },
-            { "verbal_explanation": "נחשב (מונה במונה, מכנה במכנה).", "math_expression": "1/16" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "בחפיסת קלפים יש 52 קלפים, 13 מתוכם מסוג תלתן. שולפים קלף, מחזירים אותו, ושולפים קלף נוסף. מה ההסתברות שבשתי הפעמים לא נשלף קלף מסוג תלתן?",
+        options: [
+            "\\frac{9}{16}", 
+            "\\frac{1}{16}", 
+            "\\frac{3}{8}", 
+            "\\frac{7}{16}"
         ],
-        "final_answer": "1/16",
-        "options": ["2/4", "1/8", "2/16", "1/16"],
-        "correctAnswer": 3
+        correctAnswer: 0,
+        hint: "ההסתברות לשלוף תלתן היא 13 חלקי 52, שזה רבע. לכן ההסתברות לא לשלוף תלתן היא המשלים.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לקלף שאינו תלתן היא שלושה רבעים.", math_expression: "\\frac{3}{4}" },
+            { verbal_explanation: "מכיוון שהקלף הוחזר, ההסתברות נשארת זהה בשליפה השנייה.", math_expression: "\\frac{3}{4}" },
+            { verbal_explanation: "נכפיל את שתי ההסתברויות.", math_expression: "\\frac{3}{4} \\times \\frac{3}{4} = \\frac{9}{16}" }
+        ],
+        final_answer: "\\frac{9}{16}"
     },
     {
-        "id": 11,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Medium",
-        "question_text": "כד מכיל 3 כדורים שחורים ו-2 כדורים לבנים. מוציאים כדור, רושמים את צבעו, ו<strong>מחזירים אותו לכד</strong>. לאחר מכן מוציאים כדור שני. מהי ההסתברות ש<strong>שני הכדורים יהיו שחורים</strong>?",
-        "hint": "מכיוון שהכדור מוחזר לכד, כמות הכדורים לא משתנה בין השלבים. חשבו 3/5 לשלב הראשון, וכפלו בסיכוי של השלב השני (שהוא זהה לחלוטין).",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את המצב ההתחלתי. בכד יש בסך הכל 5 כדורים, מתוכם 3 שחורים. הסיכוי לשחור בהוצאה הראשונה הוא 3 מתוך 5.", "math_expression": "P(שחור 1) = 3/5" },
-            { "verbal_explanation": "משפט המפתח: 'מחזירים אותו לכד'. כלומר, לקראת ההוצאה השנייה, הכד חזר בדיוק למצבו המקורי (5 כדורים, 3 שחורים).", "math_expression": "הוצאה עם החזרה = תנאים זהים" },
-            { "verbal_explanation": "לכן, הסיכוי לשחור גם בהוצאה השנייה הוא שוב 3 מתוך 5.", "math_expression": "P(שחור 2) = 3/5" },
-            { "verbal_explanation": "נכפיל את ההסתברויות (כלל וגם).", "math_expression": "P(שחור וגם שחור) = (3/5) * (3/5) = 9/25" }
+        topic: "probability",
+        subTopic: "הסתברות במאורע דו-שלבי",
+        question_text: "שחקן מטיל מטבע הוגן 3 פעמים. מה ההסתברות שיקבל בדיוק פעמיים 'עץ' ופעם אחת 'פלי' (ללא חשיבות לסדר)?",
+        options: [
+            "\\frac{3}{8}", 
+            "\\frac{1}{8}", 
+            "\\frac{1}{4}", 
+            "\\frac{1}{2}"
         ],
-        "final_answer": "9/25",
-        "options": ["6/10", "9/25", "6/25", "3/5"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 12,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "High",
-        "question_text": "מטילים 3 מטבעות ברצף. מהי ההסתברות שייצאו <strong>שלושתם 'פלי'</strong>?",
-        "hint": "מרחיבים את כלל הכפל ל-3 שלבים. פלי (1/2) וגם פלי (1/2) וגם פלי (1/2).",
-        "solution_steps": [
-            { "verbal_explanation": "הסיכוי לקבל פלי במטבע הראשון הוא חצי.", "math_expression": "P(פלי 1) = 1/2" },
-            { "verbal_explanation": "הסיכוי לקבל פלי במטבע השני הוא חצי.", "math_expression": "P(פלי 2) = 1/2" },
-            { "verbal_explanation": "הסיכוי לקבל פלי במטבע השלישי הוא חצי.", "math_expression": "P(פלי 3) = 1/2" },
-            { "verbal_explanation": "נכפיל את כל שלוש ההסתברויות זו בזו, כי אנו דורשים שהן יתרחשו כולן יחד ברצף.", "math_expression": "P(הכל פלי) = (1/2) * (1/2) * (1/2) = 1/8" }
+        correctAnswer: 0,
+        hint: "יש 3 מסלולים אפשריים שעונים לתנאי (עץ-עץ-פלי, עץ-פלי-עץ, פלי-עץ-עץ).",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לכל רצף ספציפי של שלוש הטלות היא שמינית.", math_expression: "\\frac{1}{2} \\times \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{8}" },
+            { verbal_explanation: "כיוון שישנם שלושה מסלולים שונים שמובילים לתוצאה המבוקשת, נחבר אותם.", math_expression: "\\frac{1}{8} + \\frac{1}{8} + \\frac{1}{8} = \\frac{3}{8}" }
         ],
-        "final_answer": "1/8",
-        "options": ["1/6", "3/2", "1/8", "1/3"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 13,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Medium",
-        "question_text": "שק מכיל 4 פתקים כחולים ופתק אחד אדום. שלפנו פתק (עם החזרה) ושוב שלפנו פתק. מה ההסתברות ש<strong>בשתי הפעמים שלפנו פתק כחול</strong>?",
-        "hint": "כמה פתקים יש בסך הכל בשק בתחילת הניסוי? (5). הסיכוי לכחול הוא 4/5. כפלו 4/5 בעצמו.",
-        "solution_steps": [
-            { "verbal_explanation": "נבדוק את כמות הפתקים הכללית. 4 כחולים ועוד 1 אדום, סך הכל 5 פתקים. הסיכוי להוציא כחול הוא 4/5.", "math_expression": "P(כחול 1) = 4/5" },
-            { "verbal_explanation": "מכיוון שהייתה החזרה, השק נשאר זהה בשליפה השנייה. הסיכוי נשאר 4/5.", "math_expression": "P(כחול 2) = 4/5" },
-            { "verbal_explanation": "נכפיל את שני השברים לקבלת ההסתברות המשותפת.", "math_expression": "(4/5) * (4/5) = 16/25" }
-        ],
-        "final_answer": "16/25",
-        "options": ["8/10", "16/25", "8/25", "1/5"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 14,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "Low",
-        "question_text": "מתי אנו אומרים ששני מאורעות הם <strong>בלתי תלויים</strong> בהסתברות?",
-        "hint": "חישבו על הטלת שתי קוביות. האם התוצאה שיצאה בקובייה א' משפיעה או משנה את הסיכויים של מה שייצא בקובייה ב'?",
-        "solution_steps": [
-            { "verbal_explanation": "המונח 'בלתי תלויים' מתאר מצב שבו התרחשותו של אירוע אחד (למשל, שיצא 6 בקובייה הראשונה) אינה משפיעה, אינה משנה ואינה משפרת את הסיכויים של האירוע השני.", "math_expression": "חוסר השפעה" },
-            { "verbal_explanation": "דוגמאות נפוצות למאורעות בלתי תלויים הן הטלות מטבע (למטבע אין 'זיכרון'), זריקת קוביות נפרדות, או הוצאת כדורים מכד כאשר כל כדור מוחזר פנימה לפני ההוצאה הבאה.", "math_expression": "אין זיכרון" }
-        ],
-        "final_answer": "כאשר התרחשותו של מאורע אחד לא משנה את ההסתברות להתרחשות המאורע השני.",
-        "options": ["כאשר סכום ההסתברויות שלהם שווה ל-1.", "כאשר התרחשותו של מאורע אחד לא משנה את ההסתברות להתרחשות השני.", "כאשר אי אפשר לחשב אותם באותה נוסחה.", "כאשר שניהם לא יכולים לקרות באותו זמן."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 15,
-        "subTopic": "הסתברות במאורע דו-שלבי",
-        "difficulty": "High",
-        "question_text": "זורקים שתי קוביות. מה ההסתברות שסכום שתי הקוביות יהיה <strong>גדול מ-10</strong> (כלומר 11 או 12)?",
-        "hint": "בדקו אילו זוגות נותנים סכום 11 ואילו נותנים 12. חברו את מספר ההצלחות וחלקו ב-36.",
-        "solution_steps": [
-            { "verbal_explanation": "סך כל התוצאות האפשריות לשתי קוביות הוא 36.", "math_expression": "מרחב מדגם = 36" },
-            { "verbal_explanation": "נפרק את המטרה ('גדול מ-10') לשני מאורעות מדויקים: סכום שווה ל-11, או סכום שווה ל-12.", "math_expression": "מטרות: סכום 11 , סכום 12" },
-            { "verbal_explanation": "נרשום את הזוגות שסכומם 11. ישנם שניים: (5,6) וגם (6,5).", "math_expression": "הצלחות ל-11: 2 אפשרויות" },
-            { "verbal_explanation": "נרשום את הזוגות שסכומם 12. ישנו רק אחד: (6,6).", "math_expression": "הצלחות ל-12: אפשרות אחת" },
-            { "verbal_explanation": "נחבר את כלל ההצלחות: 2 ועוד 1 שווה ל-3 הצלחות מתוך 36.", "math_expression": "P = 3/36 = 1/12" }
-        ],
-        "final_answer": "1/12",
-        "options": ["1/6", "3/36 (כלומר 1/12)", "2/36 (כלומר 1/18)", "4/36"],
-        "correctAnswer": 1
+        final_answer: "\\frac{3}{8}"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: חישובים בעזרת דיאגרמת עץ (15 שאלות) ---
-    // ==============================================================
+    // --------------------------------------------------------
+    // תת נושא 2: חישובים בעזרת דיאגרמת עץ
+    // --------------------------------------------------------
+    
+    // 13-16 עם איורים
     {
-        "id": 16,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Low",
-        "question_text": "בדיאגרמת עץ המייצגת הסתברות, למה חייב להיות שווה <strong>סכום ההסתברויות</strong> של כל הענפים היוצאים מ<strong>אותה נקודת פיצול (צומת)</strong>?",
-        "hint": "כל הענפים שיוצאים מאותה נקודה מתארים את 100% מהאפשרויות שיכולות לקרות באותו שלב.",
-        "solution_steps": [
-            { "verbal_explanation": "כל צומת בדיאגרמת עץ מייצג רגע שבו מתרחש שלב כלשהו בניסוי (למשל, זריקת מטבע).", "math_expression": "צומת = אירוע" },
-            { "verbal_explanation": "הענפים היוצאים מהצומת מפרטים את כלל התוצאות האפשריות שיכולות לקרות באותו שלב (למשל, ענף לעץ וענף לפלי).", "math_expression": "ענפים = אפשרויות" },
-            { "verbal_explanation": "מכיוון שחובה שאחת מהתוצאות הללו תתרחש (אין אופציה שמטבע לא ייפול על אף צד), סכום כל האפשרויות יחד מרכיב את השלם המוחלט, שבהסתברות מיוצג על ידי המספר 1.", "math_expression": "סכום ענפים קרובים = 1 (100%)" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "ההסתברות שטיסת הבוקר תמריא בזמן היא שבע עשיריות. ההסתברות שטיסת הערב תמריא בזמן תלויה בבוקר: אם טיסת בוקר יצאה בזמן, ההסתברות שהערב תצא בזמן היא שמונה עשיריות. אם הבוקר איחרה, ההסתברות שהערב תצא בזמן יורדת לארבע עשיריות. מה ההסתברות ששתי הטיסות ימריאו בזמן?" + svg2_tree1,
+        options: [
+            "\\frac{14}{25}", 
+            "\\frac{7}{25}", 
+            "\\frac{12}{25}", 
+            "\\frac{28}{100}"
         ],
-        "final_answer": "1 (או 100%).",
-        "options": ["תמיד חצי (0.5).", "תלוי במספר הענפים.", "1 (או 100%).", "0, כי הם מבטלים זה את זה."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "בדיאגרמת העץ אנו מחפשים את ענף ההצלחה המלא.",
+        solution_steps: [
+            { verbal_explanation: "הסתברות שטיסה ראשונה יצאה בזמן.", math_expression: "\\frac{7}{10}" },
+            { verbal_explanation: "הסתברות שטיסה שנייה תצא בזמן בהינתן שהראשונה יצאה בזמן.", math_expression: "\\frac{8}{10}" },
+            { verbal_explanation: "נכפיל את הערכים ונצמצם את השבר בחלוקה לארבע.", math_expression: "\\frac{7}{10} \\times \\frac{8}{10} = \\frac{56}{100} = \\frac{14}{25}" }
+        ],
+        final_answer: "\\frac{14}{25}"
     },
     {
-        "id": 17,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Medium",
-        "question_text": "מנקודת התחלה יוצאים שני ענפים לעבר 'גשם' או 'לא גשם'. על הענף של 'גשם' רשומה ההסתברות <strong>0.3</strong>. מהי ההסתברות שתרשם על הענף <strong>'לא גשם'</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='180' height='100' viewBox='0 0 180 100'><circle cx='20' cy='50' r='5' fill='#1e293b'/><line x1='25' y1='50' x2='120' y2='20' stroke='#3b82f6' stroke-width='2'/><text x='70' y='30' font-size='12' fill='#3b82f6' font-weight='bold'>0.3</text><text x='130' y='25' font-size='14' font-weight='bold'>גשם</text><line x1='25' y1='50' x2='120' y2='80' stroke='#ef4444' stroke-width='2'/><text x='70' y='80' font-size='12' fill='#ef4444' font-weight='bold'>?</text><text x='130' y='85' font-size='14' font-weight='bold'>לא גשם</text></svg></div>",
-        "hint": "אלו הם מאורעות משלימים (או שיורד גשם או שלא). סכומם חייב להיות 1 שלם.",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בכלל הענפים בדיאגרמת עץ: סכום ההסתברויות של כל הענפים היוצאים מנקודה אחת חייב להיות שווה ל-1.", "math_expression": "P(גשם) + P(לא גשם) = 1" },
-            { "verbal_explanation": "נציב את הנתון הידוע לגבי גשם בתוך המשוואה.", "math_expression": "0.3 + P(לא גשם) = 1" },
-            { "verbal_explanation": "נחסר 0.3 מהשלם כדי לגלות את ההסתברות למאורע המשלים.", "math_expression": "1 - 0.3 = 0.7" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "בהמשך לשאלת הטיסות: מה ההסתברות שבדיוק טיסה אחת תתעכב?" + svg2_tree2,
+        options: [
+            "\\frac{13}{50}", 
+            "\\frac{33}{100}", 
+            "\\frac{14}{25}", 
+            "\\frac{7}{25}"
         ],
-        "final_answer": "0.7",
-        "options": ["0.3", "0.7", "1", "0.5"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חברו שני ענפים בעץ: (בזמן ואז איחור) ועוד (איחור ואז בזמן).",
+        solution_steps: [
+            { verbal_explanation: "מסלול א': ראשונה בזמן והשנייה באיחור (המשלים לשמונה עשיריות).", math_expression: "\\frac{7}{10} \\times \\frac{2}{10} = \\frac{14}{100}" },
+            { verbal_explanation: "מסלול ב': ראשונה באיחור (שלוש עשיריות) והשנייה בזמן בתנאי זה (ארבע עשיריות).", math_expression: "\\frac{3}{10} \\times \\frac{4}{10} = \\frac{12}{100}" },
+            { verbal_explanation: "חיבור המסלולים וצמצום השבר לשבר פשוט ביותר.", math_expression: "\\frac{14}{100} + \\frac{12}{100} = \\frac{26}{100} = \\frac{13}{50}" }
+        ],
+        final_answer: "\\frac{13}{50}"
     },
     {
-        "id": 18,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Low",
-        "question_text": "כאשר אנו מתקדמים <strong>לאורך מסלול (מסלול יחיד)</strong> בדיאגרמת עץ משמאל לימין, איזו פעולה חשבונית אנו מבצעים בין ההסתברויות הרשומות על הענפים?",
-        "hint": "הליכה לאורך מסלול מייצגת מצב של 'מאורע א' *וגם* מאורע ב' התרחשו ברצף'. איזה חוק קשור למילה 'וגם'?",
-        "solution_steps": [
-            { "verbal_explanation": "התקדמות במסלול על גבי עץ משמאל לימין מתארת רצף אירועים שקורים אחד אחרי השני. (למשל: ביום ראשון ירד גשם, *ולאחר מכן* גם ביום שני ירד גשם).", "math_expression": "רצף = 'וגם'" },
-            { "verbal_explanation": "כלל יסוד בהסתברות קובע שהמילה 'וגם' מתורגמת לפעולת כפל בין ההסתברויות.", "math_expression": "חוק הכפל" },
-            { "verbal_explanation": "לכן, כדי למצוא את ההסתברות הסופית של מסלול שלם, עלינו להכפיל את כל המספרים שפגשנו לאורכו." }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "חולה עובר בדיקה למחלה נדירה הקיימת אצל שתי מאיות מהאוכלוסייה. אם אדם חולה, הבדיקה תזהה אותו בוודאות (1). אם הוא בריא, הבדיקה תטעה ותכריז שהוא חולה בסיכוי של מאית אחת. מה ההסתברות שאדם אקראי יקבל תוצאה 'חיובית' (חולה)?" + svg2_target,
+        options: [
+            "\\frac{149}{5000}", 
+            "\\frac{3}{100}", 
+            "\\frac{2}{100}", 
+            "\\frac{1}{50}"
         ],
-        "final_answer": "פעולת כפל.",
-        "options": ["פעולת חיבור.", "פעולת חיסור.", "פעולת כפל.", "ממוצע חשבוני."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "תוצאה חיובית מגיעה משני ענפים: חולה שזוהה כחולה, ובריא שזוהה בטעות כחולה.",
+        solution_steps: [
+            { verbal_explanation: "מסלול חולה שזוהה נכון.", math_expression: "\\frac{2}{100} \\times 1 = \\frac{2}{100} = \\frac{100}{5000}" },
+            { verbal_explanation: "מסלול בריא (תשעים ושמונה מאיות) שזוהה בטעות כחולה (מאית).", math_expression: "\\frac{98}{100} \\times \\frac{1}{100} = \\frac{98}{10000} = \\frac{49}{5000}" },
+            { verbal_explanation: "נחבר את המסלולים.", math_expression: "\\frac{100}{5000} + \\frac{49}{5000} = \\frac{149}{5000}" }
+        ],
+        final_answer: "\\frac{149}{5000}"
     },
     {
-        "id": 19,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Low",
-        "question_text": "כאשר יש לנו <strong>מספר מסלולים שונים</strong> בדיאגרמת העץ שכולם מובילים לתוצאה טובה מבחינתנו, איזו פעולה חשבונית נבצע בין התוצאות הסופיות של מסלולים אלו?",
-        "hint": "ההצלחה יכולה להגיע ממסלול עליון *או* ממסלול תחתון. מהי הפעולה החשבונית המקושרת למילה 'או'?",
-        "solution_steps": [
-            { "verbal_explanation": "לעיתים, יש כמה תרחישים שונים (מסלולים נפרדים בעץ) שכולם נחשבים כהצלחה עבור השאלה שנשאלה.", "math_expression": "מסלול א' או מסלול ב'" },
-            { "verbal_explanation": "הקשר הלוגי בין מסלולים שונים הוא הקשר 'או' (מכיוון שרק אחד מהם התרחש בפועל בניסוי אחד).", "math_expression": "קשר 'או'" },
-            { "verbal_explanation": "כלל החיבור קובע שכאשר מאורעות מופרדים בקשר 'או' וזרים זה לזה, מחברים את ההסתברויות הסופיות שלהם.", "math_expression": "חוק החיבור" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "במפעל רכב, חצי מהמכוניות מיוצרות בפס א' והחצי השני בפס ב'. ההסתברות לפגם בצבע בפס א' היא מאית. בפס ב', ההסתברות לפגם היא חמש מאיות. מה ההסתברות שרכב שנדגם אקראית מהרחבה יהיה פגום בצבעו?" + svg2_factory,
+        options: [
+            "\\frac{3}{100}", 
+            "\\frac{1}{50}", 
+            "\\frac{7}{100}", 
+            "\\frac{1}{100}"
         ],
-        "final_answer": "פעולת חיבור.",
-        "options": ["פעולת כפל.", "פעולת חיבור.", "מציאת המכנה המשותף.", "בחירת המסלול עם ההסתברות הגבוהה ביותר בלבד."],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חשבו את המסלול של מפעל א' ופגם, ועוד המסלול של מפעל ב' ופגם.",
+        solution_steps: [
+            { verbal_explanation: "מסלול פס א' (חצי מהרכבים) ופגם.", math_expression: "\\frac{1}{2} \\times \\frac{1}{100} = \\frac{1}{200}" },
+            { verbal_explanation: "מסלול פס ב' ופגם.", math_expression: "\\frac{1}{2} \\times \\frac{5}{100} = \\frac{5}{200}" },
+            { verbal_explanation: "חיבור המסלולים וצמצום בשתיים.", math_expression: "\\frac{1}{200} + \\frac{5}{200} = \\frac{6}{200} = \\frac{3}{100}" }
+        ],
+        final_answer: "\\frac{3}{100}"
+    },
+    // 17-24 ללא איורים
+    {
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "קבוצת כדורסל קולעת עונשין. שחקן קולע בהסתברות קבועה של שלוש חמישיות. אם הוא זורק שתי זריקות, מה ההסתברות שיקלע לפחות זריקה אחת?",
+        options: [
+            "\\frac{21}{25}", 
+            "\\frac{16}{25}", 
+            "\\frac{9}{25}", 
+            "\\frac{4}{25}"
+        ],
+        correctAnswer: 0,
+        hint: "לחשב את המשלים (להחטיא פעמיים) ולחסר מאחד.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות להחטיא בזריקה בודדת היא שתי חמישיות.", math_expression: "1 - \\frac{3}{5} = \\frac{2}{5}" },
+            { verbal_explanation: "ההסתברות להחטיא פעמיים ברצף.", math_expression: "\\frac{2}{5} \\times \\frac{2}{5} = \\frac{4}{25}" },
+            { verbal_explanation: "לפחות קליעה אחת היא השלם פחות החטאה כפולה.", math_expression: "1 - \\frac{4}{25} = \\frac{21}{25}" }
+        ],
+        final_answer: "\\frac{21}{25}"
     },
     {
-        "id": 20,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Medium",
-        "question_text": "צייד יורה למטרה פעמיים ברצף. ההסתברות שיפגע (פגיעה) היא <strong>0.8</strong>. אם נצייר דיאגרמת עץ, מה תהיה ההסתברות במסלול שמתאר <strong>החטאה בירייה הראשונה וגם החטאה בירייה השנייה</strong>?",
-        "hint": "מצאו את ההסתברות להחטאה (המשלים של 0.8), והכפילו אותה בעצמה (החטאה כפול החטאה).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את ההסתברות להחטאה בירייה בודדת. מכיוון שההסתברות לפגיעה היא 0.8, המאורע המשלים (החטאה) הוא השארית מ-1 שלם.", "math_expression": "P(החטאה) = 1 - 0.8 = 0.2" },
-            { "verbal_explanation": "שלב 2: נבחן את המסלול בעץ. המסלול המבוקש יורד למטה (ל'החטאה') בפיצול הראשון, ושוב יורד למטה (ל'החטאה') בפיצול השני.", "math_expression": "מסלול: החטאה -> החטאה" },
-            { "verbal_explanation": "שלב 3: נכפיל את המספרים שלאורך המסלול.", "math_expression": "P(החטאה, החטאה) = 0.2 * 0.2" },
-            { "verbal_explanation": "שלב 4: נחשב את המכפלה (שתי עשיריות כפול שתי עשיריות הן ארבע מאיות).", "math_expression": "0.04" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "מטילים קוביית משחק הוגנת. אם יוצא מספר אי-זוגי, המשחק מסתיים בהפסד. אם יוצא מספר זוגי, השחקן זוכה להטיל מטבע. אם במטבע יצא פלי, הוא מנצח. מה ההסתברות לנצח במשחק?",
+        options: [
+            "\\frac{1}{4}", 
+            "\\frac{1}{2}", 
+            "\\frac{3}{4}", 
+            "\\frac{1}{6}"
         ],
-        "final_answer": "0.04",
-        "options": ["0.4", "0.16", "0.64", "0.04"],
-        "correctAnswer": 3
+        correctAnswer: 0,
+        hint: "יש רק מסלול אחד בעץ שמוביל לניצחון.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות למספר זוגי בקובייה היא שלוש שישיות (חצי).", math_expression: "\\frac{1}{2}" },
+            { verbal_explanation: "ההסתברות לפלי במטבע היא חצי.", math_expression: "\\frac{1}{2}" },
+            { verbal_explanation: "נכפיל את שלבי המסלול המנצח.", math_expression: "\\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}" }
+        ],
+        final_answer: "\\frac{1}{4}"
     },
     {
-        "id": 21,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Medium",
-        "question_text": "תלמיד ניגש לשני מבחנים בלתי תלויים. ההסתברות לעבור את המבחן הראשון היא <strong>0.7</strong>, וההסתברות לעבור את השני היא <strong>0.6</strong>. מהי ההסתברות שהוא <strong>יעבור את הראשון אך ייכשל בשני</strong>?",
-        "hint": "מצאו מהי ההסתברות לכישלון במבחן השני (המשלים של 0.6). כפלו אותה בהסתברות להצלחה בראשון (0.7).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את השלב הראשון (מבחן 1). אנו רוצים שהוא יעבור אותו, וההסתברות לכך נתונה כ-0.7.", "math_expression": "P(עבר ראשון) = 0.7" },
-            { "verbal_explanation": "שלב 2: נגדיר את השלב השני (מבחן 2). אנו רוצים שהוא ייכשל. ההסתברות להצלחה היא 0.6, ולכן ההסתברות לכישלון היא המשלים ל-1.", "math_expression": "P(נכשל שני) = 1 - 0.6 = 0.4" },
-            { "verbal_explanation": "שלב 3: נחשב את המסלול הספציפי שבו מתרחשים שני התנאים הללו ברצף (הכפלה לאורך הענפים).", "math_expression": "0.7 * 0.4" },
-            { "verbal_explanation": "שלב 4: 7 כפול 4 זה 28. לכן 0.7 כפול 0.4 זה 0.28.", "math_expression": "0.28" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "מועמד עובר ראיון מקיף בשני שלבים. ההסתברות לעבור את השלב הראשון היא חצי. אם עבר, ההסתברות לעבור את המבחן המעשי היא שליש. מה ההסתברות שהמועמד לא יתקבל לעבודה?",
+        options: [
+            "\\frac{5}{6}", 
+            "\\frac{1}{6}", 
+            "\\frac{2}{3}", 
+            "\\frac{1}{2}"
         ],
-        "final_answer": "0.28",
-        "options": ["0.42", "0.28", "0.12", "0.18"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חשבו את ההסתברות לקבלה מלאה וחסרו מאחד.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות להצליח בשני השלבים גם יחד (המסלול היחיד שמוביל לקבלה).", math_expression: "\\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}" },
+            { verbal_explanation: "אי קבלה היא המאורע המשלים להצלחה המלאה.", math_expression: "1 - \\frac{1}{6} = \\frac{5}{6}" }
+        ],
+        final_answer: "\\frac{5}{6}"
     },
     {
-        "id": 22,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "High",
-        "question_text": "שחקן קולע לסל. ההסתברות לקליעה היא 0.6. הוא זורק פעמיים. מהי ההסתברות שיקלע <strong>בדיוק פעם אחת</strong> מתוך השתיים?",
-        "hint": "ישנם שני מסלולים שונים בעץ שמתאימים לתנאי: (קליעה ואז החטאה) או (החטאה ואז קליעה). חשבו כל מסלול בנפרד וחברו אותם.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב הסתברויות בסיס לזריקה בודדת: קליעה = 0.6, החטאה = 0.4.", "math_expression": "קליעה=0.6, החטאה=0.4" },
-            { "verbal_explanation": "נזהה שמצב של 'קליעה בדיוק פעם אחת' מורכב משני מסלולים אפשריים ונפרדים בעץ. מסלול ראשון: קלע בראשונה והחטיא בשנייה.", "math_expression": "מסלול א: 0.6 * 0.4 = 0.24" },
-            { "verbal_explanation": "מסלול שני: החטיא בראשונה וקלע בשנייה.", "math_expression": "מסלול ב: 0.4 * 0.6 = 0.24" },
-            { "verbal_explanation": "מכיוון שגם מסלול א' וגם מסלול ב' עונים על הגדרת השאלה (קשר 'או'), נחבר את תוצאות המסלולים יחד.", "math_expression": "0.24 + 0.24 = 0.48" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "חברת שליחויות מעבירה שבע עשיריות מהחבילות בציר הצפוני, והשאר בדרומי. הסיכוי לעיכוב בצפון הוא שתי עשיריות. הסיכוי לעיכוב בדרום הוא ארבע עשיריות. מה ההסתברות הכללית שחבילה תגיע ללא עיכוב?",
+        options: [
+            "\\frac{37}{50}", 
+            "\\frac{13}{50}", 
+            "\\frac{14}{25}", 
+            "\\frac{3}{5}"
         ],
-        "final_answer": "0.48",
-        "options": ["0.36", "0.48", "0.24", "0.16"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חברו את שני המסלולים שמובילים להגעה בזמן (המשלים לעיכוב).",
+        solution_steps: [
+            { verbal_explanation: "מסלול צפוני בזמן (שבע עשיריות כפול שמונה עשיריות).", math_expression: "\\frac{7}{10} \\times \\frac{8}{10} = \\frac{56}{100}" },
+            { verbal_explanation: "מסלול דרומי בזמן (שלוש עשיריות כפול שש עשיריות).", math_expression: "\\frac{3}{10} \\times \\frac{6}{10} = \\frac{18}{100}" },
+            { verbal_explanation: "נחבר את המסלולים ונצמצם את השבר.", math_expression: "\\frac{56}{100} + \\frac{18}{100} = \\frac{74}{100} = \\frac{37}{50}" }
+        ],
+        final_answer: "\\frac{37}{50}"
     },
     {
-        "id": 23,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Medium",
-        "question_text": "על שולחן מונחים שני כדי כדורים שונים. כד א' מכיל 1 אדום ו-3 כחולים. כד ב' מכיל 2 אדומים ו-2 כחולים. מוציאים כדור אחד מכל כד. מה ההסתברות ש<strong>שניהם יהיו אדומים</strong>?",
-        "hint": "בנו עץ דמיוני. השלב הראשון (כד א') מכיל הסתברות של 1/4 לאדום. השלב השני (כד ב') מכיל הסתברות של 2/4 לאדום. כפלו ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את ההסתברות להצלחה בשלב הראשון. בכד א' יש כדור אדום אחד מתוך סך של 4 כדורים.", "math_expression": "P(אדום א') = 1/4" },
-            { "verbal_explanation": "שלב 2: נחשב את ההסתברות להצלחה בשלב השני. בכד ב' יש 2 כדורים אדומים מתוך סך של 4 כדורים (הסתברות של חצי).", "math_expression": "P(אדום ב') = 2/4 = 1/2" },
-            { "verbal_explanation": "שלב 3: מכיוון שאנו שולפים מכדים נפרדים לחלוטין, המאורעות בלתי תלויים. נכפיל את ההסתברויות לאורך המסלול של 'אדום ואז אדום'.", "math_expression": "(1/4) * (1/2) = 1/8" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "תלמיד מתלבט אם להכין שיעורי בית. ההסתברות שיכין היא שני שלישים. אם הכין, ההסתברות לציון טוב במבחן הפתע היא תשע עשיריות. אם לא הכין, ההסתברות לציון טוב היא רק שלוש עשיריות. מה ההסתברות שיקבל ציון טוב?",
+        options: [
+            "\\frac{7}{10}", 
+            "\\frac{3}{5}", 
+            "\\frac{1}{2}", 
+            "\\frac{4}{5}"
         ],
-        "final_answer": "1/8",
-        "options": ["1/4", "1/8", "3/8", "1/16"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חברו מסלול של (הכין והצליח) עם המסלול של (לא הכין והצליח).",
+        solution_steps: [
+            { verbal_explanation: "מסלול הכנה והצלחה.", math_expression: "\\frac{2}{3} \\times \\frac{9}{10} = \\frac{18}{30}" },
+            { verbal_explanation: "מסלול אי-הכנה והצלחה.", math_expression: "\\frac{1}{3} \\times \\frac{3}{10} = \\frac{3}{30}" },
+            { verbal_explanation: "נחבר את שני המסלולים ונצמצם את התוצאה הסופית בשלוש.", math_expression: "\\frac{18}{30} + \\frac{3}{30} = \\frac{21}{30} = \\frac{7}{10}" }
+        ],
+        final_answer: "\\frac{7}{10}"
     },
     {
-        "id": 24,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "High",
-        "question_text": "מטילים מטבע. אם יוצא 'עץ' - זורקים קובייה רגילה. אם יוצא 'פלי' - מסובבים סביבון עם צבעים. איזה סוג של עץ הסתברויות אנו נבנה כאן?",
-        "hint": "האם הענפים בשלב השני נראים אותו דבר בכל מצב? תחשבו מה קורה בכל צד של העץ.",
-        "solution_steps": [
-            { "verbal_explanation": "עץ זה אינו עץ סימטרי רגיל (שבו כל פיצול מוביל לאותם שני המשכים).", "math_expression": "עץ א-סימטרי" },
-            { "verbal_explanation": "הפיצול הראשון הוא הטלת המטבע לשני ענפים: עץ או פלי.", "math_expression": "שלב 1: עץ (1/2) | פלי (1/2)" },
-            { "verbal_explanation": "השלב השני משתנה לחלוטין בהתאם למה שקרה בשלב הראשון. מהענף של ה'עץ' יתפצלו 6 ענפים (קובייה). מהענף של ה'פלי' יתפצלו ענפים בהתאם לצבעי הסביבון.", "math_expression": "המשך תלוי תוצאה קודמת" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "ההסתברות לעבור מבחן ראשון היא שישית. אם התלמיד עבר, ההסתברות שיעבור את השני היא חצי. אם נכשל בראשון, ההסתברות לעבור את השני היא עשירית. מה ההסתברות שהתלמיד ייכשל בשני המבחנים יחד?",
+        options: [
+            "\\frac{3}{4}", 
+            "\\frac{2}{3}", 
+            "\\frac{5}{6}", 
+            "\\frac{1}{10}"
         ],
-        "final_answer": "עץ לא סימטרי (א-סימטרי), שבו הענפים בשלב השני שונים זה מזה לחלוטין.",
-        "options": ["עץ סימטרי מושלם.", "עץ שאי אפשר לחשב בו הסתברויות.", "עץ לא סימטרי (א-סימטרי), שבו הענפים בשלב השני שונים זה מזה לחלוטין.", "זה אינו עץ, אלא טבלה דו-ממדית בלבד."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "זהו המסלול של כישלון ואז שוב כישלון.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לכישלון במבחן הראשון.", math_expression: "\\frac{5}{6}" },
+            { verbal_explanation: "ההסתברות לכישלון בשני תחת התנאי שנכשל בראשון (המשלים לעשירית).", math_expression: "\\frac{9}{10}" },
+            { verbal_explanation: "נכפיל את הערכים לאורך הענף ונצמצם בחמש-עשרה.", math_expression: "\\frac{5}{6} \\times \\frac{9}{10} = \\frac{45}{60} = \\frac{3}{4}" }
+        ],
+        final_answer: "\\frac{3}{4}"
     },
     {
-        "id": 25,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "High",
-        "question_text": "במפעל, מכונה א' מייצרת 60% מהמוצרים, ומכונה ב' את השאר (40%). ידוע ש-10% מהמוצרים של מכונה א' פגומים, ו-5% מהמוצרים של מכונה ב' פגומים. מה ההסתברות שמוצר אקראי שנדגם מפס הייצור יהיה <strong>פגום</strong>?",
-        "hint": "יש פה שני מסלולי 'פגום' בעץ. מסלול 1: נוצר במכונה א' וגם פגום. מסלול 2: נוצר במכונה ב' וגם פגום. חשבו את שני המסלולים וחברו אותם.",
-        "solution_steps": [
-            { "verbal_explanation": "נשרטט בראש עץ. פיצול ראשון: מי ייצר את המוצר? מכונה א' (0.6) או מכונה ב' (0.4).", "math_expression": "א (0.6) , ב (0.4)" },
-            { "verbal_explanation": "פיצול שני מענף א': פגום (0.1) או תקין (0.9).", "math_expression": "א -> פגום: 0.1" },
-            { "verbal_explanation": "פיצול שני מענף ב': פגום (0.05) או תקין (0.95).", "math_expression": "ב -> פגום: 0.05" },
-            { "verbal_explanation": "אנו צריכים את סך ההסתברויות לפגום. נחשב את המסלול הראשון (מכונה א' + פגום) ונכפיל.", "math_expression": "0.6 * 0.1 = 0.06" },
-            { "verbal_explanation": "נחשב את המסלול השני (מכונה ב' + פגום) ונכפיל.", "math_expression": "0.4 * 0.05 = 0.02" },
-            { "verbal_explanation": "נחבר את שני המסלולים שמתאימים לדרישתנו (חיבור ענפים מקבילים).", "math_expression": "0.06 + 0.02 = 0.08" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "קבוצת תלמידים יצאה לטיול. ההסתברות שיבחרו במסלול המים היא חצי. אם בחרו בו, ההסתברות שיירטבו היא תשע עשיריות. אם בחרו ביבש, ההסתברות להירטב היא שתי עשיריות. מה ההסתברות שתלמיד אקראי נרטב בטיול?",
+        options: [
+            "\\frac{11}{20}", 
+            "\\frac{9}{20}", 
+            "\\frac{11}{100}", 
+            "\\frac{1}{2}"
         ],
-        "final_answer": "0.08 (או 8%)",
-        "options": ["0.15 (15%)", "0.08 (או 8%)", "0.10 (10%)", "0.05 (5%)"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חברו את שני המסלולים שמובילים להירטבות.",
+        solution_steps: [
+            { verbal_explanation: "מסלול המים והירטבות.", math_expression: "\\frac{1}{2} \\times \\frac{9}{10} = \\frac{9}{20}" },
+            { verbal_explanation: "מסלול יבש והירטבות.", math_expression: "\\frac{1}{2} \\times \\frac{2}{10} = \\frac{2}{20}" },
+            { verbal_explanation: "סכום המסלולים.", math_expression: "\\frac{9}{20} + \\frac{2}{20} = \\frac{11}{20}" }
+        ],
+        final_answer: "\\frac{11}{20}"
     },
     {
-        "id": 26,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Medium",
-        "question_text": "בהגרלה יש 3 מעטפות. באחת יש פרס, ובשתיים האחרות פתק ריק. אדם בוחר מעטפה, מחזיר אותה, ובוחר שוב מעטפה. מהי ההסתברות ש<strong>לא זכה כלל</strong> בפרס (הוציא פתק ריק בשתי הפעמים)?",
-        "hint": "ההסתברות לפתק ריק בהוצאה בודדת היא 2/3. מכיוון שהמעטפה מוחזרת, ההסתברות הזו לא משתנה בשלב השני.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב את הסיכוי להפסד (הוצאת פתק ריק) בסיבוב הראשון. יש 2 פתקים ריקים מתוך 3.", "math_expression": "P(ריק 1) = 2/3" },
-            { "verbal_explanation": "מכיוון שהייתה החזרה, המצב מתאפס בחזרה ל-3 מעטפות שמתוכן 2 ריקות. הסיכוי בסיבוב השני נשאר זהה.", "math_expression": "P(ריק 2) = 2/3" },
-            { "verbal_explanation": "כדי לקבל את המסלול שבו הוא הפסיד גם בראשון וגם בשני, נכפיל את ההסתברויות לאורך הענף.", "math_expression": "(2/3) * (2/3)" },
-            { "verbal_explanation": "הכפלת שברים (מונה במונה, מכנה במכנה).", "math_expression": "4/9" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת דיאגרמת עץ",
+        question_text: "נהג בוחר בכביש 1 בהסתברות של שלושה רבעים. אם נסע שם, ההסתברות לפקק היא חמישית. אם נסע בכביש החלופי (443), ההסתברות לפקק היא שתי חמישיות. מה ההסתברות שהנהג ייתקע בפקק?",
+        options: [
+            "\\frac{1}{4}", 
+            "\\frac{3}{20}", 
+            "\\frac{1}{5}", 
+            "\\frac{7}{20}"
         ],
-        "final_answer": "4/9",
-        "options": ["2/9", "4/9", "1/9", "2/3"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 27,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "High",
-        "question_text": "תלמיד עובר שני מבחנים בנהיגה. ההסתברות לעבור תיאוריה היא 0.8. אם עבר תיאוריה, ההסתברות שיעבור טסט מעשי היא 0.5. (מי שנכשל בתיאוריה לא ניגש לטסט כלל). על פי העץ שיתואר, מהי ההסתברות ש<strong>יקבל רישיון (יעבור את שניהם)</strong>?",
-        "hint": "זהו עץ שחלק מענפיו 'נחתכים' מוקדם. אבל המסלול שאתם מחפשים ארוך ושלם (עבר -> עבר). כפלו את הערכים שלאורכו.",
-        "solution_steps": [
-            { "verbal_explanation": "השלב הראשון בעץ הוא התיאוריה. ההסתברות לעבור היא 0.8.", "math_expression": "P(תיאוריה) = 0.8" },
-            { "verbal_explanation": "אם הוא עבר (הענף ממשיך), נפתח פיצול שני לטסט המעשי. ההסתברות לעבור אותו נתונה כ-0.5.", "math_expression": "P(טסט) = 0.5" },
-            { "verbal_explanation": "כדי לקבל רישיון, עליו להשלים את המסלול של 'הצלחה וגם הצלחה'. נכפול את ההסתברויות שלאורך מסלול זה.", "math_expression": "P(רישיון) = 0.8 * 0.5" },
-            { "verbal_explanation": "נחשב: 8 כפול 5 הם 40, לכן 0.8 כפול 0.5 שווה ל-0.40.", "math_expression": "0.4" }
+        correctAnswer: 0,
+        hint: "סכמו את ההסתברויות של שני המסלולים המסתיימים בפקק.",
+        solution_steps: [
+            { verbal_explanation: "מסלול כביש אחד עם פקק.", math_expression: "\\frac{3}{4} \\times \\frac{1}{5} = \\frac{3}{20}" },
+            { verbal_explanation: "מסלול כביש חלופי (רבע) עם פקק.", math_expression: "\\frac{1}{4} \\times \\frac{2}{5} = \\frac{2}{20}" },
+            { verbal_explanation: "סכום וצמצום בחמש.", math_expression: "\\frac{3}{20} + \\frac{2}{20} = \\frac{5}{20} = \\frac{1}{4}" }
         ],
-        "final_answer": "0.4",
-        "options": ["0.4", "0.5", "0.8", "0.13"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 28,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "Medium",
-        "question_text": "הסתברות שרכבת תאחר ביום ראשון היא 0.2. ההסתברות שתאחר ביום שני היא גם 0.2. מהי ההסתברות שהרכבת <strong>תאחר ביום הראשון, אבל תגיע בזמן ביום השני</strong>?",
-        "hint": "מצאו את ההסתברות להגעה בזמן ביום השני (המשלים לאיחור, כלומר 1-0.2). ואז הכפילו את המסלול: (איחור ראשון) כפול (הגעה בזמן שני).",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את ההסתברויות עבור אירועי יום ראשון ושני.", "math_expression": "P(איחור) = 0.2 , P(בזמן) = 1 - 0.2 = 0.8" },
-            { "verbal_explanation": "אנו מתבקשים לחשב מסלול ספציפי אחד ויחיד בעץ: בראשון היא חייבת לאחר, ובשני היא חייבת להגיע בזמן.", "math_expression": "מסלול: איחור -> בזמן" },
-            { "verbal_explanation": "נציב את ההסתברויות המתאימות לכל שלב במסלול ונכפיל.", "math_expression": "0.2 * 0.8" },
-            { "verbal_explanation": "נחשב: 2 כפול 8 שווה 16, לכן התשובה היא 0.16.", "math_expression": "0.16" }
-        ],
-        "final_answer": "0.16",
-        "options": ["0.04", "0.16", "0.64", "0.8"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 29,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "High",
-        "question_text": "בדיאגרמת עץ יש 3 מסלולים אפשריים וזרים המייצגים את כלל התוצאות האפשריות. ההסתברות של מסלול א' היא 0.4. ההסתברות של מסלול ב' היא 0.35. מה <strong>חייבת</strong> להיות ההסתברות של מסלול ג'?",
-        "hint": "סך כל המסלולים הקיימים בעץ מתארים את כל מה שיכול לקרות במציאות. הסכום הכולל שלהם יחד חייב להיות...",
-        "solution_steps": [
-            { "verbal_explanation": "חוק שימור ההסתברות קובע שסכום ההסתברויות של כל המסלולים הסופיים הקיימים בעץ שלם חייב להסתכם תמיד ל-1 (100%).", "math_expression": "Σ P(מסלולים) = 1" },
-            { "verbal_explanation": "נחבר את ההסתברויות של המסלולים הידועים לנו.", "math_expression": "0.4 + 0.35 = 0.75" },
-            { "verbal_explanation": "נחסר את הסכום הזה מ-1 השלם כדי לגלות כמה 'הסתברות' נותרה עבור המסלול האחרון.", "math_expression": "1 - 0.75 = 0.25" }
-        ],
-        "final_answer": "0.25",
-        "options": ["0.25", "0.35", "0.65", "0.4"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 30,
-        "subTopic": "חישובים בעזרת דיאגרמת עץ",
-        "difficulty": "High",
-        "question_text": "חישוב 'לפחות אחד' בעזרת עץ: זורקים מטבע לא הוגן שבו ההסתברות לעץ היא 0.7 וההסתברות לפלי 0.3. מטילים אותו פעמיים. מה ההסתברות שיצא <strong>לפחות פעם אחת 'עץ'</strong>?",
-        "hint": "כדי לא לחשב שלושה מסלולים שונים (עץ-עץ, עץ-פלי, פלי-עץ), חשבו רק את המסלול היחיד שלא מתאים לנו (פלי-פלי) והחסירו מ-1 שלם.",
-        "solution_steps": [
-            { "verbal_explanation": "במקום לחשב ישירות את המאורע 'לפחות פעם אחת עץ' שדורש חיבור של מספר מסלולים, נחשב את המאורע המשלים שלו.", "math_expression": "משלים = אף פעם לא עץ (רק פלי-פלי)" },
-            { "verbal_explanation": "נחשב את ההסתברות של מסלול (פלי, פלי). נכפיל את הסתברות הפלי בעצמה.", "math_expression": "P(פלי, פלי) = 0.3 * 0.3 = 0.09" },
-            { "verbal_explanation": "המסלול הזה (0.09) הוא היחיד שלא טוב לנו. כל שאר המסלולים בעץ (שסכומם הכללי הוא 1) בהכרח מכילים לפחות 'עץ' אחד.", "math_expression": "P(לפחות עץ) = 1 - P(רק פלי)" },
-            { "verbal_explanation": "נחסר מ-1 לקבלת התשובה הסופית המהירה.", "math_expression": "1 - 0.09 = 0.91" }
-        ],
-        "final_answer": "0.91",
-        "options": ["0.49", "0.91", "0.21", "0.42"],
-        "correctAnswer": 1
-    },,
-    // ==============================================================
-    // --- תת נושא 3: חישובים בעזרת טבלה דו-ממדית (15 שאלות) ---
-    // ==============================================================
-    {
-        "id": 31,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Low",
-        "question_text": "מהו היתרון המרכזי של שימוש ב<strong>טבלה דו-ממדית</strong> לעומת דיאגרמת עץ?",
-        "hint": "חישבו על מצב שבו יש הרבה תכונות משולבות (כמו בנים/בנות שמרכיבים/לא מרכיבים משקפיים). מה יותר נוח לקרוא?",
-        "solution_steps": [
-            { "verbal_explanation": "נבחן את דיאגרמת העץ: היא מצוינת להצגת רצף של פעולות בזמן (שלב א' ואז שלב ב').", "math_expression": "עץ = תהליך כרונולוגי" },
-            { "verbal_explanation": "נבחן את הטבלה הדו-ממדית: היא מארגנת נתונים מצטלבים של שתי תכונות שקורות במקביל (למשל מגדר וצבע עיניים), ללא חשיבות לסדר הזמנים.", "math_expression": "טבלה = חיתוך תכונות במקביל" },
-            { "verbal_explanation": "לכן, קל מאוד למצוא בטבלה כמה אנשים מקיימים שתי תכונות יחד (תא החיתוך) או מה סך כל האנשים בעלי תכונה מסוימת (שולי הטבלה)." }
-        ],
-        "final_answer": "היא מאפשרת לראות בקלות חיתוכים של שתי תכונות המתרחשות במקביל באותה אוכלוסייה.",
-        "options": ["היא מציגה טוב יותר סדר של אירועים כרונולוגיים.", "היא מאפשרת לראות בקלות חיתוכים של שתי תכונות המתרחשות במקביל.", "אין לה שום יתרון, עץ תמיד עדיף.", "היא עובדת רק עם הסתברויות של חצי."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 32,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Medium",
-        "question_text": "בכיתה יש 30 תלמידים. הטבלה מציגה את חלוקתם לפי מגדר והרכבת משקפיים. מהי ההסתברות לבחור באקראי תלמיד שהוא <strong>בן וגם מרכיב משקפיים</strong>?<br><div style='text-align:center; margin:15px 0;'><table border='1' style='margin:0 auto; border-collapse: collapse; text-align:center; width:80%;'><tr><th style='background:#cbd5e1; padding:5px;'></th><th style='background:#bae6fd; padding:5px;'>משקפיים</th><th style='background:#fecaca; padding:5px;'>בלי משקפיים</th><th style='background:#f1f5f9; padding:5px;'>סה\"כ</th></tr><tr><td style='background:#e2e8f0; font-weight:bold;'>בנים</td><td>4</td><td>10</td><td>14</td></tr><tr><td style='background:#e2e8f0; font-weight:bold;'>בנות</td><td>6</td><td>10</td><td>16</td></tr><tr><td style='background:#f1f5f9; font-weight:bold;'>סה\"כ</td><td>10</td><td>20</td><td>30</td></tr></table></div>",
-        "hint": "חפשו את התא המדויק שמצליב את השורה 'בנים' עם העמודה 'משקפיים'. חלקו את המספר הזה בסך הכל התלמידים בכיתה.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את גודל מרחב המדגם. אנו בוחרים תלמיד באקראי מתוך כל הכיתה, לכן נסתכל על תא ה'סה\"כ הכולל' בפינה התחתונה.", "math_expression": "סך הכל = 30" },
-            { "verbal_explanation": "נאתר את כמות ה'הצלחות'. אנו מחפשים את תא החיתוך בין שורת 'בנים' לעמודת 'משקפיים'.", "math_expression": "בנים עם משקפיים = 4" },
-            { "verbal_explanation": "נרכיב את ההסתברות: מספר ההצלחות חלקי סך כל האפשרויות.", "math_expression": "P = 4 / 30" },
-            { "verbal_explanation": "נצמצם את השבר על ידי חלוקת המונה והמכנה ב-2.", "math_expression": "P = 2 / 15" }
-        ],
-        "final_answer": "2/15",
-        "options": ["4/14", "2/15", "10/30", "4/10"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 33,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Medium",
-        "question_text": "על סמך הטבלה הקודמת (בסך הכל 30 תלמידים, 16 מהם בנות), מהי ההסתברות לבחור תלמיד (בן או בת) ש<strong>אינו מרכיב משקפיים</strong>?",
-        "hint": "אל תפרידו בין בנים לבנות. הסתכלו על שורת ה'סה\"כ' בתחתית העמודה של 'בלי משקפיים'.",
-        "solution_steps": [
-            { "verbal_explanation": "נגדיר את גודל מרחב המדגם, שהוא כלל תלמידי הכיתה.", "math_expression": "סך הכל = 30" },
-            { "verbal_explanation": "נבדוק מהי דרישת השאלה: 'אינו מרכיב משקפיים', ללא קשר למגדר. לכן נחפש את הסיכום (סה\"כ) של עמודת 'בלי משקפיים'.", "math_expression": "סה\"כ בלי משקפיים = 20" },
-            { "verbal_explanation": "נרכיב את שבר ההסתברות.", "math_expression": "P = 20 / 30" },
-            { "verbal_explanation": "נצמצם את האפסים לקבלת השבר הסופי.", "math_expression": "P = 2 / 3" }
-        ],
-        "final_answer": "2/3",
-        "options": ["10/30", "1/2", "2/3", "16/30"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 34,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "High",
-        "question_text": "הבנה של <strong>הסתברות מותנית מטבלה</strong>: בוחרים באקראי תלמיד מתוך הכיתה (מהטבלה הקודמת). ידוע שהתלמיד שנבחר הוא <strong>בן</strong>. מה ההסתברות שהוא מרכיב משקפיים?",
-        "hint": "שימו לב היטב! המילה 'ידוע ש...' משנה את מרחב המדגם. אנו לא מחלקים יותר ב-30 תלמידים, אלא רק בסך הכל של הבנים.",
-        "solution_steps": [
-            { "verbal_explanation": "המילים 'ידוע ש...' מגדירות צמצום של מרחב המדגם (הסתברות מותנית). אנו מתעלמים משאר הכיתה ומסתכלים אך ורק על שורת ה'בנים'.", "math_expression": "מרחב מדגם חדש: רק בנים" },
-            { "verbal_explanation": "נבדוק בטבלה מהו סך כל הבנים בכיתה. זהו המכנה החדש שלנו.", "math_expression": "סה\"כ בנים = 14" },
-            { "verbal_explanation": "מתוך אותם 14 בנים (ורק מתוכם!), נבדוק כמה מרכיבים משקפיים.", "math_expression": "בנים עם משקפיים = 4" },
-            { "verbal_explanation": "נרכיב את ההסתברות החדשה ונצמצם.", "math_expression": "P = 4 / 14 = 2 / 7" }
-        ],
-        "final_answer": "2/7",
-        "options": ["4/30", "2/15", "2/7", "4/10"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 35,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Low",
-        "question_text": "בטבלה המרכזת תוצאות של שתי קוביות משחק (טבלת 6 על 6), כמה משבצות מרכיבות את סך הכל האפשרויות (מרחב המדגם)?",
-        "hint": "בטבלה יש שורה לכל תוצאה אפשרית של קובייה א', ועמודה לכל תוצאה של קובייה ב'. כפלו שורות בעמודות.",
-        "solution_steps": [
-            { "verbal_explanation": "טבלה המייצגת שתי קוביות בנויה מכותרות שורות (תוצאות קובייה 1) וכותרות עמודות (תוצאות קובייה 2).", "math_expression": "שורות: 1 עד 6" },
-            { "verbal_explanation": "מספר העמודות זהה.", "math_expression": "עמודות: 1 עד 6" },
-            { "verbal_explanation": "סך כל התאים הפנימיים בטבלה, המייצגים את כלל הזוגות האפשריים, הוא מכפלת השורות בעמודות.", "math_expression": "6 * 6 = 36 תאים" }
-        ],
-        "final_answer": "36",
-        "options": ["12", "36", "6", "24"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 36,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Medium",
-        "question_text": "ממלאים טבלת סכומים של שתי קוביות הוגנות (בכל תא רושמים את סכום התוצאות). איזה סכום יופיע <strong>הכי הרבה פעמים</strong> בתוך הטבלה (האלכסון הארוך ביותר)?",
-        "hint": "ציירו טבלה קטנה בדמיון. 1+1=2 (מופיע רק פעם אחת בפינה). 6+6=12 (פעם אחת). איזה מספר יושב באלכסון המרכזי הענק מ-(1,6) ועד (6,1)?",
-        "solution_steps": [
-            { "verbal_explanation": "ננתח את הפיזור של סכום שתי קוביות. סכומי הקצוות (2 ו-12) נדירים ומופיעים רק בפינות הטבלה.", "math_expression": "קצוות = נדיר" },
-            { "verbal_explanation": "הסכום 7 מורכב מהכי הרבה צירופים אפשריים: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1).", "math_expression": "6 צירופים ל-7" },
-            { "verbal_explanation": "בטבלה דו-ממדית, התאים האלו יוצרים אלכסון מושלם מפינה ימנית-עליונה לשמאלית-תחתונה. זהו האלכסון הארוך ביותר.", "math_expression": "הסכום השכיח ביותר הוא 7" }
-        ],
-        "final_answer": "7",
-        "options": ["6", "7", "8", "12"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 37,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "High",
-        "question_text": "מפעל מייצר חולצות בשני צבעים (לבן, שחור) ובשתי מידות (S, M). ידוע ש: 40% מהחולצות שחורות. 30% מהחולצות הן במידה S. רק 10% מהחולצות הן <strong>גם שחורות וגם במידה S</strong>. אם נבחר חולצה באקראי, מה ההסתברות שהיא תהיה <strong>לבנה במידה M</strong>?",
-        "hint": "זוהי שאלת בניית טבלה קלאסית. ציירו טבלה של 2x2. שחור(40), לבן(60). S(30), M(70). החיתוך שחור-S הוא 10. השלימו את השאר על ידי חיסור מהסה\"כ.",
-        "solution_steps": [
-            { "verbal_explanation": "נבנה טבלה. נתחיל מהסך הכל (שוליים). סה\"כ חולצות=100%. שחורות=40%, ולכן הלבנות הן ההשלמה ل-100%.", "math_expression": "סה\"כ שחור=40 , סה\"כ לבן=60" },
-            { "verbal_explanation": "שוליים שורות (מידות). מידה S=30%, ולכן מידה M היא ההשלמה ل-100%.", "math_expression": "סה\"כ S=30 , סה\"כ M=70" },
-            { "verbal_explanation": "נציב את הנתון הפנימי בתא החיתוך: שחור וגם S = 10%.", "math_expression": "תא (שחור, S) = 10" },
-            { "verbal_explanation": "נחשב את תא (שחור, M): סה\"כ שחור(40) פחות שחור-S(10).", "math_expression": "תא (שחור, M) = 40 - 10 = 30" },
-            { "verbal_explanation": "אנו צריכים (לבן, M). נסתכל על שורת ה-M: סה\"כ M(70) פחות שחור-M(30).", "math_expression": "תא (לבן, M) = 70 - 30 = 40" }
-        ],
-        "final_answer": "0.40 (או 40%)",
-        "options": ["0.60 (60%)", "0.30 (30%)", "0.40 (40%)", "0.20 (20%)"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 38,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Low",
-        "question_text": "בטבלה דו-ממדית הבוחנת 'אוהבי חתולים/כלבים' לפי 'מבוגרים/ילדים', מה מבטא התא שנמצא בשורת ה'סה\"כ' ותחת עמודת 'אוהבי חתולים'?",
-        "hint": "התא הזה מסכם את כל המספרים שנמצאים בעמודה שמעליו. הוא לא עושה הבחנה בין השורות.",
-        "solution_steps": [
-            { "verbal_explanation": "עמודת 'אוהבי חתולים' מכילה שתי משבצות מידע: ילדים שאוהבים חתולים, ומבוגרים שאוהבים חתולים.", "math_expression": "מידע פנימי" },
-            { "verbal_explanation": "המשבצת התחתונה ביותר בעמודה מסכמת את כולם יחד.", "math_expression": "חיבור מלמעלה למטה" },
-            { "verbal_explanation": "לכן, משבצת זו מתעלמת מהגיל (השורות) ומציגה פשוט את כלל האנשים בסקר שאוהבים חתולים." }
-        ],
-        "final_answer": "את סך כל האנשים (מבוגרים וילדים יחד) שאוהבים חתולים.",
-        "options": ["את הילדים שאוהבים חתולים בלבד.", "את כל האנשים בסקר (100%).", "את סך כל האנשים (מבוגרים וילדים יחד) שאוהבים חתולים.", "ממוצע האוהבים לעומת הלא-אוהבים."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 39,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Medium",
-        "question_text": "מתוך טבלת נתונים ידוע: P(A) = 0.5 , P(B) = 0.4. כמו כן ידוע ש- P(A וגם B) = 0.2. מהי ההסתברות המותנית <strong>P(A | B)</strong>? (במילים: מה ההסתברות ל-A, אם ידוע ש-B כבר קרה?)",
-        "hint": "נוסחת ההסתברות המותנית מטבלה: חיתוך שתי התכונות, חלקי התכונה ש'ידועה' לנו מראש (התכונה המצמצמת).",
-        "solution_steps": [
-            { "verbal_explanation": "המידע 'ידוע ש-B התרחש' אומר שאנו מתעלמים מכל הטבלה ובוחנים רק את השורה/עמודה של B.", "math_expression": "מרחב מדגם מוקטן = P(B) = 0.4" },
-            { "verbal_explanation": "בתוך המרחב המוקטן הזה של B, אנו מחפשים את אלו שמקיימים גם את A. זהו בעצם החיתוך של שניהם הנתון לנו.", "math_expression": "הצלחות = P(A וגם B) = 0.2" },
-            { "verbal_explanation": "נשתמש בנוסחת ההסתברות המותנית: חיתוך חלקי ה'ידוע'.", "math_expression": "P(A|B) = P(A∩B) / P(B)" },
-            { "verbal_explanation": "נציב ונחשב: 0.2 חלקי 0.4 שווה לחצי.", "math_expression": "0.2 / 0.4 = 1/2 = 0.5" }
-        ],
-        "final_answer": "0.5",
-        "options": ["0.1", "0.2", "0.5", "0.8"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 40,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "High",
-        "question_text": "מטילים קובייה הוגנת פעמיים. עיינו ב'טבלת מכפלות' דמיונית. מהי ההסתברות ש<strong>מכפלת</strong> המספרים שתתקבל תהיה <strong>מספר אי-זוגי</strong>?",
-        "hint": "מתי מכפלה של שני מספרים נותנת תוצאה אי-זוגית? רק כששני המספרים (הראשון וגם השני) הם אי-זוגיים.",
-        "solution_steps": [
-            { "verbal_explanation": "סך התאים בטבלה המייצגת את כל תוצאות זוג הקוביות הוא 36.", "math_expression": "סה\"כ = 36" },
-            { "verbal_explanation": "במקום לחשב את כל המכפלות בטבלה, נשתמש בחוקי זוגיות. כפל נותן תוצאה אי-זוגית אם ורק אם שני הגורמים הם אי-זוגיים.", "math_expression": "(אי-זוגי) * (אי-זוגי) = אי-זוגי" },
-            { "verbal_explanation": "לכן, אנו מחפשים את ההסתברות לקבל (מספר אי-זוגי בראשונה) וגם (מספר אי-זוגי בשנייה).", "math_expression": "חיתוך תנאים" },
-            { "verbal_explanation": "הסיכוי למספר אי-זוגי בקובייה אחת הוא חצי (3 מתוך 6 פאות). נכפול את ההסתברויות הבלתי תלויות.", "math_expression": "(1/2) * (1/2) = 1/4" }
-        ],
-        "final_answer": "1/4",
-        "options": ["1/2", "1/4", "1/3", "3/4"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 41,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Low",
-        "question_text": "בטבלה דו-ממדית עם נתונים באחוזים, למה תמיד שווה המספר שנמצא במשבצת הקיצונית ביותר (בפינה השמאלית/ימנית תחתונה)?",
-        "hint": "זוהי משבצת ה'סך הכל' המוחלט של שני הצירים יחדיו.",
-        "solution_steps": [
-            { "verbal_explanation": "בכל טבלה המנתחת אוכלוסייה (באחוזים או בשברים), השוליים הימניים (או השמאליים) מסכמים שורות, והתחתונים מסכמים עמודות.", "math_expression": "סכימות חלקיות" },
-            { "verbal_explanation": "המשבצת הפינתית היא נקודת המפגש של שורת ה'סה\"כ' עם עמודת ה'סה\"כ'.", "math_expression": "מפגש סכומים" },
-            { "verbal_explanation": "משבצת זו מייצגת את האוכלוסייה בשלמותה ללא כל סינון, ולכן במונחי אחוזים היא תמיד מכילה 100% (או 1 בהסתברות שברים).", "math_expression": "השלם (100%)" }
-        ],
-        "final_answer": "100% (או 1 שלם).",
-        "options": ["50% מכלל האוכלוסייה.", "סכום שתי התכונות הנדירות ביותר.", "100% (או 1 שלם).", "תלוי בנתונים הפנימיים של הטבלה."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 42,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Medium",
-        "question_text": "בטבלת הסתברויות על קניית רכבים: P(חשמלי)=0.2 , P(לבן)=0.5. האם ניתן לקבוע מיד שההסתברות לרכב שהוא <strong>גם לבן וגם חשמלי</strong> היא 0.2*0.5 = 0.1?",
-        "hint": "זה נכון אך ורק אם שתי התכונות (חשמלי, לבן) לא משפיעות אחת על השנייה (בלתי תלויות). האם נתון שהן בלתי תלויות?",
-        "solution_steps": [
-            { "verbal_explanation": "הפעולה של הכפלת ההסתברויות השוליות זו בזו, P(A)*P(B), נועדה לבדוק או לחשב מקרים של חוסר תלות (מאורעות בלתי תלויים).", "math_expression": "נוסחת אי-תלות" },
-            { "verbal_explanation": "אולם, במציאות רכבים חשמליים נוטים להגיע בצבעים מסוימים, כך שייתכן קשר. ללא נתון מפורש שהתכונות 'בלתי תלויות', אי אפשר להניח זאת ואי אפשר סתם לכפול.", "math_expression": "חסר נתון" },
-            { "verbal_explanation": "כדי למצוא את החיתוך, אנו זקוקים לנתון פנימי נוסף מהטבלה." }
-        ],
-        "final_answer": "לא, אלא אם נתון במפורש שהמאורעות בלתי תלויים.",
-        "options": ["כן, זו הנוסחה לחיתוך תמיד.", "לא, צריך לחבר אותם (0.7).", "לא, אלא אם נתון במפורש שהמאורעות בלתי תלויים.", "כן, אבל רק אם אין רכבים שחורים בטבלה."],
-        "correctAnswer": 2
-    },
-    {
-        "id": 43,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "High",
-        "question_text": "במועדון ספורט 60 חברים. 40 משחקים כדורגל, 30 משחקים כדורסל. ידוע ש<strong>כל חבר במועדון משחק לפחות באחד המשחקים</strong>. כמה חברים משחקים <strong>בשניהם יחד</strong>?",
-        "hint": "חברו את הכדורגלנים והכדורסלנים יחד (70). מכיוון שיש רק 60 חברים במועדון (ואין כאלו שלא משחקים כלום), העודף נוצר בגלל אלו שנספרו פעמיים!",
-        "solution_steps": [
-            { "verbal_explanation": "נשתמש בנוסחת החיבור של מאורעות. ההסתברות (או הכמות) של איחוד שתי הקבוצות (A או B) שווה לסכום שלהן פחות החיתוך שלהן (A וגם B).", "math_expression": "P(A∪B) = P(A) + P(B) - P(A∩B)" },
-            { "verbal_explanation": "נציב את הנתונים בכמויות: סך כל החברים שמשחקים לפחות משהו הוא 60. הקבוצה הראשונה מונה 40, השנייה 30.", "math_expression": "60 = 40 + 30 - P(חיתוך)" },
-            { "verbal_explanation": "נפשט: 60 שווה ל-70 פחות החיתוך.", "math_expression": "60 = 70 - חיתוך" },
-            { "verbal_explanation": "החיתוך (אלו שמשחקים בשניהם) חייב להיות 10 כדי לאזן את המשוואה. הם נספרו פעמיים ולכן נוצר העודף.", "math_expression": "חיתוך = 10" }
-        ],
-        "final_answer": "10 חברים",
-        "options": ["10 חברים", "20 חברים", "0 חברים", "70 חברים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 44,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "Medium",
-        "question_text": "מה משמעותו של <strong>תא פנימי שכתוב בו 0</strong> (אפס) בטבלה דו-ממדית?",
-        "hint": "תא פנימי מייצג אנשים שמקיימים את שתי התכונות (השורה והעמודה) יחד. אם הוא 0...",
-        "solution_steps": [
-            { "verbal_explanation": "תאים פנימיים בטבלה מייצגים את ה'וגם' (חיתוך) של התכונה בראש העמודה עם התכונה בתחילת השורה.", "math_expression": "תא פנימי = חיתוך" },
-            { "verbal_explanation": "כאשר תא כזה מקבל את הערך אפס, משמעות הדבר היא שאין באוכלוסייה אף פריט המקיים את שתי התכונות הללו במקביל.", "math_expression": "P(A וגם B) = 0" },
-            { "verbal_explanation": "במתמטיקה, מאורעות שלא יכולים להתרחש יחדיו (חיתוכם ריק) נקראים 'מאורעות זרים' (Mutually Exclusive).", "math_expression": "מאורעות זרים" }
-        ],
-        "final_answer": "ששתי התכונות המצטלבות אינן יכולות לקרות יחד (מאורעות זרים).",
-        "options": ["ששתי התכונות משלימות זו את זו ל-1.", "ששתי התכונות המצטלבות אינן יכולות לקרות יחד (מאורעות זרים).", "שאחת התכונות אינה קיימת כלל בטבלה.", "שיש טעות בחישוב שולי הטבלה."],
-        "correctAnswer": 1
-    },
-    {
-        "id": 45,
-        "subTopic": "חישובים בעזרת טבלה דו-ממדית",
-        "difficulty": "High",
-        "question_text": "בטבלת הסתברויות של אוכלוסייה (סך הכל 1), ידוע ש: P(בנים) = 0.45. כמו כן, ההסתברות לבחור 'בת שמרכיבה משקפיים' היא 0.2. מהי ההסתברות לבחור <strong>בת ללא משקפיים</strong>?",
-        "hint": "היעזרו בשוליים של הטבלה. מצאו קודם כמה בנות יש בסך הכל (המשלים של בנים). מתוכן, החסירו את אלו שעם משקפיים.",
-        "solution_steps": [
-            { "verbal_explanation": "נחשב תחילה את סך כל הבנות. סך האוכלוסייה הוא 1 שלם, וידוע ששיעור הבנים הוא 0.45. לכן הבנות הן ההשלמה.", "math_expression": "P(בנות סה\"כ) = 1 - 0.45 = 0.55" },
-            { "verbal_explanation": "שורת הבנות מתחלקת לשני תאים: עם משקפיים ובלי משקפיים. סכום שני התאים חייב לתת את ה'סה\"כ' של השורה (0.55).", "math_expression": "בנות-משקפיים + בנות-בלי = 0.55" },
-            { "verbal_explanation": "נציב את הנתון הידוע: בנות עם משקפיים = 0.2.", "math_expression": "0.2 + P(בנות ללא) = 0.55" },
-            { "verbal_explanation": "נחסר ונמצא את התשובה.", "math_expression": "P(בנות ללא) = 0.55 - 0.2 = 0.35" }
-        ],
-        "final_answer": "0.35",
-        "options": ["0.35", "0.25", "0.55", "0.80"],
-        "correctAnswer": 0
+        final_answer: "\\frac{1}{4}"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: הסתברות מותנית (הוצאה ללא החזרה) (15 שאלות) ---
-    // ==============================================================
+    // --------------------------------------------------------
+    // תת נושא 3: חישובים בעזרת טבלה דו-ממדית (שאלות 25-36)
+    // --------------------------------------------------------
+    
+    // 25-28 עם איורים
     {
-        "id": 46,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Low",
-        "question_text": "מדוע <strong>הוצאה ללא החזרה</strong> (למשל של כדורים מכד) משנה את ההסתברות בשלב השני של הניסוי?",
-        "hint": "כשמוציאים משהו ולא מחזירים, מה קורה לסך כל הדברים שהיו בכד? המכנה של השבר משתנה.",
-        "solution_steps": [
-            { "verbal_explanation": "הסתברות מחושבת תמיד על ידי חלוקת ההצלחות בסך כל האפשרויות במרחב המדגם (המכנה).", "math_expression": "P = הצלחות / מכנה" },
-            { "verbal_explanation": "כאשר אנו מוציאים פריט ולא מחזירים אותו, כמות הפריטים הכוללת בכלי קטנה ב-1. לכן, המכנה עבור השליפה השנייה קטן ב-1.", "math_expression": "מכנה חדש = מכנה ישן - 1" },
-            { "verbal_explanation": "בנוסף, ייתכן שגם כמות ההצלחות הפוטנציאלית (המונה) קטנה ב-1, תלוי איזה פריט יצא בשלב הראשון." },
-            { "verbal_explanation": "שינוי זה יוצר 'תלות' בין המאורעות. הסיכוי בשלב ב' תלוי לחלוטין במה שקרה בשלב א'." }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק הוגנות (מרחב מדגם של 36 תוצאות בטבלה). מה ההסתברות שסכום המספרים שיתקבל יהיה בדיוק 8?" + svg3_table6x6,
+        options: [
+            "\\frac{5}{36}", 
+            "\\frac{1}{6}", 
+            "\\frac{7}{36}", 
+            "\\frac{1}{9}"
         ],
-        "final_answer": "מכיוון שמרחב המדגם כולו (והמכנה בשבר ההסתברות) קטן ב-1.",
-        "options": ["מכיוון שהכדורים מתערבבים אחרת בכד.", "מכיוון שמרחב המדגם כולו (והמכנה בשבר) קטן ב-1.", "ההסתברות לא משתנה כלל.", "מפני שחוקי הכפל מבוטלים במצב זה."],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חפשו את התאים בטבלה שבהם סכום השורה והעמודה נותן 8.",
+        solution_steps: [
+            { verbal_explanation: "סך המשבצות בטבלה הדו-ממדית.", math_expression: "6 \\times 6 = 36" },
+            { verbal_explanation: "הזוגות הנותנים סכום 8 מתחילים מ-(2,6) ויורדים באלכסון.", math_expression: "5" },
+            { verbal_explanation: "מציבים חמש חלקי שלושים ושש. השבר לא מצטמצם.", math_expression: "\\frac{5}{36}" }
+        ],
+        final_answer: "\\frac{5}{36}"
     },
     {
-        "id": 47,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Medium",
-        "question_text": "בכד יש 5 כדורים אדומים ו-3 כדורים כחולים. מוציאים כדור אחד <strong>ולא מחזירים</strong>. לאחר מכן מוציאים כדור שני. מה ההסתברות ש<strong>שני הכדורים יהיו אדומים</strong>?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='120' viewBox='0 0 120 120'><path d='M 30 20 L 30 100 A 30 20 0 0 0 90 100 L 90 20 Z' fill='none' stroke='#475569' stroke-width='3'/><circle cx='45' cy='90' r='8' fill='#ef4444'/><circle cx='60' cy='95' r='8' fill='#ef4444'/><circle cx='75' cy='85' r='8' fill='#ef4444'/><circle cx='50' cy='75' r='8' fill='#ef4444'/><circle cx='68' cy='70' r='8' fill='#ef4444'/><circle cx='45' cy='60' r='8' fill='#3b82f6'/><circle cx='75' cy='55' r='8' fill='#3b82f6'/><circle cx='60' cy='45' r='8' fill='#3b82f6'/></svg></div>",
-        "hint": "חשבו הסתברות לשלב הראשון (5 מתוך 8). בשלב השני נשארו רק 7 כדורים בסך הכל, ורק 4 מהם אדומים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב את ההסתברות להוציא אדום בסיבוב הראשון. יש 5 אדומים מתוך סך הכל של 8 כדורים.", "math_expression": "P(אדום 1) = 5/8" },
-            { "verbal_explanation": "שלב 2: כדור אדום אחד יצא ולא חזר. כעת הכד מכיל רק 7 כדורים. מתוכם נותרו רק 4 אדומים.", "math_expression": "P(אדום 2) = 4/7" },
-            { "verbal_explanation": "שלב 3: נכפיל את שתי ההסתברויות לפי כלל המסלול (וגם).", "math_expression": "P(רצף אדומים) = (5/8) * (4/7)" },
-            { "verbal_explanation": "שלב 4: נחשב (5 כפול 4 שווה 20, 8 כפול 7 שווה 56). נצמצם את השבר.", "math_expression": "20/56 = 5/14" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מסובבים שני סביבונים הממוספרים 1, 2, 3, 4. מרכיבים טבלת תוצאות בגודל 4 על 4. מה ההסתברות שסכום המספרים בטבלה יהיה בדיוק 5?" + svg3_table4x4,
+        options: [
+            "\\frac{1}{4}", 
+            "\\frac{1}{8}", 
+            "\\frac{3}{16}", 
+            "\\frac{5}{16}"
         ],
-        "final_answer": "5/14",
-        "options": ["25/64", "5/14", "20/64", "1/2"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "בטבלה קטנה של ארבע על ארבע, כמה תאים מניבים סכום חמש?",
+        solution_steps: [
+            { verbal_explanation: "מרחב המדגם של הטבלה הקטנה.", math_expression: "4 \\times 4 = 16" },
+            { verbal_explanation: "זוגות לסכום 5: (1,4), (2,3), (3,2), (4,1). סך הכל 4 משבצות.", math_expression: "4" },
+            { verbal_explanation: "נציב ונצמצם בארבע.", math_expression: "\\frac{4}{16} = \\frac{1}{4}" }
+        ],
+        final_answer: "\\frac{1}{4}"
     },
     {
-        "id": 48,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Medium",
-        "question_text": "בקופסה יש 4 סוכריות ירוקות ו-6 צהובות. מוציאים סוכרייה, אוכלים אותה (<strong>ללא החזרה</strong>), ואז מוציאים עוד אחת. מה ההסתברות שנוציא <strong>קודם ירוקה ואז צהובה</strong> (בסדר הזה)?",
-        "hint": "בשלב הראשון יש 10 סוכריות. בשלב השני יש 9, אבל כמות הצהובות נשארה מלאה (6) כי אכלנו ירוקה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נוציא ירוקה. יש 4 ירוקות מתוך 10 סך הכל.", "math_expression": "P(ירוק 1) = 4/10" },
-            { "verbal_explanation": "שלב 2: סוכרייה ירוקה נאכלה. בקופסה נותרו 9 סוכריות סך הכל.", "math_expression": "מכנה חדש = 9" },
-            { "verbal_explanation": "שלב 3: אנו רוצים להוציא צהובה כעת. מכיוון שעדיין לא נגענו בצהובות, כל ה-6 נותרו שם. לכן הסיכוי הוא 6 מתוך 9.", "math_expression": "P(צהוב 2) = 6/9" },
-            { "verbal_explanation": "שלב 4: נכפיל את המסלול.", "math_expression": "(4/10) * (6/9) = 24/90" },
-            { "verbal_explanation": "שלב 5: נצמצם את השבר. נחלק מונה ומכנה ב-6.", "math_expression": "4/15" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק הוגנות. מה ההסתברות שגם בקובייה הראשונה וגם בשנייה יתקבל מספר ראשוני (2, 3, או 5)?" + svg3_table_blocks,
+        options: [
+            "\\frac{1}{4}", 
+            "\\frac{1}{6}", 
+            "\\frac{2}{9}", 
+            "\\frac{1}{3}"
         ],
-        "final_answer": "4/15",
-        "options": ["24/100", "4/15", "10/19", "6/25"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "יש 3 מספרים ראשוניים בכל קובייה. החיתוך שלהם בטבלה יוצר ריבוע של משבצות.",
+        solution_steps: [
+            { verbal_explanation: "כמות תאי החיתוך בטבלה מחושבת על ידי הכפלת הכמויות.", math_expression: "3 \\times 3 = 9" },
+            { verbal_explanation: "ההסתברות היא 9 תאים מתאימים מתוך סך כל 36 התאים. נצמצם בתשע.", math_expression: "\\frac{9}{36} = \\frac{1}{4}" }
+        ],
+        final_answer: "\\frac{1}{4}"
     },
     {
-        "id": 49,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "המשך לשאלה הקודמת (4 ירוקות, 6 צהובות, ללא החזרה): מה ההסתברות שנוציא <strong>אחת ירוקה ואחת צהובה, ללא חשיבות לסדר</strong>?",
-        "hint": "קיימים שני מסלולים מתאימים. מסלול א': ירוקה ואז צהובה. מסלול ב': צהובה ואז ירוקה. חשבו את השני וחברו לראשון (התשובה תפתיע אתכם - הם זהים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: 'ללא חשיבות לסדר' מחייב חישוב של שני מסלולים. מסלול ראשון: (ירוק, צהוב). חישבנו קודם והתוצאה היא 24/90.", "math_expression": "P(ירוק-צהוב) = 24/90" },
-            { "verbal_explanation": "שלב 2: נחשב את המסלול השני ההפוך: (צהוב, ירוק). צהוב ראשון הוא 6/10.", "math_expression": "P(צהוב 1) = 6/10" },
-            { "verbal_explanation": "שלב 3: נותרו 9 סוכריות, מהן 4 ירוקות. הסיכוי לירוקה עכשיו הוא 4/9.", "math_expression": "P(ירוק 2) = 4/9" },
-            { "verbal_explanation": "שלב 4: מכפלת המסלול השני היא (6/10) * (4/9) שזה שוב בדיוק 24/90.", "math_expression": "P(צהוב-ירוק) = 24/90" },
-            { "verbal_explanation": "שלב 5: נחבר את שני המסלולים התקינים: 24/90 + 24/90 = 48/90. נצמצם ב-6 ונקבל 8/15.", "math_expression": "48/90 = 8/15" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מה ההסתברות שההפרש בין המספר שיופיע בקובייה הראשונה למספר בשנייה (הראשון פחות השני) הוא בדיוק 1 חיובי?" + svg3_axis,
+        options: [
+            "\\frac{5}{36}", 
+            "\\frac{1}{6}", 
+            "\\frac{1}{12}", 
+            "\\frac{5}{18}"
         ],
-        "final_answer": "8/15",
-        "options": ["4/15", "8/15", "10/19", "48/100"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "זה אומר שהראשונה גדולה באחד. חפשו את התאים הסמוכים לאלכסון המרכזי.",
+        solution_steps: [
+            { verbal_explanation: "הזוגות שבהם השמאלי גדול ב-1: (2,1), (3,2), (4,3), (5,4), (6,5).", math_expression: "5" },
+            { verbal_explanation: "הסדר ההפוך ייתן תוצאה שלילית, לכן יש רק חמש אפשרויות.", math_expression: "\\frac{5}{36}" }
+        ],
+        final_answer: "\\frac{5}{36}"
+    },
+    // 29-36 ללא איורים
+    {
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מתוך הטבלה, מה ההסתברות שמכפלת התוצאות תהיה בדיוק 12?",
+        options: [
+            "\\frac{1}{9}", 
+            "\\frac{1}{12}", 
+            "\\frac{5}{36}", 
+            "\\frac{1}{6}"
+        ],
+        correctAnswer: 0,
+        hint: "אלו מספרים מכפלתם 12? כל זוג מופיע פעמיים בטבלה.",
+        solution_steps: [
+            { verbal_explanation: "המספרים שמכפלתם שתים-עשרה הם (3,4) ו-(2,6). בטבלה הם מופיעים גם בסדר הפוך, סך הכל ארבע משבצות.", math_expression: "4" },
+            { verbal_explanation: "נציב ונצמצם בארבע.", math_expression: "\\frac{4}{36} = \\frac{1}{9}" }
+        ],
+        final_answer: "\\frac{1}{9}"
     },
     {
-        "id": 50,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Medium",
-        "question_text": "בכיתה יש 10 בנים ו-10 בנות. המורה בוחר באקראי נציג אחד, <strong>ואז בוחר נציג נוסף שונה</strong> (הראשון לא יכול להיבחר שוב). מהי ההסתברות ש<strong>שני הנציגים יהיו בנות</strong>?",
-        "hint": "ההסתברות לבת ראשונה היא 10/20 (חצי). אחרי שנבחרה בת אחת, כמה בנות נשארו? וכמה תלמידים נשארו בסך הכל בכיתה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הסיכוי לבחור בת בנציגות הראשונה. יש 10 בנות מתוך 20 תלמידים (שווה לחצי).", "math_expression": "P(בת 1) = 10/20 = 1/2" },
-            { "verbal_explanation": "שלב 2: בחירה של נציג נוסף ושונה היא למעשה מודל של 'ללא החזרה'. בת אחת יצאה מהמאגר, נותרו 9 בנות, ומספר התלמידים הכולל ירד ל-19.", "math_expression": "P(בת 2) = 9/19" },
-            { "verbal_explanation": "שלב 3: נכפיל את שתי ההסתברויות להשלמת מסלול (בת וגם בת).", "math_expression": "(1/2) * (9/19)" },
-            { "verbal_explanation": "שלב 4: מונה: 1*9=9. מכנה: 2*19=38.", "math_expression": "9/38" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מה ההסתברות שסכום שתי הקוביות יהיה גדול מ-9?",
+        options: [
+            "\\frac{1}{6}", 
+            "\\frac{1}{12}", 
+            "\\frac{5}{36}", 
+            "\\frac{1}{4}"
         ],
-        "final_answer": "9/38",
-        "options": ["1/4", "100/400", "9/38", "19/39"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "סכום שגדול מתשע חייב להיות 10, 11 או 12.",
+        solution_steps: [
+            { verbal_explanation: "סכום 10: (4,6), (5,5), (6,4). סכום 11: (5,6), (6,5). סכום 12: (6,6).", math_expression: "6" },
+            { verbal_explanation: "שש משבצות מתוך השלושים ושש. נצמצם בשש.", math_expression: "\\frac{6}{36} = \\frac{1}{6}" }
+        ],
+        final_answer: "\\frac{1}{6}"
     },
     {
-        "id": 51,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "בחפיסת קלפים סטנדרטית יש 52 קלפים בסך הכל, מתוכם ישנם 4 'אסים'. שולפים קלף אחד, משאירים אותו בחוץ, ושולפים קלף שני. מהי ההסתברות לשלוף <strong>שני 'אסים' ברצף</strong>?",
-        "hint": "בשלב הראשון יש 4 מתוך 52. בשלב השני נותרו 3 אסים, מתוך חפיסה שכעת מונה 51 קלפים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הסיכוי לשלוף 'אס' ראשון מתוך חפיסה מלאה ושלמה.", "math_expression": "P(אס 1) = 4/52 = 1/13" },
-            { "verbal_explanation": "שלב 2: מכיוון שהקלף לא הוחזר, החפיסה הצטמצמה ל-51 קלפים. גם כמות ה'אסים' בפנים ירדה ל-3.", "math_expression": "P(אס 2) = 3/51 = 1/17" },
-            { "verbal_explanation": "שלב 3: נכפול את ההסתברויות. השתמשנו בצורות המצומצמות שלהן להקלת החישוב במכנה (13 כפול 17).", "math_expression": "(1/13) * (1/17) = 1/221" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מה ההסתברות שמכפלת התוצאות תהיה מספר אי-זוגי?",
+        options: [
+            "\\frac{1}{4}", 
+            "\\frac{1}{2}", 
+            "\\frac{1}{3}", 
+            "\\frac{1}{6}"
         ],
-        "final_answer": "1/221",
-        "options": ["16/2704", "1/169", "1/221", "12/52"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "מכפלה היא אי-זוגית אך ורק אם כל אחד מהגורמים הוא אי-זוגי בעצמו.",
+        solution_steps: [
+            { verbal_explanation: "יש שלושה מספרים אי-זוגיים בכל קובייה. החיתוך בטבלה יכיל תשע משבצות.", math_expression: "3 \\times 3 = 9" },
+            { verbal_explanation: "ההסתברות היא תשע חלקי שלושים ושש, שאחרי צמצום בתשע מגיעים לרבע.", math_expression: "\\frac{9}{36} = \\frac{1}{4}" }
+        ],
+        final_answer: "\\frac{1}{4}"
     },
     {
-        "id": 52,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Medium",
-        "question_text": "בהגרלה נותרו בקופה 10 כרטיסים. מתוכם 3 כרטיסים זוכים בפרס, ו-7 כרטיסים מפסידים (ריקים). אדם קונה 2 כרטיסים. מה ההסתברות שהוא <strong>יזכה בשני פרסים</strong>?",
-        "hint": "קניית 2 כרטיסים במקביל שקולה לחלוטין לשליפה ללא החזרה. הכרטיס הראשון נלקח, והכרטיס השני נלקח מהשארית.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הסיכוי לזכות בכרטיס הראשון. יש 3 זוכים מתוך 10.", "math_expression": "P(זכייה 1) = 3/10" },
-            { "verbal_explanation": "שלב 2: כרטיס זוכה אחד יצא. נותרו בקופה 9 כרטיסים, שמתוכם רק 2 זוכים.", "math_expression": "P(זכייה 2) = 2/9" },
-            { "verbal_explanation": "שלב 3: נכפיל את ההסתברויות. (3 כפול 2) חלקי (10 כפול 9).", "math_expression": "6 / 90" },
-            { "verbal_explanation": "שלב 4: נצמצם את השבר בחלוקה ל-6.", "math_expression": "1 / 15" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "במשחק קלפים מיוחד יש כרטיסים צהובים (ממוספרים 1 עד 3) וכרטיסים ירוקים (ממוספרים 1 עד 4). שולפים כרטיס אחד מכל צבע ובונים טבלה. מה ההסתברות שמכפלת המספרים שייצאו תהיה שווה ל-4?",
+        options: [
+            "\\frac{1}{6}", 
+            "\\frac{1}{12}", 
+            "\\frac{1}{4}", 
+            "\\frac{1}{3}"
         ],
-        "final_answer": "1/15",
-        "options": ["9/100", "1/15", "6/100", "1/10"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "בטבלה יש 3 שורות ו-4 עמודות. מרחב המדגם הוא 12.",
+        solution_steps: [
+            { verbal_explanation: "מרחב המדגם (גודל הטבלה).", math_expression: "3 \\times 4 = 12" },
+            { verbal_explanation: "תאים בהם המכפלה היא 4: (1 צהוב, 4 ירוק) ו-(2 צהוב, 2 ירוק). אין 4 צהוב.", math_expression: "2" },
+            { verbal_explanation: "נצמצם את השבר (חלוקה בשתיים).", math_expression: "\\frac{2}{12} = \\frac{1}{6}" }
+        ],
+        final_answer: "\\frac{1}{6}"
     },
     {
-        "id": 53,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "במגירה יש 2 זוגות גרביים זהים מפורקים (סך הכל 4 גרביים בודדות: 2 לבנות ו-2 שחורות). אדם שולף בחושך 2 גרביים בזו אחר זו (ללא החזרה). מהי ההסתברות שהוא ישלוף <strong>זוג תואם</strong> (שתי לבנות או שתי שחורות)?",
-        "hint": "חשבו את המסלול של (לבן ואז לבן). חשבו את המסלול של (שחור ואז שחור). חברו את התוצאות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחשב מסלול ראשון: לבן וגם לבן. הוצאת לבן ראשון: 2 מתוך 4. הוצאת לבן שני (נשאר לבן אחד ו-3 סה\"כ): 1 מתוך 3.", "math_expression": "P(לבן, לבן) = (2/4) * (1/3) = 2/12 = 1/6" },
-            { "verbal_explanation": "שלב 2: נחשב מסלול שני: שחור וגם שחור. מכיוון שהנתונים סימטריים לחלוטין, גם כאן הסיכוי יהיה זהה.", "math_expression": "P(שחור, שחור) = (2/4) * (1/3) = 1/6" },
-            { "verbal_explanation": "שלב 3: נחבר את שני המסלולים המהווים 'הצלחה'. 1/6 פלוס 1/6.", "math_expression": "2/6 = 1/3" },
-            { "verbal_explanation": "שלב 4: טריק למתקדמים: לא משנה איזו גרב יצאה ראשונה. כדי שיהיה זוג תואם, הגרב השנייה חייבת להיות בת הזוג היחידה שנשארה מתוך 3 הגרביים שנותרו. סיכוי של 1/3 מראש!" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מה ההסתברות שרק קובייה אחת תראה את המספר 4 (כלומר הקובייה השנייה לא מראה 4)?",
+        options: [
+            "\\frac{5}{18}", 
+            "\\frac{1}{6}", 
+            "\\frac{11}{36}", 
+            "\\frac{1}{4}"
         ],
-        "final_answer": "1/3",
-        "options": ["1/2", "1/4", "1/3", "1/6"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "בטבלה, אלו כל התאים בשורת ה-4 ובעמודת ה-4, פרט לנקודת המפגש ביניהן (התא 4,4).",
+        solution_steps: [
+            { verbal_explanation: "אפשרויות שהראשונה היא ארבע והשנייה לא (חמש אפשרויות).", math_expression: "5" },
+            { verbal_explanation: "אפשרויות שהשנייה היא ארבע והראשונה לא (חמש אפשרויות).", math_expression: "5" },
+            { verbal_explanation: "נחבר את הכמויות ונצמצם את השבר בחלוקה בשתיים.", math_expression: "\\frac{10}{36} = \\frac{5}{18}" }
+        ],
+        final_answer: "\\frac{5}{18}"
     },
     {
-        "id": 54,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Low",
-        "question_text": "איזו מבין הפעולות הבאות מתארת מודל של הסתברות ש<strong>אינה</strong> מותנית (הוצאה <strong>עם</strong> החזרה)?",
-        "hint": "חפשו את הפעולה שבה התנאים מתאפסים במדויק בכל סיבוב ומרחב המדגם אינו משתנה לעולם.",
-        "solution_steps": [
-            { "verbal_explanation": "אופציה 1: חלוקת שני קלפים לשחקן. הקלף הראשון נשאר אצלו, לכן החפיסה קטנה (תלוי/מותנה).", "math_expression": "ללא החזרה" },
-            { "verbal_explanation": "אופציה 2: בחירת יו\"ר וסגן לוועד הכיתה. אדם אחד לא יכול להיות בשני התפקידים, לכן האוכלוסייה קטנה (מותנה).", "math_expression": "ללא החזרה" },
-            { "verbal_explanation": "אופציה 3: הטלת אותה קובייה שלוש פעמים ברצף. לקובייה יש 6 פאות תמיד, והיא לא 'מאבדת' פאות לאחר שמטילים אותה. מרחב המדגם נותר 6 בכל הטלה.", "math_expression": "עם החזרה (קבוע)" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים קוביית משחק הוגנת ומסובבים סביבון עליו הספרות 1 עד 3. מה ההסתברות שסכום שני המספרים בטבלת האפשרויות יהיה בדיוק 4?",
+        options: [
+            "\\frac{1}{6}", 
+            "\\frac{1}{9}", 
+            "\\frac{2}{9}", 
+            "\\frac{1}{18}"
         ],
-        "final_answer": "הטלת קובייה שלוש פעמים ברצף.",
-        "options": ["חלוקת קלפים לשחקן פוקר.", "הגרלת פרס ראשון ופרס שני לאנשים שונים.", "הטלת קובייה שלוש פעמים ברצף.", "שליפת כדורים מכד מבלי להחזירם."],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "הטבלה כאן מורכבת מ-6 שורות ו-3 עמודות.",
+        solution_steps: [
+            { verbal_explanation: "כמות משבצות כוללת בטבלה.", math_expression: "6 \\times 3 = 18" },
+            { verbal_explanation: "משבצות לסכום 4: (1,3), (2,2), (3,1). אלו 3 משבצות.", math_expression: "3" },
+            { verbal_explanation: "נחלק ונצמצם בשלוש.", math_expression: "\\frac{3}{18} = \\frac{1}{6}" }
+        ],
+        final_answer: "\\frac{1}{6}"
     },
     {
-        "id": 55,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "במשלוח של 10 מחשבים חדשים התגלה כי 2 מהם פגומים לחלוטין (ו-8 תקינים). מנהל בודק באקראי 2 מחשבים זה אחר זה. מה ההסתברות ש<strong>שני המחשבים שבדק היו תקינים</strong>?",
-        "hint": "זו הוצאה ללא החזרה (הוא בודק אחד ואז בודק את השני מתוך ה-9 שנותרו). חשבו את המסלול: (תקין וגם תקין).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בדיקת המחשב הראשון. הסיכוי שהוא תקין הוא 8 תקינים מתוך 10 בסך הכל.", "math_expression": "P(תקין 1) = 8/10" },
-            { "verbal_explanation": "שלב 2: המחשב התקין נשאר בצד. כעת נותרו בערימה 9 מחשבים, ורק 7 מהם תקינים.", "math_expression": "P(תקין 2) = 7/9" },
-            { "verbal_explanation": "שלב 3: נכפיל את שתי ההסתברויות כדי לדרוש את שני התנאים במקביל.", "math_expression": "(8/10) * (7/9) = 56 / 90" },
-            { "verbal_explanation": "שלב 4: נצמצם את השבר (נחלק ב-2).", "math_expression": "28 / 45" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מה ההסתברות שהמספר בקובייה הראשונה יהיה כפול במדויק מהמספר בשנייה?",
+        options: [
+            "\\frac{1}{12}", 
+            "\\frac{1}{9}", 
+            "\\frac{1}{18}", 
+            "\\frac{1}{6}"
         ],
-        "final_answer": "28/45",
-        "options": ["64/100", "28/45", "16/90", "1/45"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "חפשו את התאים בטבלה מהסוג (2,1) שבו השמאלי כפול מהימני.",
+        solution_steps: [
+            { verbal_explanation: "הזוגות שמקיימים שהשמאלי כפול מהימני הם: (2,1), (4,2) ו-(6,3).", math_expression: "3" },
+            { verbal_explanation: "אין יותר זוגות אפשריים. מציבים את השלוש מתוך השלושים ושש ומצמצמים בשלוש.", math_expression: "\\frac{3}{36} = \\frac{1}{12}" }
+        ],
+        final_answer: "\\frac{1}{12}"
     },
     {
-        "id": 56,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "מתוך קופסה המכילה את 4 האותיות: א', ב', ג', ד', מוציאים 3 פתקיות באקראי (ללא החזרה) ומניחים אותן זו לצד זו משמאל לימין. מה ההסתברות שתיווצר המילה <strong>'בגד'</strong>?",
-        "hint": "זהו עץ בעל 3 שלבים ללא החזרה. מה הסיכוי לשלוף 'ב' בהתחלה (1 מ-4)? מה הסיכוי ל-'ג' אחר כך (1 מ-3)?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הסיכוי לשלוף את האות 'ב' בשליפה הראשונה. יש פתק אחד כזה מתוך 4 פתקים בקופסה.", "math_expression": "P('ב') = 1/4" },
-            { "verbal_explanation": "שלב 2: האות הוצאה. נותרו בקופסה 3 פתקים (א, ג, ד). הסיכוי לשלוף כעת את האות 'ג' הוא 1 מתוך 3.", "math_expression": "P('ג') = 1/3" },
-            { "verbal_explanation": "שלב 3: האות הוצאה. נותרו בקופסה 2 פתקים (א, ד). הסיכוי לשלוף כעת את האות 'ד' הוא 1 מתוך 2.", "math_expression": "P('ד') = 1/2" },
-            { "verbal_explanation": "שלב 4: נכפיל את כל ההסתברויות ליצירת הרצף המדויק. 1/4 כפול 1/3 כפול 1/2.", "math_expression": "1 / (4*3*2) = 1/24" }
+        topic: "probability",
+        subTopic: "חישובים בעזרת טבלה דו-ממדית",
+        question_text: "מטילים שתי קוביות משחק. מה ההסתברות שההפרש בין המספרים הוא אפס (דאבל)?",
+        options: [
+            "\\frac{1}{6}", 
+            "\\frac{1}{12}", 
+            "\\frac{5}{36}", 
+            "\\frac{1}{3}"
         ],
-        "final_answer": "1/24",
-        "options": ["1/64", "1/12", "1/24", "3/4"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "אלו המשבצות באלכסון המרכזי של הטבלה.",
+        solution_steps: [
+            { verbal_explanation: "ההפרש הוא אפס רק כשהמספרים זהים.", math_expression: "6" },
+            { verbal_explanation: "ההסתברות היא שש חלקי שלושים ושש. נצמצם בשש.", math_expression: "\\frac{6}{36} = \\frac{1}{6}" }
+        ],
+        final_answer: "\\frac{1}{6}"
+    },
+
+    // --------------------------------------------------------
+    // תת נושא 4: הסתברות מותנית (הוצאה ללא החזרה) (שאלות 37-48)
+    // --------------------------------------------------------
+    
+    // 37-40 עם איורים
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בקופסה יש 4 כדורים אדומים ו-6 כדורים כחולים. מוציאים באקראי כדור אחד ללא החזרה, ואז מוציאים כדור שני. מה ההסתברות ששני הכדורים שהוצאו הם אדומים?" + svg4_urn_rb,
+        options: [
+            "\\frac{2}{15}", 
+            "\\frac{16}{100}", 
+            "\\frac{1}{5}", 
+            "\\frac{2}{9}"
+        ],
+        correctAnswer: 0,
+        hint: "בהוצאה השנייה ללא החזרה, מספר הכדורים בשק קטן באחד, וכך גם מספר האדומים.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות להוציא כדור אדום בפעם הראשונה.", math_expression: "\\frac{4}{10}" },
+            { verbal_explanation: "נותרו תשעה כדורים, מתוכם שלושה אדומים. נצמצם לשליש.", math_expression: "\\frac{3}{9} = \\frac{1}{3}" },
+            { verbal_explanation: "נכפיל את ההסתברויות ונצמצם בחלוקה לשתיים.", math_expression: "\\frac{4}{10} \\times \\frac{1}{3} = \\frac{4}{30} = \\frac{2}{15}" }
+        ],
+        final_answer: "\\frac{2}{15}"
     },
     {
-        "id": 57,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Medium",
-        "question_text": "בכד יש 4 כדורים כחולים ו-4 אדומים (סך הכל 8). מוציאים <strong>שלושה כדורים ברצף, ללא החזרה</strong>. מה ההסתברות שכולם (כל השלושה) יהיו <strong>כחולים</strong>?",
-        "hint": "כפלו שלוש פעמים תוך כדי הקטנת המונה והמכנה בכל פעם. כחול, ואז כחול, ואז כחול.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הוצאת כחול ראשון מתוך כד מלא. 4 כחולים מתוך 8.", "math_expression": "P(1) = 4/8 = 1/2" },
-            { "verbal_explanation": "שלב 2: הוצאת כחול שני. נותרו 3 כחולים ו-7 כדורים בכלל.", "math_expression": "P(2) = 3/7" },
-            { "verbal_explanation": "שלב 3: הוצאת כחול שלישי. נותרו 2 כחולים מתוך 6 כדורים בכלל (2/6 זה בעצם שליש).", "math_expression": "P(3) = 2/6 = 1/3" },
-            { "verbal_explanation": "שלב 4: נכפיל את שלוש ההסתברויות. ניעזר בשברים המצומצמים: חצי כפול שלוש-שביעיות כפול שליש.", "math_expression": "(1/2) * (3/7) * (1/3) = 3 / 42" },
-            { "verbal_explanation": "שלב 5: נצמצם את השבר (נחלק ב-3).", "math_expression": "1/14" }
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בצנצנת מיוחדת ישנן 5 סוכריות לימון ו-5 סוכריות תפוח. יעל מוציאה סוכרייה, אוכלת אותה, ומוציאה נוספת. מה ההסתברות שאכלה שתי סוכריות תפוח?" + svg4_urn_gy,
+        options: [
+            "\\frac{2}{9}", 
+            "\\frac{1}{4}", 
+            "\\frac{5}{18}", 
+            "\\frac{1}{5}"
         ],
-        "final_answer": "1/14",
-        "options": ["1/8", "1/14", "12/512", "1/6"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "בפעם הראשונה יש 5 מתוך 10 סוכריות. עדכנו את הכמויות לקראת ההוצאה השנייה.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לתפוח בהוצאה הראשונה היא חצי.", math_expression: "\\frac{5}{10} = \\frac{1}{2}" },
+            { verbal_explanation: "נותרו 9 סוכריות בסך הכל, ורק 4 מתוכן בטעם תפוח.", math_expression: "\\frac{4}{9}" },
+            { verbal_explanation: "מכפלת ההסתברויות, וצמצום בחלוקה ל-2.", math_expression: "\\frac{1}{2} \\times \\frac{4}{9} = \\frac{4}{18} = \\frac{2}{9}" }
+        ],
+        final_answer: "\\frac{2}{9}"
     },
     {
-        "id": 58,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "קופסה מכילה 5 כדורי שוקולד ו-5 סוכריות מנטה. עיוור מוציא שני ממתקים (ללא החזרה). לאחר שהוציא אותם, מתברר שהממתק <strong>הראשון</strong> שהוציא היה שוקולד. לאור נתון זה, מה ההסתברות שהממתק <strong>השני</strong> יהיה מנטה?",
-        "hint": "אל תחשבו מסלולים. המילים 'לאור נתון זה' קופצות אתכם ישירות לשלב השני בעץ. השאלה פשוט שואלת: מה המצב בקופסה כרגע (אחרי ששוקולד אחד נעלם), ומה הסיכוי להוציא מנטה?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: המידע על הממתק הראשון חוסך לנו את שלב א'. אנו יודעים בוודאות שכדור שוקולד אחד נעלם מהקופסה.", "math_expression": "השפעת הנתון" },
-            { "verbal_explanation": "שלב 2: נספור מחדש את תכולת הקופסה לפני השליפה השנייה. סך הכל ממתקים ירד מ-10 ל-9.", "math_expression": "סה\"כ חדש = 9" },
-            { "verbal_explanation": "שלב 3: נבדוק כמה סוכריות מנטה קיימות. מכיוון שהוצא שוקולד, אף מנטה לא נאכלה, ונשארו כל ה-5.", "math_expression": "מנטה חדש = 5" },
-            { "verbal_explanation": "שלב 4: נחשב את ההסתברות להוצאת מנטה מתוך הקופסה במצבה הנוכחי.", "math_expression": "P(מנטה 2 | שוקולד 1) = 5/9" }
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "מחפיסה של עשרה קלפים מיוחדים הממוספרים מ-1 ועד 10, מושכים שני קלפים בזה אחר זה ללא החזרה. מה ההסתברות ששניהם יהיו קלפים זוגיים?" + svg4_cards,
+        options: [
+            "\\frac{2}{9}", 
+            "\\frac{1}{4}", 
+            "\\frac{5}{18}", 
+            "\\frac{1}{5}"
         ],
-        "final_answer": "5/9",
-        "options": ["5/10", "1/2", "5/9", "25/90"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "ישנם 5 קלפים זוגיים (2, 4, 6, 8, 10). זכרו להפחית אחד בשליפה השנייה.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות למשוך זוגי בפעם הראשונה היא חצי.", math_expression: "\\frac{5}{10} = \\frac{1}{2}" },
+            { verbal_explanation: "נותרו בקופה תשעה קלפים, מתוכם ארבעה זוגיים.", math_expression: "\\frac{4}{9}" },
+            { verbal_explanation: "נכפיל את ההסתברויות המותנות ונצמצם בשתיים.", math_expression: "\\frac{1}{2} \\times \\frac{4}{9} = \\frac{4}{18} = \\frac{2}{9}" }
+        ],
+        final_answer: "\\frac{2}{9}"
     },
     {
-        "id": 59,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "High",
-        "question_text": "בכד 2 כדורים לבנים ו-3 שחורים (סה\"כ 5). שולפים שני כדורים (ללא החזרה). מה ההסתברות ש<strong>לפחות אחד</strong> מהכדורים שיישלפו יהיה <strong>לבן</strong>?",
-        "hint": "חישוב של 'לפחות אחד' בדרך של אירוע משלים הוא קל בהרבה: חשבו את הסיכוי להוציא (שחור וגם שחור) - כלומר שאף לבן לא יצא, וחסרו מ-1 שלם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את המאורע המשלים: במקום לחשב מסלולים של (לבן,לבן), (לבן,שחור) ו-(שחור,לבן), נחשב רק את המסלול של (שחור,שחור) שהוא היחיד שלא מתאים.", "math_expression": "משלים = שחור כפול שחור" },
-            { "verbal_explanation": "שלב 2: ההסתברות לשחור ראשון היא 3/5.", "math_expression": "P(שחור 1) = 3/5" },
-            { "verbal_explanation": "שלב 3: ההסתברות לשחור שני (ללא החזרה) היא 2 שחורים מתוך 4 נותרים.", "math_expression": "P(שחור 2) = 2/4 = 1/2" },
-            { "verbal_explanation": "שלב 4: נכפיל את המסלול השלילי. (3/5) כפול (1/2) שווה 3/10.", "math_expression": "P(רק שחורים) = 3/10" },
-            { "verbal_explanation": "שלב 5: נחסר את התוצאה מ-1 שלם (100%) כדי למצוא את הסיכוי לכל שאר האפשרויות (שבהן יש לפחות לבן אחד).", "math_expression": "1 - 3/10 = 7/10" }
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בקופסת הפתעות יש 6 כדורים לבנים ו-4 שחורים. מוציאים שני כדורים ללא החזרה. מה ההסתברות ששני הכדורים יהיו בעלי צבעים שונים?" + svg4_box,
+        options: [
+            "\\frac{8}{15}", 
+            "\\frac{24}{100}", 
+            "\\frac{48}{100}", 
+            "\\frac{7}{15}"
         ],
-        "final_answer": "7/10",
-        "options": ["3/10", "7/10", "4/10", "6/25"],
-        "correctAnswer": 1
+        correctAnswer: 0,
+        hint: "צבעים שונים פירושם שני מסלולים נפרדים: 'לבן ואז שחור', או 'שחור ואז לבן'.",
+        solution_steps: [
+            { verbal_explanation: "מסלול א' (לבן, שחור).", math_expression: "\\frac{6}{10} \\times \\frac{4}{9} = \\frac{24}{90}" },
+            { verbal_explanation: "מסלול ב' (שחור, לבן).", math_expression: "\\frac{4}{10} \\times \\frac{6}{9} = \\frac{24}{90}" },
+            { verbal_explanation: "נחבר את המסלולים ונצמצם את השבר הסופי בחלוקה בשש.", math_expression: "\\frac{24}{90} + \\frac{24}{90} = \\frac{48}{90} = \\frac{8}{15}" }
+        ],
+        final_answer: "\\frac{8}{15}"
+    },
+    // 41-48 ללא איורים
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בכד 3 כדורים צהובים ו-7 ירוקים. מוציאים שני כדורים ללא החזרה. מה ההסתברות שהראשון צהוב והשני ירוק?",
+        options: [
+            "\\frac{7}{30}", 
+            "\\frac{21}{100}", 
+            "\\frac{1}{4}", 
+            "\\frac{3}{10}"
+        ],
+        correctAnswer: 0,
+        hint: "הראשון שיוצא הוא צהוב, ולכן כמות הירוקים בכד לא משתנה לקראת ההוצאה השנייה.",
+        solution_steps: [
+            { verbal_explanation: "הסתברות לצהוב בהוצאה ראשונה מתוך עשרה.", math_expression: "\\frac{3}{10}" },
+            { verbal_explanation: "נותרו תשעה כדורים, והירוקים נשארו שבעה.", math_expression: "\\frac{7}{9}" },
+            { verbal_explanation: "נכפיל את השברים ונצמצם (נחלק בשלוש).", math_expression: "\\frac{3}{10} \\times \\frac{7}{9} = \\frac{21}{90} = \\frac{7}{30}" }
+        ],
+        final_answer: "\\frac{7}{30}"
     },
     {
-        "id": 60,
-        "subTopic": "הסתברות מותנית (הוצאה ללא החזרה)",
-        "difficulty": "Medium",
-        "question_text": "שאלת הגיון (ללא חישוב ארוך): בכד יש 2 כדורים לבנים בלבד. מוציאים את שניהם, אחד אחרי השני, ללא החזרה. מה ההסתברות ש<strong>שני הכדורים שהוצאו יהיו לבנים</strong>?",
-        "hint": "תחשבו על זה רגע. אם יש רק כדורים לבנים בכד, מה עוד אפשר להוציא?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הוצאת כדור ראשון. יש רק לבנים, לכן נוציא לבן בסיכוי של 100%. (2 מתוך 2).", "math_expression": "P(1) = 2/2 = 1" },
-            { "verbal_explanation": "שלב 2: לאחר שהוצאנו לבן אחד, נשאר בכד כדור אחד בלבד, שגם הוא לבן. הסיכוי להוציא אותו הוא שוב 100%. (1 מתוך 1).", "math_expression": "P(2) = 1/1 = 1" },
-            { "verbal_explanation": "שלב 3: 1 כפול 1 שווה ל-1. מדובר במאורע ודאי שאין דרך לחמוק ממנו." }
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בקופסת שוקולד 3 חטיפים מרירים ו-5 חלביים. יונתן שולף חטיף, אוכל אותו, ושולף חטיף נוסף. מה ההסתברות שאכל שני שוקולדים מרירים?",
+        options: [
+            "\\frac{3}{28}", 
+            "\\frac{9}{64}", 
+            "\\frac{1}{8}", 
+            "\\frac{2}{7}"
         ],
-        "final_answer": "1 (מאורע ודאי).",
-        "options": ["0.5", "0.25", "1 (מאורע ודאי).", "0 (אי אפשר בלי להחזיר)"],
-        "correctAnswer": 2
+        correctAnswer: 0,
+        hint: "עדכנו את הכמות הכללית של החטיפים ואת כמות המרירים לפני השליפה השנייה.",
+        solution_steps: [
+            { verbal_explanation: "שליפה ראשונה של מריר מתוך שמונה.", math_expression: "\\frac{3}{8}" },
+            { verbal_explanation: "שליפה שנייה של מריר (נותרו שניים מתוך שבעה).", math_expression: "\\frac{2}{7}" },
+            { verbal_explanation: "נכפיל את השברים ונצמצם בחלוקה לשתיים.", math_expression: "\\frac{3}{8} \\times \\frac{2}{7} = \\frac{6}{56} = \\frac{3}{28}" }
+        ],
+        final_answer: "\\frac{3}{28}"
+    },
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בכיתה 12 בנות ו-8 בנים. נבחרים באקראי שני תלמידים לאותו צוות. מה ההסתברות שייבחרו שתי בנות?",
+        options: [
+            "\\frac{33}{95}", 
+            "\\frac{9}{25}", 
+            "\\frac{11}{30}", 
+            "\\frac{36}{100}"
+        ],
+        correctAnswer: 0,
+        hint: "בחירת תפקידים שקולה להוצאה ללא החזרה מתוך המאגר של עשרים תלמידים.",
+        solution_steps: [
+            { verbal_explanation: "ההסתברות לבחור בת בראשונה שווה לשלוש חמישיות.", math_expression: "\\frac{12}{20} = \\frac{3}{5}" },
+            { verbal_explanation: "ההסתברות לבחור בת שנייה מתוך התשעה-עשר שנותרו.", math_expression: "\\frac{11}{19}" },
+            { verbal_explanation: "נכפיל את ההסתברויות.", math_expression: "\\frac{3}{5} \\times \\frac{11}{19} = \\frac{33}{95}" }
+        ],
+        final_answer: "\\frac{33}{95}"
+    },
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "במגירה 4 כפתורים כחולים, 3 אדומים ו-2 ירוקים. מוציאים שני כפתורים ברצף ללא החזרה. מה ההסתברות ששניהם ייצאו כחולים?",
+        options: [
+            "\\frac{1}{6}", 
+            "\\frac{16}{81}", 
+            "\\frac{4}{27}", 
+            "\\frac{1}{8}"
+        ],
+        correctAnswer: 0,
+        hint: "יש 9 כפתורים במגירה בהתחלה.",
+        solution_steps: [
+            { verbal_explanation: "שליפה ראשונה של כחול.", math_expression: "\\frac{4}{9}" },
+            { verbal_explanation: "שליפה שנייה של כחול מתוך השארית (שלוש שמיניות).", math_expression: "\\frac{3}{8}" },
+            { verbal_explanation: "נכפיל את שני השברים ונקבל שתים עשרה חלקי שבעים ושתיים. נצמצם.", math_expression: "\\frac{4}{9} \\times \\frac{3}{8} = \\frac{12}{72} = \\frac{1}{6}" }
+        ],
+        final_answer: "\\frac{1}{6}"
+    },
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בסלסלה 5 תפוחים ו-4 תפוזים. ילד אוכל פרי ואחותו אוכלת פרי נוסף. מה ההסתברות ששניהם אכלו את אותו הסוג?",
+        options: [
+            "\\frac{4}{9}", 
+            "\\frac{5}{9}", 
+            "\\frac{1}{2}", 
+            "\\frac{32}{81}"
+        ],
+        correctAnswer: 0,
+        hint: "חברו את מסלול (תפוח-תפוח) למסלול (תפוז-תפוז).",
+        solution_steps: [
+            { verbal_explanation: "מסלול תפוחים (חמש תשיעיות כפול ארבע שמיניות).", math_expression: "\\frac{5}{9} \\times \\frac{4}{8} = \\frac{20}{72}" },
+            { verbal_explanation: "מסלול תפוזים (ארבע תשיעיות כפול שלוש שמיניות).", math_expression: "\\frac{4}{9} \\times \\frac{3}{8} = \\frac{12}{72}" },
+            { verbal_explanation: "נחבר את המסלולים ונצמצם בחלוקה לשמונה.", math_expression: "\\frac{20}{72} + \\frac{12}{72} = \\frac{32}{72} = \\frac{4}{9}" }
+        ],
+        final_answer: "\\frac{4}{9}"
+    },
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "לשומרת 10 מפתחות, ורק אחד פותח את הדלת. היא מנסה באקראי וזורקת מפתחות שגויים. מה ההסתברות שתצליח בדיוק בניסיון השני?",
+        options: [
+            "\\frac{1}{10}", 
+            "\\frac{1}{9}", 
+            "\\frac{1}{100}", 
+            "\\frac{2}{9}"
+        ],
+        correctAnswer: 0,
+        hint: "חייב להתרחש הרצף הבא: כישלון בניסיון הראשון, והצלחה בניסיון השני.",
+        solution_steps: [
+            { verbal_explanation: "הסתברות לכישלון בניסיון הראשון.", math_expression: "\\frac{9}{10}" },
+            { verbal_explanation: "הסתברות להצלחה בניסיון השני מתוך התשעה שנותרו.", math_expression: "\\frac{1}{9}" },
+            { verbal_explanation: "נכפיל את ההסתברויות, התשע מצטמצם ונשארת רק עשירית.", math_expression: "\\frac{9}{10} \\times \\frac{1}{9} = \\frac{1}{10}" }
+        ],
+        final_answer: "\\frac{1}{10}"
+    },
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בקופסה 7 פתקים אדומים ו-3 צהובים. מגרילים שני פתקים ברצף ללא החזרה. מה ההסתברות שיעלה בגורל לפחות פתק אחד צהוב?",
+        options: [
+            "\\frac{8}{15}", 
+            "\\frac{7}{15}", 
+            "\\frac{1}{15}", 
+            "\\frac{14}{30}"
+        ],
+        correctAnswer: 0,
+        hint: "מצאו את המאורע המשלים: אף צהוב (כלומר שניהם אדומים), וחסרו מאחד.",
+        solution_steps: [
+            { verbal_explanation: "המאורע המשלים הוא שניהם אדומים. שבע עשיריות כפול שש תשיעיות.", math_expression: "\\frac{7}{10} \\times \\frac{6}{9} = \\frac{42}{90}" },
+            { verbal_explanation: "נחסר מהשלם (אחד).", math_expression: "1 - \\frac{42}{90} = \\frac{48}{90}" },
+            { verbal_explanation: "נצמצם את השבר על ידי חלוקה בשש.", math_expression: "\\frac{8}{15}" }
+        ],
+        final_answer: "\\frac{8}{15}"
+    },
+    {
+        topic: "probability",
+        subTopic: "הסתברות מותנית (הוצאה ללא החזרה)",
+        question_text: "בשקית 6 מדליות: 3 זהב, 2 כסף ו-1 ארד. שולפים שתי מדליות ללא החזרה. מה ההסתברות שתישלף מדליית זהב אחת וכסף אחת (בכל סדר שהוא)?",
+        options: [
+            "\\frac{2}{5}", 
+            "\\frac{1}{5}", 
+            "\\frac{1}{6}", 
+            "\\frac{3}{10}"
+        ],
+        correctAnswer: 0,
+        hint: "הסדר אינו משנה. חברו שני מסלולים (זהב ואז כסף + כסף ואז זהב).",
+        solution_steps: [
+            { verbal_explanation: "מסלול ראשון: זהב (שלוש שישיות) ואז כסף (שתיים חמישיות).", math_expression: "\\frac{3}{6} \\times \\frac{2}{5} = \\frac{6}{30}" },
+            { verbal_explanation: "מסלול שני: כסף (שתי שישיות) ואז זהב (שלוש חמישיות).", math_expression: "\\frac{2}{6} \\times \\frac{3}{5} = \\frac{6}{30}" },
+            { verbal_explanation: "נחבר את שני המסלולים החלופיים ונצמצם את השבר בחלוקה לשש.", math_expression: "\\frac{6}{30} + \\frac{6}{30} = \\frac{12}{30} = \\frac{2}{5}" }
+        ],
+        final_answer: "\\frac{2}{5}"
     }
+
 ];

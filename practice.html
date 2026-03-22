@@ -22,7 +22,6 @@
 
     <style>
         :root {
-            /* צבע עליון - שחור יוקרתי עם נגיעות זהב */
             --primary-header: #000000;  
             --accent-gold: #c5a059;   
             --primary-blue: #0f172a;  
@@ -33,7 +32,6 @@
             --text-muted: #334155;    
             --border-soft: #cbd5e1;   
             
-            /* צבעי משוב - שקופים ועדינים */
             --correct-bg: rgba(34, 197, 94, 0.12); 
             --correct-text: #14532d; 
             --correct-border: #4ade80; 
@@ -65,7 +63,6 @@
             line-height: 1.3; 
         }
         
-        /* הדר שחור ויוקרתי */
         header { 
             background: var(--primary-header); 
             color: white; 
@@ -143,15 +140,15 @@
             background: #e2e8f0;
         }
         
-        .btn-progress {
-            background: #fdf4ff;
-            border-color: #f472b6;
-            color: #db2777;
+        .btn-search {
+            background: #f0fdf4;
+            border-color: #4ade80;
+            color: #166534;
         }
-        .btn-progress:hover:not(:disabled) {
-            background: #fbcfe8;
-            border-color: #db2777;
-            color: #9d174d;
+        .btn-search:hover:not(:disabled) {
+            background: #dcfce7;
+            border-color: #22c55e;
+            color: #14532d;
         }
 
         .main-content { 
@@ -167,6 +164,7 @@
             box-sizing: border-box; 
             max-width: calc(100vw - 230px); 
             position: relative;
+            min-height: calc(100vh - 120px); 
         }
         
         .top-bar-container { 
@@ -179,6 +177,30 @@
         .reading-btn-wrapper { text-align: right; flex: 1; }
         .q-number-wrapper { text-align: center; color: var(--accent-gold); font-weight: 800; font-size: 1.1rem; flex: 1; }
         .spacer-wrapper { flex: 1; }
+
+        /* --- כפתורי רמות קושי --- */
+        .diff-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            width: 100%;
+            display: none; 
+        }
+        .btn-diff {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-family: 'Heebo', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-diff:hover { border-color: var(--accent-gold); color: var(--primary-header); }
+        .btn-diff.active { background: var(--primary-header); color: #fff; border-color: var(--primary-header); box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
         
         .question-title { 
             font-size: 1.2rem; 
@@ -189,7 +211,6 @@
             line-height: 1.5; 
         }
 
-        /* --- עיצוב כפתור ההקראה --- */
         .btn-tts { 
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe); 
             border: 2px solid #6366f1; 
@@ -224,7 +245,6 @@
             100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
         
-        /* --- עיצוב כפתור חלון טקסט קריאה --- */
         .btn-reading-window {
             background: linear-gradient(135deg, #fdfcf8, #f5ecd6); 
             border: 2px solid var(--accent-gold); 
@@ -424,7 +444,7 @@
         sub { font-size: 0.7em; vertical-align: sub; }
 
         @media print {
-            .sidebar, header, .btn-next-main, .options-grid, #feedback-text { display: none !important; }
+            .sidebar, header, .btn-next-main, .options-grid, #feedback-text, .diff-btn-group { display: none !important; }
             .practice-layout { display: block; padding: 0; margin: 0; }
             .main-content { max-width: 100%; border: none; box-shadow: none; padding: 0; }
             body { background: white; }
@@ -505,6 +525,35 @@
         .ai-modal-close:hover { background: #ef4444; transform: scale(1.1); }
         .ai-modal-iframe { width: 100%; height: 100%; border: none; }
 
+        /* --- מודאל חיפוש עיצוב --- */
+        #search-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 5000;
+            justify-content: center; align-items: flex-start; padding-top: 10vh;
+        }
+        .search-container {
+            background: #fff; width: 90%; max-width: 600px; border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); padding: 20px; border-top: 4px solid var(--accent-gold);
+        }
+        .search-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .search-header h2 { margin: 0; color: var(--primary-blue); font-size: 1.4rem; }
+        .search-close { cursor: pointer; font-size: 1.5rem; color: #94a3b8; font-weight: bold; }
+        .search-close:hover { color: #ef4444; }
+        .search-input { 
+            width: 100%; padding: 12px 15px; border: 2px solid #e2e8f0; border-radius: 8px; 
+            font-size: 1.1rem; font-family: 'Heebo'; outline: none; box-sizing: border-box;
+            background: #f8fafc;
+        }
+        .search-input:focus { border-color: var(--accent-gold); background: #fff;}
+        .search-results { margin-top: 15px; max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+        .search-item { 
+            padding: 12px; background: #f1f5f9; border-radius: 8px; color: var(--primary-blue); 
+            text-decoration: none; font-weight: 600; display: flex; justify-content: space-between;
+            transition: all 0.2s; border: 1px solid transparent;
+        }
+        .search-item:hover { background: #fff; border-color: var(--accent-gold); transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
+        .search-tag { font-size: 0.8rem; background: #e2e8f0; padding: 2px 8px; border-radius: 12px; color: #475569;}
+
         @media (max-width: 1000px) {
             .practice-layout { flex-direction: column; padding: 10px; }
             .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; position: static; gap:6px;}
@@ -534,6 +583,7 @@
             .solution-table td[colspan="2"]::before { content: "דרך הפתרון: "; display: block; font-size: 0.85rem; color: var(--primary-header); font-weight: 800; margin-bottom: 5px; text-align: right; text-decoration: underline; text-decoration-color: var(--accent-gold); }
             
             .final-answer-row { font-size: 1.05rem; padding: 10px; flex-direction: column; text-align: center;}
+            .diff-btn-group { flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -551,6 +601,17 @@
     </div>
 </div>
 
+<div id="search-modal">
+    <div class="search-container">
+        <div class="search-header">
+            <h2>חיפוש נושא תרגול</h2>
+            <span class="search-close" onclick="closeSearchModal()">✕</span>
+        </div>
+        <input type="text" id="search-input" class="search-input" placeholder="הקלד נושא לחיפוש (למשל: משוואות, אנגלית, אחוזים)..." onkeyup="filterSearch()">
+        <div class="search-results" id="search-results"></div>
+    </div>
+</div>
+
 <header>
     <h1 id="header-title">מערכת תרגול</h1>
     <a onclick="goBackToActivity()" style="color: var(--accent-gold); text-decoration: none; cursor: pointer; font-weight: 500; font-size: 1.05rem; transition: opacity 0.2s;">חזרה ↩</a>
@@ -558,7 +619,7 @@
 
 <div class="practice-layout">
     <aside class="sidebar">
-        <button class="btn-side btn-progress" onclick="openProgressWindow()"><span>מה עליי לשפר?</span> <span>📊</span></button>
+        <button class="btn-side btn-search" onclick="openSearchModal()"><span>חיפוש נושאים</span> <span>🔍</span></button>
         <button class="btn-side" onclick="window.print()"><span>הדפס</span> <span>🖨️</span></button>
         <button id="btn-formulas" class="btn-side" onclick="openFormulasWindow()"><span>דף נוסחאות</span> <span>📐</span></button>
         <button id="btn-calculator" class="btn-side" onclick="openCalculatorWindow()"><span>מחשבון</span> <span>🖩</span></button>
@@ -585,6 +646,13 @@
             <div id="reading-btn-container" class="reading-btn-wrapper"></div>
             <div id="q-number-display" class="q-number-wrapper"></div>
             <div class="spacer-wrapper"></div>
+        </div>
+
+        <div class="diff-btn-group" id="diff-group">
+            <button class="btn-diff active" onclick="setDifficulty('all', this)">הכל</button>
+            <button class="btn-diff" onclick="setDifficulty('easy', this)">קל</button>
+            <button class="btn-diff" onclick="setDifficulty('medium', this)">בינוני</button>
+            <button class="btn-diff" onclick="setDifficulty('hard', this)">קשה</button>
         </div>
         
         <div class="question-title" id="q-text">טוען שאלה...</div>
@@ -616,10 +684,134 @@
     let currentTopic = "", currentSubtopic = "", currentGrade = "";
     let isFinanceMode = false, isEnglishMode = false, isHebrewMode = false, isArabicMode = false, isMathMode = false;
     let currentSpeechText = ""; window.currentPassage = ""; 
+    
+    window.allOriginalQuestions = [];
+    window.difficultyTiers = { easy: [], medium: [], hard: [] };
 
-    const mathTranslationsDict = {
-        "Isosceles Trapezoid": "טרפז שווה שוקיים", "Isosceles_Trapezoid": "טרפז שווה שוקיים", "General case": "מקרה כללי", "General": "כללי", "case": "מקרה", "True": "נכון", "False": "שגוי", "Isosceles": "שווה שוקיים", "Trapezoid": "טרפז", "Rectangle": "מלבן", "Rhombus": "מעוין", "Midsegment": "קטע אמצעים", "Base": "בסיס", "Leg": "שוק", "Tangent": "משיק", "Tangents": "משיקים", "Chords": "מיתרים", "Chord": "מיתר", "Lines": "ישרים", "Line": "ישר", "inscribed": "חסום", "Ratio": "יחס", "Fraction": "שבר", "Arc": "קשת", "Area": "שטח", "Perimeter": "היקף", "Radius": "רדיוס", "Diameter": "קוטר", "inner": "פנימי", "outer": "חיצוני", "small": "קטן", "large": "גדול", "original": "מקורי", "new": "חדש", "Total": "סהכ", "Known": "ידוע", "Success": "הצלחה", "Fail": "כישלון", "Miss": "החטאה", "Defect": "פגום", "Independent": "בלתי תלוי", "Dependent": "תלוי", "Yes": "כן", "No": "לא", "Distance": "מרחק", "Equal": "שווים", "Smaller": "קטן יותר", "Return": "החזרה", "or": "או", "and": "וגם", "units": "יחידות", "Day": "יום", "Week": "שבוע", "years": "שנים", "year": "שנה", "left": "נותרו", "once": "פעם אחת", "hr": "שעה", "Top": "שיא", "Center": "מרכז", "Medium": "אמצע", "Symmetry": "סימטריה", "Line Overlaps Segment": "הישר משיק לקטע", "Vertex": "קודקוד", "Infinite Solutions": "אינסוף פתרונות", "Minimize": "מינימום", "Max / Min": "מקסימום או מינימום", "Invalid": "לא חוקי", "Feasible Region": "תחום הפתרונות", "Integer": "שלם", "Integer Programming": "תכנון בשלמים", "Kite": "דלתון", "Hexagon": "משושה", "Square": "ריבוע", "Triangle": "משולש", "Right": "ישר זווית", "Acute": "חד זווית", "Obtuse": "קהה זווית", "Equilateral": "שווה צלעות", "Parallel": "מקביל", "Perpendicular": "מאונך", "Bisector": "חוצה", "Median": "תיכון", "Altitude": "גובה", "Diagonal": "אלכסון", "Intersection": "נקודת חיתוך", "Point": "נקודה", "Angle": "זווית", "Degree": "מעלה", "Circumference": "היקף מעגל", "G_is_midpoint": "היא אמצע הקטע G", "Solution": "פתרון", "solution": "פתרון", "Solutions": "פתרונות", "solutions": "פתרונות", "Division": "חילוק", "division": "חילוק", "No division": "אין חלוקה", "No Division": "אין חלוקה", "Roots": "שורשים", "roots": "שורשים", "Root": "שורש", "root": "שורש", "No roots": "אין שורשים", "No Roots": "אין שורשים", "All x": "כל x", "all x": "כל x", "All X": "כל x"
+    // בסיס נתונים לחיפוש (רק נושאים שקיימים בוודאות)
+    const topicTranslations = {
+        "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
+        "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
+        "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
+        "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
+        "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
+        "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
+        "final_review": "תרגול מסכם", "logic_combinatorics": "לוגיקה וקומבינטוריקה", 
+        "advanced_verbal": "בעיות מילוליות מורכבות", "advanced_geometry": "גיאומטריה מתקדמת", 
+        "patterns_sequences": "חשיבה אלגברית", "algebra_172": "אלגברה ומשוואות", 
+        "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", 
+        "geometry_172": "הנדסת המישור והמרחב", "trigo_172": "טריגונומטריה במישור", 
+        "stats_prob_172": "סטטיסטיקה והסתברות", "algebraic_expr_172": "ביטויים אלגבריים", 
+        "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", 
+        "lines_plane_172": "ישר במישור", "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
+        "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
+        "triangles_quads_172": "משולשים ומרובעים", "triangle_sim_371": "דמיון משולשים", 
+        "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
+        "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים", "growth_decay_371": "גדילה ודעיכה", 
+        "exp_models_371": "מודלים מעריכיים", "prob_stats_371": "הסתברות וסטטיסטיקה", 
+        "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה", "quad_func_372": "פונקציה ריבועית", 
+        "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", 
+        "analytic_geom_372": "גאומטריה אנליטית", "space_geom_bodies_372": "הנדסת המרחב וגופים", 
+        "sequences_372": "סדרות", "alg_frac_471": "אלגברה ושברים אלגבריים",
+        "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
+        "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
+        "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+        "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
+        "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
+        "sequences_571": "סדרות", "probability_571": "הסתברות",
+        "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
+        "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
+        "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
+        "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
+        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
+        "vocabulary": "אוצר מילים", "grammar": "דקדוק", "reading_comprehension": "הבנת הנקרא",
+        "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)",
+        "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
+        "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם",
+        "סוגי_משפטים": "סוגי משפטים", "מילות_יחס_וקישור": "מילות יחס וקישור",
+        "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", "תקינות": "תקינות לשונית",
+        "alg_equations_471": "אלגברה - משוואות ואי-שוויונים",
+        "word_problems_471": "בעיות מילוליות (אלגברה)",
+        "prob_stats_471": "הסתברות קלאסית וסטטיסטיקה",
+        "calculus_poly_471": "חשבון דיפרנציאלי - פולינומים",
+        "calculus_rational_471": "חשבון דיפרנציאלי - פונקציות רציונליות",
+        "extrema_probs_471": "בעיות קיצון (אופטימיזציה)",
+        "sequences_472": "סדרות",
+        "trigo_plane_472": "טריגונומטריה במישור",
+        "trigo_space_472": "טריגונומטריה במרחב",
+        "calculus_root_472": "חדו\"א - פונקציות שורש (אי-רציונליות)",
+        "calculus_trigo_472": "חדו\"א - פונקציות טריגונומטריות",
+        "calculus_exp_log_472": "חדו\"א - מעריכיות ולוגריתמיות",
+        "integral_calculus_472": "חשבון אינטגרלי (כל הפונקציות)",
+        "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
+        "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
+        "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)",
+        "abc_basics": "אנגלית מהבסיס (ABC)", "חומרים_ומבנה_החומר": "מדעים: חומרים ומבנה החומר",
+        "כדור_הארץ_והיקום": "מדעים: כדור הארץ והיקום"
     };
+
+    let searchDB = [];
+    for(let key in topicTranslations) {
+        let name = topicTranslations[key];
+        let linkGrade = null; 
+        let displayGrade = '';
+        
+        if(key.includes('_172')) { linkGrade = '35172'; displayGrade = 'מתמטיקה 172'; }
+        else if(key.includes('_371')) { linkGrade = '35371'; displayGrade = 'מתמטיקה 371'; }
+        else if(key.includes('_372')) { linkGrade = '35472'; displayGrade = 'מתמטיקה 372'; }
+        else if(key.includes('_471')) { linkGrade = '35471'; displayGrade = 'מתמטיקה 471'; }
+        else if(key.includes('_472')) { linkGrade = '35472'; displayGrade = 'מתמטיקה 472'; }
+        else if(key.includes('_571') || key.includes('_572')) { linkGrade = '35582'; displayGrade = 'מתמטיקה 582'; }
+        else if(['Elementary', 'Grammar_Tenses', 'Grammar_Advanced', 'Vocabulary_Cloze', 'Reading_Comprehension', 'Literature_High_School', 'abc_basics'].includes(key)) { linkGrade = 'english'; displayGrade = 'אנגלית'; }
+        else if(['יסודי_כללי', 'תורת_ההגה', 'פועל', 'גזרות_הפועל_מתקדם', 'שם_העצם', 'תחביר', 'סוגי_משפטים', 'מילות_יחס_וקישור', 'הבנת_הנקרא_והבעה', 'כתיבה_וסקירה', 'תקינות'].includes(key)) { linkGrade = 'hebrew'; displayGrade = 'לשון והבעה'; }
+        else if(['budget_consumerism', 'work_and_wages', 'banking_and_credit', 'savings_investments', 'insurance_risks', 'digital_economy'].includes(key)) { linkGrade = 'finance'; displayGrade = 'חינוך פיננסי'; }
+        else if(['חומרים_ומבנה_החומר', 'כדור_הארץ_והיקום'].includes(key)) { linkGrade = 'science'; displayGrade = 'מדעים'; }
+        else if(['bagrut_prep', 'percents', 'verbal_problems', 'geometry', 'dataAnalysis', 'ratio', 'decimals', 'fractions', 'summary', 'triangles', 'angles', 'arithmetic_laws', 'powers', 'signed_numbers', 'quadrilaterals', 'equations', 'expressions', 'functions', 'distributive_and_factoring', 'algebraic_technique', 'linear_systems', 'statistics', 'linear_functions', 'meitzav', 'algebraic_fractions', 'powers_and_roots', 'equations_and_parametric', 'probability', 'final_review', 'logic_combinatorics', 'advanced_verbal', 'advanced_geometry', 'patterns_sequences'].includes(key)) { linkGrade = 'grade9'; displayGrade = 'מתמטיקה חט"ב'; }
+        
+        if (linkGrade) {
+            let link = `practice.html?grade=${linkGrade}&topic=${key}`;
+            searchDB.push({ name: name, key: key, grade: linkGrade, displayGrade: displayGrade, link: link });
+        }
+    }
+
+    function openSearchModal() {
+        document.getElementById('search-modal').style.display = 'flex';
+        document.getElementById('search-input').value = '';
+        filterSearch();
+        document.getElementById('search-input').focus();
+    }
+    
+    function closeSearchModal() {
+        document.getElementById('search-modal').style.display = 'none';
+    }
+    
+    function filterSearch() {
+        const val = document.getElementById('search-input').value.toLowerCase().trim();
+        const resBox = document.getElementById('search-results');
+        resBox.innerHTML = '';
+        
+        let count = 0;
+        for(let i=0; i<searchDB.length; i++) {
+            let item = searchDB[i];
+            if(item.name.toLowerCase().includes(val) || item.key.toLowerCase().includes(val)) {
+                resBox.innerHTML += `<a href="${item.link}" class="search-item">
+                    <span>${item.name}</span>
+                    <span class="search-tag">${item.displayGrade}</span>
+                </a>`;
+                count++;
+            }
+        }
+        if(count === 0) resBox.innerHTML = '<div style="padding:10px; color:#94a3b8; text-align:center;">לא נמצאו תוצאות...</div>';
+    }
 
     function openAiTutorModal() { const modal = document.getElementById('ai-tutor-modal'); const iframe = document.getElementById('ai-tutor-iframe'); if (!iframe.src || iframe.src === window.location.href) { iframe.src = 'ai-tutor.html'; } modal.style.display = (modal.style.display === 'block') ? 'none' : 'block'; }
     function closeAiTutorModal() { document.getElementById('ai-tutor-modal').style.display = 'none'; }
@@ -631,7 +823,30 @@
         readingWin.document.write(textHtml); readingWin.document.close();
     }
 
+    function speakCurrentQuestion(btnElement) {
+        if (!window.speechSynthesis) return alert("הדפדפן שלך לא תומך בהקראה קולית.");
+        window.speechSynthesis.cancel();
+        if (btnElement.classList.contains('playing')) {
+            btnElement.classList.remove('playing');
+            return;
+        }
+        document.querySelectorAll('.btn-tts').forEach(b => b.classList.remove('playing'));
+        btnElement.classList.add('playing');
+        
+        const q = filteredQuestions[displayIndex % filteredQuestions.length];
+        let textToRead = q.question_text || q.question || "";
+        textToRead = textToRead.replace(/<[^>]+>/g, '').replace(/x+/gi, '');
+        
+        const utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.lang = 'he-IL'; 
+        utterance.rate = 0.9;
+        utterance.onend = () => btnElement.classList.remove('playing');
+        utterance.onerror = () => btnElement.classList.remove('playing');
+        window.speechSynthesis.speak(utterance);
+    }
+
     if (window.speechSynthesis) { window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); }; }
+    
     function playSound(type) {
         try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const gain = ctx.createGain();
@@ -640,57 +855,71 @@
             else { osc.type = 'sine'; osc.frequency.setValueAtTime(250, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.2); gain.gain.setValueAtTime(0.03, ctx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2); osc.start(); osc.stop(ctx.currentTime + 0.2); }
         } catch(e) { console.log("Audio not supported"); }
     }
+
+    function playFeedbackVoice(isCorrect) {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+        
+        let text = isCorrect ? "כל הכבוד, תשובה נכונה!" : "לא נורא, נסה שוב, אתה יכול!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'he-IL';
+        utterance.rate = 1.0;
+        
+        const voices = window.speechSynthesis.getVoices();
+        const hebrewVoice = voices.find(v => v.lang === 'he-IL' || v.lang.includes('he'));
+        if (hebrewVoice) {
+            utterance.voice = hebrewVoice;
+        }
+        
+        window.speechSynthesis.speak(utterance);
+    }
     
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(String(str)); }
 
     function formatContent(text) {
-        if (text === null || text === undefined) return "";
-        let str = Array.isArray(text) ? text.join('\n') : String(text);
+        if (!text) return "";
+        let html = String(text);
 
-        const svgs = []; str = str.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
-        const htmlTags = []; str = str.replace(/<[^>]+>/g, m => { htmlTags.push(m); return `___TAG___`; });
+        const mathBlocks = [];
+        html = html.replace(/\\\([\s\S]*?\\\)/g, m => { mathBlocks.push(m); return `___MATH___`; });
+        html = html.replace(/\$\$[\s\S]*?\$\$/g, m => { mathBlocks.push(m); return `___MATH___`; });
 
-        str = str.replace(/\*/g, ' × '); 
+        // זיהוי מדויק ובטוח של מילה עטופה בפעמיים x או סימן כפל, כולל רווחים (לדוגמה x x מסה x x או x × מסה × x)
+        html = html.replace(/(?:[xX×*]\s*){2,}([א-תA-Za-z0-9]+(?: [א-תA-Za-z0-9]+)*?)\s*(?:[xX×*]\s*){2,}/g, ' <strong style="background: rgba(197, 160, 89, 0.15); border-bottom: 2px solid var(--accent-gold); padding: 0 5px; border-radius: 4px; color: var(--primary-header);">$1</strong> ');
+
+        const svgs = []; html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
+        const htmlTags = []; html = html.replace(/<[^>]+>/g, m => { htmlTags.push(m); return `___TAG___`; });
+
+        html = html.replace(/\*/g, ' × ');
+        html = html.trim();
+
+        html = html.replace(/___TAG___/g, () => htmlTags.shift());
+        html = html.replace(/___SVG___/g, () => svgs.shift());
+        html = html.replace(/___MATH___/g, () => mathBlocks.shift());
         
-        str = str.replace(/([a-zA-Z])_\{([^}]+)\}/g, '$1<sub>$2</sub>'); 
-        str = str.replace(/([a-zA-Z])_([a-zA-Z0-9])/g, '$1<sub>$2</sub>'); 
-
-        str = str.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
-        str = str.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
-
-        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
-        str = str.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
-
-        str = str.replace(/(^|[\s\(\[\{=\>⇒])(-\s*\d+(?:\.\d+)?)/g, '$1<span dir="ltr" style="unicode-bidi: isolate; display: inline-block;">$2</span>');
-        str = str.replace(/\(\s+/g, '('); str = str.replace(/\s+\)/g, ')');
-        
-        str = str.trim();
-        if (/[\?\.\!\)]$/.test(str)) { str += '&rlm;'; }
-
-        str = str.replace(/___TAG___/g, () => htmlTags.shift());
-        str = str.replace(/___SVG___/g, () => svgs.shift());
-
-        return str;
+        return html;
     }
 
-    // ==============================================================================
-    // הפונקציה החכמה שעוקפת את MathJax במקרים של עברית ומתקנת סימנים
-    // ==============================================================================
     function cleanMathExpression(text) {
         if (!text) return "";
         let res = String(text);
         
-        // המרת סימנים ויזואליים יפים
-        res = res.replace(/=>/g, ' ⇒ ');
-        res = res.replace(/->/g, ' → ');
-        res = res.replace(/!=/g, ' ≠ ');
-        res = res.replace(/<=/g, ' ≤ ');
-        res = res.replace(/>=/g, ' ≥ ');
-        res = res.replace(/\*/g, ' × '); 
+        res = res.replace(/[\u200E\u200F\u202A\u202B\u202C\u202D\u202E]/g, '');
+        res = res.replace(/&amp;rlm;/gi, '').replace(/&rlm;/gi, '').replace(/&lrm;/gi, '');
         
-        res = res.replace(/\bכפול\b/g, ' × ');
-        res = res.replace(/\bלחלק ל\b/g, ' / ');
-        res = res.replace(/\bלחלק\b/g, ' / ');
+        res = res.replace(/(?:[xX×*]\s*){2,}([א-תA-Za-z0-9]+(?: [א-תA-Za-z0-9]+)*?)\s*(?:[xX×*]\s*){2,}/g, '$1');
+        res = res.replace(/\*\*([^*]+)\*\*/g, '$1');
+        res = res.replace(/(^|[\s])\*([א-ת][^*]*[א-ת]|[א-ת])\*(?=[\s.,?!]|$)/g, '$1$2');
+
+        res = res.replace(/=>/g, ' \\Rightarrow ');
+        res = res.replace(/->/g, ' \\rightarrow ');
+        res = res.replace(/!=/g, ' \\neq ');
+        res = res.replace(/<=/g, ' \\leq ');
+        res = res.replace(/>=/g, ' \\geq ');
+        
+        res = res.replace(/\bכפול\b/g, ' \\cdot ');
+        res = res.replace(/\bלחלק ל\b/g, ' : ');
+        res = res.replace(/\bלחלק\b/g, ' : ');
         res = res.replace(/\bשווה ל\b/g, ' = ');
         res = res.replace(/\bשווה\b/g, ' = ');
         res = res.replace(/\bפלוס\b/g, ' + ');
@@ -700,36 +929,80 @@
         res = res.replace(/\bגדול מ\b/g, ' > ');
         res = res.replace(/\bקטן מ\b/g, ' < ');
 
-        // מחיקת מילים באנגלית מיותרות
-        res = res.replace(/\b(?!(sin|cos|tan|log|ln|lim|max|min|arcsin|arccos|arctan)\b)[A-Z]?[a-z]{2,}\b/g, '');
-
-        // הסרת שאריות של פקודות LaTeX ישנות (כמו \text) שלא יופיעו על המסך
-        res = res.replace(/\\[a-zA-Z]+/g, '');
-        res = res.replace(/\\/g, '');
-
         return res.trim();
     }
 
     function openCalculatorWindow() {
-        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no'); if (!calcWin) { alert("חוסם החלונות מונע פתיחת מחשבון. אנא אשרו חלונות קופצים."); return; }
+        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no'); if (!calcWin) { alert("חוסם החלונות מונע פתיחת מחשבון."); return; }
         let calcHtml = `<!DOCTYPE html><html lang="he" dir="ltr"><head><meta charset="UTF-8"><title>מחשבון</title><style>body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;} .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;} .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; } button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;} button:hover { background: #444; } .btn-op { background: #c5a059; color: #000; } .btn-op:hover { background: #a38042; } .btn-clear { background: #ef4444; } .btn-clear:hover { background: #dc2626; } .btn-eq { background: #22c55e; grid-column: span 2; color: #000;} .btn-eq:hover { background: #16a34a; }</style></head><body><div class="calculator"><input type="text" class="display" id="display" disabled value="0"><div class="buttons"><button class="btn-clear" onclick="clearDisplay()">C</button><button onclick="append('(')">(</button><button onclick="append(')')">)</button><button class="btn-op" onclick="append('/')">/</button><button onclick="append('7')">7</button><button onclick="append('8')">8</button><button onclick="append('9')">9</button><button class="btn-op" onclick="append('×')">×</button><button onclick="append('4')">4</button><button onclick="append('5')">5</button><button onclick="append('6')">6</button><button class="btn-op" onclick="append('-')">-</button><button onclick="append('1')">1</button><button onclick="append('2')">2</button><button onclick="append('3')">3</button><button class="btn-op" onclick="append('+')">+</button><button onclick="append('0')">0</button><button onclick="append('.')">.</button><button class="btn-eq" onclick="calculate()">=</button></div></div><script>let display = document.getElementById('display'); let currentVal = ''; function append(val) { if(currentVal === 'שגיאה') currentVal = ''; currentVal += val; updateDisplay(); } function clearDisplay() { currentVal = ''; updateDisplay(); } function calculate() { try { if(currentVal === '') return; let calcStr = currentVal.replace(/×/g, '*'); let result = eval(calcStr); result = Math.round(result * 100000) / 100000; currentVal = result.toString(); updateDisplay(); } catch(e) { currentVal = 'שגיאה'; updateDisplay(); } } function updateDisplay() { display.value = currentVal || '0'; } <\/script></body></html>`;
         calcWin.document.write(calcHtml); calcWin.document.close();
     }
 
-    function openProgressWindow() {
-        const progWin = window.open('', '_blank', 'width=800,height=750,scrollbars=yes'); if (!progWin) { alert("חוסם החלונות הקופצים פועל. אנא אשר פתיחת חלונות באתר זה."); return; }
-        const studentName = "תלמיד/ה יקר/ה";
-        let htmlContent = `<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="UTF-8"><title>דוח התקדמות</title><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet"><style>body { font-family: 'Heebo', sans-serif; background: #f8fafc; color: #0f172a; padding: 40px; margin: 0; line-height: 1.6; } .header { text-align: center; border-bottom: 4px solid #c5a059; padding-bottom: 20px; margin-bottom: 30px; } h1 { color: #000000; margin: 0 0 10px 0; font-size: 2.2rem; } .subtitle { font-size: 1.2rem; color: #475569; margin: 0; font-weight: 600;} .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; } .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; } .card-title { font-weight: 800; font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; border-bottom: 2px dashed #cbd5e1; padding-bottom: 10px; } .strengths { color: #16a34a; } .strengths .card-title { color: #15803d; border-color: #bbf7d0; } .strengths ul { list-style: none; padding: 0; } .strengths li::before { content: "✓ "; color: #22c55e; font-weight: bold; } .weaknesses { color: #dc2626; } .weaknesses .card-title { color: #b91c1c; border-color: #fecaca; } .weaknesses ul { list-style: none; padding: 0; } .weaknesses li::before { content: "🎯 "; color: #ef4444; } li { font-size: 1.1rem; margin-bottom: 8px; font-weight: 500; } .chart-card { grid-column: 1 / -1; } .chart-title { color: #c5a059; } .bar-container { margin-bottom: 15px; } .bar-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 5px; color: #334155;} .bar-track { width: 100%; background-color: #e2e8f0; border-radius: 10px; height: 24px; overflow: hidden; } .bar-fill { height: 100%; border-radius: 10px; transition: width 1s ease-in-out; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; color: white; font-weight: bold; font-size: 0.9rem;} .fill-high { background-color: #22c55e; } .fill-med { background-color: #eab308; } .fill-low { background-color: #ef4444; } .footer-note { text-align: center; color: #64748b; margin-top: 40px; font-size: 0.9rem; }</style></head><body><div class="header"><h1>שלום, ${studentName}!</h1><p class="subtitle">המערכת ניתחה את הביצועים שלך בתרגולים האחרונים. הנה התוצאות:</p></div><div class="dashboard-grid"><div class="card strengths"><h2 class="card-title">נקודות החוזק שלך 🌟</h2><ul><li>כפל וחילוק שברים אלגבריים</li><li>מציאת תחום הצבה</li><li>חוקי חזקות עם מעריך טבעי</li></ul></div><div class="card weaknesses"><h2 class="card-title">מומלץ לחזק 🎯</h2><ul><li>חוקי חזקות עם מעריך שלילי</li><li>פתרון משוואות ריבועיות</li><li>כתיב מדעי - המרה ממספר עשרוני קטן</li></ul></div><div class="card chart-card"><h2 class="card-title chart-title">גרף התקדמות (אחוזי הצלחה) 📊</h2><div class="bar-container"><div class="bar-label"><span>שברים אלגבריים</span> <span>85%</span></div><div class="bar-track"><div class="bar-fill fill-high" style="width: 85%;"></div></div></div><div class="bar-container"><div class="bar-label"><span>חזקות ושורשים</span> <span>60%</span></div><div class="bar-track"><div class="bar-fill fill-med" style="width: 60%;"></div></div></div><div class="bar-container"><div class="bar-label"><span>משוואות ופונקציות</span> <span>45%</span></div><div class="bar-track"><div class="bar-fill fill-low" style="width: 45%;"></div></div></div></div></div><div class="footer-note">הנתונים מבוססים על ההיסטוריה שלך במערכת ומטרתם לעזור לך למקד את הלמידה.</div></body></html>`;
-        progWin.document.write(htmlContent); progWin.document.close();
-    }
-
     function openFormulasWindow() {
-        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes'); if (!formulaWin) { alert("חוסם החלונות מונע פתיחת דף נוסחאות. אנא אשרו חלונות קופצים."); return; }
+        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes'); if (!formulaWin) return;
         let formulasHtml = `<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="UTF-8"><title>דף נוסחאות עזר מתמטי מקיף</title><link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet"><style>body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.5; } .hdr { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; } h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;} .subtitle { font-size: 1.1rem; color: #475569; margin: 0; } .instructions { background: #fdfcf8; padding: 12px; border-radius: 6px; border-right: 4px solid #c5a059; font-weight: 600; margin-bottom: 25px; font-size:1rem;} .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; } @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } } .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;} .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; } .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;} .item:last-child { border-bottom: none; } .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; } .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left; min-width: 150px;} sup { font-size: 0.75em; vertical-align: super; } sub { font-size: 0.75em; vertical-align: sub; }</style></head><body><div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1></div><h2 style="text-align:center;">חטיבת ביניים</h2><div class="grid-container"><div class="section"><h2 class="section-title">שטחים והיקפים</h2><div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div><div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div><div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div><div class="item"><span class="desc">היקף מעגל</span><span class="math">P = 2 &middot; &pi; &middot; r</span></div><div class="item"><span class="desc">שטח טרפז</span><span class="math">S = ((a + b) &middot; h) / 2</span></div><div class="item"><span class="desc">שטח מעוין / דלתון</span><span class="math">S = (d<sub>1</sub> &middot; d<sub>2</sub>) / 2</span></div></div><div class="section"><h2 class="section-title">נפחים וגופים</h2><div class="item"><span class="desc">נפח תיבה / קובייה</span><span class="math">V = a &middot; b &middot; c</span></div><div class="item"><span class="desc">נפח גליל</span><span class="math">V = &pi; &middot; r<sup>2</sup> &middot; h</span></div><div class="item"><span class="desc">נפח חרוט</span><span class="math">V = (&pi; &middot; r<sup>2</sup> &middot; h) / 3</span></div><div class="item"><span class="desc">נפח פירמידה</span><span class="math">V = (S<sub>base</sub> &middot; h) / 3</span></div><div class="item"><span class="desc">נפח כדור</span><span class="math">V = (4 &middot; &pi; &middot; r<sup>3</sup>) / 3</span></div></div></div><h2 style="text-align:center; color: #0f172a; border-bottom: 2px solid #c5a059; padding-bottom: 10px; margin-top: 40px;">תיכון (י' - י"ב)</h2><div class="grid-container"><div class="section"><h2 class="section-title">אלגברה ומשוואות</h2><div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b &plusmn; &radic;(b<sup>2</sup> - 4ac)) / 2a</span></div><div class="item"><span class="desc">קודקוד פרבולה</span><span class="math">x = -b / 2a</span></div><div class="item"><span class="desc">סכום/הפרש בשלישית</span><span class="math">a<sup>3</sup> &plusmn; b<sup>3</sup> = (a &plusmn; b)(a<sup>2</sup> &#8723; ab + b<sup>2</sup>)</span></div><div class="item"><span class="desc">דו-איבר בשלישית</span><span class="math">(a &plusmn; b)<sup>3</sup> = a<sup>3</sup> &plusmn; 3a<sup>2</sup>b + 3ab<sup>2</sup> &plusmn; b<sup>3</sup></span></div></div><div class="section"><h2 class="section-title">חזקות ושורשים מתקדמים</h2><div class="item"><span class="desc">חזקה של חזקה</span><span class="math">(a<sup>n</sup>)<sup>m</sup> = a<sup>n&middot;m</sup></span></div><div class="item"><span class="desc">חזקת מכפלה ומנה</span><span class="math">(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup> &nbsp;|&nbsp; (a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup></span></div><div class="item"><span class="desc">מעריך שלילי ואפס</span><span class="math">a<sup>-n</sup> = 1 / a<sup>n</sup> &nbsp;|&nbsp; a<sup>0</sup> = 1</span></div><div class="item"><span class="desc">חזקת שבר (שורש)</span><span class="math">a<sup>n/m</sup> = <sup>m</sup>&radic;(a<sup>n</sup>)</span></div><div class="item"><span class="desc">כפל וחילוק שורשים</span><span class="math">&radic;a &middot; &radic;b = &radic;(ab)</span></div></div><div class="section"><h2 class="section-title">לוגריתמים</h2><div class="item"><span class="desc">הגדרת הלוגריתם</span><span class="math">log<sub>a</sub>x = b &nbsp;&#10132;&nbsp; a<sup>b</sup> = x</span></div><div class="item"><span class="desc">סכום והפרש</span><span class="math">log<sub>a</sub>x &plusmn; log<sub>a</sub>y = log<sub>a</sub>(x &middot;/ y)</span></div><div class="item"><span class="desc">הוצאת מעריך</span><span class="math">log<sub>a</sub>(x<sup>n</sup>) = n &middot; log<sub>a</sub>x</span></div><div class="item"><span class="desc">מעבר בסיס</span><span class="math">log<sub>a</sub>b = log<sub>c</sub>b / log<sub>c</sub>a</span></div></div><div class="section"><h2 class="section-title">סדרות</h2><div class="item"><span class="desc">איבר כללי (חשבונית)</span><span class="math">a<sub>n</sub> = a<sub>1</sub> + (n-1)d</span></div><div class="item"><span class="desc">סכום (חשבונית)</span><span class="math">S<sub>n</sub> = (n/2)[2a<sub>1</sub> + (n-1)d]</span></div><div class="item"><span class="desc">איבר כללי (הנדסית)</span><span class="math">a<sub>n</sub> = a<sub>1</sub> &middot; q<sup>n-1</sup></span></div><div class="item"><span class="desc">סכום (הנדסית)</span><span class="math">S<sub>n</sub> = a<sub>1</sub>(q<sup>n</sup> - 1) / (q - 1)</span></div><div class="item"><span class="desc">סכום הנדסית אינסופית</span><span class="math">S = a<sub>1</sub> / (1 - q)</span></div></div><div class="section"><h2 class="section-title">גאומטריה אנליטית</h2><div class="item"><span class="desc">מרחק בין נקודות</span><span class="math">d = &radic;((x<sub>2</sub>-x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub>-y<sub>1</sub>)<sup>2</sup>)</span></div><div class="item"><span class="desc">נקודת אמצע קטע</span><span class="math">M = ((x<sub>1</sub>+x<sub>2</sub>)/2 , (y<sub>1</sub>+y<sub>2</sub>)/2)</span></div><div class="item"><span class="desc">שיפוע ישר</span><span class="math">m = (y<sub>2</sub> - y<sub>1</sub>) / (x<sub>2</sub> - x<sub>1</sub>)</span></div><div class="item"><span class="desc">משוואת ישר</span><span class="math">y - y<sub>1</sub> = m(x - x<sub>1</sub>)</span></div><div class="item"><span class="desc">משוואת מעגל</span><span class="math">(x - a)<sup>2</sup> + (y - b)<sup>2</sup> = R<sup>2</sup></span></div></div><div class="section"><h2 class="section-title">טריגונומטריה</h2><div class="item"><span class="desc">זהויות יסוד</span><span class="math">sin<sup>2</sup>&alpha; + cos<sup>2</sup>&alpha; = 1 &nbsp;|&nbsp; tan&alpha; = sin&alpha;/cos&alpha;</span></div><div class="item"><span class="desc">זווית כפולה - סינוס</span><span class="math">sin(2&alpha;) = 2sin&alpha;cos&alpha;</span></div><div class="item"><span class="desc">זווית כפולה - קוסינוס</span><span class="math">cos(2&alpha;) = cos<sup>2</sup>&alpha; - sin<sup>2</sup>&alpha;</span></div><div class="item"><span class="desc">משפט הסינוסים</span><span class="math">a / sin&alpha; = b / sin&beta; = 2R</span></div><div class="item"><span class="desc">משפט הקוסינוסים</span><span class="math">c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> - 2ab&middot;cos&gamma;</span></div><div class="item"><span class="desc">שטח משולש</span><span class="math">S = &frac12; a&middot;b&middot;sin&gamma;</span></div></div><div class="section"><h2 class="section-title">חשבון דיפרנציאלי (נגזרות)</h2><div class="item"><span class="desc">נגזרת חזקה</span><span class="math">(x<sup>n</sup>)' = n&middot;x<sup>n-1</sup></span></div><div class="item"><span class="desc">נגזרת מכפלה</span><span class="math">(u&middot;v)' = u'v + uv'</span></div><div class="item"><span class="desc">נגזרת מנה</span><span class="math">(u/v)' = (u'v - uv') / v<sup>2</sup></span></div><div class="item"><span class="desc">פונציה מורכבת</span><span class="math">[f(g(x))]' = f'(g(x)) &middot; g'(x)</span></div><div class="item"><span class="desc">טריגונומטריות</span><span class="math">(sin x)' = cos x &nbsp;|&nbsp; (cos x)' = -sin x</span></div><div class="item"><span class="desc">מעריכיות ולוגריתמיות</span><span class="math">(e<sup>x</sup>)' = e<sup>x</sup> &nbsp;|&nbsp; (ln x)' = 1/x</span></div></div><div class="section"><h2 class="section-title">חשבון אינטגרלי</h2><div class="item"><span class="desc">אינטגרל חזקה</span><span class="math">&int; x<sup>n</sup> dx = x<sup>n+1</sup> / (n+1) + C</span></div><div class="item"><span class="desc">פונקציה רציונלית</span><span class="math">&int; (1/x) dx = ln|x| + C</span></div><div class="item"><span class="desc">מעריכית</span><span class="math">&int; e<sup>kx</sup> dx = e<sup>kx</sup> / k + C</span></div><div class="item"><span class="desc">טריגונומטרי</span><span class="math">&int; sin(x) dx = -cos(x) + C</span></div></div><div class="section"><h2 class="section-title">הסתברות וסטטיסטיקה</h2><div class="item"><span class="desc">הסתברות מותנית</span><span class="math">P(A|B) = P(A &cap; B) / P(B)</span></div><div class="item"><span class="desc">נוסחת ברנולי</span><span class="math">P<sub>n</sub>(k) = (n! / (k!(n-k)!)) &middot; p<sup>k</sup> &middot; (1-p)<sup>n-k</sup></span></div><div class="item"><span class="desc">התפלגות נורמלית</span><span class="math">Z = (x - x&#772;) / s</span></div></div><div class="section"><h2 class="section-title">מרוכבים ווקטורים</h2><div class="item"><span class="desc">הצגה קוטבית</span><span class="math">z = r(cos&theta; + i&middot;sin&theta;) = r&middot;cis&theta;</span></div><div class="item"><span class="desc">משפט דה-מואבר</span><span class="math">z<sup>n</sup> = r<sup>n</sup> &middot; cis(n&theta;)</span></div><div class="item"><span class="desc">מכפלה סקלרית</span><span class="math">u &middot; v = |u|&middot;|v|&middot;cos&alpha;</span></div><div class="item"><span class="desc">מרחק ממישור</span><span class="math">d = |Ax<sub>0</sub> + By<sub>0</sub> + Cz<sub>0</sub> + D| / &radic;(A<sup>2</sup>+B<sup>2</sup>+C<sup>2</sup>)</span></div></div></div><div style="text-align: center; margin-top: 30px; font-weight: 600; color: #94a3b8; font-size: 0.9rem;">נכתב והותאם במיוחד עבור המרכז להישגים לימודיים.</div></body></html>`;
         formulaWin.document.write(formulasHtml); formulaWin.document.close();
     }
 
-    window.allFetchedQuestions = [];
+    // הפונקציה הבטוחה לחלוטין לחישוב רמות קושי
+    function categorizeQuestions(allQs) {
+        if (!allQs || !Array.isArray(allQs) || allQs.length < 3) {
+            return { easy: allQs || [], medium: allQs || [], hard: allQs || [] };
+        }
+        
+        try {
+            let scored = [];
+            for (let i = 0; i < allQs.length; i++) {
+                let q = allQs[i];
+                let len = 0;
+                if (q) {
+                    if (q.question) len += String(q.question).length;
+                    if (q.question_text) len += String(q.question_text).length;
+                    if (q.solution) len += String(q.solution).length;
+                    // נמנעים מ-stringify כדי למנוע קריסה
+                    if (q.options && Array.isArray(q.options)) {
+                        len += q.options.join('').length;
+                    }
+                }
+                scored.push({ q: q, len: len });
+            }
+            
+            scored.sort((a,b) => a.len - b.len);
+            
+            let third = Math.floor(scored.length / 3);
+            let easy = scored.slice(0, third).map(item => item.q);
+            let medium = scored.slice(third, 2*third).map(item => item.q);
+            let hard = scored.slice(2*third).map(item => item.q);
+            
+            if(scored.length % 3 !== 0) {
+               hard = scored.slice(2*third).map(item => item.q);
+            }
+            
+            return { easy: easy, medium: medium, hard: hard };
+        } catch (e) {
+            console.error("שגיאה בסיווג רמות קושי:", e);
+            return { easy: allQs, medium: allQs, hard: allQs };
+        }
+    }
+
+    function setDifficulty(level, btnElement) {
+        document.querySelectorAll('.btn-diff').forEach(b => b.classList.remove('active'));
+        btnElement.classList.add('active');
+
+        if(level === 'all') {
+            filteredQuestions = window.allOriginalQuestions;
+        } else {
+            filteredQuestions = window.difficultyTiers[level];
+            if(filteredQuestions.length === 0) {
+                alert('אין מספיק שאלות ברמת קושי זו במאגר. מציג את כל השאלות.');
+                filteredQuestions = window.allOriginalQuestions;
+                document.querySelectorAll('.btn-diff')[0].classList.add('active');
+                btnElement.classList.remove('active');
+            }
+        }
+        displayIndex = 0;
+        loadQuestion();
+    }
 
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -762,77 +1035,6 @@
         
         const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35471": "35471", "35472": "35472", "35582": "35582", "finance": "חינוך פיננסי", "english": "אנגלית", "hebrew": "לשון והבעה", "arabic": "ערבית" };
         currentGrade = gradeNames[gradeParam] || gradeParam || "";
-        
-        const topicTranslations = {
-            "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
-            "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
-            "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
-            "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
-            "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
-            "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
-            "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
-            "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
-            "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
-            "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
-            "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
-            "final_review": "תרגול מסכם", "number_theory": "תורת המספרים",
-            "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
-            "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית",
-            "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות",
-            "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
-            "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות",
-            "algebraic_expr_172": "ביטויים אלגבריים", "algebraic_frac_172": "שברים אלגבריים",
-            "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
-            "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
-            "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
-            "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
-            "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון",
-            "trigo_right_371": "טריגונומטריה במשולש ישר זווית", "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים",
-            "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
-            "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה",
-            "quad_func_372": "פונקציה ריבועית", "func_investigation_372": "חקירת פונקציה",
-            "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
-            "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות",
-            "normal_dist_372": "התפלגות normal_dist_372", "alg_frac_471": "אלגברה ושברים אלגבריים",
-            "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
-            "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
-            "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
-            "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
-            "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
-            "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
-            "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
-            "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
-            "sequences_571": "סדרות", "probability_571": "הסתברות",
-            "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
-            "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
-            "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
-            "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
-            "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
-            "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
-            "vocabulary": "אוצר מילים", "grammar": "דקדוק", "reading_comprehension": "הבנת הנקרא",
-            "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)",
-            "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
-            "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם",
-            "סוגי_משפטים": "סוגי משפטים", "מילות_יחס_וקישור": "מילות יחס וקישור",
-            "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", "תקינות": "תקינות לשונית",
-            "alg_equations_471": "אלגברה - משוואות ואי-שוויונים",
-            "word_problems_471": "בעיות מילוליות (אלגברה)",
-            "prob_stats_471": "הסתברות קלאסית וסטטיסטיקה",
-            "calculus_poly_471": "חשבון דיפרנציאלי - פולינומים",
-            "calculus_rational_471": "חשבון דיפרנציאלי - פונקציות רציונליות",
-            "extrema_probs_471": "בעיות קיצון (אופטימיזציה)",
-            "sequences_472": "סדרות",
-            "trigo_plane_472": "טריגונומטריה במישור",
-            "trigo_space_472": "טריגונומטריה במרחב",
-            "calculus_root_472": "חדו\"א - פונקציות שורש (אי-רציונליות)",
-            "calculus_trigo_472": "חדו\"א - פונקציות טריגונומטריות",
-            "calculus_exp_log_472": "חדו\"א - מעריכיות ולוגריתמיות",
-            "integral_calculus_472": "חשבון אינטגרלי (כל הפונקציות)",
-            "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
-            "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
-            "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)",
-            "abc_basics": "אנגלית מהבסיס (ABC)", "bagrut_prep": "הכנה לבגרות"
-        };
         
         let displayTopic = "";
         if (currentTopic.toLowerCase().includes('bagrut')) {
@@ -931,15 +1133,7 @@
             }
 
             if (rawData.length > 0) {
-                window.allFetchedQuestions = window.allFetchedQuestions.concat(rawData);
-                
-                window.readingTextsDB = undefined;
-                window.questionsDB = undefined;
-                window.questionsDB_grammar = undefined;
-                window.questionsDB_syntax = undefined;
-                window.questionsDB_part2 = undefined;
-                window.questionsDB_advanced = undefined;
-                window.questionsDB_part3 = undefined;
+                window.allFetchedQuestions = rawData; 
                 
                 let relevantItems = window.allFetchedQuestions.filter(item => {
                     if (!currentSubtopic) return true;
@@ -953,24 +1147,20 @@
                     
                     if (firstItem.questions && Array.isArray(firstItem.questions)) {
                         let allQuestions = [];
-                        
                         relevantItems.forEach(textObj => {
                             let passageContent = Array.isArray(textObj.content) ? textObj.content.join('\n\n') : textObj.content;
-                            
                             textObj.questions.forEach(q => {
                                 let newQ = { ...q }; 
                                 newQ.passage = passageContent; 
                                 allQuestions.push(newQ); 
                             });
                         });
-                        
                         filteredQuestions = allQuestions;
                     } else {
                         filteredQuestions = relevantItems;
                     }
                     
                     if (filteredQuestions && filteredQuestions.length > 0) {
-                        
                         filteredQuestions = filteredQuestions.map(q => {
                             let normQ = { ...q };
                             if (!normQ.options) normQ.options = normQ.answers || normQ.choices || ["תשובה 1", "תשובה 2"];
@@ -979,20 +1169,26 @@
                             return normQ;
                         });
 
-                        if (!isMathMode) {
-                            filteredQuestions.forEach(q => {
-                                if (q.options && q.options.length > 0 && !q.shuffled) {
-                                    let optsWithIndex = q.options.map((opt, idx) => ({ text: opt, isCorrect: idx === q.correctAnswer }));
+                        filteredQuestions.forEach(q => {
+                            if (q.options && Array.isArray(q.options) && q.options.length > 0) {
+                                let optsWithIndex = q.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+                                if (!q.shuffled) {
                                     for (let i = optsWithIndex.length - 1; i > 0; i--) {
                                         const j = Math.floor(Math.random() * (i + 1));
                                         [optsWithIndex[i], optsWithIndex[j]] = [optsWithIndex[j], optsWithIndex[i]];
                                     }
-                                    q.options = optsWithIndex.map(o => o.text);
-                                    q.correctAnswer = optsWithIndex.findIndex(o => o.isCorrect);
                                     q.shuffled = true; 
                                 }
-                            });
-                        }
+                                q.shuffledOptions = optsWithIndex;
+                            } else {
+                                q.shuffledOptions = [];
+                            }
+                        });
+                        
+                        window.allOriginalQuestions = filteredQuestions;
+                        window.difficultyTiers = categorizeQuestions(filteredQuestions);
+                        document.getElementById('diff-group').style.display = 'flex';
+
                         loadQuestion(); 
                     } else {
                         document.getElementById('q-text').innerHTML = `שגיאה: לא נמצאו שאלות זמינות.`;
@@ -1027,15 +1223,54 @@
 
         document.getElementById('q-number-display').innerText = `שאלה ${displayIndex + 1}`;
         
+        const readingBtnContainer = document.getElementById('reading-btn-container');
+        readingBtnContainer.innerHTML = '';
+        
+        if (isEnglishMode && currentTopic === 'abc_basics') {
+            readingBtnContainer.innerHTML += `<button class="btn-tts" onclick="speakCurrentQuestion(this)">
+                <span>השמע שאלה</span> <span>🔊</span>
+            </button>`;
+        }
+
+        if (q.passage) {
+            let showReadingBtn = false;
+            
+            if (isEnglishMode && currentTopic === 'Reading_Comprehension' && !(currentSubtopic && (currentSubtopic.includes('אסטרטגיות') || currentSubtopic.includes('Strategies')))) {
+                showReadingBtn = true;
+            }
+            if (isEnglishMode && currentTopic === 'bagrut_prep') {
+                showReadingBtn = true; 
+            }
+            if (isHebrewMode && (currentTopic.includes('הבנת_הנקרא') || (currentSubtopic && currentSubtopic.includes('טקסטים')))) {
+                showReadingBtn = true;
+            }
+            if (isArabicMode && (currentTopic.includes('reading') || currentTopic.includes('הבנת') || currentTopic.includes('טקסטים') || (currentSubtopic && (currentSubtopic.includes('טקסטים') || currentSubtopic.includes('הבנת'))))) {
+                showReadingBtn = true;
+            }
+
+            if (showReadingBtn) {
+                window.currentPassage = q.passage;
+                readingBtnContainer.innerHTML += `<button class="btn-reading-window" onclick="openReadingWindow()">
+                    <span>📖</span> <span>פתח טקסט קריאה</span>
+                </button>`;
+            }
+        }
+        
         let rawQText = q.question_text || q.question || "";
         let formattedQText = rawQText.split('\n').map(part => {
             let trimmed = part.trim();
             if (trimmed === '') return '';
+            
             if (trimmed.includes('<svg')) { return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; width: 100%; text-align: center; margin: 10px 0;">${trimmed}</div>`; }
-            if (isMathMode && !/[\u0590-\u05FF]/.test(trimmed)) {
-                return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; display: block; width: 100%; text-align: center; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.4rem; margin: 10px 0; font-weight: 800; color: #000000; letter-spacing: 1px;">${formatContent(trimmed)}</div>`;
+            
+            let isHebrewLine = containsHebrew(trimmed);
+            let lineDir = isHebrewLine ? "rtl" : "ltr";
+            
+            if (isMathMode && !isHebrewLine) {
+                return `<div dir="ltr" style="direction: ltr; display: block; width: 100%; text-align: center; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.4rem; margin: 10px 0; font-weight: 800; color: #000000; letter-spacing: 1px;">${formatContent(trimmed)}</div>`;
             }
-            return `<div dir="rtl" style="direction: rtl; unicode-bidi: isolate; margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; color: #000000; line-height: 1.5;">${formatContent(trimmed)}</div>`;
+            
+            return `<div dir="${lineDir}" style="direction: ${lineDir}; margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; color: #000000; line-height: 1.5; text-align: center;">${formatContent(trimmed)}</div>`;
         }).join('');
 
         document.getElementById('q-text').innerHTML = `<div style="width: 100%;">${formattedQText}</div>`;
@@ -1053,67 +1288,90 @@
 
         const hebrewLetters = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'", "ט'", "י'", "י\"א", "י\"ב"];
 
-        if (q.solution) {
-            htmlContent += q.solution;
-            if (q.final_answer) finalAnswerText = q.final_answer;
+        if (!isMathMode) {
+            let nonMathHtml = `<div style="background: rgba(34, 197, 94, 0.08); border: 2px solid #4ade80; border-radius: 12px; padding: 20px; color: #14532d; font-size: 1.15rem; line-height: 1.8; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1); text-align: right; direction: rtl;">`;
+            
+            nonMathHtml += `<div style="font-weight: 500;"><b style="color: #166534; font-size: 1.25rem;">📝 פתרון:</b><br><br>`;
+            
+            if (q.solution) {
+                nonMathHtml += formatContent(q.solution);
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            } else if (q.solution_steps && q.solution_steps.length > 0) {
+                q.solution_steps.forEach((step, idx) => {
+                    let textObj = step.verbal_explanation || step.explanation || "";
+                    if (textObj) nonMathHtml += `<div style="margin-bottom: 8px;"><b>שלב ${idx+1}:</b> ${formatContent(textObj)}</div>`;
+                });
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            } else if (q.correctAnswer !== undefined && q.options && q.options[q.correctAnswer]) {
+                nonMathHtml += `התשובה הנכונה היא: <b style="background: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 4px; border: 1px solid #4ade80;">${formatContent(q.options[q.correctAnswer])}</b>`;
+            } else {
+                nonMathHtml += `התשובה סומנה נכונה במערכת.`;
+            }
+            
+            nonMathHtml += `</div></div>`;
+            htmlContent += nonMathHtml;
         } 
-        else if (q.solution_steps && q.solution_steps.length > 0) {
-            q.solution_steps.forEach((step, index) => {
-                let verbal = step.verbal_explanation || step.explanation || "";
-                let mathText = step.math_expression || "";
-                
-                let stepLabel = hebrewLetters[index] || (index + 1);
-
-                htmlContent += `
-                <div class="step-card" style="background:#ffffff; border:2px solid #e2e8f0; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-                    <div class="step-header" style="font-size:1.1rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
-                        שלב ${stepLabel}:
-                    </div>`;
-                
-                if (verbal) {
-                    let verbalDir = /[\u0590-\u05FF]/.test(verbal) ? "rtl" : "ltr";
-                    htmlContent += `<div dir="${verbalDir}" style="font-size: 1.15rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
-                }
-
-                if (mathText) {
-                    let mathDir = "ltr";
-                    let contentToRender = "";
+        else {
+            if (q.solution) {
+                htmlContent += formatContent(q.solution);
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            } 
+            else if (q.solution_steps && q.solution_steps.length > 0) {
+                q.solution_steps.forEach((step, index) => {
+                    let verbal = step.verbal_explanation || step.explanation || "";
+                    let mathText = step.math_expression || "";
                     
-                    if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(mathText)) {
-                        // מתמטיקה טהורה - שלח ל-MathJax
-                        contentToRender = '\\( ' + cleanMathExpression(mathText) + ' \\)';
-                    } else {
-                        // מכיל עברית - תרנדר ב-HTML רגיל ותעקוף את MathJax כדי לא לשבור כיווניות
-                        mathDir = /[\u0590-\u05FF]/.test(mathText) ? "rtl" : "ltr";
-                        let cleanedText = mathText.replace(/=>/g, ' ⇒ ').replace(/->/g, ' → ').replace(/!=/g, ' ≠ ').replace(/<=/g, ' ≤ ').replace(/>=/g, ' ≥ ').replace(/\*/g, ' × ');
-                        contentToRender = formatContent(cleanedText);
+                    let stepLabel = hebrewLetters[index] || (index + 1);
+
+                    htmlContent += `
+                    <div class="step-card" style="background:#ffffff; border:2px solid #e2e8f0; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+                        <div class="step-header" style="font-size:1.1rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
+                            שלב ${stepLabel}:
+                        </div>`;
+                    
+                    if (verbal) {
+                        let verbalDir = /[\u0590-\u05FF]/.test(verbal) ? "rtl" : "ltr";
+                        htmlContent += `<div dir="${verbalDir}" style="font-size: 1.15rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
+                    }
+
+                    if (mathText) {
+                        let mathDir = "ltr";
+                        let contentToRender = "";
+                        
+                        if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(mathText)) {
+                            contentToRender = '\\( ' + cleanMathExpression(mathText) + ' \\)';
+                        } else {
+                            mathDir = /[\u0590-\u05FF]/.test(mathText) ? "rtl" : "ltr";
+                            let cleanedText = mathText.replace(/=>/g, ' ⇒ ').replace(/->/g, ' → ').replace(/!=/g, ' ≠ ').replace(/<=/g, ' ≤ ').replace(/>=/g, ' ≥ ').replace(/\*/g, ' × ');
+                            contentToRender = formatContent(cleanedText);
+                        }
+                        
+                        htmlContent += `
+                        <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.4rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
+                            ${contentToRender}
+                        </div>`;
                     }
                     
-                    htmlContent += `
-                    <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.4rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
-                        ${contentToRender}
-                    </div>`;
-                }
-                
-                htmlContent += `</div>`;
-            });
+                    htmlContent += `</div>`;
+                });
 
-            if (q.final_answer) finalAnswerText = q.final_answer;
+                if (q.final_answer) finalAnswerText = q.final_answer;
+            }
         }
 
         htmlContent += '</div>';
 
-        if (finalAnswerText) {
-            let processedFinalAnswer = finalAnswerText.replace(/\*/g, ' × ');
-            let ansDir = /[\u0590-\u05FF]/.test(processedFinalAnswer) ? "rtl" : "ltr";
+        if (finalAnswerText && isMathMode) {
+            let ansDir = /[\u0590-\u05FF]/.test(finalAnswerText) ? "rtl" : "ltr";
             let ansFont = (ansDir === "ltr") ? "'Cambria Math', 'Times New Roman', Arial, sans-serif" : "inherit";
             
             let finalContent = "";
-            if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(processedFinalAnswer)) {
-                finalContent = '\\( ' + cleanMathExpression(processedFinalAnswer) + ' \\)';
+            if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(finalAnswerText)) {
+                let cleaned = cleanMathExpression(finalAnswerText);
+                finalContent = '\\( ' + cleaned + ' \\)';
                 ansDir = "ltr";
             } else {
-                finalContent = formatContent(processedFinalAnswer);
+                finalContent = formatContent(finalAnswerText);
             }
             
             htmlContent += `
@@ -1141,22 +1399,22 @@
 
     function renderOptions(q) {
         const box = document.getElementById('q-options'); box.innerHTML = '';
-        if (q.options && Array.isArray(q.options)) {
-            q.options.forEach((opt, idx) => {
+        if (q.shuffledOptions && Array.isArray(q.shuffledOptions)) {
+            q.shuffledOptions.forEach((shuffledOpt) => {
                 const btn = document.createElement('button'); 
                 btn.className = 'btn-option';
                 
-                let processedOpt = String(opt).replace(/\*/g, ' × ');
-                let optDir = /[\u0590-\u05FF]/.test(processedOpt) ? "rtl" : "ltr";
+                let optDir = /[\u0590-\u05FF]/.test(shuffledOpt.text) ? "rtl" : "ltr";
                 let btnContent = "";
                 
-                if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(processedOpt)) {
+                if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(shuffledOpt.text)) {
+                     let cleaned = cleanMathExpression(shuffledOpt.text);
                      btnContent = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.3rem; font-weight: 700; text-align: center; letter-spacing: 1px;">
-                        \\( ${cleanMathExpression(processedOpt)} \\)
+                        \\( ${cleaned} \\)
                      </bdi>`;
                 } else {
                      btnContent = `<bdi dir="${optDir}" style="width:100%; display:inline-block; font-size: 1.15rem; text-align: center; font-weight: 600;">
-                        ${formatContent(processedOpt)}
+                        ${formatContent(shuffledOpt.text)}
                      </bdi>`;
                 }
                 
@@ -1169,15 +1427,16 @@
                         b.style.color = '#0f172a';
                     });
 
-                    userAnswers[displayIndex] = idx;
+                    userAnswers[displayIndex] = shuffledOpt.originalIndex;
                     document.getElementById('btn-next-main').style.display = 'block';
                     const fb = document.getElementById('feedback-text');
                     
-                    if (idx === q.correctAnswer) {
+                    if (shuffledOpt.originalIndex === q.correctAnswer) {
                         btn.style.backgroundColor = 'var(--correct-bg)';
                         btn.style.borderColor = 'var(--correct-border)';
                         btn.style.color = 'var(--correct-text)';
                         playSound('correct');
+                        playFeedbackVoice(true);
                         fb.innerText = "כל הכבוד! תשובה נכונה.";
                         fb.className = 'feedback-correct';
                     } else {
@@ -1185,14 +1444,15 @@
                         btn.style.borderColor = 'var(--wrong-border)';
                         btn.style.color = 'var(--wrong-text)';
                         playSound('wrong');
+                        playFeedbackVoice(false);
                         fb.innerText = "טעות, נסו שוב או היעזרו ברמז.";
                         fb.className = 'feedback-wrong';
                     }
                     fb.style.display = 'block';
                 };
                 
-                if (userAnswers[displayIndex] === idx) {
-                    if (idx === q.correctAnswer) {
+                if (userAnswers[displayIndex] === shuffledOpt.originalIndex) {
+                    if (shuffledOpt.originalIndex === q.correctAnswer) {
                         btn.style.backgroundColor = 'var(--correct-bg)';
                         btn.style.borderColor = 'var(--correct-border)';
                         btn.style.color = 'var(--correct-text)';

@@ -1,583 +1,678 @@
 const questionsDB = [
-    // ========================================================================
-    // תת נושא 1: קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)
-    // ========================================================================
+    // ==========================================
+    // תת נושא 1: קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ) (12 שאלות)
+    // ==========================================
 
-    // --- שאלה 1 ---
+    // שאלה מספר 1
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: `האם שני המשולשים שלפניכם דומים? אם כן, לפי איזה משפט דמיון?<br><br>
-        <svg viewBox="0 0 350 150" style="width:100%; max-width:400px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="40,120 120,120 80,40" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="50" y="110" font-size="12" font-weight="bold">60&deg;</text>
-            <text x="100" y="110" font-size="12" font-weight="bold">40&deg;</text>
-            <polygon points="180,120 300,120 240,40" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
-            <text x="230" y="65" font-size="12" font-weight="bold">80&deg;</text>
-            <text x="270" y="110" font-size="12" font-weight="bold">40&deg;</text>
-        </svg>`,
-        options: ["כן, לפי משפט ז.ז (זווית-זווית)", "לא, המשולשים אינם דומים", "כן, לפי צ.ז.צ", "כן, לפי צ.צ.צ"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "במשולש אחד נתונות שתי זוויות שגודלן 50 מעלות ו-60 מעלות. במשולש שני נתונות שתי זוויות שגודלן 60 מעלות ו-70 מעלות. האם המשולשים דומים, ואם כן לפי איזה משפט?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='20,130 120,130 60,30' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='160,130 260,130 200,30' fill='none' stroke='#ef4444' stroke-width='2'/><text x='30' y='120' font-size='12' fill='#334155'>50°</text><text x='95' y='120' font-size='12' fill='#334155'>60°</text><text x='170' y='120' font-size='12' fill='#334155'>60°</text><text x='235' y='120' font-size='12' fill='#334155'>70°</text></svg></div>",
+        options: ["דומים לפי ז.ז", "דומים לפי צ.ז.צ", "דומים לפי צ.צ.צ", "לא דומים"],
         correctAnswer: 0,
-        hint: "חשבו את הזווית השלישית בכל אחד מהמשולשים (סכום זוויות במשולש הוא 180 מעלות). אם יש להם לפחות שתי זוויות שוות בהתאמה, הם דומים.",
+        hint: "חשבו את הזווית השלישית במשולש הראשון (השלימו ל-180 מעלות). אם יש שתי זוויות שוות בהתאמה, המשולשים דומים.",
         solution_steps: [
-            { verbal_explanation: "נחשב את הזווית השלישית במשולש השמאלי. סכום הזוויות הוא מאה שמונים.", math_expression: "\u202A180 - (60 + 40) = 80&deg;\u202C" },
-            { verbal_explanation: "נחשב את הזווית השלישית במשולש הימני.", math_expression: "\u202A180 - (80 + 40) = 60&deg;\u202C" },
-            { verbal_explanation: "ראינו שבשני המשולשים הזוויות הן 40, 60 ו-80 מעלות. מספיק ששתי זוויות שוות כדי לקבוע דמיון.", math_expression: "\u202A\u2220_1 = \u2220_2 , \u2220_3 = \u2220_4\u202C" },
-            { verbal_explanation: "לכן המשולשים דומים לפי משפט זווית-זווית.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" }
+            { verbal_explanation: "שלב 1: חישוב הזווית השלישית במשולש הראשון.", math_expression: "\\alpha_{1} = 180^{\\circ} - (50^{\\circ} + 60^{\\circ})" },
+            { verbal_explanation: "שלב 2: סכימת הזוויות בסוגריים.", math_expression: "\\alpha_{1} = 180^{\\circ} - 110^{\\circ}" },
+            { verbal_explanation: "שלב 3: התוצאה לזווית השלישית במשולש הראשון.", math_expression: "\\alpha_{1} = 70^{\\circ}" },
+            { verbal_explanation: "שלב 4: השוואת הזוויות בין שני המשולשים.", math_expression: "70^{\\circ} = 70^{\\circ} \\quad , \\quad 60^{\\circ} = 60^{\\circ}" },
+            { verbal_explanation: "שלב 5: מצאנו שני זוגות של זוויות שוות בהתאמה. זה מספיק כדי להוכיח דמיון.", math_expression: "\\alpha_{1} = \\alpha_{2} \\quad , \\quad \\beta_{1} = \\beta_{2}" },
+            { verbal_explanation: "שלב 6: קביעת משפט הדמיון הרלוונטי (זווית-זווית).", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "כן, לפי משפט ז.ז (זווית-זווית)"
+        final_answer: "דומים לפי ז.ז"
     },
 
-    // --- שאלה 2 ---
+    // שאלה מספר 2
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: `שימו לב היטב לנתונים: האם המשולשים בסרטוט דומים?<br><br>
-        <svg viewBox="0 0 350 150" style="width:100%; max-width:400px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="30,120 130,120 30,20" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="20" y="70" font-size="14" font-weight="bold">5</text>
-            <text x="80" y="135" font-size="14" font-weight="bold">10</text>
-            <text x="100" y="110" font-size="12" font-weight="bold">50&deg;</text>
-            <polygon points="200,120 300,120 200,20" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
-            <text x="180" y="70" font-size="14" font-weight="bold">10</text>
-            <text x="250" y="135" font-size="14" font-weight="bold">20</text>
-            <text x="270" y="110" font-size="12" font-weight="bold">50&deg;</text>
-        </svg>`,
-        options: ["לא, מכיוון שהזווית אינה כלואה בין שתי הצלעות הפרופורציונליות", "כן, לפי צ.ז.צ משום שהיחס הוא 1:2", "כן, לפי ז.ז.ז", "לא, כי הזווית צריכה להיות גדולה מ-90 מעלות"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "במשולש א', אורכי שתי צלעות הם 4 ו-6, והזווית שביניהן היא 40 מעלות. במשולש ב', אורכי שתי צלעות הם 12 ו-18, והזווית שביניהן היא 40 מעלות. האם המשולשים דומים?&rlm;",
+        options: ["דומים לפי צ.ז.צ", "דומים לפי ז.ז", "דומים לפי צ.צ.צ", "לא דומים"],
         correctAnswer: 0,
-        hint: "כדי להשתמש במשפט דמיון צ.ז.צ (צלע-זווית-צלע), חובה שהזווית תהיה בדיוק זו שמחברת בין שתי הצלעות שבדקנו. בדקו היכן ממוקמת הזווית בכל משולש.",
+        hint: "בדקו אם היחס בין הצלעות המתאימות שווה, ואם הזווית הכלואה ביניהן שווה.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את יחס הצלעות הנתונות: עשר לחלק לחמש שווה שתיים, ועשרים לחלק לעשר שווה גם כן שתיים.", math_expression: "\u202A10 / 5 = 20 / 10 = 2\u202C" },
-            { verbal_explanation: "אולם, נשים לב למיקום הזווית. במשפט צלע-זווית-צלע, חובה שהזווית תהיה בין שתי הצלעות. כאן היא ממוקמת מחוץ להן.", math_expression: "\u202A\u03B1 \u2260 \u03B2\u202C" },
-            { verbal_explanation: "מכיוון שהתנאי המרכזי של המשפט אינו מתקיים, לא ניתן להוכיח שהמשולשים דומים בוודאות.", math_expression: "\u202A\u0394_1 \u2241 \u0394_2\u202C" }
+            { verbal_explanation: "שלב 1: השוואת הזווית הכלואה בין שתי הצלעות.", math_expression: "40^{\\circ} = 40^{\\circ}" },
+            { verbal_explanation: "שלב 2: בדיקת היחס בין הצלעות הקצרות בשני המשולשים.", math_expression: "k_{1} = \\dfrac{12}{4}" },
+            { verbal_explanation: "שלב 3: תוצאת היחס הראשון.", math_expression: "k_{1} = 3" },
+            { verbal_explanation: "שלב 4: בדיקת היחס בין הצלעות הארוכות בשני המשולשים.", math_expression: "k_{2} = \\dfrac{18}{6}" },
+            { verbal_explanation: "שלב 5: תוצאת היחס השני.", math_expression: "k_{2} = 3" },
+            { verbal_explanation: "שלב 6: היחסים שווים והזווית הכלואה שווה, לכן המשולשים דומים.", math_expression: "k_{1} = k_{2} \\quad , \\quad \\gamma_{1} = \\gamma_{2}" },
+            { verbal_explanation: "שלב 7: קביעת משפט הדמיון (צלע-זווית-צלע).", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "לא, מכיוון שהזווית אינה כלואה בין שתי הצלעות הפרופורציונליות"
+        final_answer: "דומים לפי צ.ז.צ"
     },
 
-    // --- שאלה 3 ---
+    // שאלה מספר 3
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: `משולש בתוך משולש: הקטע DE מקביל לצלע BC. האם משולש ADE (הקטן למעלה) דומה למשולש הגדול ABC? ואם כן, מדוע?<br><br>
-        <svg viewBox="0 0 200 180" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="100,20 40,150 160,150" fill="rgba(59, 130, 246, 0.1)" stroke="#0f172a" stroke-width="2"/>
-            <line x1="63" y1="100" x2="137" y2="100" stroke="#ef4444" stroke-width="2"/>
-            <text x="95" y="15" font-size="14" font-weight="bold">A</text>
-            <text x="25" y="160" font-size="14" font-weight="bold">B</text>
-            <text x="165" y="160" font-size="14" font-weight="bold">C</text>
-            <text x="45" y="100" font-size="14" font-weight="bold">D</text>
-            <text x="145" y="100" font-size="14" font-weight="bold">E</text>
-            <polygon points="100,100 105,95 105,105" fill="#ef4444"/>
-            <polygon points="100,150 105,145 105,155" fill="#0f172a"/>
-        </svg>`,
-        options: ["כן, לפי ז.ז (זווית משותפת וזוויות מתאימות)", "לא, אין מספיק נתונים", "כן, לפי צ.צ.צ", "לא, הקטעים צריכים להיות מאונכים"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "במשולש ישר זווית אחד, הזווית החדה היא בת 35 מעלות. במשולש ישר זווית שני, הזווית החדה היא בת 55 מעלות. האם המשולשים דומים?&rlm;",
+        options: ["דומים לפי ז.ז", "דומים לפי צ.ז.צ", "דומים לפי צ.צ.צ", "לא דומים"],
         correctAnswer: 0,
-        hint: "זווית הקודקוד העליונה (A) משותפת לשני המשולשים. בנוסף, קווים מקבילים יוצרים זוויות מתאימות שוות (למשל הזווית ב-D שווה לזווית ב-B).",
+        hint: "במשולש ישר זווית יש זווית של 90 מעלות. השלימו את הזווית החסרה בכל אחד מהמשולשים ל-180 מעלות.",
         solution_steps: [
-            { verbal_explanation: "הזווית העליונה שייכת גם למשולש הקטן וגם למשולש הגדול, ולכן שווה לעצמה (זווית משותפת).", math_expression: "\u202A\u2220A = \u2220A\u202C" },
-            { verbal_explanation: "מכיוון שהישרים מקבילים, ישנן זוויות מתאימות שוות. זווית בקודקוד די שווה לזווית בקודקוד בי.", math_expression: "\u202A\u2220ADE = \u2220ABC\u202C" },
-            { verbal_explanation: "מצאנו שתי זוויות שוות, ולכן המשולשים דומים על סמך משפט זווית-זווית.", math_expression: "\u202A\u0394ADE \u223C \u0394ABC\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי הזווית הישרה המשותפת לשני המשולשים.", math_expression: "\\alpha_{1} = 90^{\\circ} \\quad , \\quad \\alpha_{2} = 90^{\\circ}" },
+            { verbal_explanation: "שלב 2: חישוב הזווית השלישית במשולש הראשון.", math_expression: "\\beta_{1} = 180^{\\circ} - (90^{\\circ} + 35^{\\circ})" },
+            { verbal_explanation: "שלב 3: תוצאת הזווית השלישית בראשון.", math_expression: "\\beta_{1} = 55^{\\circ}" },
+            { verbal_explanation: "שלב 4: כעת ניתן לראות שבשני המשולשים יש זוויות של 90, 35 ו-55 מעלות.", math_expression: "\\beta_{1} = \\beta_{2}" },
+            { verbal_explanation: "שלב 5: מציאת שני זוגות של זוויות שוות מוכיחה דמיון.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "כן, לפי ז.ז (זווית משותפת וזוויות מתאימות)"
+        final_answer: "דומים לפי ז.ז"
     },
 
-    // --- שאלה 4 ---
+    // שאלה מספר 4
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: "נתונים שני משולשים. צלעות המשולש הראשון הן באורכים: 6, 8, 10. צלעות המשולש השני הן באורכים: 9, 12, 15. האם המשולשים דומים?",
-        options: ["כן, לפי משפט צ.צ.צ", "כן, לפי משפט צ.ז.צ", "לא, היחסים אינם שווים", "אי אפשר לדעת ללא הזוויות"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "אורכי צלעות משולש א' הם 3, 5, 6. אורכי צלעות משולש ב' הם 9, 15, 18. האם המשולשים דומים?&rlm;",
+        options: ["דומים לפי צ.צ.צ", "דומים לפי צ.ז.צ", "דומים לפי ז.ז", "לא דומים"],
         correctAnswer: 0,
-        hint: "סדרו את הצלעות של כל משולש מהקטן לגדול. בדקו האם היחס בין הצלעות הקטנות שווה ליחס בין הבינוניות, ושווה ליחס בין הגדולות.",
+        hint: "בדקו האם היחס בין כל זוג צלעות מתאימות (הקצרה לקצרה, האמצעית לאמצעית, הארוכה לארוכה) נשמר.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את יחס הצלעות הקטנות ביותר בשני המשולשים.", math_expression: "\u202A9 / 6 = 1.5\u202C" },
-            { verbal_explanation: "נבדוק את יחס הצלעות הבינוניות.", math_expression: "\u202A12 / 8 = 1.5\u202C" },
-            { verbal_explanation: "נבדוק את יחס הצלעות הגדולות ביותר.", math_expression: "\u202A15 / 10 = 1.5\u202C" },
-            { verbal_explanation: "כיוון שיחס כל שלוש הצלעות שווה בדיוק, המשולשים דומים לפי משפט צלע-צלע-צלע.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" }
+            { verbal_explanation: "שלב 1: בדיקת יחס הצלעות הקצרות.", math_expression: "k_{1} = \\dfrac{9}{3} = 3" },
+            { verbal_explanation: "שלב 2: בדיקת יחס הצלעות האמצעיות בגודלן.", math_expression: "k_{2} = \\dfrac{15}{5} = 3" },
+            { verbal_explanation: "שלב 3: בדיקת יחס הצלעות הארוכות.", math_expression: "k_{3} = \\dfrac{18}{6} = 3" },
+            { verbal_explanation: "שלב 4: השוואת כל היחסים שחושבו.", math_expression: "k_{1} = k_{2} = k_{3} = 3" },
+            { verbal_explanation: "שלב 5: מכיוון ששלושת היחסים שווים, המשולשים דומים לפי משפט צ.צ.צ.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "כן, לפי משפט צ.צ.צ"
+        final_answer: "דומים לפי צ.צ.צ"
     },
 
-    // --- שאלה 5 ---
+    // שאלה מספר 5
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: `בסרטוט לפניכם נתון משולש ישר זווית הגדול. מן הזווית הישרה הורד גובה אל היתר, המחלק את המשולש לשני משולשים קטנים. מה נכון לומר על המשולשים הנוצרים?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="40,120 160,120 100,40" fill="none" stroke="#0f172a" stroke-width="2"/>
-            <polyline points="93,49 100,55 107,49" fill="none" stroke="#0f172a" stroke-width="2"/>
-            <line x1="100" y1="40" x2="100" y2="120" stroke="#ef4444" stroke-width="2"/>
-            <polyline points="90,120 90,110 100,110" fill="none" stroke="#ef4444" stroke-width="2"/>
-        </svg>`,
-        options: ["כל שלושת המשולשים (השניים הקטנים והאחד הגדול) דומים זה לזה", "המשולשים הקטנים דומים רק אחד לשני", "אין דמיון כי אין אורכי צלעות", "הם חופפים זה לזה, לא רק דומים"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "אורכי צלעות משולש א' הם 4, 8, 10. אורכי צלעות משולש ב' הם 6, 12, 14. האם המשולשים דומים?&rlm;",
+        options: ["לא דומים", "דומים לפי צ.צ.צ", "דומים לפי ז.ז", "דומים לפי צ.ז.צ"],
         correctAnswer: 0,
-        hint: "זהו משפט קלאסי: גובה ליתר במשולש ישר זווית מחלק אותו לשני משולשים קטנים שדומים למשולש המקורי, ולכן דומים גם זה לזה.",
+        hint: "חלקו כל צלע ממשולש ב' בצלע המתאימה לה ממשולש א'. אם היחסים לא זהים לחלוטין, המשולשים אינם דומים.",
         solution_steps: [
-            { verbal_explanation: "נסמן זווית חדה אחת באלפא. במשולש הגדול, הזווית החדה השנייה תהיה תשעים מינוס אלפא.", math_expression: "\u202A\u03B1 , 90&deg; - \u03B1\u202C" },
-            { verbal_explanation: "הגובה יוצר זוויות ישרות למטה. במשולש הקטן הראשון נותר להשלים את הזווית ל-90 מינוס אלפא.", math_expression: "\u202A\u2220 = 90&deg; - \u03B1\u202C" },
-            { verbal_explanation: "במשולש הקטן השני, הזווית הנותרת תהיה בדיוק אלפא. לכן לכל המשולשים יש את אותן זוויות.", math_expression: "\u202A90&deg; , \u03B1 , 90&deg;-\u03B1\u202C" },
-            { verbal_explanation: "לפי משפט זווית-זווית, כולם דומים אחד לשני.", math_expression: "\u202A\u0394_1 \u223C \u0394_2 \u223C \u0394_3\u202C" }
+            { verbal_explanation: "שלב 1: חישוב היחס בין הצלעות הקצרות.", math_expression: "k_{1} = \\dfrac{6}{4} = 1.5" },
+            { verbal_explanation: "שלב 2: חישוב היחס בין הצלעות הבינוניות.", math_expression: "k_{2} = \\dfrac{12}{8} = 1.5" },
+            { verbal_explanation: "שלב 3: חישוב היחס בין הצלעות הארוכות.", math_expression: "k_{3} = \\dfrac{14}{10} = 1.4" },
+            { verbal_explanation: "שלב 4: השוואת היחסים.", math_expression: "1.5 \\neq 1.4" },
+            { verbal_explanation: "שלב 5: מכיוון שהיחס השלישי שונה, התנאי נשבר והמשולשים אינם דומים.", math_expression: "k_{1} = k_{2} \\neq k_{3}" }
         ],
-        final_answer: "כל שלושת המשולשים (השניים הקטנים והאחד הגדול) דומים זה לזה"
+        final_answer: "לא דומים"
     },
 
-    // --- שאלה 6 ---
+    // שאלה מספר 6
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: `צורת "שעון חול": שני ישרים נחתכים יוצרים שני משולשים הפוכים (הבסיסים אינם מקבילים לפי הנתון).<br>הצלעות שליד הקודקוד המשותף הן: במשולש העליון 4 ו-6. במשולש התחתון 8 ו-12. האם הם דומים?<br><br>
-        <svg viewBox="0 0 200 200" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="50,40 150,40 100,100" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <polygon points="40,160 160,160 100,100" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2"/>
-            <text x="65" y="75" font-size="12" font-weight="bold">4</text>
-            <text x="130" y="75" font-size="12" font-weight="bold">6</text>
-            <text x="60" y="130" font-size="12" font-weight="bold">8</text>
-            <text x="135" y="130" font-size="12" font-weight="bold">12</text>
-        </svg>`,
-        options: ["כן, לפי משפט צלע-זווית-צלע (צ.ז.צ)", "לא, כי הצלעות העליונות והתחתונות אינן מקבילות", "כן, לפי משפט צלע-צלע-צלע", "לא, כי חסרה זווית"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "שני ישרים מקבילים נחתכים על ידי שני ישרים אחרים שיוצרים צורת שעון חול (משולשים קודקודיים). מה ניתן לומר על שני המשולשים שנוצרו?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><line x1='20' y1='40' x2='180' y2='40' stroke='#64748b' stroke-width='2'/><line x1='20' y1='160' x2='180' y2='160' stroke='#64748b' stroke-width='2'/><line x1='40' y1='40' x2='160' y2='160' stroke='#3b82f6' stroke-width='2'/><line x1='160' y1='40' x2='40' y2='160' stroke='#3b82f6' stroke-width='2'/></svg></div>",
+        options: ["דומים לפי ז.ז", "חופפים תמיד", "לא דומים", "דומים לפי צ.צ.צ"],
         correctAnswer: 0,
-        hint: "בדקו את היחס בין הצלעות המתאימות (8 חלקי 4, ו-12 חלקי 6). הזווית שביניהן היא זווית קודקודית. האם זוויות קודקודיות שוות?",
+        hint: "ישרים מקבילים יוצרים זוויות מתחלפות שוות. כמו כן, זוויות קודקודיות שוות זו לזו.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את יחס הצלעות. שמונה חלקי ארבע נותן שתיים. שנים עשר חלקי שש נותן גם שתיים. היחס נשמר.", math_expression: "\u202A8 / 4 = 12 / 6 = 2\u202C" },
-            { verbal_explanation: "הזווית הכלואה בין שתי הצלעות בכל משולש נמצאת במרכז הצורה. אלו הן זוויות קודקודיות, ועל כן הן שוות.", math_expression: "\u202A\u2220_1 = \u2220_2\u202C" },
-            { verbal_explanation: "היות ויש שתי צלעות בפרופורציה שווה והזווית הכלואה ביניהן שווה, המשולשים דומים לפי צ.ז.צ.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי זוג זוויות קודקודיות שוות בנקודת המפגש המרכזית.", math_expression: "\\alpha_{1} = \\alpha_{2}" },
+            { verbal_explanation: "שלב 2: שימוש בתכונת ישרים מקבילים למציאת זוויות מתחלפות שוות (צורת האות Z).", math_expression: "L_{1} \\parallel L_{2} \\Rightarrow \\beta_{1} = \\beta_{2}" },
+            { verbal_explanation: "שלב 3: מצאנו שני זוגות של זוויות שוות בהתאמה.", math_expression: "\\alpha_{1}=\\alpha_{2} \\quad , \\quad \\beta_{1}=\\beta_{2}" },
+            { verbal_explanation: "שלב 4: מסקנה: המשולשים דומים.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" },
+            { verbal_explanation: "שלב 5: בחירת משפט הדמיון המתאים.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "כן, לפי משפט צלע-זווית-צלע (צ.ז.צ)"
+        final_answer: "דומים לפי ז.ז"
     },
 
-    // --- שאלה 7 ---
+    // שאלה מספר 7
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: "איזה מן המשפטים הבאים הוא משפט אמת ומוחלט בגיאומטריה של דמיון משולשים?",
-        options: ["כל שני משולשים שווי-צלעות הם בהכרח משולשים דומים", "כל שני משולשים שווי-שוקיים הם בהכרח משולשים דומים", "כל שני משולשים ישרי זווית הם בהכרח משולשים דומים", "כל שני משולשים שהיקפם שווה הם דומים"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "במשולש שווה שוקיים זווית הראש היא 50 מעלות. משולש שווה שוקיים אחר גם הוא בעל זווית ראש של 50 מעלות. האם המשולשים דומים?&rlm;",
+        options: ["דומים לפי ז.ז", "לא ניתן לדעת", "דומים לפי צ.ז.צ", "לא דומים"],
         correctAnswer: 0,
-        hint: "דמיון דורש זוויות שוות. באיזה סוג משולש אנחנו יודעים בוודאות מראש שכל הזוויות תמיד שוות ל-60 מעלות?",
+        hint: "במשולש שווה שוקיים, זווית הראש מכתיבה את גודל שתי זוויות הבסיס. חשבו אותן.",
         solution_steps: [
-            { verbal_explanation: "במשולש שווה צלעות, כל הזוויות הפנימיות שוות תמיד לשישים מעלות בדיוק, ללא קשר לגודל המשולש.", math_expression: "\u202A60&deg; , 60&deg; , 60&deg;\u202C" },
-            { verbal_explanation: "משפט הדמיון זווית-זווית (ז.ז) דורש רק שתי זוויות שוות. מכיוון שכולן 60 מעלות, התנאי תמיד מתקיים.", math_expression: "\u202A\u2220_1 = \u2220_2 = 60&deg;\u202C" },
-            { verbal_explanation: "לכן, כל שני משולשים שווי צלעות בעולם הם דומים זה לזה בוודאות מוחלטת.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" }
+            { verbal_explanation: "שלב 1: חישוב סכום זוויות הבסיס במשולש הראשון.", math_expression: "180^{\\circ} - 50^{\\circ} = 130^{\\circ}" },
+            { verbal_explanation: "שלב 2: חלוקה בשתיים למציאת כל זווית בסיס.", math_expression: "130^{\\circ} : 2 = 65^{\\circ}" },
+            { verbal_explanation: "שלב 3: ביצוע אותו חישוב בדיוק למשולש השני, שכן זווית הראש שלו זהה.", math_expression: "(180^{\\circ} - 50^{\\circ}) : 2 = 65^{\\circ}" },
+            { verbal_explanation: "שלב 4: השוואת הזוויות: בשני המשולשים הזוויות זהות לחלוטין.", math_expression: "\\alpha_{1}=\\alpha_{2} \\quad , \\quad \\beta_{1}=\\beta_{2}" },
+            { verbal_explanation: "שלב 5: קביעת משפט הדמיון המבוסס על שוויון הזוויות.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "כל שני משולשים שווי-צלעות הם בהכרח משולשים דומים"
+        final_answer: "דומים לפי ז.ז"
     },
 
-    // --- שאלה 8 ---
+    // שאלה מספר 8
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: "נתונים שני משולשים. לאחד צלעות 3, 5 וזווית של 40 מעלות ביניהן. לשני צלעות 9, 15 וזווית של 40 מעלות ביניהן. מהו יחס הדמיון?",
-        options: ["יחס הדמיון הוא 1:3 לפי משפט צ.ז.צ", "המשולשים אינם דומים", "יחס הדמיון הוא 1:5", "יחס הדמיון הוא 3:5 לפי ז.ז.ז"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "במשולש אחד צלעות באורך 2 ו-5 וזווית של 30 מעלות. במשולש שני צלעות באורך 6 ו-15 וזווית של 30 מעלות. הזווית בשני המשולשים אינה הכלואה בין שתי הצלעות, אלא מול הצלע הגדולה. האם ניתן לקבוע דמיון בוודאות?&rlm;",
+        options: ["לא ניתן לקבוע בוודאות", "דומים לפי צ.ז.צ", "דומים לפי ז.ז", "דומים לפי צ.צ.צ"],
         correctAnswer: 0,
-        hint: "בדקו את יחס הצלעות (9 לחלק ל-3, ו-15 לחלק ל-5). האם הזווית שביניהן שווה? אם כן, מצאתם את המשפט ואת היחס.",
+        hint: "משפט צ.ז.צ דורש במפורש שהזווית תהיה כלואה (נמצאת בין) שתי הצלעות שהיחס שלהן שווה.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את יחס שתי הצלעות בין המשולש הגדול לקטן.", math_expression: "\u202A9 / 3 = 3 , 15 / 5 = 3\u202C" },
-            { verbal_explanation: "הזווית הכלואה בין הצלעות הללו בשני המשולשים שווה נתון.", math_expression: "\u202A40&deg; = 40&deg;\u202C" },
-            { verbal_explanation: "מכיוון שהיחס קבוע ויש זווית כלואה, מדובר בדמיון לפי צלע-זווית-צלע.", math_expression: "\u202A1:3\u202C" }
+            { verbal_explanation: "שלב 1: בדיקת יחס הצלעות הנתונות.", math_expression: "\\dfrac{6}{2} = 3 \\quad , \\quad \\dfrac{15}{5} = 3" },
+            { verbal_explanation: "שלב 2: היחס אכן נשמר.", math_expression: "k = 3" },
+            { verbal_explanation: "שלב 3: בדיקת מיקום הזווית. הנתון אומר שהיא מול אחת הצלעות ולא ביניהן.", math_expression: "\\gamma_{1} = 30^{\\circ} \\quad , \\quad \\gamma_{2} = 30^{\\circ}" },
+            { verbal_explanation: "שלב 4: משפט הדמיון הרשמי דורש שהזווית השווה תהיה הזווית הכלואה בלבד.", math_expression: "\\gamma \\neq \\angle(a,b)" },
+            { verbal_explanation: "שלב 5: מסקנה: אי אפשר לקבוע דמיון ללא זווית כלואה או צלע שלישית.", math_expression: "\\Delta_{1} \\nsim \\Delta_{2}" }
         ],
-        final_answer: "יחס הדמיון הוא 1:3 לפי משפט צ.ז.צ"
+        final_answer: "לא ניתן לקבוע בוודאות"
     },
 
-    // --- שאלה 9 ---
+    // שאלה מספר 9
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: "בשני משולשים שווי שוקיים, ידוע כי זווית הראש (הקודקוד העליון) שווה ל-50 מעלות בשניהם. האם ניתן לקבוע בוודאות שהם דומים?",
-        options: ["כן, משום שניתן למצוא שכל שאר הזוויות שוות בהתאמה (משפט ז.ז)", "לא, כי חייבים לדעת את אורך הצלעות", "כן, לפי משפט צ.צ.צ", "לא, כי במשולש שווה שוקיים אין דמיון הכרחי"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "משולש שווה צלעות בעל צלע 4. משולש שווה צלעות אחר בעל צלע 10. האם הם דומים?&rlm;",
+        options: ["דומים (גם לפי ז.ז וגם לפי צ.צ.צ)", "לא דומים", "רק לפי צ.צ.צ", "רק לפי ז.ז"],
         correctAnswer: 0,
-        hint: "אם זווית הראש שווה ל-50, כמה נשאר לזוויות הבסיס? החסירו מ-180 וחלקו ב-2. האם התוצאה תהיה זהה בשני המשולשים? אם כן, הזוויות זהות והמשולשים דומים.",
+        hint: "במשולש שווה צלעות, כל הזוויות הן בנות 60 מעלות תמיד. בנוסף, כל הצלעות שוות ולכן היחס ביניהן קבוע.",
         solution_steps: [
-            { verbal_explanation: "במשולש שווה שוקיים, סכום שתי זוויות הבסיס הוא מאה שמונים פחות זווית הראש.", math_expression: "\u202A180 - 50 = 130&deg;\u202C" },
-            { verbal_explanation: "כיוון שזוויות הבסיס שוות, כל אחת מהן שווה למחצית היתרה. חישוב זה יהיה זהה בשני המשולשים.", math_expression: "\u202A130 / 2 = 65&deg;\u202C" },
-            { verbal_explanation: "מצאנו שבשני המשולשים הזוויות הן 50, 65 ו-65. יש להם זוויות שוות ולכן הם דומים לפי זווית-זווית.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" }
+            { verbal_explanation: "שלב 1: ניתוח לפי זוויות: במשולש שווה צלעות כל הזוויות הן שישים מעלות.", math_expression: "\\alpha_{1} = 60^{\\circ} \\quad , \\quad \\alpha_{2} = 60^{\\circ}" },
+            { verbal_explanation: "שלב 2: מכאן שהם דומים לפי משפט זווית-זווית.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" },
+            { verbal_explanation: "שלב 3: ניתוח לפי צלעות: הצלעות במשולש א' הן 4, 4, 4. במשולש ב' הן 10, 10, 10.", math_expression: "a_{1}=4 \\quad , \\quad a_{2}=10" },
+            { verbal_explanation: "שלב 4: היחס בין כל זוג צלעות מתאימות הוא עשר חלקי ארבע (שתיים וחצי).", math_expression: "k = \\dfrac{10}{4} = 2.5" },
+            { verbal_explanation: "שלב 5: מכאן שהם דומים גם לפי צלע-צלע-צלע.", math_expression: "k_{1}=k_{2}=k_{3}=2.5" },
+            { verbal_explanation: "שלב 6: הרישום המסכם.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "כן, משום שניתן למצוא שכל שאר הזוויות שוות בהתאמה (משפט ז.ז)"
+        final_answer: "דומים (גם לפי ז.ז וגם לפי צ.צ.צ)"
     },
 
-    // --- שאלה 10 ---
+    // שאלה מספר 10
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "קריטריוני דמיון (צ.צ.צ, ז.ז.ז, צ.ז.צ)",
-        question: "מלכודת יחסים: למשולש א' צלעות באורכים 2, 4, 6. למשולש ב' צלעות באורכים 3, 6, 8. האם הם דומים?",
-        options: ["לא, משום שהיחס בין הצלעות אינו קבוע", "כן, לפי משפט צ.צ.צ", "כן, משום שכל הצלעות גדלו בהדרגה", "לא, משום שאלו משולשים שווי שוקיים"],
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "נתון משולש ABC. מעבירים קטע מקביל לבסיס BC, החותך את הצלעות האחרות. קטע זה יוצר משולש קטן חדש בחלק העליון. האם המשולש הקטן דומה למשולש המקורי ABC?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='100,20 40,160 160,160' fill='none' stroke='#10b981' stroke-width='3'/><line x1='70' y1='90' x2='130' y2='90' stroke='#f59e0b' stroke-width='3'/></svg></div>",
+        options: ["כן, דומים לפי ז.ז", "כן, דומים לפי צ.צ.צ", "לא דומים", "כן, דומים לפי צ.ז.צ"],
         correctAnswer: 0,
-        hint: "חילקו כל צלע במשולש ב' בצלע המתאימה לה במשולש א'. 3 חלקי 2 שווה 1.5. 6 חלקי 4 שווה 1.5. האם 8 חלקי 6 שווה 1.5?",
+        hint: "ישרים מקבילים יוצרים זוויות מתאימות שוות. כמו כן, זווית הראש המשותפת שייכת לשני המשולשים.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את יחסי הצלעות הקטנות והבינוניות.", math_expression: "\u202A3 / 2 = 1.5 , 6 / 4 = 1.5\u202C" },
-            { verbal_explanation: "נבדוק את יחס הצלעות הגדולות ביותר.", math_expression: "\u202A8 / 6 = 1.333...\u202C" },
-            { verbal_explanation: "מכיוון שהיחס השלישי שונה משני היחסים הראשונים, הפרופורציה נשברת ואין דמיון.", math_expression: "\u202A1.5 \u2260 1.333\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי זווית משותפת לשני המשולשים (קודקוד המשולש המקורי).", math_expression: "\\alpha_{1} = \\alpha_{2}" },
+            { verbal_explanation: "שלב 2: שימוש בתכונת ישרים מקבילים למציאת זוויות מתאימות שוות בבסיסים.", math_expression: "L_{1} \\parallel L_{2} \\Rightarrow \\beta_{1} = \\beta_{2}" },
+            { verbal_explanation: "שלב 3: מציאת שני זוגות של זוויות שוות מספיקה להוכחת דמיון.", math_expression: "\\gamma_{1} = \\gamma_{2}" },
+            { verbal_explanation: "שלב 4: המסקנה היא שהמשולשים אכן דומים (זהו משפט תאלס המורחב).", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" },
+            { verbal_explanation: "שלב 5: בחירת האפשרות הנכונה המבוססת על הזוויות.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
         ],
-        final_answer: "לא, משום שהיחס בין הצלעות אינו קבוע"
+        final_answer: "כן, דומים לפי ז.ז"
     },
 
-    // ========================================================================
-    // תת נושא 2: שימוש בדמיון לחישוב אורכים
-    // ========================================================================
-
-    // --- שאלה 11 ---
+    // שאלה מספר 11
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "במשולש ישר זווית, מורידים גובה ליתר. הגובה מחלק את המשולש המקורי לשני משולשים קטנים יותר. האם המשולשים הקטנים דומים זה לזה?&rlm;",
+        options: ["כן, לפי ז.ז", "לא, הם רק דומים למשולש הגדול", "כן, לפי צ.צ.צ", "לא דומים כלל"],
+        correctAnswer: 0,
+        hint: "סמנו את אחת הזוויות החדות באלפא. הזווית החדה השנייה תהיה 90 מינוס אלפא. חשבו את הזוויות במשולשים הקטנים שנוצרו על ידי הגובה (שיוצר זווית של 90).",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הגדרת הזווית החדה באחד ממשולשי הגובה.", math_expression: "\\alpha" },
+            { verbal_explanation: "שלב 2: הגובה יוצר זווית ישרה, ולכן הזווית השנייה באותו משולש קטן היא המשלים לתשעים.", math_expression: "90^{\\circ} - \\alpha" },
+            { verbal_explanation: "שלב 3: הזווית הישרה המקורית של המשולש הגדול נחצתה על ידי הגובה. לכן חלקה השני חייב להיות אלפא.", math_expression: "90^{\\circ} - (90^{\\circ} - \\alpha) = \\alpha" },
+            { verbal_explanation: "שלב 4: המשולש הקטן השני מכיל כעת זווית אלפא וזווית ישרה. מכאן שזוויתו השלישית היא המשלים לתשעים.", math_expression: "90^{\\circ} - \\alpha" },
+            { verbal_explanation: "שלב 5: בשני המשולשים הקטנים יש אותן שלוש זוויות בדיוק.", math_expression: "\\alpha \\quad , \\quad 90^{\\circ}-\\alpha \\quad , \\quad 90^{\\circ}" },
+            { verbal_explanation: "שלב 6: מכאן שהם דומים זה לזה לפי משפט זווית-זווית.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
+        ],
+        final_answer: "כן, לפי ז.ז"
+    },
+
+    // שאלה מספר 12
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "קריטריוני דמיון (ז.ז, צ.ז.צ, צ.צ.צ)",
+        question_text: "נתונים שני משולשים. יחס שתי צלעות מתאימות הוא 1:2. יחס שתי צלעות נוספות הוא 2:4. הזווית הכלואה ביניהן בשני המשולשים היא 50 מעלות. האם המשולשים דומים?&rlm;",
+        options: ["כן, דומים לפי צ.ז.צ", "כן, דומים לפי ז.ז", "כן, דומים לפי צ.צ.צ", "לא דומים"],
+        correctAnswer: 0,
+        hint: "בדקו אם היחסים שווים זה לזה. אם כן, ויש זווית כלואה שווה, משפט צלע-זווית-צלע מתקיים.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: בדיקת יחס הצלעות הראשון.", math_expression: "k_{1} = \\dfrac{1}{2}" },
+            { verbal_explanation: "שלב 2: בדיקת יחס הצלעות השני.", math_expression: "k_{2} = \\dfrac{2}{4}" },
+            { verbal_explanation: "שלב 3: צמצום השבר השני מראה שהיחסים זהים.", math_expression: "k_{2} = \\dfrac{1}{2} \\Rightarrow k_{1} = k_{2}" },
+            { verbal_explanation: "שלב 4: וידוא קיום התנאי של זווית שווה הכלואה בין צלעות אלו.", math_expression: "\\gamma_{1} = \\gamma_{2} = 50^{\\circ}" },
+            { verbal_explanation: "שלב 5: קביעת משפט הדמיון הרלוונטי.", math_expression: "\\Delta_{1} \\sim \\Delta_{2}" }
+        ],
+        final_answer: "כן, דומים לפי צ.ז.צ"
+    },
+
+    // ==========================================
+    // תת נושא 2: שימוש בדמיון לחישוב אורכים (12 שאלות)
+    // ==========================================
+
+    // שאלה מספר 13
+    {
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: `ישר המקביל לבסיס חותך את צלעות המשולש ויוצר משולש קטן הדומה למשולש הגדול.<br>נתון: AD=3, AB=9, DE=4. חרצו את אורך הבסיס הגדול BC.<br><br>
-        <svg viewBox="0 0 200 180" style="width:100%; max-width:250px; display:block; margin:15px auto; background:#f8fafc; border-radius:8px; border:1px solid #cbd5e1;">
-            <polygon points="100,20 40,150 160,150" fill="rgba(16, 185, 129, 0.1)" stroke="#10b981" stroke-width="2"/>
-            <line x1="72" y1="80" x2="128" y2="80" stroke="#ef4444" stroke-width="2"/>
-            <text x="95" y="15" font-size="14" font-weight="bold">A</text>
-            <text x="25" y="160" font-size="14" font-weight="bold">B</text>
-            <text x="165" y="160" font-size="14" font-weight="bold">C</text>
-            <text x="50" y="80" font-size="14" font-weight="bold">D</text>
-            <text x="135" y="80" font-size="14" font-weight="bold">E</text>
-            <text x="75" y="50" font-size="12" font-weight="bold">3</text>
-            <text x="100" y="75" font-size="12" font-weight="bold">4</text>
-        </svg>`,
-        options: ["12", "9", "16", "8"],
+        question_text: "יחס הדמיון בין המשולש הגדול לקטן הוא 3. צלע במשולש הקטן שווה ל-5. מה אורך הצלע המתאימה במשולש הגדול?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 150' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='10,120 70,120 40,40' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='100,140 280,140 190,-100' fill='none' stroke='#ef4444' stroke-width='2'/><text x='20' y='70' font-size='12' fill='#334155'>5</text><text x='120' y='70' font-size='12' fill='#ef4444'>x</text></svg></div>",
+        options: ["15", "1.66", "8", "2"],
         correctAnswer: 0,
-        hint: "היחס בין הצלע הקטנה AD לצלע הגדולה AB הוא 3 חלקי 9. אותו יחס בדיוק מתקיים בין הבסיס הקטן DE לבסיס הגדול BC. הקימו משוואת פרופורציה.",
+        hint: "הכפילו את אורך הצלע הנתונה ביחס הדמיון הקווי.",
         solution_steps: [
-            { verbal_explanation: "מכיוון שהמשולשים דומים, היחס בין הצלעות השמאליות שלהם שווה ליחס בין הבסיסים שלהם.", math_expression: "\u202AAD / AB = DE / BC\u202C" },
-            { verbal_explanation: "נציב את המספרים הידועים לנו לתוך המשוואה.", math_expression: "\u202A3 / 9 = 4 / x\u202C" },
-            { verbal_explanation: "נפשט את השבר השמאלי לשליש.", math_expression: "\u202A1 / 3 = 4 / x\u202C" },
-            { verbal_explanation: "נבצע כפל בהצלבה למציאת המשתנה.", math_expression: "\u202Ax = 3 \u00D7 4 = 12\u202C" }
-        ],
-        final_answer: "12"
-    },
-
-    // --- שאלה 12 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: `בצורת "שעון חול", נתון שהישרים העליון והתחתון מקבילים, ולכן המשולשים דומים.<br>הבסיס העליון שווה ל-5, הבסיס התחתון שווה ל-15. צלע אחת במשולש העליון שווה ל-2. מהו אורך הצלע המתאימה לה במשולש התחתון?`,
-        options: ["6", "10", "12", "8"],
-        correctAnswer: 0,
-        hint: "חשבו את יחס הדמיון בין המשולש התחתון (הגדול) לעליון (הקטן). 15 חלקי 5 הם פי 3. כפלו את הצלע העליונה הנתונה (2) ביחס זה.",
-        solution_steps: [
-            { verbal_explanation: "נמצא את יחס ההגדלה מהמשולש הקטן לגדול באמצעות הבסיסים הידועים.", math_expression: "\u202A15 / 5 = 3\u202C" },
-            { verbal_explanation: "המשמעות היא שכל צלע במשולש התחתון ארוכה פי שלוש מהצלע המקבילה לה במשולש העליון.", math_expression: "\u202Ax = 2 \u00D7 3\u202C" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "\u202Ax = 6\u202C" }
-        ],
-        final_answer: "6"
-    },
-
-    // --- שאלה 13 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "נתונים שני משולשים דומים. צלעות המשולש הקטן הן 4, 5 ו-6. היקף המשולש הגדול הוא 45. מהו אורך הצלע הגדולה ביותר במשולש הגדול?",
-        options: ["18", "15", "12", "24"],
-        correctAnswer: 0,
-        hint: "חשבו קודם את היקף המשולש הקטן (חברו את כל צלעותיו). היחס בין ההיקפים שווה בדיוק ליחס בין הצלעות. מצאו את היחס, וכפלו בו את הצלע הגדולה של הקטן (6).",
-        solution_steps: [
-            { verbal_explanation: "נחשב את היקפו של המשולש הקטן על ידי חיבור כל צלעותיו.", math_expression: "\u202AP_1 = 4 + 5 + 6 = 15\u202C" },
-            { verbal_explanation: "יחס ההיקפים זהה תמיד ליחס הצלעות בדמיון משולשים. נבדוק פי כמה גדול ההיקף השני.", math_expression: "\u202A45 / 15 = 3\u202C" },
-            { verbal_explanation: "כעת נכפיל את הצלע הארוכה ביותר של המשולש הקטן פי שלוש.", math_expression: "\u202A6 \u00D7 3 = 18\u202C" }
-        ],
-        final_answer: "18"
-    },
-
-    // --- שאלה 14 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: `משולש בתוך משולש (ישרים מקבילים). נתון כי הצלע השמאלית מפוצלת: החלק העליון שווה ל-2, והתחתון שווה ל-x. <br>בצלע הימנית: החלק העליון שווה ל-4, והתחתון שווה ל-10. חשבו את ערכו של x.`,
-        options: ["5", "8", "6", "3"],
-        correctAnswer: 0,
-        hint: "לפי משפט תאלס (הנובע מדמיון), היחס בין קטעי הצלעות נשמר: עליון חלקי תחתון בצד אחד, שווה לעליון חלקי תחתון בצד שני. כלומר, 2 חלקי x שווה ל-4 חלקי 10.",
-        solution_steps: [
-            { verbal_explanation: "נרשום את משוואת הפרופורציה (משפט תאלס המורחב) המתארת את יחס קטעי הצדדים.", math_expression: "\u202A2 / x = 4 / 10\u202C" },
-            { verbal_explanation: "נבצע כפל בהצלבה לפתרון המשוואה.", math_expression: "\u202A4 \u00D7 x = 2 \u00D7 10\u202C" },
-            { verbal_explanation: "נפשט ונחשב.", math_expression: "\u202A4x = 20\u202C" },
-            { verbal_explanation: "נחלק בארבע.", math_expression: "\u202Ax = 5\u202C" }
-        ],
-        final_answer: "5"
-    },
-
-    // --- שאלה 15 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "שני משולשים שווי שוקיים דומים זה לזה. בראשון אורך הבסיס הוא 10 ואורך השוק הוא 15. בשני אורך הבסיס הוא 20. מהו היקף המשולש השני?",
-        options: ["80", "50", "100", "60"],
-        correctAnswer: 0,
-        hint: "הבסיס גדל מ-10 ל-20 (גדל פי 2). לכן, גם השוק גדלה פי 2. מצאו את אורך השוק החדשה, וחשבו היקף (בסיס ועוד שתי שוקיים).",
-        solution_steps: [
-            { verbal_explanation: "נמצא את יחס ההגדלה מהמשולש הראשון לשני על בסיס הצלע הידועה בשניהם.", math_expression: "\u202A20 / 10 = 2\u202C" },
-            { verbal_explanation: "נחשב את אורך השוק במשולש החדש על ידי הכפלת הישנה בשתיים.", math_expression: "\u202A15 \u00D7 2 = 30\u202C" },
-            { verbal_explanation: "נחשב את ההיקף של המשולש החדש: שתי שוקיים ועוד הבסיס.", math_expression: "\u202AP = 30 + 30 + 20 = 80\u202C" }
-        ],
-        final_answer: "80"
-    },
-
-    // --- שאלה 16 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "במשולשים דומים יחס הצלעות הוא 1:4. ידוע כי שטח המשולש הקטן הוא 10 סמ\"ר. מהו שטח המשולש הגדול?",
-        options: ["160 סמ\"ר", "40 סמ\"ר", "80 סמ\"ר", "100 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "זהירות! יחס השטחים אינו שווה ליחס הצלעות. יחס השטחים הוא *ריבוע* יחס הצלעות. אם היחס הוא 4, השטח יגדל פי 4 בריבוע (כלומר 16).",
-        solution_steps: [
-            { verbal_explanation: "נקבע את יחס הדמיון הקווי הרגיל בין המשולשים.", math_expression: "\u202Ak = 4\u202C" },
-            { verbal_explanation: "על פי משפט, יחס השטחים של צורות דומות שווה לריבוע יחס הצלעות שלהן.", math_expression: "\u202AS_2 / S_1 = k&sup2; = 16\u202C" },
-            { verbal_explanation: "נכפיל את שטח המשולש הקטן פי שישה עשר.", math_expression: "\u202AS_2 = 10 \u00D7 16 = 160\u202C" }
-        ],
-        final_answer: "160 סמ\"ר"
-    },
-
-    // --- שאלה 17 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "בעיה מציאותית: עץ מטיל צל באורך של 12 מטרים. באותו זמן בדיוק, אדם שגובהו 1.8 מטרים מטיל צל באורך 2.4 מטרים. מהו גובהו של העץ?",
-        options: ["9 מטרים", "10 מטרים", "8 מטרים", "15 מטרים"],
-        correctAnswer: 0,
-        hint: "הקרניים של השמש יוצרות שני משולשים דומים. היחס בין גובה האדם לצל שלו שווה ליחס בין גובה העץ לצל שלו. 1.8 חלקי 2.4 שווה לגובה העץ חלקי 12.",
-        solution_steps: [
-            { verbal_explanation: "נרכיב משוואת פרופורציה של דמיון משולשים. גובה האדם חלקי צילו שווה לגובה העץ חלקי צילו.", math_expression: "\u202A1.8 / 2.4 = x / 12\u202C" },
-            { verbal_explanation: "נחשב את ערך השבר השמאלי כעשרוני.", math_expression: "\u202A0.75 = x / 12\u202C" },
-            { verbal_explanation: "נכפיל את המספרים למציאת גובה העץ המיוצג כנעלם.", math_expression: "\u202Ax = 0.75 \u00D7 12 = 9\u202C" }
-        ],
-        final_answer: "9 מטרים"
-    },
-
-    // --- שאלה 18 ---
-    {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "במשולשים דומים היחס בין הגבהים שלהם שווה ליחס הדמיון של הצלעות. אם במשולש א' צלע היא 8 והגובה אליה הוא 5, ובמשולש הדומה לו ב' אותה צלע היא 24, מה יהיה אורך הגובה באותו משולש ב'?",
-        options: ["15", "20", "10", "18"],
-        correctAnswer: 0,
-        hint: "הצלע גדלה מ-8 ל-24 (כלומר פי 3). לכן, גם הגובה יגדל בדיוק באותו יחס (פי 3). הכפילו את הגובה הקיים ב-3.",
-        solution_steps: [
-            { verbal_explanation: "נחשב את יחס הדמיון באמצעות חלוקת הצלע החדשה בישנה.", math_expression: "\u202A24 / 8 = 3\u202C" },
-            { verbal_explanation: "יחס הגבהים במשולשים דומים שומר בדיוק על אותה פרופורציה לינארית של הצלעות.", math_expression: "\u202Ah_2 / h_1 = 3\u202C" },
-            { verbal_explanation: "נכפיל את הגובה המקורי פי שלוש.", math_expression: "\u202Ah_2 = 5 \u00D7 3 = 15\u202C" }
+            { verbal_explanation: "שלב 1: רישום יחס הדמיון הנתון.", math_expression: "k = 3" },
+            { verbal_explanation: "שלב 2: כתיבת משוואת היחס בין הצלעות.", math_expression: "\\dfrac{x}{5} = k" },
+            { verbal_explanation: "שלב 3: הצבת היחס במשוואה.", math_expression: "\\dfrac{x}{5} = 3" },
+            { verbal_explanation: "שלב 4: הכפלת שני האגפים בחמש לבידוד הנעלם.", math_expression: "x = 5 \\times 3" },
+            { verbal_explanation: "שלב 5: חישוב התוצאה הסופית.", math_expression: "x = 15" }
         ],
         final_answer: "15"
     },
 
-    // --- שאלה 19 ---
+    // שאלה מספר 14
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "במשולש נתון שהיחס בין שתי צלעותיו הוא 2:5. במשולש שדומה לו, הצלע הגדולה מבין השתיים היא 35. מה אורכה של הצלע הקטנה מאותו זוג?",
-        options: ["14", "10", "20", "15"],
+        question_text: "שני משולשים דומים. צלע אחת בקטן היא 8, והצלע המתאימה בגדול היא 24. צלע אחרת בקטן היא 6. מהו אורך הצלע המתאימה לה בגדול?&rlm;",
+        options: ["18", "2", "144", "32"],
         correctAnswer: 0,
-        hint: "היחס הפנימי בין הצלעות נשמר במשולשים דומים. לכן 2 חלקי 5 שווה ל-x חלקי 35. בצעו כפל בהצלבה.",
+        hint: "חשבו את יחס הדמיון על ידי חלוקת הצלעות הידועות (24 חלקי 8). לאחר מכן השתמשו ביחס זה להכפלת הצלע בת ה-6.",
         solution_steps: [
-            { verbal_explanation: "נבנה משוואת יחסים. היחס המקורי חייב להיות שווה ליחס הצלעות החדש.", math_expression: "\u202A2 / 5 = x / 35\u202C" },
-            { verbal_explanation: "נכפיל בשלושים וחמש את שני האגפים כדי לבודד את המשתנה במכה אחת.", math_expression: "\u202A(2 \u00D7 35) / 5 = x\u202C" },
-            { verbal_explanation: "נחשב את המונה ואז נחלק.", math_expression: "\u202Ax = 70 / 5 = 14\u202C" }
+            { verbal_explanation: "שלב 1: בניית יחס הדמיון מתוך זוג הצלעות הידוע.", math_expression: "k = \\dfrac{24}{8}" },
+            { verbal_explanation: "שלב 2: פתרון השבר לחישוב היחס.", math_expression: "k = 3" },
+            { verbal_explanation: "שלב 3: בניית המשוואה לזוג הצלעות השני.", math_expression: "\\dfrac{x}{6} = k" },
+            { verbal_explanation: "שלב 4: הצבת היחס שמצאנו.", math_expression: "\\dfrac{x}{6} = 3" },
+            { verbal_explanation: "שלב 5: חילוץ הנעלם על ידי פעולת כפל.", math_expression: "x = 6 \\times 3" },
+            { verbal_explanation: "שלב 6: התוצאה הסופית המבוקשת.", math_expression: "x = 18" }
         ],
-        final_answer: "14"
+        final_answer: "18"
     },
 
-    // --- שאלה 20 ---
+    // שאלה מספר 15
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב אורכים",
-        question: "סולם נשען על קיר. במרחק מטר אחד מקצהו התחתון יש תמיכה בגובה חצי מטר (0.5). אורך כל הבסיס מהקצה התחתון ועד לקיר הוא 6 מטרים. מהו הגובה אליו מגיע הסולם על הקיר?",
-        options: ["3 מטרים", "4 מטרים", "2.5 מטרים", "2 מטרים"],
+        question_text: "שני משולשים דומים. יחס הדמיון (קטן חלקי גדול) הוא 0.5. צלע במשולש הגדול אורכה 10. מה אורך הצלע המתאימה במשולש הקטן?&rlm;",
+        options: ["5", "20", "10.5", "15"],
         correctAnswer: 0,
-        hint: "היחס בין בסיס המשולש הקטן (1 מטר) לבסיס המשולש הגדול (6 מטרים) הוא פי 6. לכן הגובה הגדול יהיה פי 6 מהגובה הקטן (0.5).",
+        hint: "אם היחס מוגדר כמשולש קטן חלקי משולש גדול שווה 0.5, אז הכפילו את אורך צלע המשולש הגדול ב-0.5.",
         solution_steps: [
-            { verbal_explanation: "המשולש שיוצרת התמיכה דומה למשולש הגדול. יחס הבסיסים ביניהם הוא שש לאחד.", math_expression: "\u202A6 / 1 = 6\u202C" },
-            { verbal_explanation: "נכפיל את גובה התמיכה הקטנה ביחס זה כדי לקבל את הגובה השלם של הקיר.", math_expression: "\u202Ax = 0.5 \u00D7 6\u202C" },
-            { verbal_explanation: "חישוב המכפלה מניב שלוש.", math_expression: "\u202Ax = 3\u202C" }
+            { verbal_explanation: "שלב 1: כתיבת משוואת היחס לפי הגדרת השאלה.", math_expression: "\\dfrac{x_{1}}{x_{2}} = 0.5" },
+            { verbal_explanation: "שלב 2: הצבת האורך הידוע במכנה של המשוואה.", math_expression: "\\dfrac{x}{10} = 0.5" },
+            { verbal_explanation: "שלב 3: בידוד הנעלם על ידי הכפלה בעשר.", math_expression: "x = 10 \\times 0.5" },
+            { verbal_explanation: "שלב 4: חישוב התוצאה הסופית.", math_expression: "x = 5" },
+            { verbal_explanation: "שלב 5: רישום הפתרון.", math_expression: "5" }
         ],
-        final_answer: "3 מטרים"
+        final_answer: "5"
     },
 
-    // ========================================================================
-    // תת נושא 3: שימוש בדמיון לחישוב זוויות
-    // ========================================================================
-
-    // --- שאלה 21 ---
+    // שאלה מספר 16
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "ידוע שמשולש ABC דומה למשולש DEF (האותיות מסודרות בהתאמה). במשולש ABC: זווית A=40, זווית B=80. מהו גודלה של זווית F במשולש DEF?",
-        options: ["60 מעלות", "40 מעלות", "80 מעלות", "100 מעלות"],
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "במשולש קטן נתון: צלעות 4, 7, 9. במשולש גדול ודומה לו, הצלע המתאימה ל-4 שווה ל-10. מהו היקף המשולש הגדול?&rlm;",
+        options: ["50", "20", "100", "25"],
         correctAnswer: 0,
-        hint: "כיוון שזווית F מתאימה לזווית C בגלל סדר האותיות, עליכם למצוא את זווית C. עשו זאת על ידי השלמה ל-180 מעלות במשולש הראשון.",
+        hint: "יחס הדמיון חל גם על ההיקפים. מצאו את יחס הדמיון מהצלעות הידועות, חשבו את היקף המשולש הקטן, והכפילו אותו ביחס.",
         solution_steps: [
-            { verbal_explanation: "נחשב תחילה את זווית C במשולש המקורי על ידי חיסור שאר הזוויות ממאה שמונים.", math_expression: "\u202A180 - (40 + 80) = 60&deg;\u202C" },
-            { verbal_explanation: "מכיוון שהמשולשים דומים והאותיות נכתבות תמיד בסדר החפיפה המתאים, זווית העומדת במקום השלישי מתאימה לחברתה.", math_expression: "\u202A\u2220F = \u2220C\u202C" },
-            { verbal_explanation: "לכן, גודל הזווית המבוקשת מועתק ישירות מהמשולש הראשון.", math_expression: "\u202A\u2220F = 60&deg;\u202C" }
+            { verbal_explanation: "שלב 1: מציאת יחס הדמיון בעזרת הזוג הידוע של הצלעות.", math_expression: "k = \\dfrac{10}{4} = 2.5" },
+            { verbal_explanation: "שלב 2: חישוב היקף המשולש הקטן על ידי סכימת צלעותיו.", math_expression: "P_{1} = 4 + 7 + 9" },
+            { verbal_explanation: "שלב 3: תוצאת ההיקף הראשון.", math_expression: "P_{1} = 20" },
+            { verbal_explanation: "שלב 4: שימוש בכלל שיחס ההיקפים שווה ליחס הדמיון הקווי.", math_expression: "\\dfrac{P_{2}}{P_{1}} = k" },
+            { verbal_explanation: "שלב 5: הצבת הנתונים אל תוך המשוואה.", math_expression: "\\dfrac{P_{2}}{20} = 2.5" },
+            { verbal_explanation: "שלב 6: חילוץ ההיקף של המשולש השני על ידי כפל.", math_expression: "P_{2} = 20 \\times 2.5" },
+            { verbal_explanation: "שלב 7: הרישום הסופי.", math_expression: "P_{2} = 50" }
         ],
-        final_answer: "60 מעלות"
+        final_answer: "50"
     },
 
-    // --- שאלה 22 ---
+    // שאלה מספר 17
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
-        subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "שני משולשים שווי שוקיים דומים זה לזה. זווית הבסיס של המשולש הראשון היא 70 מעלות. מהו גודלה של זווית הראש של המשולש השני?",
-        options: ["40 מעלות", "70 מעלות", "110 מעלות", "140 מעלות"],
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "שני משולשים דומים ויחס הדמיון (הגדול לקטן) הוא 2. אורך תיכון במשולש הקטן הוא 4. מה אורך התיכון המתאים לו במשולש הגדול?&rlm;",
+        options: ["8", "2", "16", "6"],
         correctAnswer: 0,
-        hint: "משולשים דומים חולקים את אותן זוויות בדיוק. חשבו את זווית הראש במשולש הראשון (180 פחות פעמיים 70). זו תהיה גם זווית הראש בשני.",
+        hint: "יחס הדמיון בין משולשים דומים תקף לכל הקטעים הפנימיים המתאימים ביניהם (גבהים, תיכונים, חוצי זוויות).",
         solution_steps: [
-            { verbal_explanation: "במשולש הראשון יש שתי זוויות בסיס השוות לשבעים. נחשב את סכומן.", math_expression: "\u202A70 + 70 = 140\u202C" },
-            { verbal_explanation: "נחסר סכום זה מסך המעלות הכללי במשולש כדי למצוא את זווית הראש שלו.", math_expression: "\u202A180 - 140 = 40\u202C" },
-            { verbal_explanation: "בדמיון, כל הזוויות המקבילות מועתקות בשלמותן למשולש החדש. לכן זווית הראש תישאר זהה.", math_expression: "\u202A\u03B1 = 40&deg;\u202C" }
+            { verbal_explanation: "שלב 1: הצגת הכלל שיחס התיכונים זהה ליחס הדמיון.", math_expression: "\\dfrac{m_{2}}{m_{1}} = k" },
+            { verbal_explanation: "שלב 2: הצבת הנתונים הידועים למשוואה.", math_expression: "\\dfrac{m_{2}}{4} = 2" },
+            { verbal_explanation: "שלב 3: חילוץ אורך התיכון המבוקש על ידי כפל הצדדים.", math_expression: "m_{2} = 4 \\times 2" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל.", math_expression: "m_{2} = 8" },
+            { verbal_explanation: "שלב 5: קבלת התשובה הנכונה.", math_expression: "8" }
+        ],
+        final_answer: "8"
+    },
+
+    // שאלה מספר 18
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "קטע אמצעים במשולש יוצר משולש קטן בחלקו העליון שדומה למשולש הגדול. אורך קטע האמצעים הוא 5. מה אורך בסיס המשולש הגדול?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='100,20 40,160 160,160' fill='none' stroke='#10b981' stroke-width='3'/><line x1='70' y1='90' x2='130' y2='90' stroke='#f59e0b' stroke-width='3'/><text x='95' y='80' font-size='14' fill='#334155'>5</text></svg></div>",
+        options: ["10", "2.5", "15", "7.5"],
+        correctAnswer: 0,
+        hint: "יחס הדמיון במקרה של קטע אמצעים הוא תמיד 1:2 (כל צלע במשולש הגדול כפולה מהצלע במשולש הקטן).",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: זיהוי תכונת קטע אמצעים (שווה למחצית הבסיס).", math_expression: "b_{1} = \\dfrac{b_{2}}{2}" },
+            { verbal_explanation: "שלב 2: בניית המשוואה עם הערך הידוע של קטע האמצעים.", math_expression: "5 = \\dfrac{x}{2}" },
+            { verbal_explanation: "שלב 3: חילוץ הנעלם על ידי הכפלה בשתיים.", math_expression: "x = 5 \\times 2" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל לקבלת אורך הבסיס.", math_expression: "x = 10" },
+            { verbal_explanation: "שלב 5: התשובה הדרושה.", math_expression: "10" }
+        ],
+        final_answer: "10"
+    },
+
+    // שאלה מספר 19
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "בצורת 'שעון חול' שנוצרה על ידי ישרים מקבילים, המשולש העליון דומה לתחתון. בסיס המשולש העליון הוא 4 וגובהו 6. גובה המשולש התחתון הוא 18. מה אורך הבסיס של המשולש התחתון?&rlm;",
+        options: ["12", "3", "24", "18"],
+        correctAnswer: 0,
+        hint: "מצאו את יחס הדמיון על ידי חלוקת הגבהים הידועים. השתמשו ביחס זה להכפלת הבסיס הידוע.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס הדמיון בעזרת הגבהים הידועים של שני המשולשים.", math_expression: "k = \\dfrac{18}{6}" },
+            { verbal_explanation: "שלב 2: תוצאת פעולת החילוק נותנת את מקדם ההגדלה.", math_expression: "k = 3" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת היחס עבור הבסיסים.", math_expression: "\\dfrac{b_{2}}{b_{1}} = 3" },
+            { verbal_explanation: "שלב 4: הצבת הבסיס הידוע מהמשולש העליון.", math_expression: "\\dfrac{x}{4} = 3" },
+            { verbal_explanation: "שלב 5: הכפלת שני האגפים בארבע לחילוץ הבסיס החסר.", math_expression: "x = 4 \\times 3" },
+            { verbal_explanation: "שלב 6: החישוב הסופי לבסיס.", math_expression: "x = 12" }
+        ],
+        final_answer: "12"
+    },
+
+    // שאלה מספר 20
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "שני משולשים ישר זווית דומים זה לזה. במשולש הקטן הניצבים הם 3 ו-4. במשולש הגדול היתר הוא 15. מה אורכי הניצבים במשולש הגדול?&rlm;",
+        options: ["9 ו-12", "6 ו-8", "12 ו-16", "3 ו-4"],
+        correctAnswer: 0,
+        hint: "חשבו תחילה את היתר של המשולש הקטן בעזרת משפט פיתגורס. לאחר מכן, מצאו את יחס הדמיון בין היתרים והפעילו אותו על הניצבים.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: שימוש במשפט פיתגורס למציאת היתר במשולש הקטן.", math_expression: "c_{1} = \\sqrt{3^{2} + 4^{2}}" },
+            { verbal_explanation: "שלב 2: חישוב השורש המוכר לקבלת היתר הראשון.", math_expression: "c_{1} = \\sqrt{25} = 5" },
+            { verbal_explanation: "שלב 3: מציאת יחס הדמיון בין שני המשולשים על ידי חלוקת היתרים.", math_expression: "k = \\dfrac{15}{5} = 3" },
+            { verbal_explanation: "שלב 4: הכפלת הניצב הראשון של המשולש הקטן ביחס הדמיון למציאת הניצב המקביל.", math_expression: "a_{2} = 3 \\times 3 = 9" },
+            { verbal_explanation: "שלב 5: הכפלת הניצב השני ביחס הדמיון.", math_expression: "b_{2} = 4 \\times 3 = 12" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "9 \\quad , \\quad 12" }
+        ],
+        final_answer: "9 ו-12"
+    },
+
+    // שאלה מספר 21
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "במשולש, הועבר ישר המקביל לבסיס. הישר חותך שוק אחת לקטעים באורך 2 ו-4 (החלק העליון הוא 2). השוק השנייה נחתכת כך שחלקה העליון הוא 3. מהו אורך השוק השנייה כולה?&rlm;",
+        options: ["9", "6", "12", "15"],
+        correctAnswer: 0,
+        hint: "לפי משפט תאלס, היחס בין הקטעים על שוק אחת שווה ליחס בין הקטעים על השוק השנייה. מצאו את החלק התחתון וסכמו הכל יחד.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: רישום פרופורציית משפט תאלס המקשרת בין קטעי השוקיים.", math_expression: "\\dfrac{2}{4} = \\dfrac{3}{x}" },
+            { verbal_explanation: "שלב 2: כפל באלכסון (הצלבה) לפתרון המשוואה.", math_expression: "2 \\times x = 3 \\times 4" },
+            { verbal_explanation: "שלב 3: ביצוע פעולת הכפל באגף ימין.", math_expression: "2x = 12" },
+            { verbal_explanation: "שלב 4: חלוקת המשוואה בשתיים למציאת אורך הקטע התחתון הנותר.", math_expression: "x = 6" },
+            { verbal_explanation: "שלב 5: חישוב אורך השוק כולה על ידי חיבור החלק העליון (הנתון) והתחתון (שמצאנו).", math_expression: "L = 3 + 6" },
+            { verbal_explanation: "שלב 6: חישוב פעולת החיבור לקבלת סך הכל.", math_expression: "L = 9" },
+            { verbal_explanation: "שלב 7: הרישום הרשמי.", math_expression: "9" }
+        ],
+        final_answer: "9"
+    },
+
+    // שאלה מספר 22
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "שני משולשים דומים. שטח הראשון הוא 20. יחס הדמיון ביניהם (השני חלקי הראשון) הוא 2. מהו שטח המשולש השני?&rlm;",
+        options: ["80", "40", "10", "60"],
+        correctAnswer: 0,
+        hint: "יחס השטחים של משולשים דומים שווה לריבוע יחס הדמיון. אם צלע גדלה פי 2, השטח גדל פי 4.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הצגת הכלל המקשר בין יחס קווי ליחס שטחים.", math_expression: "\\dfrac{S_{2}}{S_{1}} = k^{2}" },
+            { verbal_explanation: "שלב 2: הצבת הנתונים במשוואה (השטח הידוע ויחס הדמיון).", math_expression: "\\dfrac{S_{2}}{20} = 2^{2}" },
+            { verbal_explanation: "שלב 3: העלאת יחס הדמיון הקווי בריבוע.", math_expression: "\\dfrac{S_{2}}{20} = 4" },
+            { verbal_explanation: "שלב 4: הכפלת שני אגפי המשוואה בעשרים לבידוד השטח המבוקש.", math_expression: "S_{2} = 20 \\times 4" },
+            { verbal_explanation: "שלב 5: ביצוע פעולת הכפל.", math_expression: "S_{2} = 80" },
+            { verbal_explanation: "שלב 6: אישור התשובה.", math_expression: "80" }
+        ],
+        final_answer: "80"
+    },
+
+    // שאלה מספר 23
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "שטחם של שני משולשים דומים הוא 100 ו-25. צלע במשולש הקטן (ששטחו 25) היא באורך 4. מה אורך הצלע המתאימה במשולש הגדול?&rlm;",
+        options: ["8", "16", "2", "12"],
+        correctAnswer: 0,
+        hint: "הוציאו שורש ריבועי מיחס השטחים כדי למצוא את יחס הדמיון הקווי. לאחר מכן הכפילו בו את הצלע הידועה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב יחס השטחים בין המשולש הגדול לקטן.", math_expression: "k^{2} = \\dfrac{100}{25} = 4" },
+            { verbal_explanation: "שלב 2: הוצאת שורש ריבועי כדי לחשב את יחס הדמיון הרגיל (הקווי).", math_expression: "k = \\sqrt{4} = 2" },
+            { verbal_explanation: "שלב 3: בניית המשוואה המקשרת בין הצלעות בעזרת היחס שנמצא.", math_expression: "\\dfrac{a_{2}}{4} = 2" },
+            { verbal_explanation: "שלב 4: חילוץ אורך הצלע של המשולש הגדול על ידי כפל.", math_expression: "a_{2} = 4 \\times 2" },
+            { verbal_explanation: "שלב 5: ביצוע הכפל.", math_expression: "a_{2} = 8" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "8" }
+        ],
+        final_answer: "8"
+    },
+
+    // שאלה מספר 24
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב אורכים",
+        question_text: "במשולש, קו המקביל לבסיס חותך את הגובה שלו. חלק הגובה שמעל הקו הוא 3, ואורך כל הגובה הוא 9. בסיס המשולש הקטן (העליון) שנוצר הוא 2. מה אורך בסיס המשולש הגדול?&rlm;",
+        options: ["6", "18", "8", "4.5"],
+        correctAnswer: 0,
+        hint: "המשולש העליון דומה למשולש הגדול כולו. יחס הגבהים שלהם שווה בדיוק ליחס הבסיסים שלהם.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: מציאת יחס הדמיון על ידי חלוקת הגובה המלא בגובה החלקי העליון.", math_expression: "k = \\dfrac{9}{3} = 3" },
+            { verbal_explanation: "שלב 2: הגדרת המשוואה המקשרת בין הבסיסים בעזרת יחס הדמיון הזה.", math_expression: "\\dfrac{b_{2}}{b_{1}} = 3" },
+            { verbal_explanation: "שלב 3: הצבת אורך הבסיס הקטן הידוע במכנה.", math_expression: "\\dfrac{b_{2}}{2} = 3" },
+            { verbal_explanation: "שלב 4: בידוד הבסיס הגדול באמצעות פעולת כפל.", math_expression: "b_{2} = 2 \\times 3" },
+            { verbal_explanation: "שלב 5: חישוב התוצאה להשגת אורך הבסיס המלא.", math_expression: "b_{2} = 6" },
+            { verbal_explanation: "שלב 6: הרישום הסופי.", math_expression: "6" }
+        ],
+        final_answer: "6"
+    },
+
+    // ==========================================
+    // תת נושא 3: שימוש בדמיון לחישוב זוויות (12 שאלות)
+    // ==========================================
+
+    // שאלה מספר 25
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב זוויות",
+        question_text: "משולש ABC דומה למשולש DEF. זווית A שווה ל-40 מעלות. למי שווה זווית D?&rlm;",
+        options: ["40 מעלות", "140 מעלות", "50 מעלות", "לא ניתן לדעת"],
+        correctAnswer: 0,
+        hint: "במשולשים דומים, הזוויות המתאימות נשמרות ושמות הקודקודים נכתבים לפי סדר ההתאמה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הבנת המשמעות של סדר האותיות ברישום הדמיון.", math_expression: "A \\sim D" },
+            { verbal_explanation: "שלב 2: יישום הכלל הקובע שזוויות מתאימות במשולשים דומים שוות זו לזו.", math_expression: "\\angle A = \\angle D" },
+            { verbal_explanation: "שלב 3: הצבת הערך הנתון בשאלה למציאת הזווית הנדרשת.", math_expression: "40^{\\circ} = \\angle D" },
+            { verbal_explanation: "שלב 4: המסקנה הברורה והישירה.", math_expression: "40" }
         ],
         final_answer: "40 מעלות"
     },
 
-    // --- שאלה 23 ---
+    // שאלה מספר 26
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "במשולש ישר זווית ABC, הורידו גובה AD אל היתר ויצרו שני משולשים פנימיים. ידוע כי אחת הזוויות החדות של המשולש הגדול היא 35 מעלות. מהו גודל הזווית החדה *הגדולה יותר* באחד המשולשים הקטנים?",
-        options: ["55 מעלות", "35 מעלות", "90 מעלות", "45 מעלות"],
+        question_text: "שני משולשים דומים. במשולש הקטן שתי זוויות הן 70 ו-50. במשולש הגדול נתונה זווית אחת שגודלה 60. מהן שתי הזוויות האחרות במשולש הגדול?&rlm;",
+        options: ["50 ו-70", "60 ו-60", "70 ו-60", "לא ניתן לדעת"],
         correctAnswer: 0,
-        hint: "הגובה ליתר מחלק את המשולש לשניים שדומים למקורי. הזוויות של המשולש המקורי הן 90, 35, וההשלמה שלהן ל-180 (שהיא 55). אלו יהיו בדיוק הזוויות גם בכל משולש קטן.",
+        hint: "חשבו את הזווית השלישית במשולש הקטן (השלימו ל-180), וזכרו שהמשולש הגדול מכיל בדיוק את אותן זוויות.",
         solution_steps: [
-            { verbal_explanation: "נחשב את הזווית החסרה במשולש ישר הזווית המקורי.", math_expression: "\u202A180 - 90 - 35 = 55\u202C" },
-            { verbal_explanation: "משפט ידוע קובע כי הגובה ליתר מחלק את המשולש למשולשים הדומים במדויק למשולש המקורי.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" },
-            { verbal_explanation: "לכן, בכל המשולשים קיימת זווית של תשעים, זווית של שלושים וחמש, וזווית של חמישים וחמש. החדה הגדולה היא חמישים וחמש.", math_expression: "\u202A55 > 35\u202C" }
+            { verbal_explanation: "שלב 1: חישוב הזווית החסרה במשולש הקטן באמצעות סכום זוויות משולש.", math_expression: "\\alpha = 180^{\\circ} - (70^{\\circ} + 50^{\\circ})" },
+            { verbal_explanation: "שלב 2: סכימת הזוויות בסוגריים.", math_expression: "\\alpha = 180^{\\circ} - 120^{\\circ}" },
+            { verbal_explanation: "שלב 3: קבלת הזווית השלישית בקטן.", math_expression: "\\alpha = 60^{\\circ}" },
+            { verbal_explanation: "שלב 4: קבוצת הזוויות של המשולש הקטן ידועה כעת במלואה.", math_expression: "50^{\\circ} , 60^{\\circ} , 70^{\\circ}" },
+            { verbal_explanation: "שלב 5: מאחר והם דומים, גם המשולש הגדול מכיל את אותן זוויות בדיוק. מכיוון שאחת נתונה (60), חסרות השתיים האחרות.", math_expression: "50^{\\circ} , 70^{\\circ}" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה מרובה.", math_expression: "50 \\quad , \\quad 70" }
         ],
-        final_answer: "55 מעלות"
+        final_answer: "50 ו-70"
     },
 
-    // --- שאלה 24 ---
+    // שאלה מספר 27
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "שני משולשים שונים נמצאו כדומים זה לזה ביחס של 1:5. הזווית הגדולה במשולש הקטן היא 100 מעלות. האם ניתן לדעת מהי הזווית הגדולה במשולש הגדול?",
-        options: ["כן, היא שווה בדיוק ל-100 מעלות", "כן, היא שווה ל-500 מעלות", "כן, היא שווה ל-20 מעלות", "לא, יחס הצלעות לא משפיע על הזוויות"],
+        question_text: "משולש ישר זווית אחד מכיל זווית של 25 מעלות. הוא דומה למשולש ישר זווית שני. מה גודלה של הזווית השלישית במשולש השני?&rlm;",
+        options: ["65", "25", "90", "155"],
         correctAnswer: 0,
-        hint: "זכרו כלל ברזל: במשולשים דומים, הצלעות משתנות (גדלות או קטנות), אך הזוויות *נשארות תמיד זהות*. יחס של 1:5 לא כופל את הזוויות, רק את הצלעות.",
+        hint: "הזוויות זהות בשני המשולשים. זווית אחת היא ישרה (90), השנייה נתונה (25). מצאו את המשלים ל-180.",
         solution_steps: [
-            { verbal_explanation: "דמיון גיאומטרי פירושו שינוי גודל הפרופורציות בלבד, מבלי לעוות את הצורה. צורת המשולש נקבעת על ידי זוויותיו בלבד.", math_expression: "\u202A\u0394_1 \u223C \u0394_2\u202C" },
-            { verbal_explanation: "מכאן נובע שיחס ההגדלה או ההקטנה מופעל אך ורק על צלעות המשולש, ואילו הזוויות מועתקות אחד לאחד.", math_expression: "\u202A\u2220_1 = \u2220_2\u202C" },
-            { verbal_explanation: "הזווית הגדולה תשמור על המידה שלה גם במשולש הגדול המוכפל פי חמישה.", math_expression: "\u202A100&deg;\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי שתי הזוויות הידועות על סמך נתוני השאלה והדמיון.", math_expression: "\\alpha_{1} = 90^{\\circ} \\quad , \\quad \\alpha_{2} = 25^{\\circ}" },
+            { verbal_explanation: "שלב 2: כתיבת משוואת סכום הזוויות במשולש למציאת הזווית הנותרת.", math_expression: "\\alpha_{3} = 180^{\\circ} - (90^{\\circ} + 25^{\\circ})" },
+            { verbal_explanation: "שלב 3: חיבור הזוויות הידועות.", math_expression: "\\alpha_{3} = 180^{\\circ} - 115^{\\circ}" },
+            { verbal_explanation: "שלב 4: ביצוע החיסור לקבלת הזווית השלישית.", math_expression: "\\alpha_{3} = 65^{\\circ}" },
+            { verbal_explanation: "שלב 5: התשובה המספרית שתוזן למערכת.", math_expression: "65" }
         ],
-        final_answer: "כן, היא שווה בדיוק ל-100 מעלות"
+        final_answer: "65"
     },
 
-    // --- שאלה 25 ---
+    // שאלה מספר 28
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "במשולש נתון, יחס שתי הזוויות החדות הוא 2:3 והזווית השלישית קהה. משולש אחר דומה לו לחלוטין. מה יהיה יחס הזוויות החדות במשולש החדש?",
-        options: ["2:3", "אי אפשר לדעת", "4:6", "1:1.5"],
+        question_text: "במשולש הועבר ישר המקביל לבסיס, היוצר משולש קטן ודומה בחלקו העליון. זווית הבסיס השמאלית של המשולש הגדול היא 45 מעלות. למה שווה זווית הבסיס השמאלית של המשולש הקטן?&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='100,20 40,160 160,160' fill='none' stroke='#10b981' stroke-width='3'/><line x1='70' y1='90' x2='130' y2='90' stroke='#f59e0b' stroke-width='3'/><text x='45' y='150' font-size='12' fill='#334155'>45°</text></svg></div>",
+        options: ["45 מעלות", "135 מעלות", "90 מעלות", "לא ניתן לקבוע"],
         correctAnswer: 0,
-        hint: "משולשים דומים משמרים את כל הזוויות בשלמותן. אם הזוויות שוות לאלו שהיו, גם היחסים הפנימיים ביניהן נשמרים כמות שהם.",
+        hint: "ישרים מקבילים יוצרים זוויות מתאימות שוות בין הישרים החותכים אותם.",
         solution_steps: [
-            { verbal_explanation: "כפי שהזכרנו, משולשים המוגדרים כדומים מחזיקים באותן זוויות פנימיות בדיוק רב.", math_expression: "\u202A\u2220A = \u2220D , \u2220B = \u2220E\u202C" },
-            { verbal_explanation: "אם הזוויות לא השתנו, בוודאי שהיחס בין גודלן המספרי נשאר אף הוא קבוע ולא מושפע מהדמיון.", math_expression: "\u202A\u2220A / \u2220B = \u2220D / \u2220E\u202C" },
-            { verbal_explanation: "היחס המקורי יעבור הלאה כפי שהוא.", math_expression: "\u202A2:3\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי הישרים המקבילים בשרטוט (בסיס המשולש והישר החותך).", math_expression: "L_{1} \\parallel L_{2}" },
+            { verbal_explanation: "שלב 2: שימוש במשפט: זוויות מתאימות בין ישרים מקבילים שוות זו לזו.", math_expression: "\\alpha_{1} = \\alpha_{2}" },
+            { verbal_explanation: "שלב 3: זווית הבסיס השמאלית הקטנה היא הזווית המתאימה לזווית הבסיס השמאלית הגדולה.", math_expression: "\\angle_{small} = \\angle_{large}" },
+            { verbal_explanation: "שלב 4: הצבת הנתון מהשאלה במשוואת השוויון.", math_expression: "\\angle_{small} = 45^{\\circ}" },
+            { verbal_explanation: "שלב 5: אין צורך בחישוב נוסף, המסקנה נובעת ישירות מהמשפט.", math_expression: "45" }
         ],
-        final_answer: "2:3"
+        final_answer: "45 מעלות"
     },
 
-    // --- שאלה 26 ---
+    // שאלה מספר 29
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "נתונים שני משולשים דומים. במשולש הראשון ישנה זווית המיוצגת על ידי \u202Ax + 20\u202C. במשולש השני, הזווית המתאימה לה מיוצגת על ידי \u202A2x - 10\u202C. מהו גודלה במעלות של זווית זו?",
-        options: ["50 מעלות", "30 מעלות", "60 מעלות", "40 מעלות"],
+        question_text: "שני משולשים שווי שוקיים דומים זה לזה. זווית הראש של אחד מהם היא 100 מעלות. מהי זווית הבסיס של המשולש השני?&rlm;",
+        options: ["40", "100", "80", "50"],
         correctAnswer: 0,
-        hint: "במשולשים דומים, זוויות מתאימות שוות זו לזו בגודלן. השוו את שני הביטויים (x + 20 שווה ל-2x - 10) כדי למצוא את x, ואז הציבו אותו באחד הביטויים כדי למצוא את המעלות.",
+        hint: "במשולשים דומים, לכל משולש יש אותן זוויות פנימיות. מצאו את זוויות הבסיס של המשולש הראשון (השלימו ל-180 וחלקו ב-2).",
         solution_steps: [
-            { verbal_explanation: "משפט הדמיון מאלץ אותנו להשוות בין כל שתי זוויות ממוקמות בהתאמה בשני המשולשים.", math_expression: "\u202Ax + 20 = 2x - 10\u202C" },
-            { verbal_explanation: "נעביר את האיקס לאגף ימין ואת המספר השלילי לאגף שמאל כדי למצוא את המשתנה.", math_expression: "\u202A20 + 10 = 2x - x  =>  x = 30\u202C" },
-            { verbal_explanation: "כעת, כשיש לנו את הערך של איקס, נציב אותו באחד הביטויים (למשל הראשון) כדי למצוא את גודל הזווית.", math_expression: "\u202A30 + 20 = 50&deg;\u202C" }
+            { verbal_explanation: "שלב 1: מכיוון שהמשולשים דומים, זווית הראש של המשולש השני שווה גם היא למאה.", math_expression: "\\alpha_{1} = \\alpha_{2} = 100^{\\circ}" },
+            { verbal_explanation: "שלב 2: סכום שתי זוויות הבסיס הוא המשלים למאה ושמונים.", math_expression: "2x = 180^{\\circ} - 100^{\\circ}" },
+            { verbal_explanation: "שלב 3: ביצוע החיסור לקבלת הסכום.", math_expression: "2x = 80^{\\circ}" },
+            { verbal_explanation: "שלב 4: חלוקת התוצאה בשתיים למציאת זווית בסיס בודדת.", math_expression: "x = 80^{\\circ} : 2" },
+            { verbal_explanation: "שלב 5: התוצאה המספרית לזווית.", math_expression: "x = 40^{\\circ}" },
+            { verbal_explanation: "שלב 6: הרישום לבדיקה במערכת.", math_expression: "40" }
         ],
-        final_answer: "50 מעלות"
+        final_answer: "40"
     },
 
-    // --- שאלה 27 ---
+    // שאלה מספר 30
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "במשולשים דומים יחס הדמיון של הצלעות הוא 3. במשולש הקטן קיימת זווית של 45 מעלות. תלמיד טען שבמשולש הגדול זווית זו תהיה שווה ל-135 מעלות (45 כפול 3). האם התלמיד צודק?",
-        options: ["לא, זוויות נשארות זהות בדמיון משולשים, הזווית תישאר 45 מעלות", "כן, יש להכפיל את הזווית ביחס ההגדלה", "לא, יש לחלק את הזווית ב-3", "כן, בתנאי שזהו משולש ישר זווית"],
+        question_text: "משולש ABC מוגדל פי 3 לקבלת משולש דומה DEF. אם זווית B היא 50 מעלות, מה יהיה גודל הזווית המקבילה E במשולש המוגדל?&rlm;",
+        options: ["50", "150", "16.6", "100"],
         correctAnswer: 0,
-        hint: "חזרו והזכירו לעצמכם: כפל ביחס הדמיון מיועד אך ורק לצלעות (היקפים, אורכים). זוויות לעולם אינן מוכפלות, אחרת סכומן יעבור בהרבה את 180 המעלות המותרות.",
+        hint: "הגדלה או הקטנה של צורה משפיעות רק על אורך הצלעות והשטח. הזוויות הפנימיות נשמרות תמיד.",
         solution_steps: [
-            { verbal_explanation: "הכפלת זווית ביחס הדמיון היא שגיאה נפוצה מאוד. אם נכפיל זוויות, סכום הזוויות במשולש יפרוץ את חוק הברזל של גיאומטריה.", math_expression: "\u202A\u03A3 \u2260 180&deg;\u202C" },
-            { verbal_explanation: "דמיון שומר על צורתו של המשולש באמצעות העתקה מדויקת של כל הזוויות, ללא תלות באורך הצלעות.", math_expression: "\u202A\u2220_1 = \u2220_2\u202C" },
-            { verbal_explanation: "לכן טענתו של התלמיד שגויה מן היסוד.", math_expression: "\u202A45&deg; = 45&deg;\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי תכונת הזוויות בדמיון מצולעים (הן אינן משתנות).", math_expression: "\\alpha_{1} = \\alpha_{2}" },
+            { verbal_explanation: "שלב 2: יחס הדמיון (כפל בשלוש) אינו חל על מעלות הזווית.", math_expression: "\\angle B = \\angle E" },
+            { verbal_explanation: "שלב 3: הצבת הערך של זווית B כפי שנתון בשאלה.", math_expression: "\\angle E = 50^{\\circ}" },
+            { verbal_explanation: "שלב 4: המסקנה הברורה והסופית.", math_expression: "50" }
         ],
-        final_answer: "לא, זוויות נשארות זהות בדמיון משולשים, הזווית תישאר 45 מעלות"
+        final_answer: "50"
     },
 
-    // --- שאלה 28 ---
+    // שאלה מספר 31
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "בתוך משולש ABC העבירו קו המקביל לצלע הבסיס. נוצר משולש קטן ודומה למעלה. ידוע שאחת הזוויות בבסיס המשולש הגדול היא 50 מעלות. מה גודל הזווית המתאימה לה בבסיס של המשולש הקטן?",
-        options: ["50 מעלות", "130 מעלות", "25 מעלות", "100 מעלות"],
+        question_text: "צורת שעון חול (משולשים קודקודיים) נוצרת על ידי שני ישרים מקבילים. זווית אחת במשולש העליון היא 30 מעלות והזווית הקודקודית המשותפת היא 70 מעלות. מה גודל הזווית השלישית במשולש התחתון?&rlm;",
+        options: ["80", "100", "30", "110"],
         correctAnswer: 0,
-        hint: "קווים מקבילים יוצרים 'זוויות מתאימות' שוות. לכן הזווית עולה למעלה לאותו כיוון ולאותו צד של הישר החותך, ונשארת באותו גודל בדיוק.",
+        hint: "המשולשים דומים (יש זוויות מתחלפות וקודקודיות). לכן, סט הזוויות שלהם זהה. מצאו את הזווית השלישית על ידי השלמה ל-180.",
         solution_steps: [
-            { verbal_explanation: "כאשר קו מקביל נחצה על ידי צלע המשולש (ישר חותך), הוא יוצר מערכת של זוויות קבועות.", math_expression: "\u202AL_1 || L_2\u202C" },
-            { verbal_explanation: "הזווית שעל בסיס המשולש הגדול והזווית שעל בסיס המשולש הקטן הן 'זוויות מתאימות'.", math_expression: "\u202A\u03B1 = \u03B2\u202C" },
-            { verbal_explanation: "על פי משפט מקבילים, זוויות מתאימות שוות זו לזו באופן מלא.", math_expression: "\u202A50&deg; = 50&deg;\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי ששני המשולשים מכילים בדיוק את אותן זוויות עקב דמיון קודקודי ומקביל.", math_expression: "\\Delta_{1} \\sim \\Delta_{2} \\Rightarrow \\text{Angles Match}" },
+            { verbal_explanation: "שלב 2: שתיים מתוך שלוש הזוויות ידועות (שלושים ושבעים).", math_expression: "\\alpha = 30^{\\circ} \\quad , \\quad \\beta = 70^{\\circ}" },
+            { verbal_explanation: "שלב 3: בניית משוואה לסכום זוויות במשולש כדי למצוא את הזווית השלישית.", math_expression: "\\gamma = 180^{\\circ} - (30^{\\circ} + 70^{\\circ})" },
+            { verbal_explanation: "שלב 4: סכימת הזוויות שבתוך הסוגריים.", math_expression: "\\gamma = 180^{\\circ} - 100^{\\circ}" },
+            { verbal_explanation: "שלב 5: ביצוע החיסור.", math_expression: "\\gamma = 80^{\\circ}" },
+            { verbal_explanation: "שלב 6: התוצאה להזנה.", math_expression: "80" }
         ],
-        final_answer: "50 מעלות"
+        final_answer: "80"
     },
 
-    // --- שאלה 29 ---
+    // שאלה מספר 32
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "נתונים שני משולשים דומים. באחד מהם הזוויות מיוצגות כ-\u202A\u03B1\u202C ו-\u202A\u03B2\u202C. במשולש השני, הזוויות המתאימות מיוצגות כ-\u202A2x\u202C ו-\u202A4x\u202C בהתאמה. אם נתון כי \u202A\u03B1 = 40&deg;\u202C, מהו גודלה של הזווית \u202A\u03B2\u202C?",
-        options: ["80 מעלות", "40 מעלות", "20 מעלות", "60 מעלות"],
+        question_text: "משולש ABC דומה למשולש PQR. נתון: זווית A ועוד זווית P שוות יחד ל-120 מעלות. מה גודל זווית A?&rlm;",
+        options: ["60", "120", "30", "90"],
         correctAnswer: 0,
-        hint: "המשולשים דומים, לכן הזוויות תואמות. אלפא שווה ל-2x (לכן 40 שווה ל-2x, ומכאן x=20). בטא שווה ל-4x. הציבו את ה-x ותמצאו את בטא.",
+        hint: "על פי שמות המשולשים, האות הראשונה מתאימה לאות הראשונה. כלומר, זווית A שווה בדיוק לזווית P.",
         solution_steps: [
-            { verbal_explanation: "נשווה את הזווית הראשונה בין שני המשולשים הדומים כדי למצוא את המשתנה איקס.", math_expression: "\u202A\u03B1 = 2x  =>  40 = 2x\u202C" },
-            { verbal_explanation: "נחלק בשתיים לקבלת ערך המשתנה.", math_expression: "\u202Ax = 20\u202C" },
-            { verbal_explanation: "נציב את הערך שמצאנו לתוך תבנית הזווית השנייה המשותפת (בטא).", math_expression: "\u202A\u03B2 = 4x  =>  \u03B2 = 4 \u00D7 20\u202C" },
-            { verbal_explanation: "נחשב את המכפלה למציאת התשובה הסופית.", math_expression: "\u202A\u03B2 = 80&deg;\u202C" }
+            { verbal_explanation: "שלב 1: זיהוי הקודקודים המתאימים משם הדמיון (קודקוד ראשון לראשון).", math_expression: "\\angle A = \\angle P" },
+            { verbal_explanation: "שלב 2: כתיבת המשוואה הנתונה בשאלה עם סכום הזוויות.", math_expression: "\\angle A + \\angle P = 120^{\\circ}" },
+            { verbal_explanation: "שלב 3: הצבת השוויון אל תוך המשוואה (נחליף את זווית פי בזווית איי).", math_expression: "\\angle A + \\angle A = 120^{\\circ}" },
+            { verbal_explanation: "שלב 4: כינוס איברים למשוואה פשוטה.", math_expression: "2 \\times \\angle A = 120^{\\circ}" },
+            { verbal_explanation: "שלב 5: חלוקת המשוואה בשתיים לבידוד הזווית המבוקשת.", math_expression: "\\angle A = 120^{\\circ} : 2" },
+            { verbal_explanation: "שלב 6: תוצאת החלוקה.", math_expression: "\\angle A = 60^{\\circ}" },
+            { verbal_explanation: "שלב 7: הרישום הרשמי.", math_expression: "60" }
         ],
-        final_answer: "80 מעלות"
+        final_answer: "60"
     },
 
-    // --- שאלה 30 ---
+    // שאלה מספר 33
     {
-        subject: "מתמטיקה",
-        topic: "דמיון משולשים",
+        topic: "similar_triangles_35371",
         subTopic: "שימוש בדמיון לחישוב זוויות",
-        question: "במשולשים דומים, ידוע שאחת הזוויות היא זווית קהה (110 מעלות). במשולש הראשון, שתי הזוויות האחרות שוות ביניהן. מה גודלה של הזווית הקטנה במשולש השני (הדומה)?",
-        options: ["35 מעלות", "70 מעלות", "55 מעלות", "45 מעלות"],
+        question_text: "במשולש ישר זווית ABC (זווית B ישרה) מעבירים גובה BD ליתר. מה גודל הזווית BDC (הזווית שנוצרת בין הגובה ליתר)?&rlm;",
+        options: ["90", "45", "180", "לא ניתן לדעת"],
         correctAnswer: 0,
-        hint: "חשבו קודם את הזווית הקטנה במשולש הראשון. 180 פחות 110 נותן 70. מכיוון ששתי החדות שוות, חלקו 70 ל-2 (מקבלים 35). בגלל הדמיון, הזווית תעבור בדיוק אותו הדבר למשולש השני.",
+        hint: "גובה מוגדר בגיאומטריה כקטע היורד מקודקוד ויוצר זווית של 90 מעלות (אנך) עם הצלע שאליה הוא מגיע.",
         solution_steps: [
-            { verbal_explanation: "נחשב את סך כל המעלות הנותרות לשתי הזוויות החדות לאחר שמחסרים את הזווית הקהה.", math_expression: "\u202A180 - 110 = 70\u202C" },
-            { verbal_explanation: "מאחר והשתיים שוות, נחלק את היתרה לשתיים כדי למצוא את גודלן במשולש הראשון.", math_expression: "\u202A70 / 2 = 35\u202C" },
-            { verbal_explanation: "כלל הדמיון מחייב שהזוויות תישארנה זהות, ולכן הזווית הקטנה תישאר באותו ערך גם במשולש הדומה.", math_expression: "\u202A35&deg;\u202C" }
+            { verbal_explanation: "שלב 1: קריאת הנתון העיקרי מהשאלה - מעבירים גובה מהקודקוד ליתר.", math_expression: "BD \\perp AC" },
+            { verbal_explanation: "שלב 2: הבנת ההגדרה הגיאומטרית של גובה במצולעים.", math_expression: "h \\perp Base" },
+            { verbal_explanation: "שלב 3: הקשה ישירה מההגדרה על הזווית המבוקשת.", math_expression: "\\angle BDC = 90^{\\circ}" },
+            { verbal_explanation: "שלב 4: אין צורך בחישוב נוסף מעבר להבנת המושג.", math_expression: "90" }
         ],
-        final_answer: "35 מעלות"
+        final_answer: "90"
+    },
+
+    // שאלה מספר 34
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב זוויות",
+        question_text: "משולש קהה זווית אחד דומה למשולש קהה זווית שני. במשולש הראשון הזוויות החדות הן 20 ו-30 מעלות. מה גודל הזווית הקהה במשולש השני?&rlm;",
+        options: ["130", "150", "100", "50"],
+        correctAnswer: 0,
+        hint: "חשבו את הזווית הקהה במשולש הראשון על ידי חיסור מ-180. על פי חוקי הדמיון, זו תהיה אותה זווית בדיוק גם במשולש השני.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב הזווית הקהה במשולש הראשון על ידי חיסור הזוויות הידועות ממאה ושמונים.", math_expression: "\\alpha_{1} = 180^{\\circ} - (20^{\\circ} + 30^{\\circ})" },
+            { verbal_explanation: "שלב 2: סכימת הזוויות החדות.", math_expression: "\\alpha_{1} = 180^{\\circ} - 50^{\\circ}" },
+            { verbal_explanation: "שלב 3: ביצוע פעולת החיסור.", math_expression: "\\alpha_{1} = 130^{\\circ}" },
+            { verbal_explanation: "שלב 4: שימוש במשפט הקובע שמשולשים דומים חולקים את אותן זוויות בדיוק.", math_expression: "\\angle_{1} = \\angle_{2} = 130^{\\circ}" },
+            { verbal_explanation: "שלב 5: התוצאה למבחן.", math_expression: "130" }
+        ],
+        final_answer: "130"
+    },
+
+    // שאלה מספר 35
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב זוויות",
+        question_text: "שני משולשים שווי צלעות דומים זה לזה ביחס של 1:5. מהו ההפרש (במעלות) בין זווית במשולש הגדול לזווית במשולש הקטן?&rlm;",
+        options: ["0", "60", "12", "300"],
+        correctAnswer: 0,
+        hint: "במשולש שווה צלעות, כל הזוויות הן תמיד 60 מעלות, ללא קשר לגודל המשולש. לכן ההפרש ביניהן יהיה אפס.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: זיהוי תכונת הזוויות במשולש שווה צלעות (תמיד שישים מעלות).", math_expression: "\\alpha_{1} = 60^{\\circ}" },
+            { verbal_explanation: "שלב 2: החלת אותה תכונה בדיוק על המשולש הגדול מכוח היותו שווה צלעות גם כן.", math_expression: "\\alpha_{2} = 60^{\\circ}" },
+            { verbal_explanation: "שלב 3: הגדרת הפעולה החשבונית המבוקשת בשאלה (הפרש בין שתי הזוויות).", math_expression: "x = 60^{\\circ} - 60^{\\circ}" },
+            { verbal_explanation: "שלב 4: ביצוע החיסור.", math_expression: "x = 0^{\\circ}" },
+            { verbal_explanation: "שלב 5: כתיבת התשובה הסופית.", math_expression: "0" }
+        ],
+        final_answer: "0"
+    },
+
+    // שאלה מספר 36
+    {
+        topic: "similar_triangles_35371",
+        subTopic: "שימוש בדמיון לחישוב זוויות",
+        question_text: "שני משולשים דומים ABC ו-DEF מונחים כך ש-BC מקביל ל-EF. הזווית C שווה ל-80 מעלות. מה גודל הזווית F?&rlm;",
+        options: ["80", "100", "40", "לא ניתן לדעת"],
+        correctAnswer: 0,
+        hint: "זווית C מתאימה לזווית F גם על פי מיקומן בשמות המשולשים וגם על פי היות הישרים מקבילים. לכן הן שוות באורכן.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: התבוננות בסדר האותיות של דמיון המשולשים, האות השלישית מתאימה לשלישית.", math_expression: "C \\sim F" },
+            { verbal_explanation: "שלב 2: קביעת שוויון זוויות הנובע מדמיון משולשים ישיר.", math_expression: "\\angle C = \\angle F" },
+            { verbal_explanation: "שלב 3: הצבת הערך המספרי הנתון.", math_expression: "80^{\\circ} = \\angle F" },
+            { verbal_explanation: "שלב 4: אימות על סמך היות הישרים מקבילים (הזוויות מתאימות לכן שוות).", math_expression: "L_{1} \\parallel L_{2} \\Rightarrow \\alpha = \\beta" },
+            { verbal_explanation: "שלב 5: הרישום הסופי הדרוש.", math_expression: "80" }
+        ],
+        final_answer: "80"
     }
 ];

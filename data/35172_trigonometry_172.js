@@ -1,1332 +1,697 @@
 const questionsDB = [
-    // ========================================================================
-    // תת נושא 1: פונקציות הסינוס, הקוסינוס והטנגנס
-    // ========================================================================
+    // ==========================================
+    // תת נושא 1: הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס) (12 שאלות)
+    // ==========================================
 
-    // --- שאלה 1 ---
+    // שאלה מספר 1
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "במשולש ישר זווית, כיצד מוגדרת פונקציית הסינוס (sin) של זווית חדה?",
-        options: ["הניצב שמול הזווית חלקי היתר", "הניצב שליד הזווית חלקי היתר", "הניצב שמול הזווית חלקי הניצב שליד הזווית", "היתר חלקי הניצב שמול הזווית"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "במשולש ישר זווית, אורך הניצב שמול הזווית אלפא הוא 5, ואורך היתר הוא 13. מהו הערך של סינוס אלפא?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='40,160 160,160 160,40' fill='none' stroke='#3b82f6' stroke-width='3'/><polyline points='140,160 140,140 160,140' fill='none' stroke='#3b82f6' stroke-width='2'/><path d='M 70 160 A 30 30 0 0 0 60 140' fill='none' stroke='#ef4444' stroke-width='2'/><text x='75' y='145' font-size='14' fill='#ef4444'>α</text><text x='170' y='105' font-size='14' fill='#334155'>5</text><text x='90' y='90' font-size='14' fill='#334155'>13</text></svg></div>",
+        options: ["5 : 13", "12 : 13", "5 : 12", "13 : 5"],
         correctAnswer: 0,
-        hint: "סינוס מחפש את הצלע הרחוקה. זכרו את הכלל: סינוס = מול לחלק ליתר.",
+        hint: "פונקציית הסינוס מוגדרת כיחס שבין הניצב הנמצא מול הזווית לבין היתר של המשולש.",
         solution_steps: [
-            { verbal_explanation: "בטריגונומטריה, פונקציות מתארות יחסים (שברים) בין צלעות במשולש ישר זווית.", math_expression: "יחסים במשולש" },
-            { verbal_explanation: "הפונקציה סינוס (sin) מוגדרת תמיד בתור אורך הניצב שנמצא ממול לזווית, מחולק באורך של היתר (הצלע הארוכה ביותר מול הזווית הישרה).", math_expression: "sin(α) = מול / יתר" }
+            { verbal_explanation: "שלב 1: זיהוי אורך הניצב שמול הזווית.", math_expression: "a = 5" },
+            { verbal_explanation: "שלב 2: זיהוי אורך היתר במשולש.", math_expression: "c = 13" },
+            { verbal_explanation: "שלב 3: כתיבת ההגדרה המתמטית של פונקציית סינוס.", math_expression: "\\sin(\\alpha) = \\dfrac{a}{c}" },
+            { verbal_explanation: "שלב 4: הצבת הנתונים שמצאנו אל תוך ההגדרה.", math_expression: "\\sin(\\alpha) = \\dfrac{5}{13}" },
+            { verbal_explanation: "שלב 5: התשובה הנדרשת היא היחס כפי שהוא נכתב בחלופות (כפעולת חילוק).", math_expression: "5 : 13" }
         ],
-        final_answer: "הניצב שמול הזווית חלקי היתר"
+        final_answer: "5 : 13"
     },
 
-    // --- שאלה 2 ---
+    // שאלה מספר 2
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "כיצד מוגדרת פונקציית הקוסינוס (cos) של זווית חדה במשולש ישר זווית?",
-        options: ["הניצב שליד הזווית חלקי היתר", "הניצב שמול הזווית חלקי היתר", "הניצב שליד הזווית חלקי הניצב שמול הזווית", "היתר חלקי הניצב שליד הזווית"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "במשולש ישר זווית, אורך הניצב שליד הזווית בטא הוא 8, ואורך היתר הוא 10. מהו הערך של קוסינוס בטא?&rlm;",
+        options: ["8 : 10", "6 : 10", "8 : 6", "10 : 8"],
         correctAnswer: 0,
-        hint: "המילה קוסינוס מתחילה בצליל 'קו', המרמז על הניצב שקרוב (ליד) הזווית.",
+        hint: "פונקציית הקוסינוס מתארת את היחס שבין הניצב שליד הזווית (הסמוך לה) לבין היתר.",
         solution_steps: [
-            { verbal_explanation: "הפונקציה קוסינוס (cos) מתייחסת לצלע שמרכיבה את הזווית יחד עם היתר.", math_expression: "קוסינוס = קרוב" },
-            { verbal_explanation: "ההגדרה הרשמית היא: אורך הניצב שסמוך (ליד) הזווית, מחולק באורך היתר.", math_expression: "cos(α) = ליד / יתר" }
+            { verbal_explanation: "שלב 1: זיהוי הניצב שלצד הזווית.", math_expression: "b = 8" },
+            { verbal_explanation: "שלב 2: זיהוי היתר.", math_expression: "c = 10" },
+            { verbal_explanation: "שלב 3: הבאת הנוסחה של קוסינוס.", math_expression: "\\cos(\\beta) = \\dfrac{b}{c}" },
+            { verbal_explanation: "שלב 4: הצבת המספרים.", math_expression: "\\cos(\\beta) = \\dfrac{8}{10}" },
+            { verbal_explanation: "שלב 5: סידור התשובה בהתאם לאפשרויות המוצגות.", math_expression: "8 : 10" }
         ],
-        final_answer: "הניצב שליד הזווית חלקי היתר"
+        final_answer: "8 : 10"
     },
 
-    // --- שאלה 3 ---
+    // שאלה מספר 3
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "כיצד מוגדרת פונקציית הטנגנס (tan) של זווית חדה במשולש ישר זווית?",
-        options: ["הניצב שמול הזווית חלקי הניצב שליד הזווית", "הניצב שליד הזווית חלקי הניצב שמול הזווית", "הניצב שמול הזווית חלקי היתר", "הניצב שליד הזווית חלקי היתר"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "במשולש ישר זווית, הניצב שמול הזווית גמא שווה ל-15, והניצב שלידה שווה ל-8. מהו טנגנס גמא?&rlm;",
+        options: ["15 : 8", "8 : 15", "15 : 17", "8 : 17"],
         correctAnswer: 0,
-        hint: "טנגנס היא הפונקציה היחידה מבין השלוש שלא משתמשת ביתר בכלל. היא משווה רק בין שני הניצבים.",
+        hint: "טנגנס היא הפונקציה היחידה שאינה משתמשת ביתר. היא מוגדרת כיחס בין הניצב מול לניצב ליד.",
         solution_steps: [
-            { verbal_explanation: "הפונקציה טנגנס (tan) אינה כוללת את היתר (הצלע הארוכה) בחישוב.", math_expression: "ללא יתר" },
-            { verbal_explanation: "היא מוגדרת כיחס בין הניצב שממול לזווית לבין הניצב שצמוד אליה (ליד).", math_expression: "tan(α) = מול / ליד" }
+            { verbal_explanation: "שלב 1: מציאת הניצב מול.", math_expression: "a = 15" },
+            { verbal_explanation: "שלב 2: מציאת הניצב ליד.", math_expression: "b = 8" },
+            { verbal_explanation: "שלב 3: כתיבת נוסחת הטנגנס.", math_expression: "\\tan(\\gamma) = \\dfrac{a}{b}" },
+            { verbal_explanation: "שלב 4: הצבה בפונקציה.", math_expression: "\\tan(\\gamma) = \\dfrac{15}{8}" },
+            { verbal_explanation: "שלב 5: הרישום הרשמי.", math_expression: "15 : 8" }
         ],
-        final_answer: "הניצב שמול הזווית חלקי הניצב שליד הזווית"
+        final_answer: "15 : 8"
     },
 
-    // --- שאלה 4 ---
+    // שאלה מספר 4
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: `על פי השרטוט הבא, מהו היחס המייצג את sin(α) ?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:250px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 40,30" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="40" y="110" width="10" height="10" fill="none" stroke="#dc2626" stroke-width="1"/>
-            <text x="100" y="135" font-size="12" font-weight="bold">4 (ליד)</text>
-            <text x="10" y="80" font-size="12" font-weight="bold">3 (מול)</text>
-            <text x="110" y="65" font-size="12" font-weight="bold" fill="#dc2626">5 (יתר)</text>
-            <path d="M140,120 A20,20 0 0,0 148,111" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="130" y="115" font-size="14" font-weight="bold" fill="#10b981">α</text>
-        </svg>`,
-        options: ["3 / 5", "4 / 5", "3 / 4", "5 / 3"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "אם במשולש ישר זווית נתון ש- \\( \\sin(\\alpha) = 0.5 \\), והיתר שווה ל-20. מהו אורך הניצב מול הזווית אלפא?&rlm;",
+        options: ["10", "40", "5", "15"],
         correctAnswer: 0,
-        hint: "זכרו את ההגדרה: סינוס שווה לניצב שמול הזווית לחלק ביתר. חפשו את המספרים המתאימים בשרטוט.",
+        hint: "הציבו בנוסחה את הערך של הסינוס ואת היתר, ופתרו משוואה פשוטה למציאת הניצב מול.",
         solution_steps: [
-            { verbal_explanation: "נזהה את הצלעות הרלוונטיות לזווית α. הניצב שנמצא ממול לזווית אורכו 3.", math_expression: "מול = 3" },
-            { verbal_explanation: "היתר (הצלע הארוכה מול הזווית הישרה) אורכו 5.", math_expression: "יתר = 5" },
-            { verbal_explanation: "נציב בנוסחת הסינוס: מול חלקי יתר.", math_expression: "sin(α) = 3 / 5" }
+            { verbal_explanation: "שלב 1: רישום הנתון של הסינוס.", math_expression: "\\sin(\\alpha) = 0.5" },
+            { verbal_explanation: "שלב 2: רישום אורך היתר.", math_expression: "c = 20" },
+            { verbal_explanation: "שלב 3: הצבה בנוסחת הסינוס הבסיסית.", math_expression: "0.5 = \\dfrac{a}{20}" },
+            { verbal_explanation: "שלב 4: הכפלת שני האגפים בעשרים כדי לבודד את המונה.", math_expression: "a = 0.5 \\times 20" },
+            { verbal_explanation: "שלב 5: חישוב הפעולה.", math_expression: "a = 10" },
+            { verbal_explanation: "שלב 6: אורך הניצב נמצא.", math_expression: "10" }
         ],
-        final_answer: "3 / 5"
+        final_answer: "10"
     },
 
-    // --- שאלה 5 ---
+    // שאלה מספר 5
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: `על פי השרטוט הבא, מהו היחס המייצג את cos(α) ?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:250px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 40,30" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="40" y="110" width="10" height="10" fill="none" stroke="#dc2626" stroke-width="1"/>
-            <text x="100" y="135" font-size="12" font-weight="bold">12</text>
-            <text x="20" y="80" font-size="12" font-weight="bold">5</text>
-            <text x="110" y="65" font-size="12" font-weight="bold" fill="#dc2626">13</text>
-            <path d="M140,120 A20,20 0 0,0 148,111" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="130" y="115" font-size="14" font-weight="bold" fill="#10b981">α</text>
-        </svg>`,
-        options: ["12 / 13", "5 / 13", "5 / 12", "13 / 12"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "נתון ש- \\( \\cos(\\beta) = 0.8 \\). אם אורך הניצב שליד הזווית הוא 16, מהו אורך היתר?&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='40,160 160,160 160,40' fill='none' stroke='#10b981' stroke-width='3'/><polyline points='140,160 140,140 160,140' fill='none' stroke='#10b981' stroke-width='2'/><path d='M 70 160 A 30 30 0 0 0 60 140' fill='none' stroke='#ef4444' stroke-width='2'/><text x='75' y='145' font-size='14' fill='#ef4444'>β</text><text x='100' y='180' font-size='14' fill='#334155'>16</text><text x='90' y='90' font-size='14' fill='#334155'>c</text></svg></div>",
+        options: ["20", "12.8", "10", "32"],
         correctAnswer: 0,
-        hint: "קוסינוס שווה לניצב ש-ליד הזווית לחלק ביתר. הניצב שנוגע בזווית (מלבד היתר) אורכו 12.",
+        hint: "היתר נמצא במכנה. הציבו את הנתונים, החליפו מקומות בין היתר לבין הערך העשרוני, וחלקו.",
         solution_steps: [
-            { verbal_explanation: "נזהה את הצלעות. הניצב שצמוד (ליד) הזווית α הוא בעל אורך 12.", math_expression: "ליד = 12" },
-            { verbal_explanation: "היתר (הצלע הארוכה במשולש) אורכו 13.", math_expression: "יתר = 13" },
-            { verbal_explanation: "נציב בנוסחת הקוסינוס: ליד חלקי יתר.", math_expression: "cos(α) = 12 / 13" }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת קוסינוס.", math_expression: "0.8 = \\dfrac{16}{c}" },
+            { verbal_explanation: "שלב 2: הכפלת המשוואה ביתר.", math_expression: "0.8 \\times c = 16" },
+            { verbal_explanation: "שלב 3: חלוקת שני האגפים בערך של הקוסינוס.", math_expression: "c = 16 : 0.8" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת החילוק להשגת היתר.", math_expression: "c = 20" },
+            { verbal_explanation: "שלב 5: התוצאה הסופית המבוקשת.", math_expression: "20" }
         ],
-        final_answer: "12 / 13"
+        final_answer: "20"
     },
 
-    // --- שאלה 6 ---
+    // שאלה מספר 6
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: `במשולש ישר זווית נתון, הניצב מול זווית β הוא 8 ס"מ, והניצב ליד זווית β הוא 15 ס"מ. היתר הוא 17 ס"מ.<br>מהו ערכו של tan(β) ?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:250px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 160,30" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="150" y="110" width="10" height="10" fill="none" stroke="#dc2626" stroke-width="1"/>
-            <text x="100" y="135" font-size="12" font-weight="bold">15</text>
-            <text x="170" y="80" font-size="12" font-weight="bold">8</text>
-            <text x="90" y="65" font-size="12" font-weight="bold" fill="#dc2626">17</text>
-            <path d="M60,120 A20,20 0 0,1 68,111" fill="none" stroke="#f59e0b" stroke-width="2"/>
-            <text x="75" y="115" font-size="14" font-weight="bold" fill="#f59e0b">β</text>
-        </svg>`,
-        options: ["8 / 15", "15 / 8", "8 / 17", "15 / 17"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "במשולש ישר זווית, אורך שני הניצבים שווה ל-7. למה שווה \\( \\tan(\\alpha) \\) של כל אחת מהזוויות החדות?&rlm;",
+        options: ["1", "0.5", "2", "7"],
         correctAnswer: 0,
-        hint: "טנגנס שווה לניצב שמול הזווית לחלק בניצב שלידה. היתר (17) כלל לא משתתף בחישוב הזה.",
+        hint: "זהו משולש שווה שוקיים וישר זווית. חלקו את הניצב מול בניצב ליד (שהם למעשה אותו מספר).",
         solution_steps: [
-            { verbal_explanation: "על פי הנתונים, הניצב שנמצא מול זווית β הוא באורך 8.", math_expression: "מול = 8" },
-            { verbal_explanation: "הניצב שצמוד (ליד) זווית β הוא באורך 15.", math_expression: "ליד = 15" },
-            { verbal_explanation: "נוסחת הטנגנס היא 'מול חלקי ליד'. נציב את המספרים.", math_expression: "tan(β) = 8 / 15" }
-        ],
-        final_answer: "8 / 15"
-    },
-
-    // --- שאלה 7 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "השתמשו במחשבון: מהו הערך של sin(30°) ?",
-        options: ["0.5", "0.866", "1", "0.707"],
-        correctAnswer: 0,
-        hint: "הקלידו במחשבון את המילה sin, לאחר מכן 30, וסגרו סוגריים. ודאו שהמחשבון על מצב מעלות (Degrees - מופיעה האות D קטנה למעלה).",
-        solution_steps: [
-            { verbal_explanation: "זווית של 30 מעלות היא זווית מיוחדת וחשובה בטריגונומטריה.", math_expression: "α = 30°" },
-            { verbal_explanation: "המשמעות הגיאומטרית היא שבכל משולש ישר זווית עם זווית של 30°, הניצב שמולה שווה בדיוק לחצי מהיתר.", math_expression: "מול / יתר = 1 / 2" },
-            { verbal_explanation: "הקלדה במחשבון תיתן את התוצאה העשרונית המדויקת.", math_expression: "sin(30°) = 0.5" }
-        ],
-        final_answer: "0.5"
-    },
-
-    // --- שאלה 8 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "השתמשו במחשבון: מהו הערך של cos(60°) ?",
-        options: ["0.5", "0.866", "1", "0"],
-        correctAnswer: 0,
-        hint: "הקלידו cos(60) במחשבון. שימו לב שהתוצאה תהיה זהה לחלוטין לתוצאה של sin(30).",
-        solution_steps: [
-            { verbal_explanation: "במשולש ישר זווית שבו זווית אחת היא 60°, הניצב שסמוך אליה (ליד) שווה בדיוק למחצית היתר.", math_expression: "α = 60°" },
-            { verbal_explanation: "לכן, היחס של 'ליד חלקי יתר' יהיה תמיד חצי.", math_expression: "cos(60°) = 1 / 2" },
-            { verbal_explanation: "במחשבון התוצאה מוצגת כשבר עשרוני.", math_expression: "cos(60°) = 0.5" }
-        ],
-        final_answer: "0.5"
-    },
-
-    // --- שאלה 9 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "השתמשו במחשבון: מהו הערך של tan(45°) ?",
-        options: ["1", "0.5", "1.414", "0.707"],
-        correctAnswer: 0,
-        hint: "במשולש ישר זווית שבו זווית אחת היא 45 מעלות, גם הזווית השנייה היא 45 (כדי להשלים ל-180). לכן זהו משולש שווה שוקיים והניצבים שווים זה לזה.",
-        solution_steps: [
-            { verbal_explanation: "הפונקציה טנגנס בודקת את היחס 'מול חלקי ליד'.", math_expression: "tan(α) = מול / ליד" },
-            { verbal_explanation: "בזווית של 45 מעלות, שני הניצבים במשולש ישר זווית שווים בדיוק באורכם.", math_expression: "מול = ליד" },
-            { verbal_explanation: "מספר שמחולק בעצמו (כשהם שווים) שווה תמיד ל-1.", math_expression: "tan(45°) = 1" }
+            { verbal_explanation: "שלב 1: הגדרת שני הניצבים כזהים.", math_expression: "a = 7 \\quad , \\quad b = 7" },
+            { verbal_explanation: "שלב 2: כתיבת נוסחת טנגנס.", math_expression: "\\tan(\\alpha) = \\dfrac{a}{b}" },
+            { verbal_explanation: "שלב 3: הצבת הערכים הזהים.", math_expression: "\\tan(\\alpha) = \\dfrac{7}{7}" },
+            { verbal_explanation: "שלב 4: ביצוע החלוקה של מספר בעצמו.", math_expression: "\\tan(\\alpha) = 1" },
+            { verbal_explanation: "שלב 5: התוצאה הרשמית.", math_expression: "1" }
         ],
         final_answer: "1"
     },
 
-    // --- שאלה 10 ---
+    // שאלה מספר 7
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "האם ייתכן שפונקציית הסינוס של זווית חדה תהיה שווה ל- 1.5 ?",
-        options: ["לא, כי הניצב חייב להיות קצר מהיתר", "כן, זה תלוי בגודל המשולש", "לא, כי סינוס מתאר זוויות ולא צלעות", "כן, עבור זוויות קהות"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "אם היתר במשולש ישר זווית כפול באורכו מהניצב שליד הזווית אלפא. מהו \\( \\cos(\\alpha) \\)?&rlm;",
+        options: ["0.5", "2", "1", "0.25"],
         correctAnswer: 0,
-        hint: "סינוס הוא היחס בין הניצב ליתר. במשולש ישר זווית, היתר הוא תמיד (ללא יוצא מן הכלל) הצלע הארוכה ביותר.",
+        hint: "סמנו את הניצב באיקס ואת היתר בשני איקס. הציבו בנוסחת קוסינוס וצמצמו את הנעלם.",
         solution_steps: [
-            { verbal_explanation: "נוסחת הסינוס היא ניצב שמול הזווית חלקי היתר.", math_expression: "sin = מול / יתר" },
-            { verbal_explanation: "בגיאומטריה, היתר מונח מול הזווית של ה-90 מעלות, ולכן הוא תמיד הצלע הגדולה ביותר במשולש.", math_expression: "יתר > ניצב" },
-            { verbal_explanation: "כאשר אנו מחלקים מספר קטן במספר גדול ממנו, התוצאה חייבת להיות שבר הקטן מ-1.", math_expression: "שבר < 1" },
-            { verbal_explanation: "לכן 1.5 (שגדול מ-1) היא תוצאה בלתי אפשרית לסינוס של זווית במשולש ישר זווית.", math_expression: "בלתי אפשרי" }
+            { verbal_explanation: "שלב 1: הגדרת הניצב שליד.", math_expression: "b = x" },
+            { verbal_explanation: "שלב 2: הגדרת היתר ככפול באורכו.", math_expression: "c = 2x" },
+            { verbal_explanation: "שלב 3: הצבה בנוסחת הקוסינוס.", math_expression: "\\cos(\\alpha) = \\dfrac{x}{2x}" },
+            { verbal_explanation: "שלב 4: צמצום הנעלם במונה ובמכנה.", math_expression: "\\cos(\\alpha) = \\dfrac{1}{2}" },
+            { verbal_explanation: "שלב 5: המרת השבר למספר עשרוני.", math_expression: "\\cos(\\alpha) = 0.5" },
+            { verbal_explanation: "שלב 6: הרישום הסופי.", math_expression: "0.5" }
         ],
-        final_answer: "לא, כי הניצב חייב להיות קצר מהיתר"
+        final_answer: "0.5"
     },
 
-    // --- שאלה 11 ---
+    // שאלה מספר 8
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "במחשבון, איזו פעולה מאפשרת לנו למצוא את גודל הזווית עצמה, אם אנו יודעים שהסינוס שלה שווה ל-0.5?",
-        options: ["Shift ואז sin (או sin⁻¹)", "ללחוץ על sin ואז 0.5", "ללחוץ על cos ואז 0.5", "לחלק 0.5 ב-sin"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "נתון ש- \\( \\tan(\\beta) = 2.5 \\). הניצב שליד הזווית שווה ל-4. מהו הניצב מול הזווית?&rlm;",
+        options: ["10", "1.6", "6.5", "15"],
         correctAnswer: 0,
-        hint: "כאשר מחפשים את 'הבפנים' (הזווית שחסרה לנו), משתמשים בפונקציה ההפוכה במחשבון, המסומנת לרוב במינוס 1 למעלה, ומופעלת על ידי כפתור ה-Shift.",
+        hint: "הציבו בנוסחת טנגנס. הניצב מול חלקי 4 שווה ל-2.5. כפלו את שני האגפים בארבע.",
         solution_steps: [
-            { verbal_explanation: "אנו יודעים את התוצאה של היחס (0.5) אך חסרה לנו הזווית המקורית (α).", math_expression: "sin(α) = 0.5" },
-            { verbal_explanation: "הפעולה ההפוכה לסינוס נקראת ארק-סינוס, והיא מסומנת במחשבון כ- sin⁻¹.", math_expression: "α = sin⁻¹(0.5)" },
-            { verbal_explanation: "כדי להפעיל אותה, לוחצים על כפתור Shift (או 2nd), ואז על כפתור sin, מזינים 0.5 ומקבלים את הזווית 30°.", math_expression: "Shift -> sin -> 0.5 = 30°" }
+            { verbal_explanation: "שלב 1: רישום הנתון של הטנגנס.", math_expression: "\\tan(\\beta) = 2.5" },
+            { verbal_explanation: "שלב 2: זיהוי הניצב המכנה (ליד).", math_expression: "b = 4" },
+            { verbal_explanation: "שלב 3: הצבה במשפט הטנגנס למציאת המונה (מול).", math_expression: "2.5 = \\dfrac{a}{4}" },
+            { verbal_explanation: "שלב 4: הכפלה בארבע.", math_expression: "a = 2.5 \\times 4" },
+            { verbal_explanation: "שלב 5: קבלת התוצאה לניצב מול.", math_expression: "a = 10" },
+            { verbal_explanation: "שלב 6: סיכום התשובה.", math_expression: "10" }
         ],
-        final_answer: "Shift ואז sin (או sin⁻¹)"
+        final_answer: "10"
     },
 
-    // --- שאלה 12 ---
+    // שאלה מספר 9
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "ידוע שעבור זווית מסוימת α מתקיים: tan(α) = 2. איזה מהמשפטים הבאים מתאר נכונה את המשולש?",
-        options: ["הניצב שמול הזווית גדול פי 2 מהניצב שלידה", "היתר גדול פי 2 מהניצב שמול הזווית", "הניצב שליד הזווית גדול פי 2 מהניצב שמולה", "שני הניצבים שווים זה לזה"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "באיזו מהפונקציות נשתמש אם נתונים לנו אך ורק שני הניצבים של משולש ישר זווית, ואנו מחפשים זווית?&rlm;",
+        options: ["טנגנס", "סינוס", "קוסינוס", "משפט פיתגורס"],
         correctAnswer: 0,
-        hint: "טנגנס הוא היחס בין מול ל-ליד. אם התוצאה היא 2, זה אומר שהמונה (מול) כפול בגודלו מהמכנה (ליד).",
+        hint: "בדקו איזו פונקציה אינה מערבת את היתר, אלא רק את היחס בין הניצב ממול לניצב שליד.",
         solution_steps: [
-            { verbal_explanation: "נרשום את הנוסחה של פונקציית הטנגנס.", math_expression: "tan(α) = מול / ליד" },
-            { verbal_explanation: "הנתון אומר שהיחס הזה שווה ל-2 שלמים.", math_expression: "מול / ליד = 2" },
-            { verbal_explanation: "נכפיל את המכנה ונקבל משוואה ברורה ללא שברים.", math_expression: "מול = 2 × ליד" },
-            { verbal_explanation: "מסקנה: הניצב שממול גדול פי שניים (כפול) מהניצב שצמוד לזווית.", math_expression: "מול גדול פי 2" }
+            { verbal_explanation: "שלב 1: בחינת פונקציית סינוס.", math_expression: "\\sin = \\dfrac{a}{c}" },
+            { verbal_explanation: "שלב 2: בחינת פונקציית קוסינוס.", math_expression: "\\cos = \\dfrac{b}{c}" },
+            { verbal_explanation: "שלב 3: בחינת פונקציית טנגנס.", math_expression: "\\tan = \\dfrac{a}{b}" },
+            { verbal_explanation: "שלב 4: שלילת הפונקציות המכילות יתר, כיוון שהוא אינו נתון.", math_expression: "\\tan" },
+            { verbal_explanation: "שלב 5: התשובה העיונית.", math_expression: "\\tan" }
         ],
-        final_answer: "הניצב שמול הזווית גדול פי 2 מהניצב שלידה"
+        final_answer: "טנגנס"
     },
 
-    // --- שאלה 13 ---
+    // שאלה מספר 10
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "במשולש ישר זווית, זווית אחת היא בת 90 מעלות. זווית שנייה נסמן ב-α. למה תהיה שווה הזווית השלישית (β)?",
-        options: ["90° פחות α", "180° פחות α", "היא שווה ל-α", "אי אפשר לדעת"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "מה יכול להיות הערך המקסימלי של \\( \\sin(\\alpha) \\) במשולש ישר זווית? (הניחו שאלפא זווית חדה)&rlm;",
+        options: ["תמיד קטן מ-1", "יכול להיות 1 בדיוק", "יכול להיות גדול מ-1", "תלוי באורך הצלעות"],
         correctAnswer: 0,
-        hint: "סכום הזוויות במשולש הוא תמיד 180 מעלות. אם זווית ישרה אחת כבר 'לקחה' 90, נשארו בדיוק 90 מעלות לחלק בין שתי הזוויות החדות.",
+        hint: "סינוס הוא היחס בין ניצב ליתר. במשולש ישר זווית, היתר הוא תמיד הצלע הארוכה ביותר. האם מונה יכול להיות גדול מהמכנה במקרה כזה?",
         solution_steps: [
-            { verbal_explanation: "בכל משולש, סכום שלוש הזוויות יחד הוא 180 מעלות.", math_expression: "α + β + 90° = 180°" },
-            { verbal_explanation: "נעביר את ה-90 לאגף השני ונחסר.", math_expression: "α + β = 90°" },
-            { verbal_explanation: "כדי לבטא את הזווית השלישית (β), נעביר את α אגף.", math_expression: "β = 90° - α" },
-            { verbal_explanation: "לכן, שתי הזוויות החדות במשולש ישר זווית תמיד משלימות זו את זו ל-90 מעלות.", math_expression: "משלימות ל-90°" }
+            { verbal_explanation: "שלב 1: הבנת תכונת היתר מול הניצב.", math_expression: "a < c" },
+            { verbal_explanation: "שלב 2: כתיבת יחס הסינוס.", math_expression: "\\sin(\\alpha) = \\dfrac{a}{c}" },
+            { verbal_explanation: "שלב 3: חלוקת מספר קטן במספר גדול ממנו.", math_expression: "\\dfrac{a}{c} < 1" },
+            { verbal_explanation: "שלב 4: המסקנה המתמטית לגבי טווח הסינוס במשולש.", math_expression: "\\sin(\\alpha) < 1" },
+            { verbal_explanation: "שלב 5: התשובה המילולית המתאימה לאפשרויות.", math_expression: "1 >" }
         ],
-        final_answer: "90° פחות α"
+        final_answer: "תמיד קטן מ-1"
     },
 
-    // --- שאלה 14 ---
+    // שאלה מספר 11
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: "איזה יחס נקבל אם נחלק את הניצב שמול הזווית, ביתר?",
-        options: ["סינוס (sin)", "קוסינוס (cos)", "טנגנס (tan)", "משפט פיתגורס"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "ידוע כי במשולש ישר זווית \\( \\sin(\\alpha) = \\cos(\\alpha) \\). מהו הגודל של הזווית אלפא במעלות?&rlm;",
+        options: ["45", "30", "60", "90"],
         correctAnswer: 0,
-        hint: "חזרה על הגדרות: מול חלקי יתר זה סינוס. ליד חלקי יתר זה קוסינוס. מול חלקי ליד זה טנגנס.",
+        hint: "אם הסינוס והקוסינוס שווים, משמעות הדבר היא שהניצב מול שווה לניצב ליד. באיזה משולש ישר זווית הניצבים שווים?",
         solution_steps: [
-            { verbal_explanation: "זוהי שאלת שינון יסודית של חוקי הטריגונומטריה.", math_expression: "הגדרות בסיס" },
-            { verbal_explanation: "היחס בין הניצב הרחוק מהזווית (שמולה) לבין הצלע הארוכה ביותר (היתר) הוא ההגדרה של סינוס.", math_expression: "sin = מול / יתר" }
+            { verbal_explanation: "שלב 1: הגדרת השוויון הנתון.", math_expression: "\\dfrac{a}{c} = \\dfrac{b}{c}" },
+            { verbal_explanation: "שלב 2: צמצום המכנים הזהים (היתר).", math_expression: "a = b" },
+            { verbal_explanation: "שלב 3: מסקנה: זהו משולש ישר זווית ושווה שוקיים.", math_expression: "x + x + 90 = 180" },
+            { verbal_explanation: "שלב 4: חישוב סכום זוויות הבסיס.", math_expression: "2x = 90" },
+            { verbal_explanation: "שלב 5: מציאת גודל כל אחת מהזוויות.", math_expression: "x = 45" },
+            { verbal_explanation: "שלב 6: הרישום הרשמי.", math_expression: "45" }
         ],
-        final_answer: "סינוס (sin)"
+        final_answer: "45"
     },
 
-    // --- שאלה 15 ---
+    // שאלה מספר 12
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "פונקציות הסינוס, הקוסינוס והטנגנס",
-        question: `מה קורה לערך של הפונקציה sin(α) ככל שהזווית החדה α גדלה (מ-0 לכיוון 90 מעלות)?<br> (מומלץ לנסות להציב במחשבון sin(10), sin(45), sin(80)).`,
-        options: ["הערך גדל ומתקרב ל-1", "הערך קטן ומתקרב ל-0", "הערך נשאר קבוע", "הערך גדל עד אינסוף"],
+        topic: "trigonometry_172",
+        subTopic: "הכרת פונקציות הטריגו (סינוס, קוסינוס, טנגנס)",
+        question_text: "במשולש ישר זווית, אורכי הצלעות הם 6, 8 ו-10. אלפא היא הזווית שמול הניצב שאורכו 6. למה שווה \\( \\cos(\\alpha) \\)?&rlm;",
+        options: ["8 : 10", "6 : 10", "6 : 8", "10 : 8"],
         correctAnswer: 0,
-        hint: "ככל שהזווית נפתחת כלפי מעלה, הניצב שממול לה הופך ארוך וגבוה יותר, ולכן הוא מתקרב באורכו לאורך של היתר. לכן השבר 'מול חלקי יתר' גדל.",
+        hint: "זיהוי נכון של הצלעות: 10 הוא היתר. אם אלפא מול 6, אזי הניצב שליד אלפא הוא 8. קוסינוס הוא ליד חלקי יתר.",
         solution_steps: [
-            { verbal_explanation: "נבדוק בעזרת מחשבון מספר זוויות הולכות וגדלות.", math_expression: "sin(10°) ≈ 0.173" },
-            { verbal_explanation: "נגדיל את הזווית ל-45.", math_expression: "sin(45°) ≈ 0.707" },
-            { verbal_explanation: "נגדיל את הזווית ל-80.", math_expression: "sin(80°) ≈ 0.984" },
-            { verbal_explanation: "אנו רואים בבירור שככל שהזווית גדלה, ערך הסינוס שלה גדל גם הוא, עד שלבסוף ב-90 מעלות הוא יגיע בדיוק ל-1.", math_expression: "ערך עולה" }
+            { verbal_explanation: "שלב 1: זיהוי היתר כצלע הארוכה ביותר.", math_expression: "c = 10" },
+            { verbal_explanation: "שלב 2: זיהוי הניצב שמול הזווית מתוך הנתון.", math_expression: "a = 6" },
+            { verbal_explanation: "שלב 3: הניצב הנותר חייב להיות הניצב שליד הזווית.", math_expression: "b = 8" },
+            { verbal_explanation: "שלב 4: כתיבת נוסחת הקוסינוס.", math_expression: "\\cos(\\alpha) = \\dfrac{b}{c}" },
+            { verbal_explanation: "שלב 5: הצבת המספרים אל התבנית.", math_expression: "\\cos(\\alpha) = \\dfrac{8}{10}" },
+            { verbal_explanation: "שלב 6: רישום הפתרון כחלוקה.", math_expression: "8 : 10" }
         ],
-        final_answer: "הערך גדל ומתקרב ל-1"
+        final_answer: "8 : 10"
     },
 
-    // ========================================================================
-    // תת נושא 2: מציאת צלעות וזוויות במשולש ישר זווית
-    // ========================================================================
+    // ==========================================
+    // תת נושא 2: מציאת צלעות וזוויות במשולש ישר זווית (12 שאלות)
+    // ==========================================
 
-    // --- שאלה 16 ---
+    // שאלה מספר 13
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: `במשולש ישר זווית, אורך היתר הוא 10 ס"מ וזווית אחת היא בת 30°. מהו אורך הניצב שמול זווית זו?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 160,50" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="150" y="110" width="10" height="10" fill="none" stroke="#dc2626" stroke-width="1"/>
-            <text x="170" y="90" font-size="12" font-weight="bold" fill="#dc2626">x</text>
-            <text x="90" y="75" font-size="12" font-weight="bold">10</text>
-            <path d="M60,120 A20,20 0 0,0 66,110" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="75" y="115" font-size="12" font-weight="bold" fill="#10b981">30°</text>
-        </svg>`,
-        options: ["5 ס\"מ", "8.66 ס\"מ", "10 ס\"מ", "2 ס\"מ"],
+        question_text: "במשולש ישר זווית, אורך היתר הוא 14 סנטימטר, וגודל אחת הזוויות החדות הוא 30 מעלות. מצאו את אורך הניצב שמול זווית זו.&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='40,160 160,160 160,40' fill='none' stroke='#f59e0b' stroke-width='3'/><polyline points='140,160 140,140 160,140' fill='none' stroke='#f59e0b' stroke-width='2'/><path d='M 70 160 A 30 30 0 0 0 60 140' fill='none' stroke='#ef4444' stroke-width='2'/><text x='75' y='145' font-size='14' fill='#ef4444'>30°</text><text x='170' y='105' font-size='14' fill='#334155'>x</text><text x='90' y='90' font-size='14' fill='#334155'>14</text></svg></div>",
+        options: ["7", "12.12", "14", "28"],
         correctAnswer: 0,
-        hint: "ידוע לכם היתר, ואתם מחפשים את הניצב ש-מול הזווית. הפונקציה המתאימה היא סינוס. רשמו משוואה: sin(30°) = x / 10.",
+        hint: "השתמשו בפונקציית הסינוס, שמקשרת בין הניצב ממול, היתר, והזווית. זכרו שסינוס שלושים הוא חצי.",
         solution_steps: [
-            { verbal_explanation: "נזהה את הנתונים: הזווית היא 30 מעלות. אנו מחפשים את הצלע שמולה (x), והיתר ידוע (10).", math_expression: "זווית=30°, יתר=10, מול=x" },
-            { verbal_explanation: "הפונקציה המקשרת בין מול ליתר היא סינוס.", math_expression: "sin(30°) = x / 10" },
-            { verbal_explanation: "כדי לבודד את x, נכפיל את שני האגפים ב-10.", math_expression: "x = 10 × sin(30°)" },
-            { verbal_explanation: "נחשב במחשבון. sin(30°) הוא בדיוק 0.5. עשר כפול חצי שווה 5.", math_expression: "x = 10 × 0.5 = 5" }
+            { verbal_explanation: "שלב 1: זיהוי הפונקציה המתאימה לנתונים.", math_expression: "\\sin(30^{\\circ}) = \\dfrac{x}{14}" },
+            { verbal_explanation: "שלב 2: הכפלת שני האגפים ביתר כדי לבודד את הנעלם במונה.", math_expression: "x = 14 \\times \\sin(30^{\\circ})" },
+            { verbal_explanation: "שלב 3: שליפת ערך הסינוס מהמחשבון.", math_expression: "\\sin(30^{\\circ}) = 0.5" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל.", math_expression: "x = 14 \\times 0.5" },
+            { verbal_explanation: "שלב 5: השגת התוצאה הסופית.", math_expression: "x = 7" },
+            { verbal_explanation: "שלב 6: הרישום הדרוש לבחירה.", math_expression: "7" }
         ],
-        final_answer: "5 ס\"מ"
+        final_answer: "7"
     },
 
-    // --- שאלה 17 ---
+    // שאלה מספר 14
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית, אורך היתר הוא 20 ס\"מ וזווית אחת היא בת 60°. מהו אורך הניצב שליד זווית זו?",
-        options: ["10 ס\"מ", "17.32 ס\"מ", "20 ס\"מ", "40 ס\"מ"],
+        question_text: "במשולש ישר זווית, אורך הניצב שליד זווית של 60 מעלות הוא 5. מהו אורך היתר?&rlm;",
+        options: ["10", "8.66", "2.5", "5"],
         correctAnswer: 0,
-        hint: "הפעם אתם מחפשים את הניצב ש-ליד הזווית כשהיתר נתון. הפונקציה המתאימה היא קוסינוס (cos). הציבו: cos(60°) = x / 20.",
+        hint: "היעזרו בקוסינוס, המקשר בין הניצב ליד והיתר. הפעם הנעלם נמצא במכנה, ולכן עליכם לחלק.",
         solution_steps: [
-            { verbal_explanation: "נזהה את הנתונים: זווית=60°. יתר=20. אנו מחפשים את הניצב ליד (x).", math_expression: "פונקציה מתאימה: cos" },
-            { verbal_explanation: "נרכיב את המשוואה.", math_expression: "cos(60°) = x / 20" },
-            { verbal_explanation: "נכפיל את המשוואה ב-20 כדי לבודד את הנעלם.", math_expression: "x = 20 × cos(60°)" },
-            { verbal_explanation: "במחשבון, cos(60°) שווה לחצי (0.5). 20 כפול חצי שווה 10.", math_expression: "x = 20 × 0.5 = 10" }
+            { verbal_explanation: "שלב 1: בניית המשוואה לפי הגדרת קוסינוס.", math_expression: "\\cos(60^{\\circ}) = \\dfrac{5}{c}" },
+            { verbal_explanation: "שלב 2: החלפת מקומות אלגברית בין היתר לקוסינוס.", math_expression: "c = \\dfrac{5}{\\cos(60^{\\circ})}" },
+            { verbal_explanation: "שלב 3: מציאת הערך של קוסינוס שישים במחשבון.", math_expression: "\\cos(60^{\\circ}) = 0.5" },
+            { verbal_explanation: "שלב 4: חלוקת המספרים.", math_expression: "c = 5 : 0.5" },
+            { verbal_explanation: "שלב 5: חישוב התוצאה (חלוקה בחצי שקולה לכפל בשתיים).", math_expression: "c = 10" },
+            { verbal_explanation: "שלב 6: התשובה המסכמת.", math_expression: "10" }
         ],
-        final_answer: "10 ס\"מ"
+        final_answer: "10"
     },
 
-    // --- שאלה 18 ---
+    // שאלה מספר 15
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "אורך הניצב שליד זווית בת 45° הוא 5 ס\"מ. מהו אורך הניצב שמול הזווית הזו?",
-        options: ["5 ס\"מ", "10 ס\"מ", "7.07 ס\"מ", "2.5 ס\"מ"],
+        question_text: "אורך הניצב שמול זווית של 45 מעלות הוא 8. מהו אורך הניצב השני (זה שליד הזווית)?&rlm;",
+        options: ["8", "11.31", "5.65", "4"],
         correctAnswer: 0,
-        hint: "כשיש שני ניצבים (אחד נתון ואחד מבוקש), משתמשים בטנגנס (tan). ניתן גם לזכור שמשולש ישר זווית עם 45 מעלות הוא תמיד משולש שווה שוקיים.",
+        hint: "אתם מחפשים קשר בין שני ניצבים. השתמשו בטנגנס. זכרו שטנגנס של 45 מעלות שווה ל-1 בדיוק.",
         solution_steps: [
-            { verbal_explanation: "שיטה א' - טריגונומטריה: נשתמש בפונקציית טנגנס המקשרת בין שני הניצבים.", math_expression: "tan(45°) = x / 5" },
-            { verbal_explanation: "נכפיל ב-5.", math_expression: "x = 5 × tan(45°)" },
-            { verbal_explanation: "במחשבון, טנגנס 45 שווה ל-1. לכן 5 כפול 1 שווה 5.", math_expression: "x = 5 × 1 = 5" },
-            { verbal_explanation: "שיטה ב' - גיאומטריה: אם זווית אחת היא 45° והשנייה 90°, השלישית חייבת להיות 45°. לכן זה משולש שווה שוקיים והניצבים שווים זה לזה.", math_expression: "x = 5" }
+            { verbal_explanation: "שלב 1: כתיבת משוואת טנגנס.", math_expression: "\\tan(45^{\\circ}) = \\dfrac{8}{b}" },
+            { verbal_explanation: "שלב 2: הוצאת ערך הטנגנס מהמחשבון.", math_expression: "\\tan(45^{\\circ}) = 1" },
+            { verbal_explanation: "שלב 3: הצבה במשוואה.", math_expression: "1 = \\dfrac{8}{b}" },
+            { verbal_explanation: "שלב 4: בידוד המכנה על ידי כפל.", math_expression: "b = 8 : 1" },
+            { verbal_explanation: "שלב 5: חישוב התוצאה (הגיוני מאחר וזהו משולש ישר זווית שווה שוקיים).", math_expression: "b = 8" },
+            { verbal_explanation: "שלב 6: הרישום הסופי.", math_expression: "8" }
         ],
-        final_answer: "5 ס\"מ"
+        final_answer: "8"
     },
 
-    // --- שאלה 19 ---
+    // שאלה מספר 16
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: `במשולש ישר זווית, הניצב מול הזווית של 30° הוא באורך 6 ס"מ. מהו אורך היתר של המשולש?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 160,50" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="150" y="110" width="10" height="10" fill="none" stroke="#dc2626" stroke-width="1"/>
-            <text x="170" y="90" font-size="12" font-weight="bold">6</text>
-            <text x="90" y="75" font-size="12" font-weight="bold" fill="#dc2626">x</text>
-            <path d="M60,120 A20,20 0 0,0 66,110" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="75" y="115" font-size="12" font-weight="bold" fill="#10b981">30°</text>
-        </svg>`,
-        options: ["12 ס\"מ", "3 ס\"מ", "10.39 ס\"מ", "15 ס\"מ"],
+        question_text: "במשולש ישר זווית, אורך היתר הוא 20. הזווית מול הניצב המבוקש היא 20 מעלות. חשבו את הניצב, לעגל ל-2 ספרות עשרוניות.&rlm;",
+        options: ["6.84", "18.79", "7.28", "54.94"],
         correctAnswer: 0,
-        hint: "היזהרו! הפעם ה-x נמצא במכנה, כי אנו מחפשים את היתר. המשוואה: sin(30°) = 6 / x. כדי לחלץ את איקס, חלקו את 6 בסינוס 30.",
+        hint: "ניצב מול ויתר מכוונים אותנו לשימוש בסינוס. הכפילו את היתר בסינוס 20.",
         solution_steps: [
-            { verbal_explanation: "אנו יודעים את הזווית ואת הניצב שמולה (6). אנו מחפשים את היתר (x). נשתמש בסינוס.", math_expression: "sin(30°) = 6 / x" },
-            { verbal_explanation: "כדי לפתור משוואה שבה הנעלם נמצא במכנה, נכפיל תחילה ב-x כדי להעלותו למונה.", math_expression: "x × sin(30°) = 6" },
-            { verbal_explanation: "כעת נחלק בפונקציית הסינוס כדי לבודד את ה-x לגמרי.", math_expression: "x = 6 / sin(30°)" },
-            { verbal_explanation: "במחשבון, 6 לחלק ל-0.5 שווה ל-12.", math_expression: "x = 12" }
+            { verbal_explanation: "שלב 1: הצבה בנוסחת סינוס.", math_expression: "\\sin(20^{\\circ}) = \\dfrac{a}{20}" },
+            { verbal_explanation: "שלב 2: בידוד הניצב על ידי כפל.", math_expression: "a = 20 \\times \\sin(20^{\\circ})" },
+            { verbal_explanation: "שלב 3: חישוב במחשבון של סינוס עשרים.", math_expression: "\\sin(20^{\\circ}) \\approx 0.342" },
+            { verbal_explanation: "שלב 4: הכפלת הערכים.", math_expression: "a \\approx 20 \\times 0.342" },
+            { verbal_explanation: "שלב 5: קבלת התוצאה העשרונית המעוגלת.", math_expression: "a \\approx 6.84" },
+            { verbal_explanation: "שלב 6: רישום למענה.", math_expression: "6.84" }
         ],
-        final_answer: "12 ס\"מ"
+        final_answer: "6.84"
     },
 
-    // --- שאלה 20 ---
+    // שאלה מספר 17
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית, הניצב שליד זווית של 60° שווה ל-8 ס\"מ. מהו אורך היתר?",
-        options: ["16 ס\"מ", "4 ס\"מ", "13.85 ס\"מ", "10 ס\"מ"],
+        question_text: "במשולש ישר זווית נתונים שני הניצבים: הניצב מול הזווית אלפא הוא 3, והניצב שלידה הוא 4. מצאו את הזווית אלפא (עגלו לשתי ספרות עשרוניות).&rlm;",
+        options: ["36.87", "53.13", "45.00", "0.75"],
         correctAnswer: 0,
-        hint: "הניצב ליד והיתר קשורים דרך פונקציית קוסינוס (cos). הציבו: cos(60°) = 8 / x. חלצו את איקס על ידי חילוק: 8 חלקי קוסינוס 60.",
+        hint: "היחס בין שני הניצבים מתואר על ידי טנגנס. לאחר החישוב, בצעו את הפעולה ההפוכה במחשבון (Shift Tan).",
         solution_steps: [
-            { verbal_explanation: "נזהה שהנתונים הם ניצב שליד (8) ויתר מבוקש (x). לכן נבחר בקוסינוס.", math_expression: "cos(60°) = 8 / x" },
-            { verbal_explanation: "נכפיל ב-x כדי להוציאו מהמכנה.", math_expression: "x × cos(60°) = 8" },
-            { verbal_explanation: "נחלק בקוסינוס 60.", math_expression: "x = 8 / cos(60°)" },
-            { verbal_explanation: "מאחר שקוסינוס 60 הוא חצי (0.5), חלוקה בחצי תכפיל את המספר.", math_expression: "x = 8 / 0.5 = 16" }
+            { verbal_explanation: "שלב 1: הגדרת המשוואה לפי טנגנס.", math_expression: "\\tan(\\alpha) = \\dfrac{3}{4}" },
+            { verbal_explanation: "שלב 2: הפיכת השבר לעשרוני.", math_expression: "\\tan(\\alpha) = 0.75" },
+            { verbal_explanation: "שלב 3: הפעלת הפונקציה ההפוכה כדי לחלץ את הזווית במעלות.", math_expression: "\\alpha = \\tan^{-1}(0.75)" },
+            { verbal_explanation: "שלב 4: חישוב במחשבון מתמטי.", math_expression: "\\alpha \\approx 36.8698" },
+            { verbal_explanation: "שלב 5: עיגול לשתי ספרות עשרוניות בהתאם להוראות.", math_expression: "36.87" },
+            { verbal_explanation: "שלב 6: רישום.", math_expression: "36.87" }
         ],
-        final_answer: "16 ס\"מ"
+        final_answer: "36.87"
     },
 
-    // --- שאלה 21 ---
+    // שאלה מספר 18
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית, אורך הניצב מול זווית α הוא 5 ס\"מ, ואורך היתר הוא 10 ס\"מ. מהו גודלה של זווית α ?",
-        options: ["30°", "60°", "45°", "90°"],
+        question_text: "אורך היתר במשולש הוא 10, ואורך אחד הניצבים הוא 5. מצאו את הזווית שממול לניצב זה.&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='40,160 160,160 160,40' fill='none' stroke='#3b82f6' stroke-width='3'/><polyline points='140,160 140,140 160,140' fill='none' stroke='#3b82f6' stroke-width='2'/><path d='M 70 160 A 30 30 0 0 0 60 140' fill='none' stroke='#ef4444' stroke-width='2'/><text x='75' y='145' font-size='14' fill='#ef4444'>?</text><text x='170' y='105' font-size='14' fill='#334155'>5</text><text x='90' y='90' font-size='14' fill='#334155'>10</text></svg></div>",
+        options: ["30", "60", "45", "0.5"],
         correctAnswer: 0,
-        hint: "בנו משוואה: sin(α) = 5 / 10. השתמשו בפונקציה ההפוכה במחשבון (Shift ואז sin) למספר 0.5 כדי למצוא את הזווית.",
+        hint: "ניצב מול ויתר מחייבים שימוש בסינוס. חפשו במחשבון את הזווית שבה הסינוס שווה לחצי.",
         solution_steps: [
-            { verbal_explanation: "אנו יודעים את הניצב ממול (5) ואת היתר (10). היחס ביניהם מתואר על ידי סינוס.", math_expression: "sin(α) = 5 / 10" },
-            { verbal_explanation: "נחשב את היחס כשבר עשרוני.", math_expression: "sin(α) = 0.5" },
-            { verbal_explanation: "כדי למצוא את הזווית עצמה, נשתמש בארק-סינוס (מופיע כ-sin⁻¹ במחשבון).", math_expression: "α = sin⁻¹(0.5)" },
-            { verbal_explanation: "התוצאה במחשבון נותנת 30 מעלות.", math_expression: "α = 30°" }
+            { verbal_explanation: "שלב 1: הצבה בנוסחת הסינוס.", math_expression: "\\sin(\\alpha) = \\dfrac{5}{10}" },
+            { verbal_explanation: "שלב 2: צמצום השבר.", math_expression: "\\sin(\\alpha) = 0.5" },
+            { verbal_explanation: "שלב 3: שימוש בפעולה ההפוכה במחשבון.", math_expression: "\\alpha = \\sin^{-1}(0.5)" },
+            { verbal_explanation: "שלב 4: קבלת הזווית החדה במעלות.", math_expression: "\\alpha = 30" },
+            { verbal_explanation: "שלב 5: התשובה הרצויה.", math_expression: "30" }
         ],
-        final_answer: "30°"
+        final_answer: "30"
     },
 
-    // --- שאלה 22 ---
+    // שאלה מספר 19
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית, הניצב שליד זווית β הוא 6 מטרים, והיתר הוא 12 מטרים. מהו גודל הזווית β ?",
-        options: ["60°", "30°", "45°", "75°"],
+        question_text: "במשולש ישר זווית, אורך הניצב שליד הזווית גמא הוא 7, ואורך היתר הוא 14. חשבו את הזווית גמא.&rlm;",
+        options: ["60", "30", "45", "0.5"],
         correctAnswer: 0,
-        hint: "ניצב ליד ויתר מרמזים על שימוש בקוסינוס (cos). חשבו 6 חלקי 12 (0.5), ואז בצעו Shift cos על התוצאה.",
+        hint: "ניצב ליד ויתר מכוונים לפונקציית הקוסינוס. הציבו את היחס והשתמשו בפונקציה ההפוכה.",
         solution_steps: [
-            { verbal_explanation: "היחס בין ניצב ליד ליתר הוא קוסינוס.", math_expression: "cos(β) = 6 / 12" },
-            { verbal_explanation: "נחשב את השבר.", math_expression: "cos(β) = 0.5" },
-            { verbal_explanation: "נפעיל פונקציה הפוכה למציאת הזווית.", math_expression: "β = cos⁻¹(0.5)" },
-            { verbal_explanation: "התוצאה במחשבון תהיה 60 מעלות.", math_expression: "β = 60°" }
+            { verbal_explanation: "שלב 1: כתיבת משוואת קוסינוס.", math_expression: "\\cos(\\gamma) = \\dfrac{7}{14}" },
+            { verbal_explanation: "שלב 2: חישוב השבר כערך עשרוני.", math_expression: "\\cos(\\gamma) = 0.5" },
+            { verbal_explanation: "שלב 3: מציאת הזווית בעזרת שיפט קוסינוס.", math_expression: "\\gamma = \\cos^{-1}(0.5)" },
+            { verbal_explanation: "שלב 4: תוצאת המחשבון למעלות שלמות.", math_expression: "\\gamma = 60" },
+            { verbal_explanation: "שלב 5: הרישום המסכם.", math_expression: "60" }
         ],
-        final_answer: "60°"
+        final_answer: "60"
     },
 
-    // --- שאלה 23 ---
+    // שאלה מספר 20
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית, אורך הניצב מול הזווית הוא 4 ס\"מ ואורך הניצב שליד הזווית הוא 4 ס\"מ. ללא חישוב מסובך, מהו גודל הזווית?",
-        options: ["45°", "30°", "60°", "90°"],
+        question_text: "אורך הניצב מול זווית של 50 מעלות הוא 10. חשבו את הניצב שליד הזווית (עגלו ל-2 ספרות עשרוניות).&rlm;",
+        options: ["8.39", "11.92", "7.66", "13.05"],
         correctAnswer: 0,
-        hint: "כאשר שני הניצבים שווים זה לזה, המשולש הוא גם ישר זווית וגם שווה שוקיים. כמה נשאר לשתי זוויות הבסיס מתוך 180 מעלות?",
+        hint: "כששני ניצבים מעורבים בבעיה (האחד נתון והשני נעלם), הפונקציה המתאימה היא טנגנס. המכנה יהיה הנעלם.",
         solution_steps: [
-            { verbal_explanation: "ניתן לפתור גיאומטרית: אם ניצב שווה לניצב, המשולש שווה שוקיים. לכן זוויות הבסיס שוות זו לזו (90 נחלק ב-2 שווה 45).", math_expression: "α = 45°" },
-            { verbal_explanation: "נבדוק בדרך טריגונומטרית: טנגנס מקשר בין שני הניצבים.", math_expression: "tan(α) = 4 / 4 = 1" },
-            { verbal_explanation: "נמצא את הזווית בעזרת המחשבון (Shift tan של 1).", math_expression: "α = tan⁻¹(1) = 45°" }
+            { verbal_explanation: "שלב 1: בניית המשוואה.", math_expression: "\\tan(50^{\\circ}) = \\dfrac{10}{b}" },
+            { verbal_explanation: "שלב 2: חילוץ הנעלם שנמצא במכנה על ידי חלוקה.", math_expression: "b = \\dfrac{10}{\\tan(50^{\\circ})}" },
+            { verbal_explanation: "שלב 3: מציאת ערך הטנגנס.", math_expression: "\\tan(50^{\\circ}) \\approx 1.1917" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת החילוק המלאה.", math_expression: "b \\approx 10 : 1.1917" },
+            { verbal_explanation: "שלב 5: קבלת התוצאה מהמחשבון.", math_expression: "b \\approx 8.39" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "8.39" }
         ],
-        final_answer: "45°"
+        final_answer: "8.39"
     },
 
-    // --- שאלה 24 ---
+    // שאלה מספר 21
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: `סולם שאורכו 10 מטרים נשען על קיר אנכי. <br>הזווית שנוצרת בין הסולם לקרקע היא 30 מעלות.<br>לאיזה גובה על הקיר מגיע הסולם?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <line x1="160" y1="130" x2="160" y2="20" stroke="#0f172a" stroke-width="4"/>
-            <line x1="20" y1="130" x2="180" y2="130" stroke="#0f172a" stroke-width="4"/>
-            <line x1="60" y1="130" x2="160" y2="30" stroke="#f59e0b" stroke-width="4"/>
-            <line x1="58" y1="120" x2="158" y2="20" stroke="#f59e0b" stroke-width="4"/>
-            <path d="M80,130 A20,20 0 0,0 85,115" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="90" y="125" font-size="12" font-weight="bold" fill="#10b981">30°</text>
-            <text x="95" y="70" font-size="12" font-weight="bold" transform="rotate(-45 95,70)">10 מ'</text>
-            <text x="175" y="80" font-size="12" fill="#dc2626" font-weight="bold">h = ?</text>
-        </svg>`,
-        options: ["5 מטרים", "8.66 מטרים", "10 מטרים", "20 מטרים"],
+        question_text: "סולם מונח בזווית של 75 מעלות לקרקע. המרחק מבסיס הסולם לקיר הוא 2 מטרים. מהו אורך הסולם (היתר)?&rlm;",
+        options: ["7.73", "7.46", "0.52", "8.00"],
         correctAnswer: 0,
-        hint: "דמיינו משולש ישר זווית. הסולם הוא היתר (10). הקיר הוא הניצב שמול הזווית של ה-30 מעלות. השתמשו בסינוס.",
+        hint: "קרקע היא הניצב שליד הזווית. אורך הסולם הוא היתר. בחרו בפונקציית קוסינוס.",
         solution_steps: [
-            { verbal_explanation: "נזהה את מרכיבי המשולש. הקיר והקרקע יוצרים זווית ישרה (90°).", math_expression: "" },
-            { verbal_explanation: "הסולם הוא הצלע שמול הזווית הישרה, ולכן הוא היתר.", math_expression: "יתר = 10" },
-            { verbal_explanation: "הגובה המבוקש על הקיר הוא הניצב שנמצא מול הזווית הנתונה של 30 מעלות.", math_expression: "מול = h" },
-            { verbal_explanation: "הפונקציה המתאימה היא סינוס.", math_expression: "sin(30°) = h / 10" },
-            { verbal_explanation: "נכפיל ב-10 כדי לחלץ את h.", math_expression: "h = 10 × sin(30°)" },
-            { verbal_explanation: "נחשב ונקבל את התשובה.", math_expression: "h = 10 × 0.5 = 5" }
+            { verbal_explanation: "שלב 1: הבנת הבעיה והצבתה בקוסינוס.", math_expression: "\\cos(75^{\\circ}) = \\dfrac{2}{c}" },
+            { verbal_explanation: "שלב 2: בידוד היתר (הסולם).", math_expression: "c = \\dfrac{2}{\\cos(75^{\\circ})}" },
+            { verbal_explanation: "שלב 3: הוצאת הערך מהמחשבון.", math_expression: "\\cos(75^{\\circ}) \\approx 0.2588" },
+            { verbal_explanation: "שלב 4: חלוקת שתיים בתוצאה.", math_expression: "c \\approx 2 : 0.2588" },
+            { verbal_explanation: "שלב 5: עיגול המספר לשתי ספרות.", math_expression: "c \\approx 7.73" },
+            { verbal_explanation: "שלב 6: קבלת הפתרון.", math_expression: "7.73" }
         ],
-        final_answer: "5 מטרים"
+        final_answer: "7.73"
     },
 
-    // --- שאלה 25 ---
+    // שאלה מספר 22
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "ילד מעיף עפיפון. אורך החוט המתוח של העפיפון הוא 50 מטרים. זווית ההגבהה (הזווית בין החוט לקרקע האופקית) היא 60°. באיזה גובה מרחף העפיפון מעל פני הקרקע? (עגלו ל-2 ספרות עשרוניות).",
-        options: ["43.30 מטרים", "25.00 מטרים", "50.00 מטרים", "86.60 מטרים"],
+        question_text: "במשולש ישר זווית, אורך ניצב אחד הוא 10 ואורך הניצב השני הוא 10. מצאו את אחת הזוויות החדות ללא מחשבון.",
+        options: ["45", "60", "30", "90"],
         correctAnswer: 0,
-        hint: "אורך החוט הוא היתר. הגובה הוא הניצב מול הזווית. השתמשו ב-sin(60°) והכפילו ב-50.",
+        hint: "כאשר הניצבים שווים, מהו היחס ביניהם בחישוב טנגנס? מהי הזווית שהטנגנס שלה שווה ל-1?",
         solution_steps: [
-            { verbal_explanation: "נסמן את גובה העפיפון ב-h (זהו הניצב מול הזווית).", math_expression: "מול = h" },
-            { verbal_explanation: "החוט המתוח יוצר את היתר במשולש הדמיוני.", math_expression: "יתר = 50" },
-            { verbal_explanation: "הפונקציה המקשרת היא סינוס.", math_expression: "sin(60°) = h / 50" },
-            { verbal_explanation: "נכפיל ב-50 כדי למצוא את הגובה.", math_expression: "h = 50 × sin(60°)" },
-            { verbal_explanation: "sin(60°) הוא בערך 0.866. נכפיל ב-50.", math_expression: "h ≈ 50 × 0.866 = 43.30" }
+            { verbal_explanation: "שלב 1: הגדרת המשוואה.", math_expression: "\\tan(\\alpha) = \\dfrac{10}{10}" },
+            { verbal_explanation: "שלב 2: חישוב השבר.", math_expression: "\\tan(\\alpha) = 1" },
+            { verbal_explanation: "שלב 3: במשולש שווה שוקיים וישר זווית, הזוויות חייבות להשלים לתשעים במידה שווה.", math_expression: "(180 - 90) : 2" },
+            { verbal_explanation: "שלב 4: כלומר כל זווית חדה שווה למחצית מתשעים.", math_expression: "\\alpha = 45" },
+            { verbal_explanation: "שלב 5: התשובה.", math_expression: "45" }
         ],
-        final_answer: "43.30 מטרים"
+        final_answer: "45"
     },
 
-    // --- שאלה 26 ---
+    // שאלה מספר 23
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "עץ מטיל צל על הקרקע שאורכו 10 מטרים. זווית ההגבהה של השמש (הזווית מקצה הצל אל קצה העץ) היא 45 מעלות. מהו גובהו של העץ?",
-        options: ["10 מטרים", "14.14 מטרים", "7.07 מטרים", "5 מטרים"],
+        question_text: "במשולש ישר זווית, היתר שווה ל-12 והזווית החדה היא בת 30 מעלות. מהו השטח של המשולש? (רמז: מצאו קודם את שני הניצבים).&rlm;",
+        options: ["31.18", "62.35", "18.00", "50.00"],
         correctAnswer: 0,
-        hint: "הצל מונח על הקרקע (ניצב ליד הזווית). גובה העץ הוא ניצב אנכי (מול הזווית). מול וליד זה טנגנס (tan).",
+        hint: "הניצב מול זווית של 30 מעלות שווה תמיד למחצית מהיתר. מצאו אותו, השתמשו בקוסינוס לניצב השני, וכפלו ביניהם חלקי 2.",
         solution_steps: [
-            { verbal_explanation: "אנו יודעים את הניצב שליד הזווית (הצל) ומחפשים את הניצב שמול הזווית (העץ).", math_expression: "ליד = 10, מול = x" },
-            { verbal_explanation: "נבחר בפונקציית טנגנס.", math_expression: "tan(45°) = x / 10" },
-            { verbal_explanation: "נכפיל ב-10.", math_expression: "x = 10 × tan(45°)" },
-            { verbal_explanation: "טנגנס של 45 הוא 1 בדיוק. לכן גובה העץ שווה לאורך הצל.", math_expression: "x = 10 × 1 = 10" }
+            { verbal_explanation: "שלב 1: מציאת הניצב מול הזווית.", math_expression: "a = 12 \\times \\sin(30^{\\circ}) = 12 \\times 0.5 = 6" },
+            { verbal_explanation: "שלב 2: מציאת הניצב שליד הזווית.", math_expression: "b = 12 \\times \\cos(30^{\\circ}) \\approx 12 \\times 0.866" },
+            { verbal_explanation: "שלב 3: חישוב הניצב השני במדויק.", math_expression: "b \\approx 10.392" },
+            { verbal_explanation: "שלב 4: שימוש בנוסחת השטח למשולש (מכפלת ניצבים חלקי שתיים).", math_expression: "S = \\dfrac{6 \\times 10.392}{2}" },
+            { verbal_explanation: "שלב 5: ביצוע פעולת החילוק של שש בשתיים תחילה להקלת החישוב.", math_expression: "S = 3 \\times 10.392" },
+            { verbal_explanation: "שלב 6: תוצאת הכפל העשרוני.", math_expression: "S \\approx 31.176" },
+            { verbal_explanation: "שלב 7: התאמה לאפשרויות הנתונות בעיגול קל.", math_expression: "31.18" }
         ],
-        final_answer: "10 מטרים"
+        final_answer: "31.18"
     },
 
-    // --- שאלה 27 ---
+    // שאלה מספר 24
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
+        topic: "trigonometry_172",
         subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "תורן של ספינה הוא בגובה 20 מטרים. מהנדס רוצה למתוח כבל תמיכה מקצה התורן אל סיפון הספינה. הזווית שהכבל צריך ליצור עם סיפון הספינה (הרצפה) היא 50°. מה צריך להיות אורך הכבל?",
-        options: ["26.11 מטרים", "15.32 מטרים", "12.85 מטרים", "31.11 מטרים"],
+        question_text: "עפיפון מוחזק בחוט שאורכו 50 מטרים המתוח לחלוטין. זווית העילוי של החוט מול הקרקע היא 40 מעלות. באיזה גובה העפיפון נמצא מעל הקרקע?&rlm;",
+        options: ["32.14", "38.30", "41.95", "50.00"],
         correctAnswer: 0,
-        hint: "הגובה הנתון (20) הוא הניצב ממול. הכבל שמחפשים הוא היתר (x). המשוואה היא sin(50°) = 20 / x. חלקו את 20 בסינוס 50.",
+        hint: "זווית עילוי נוצרת מול הגובה, והחוט המתוח הוא היתר. השתמשו בסינוס.",
         solution_steps: [
-            { verbal_explanation: "נזהה את הנתונים: זווית=50°, מול=20 (התורן), יתר=x (הכבל המתוח).", math_expression: "פונקציה: sin" },
-            { verbal_explanation: "נבנה משוואה.", math_expression: "sin(50°) = 20 / x" },
-            { verbal_explanation: "כדי לבודד את ה-x שבמכנה, נכפיל בו ונחלק בסינוס.", math_expression: "x = 20 / sin(50°)" },
-            { verbal_explanation: "נחשב במחשבון.", math_expression: "x ≈ 20 / 0.766 ≈ 26.11" }
+            { verbal_explanation: "שלב 1: הקמת תבנית המשוואה לפי ההקשר.", math_expression: "\\sin(40^{\\circ}) = \\dfrac{h}{50}" },
+            { verbal_explanation: "שלב 2: חילוץ נעלם הגובה על ידי כפל.", math_expression: "h = 50 \\times \\sin(40^{\\circ})" },
+            { verbal_explanation: "שלב 3: חיפוש הערך של סינוס ארבעים במחשבון.", math_expression: "\\sin(40^{\\circ}) \\approx 0.6428" },
+            { verbal_explanation: "שלב 4: הכפלה בחמישים.", math_expression: "h \\approx 50 \\times 0.6428" },
+            { verbal_explanation: "שלב 5: קבלת התוצאה.", math_expression: "h \\approx 32.14" },
+            { verbal_explanation: "שלב 6: אישור התשובה.", math_expression: "32.14" }
         ],
-        final_answer: "26.11 מטרים"
+        final_answer: "32.14"
     },
 
-    // --- שאלה 28 ---
+    // ==========================================
+    // תת נושא 3: טריגונומטריה במלבן ובמעוין (12 שאלות)
+    // ==========================================
+
+    // שאלה מספר 25
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: `משולש ישר זווית משורטט במערכת צירים.<br>הקודקוד של הזווית הישרה הוא בראשית הצירים (0,0). קודקוד שני הוא (4,0) וקודקוד שלישי הוא (0,3).<br>מה גודלה של הזווית החדה הנמצאת בקודקוד שעל ציר ה-x? (עגלו לשתי ספרות).<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <line x1="20" y1="120" x2="180" y2="120" stroke="#cbd5e1" stroke-width="2" />
-            <line x1="40" y1="140" x2="40" y2="10" stroke="#cbd5e1" stroke-width="2" />
-            <polygon points="40,120 120,120 40,40" fill="#f8fafc" stroke="#dc2626" stroke-width="2"/>
-            <text x="75" y="135" font-size="12">4</text>
-            <text x="25" y="80" font-size="12">3</text>
-            <path d="M100,120 A20,20 0 0,0 106,106" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="90" y="110" font-size="14" font-weight="bold" fill="#10b981">α</text>
-        </svg>`,
-        options: ["36.87°", "53.13°", "45.00°", "30.00°"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במלבן, אורך צלע אחת הוא 8 ואורך הצלע השנייה הוא 6. מהי הזווית שיוצר האלכסון עם הצלע הארוכה (בת ה-8)?&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='40' y='60' width='120' height='80' fill='none' stroke='#3b82f6' stroke-width='2'/><line x1='40' y1='140' x2='160' y2='60' stroke='#f59e0b' stroke-width='2'/><path d='M 70 140 A 30 30 0 0 0 65 125' fill='none' stroke='#ef4444' stroke-width='2'/><text x='75' y='135' font-size='14' fill='#ef4444'>α</text><text x='100' y='160' font-size='14' fill='#334155'>8</text><text x='20' y='105' font-size='14' fill='#334155'>6</text></svg></div>",
+        options: ["36.87", "53.13", "45", "0.75"],
         correctAnswer: 0,
-        hint: "אורך הניצב האופקי (ליד הזווית) הוא 4. אורך הניצב האנכי (מול הזווית) הוא 3. השתמשו בפונקציית טנגנס (Shift tan של 3 חלקי 4).",
+        hint: "האלכסון יוצר משולש ישר זווית. הצלע הנגדית לזווית היא ה-6 והצלע הסמוכה אליה היא ה-8. השתמשו בטנגנס.",
         solution_steps: [
-            { verbal_explanation: "מתוך נקודות הציון ניתן להסיק שאורכי הניצבים הם 3 ו-4.", math_expression: "ליד = 4, מול = 3" },
-            { verbal_explanation: "הזווית המבוקשת α מונחת על קצה הניצב שאורכו 4. לכן ניצב זה הוא 'ליד'. הניצב שאורכו 3 נמצא מולה.", math_expression: "tan(α) = 3 / 4" },
-            { verbal_explanation: "נחשב את השבר.", math_expression: "tan(α) = 0.75" },
-            { verbal_explanation: "נפעיל פונקציה הפוכה במחשבון.", math_expression: "α = tan⁻¹(0.75) ≈ 36.87°" }
+            { verbal_explanation: "שלב 1: זיהוי הניצב מול הזווית המבוקשת.", math_expression: "a = 6" },
+            { verbal_explanation: "שלב 2: זיהוי הניצב ליד הזווית המבוקשת.", math_expression: "b = 8" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת טנגנס.", math_expression: "\\tan(\\alpha) = \\dfrac{6}{8}" },
+            { verbal_explanation: "שלב 4: פישוט השבר לשבר עשרוני.", math_expression: "\\tan(\\alpha) = 0.75" },
+            { verbal_explanation: "שלב 5: מציאת הזווית בעזרת הפונקציה ההפוכה.", math_expression: "\\alpha = \\tan^{-1}(0.75)" },
+            { verbal_explanation: "שלב 6: חילוץ הערך מהמחשבון.", math_expression: "\\alpha \\approx 36.87" },
+            { verbal_explanation: "שלב 7: התוצאה המסכמת.", math_expression: "36.87" }
         ],
-        final_answer: "36.87°"
+        final_answer: "36.87"
     },
 
-    // --- שאלה 29 ---
+    // שאלה מספר 26
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית נתונים שני הניצבים: 5 ס\"מ ו-12 ס\"מ. מבלי למצוא את היתר, מה גודלה של הזווית הנמצאת מול הניצב של ה-12 ס\"מ?",
-        options: ["67.38°", "22.62°", "45.00°", "60.00°"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במלבן, אורך האלכסון הוא 20. הזווית בין האלכסון לצלע הארוכה היא 30 מעלות. מהו אורך הצלע הקצרה?&rlm;",
+        options: ["10", "17.32", "20", "5"],
         correctAnswer: 0,
-        hint: "הניצב ממול הוא 12. הניצב ליד הוא 5. השתמשו בטנגנס. חשבו 12 לחלק ל-5, ואז Shift tan לתשובה.",
+        hint: "הצלע הקצרה נמצאת ממול לזווית הנתונה (של ה-30 מעלות), והאלכסון הוא היתר. לכן, הפעילו סינוס.",
         solution_steps: [
-            { verbal_explanation: "השאלה מבקשת להשתמש רק בניצבים, לכן הפונקציה היחידה המתאימה היא טנגנס.", math_expression: "tan(α) = מול / ליד" },
-            { verbal_explanation: "הזווית המבוקשת נמצאת מול ה-12, לכן 12 הוא ה'מול'.", math_expression: "tan(α) = 12 / 5" },
-            { verbal_explanation: "נחשב את היחס.", math_expression: "tan(α) = 2.4" },
-            { verbal_explanation: "נמצא את הזווית בעזרת המחשבון.", math_expression: "α = tan⁻¹(2.4) ≈ 67.38°" }
+            { verbal_explanation: "שלב 1: כתיבת הקשר בעזרת פונקציית סינוס.", math_expression: "\\sin(30^{\\circ}) = \\dfrac{h}{20}" },
+            { verbal_explanation: "שלב 2: בידוד הגובה (הצלע הקצרה).", math_expression: "h = 20 \\times \\sin(30^{\\circ})" },
+            { verbal_explanation: "שלב 3: שליפת ערך הסינוס.", math_expression: "\\sin(30^{\\circ}) = 0.5" },
+            { verbal_explanation: "שלב 4: כפל פשוט.", math_expression: "h = 20 \\times 0.5" },
+            { verbal_explanation: "שלב 5: הגעה לתוצאה.", math_expression: "h = 10" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "10" }
         ],
-        final_answer: "67.38°"
+        final_answer: "10"
     },
 
-    // --- שאלה 30 ---
+    // שאלה מספר 27
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "מציאת צלעות וזוויות במשולש ישר זווית",
-        question: "במשולש ישר זווית חשבנו את הזווית החדה α בעזרת סינוס ומצאנו שהיא 40°. מה יהיה גודלה של הזווית החדה השנייה (β)?",
-        options: ["50°", "140°", "40°", "60°"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במעוין, האלכסון הארוך שווה ל-24 והאלכסון הקצר שווה ל-10. מהי הזווית החדה של המעוין? (רמז: מצאו קודם חצי זווית ואז הכפילו).&rlm;",
+        options: ["45.24", "22.62", "67.38", "134.76"],
         correctAnswer: 0,
-        hint: "אין צורך בחישובים ארוכים. במשולש ישר זווית (שבו יש כבר 90 מעלות), שתי הזוויות הנותרות תמיד משלימות יחד ל-90.",
+        hint: "האלכסונים חוצים זה את זה ויוצרים 4 משולשים ישרי זווית עם ניצבים 12 ו-5. מצאו את הזווית החדה במשולש והכפילו ב-2.",
         solution_steps: [
-            { verbal_explanation: "סכום הזוויות במשולש הוא תמיד 180°.", math_expression: "α + β + 90° = 180°" },
-            { verbal_explanation: "נחסר את ה-90°. נקבל שסכום שתי הזוויות החדות הוא 90°.", math_expression: "α + β = 90°" },
-            { verbal_explanation: "נציב את הזווית שמצאנו (40) כדי לגלות את השנייה.", math_expression: "40° + β = 90°" },
-            { verbal_explanation: "נחסר ונמצא את התשובה.", math_expression: "β = 90° - 40° = 50°" }
+            { verbal_explanation: "שלב 1: חלוקת האלכסונים למציאת הניצבים במשולש הקטן.", math_expression: "a = 5 \\quad , \\quad b = 12" },
+            { verbal_explanation: "שלב 2: שימוש בטנגנס למציאת חצי מהזווית החדה של המעוין.", math_expression: "\\tan(\\alpha) = \\dfrac{5}{12}" },
+            { verbal_explanation: "שלב 3: המרה לעשרוני וחישוב שבר.", math_expression: "\\tan(\\alpha) \\approx 0.4166" },
+            { verbal_explanation: "שלב 4: הפעלת הפונקציה ההפוכה לקבלת מחצית הזווית.", math_expression: "\\alpha = \\tan^{-1}(0.4166) \\approx 22.62" },
+            { verbal_explanation: "שלב 5: הכפלת התוצאה בשתיים, כיוון שהאלכסון חוצה את זווית המעוין.", math_expression: "Angle = 2 \\times 22.62" },
+            { verbal_explanation: "שלב 6: חישוב הזווית השלמה.", math_expression: "Angle = 45.24" },
+            { verbal_explanation: "שלב 7: הרישום.", math_expression: "45.24" }
         ],
-        final_answer: "50°"
-    },// ========================================================================
-    // תת נושא 3: שטח משולש לפי שתי צלעות וזווית
-    // ========================================================================
-
-    // --- שאלה 31 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: `במשולש נתונות שתי צלעות שאורכן 8 ס"מ ו-10 ס"מ. הזווית הכלואה ביניהן היא בת 30°.<br>מהו שטח המשולש?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="20,120 160,120 70,30" fill="#f8fafc" stroke="#3b82f6" stroke-width="2"/>
-            <text x="80" y="135" font-size="12" font-weight="bold">10</text>
-            <text x="30" y="70" font-size="12" font-weight="bold">8</text>
-            <path d="M45,120 A25,25 0 0,0 55,95" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="55" y="115" font-size="12" font-weight="bold" fill="#10b981">30°</text>
-        </svg>`,
-        options: ["20 סמ\"ר", "40 סמ\"ר", "80 סמ\"ר", "34.64 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "השתמשו בנוסחת השטח הטריגונומטרית: צלע כפול צלע כפול סינוס הזווית שביניהן, וכל זה חלקי 2.",
-        solution_steps: [
-            { verbal_explanation: "נשתמש בנוסחה למציאת שטח משולש בעזרת טריגונומטריה: מכפלת שתי צלעות בסינוס הזווית הכלואה ביניהן חלקי שתיים.", math_expression: "S = (a × b × sin(γ)) / 2" },
-            { verbal_explanation: "נציב את הנתונים שלנו: צלעות 8 ו-10, וזווית 30 מעלות.", math_expression: "S = (8 × 10 × sin(30°)) / 2" },
-            { verbal_explanation: "נחשב במחשבון. sin(30°) שווה בדיוק לחצי (0.5).", math_expression: "S = (80 × 0.5) / 2" },
-            { verbal_explanation: "40 לחלק ל-2 שווה ל-20.", math_expression: "S = 20" }
-        ],
-        final_answer: "20 סמ\"ר"
+        final_answer: "45.24"
     },
 
-    // --- שאלה 32 ---
+    // שאלה מספר 28
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "שטחו של משולש הוא 30 סמ\"ר. ידוע שאורך צלע אחת הוא 12 ס\"מ, והזווית הכלואה בינה לבין הצלע השנייה היא 30°. מהו אורך הצלע השנייה?",
-        options: ["10 ס\"מ", "5 ס\"מ", "15 ס\"מ", "8.66 ס\"מ"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "אורך צלע מעוין הוא 15. הזווית החדה של המעוין היא 40 מעלות. מהו אורך האלכסון הקצר?&rlm;<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='100,20 160,100 100,180 40,100' fill='none' stroke='#f59e0b' stroke-width='2'/><line x1='40' y1='100' x2='160' y2='100' stroke='#94a3b8' stroke-dasharray='4,4' stroke-width='2'/><path d='M 60 100 A 20 20 0 0 0 50 115' fill='none' stroke='#ef4444' stroke-width='2'/><text x='55' y='110' font-size='10' fill='#ef4444'>20°</text><text x='60' y='60' font-size='14' fill='#334155'>15</text></svg></div>",
+        options: ["10.26", "5.13", "28.19", "14.09"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בנוסחת השטח: (12 כפול x כפול סינוס 30) חלקי 2 שווה 30. פתרו את המשוואה כדי למצוא את x.",
+        hint: "חצו את הזווית החדה ל-20 מעלות. השתמשו בסינוס במשולש ישר הזווית שנוצר כדי למצוא חצי אלכסון, ולאחר מכן הכפילו ב-2.",
         solution_steps: [
-            { verbal_explanation: "נרשום את משוואת השטח עם הנתונים הידועים.", math_expression: "30 = (12 × x × sin(30°)) / 2" },
-            { verbal_explanation: "נכפיל את שני אגפי המשוואה ב-2 כדי להיפטר מהמכנה.", math_expression: "60 = 12 × x × sin(30°)" },
-            { verbal_explanation: "נחשב את סינוס 30 (שהוא 0.5) ונכפיל ב-12.", math_expression: "12 × 0.5 = 6" },
-            { verbal_explanation: "נקבל את המשוואה הפשוטה: 60 שווה ל-6x. נחלק ב-6.", math_expression: "x = 10" }
+            { verbal_explanation: "שלב 1: חלוקת זווית המעוין לשניים כדי לקבל את זווית המשולש ישר הזווית.", math_expression: "\\alpha = 40 : 2 = 20" },
+            { verbal_explanation: "שלב 2: הצבה בנוסחת סינוס, כאשר היתר הוא צלע המעוין (15).", math_expression: "\\sin(20^{\\circ}) = \\dfrac{x}{15}" },
+            { verbal_explanation: "שלב 3: בידוד הניצב שמהווה מחצית מהאלכסון הקצר.", math_expression: "x = 15 \\times \\sin(20^{\\circ})" },
+            { verbal_explanation: "שלב 4: הוצאת הסינוס במחשבון והכפלה.", math_expression: "x \\approx 15 \\times 0.342" },
+            { verbal_explanation: "שלב 5: חישוב מחצית האלכסון.", math_expression: "x \\approx 5.13" },
+            { verbal_explanation: "שלב 6: הכפלת התוצאה בשתיים למציאת אורך האלכסון השלם.", math_expression: "d = 2 \\times 5.13" },
+            { verbal_explanation: "שלב 7: הרישום הסופי להקלדה.", math_expression: "10.26" }
         ],
-        final_answer: "10 ס\"מ"
+        final_answer: "10.26"
     },
 
-    // --- שאלה 33 ---
+    // שאלה מספר 29
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "במשולש נתונות שתי צלעות שאורכן 8 ס\"מ ו-10 ס\"מ. שטח המשולש הוא 40 סמ\"ר. מה יכול להיות גודל הזווית הכלואה ביניהן?",
-        options: ["90°", "60°", "45°", "30°"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במלבן, אורך האלכסון הוא 12. הוא יוצר זווית של 60 מעלות עם אחת הצלעות. חשבו את שטח המלבן.&rlm;",
+        options: ["62.35", "31.18", "72", "144"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בנוסחה כדי לבודד את הסינוס. תגלו ש-sin(α) שווה ל-1. עבור איזו זווית הסינוס הוא 1?",
+        hint: "חשבו גם את אורך המלבן (בעזרת קוסינוס) וגם את רוחבו (בעזרת סינוס), ואז כפלו ביניהם לקבלת השטח.",
         solution_steps: [
-            { verbal_explanation: "נבנה משוואה לפי נוסחת השטח הטריגונומטרית.", math_expression: "40 = (8 × 10 × sin(α)) / 2" },
-            { verbal_explanation: "נכפיל ב-2 כדי לבטל את המכנה.", math_expression: "80 = 80 × sin(α)" },
-            { verbal_explanation: "נחלק ב-80. קיבלנו שסינוס הזווית שווה ל-1.", math_expression: "sin(α) = 1" },
-            { verbal_explanation: "בעזרת הפונקציה ההפוכה (Shift sin) של 1, נקבל 90 מעלות. כלומר, מדובר במשולש ישר זווית.", math_expression: "α = 90°" }
+            { verbal_explanation: "שלב 1: מציאת הצלע מול הזווית באמצעות סינוס.", math_expression: "a = 12 \\times \\sin(60^{\\circ})" },
+            { verbal_explanation: "שלב 2: חישוב ערך הניצב הראשון.", math_expression: "a \\approx 12 \\times 0.866 = 10.392" },
+            { verbal_explanation: "שלב 3: מציאת הצלע ליד הזווית באמצעות קוסינוס.", math_expression: "b = 12 \\times \\cos(60^{\\circ})" },
+            { verbal_explanation: "שלב 4: חישוב ערך הניצב השני.", math_expression: "b = 12 \\times 0.5 = 6" },
+            { verbal_explanation: "שלב 5: שטח המלבן הוא מכפלת שתי צלעותיו הסמוכות.", math_expression: "S = a \\times b" },
+            { verbal_explanation: "שלב 6: הצבה וחישוב.", math_expression: "S = 10.392 \\times 6" },
+            { verbal_explanation: "שלב 7: התוצאה המעוגלת של השטח.", math_expression: "62.35" }
         ],
-        final_answer: "90°"
+        final_answer: "62.35"
     },
 
-    // --- שאלה 34 ---
+    // שאלה מספר 30
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "מהו שטחו של משולש שווה צלעות (שבו כל הזוויות הן בנות 60°) שאורך כל אחת מצלעותיו הוא 6 ס\"מ?",
-        options: ["15.59 סמ\"ר", "18 סמ\"ר", "9 סמ\"ר", "31.18 סמ\"ר"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "אלכסוני המלבן יוצרים ביניהם זווית של 40 מעלות. אורך האלכסון הוא 10. (רמז: נוצר משולש שווה שוקיים משני חצאי אלכסונים וצלע המלבן הקצרה). מהו אורך צלע זו?&rlm;",
+        options: ["3.42", "6.84", "1.71", "5.00"],
         correctAnswer: 0,
-        hint: "במשולש שווה צלעות, קחו כל שתי צלעות סמוכות (6 ו-6) ואת הזווית שביניהן (60). הציבו בנוסחת השטח הטריגונומטרית.",
+        hint: "חצאי האלכסונים הם באורך 5. במשולש שווה השוקיים שנוצר, הורידו גובה המחלק את זווית ה-40 ל-20 מעלות, והשתמשו בסינוס.",
         solution_steps: [
-            { verbal_explanation: "במשולש שווה צלעות אנו יודעים אוטומטית שתי צלעות ואת הזווית שביניהן.", math_expression: "a = 6,  b = 6,  α = 60°" },
-            { verbal_explanation: "נציב בנוסחת השטח.", math_expression: "S = (6 × 6 × sin(60°)) / 2" },
-            { verbal_explanation: "נחשב את המונה. sin(60°) הוא בערך 0.866. מכפלת 36 ב-0.866 נותנת 31.176.", math_expression: "S ≈ 31.176 / 2" },
-            { verbal_explanation: "נחלק ב-2.", math_expression: "S ≈ 15.59" }
+            { verbal_explanation: "שלב 1: חישוב אורך מחצית האלכסון המהווה שוק במשולש שנוצר.", math_expression: "L = 10 : 2 = 5" },
+            { verbal_explanation: "שלב 2: הורדת גובה במשולש שווה השוקיים שחוצה את הזווית בין האלכסונים.", math_expression: "\\alpha = 40 : 2 = 20" },
+            { verbal_explanation: "שלב 3: שימוש בסינוס במשולש ישר הזווית החדש למציאת מחצית צלע המלבן.", math_expression: "\\sin(20^{\\circ}) = \\dfrac{x}{5}" },
+            { verbal_explanation: "שלב 4: חישוב איקס.", math_expression: "x = 5 \\times 0.342 = 1.71" },
+            { verbal_explanation: "שלב 5: הכפלת התוצאה בשתיים כדי לקבל את צלע המלבן השלמה.", math_expression: "a = 2 \\times 1.71" },
+            { verbal_explanation: "שלב 6: הרישום לפתרון.", math_expression: "3.42" }
         ],
-        final_answer: "15.59 סמ\"ר"
+        final_answer: "3.42"
     },
 
-    // --- שאלה 35 ---
+    // שאלה מספר 31
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "במשולש קהה זווית, אורכי שתי צלעות הם 5 ס\"מ ו-8 ס\"מ, והזווית הכלואה ביניהן היא בת 150°. מהו שטח המשולש?",
-        options: ["10 סמ\"ר", "20 סמ\"ר", "17.32 סמ\"ר", "34.64 סמ\"ר"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במעוין, הזווית הקהה שווה ל-120 מעלות. אורך הצלע הוא 8. מהו אורך האלכסון הקצר?&rlm;",
+        options: ["8", "4", "13.86", "6.93"],
         correctAnswer: 0,
-        hint: "הנוסחה הטריגונומטרית עובדת באותה הצורה בדיוק גם עבור זוויות קהות. הציבו sin(150°) במחשבון.",
+        hint: "אם הזווית הקהה היא 120, החדה היא 60. האלכסון הקצר מחלק את המעוין לשני משולשים שווי צלעות. מה המשמעות לגבי האלכסון?",
         solution_steps: [
-            { verbal_explanation: "נוסחת השטח (צלע כפול צלע כפול סינוס חלקי 2) תקפה לכל סוגי המשולשים.", math_expression: "S = (5 × 8 × sin(150°)) / 2" },
-            { verbal_explanation: "במחשבון, הערך של sin(150°) זהה לערך של sin(30°), והוא בדיוק 0.5.", math_expression: "sin(150°) = 0.5" },
-            { verbal_explanation: "נציב חזרה ונחשב: 40 כפול חצי, לחלק ל-2.", math_expression: "S = 20 / 2 = 10" }
+            { verbal_explanation: "שלב 1: מציאת הזווית החדה של המעוין מתוך הזווית הקהה.", math_expression: "180 - 120 = 60" },
+            { verbal_explanation: "שלב 2: האלכסון הקצר מחבר את קודקודי הזווית הקהה ויוצר משולש עם הזווית החדה.", math_expression: "Angle = 60" },
+            { verbal_explanation: "שלב 3: מכיוון שמעוין מורכב מצלעות שוות, המשולש שנוצר הוא שווה שוקיים עם זווית ראש 60.", math_expression: "Base \\ Angles = (180-60):2 = 60" },
+            { verbal_explanation: "שלב 4: הוכחנו שהמשולש הוא שווה צלעות. משמע כל צלעותיו שוות.", math_expression: "a = b = c" },
+            { verbal_explanation: "שלב 5: אורך האלכסון חייב להיות שווה לאורך הצלע המקורית של המעוין.", math_expression: "d = 8" },
+            { verbal_explanation: "שלב 6: התוצאה מושגת ללא טריגונומטריה מורכבת כלל.", math_expression: "8" }
         ],
-        final_answer: "10 סמ\"ר"
+        final_answer: "8"
     },
 
-    // --- שאלה 36 ---
+    // שאלה מספר 32
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "במקבילית, אורך צלע אחת הוא 7 ס\"מ ואורך הצלע הסמוכה לה הוא 10 ס\"מ. הזווית הכלואה ביניהן היא 40°. מהו שטח המקבילית?",
-        options: ["45.00 סמ\"ר", "22.50 סמ\"ר", "35.00 סמ\"ר", "53.62 סמ\"ר"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במלבן, הזווית בין האלכסון לצלע הקצרה היא 70 מעלות. היקף המלבן הוא 40. חשבו את צלעות המלבן (הביעו צלע אחת כ-X וצלע שנייה באמצעות טנגנס, או נסו פתרון גיאומטרי). כאן נבקש את הצלע הקצרה בלבד, כשהיחס מקורב. (התשובה תהיה אחד מהבאים).&rlm;",
+        options: ["5.34", "14.66", "10", "7.5"],
         correctAnswer: 0,
-        hint: "אלכסון במקבילית מחלק אותה לשני משולשים חופפים. חשבו את השטח של משולש אחד כזה באמצעות הנוסחה הטריגונומטרית, והכפילו פי 2 (כלומר, פשוט השמיטו את החלוקה ב-2 מהנוסחה).",
+        hint: "היחס בין הצלע הארוכה לקצרה שווה לטנגנס של 70. בנוסף, פעמיים קצרה ועוד פעמיים ארוכה שווה ל-40.",
         solution_steps: [
-            { verbal_explanation: "שטח מקבילית ניתן לחשב על ידי הכפלת שתי צלעות סמוכות בסינוס הזווית שביניהן (ללא חלוקה ב-2 כמו במשולש).", math_expression: "S = a × b × sin(α)" },
-            { verbal_explanation: "נציב את נתוני המקבילית.", math_expression: "S = 7 × 10 × sin(40°)" },
-            { verbal_explanation: "נחשב את הסינוס. sin(40°) שווה בערך ל-0.6427.", math_expression: "S ≈ 70 × 0.6427" },
-            { verbal_explanation: "נבצע את פעולת הכפל.", math_expression: "S ≈ 44.99 (בקירוב 45.00)" }
+            { verbal_explanation: "שלב 1: הגדרת הקשר בין הצלעות בעזרת טנגנס שבעים.", math_expression: "\\tan(70^{\\circ}) = \\dfrac{L}{W}" },
+            { verbal_explanation: "שלב 2: בידוד הצלע הארוכה בעזרת הערך העשרוני.", math_expression: "L = 2.747 \\times W" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת ההיקף.", math_expression: "2W + 2L = 40" },
+            { verbal_explanation: "שלב 4: חלוקת ההיקף בשתיים להקלה.", math_expression: "W + L = 20" },
+            { verbal_explanation: "שלב 5: הצבת הביטוי של האורך בתוך המשוואה.", math_expression: "W + 2.747W = 20" },
+            { verbal_explanation: "שלב 6: כינוס איברים.", math_expression: "3.747W = 20" },
+            { verbal_explanation: "שלב 7: חלוקה לקבלת הצלע הקצרה.", math_expression: "W \\approx 5.34" }
         ],
-        final_answer: "45.00 סמ\"ר"
+        final_answer: "5.34"
     },
 
-    // --- שאלה 37 ---
+    // שאלה מספר 33
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "איזו משתי הזוויות הבאות תניב את אותו שטח לאותו זוג צלעות: זווית של 20° או זווית של 160°?",
-        options: ["הן יניבו בדיוק את אותו השטח", "זווית של 160° תניב שטח גדול יותר", "זווית של 20° תניב שטח גדול יותר", "זווית קהה גורמת לשטח שלילי"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במעוין, אורך צלע הוא 12. זווית חדה היא 50 מעלות. מהו אורך הגובה היורד מצלע לצלע במעוין? (הגובה הכללי של המעוין).&rlm;",
+        options: ["9.19", "7.71", "12", "6"],
         correctAnswer: 0,
-        hint: "בדקו במחשבון: למה שווה sin(20°)? ולמה שווה sin(160°)? בטריגונומטריה, סינוס של זווית חדה שווה לסינוס של הזווית המשלימה אותה ל-180°.",
+        hint: "גובה במעוין יכול להיות מחושב על ידי הורדת אנך מקודקוד צדדי, מה שיוצר משולש ישר זווית שבו הצלע היא היתר, והזווית החדה היא 50.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את ערך הסינוס של שתי הזוויות, שכן הוא הקובע את גודל השטח.", math_expression: "sin(20°) ≈ 0.342" },
-            { verbal_explanation: "כעת נבדוק את הזווית הקהה המשלימה לה.", math_expression: "sin(160°) ≈ 0.342" },
-            { verbal_explanation: "מכיוון שערכי הסינוס זהים לחלוטין, גם תוצאת השטח תהיה זהה לחלוטין.", math_expression: "אותו השטח" }
+            { verbal_explanation: "שלב 1: הציור הדימיוני יוצר משולש ישר זווית עם היתר המהווה את צלע המעוין.", math_expression: "c = 12" },
+            { verbal_explanation: "שלב 2: הזווית מול הגובה במקרה זה היא בדיוק הזווית החדה של המעוין.", math_expression: "\\alpha = 50^{\\circ}" },
+            { verbal_explanation: "שלב 3: הצבה במשפט הסינוס למציאת הגובה.", math_expression: "\\sin(50^{\\circ}) = \\dfrac{h}{12}" },
+            { verbal_explanation: "שלב 4: בידוד הגובה.", math_expression: "h = 12 \\times \\sin(50^{\\circ})" },
+            { verbal_explanation: "שלב 5: חישוב הערך במחשבון.", math_expression: "h \\approx 12 \\times 0.766" },
+            { verbal_explanation: "שלב 6: התוצאה שמתקבלת.", math_expression: "h \\approx 9.19" },
+            { verbal_explanation: "שלב 7: בחירת התשובה.", math_expression: "9.19" }
         ],
-        final_answer: "הן יניבו בדיוק את אותו השטח"
+        final_answer: "9.19"
     },
 
-    // --- שאלה 38 ---
+    // שאלה מספר 34
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "במשולש שווה שוקיים, אורך כל אחת מהשוקיים הוא 5 ס\"מ. זווית הראש היא 120°. מהו שטח המשולש?",
-        options: ["10.82 סמ\"ר", "21.65 סמ\"ר", "6.25 סמ\"ר", "12.50 סמ\"ר"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במלבן, האלכסון ארוך ב-2 סנטימטרים מהצלע הארוכה. הצלע הקצרה היא באורך 6 סנטימטרים. מהי הזווית בין האלכסון לצלע הארוכה?&rlm;",
+        options: ["36.87", "41.41", "22.62", "30.00"],
         correctAnswer: 0,
-        hint: "הציבו את שתי השוקיים (5 ו-5) ואת הזווית שביניהן (120°) בנוסחה: (5 כפול 5 כפול סינוס 120) חלקי 2.",
+        hint: "קודם יש למצוא את הצלעות. השתמשו בפיתגורס כשאתם מסמנים את הצלע הארוכה באיקס ואת האלכסון באיקס ועוד 2. לאחר מכן, השתמשו בטנגנס.",
         solution_steps: [
-            { verbal_explanation: "יש לנו את שתי הצלעות הכלואות ואת זווית הראש שביניהן.", math_expression: "a = 5,  b = 5,  α = 120°" },
-            { verbal_explanation: "נציב בנוסחת השטח.", math_expression: "S = (5 × 5 × sin(120°)) / 2" },
-            { verbal_explanation: "במחשבון, sin(120°) שווה בערך 0.866.", math_expression: "S = (25 × 0.866) / 2" },
-            { verbal_explanation: "נחשב את המנה לקבלת התוצאה הסופית.", math_expression: "S ≈ 21.65 / 2 ≈ 10.82" }
+            { verbal_explanation: "שלב 1: הצבת הנתונים ממשפט פיתגורס לתוך משוואה.", math_expression: "6^{2} + x^{2} = (x + 2)^{2}" },
+            { verbal_explanation: "שלב 2: פתיחת סוגריים עם כפל מקוצר.", math_expression: "36 + x^{2} = x^{2} + 4x + 4" },
+            { verbal_explanation: "שלב 3: צמצום איקס בריבוע משני הצדדים.", math_expression: "36 = 4x + 4" },
+            { verbal_explanation: "שלב 4: בידוד וחלוקה למציאת הצלע הארוכה.", math_expression: "4x = 32 \\Rightarrow x = 8" },
+            { verbal_explanation: "שלב 5: עכשיו כשידוע שהצלעות הן שש ושמונה, נשתמש בטנגנס למציאת הזווית.", math_expression: "\\tan(\\alpha) = \\dfrac{6}{8} = 0.75" },
+            { verbal_explanation: "שלב 6: הפעלת פונקציה הפוכה.", math_expression: "\\alpha = \\tan^{-1}(0.75)" },
+            { verbal_explanation: "שלב 7: התוצאה למעלות.", math_expression: "36.87" }
         ],
-        final_answer: "10.82 סמ\"ר"
+        final_answer: "36.87"
     },
 
-    // --- שאלה 39 ---
+    // שאלה מספר 35
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "נתונות שתי צלעות במשולש: 6 ס\"מ ו-10 ס\"מ. עבור איזו זווית הכלואה ביניהן, יתקבל השטח המקסימלי האפשרי למשולש זה?",
-        options: ["90°", "180°", "45°", "60°"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "במעוין, יחס האלכסונים הוא 3:4. אורך צלע המעוין הוא 10. מצאו את הזווית הקהה של המעוין.&rlm;",
+        options: ["106.26", "73.74", "120.00", "90.00"],
         correctAnswer: 0,
-        hint: "השטח תלוי בערך של הסינוס בנוסחה. הערך המקסימלי שסינוס יכול לקבל הוא 1. עבור איזו זווית נקבל sin(x) = 1?",
+        hint: "אם היחס הוא שלוש לארבע, סמנו חצאי אלכסונים כשלושה איקס וארבעה איקס, השתמשו בפיתגורס עם היתר עשר. לבסוף, מצאו זווית בעזרת טנגנס והכפילו.",
         solution_steps: [
-            { verbal_explanation: "הנוסחה מורכבת מהכפלה של הצלעות ב-sin(α). מכיוון שהצלעות קבועות בגודלן, השטח יגדל ככל שהסינוס יגדל.", math_expression: "S ∝ sin(α)" },
-            { verbal_explanation: "הערך הגבוה ביותר שפונקציית סינוס יכולה לתת הוא 1.", math_expression: "Max(sin) = 1" },
-            { verbal_explanation: "הזווית היחידה שנותנת תוצאה של 1 היא זווית ישרה של 90 מעלות.", math_expression: "sin(90°) = 1" }
+            { verbal_explanation: "שלב 1: שימוש בפיתגורס במשולש עם הניצבים הנגזרים מהיחס.", math_expression: "(3x)^{2} + (4x)^{2} = 10^{2}" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע.", math_expression: "9x^{2} + 16x^{2} = 100" },
+            { verbal_explanation: "שלב 3: כינוס ולמציאת איקס.", math_expression: "25x^{2} = 100 \\Rightarrow x^{2} = 4 \\Rightarrow x = 2" },
+            { verbal_explanation: "שלב 4: מציאת חצאי האלכסונים הממשיים.", math_expression: "a = 6 \\quad , \\quad b = 8" },
+            { verbal_explanation: "שלב 5: שימוש בטנגנס למציאת חצי הזווית הקהה (ניצב מול חלקי ליד).", math_expression: "\\tan(\\alpha) = \\dfrac{8}{6}" },
+            { verbal_explanation: "שלב 6: שיפט טנגנס למציאת הזווית.", math_expression: "\\alpha \\approx 53.13" },
+            { verbal_explanation: "שלב 7: הכפלה בשתיים לזווית השלמה.", math_expression: "53.13 \\times 2 = 106.26" }
         ],
-        final_answer: "90°"
+        final_answer: "106.26"
     },
 
-    // --- שאלה 40 ---
+    // שאלה מספר 36
     {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "שטחו של מעוין הוא 50 סמ\"ר. ידוע שאורך צלע המעוין הוא 10 ס\"מ. מהו גודלה של הזווית החדה של המעוין?",
-        options: ["30°", "45°", "60°", "20°"],
+        topic: "trigonometry_172",
+        subTopic: "טריגונומטריה במלבן ובמעוין",
+        question_text: "אלכסוני מלבן חותכים זה את זה ויוצרים שתי זוויות כהות ושתי חדות. הזווית החדה בין האלכסונים היא 50 מעלות. אורך האלכסון כולו הוא 14. מהו שטח המלבן?&rlm;",
+        options: ["75.08", "98.00", "37.54", "49.00"],
         correctAnswer: 0,
-        hint: "במעוין כל הצלעות שוות. לכן שתי צלעות סמוכות הן 10 ו-10. השתמשו בנוסחת שטח מקבילית/מעוין: 10 כפול 10 כפול סינוס הזווית שווה 50.",
+        hint: "היעזרו בנוסחה לשטח מלבן לפי אלכסונים: מחצית מכפלת האלכסונים כפול סינוס הזווית שביניהם. האלכסונים במלבן שווים.",
         solution_steps: [
-            { verbal_explanation: "במעוין כל הצלעות שוות, ולכן כל שתי צלעות סמוכות הן 10 ו-10. השטח מחושב כמכפלתן בסינוס הזווית ביניהן (ללא חלוקה ב-2).", math_expression: "50 = 10 × 10 × sin(α)" },
-            { verbal_explanation: "נכפיל את הצלעות.", math_expression: "50 = 100 × sin(α)" },
-            { verbal_explanation: "נחלק ב-100 כדי לבודד את הסינוס.", math_expression: "sin(α) = 50 / 100 = 0.5" },
-            { verbal_explanation: "נפעיל פעולה הפוכה (Shift sin) על 0.5 ונקבל את הזווית החדה.", math_expression: "α = 30°" }
+            { verbal_explanation: "שלב 1: הצגת הנוסחה המיוחדת לשטח מרובע לפי אלכסונים.", math_expression: "S = \\dfrac{d_{1} \\times d_{2} \\times \\sin(\\alpha)}{2}" },
+            { verbal_explanation: "שלב 2: במלבן שני האלכסונים שווים.", math_expression: "d_{1} = 14 \\quad , \\quad d_{2} = 14" },
+            { verbal_explanation: "שלב 3: הצבת הנתונים אל תוך הנוסחה.", math_expression: "S = \\dfrac{14 \\times 14 \\times \\sin(50^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 4: מציאת ערך הסינוס.", math_expression: "\\sin(50^{\\circ}) \\approx 0.766" },
+            { verbal_explanation: "שלב 5: הכפלת האלכסונים זה בזה.", math_expression: "14 \\times 14 = 196" },
+            { verbal_explanation: "שלב 6: חלוקה בשתיים והכפלה בסינוס.", math_expression: "S = 98 \\times 0.766" },
+            { verbal_explanation: "שלב 7: הרישום הסופי המעוגל לשטח.", math_expression: "75.08" }
         ],
-        final_answer: "30°"
-    },
-
-    // --- שאלה 41 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "במשולש ישר זווית אורך שני הניצבים הוא 4 ס\"מ ו-5 ס\"מ. אם נשתמש בנוסחת השטח הטריגונומטרית (עם סינוס), מה תהיה המשוואה?",
-        options: ["S = (4 × 5 × sin(90°)) / 2", "S = (4 × 5 × sin(45°)) / 2", "S = 4 × 5 × sin(90°)", "S = (4 × 5) / sin(90°)"],
-        correctAnswer: 0,
-        hint: "הניצבים הם הצלעות שיוצרות את הזווית הישרה (90°). לכן הזווית הכלואה ביניהם היא 90 מעלות.",
-        solution_steps: [
-            { verbal_explanation: "במשולש ישר זווית, הזווית הכלואה בין שני הניצבים היא תמיד 90 מעלות.", math_expression: "α = 90°" },
-            { verbal_explanation: "נוסחת השטח הטריגונומטרית משתלבת באופן מושלם עם נוסחת השטח הרגילה, מכיוון ש-sin(90°) שווה ל-1.", math_expression: "sin(90°) = 1" },
-            { verbal_explanation: "ההצבה בנוסחה תהיה מכפלת הניצבים בסינוס 90, חלקי 2.", math_expression: "S = (4 × 5 × sin(90°)) / 2" }
-        ],
-        final_answer: "S = (4 × 5 × sin(90°)) / 2"
-    },
-
-    // --- שאלה 42 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "שטח משולש הוא 15 סמ\"ר. צלע אחת אורכה 6 ס\"מ והזווית הכלואה היא בת 30°. מהו אורך הצלע השנייה?",
-        options: ["10 ס\"מ", "5 ס\"מ", "15 ס\"מ", "12 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הציבו הכל בנוסחה: (6 כפול x כפול sin 30) חלקי 2 שווה 15. חלצו את הנעלם x.",
-        solution_steps: [
-            { verbal_explanation: "נרכיב את משוואת השטח.", math_expression: "15 = (6 × x × sin(30°)) / 2" },
-            { verbal_explanation: "נכפיל ב-2 כדי להיפטר מהשבר.", math_expression: "30 = 6 × x × 0.5" },
-            { verbal_explanation: "נכפיל את 6 בחצי.", math_expression: "30 = 3x" },
-            { verbal_explanation: "נחלק ב-3 למציאת הצלע.", math_expression: "x = 10" }
-        ],
-        final_answer: "10 ס\"מ"
-    },
-
-    // --- שאלה 43 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "שטח משולש לפי שתי צלעות וזווית",
-        question: "במשולש אורכי שתי צלעות הם 7 ס\"מ ו-8 ס\"מ והזווית ביניהן היא 60°. מהו שטח המשולש?",
-        options: ["24.25 סמ\"ר", "28.00 סמ\"ר", "48.50 סמ\"ר", "14.00 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "הציבו בנוסחה את הצלעות ואת sin(60°) שהוא 0.866 בערך. חשבו: 7 כפול 8 כפול 0.866 חלקי 2.",
-        solution_steps: [
-            { verbal_explanation: "הצבת הנתונים בנוסחת השטח הטריגונומטרית.", math_expression: "S = (7 × 8 × sin(60°)) / 2" },
-            { verbal_explanation: "מחשבים את המונה.", math_expression: "S = (56 × 0.866) / 2" },
-            { verbal_explanation: "נבצע את הכפל.", math_expression: "S ≈ 48.5 / 2" },
-            { verbal_explanation: "נחלק ב-2 לקבלת התוצאה.", math_expression: "S ≈ 24.25" }
-        ],
-        final_answer: "24.25 סמ\"ר"
-    },
-
-    // ========================================================================
-    // תת נושא 4: טריגונומטריה במשולש שווה שוקיים
-    // ========================================================================
-
-    // --- שאלה 44 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: `במשולש שווה שוקיים, אורך כל שוק הוא 10 ס"מ. אורך הבסיס הוא 12 ס"מ. מורידים גובה לבסיס.<br>מהו גודלה של זווית הבסיס?<br><br>
-        <svg viewBox="0 0 200 150" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <polygon points="40,120 160,120 100,40" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
-            <line x1="100" y1="40" x2="100" y2="120" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,4"/>
-            <rect x="100" y="110" width="10" height="10" fill="none" stroke="#dc2626" stroke-width="1"/>
-            <text x="60" y="70" font-size="12" font-weight="bold">10</text>
-            <text x="140" y="70" font-size="12" font-weight="bold">10</text>
-            <text x="100" y="135" font-size="12" font-weight="bold">12</text>
-            <path d="M55,120 A15,15 0 0,0 60,110" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="65" y="115" font-size="12" font-weight="bold" fill="#10b981">α</text>
-        </svg>`,
-        options: ["53.13°", "36.87°", "60.00°", "45.00°"],
-        correctAnswer: 0,
-        hint: "הגובה מחלק את המשולש לשני משולשים ישרי זווית חופפים. חצי מהבסיס (הניצב ליד הזווית) שווה ל-6. היתר (השוק) שווה ל-10. איזה יחס נשתמש ל'ליד' ו'יתר'?",
-        solution_steps: [
-            { verbal_explanation: "במשולש שווה שוקיים, הגובה לבסיס חוצה אותו לשני חצאים שווים.", math_expression: "חצי בסיס = 12 / 2 = 6" },
-            { verbal_explanation: "נתמקד באחד המשולשים ישרי הזווית שנוצרו. הניצב ש-ליד זווית הבסיס הוא 6. היתר הוא השוק 10.", math_expression: "ליד = 6,  יתר = 10" },
-            { verbal_explanation: "הפונקציה המקשרת ביניהם היא קוסינוס.", math_expression: "cos(α) = 6 / 10 = 0.6" },
-            { verbal_explanation: "נשתמש במחשבון (Shift cos) למציאת הזווית.", math_expression: "α = cos⁻¹(0.6) ≈ 53.13°" }
-        ],
-        final_answer: "53.13°"
-    },
-
-    // --- שאלה 45 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים, זווית הראש היא 40° ואורך הבסיס הוא 16 ס\"מ. מצאו את אורך הגובה היורד לבסיס.",
-        options: ["21.98 ס\"מ", "10.50 ס\"מ", "15.00 ס\"מ", "8.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הגובה חוצה את זווית הראש (לכן חצי זווית ראש היא 20°) וגם חוצה את הבסיס (חצי בסיס הוא 8). מול ה-20 מעלות עומד הניצב 8, ואנו מחפשים את הליד (הגובה). השתמשו בטנגנס.",
-        solution_steps: [
-            { verbal_explanation: "הגובה לבסיס חוצה את זווית הראש וגם את הבסיס. לכן במשולש הימני שנוצר:", math_expression: "זווית = 20°, ניצב מול = 8" },
-            { verbal_explanation: "אנו מחפשים את הגובה (h), שהוא הניצב שליד הזווית של ה-20 מעלות.", math_expression: "tan(20°) = 8 / h" },
-            { verbal_explanation: "נכפיל ב-h ונחלק ב-tan(20°) כדי לבודד אותו.", math_expression: "h = 8 / tan(20°)" },
-            { verbal_explanation: "נחשב במחשבון.", math_expression: "h ≈ 8 / 0.364 ≈ 21.98" }
-        ],
-        final_answer: "21.98 ס\"מ"
-    },
-
-    // --- שאלה 46 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים זווית הבסיס היא 70° ואורך השוק הוא 15 ס\"מ. מהו אורך הגובה היורד לבסיס?",
-        options: ["14.10 ס\"מ", "5.13 ס\"מ", "10.00 ס\"מ", "16.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הורידו גובה. הגובה יוצר משולש ישר זווית שבו הגובה הוא הניצב שמול זווית ה-70 מעלות. השוק היא היתר (15). השתמשו בפונקציית סינוס.",
-        solution_steps: [
-            { verbal_explanation: "נוריד גובה לבסיס ונקבל משולש ישר זווית. אנו מחפשים את הניצב ש-מול ה-70 מעלות (h).", math_expression: "מול = h" },
-            { verbal_explanation: "השוק של המשולש משמשת כיתר.", math_expression: "יתר = 15" },
-            { verbal_explanation: "נשתמש בנוסחת הסינוס.", math_expression: "sin(70°) = h / 15" },
-            { verbal_explanation: "נכפיל ב-15.", math_expression: "h = 15 × sin(70°)" },
-            { verbal_explanation: "נחשב במחשבון.", math_expression: "h ≈ 15 × 0.940 ≈ 14.10" }
-        ],
-        final_answer: "14.10 ס\"מ"
-    },
-
-    // --- שאלה 47 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "עבור אותו משולש שווה שוקיים (זווית בסיס 70°, שוק 15 ס\"מ), מהו אורך הבסיס המלא של המשולש?",
-        options: ["10.26 ס\"מ", "5.13 ס\"מ", "15.00 ס\"מ", "28.19 ס\"מ"],
-        correctAnswer: 0,
-        hint: "חשבו קודם את חצי הבסיס בעזרת קוסינוס (הניצב ליד הזווית). לאחר שתמצאו את חצי הבסיס, אל תשכחו להכפיל אותו ב-2.",
-        solution_steps: [
-            { verbal_explanation: "בחצי משולש ישר זווית, 'חצי הבסיס' הוא הניצב שליד זווית ה-70 מעלות.", math_expression: "cos(70°) = x / 15" },
-            { verbal_explanation: "נכפיל ב-15 למציאת חצי הבסיס (x).", math_expression: "x = 15 × cos(70°)" },
-            { verbal_explanation: "במחשבון נקבל ש-x שווה בערך ל-5.13.", math_expression: "x ≈ 5.13" },
-            { verbal_explanation: "הבסיס המלא הוא פעמיים x.", math_expression: "בסיס מלא = 2 × 5.13 = 10.26" }
-        ],
-        final_answer: "10.26 ס\"מ"
-    },
-
-    // --- שאלה 48 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים אורך הגובה לבסיס הוא 12 ס\"מ. זווית הראש של המשולש היא 60°. מהו אורך הבסיס?",
-        options: ["13.86 ס\"מ", "6.93 ס\"מ", "12.00 ס\"מ", "24.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הגובה חוצה את זווית הראש (לכן החצי הוא 30°). אתם יודעים את הניצב ש-ליד ה-30° (הוא הגובה 12). חפשו את הניצב ממול (חצי הבסיס) בעזרת טנגנס, ואז הכפילו ב-2.",
-        solution_steps: [
-            { verbal_explanation: "נשתמש בתכונת חציית הזווית של הגובה. זווית הראש המלאה היא 60°, לכן חצי ממנה הוא 30°.", math_expression: "זווית קדקוד = 30°" },
-            { verbal_explanation: "הניצב הסמוך ל-30° הוא הגובה הנתון (12). הניצב שמול ה-30° הוא חצי הבסיס (נסמן כ-x).", math_expression: "tan(30°) = x / 12" },
-            { verbal_explanation: "נכפיל ב-12 למציאת x.", math_expression: "x = 12 × tan(30°)" },
-            { verbal_explanation: "במחשבון, x יוצא בערך 6.928.", math_expression: "x ≈ 6.93" },
-            { verbal_explanation: "הבסיס המלא הוא פעמיים התוצאה.", math_expression: "בסיס = 2 × 6.93 = 13.86" }
-        ],
-        final_answer: "13.86 ס\"מ"
-    },
-
-    // --- שאלה 49 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים, זווית הבסיס היא 50° ואורך השוק הוא 8 ס\"מ. חשבו את השטח של המשולש.",
-        options: ["31.52 סמ\"ר", "63.04 סמ\"ר", "24.12 סמ\"ר", "15.76 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "כדי למצוא שטח, נצטרך את הגובה ואת הבסיס. הגובה הוא 8 כפול sin(50°). חצי הבסיס הוא 8 כפול cos(50°). חשבו אותם, הכפילו בסיס בגובה וחלקו ב-2.",
-        solution_steps: [
-            { verbal_explanation: "נחשב את הגובה לבסיס בעזרת סינוס.", math_expression: "h = 8 × sin(50°) ≈ 6.128" },
-            { verbal_explanation: "נחשב את חצי הבסיס בעזרת קוסינוס.", math_expression: "x = 8 × cos(50°) ≈ 5.142" },
-            { verbal_explanation: "נכפיל את חצי הבסיס ב-2 כדי לקבל את הבסיס המלא.", math_expression: "בסיס ≈ 10.284" },
-            { verbal_explanation: "נחשב את השטח לפי הנוסחה הסטנדרטית.", math_expression: "S = (10.284 × 6.128) / 2 ≈ 31.52" }
-        ],
-        final_answer: "31.52 סמ\"ר"
-    },
-
-    // --- שאלה 50 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "אורך הבסיס של משולש שווה שוקיים הוא 20 ס\"מ, ואורך הגובה היורד אליו הוא 10 ס\"מ. מהו גודלה של זווית הבסיס?",
-        options: ["45°", "30°", "60°", "53.13°"],
-        correctAnswer: 0,
-        hint: "הגובה חוצה את הבסיס (חצי בסיס שווה 10). הגובה עצמו הוא גם 10. בחצי המשולש: הניצב מול והניצב ליד שווים זה לזה. איזו זווית נוצרת?",
-        solution_steps: [
-            { verbal_explanation: "הגובה חוצה את הבסיס, לכן אורך הניצב האופקי (ליד הזווית) הוא 10.", math_expression: "ליד = 20 / 2 = 10" },
-            { verbal_explanation: "הגובה (הניצב שמול הזווית) נתון גם הוא כ-10.", math_expression: "מול = 10" },
-            { verbal_explanation: "נשתמש בפונקציית טנגנס.", math_expression: "tan(α) = 10 / 10 = 1" },
-            { verbal_explanation: "הזווית שהטנגנס שלה הוא 1, היא תמיד 45 מעלות.", math_expression: "α = 45°" }
-        ],
-        final_answer: "45°"
-    },
-
-    // --- שאלה 51 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים אורך השוק הוא 13 ס\"מ ואורך הבסיס הוא 10 ס\"מ. מהו גודלה של זווית הראש (הזווית שבין שתי השוקיים)?",
-        options: ["45.24°", "22.62°", "67.38°", "90.00°"],
-        correctAnswer: 0,
-        hint: "הגובה חוצה את הבסיס (ל-5). בחצי המשולש, הניצב שמול 'חצי זווית הראש' הוא 5, והיתר (השוק) הוא 13. מצאו את חצי הזווית בעזרת סינוס, והכפילו ב-2.",
-        solution_steps: [
-            { verbal_explanation: "נוריד גובה לבסיס. הוא יוצר משולש ישר זווית שבו הניצב מול 'חצי זווית הראש' שווה ל-5 (חצי מ-10).", math_expression: "מול = 5,  יתר = 13" },
-            { verbal_explanation: "נשתמש בסינוס כדי למצוא את החצי זווית (נסמן ב-x).", math_expression: "sin(x) = 5 / 13 ≈ 0.3846" },
-            { verbal_explanation: "נפעיל Shift sin במחשבון.", math_expression: "x = sin⁻¹(0.3846) ≈ 22.62°" },
-            { verbal_explanation: "הזווית המבוקשת היא זווית הראש המלאה, שהיא פעמיים חצי הזווית שמצאנו.", math_expression: "זווית ראש = 2 × 22.62° = 45.24°" }
-        ],
-        final_answer: "45.24°"
-    },
-
-    // --- שאלה 52 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "משולש ABC הוא משולש שווה שוקיים (AB = AC = 14 ס\"מ). זווית הבסיס (B) היא בת 65°. אורך הגובה היורד מקודקוד A לבסיס BC מיוצג באות h. מהו אורך הגובה h?",
-        options: ["12.69 ס\"מ", "5.92 ס\"מ", "15.45 ס\"מ", "7.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "במשולש ישר הזווית שנוצר (לאחר הורדת הגובה), היתר הוא 14 (השוק), והניצב שמול ה-65 מעלות הוא הגובה h. חשבו 14 כפול סינוס 65.",
-        solution_steps: [
-            { verbal_explanation: "הורדת הגובה h יצרה משולש ישר זווית שבו זווית הבסיס B היא 65°, והיתר AB הוא 14.", math_expression: "זווית = 65°, יתר = 14" },
-            { verbal_explanation: "הגובה h הוא הניצב שממול לזווית B.", math_expression: "מול = h" },
-            { verbal_explanation: "נציב בפונקציית סינוס.", math_expression: "sin(65°) = h / 14" },
-            { verbal_explanation: "נכפיל ונחשב.", math_expression: "h = 14 × sin(65°) ≈ 14 × 0.9063 ≈ 12.69" }
-        ],
-        final_answer: "12.69 ס\"מ"
-    },
-
-    // --- שאלה 53 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "גג רעפים מעוצב כמשולש שווה שוקיים. רוחב בסיס הגג (התקרה) הוא 8 מטרים. זווית השיפוע של הגג (זווית הבסיס) היא 30°. מה צריך להיות אורך קורות העץ שמרכיבות את שיפוע הגג (השוקיים)?",
-        options: ["4.62 מטרים", "4.00 מטרים", "8.00 מטרים", "6.93 מטרים"],
-        correctAnswer: 0,
-        hint: "חצי הבסיס הוא 4 מטרים (זהו הניצב ליד ה-30 מעלות). הקורה השיפועית היא היתר במשולש ישר הזווית. השתמשו בקוסינוס.",
-        solution_steps: [
-            { verbal_explanation: "הגובה (האנך האמצעי של הגג) מחלק את הבסיס לשני חלקים שווים של 4 מטרים.", math_expression: "ליד = 4" },
-            { verbal_explanation: "הזווית הנתונה של השיפוע היא 30 מעלות. אנו מחפשים את קורת העץ, שמהווה את היתר במשולש.", math_expression: "יתר = x" },
-            { verbal_explanation: "נשתמש בקוסינוס (ליד חלקי יתר).", math_expression: "cos(30°) = 4 / x" },
-            { verbal_explanation: "נחלץ את ה-x (נכפיל בו ונחלק בקוסינוס).", math_expression: "x = 4 / cos(30°) ≈ 4 / 0.866 ≈ 4.62" }
-        ],
-        final_answer: "4.62 מטרים"
-    },
-
-    // --- שאלה 54 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים ישנה זווית ישרה (90°). אורך הבסיס (שמול הזווית הישרה) הוא 24 ס\"מ. מהו אורך כל שוק של המשולש?",
-        options: ["16.97 ס\"מ", "12.00 ס\"מ", "33.94 ס\"מ", "24.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "זהו משולש ישר זווית ושווה שוקיים. לכן זוויות הבסיס שלו חייבות להיות בנות 45°. השוקיים הן למעשה הניצבים. היעזרו בסינוס או קוסינוס 45.",
-        solution_steps: [
-            { verbal_explanation: "מאחר שהמשולש הוא גם ישר זווית (זווית ראש=90) וגם שווה שוקיים, שתי זוויות הבסיס חייבות להיות 45 מעלות כל אחת.", math_expression: "זווית בסיס = 45°" },
-            { verbal_explanation: "הבסיס משמש כיתר (אורכו 24), והשוק היא הניצב.", math_expression: "יתר = 24" },
-            { verbal_explanation: "נשתמש בסינוס 45 מעלות למציאת הניצב (השוק).", math_expression: "sin(45°) = L / 24" },
-            { verbal_explanation: "נחשב במחשבון.", math_expression: "L = 24 × sin(45°) ≈ 16.97" }
-        ],
-        final_answer: "16.97 ס\"מ"
-    },
-
-    // --- שאלה 55 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים, אורך השוק הוא 20 ס\"מ וזווית הבסיס היא 30°. מהו אורך בסיס המשולש המלא?",
-        options: ["34.64 ס\"מ", "17.32 ס\"מ", "20.00 ס\"מ", "10.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הורידו גובה. מצאו את 'חצי הבסיס' (הניצב ליד הזווית) בעזרת קוסינוס (20 כפול cos 30). לאחר מכן הכפילו את התוצאה ב-2.",
-        solution_steps: [
-            { verbal_explanation: "השוק היא היתר (20). חצי הבסיס הוא הניצב שליד ה-30°. נשתמש בקוסינוס.", math_expression: "cos(30°) = x / 20" },
-            { verbal_explanation: "נחשב את חצי הבסיס (x).", math_expression: "x = 20 × cos(30°) ≈ 20 × 0.866 = 17.32" },
-            { verbal_explanation: "הבסיס המלא כפול מחצי הבסיס.", math_expression: "בסיס = 2 × 17.32 = 34.64" }
-        ],
-        final_answer: "34.64 ס\"מ"
-    },
-
-    // --- שאלה 56 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במשולש שווה שוקיים",
-        question: "במשולש שווה שוקיים, הגובה היורד לבסיס הוא באורך 15 ס\"מ. זווית הבסיס היא בת 60°. מהו אורך שוק המשולש?",
-        options: ["17.32 ס\"מ", "7.50 ס\"מ", "30.00 ס\"מ", "8.66 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הגובה (15) הוא הניצב שמול ה-60°. השוק שאנו מחפשים היא היתר. המשוואה היא sin(60°) = 15 / L. חלקו את 15 בסינוס 60.",
-        solution_steps: [
-            { verbal_explanation: "הגובה הוא ניצב מול, השוק היא היתר.", math_expression: "מול = 15, יתר = L" },
-            { verbal_explanation: "נציב בנוסחת הסינוס.", math_expression: "sin(60°) = 15 / L" },
-            { verbal_explanation: "נחלץ את היתר L.", math_expression: "L = 15 / sin(60°)" },
-            { verbal_explanation: "נחשב.", math_expression: "L ≈ 15 / 0.866 ≈ 17.32" }
-        ],
-        final_answer: "17.32 ס\"מ"
-    },
-
-    // ========================================================================
-    // תת נושא 5: טריגונומטריה במרובעים (מלבן ומעוין)
-    // ========================================================================
-
-    // --- שאלה 57 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: `במלבן נתון, אורך הצלע הקצרה הוא 5 ס"מ ואורך הצלע הארוכה הוא 12 ס"מ.<br>מהו גודלה של הזווית הנוצרת בין אלכסון המלבן לבין הצלע הארוכה?<br><br>
-        <svg viewBox="0 0 200 120" style="width:100%; max-width:200px; display:block; margin:10px auto;">
-            <rect x="20" y="20" width="160" height="80" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
-            <line x1="20" y1="100" x2="180" y2="20" stroke="#dc2626" stroke-width="2"/>
-            <text x="100" y="115" font-size="12" font-weight="bold">12</text>
-            <text x="10" y="65" font-size="12" font-weight="bold">5</text>
-            <path d="M50,100 A30,30 0 0,0 56,83" fill="none" stroke="#10b981" stroke-width="2"/>
-            <text x="65" y="95" font-size="12" font-weight="bold" fill="#10b981">α</text>
-        </svg>`,
-        options: ["22.62°", "67.38°", "45.00°", "24.62°"],
-        correctAnswer: 0,
-        hint: "במלבן הזוויות ישרות, לכן האלכסון יוצר משולש ישר זווית. הצלע שמול הזווית α היא 5, והצלע שלידה היא 12. השתמשו בטנגנס.",
-        solution_steps: [
-            { verbal_explanation: "האלכסון מחלק את המלבן לשני משולשים ישרי זווית. נסתכל על התחתון.", math_expression: "משולש ישר זווית" },
-            { verbal_explanation: "מול הזווית המבוקשת נמצאת הצלע שאורכה 5. הצלע שצמודה לה היא 12.", math_expression: "מול = 5,  ליד = 12" },
-            { verbal_explanation: "הפונקציה המתאימה היא טנגנס.", math_expression: "tan(α) = 5 / 12 ≈ 0.4166" },
-            { verbal_explanation: "נפעיל פעולה הפוכה למציאת הזווית.", math_expression: "α = tan⁻¹(0.4166) ≈ 22.62°" }
-        ],
-        final_answer: "22.62°"
-    },
-
-    // --- שאלה 58 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "אורך אלכסון של מלבן הוא 20 ס\"מ. הזווית שבין האלכסון לבין בסיס המלבן (הצלע הארוכה) היא בת 30°. מהו גובה המלבן (הצלע הקצרה)?",
-        options: ["10 ס\"מ", "17.32 ס\"מ", "20 ס\"מ", "8.66 ס\"מ"],
-        correctAnswer: 0,
-        hint: "גובה המלבן הוא הניצב שמול הזווית בת ה-30 מעלות. האלכסון מתפקד כיתר. איזה פונקציה מקשרת בין מול ליתר?",
-        solution_steps: [
-            { verbal_explanation: "במשולש שנוצר, האלכסון משמש כיתר (אורכו 20).", math_expression: "יתר = 20" },
-            { verbal_explanation: "אנו מחפשים את הגובה, שהוא הניצב העומד מול הזווית הנתונה (30°).", math_expression: "מול = h" },
-            { verbal_explanation: "נבחר בסינוס.", math_expression: "sin(30°) = h / 20" },
-            { verbal_explanation: "נכפיל את היתר בסינוס למציאת הגובה. (sin 30 שווה לחצי).", math_expression: "h = 20 × 0.5 = 10" }
-        ],
-        final_answer: "10 ס\"מ"
-    },
-
-    // --- שאלה 59 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "עבור אותו מלבן מהשאלה הקודמת (אלכסון 20 ס\"מ, זווית עם הבסיס 30°), מהו אורך הבסיס של המלבן?",
-        options: ["17.32 ס\"מ", "10 ס\"מ", "20 ס\"מ", "15 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הבסיס הוא הניצב ש-ליד הזווית של ה-30 מעלות. השתמשו בקוסינוס: cos(30°) כפול 20.",
-        solution_steps: [
-            { verbal_explanation: "אנו מחפשים כעת את הבסיס, המשמש כניצב ליד הזווית במשולש.", math_expression: "ליד = x,  יתר = 20" },
-            { verbal_explanation: "הפונקציה המתאימה היא קוסינוס.", math_expression: "cos(30°) = x / 20" },
-            { verbal_explanation: "נכפיל את היתר בקוסינוס.", math_expression: "x = 20 × cos(30°)" },
-            { verbal_explanation: "במחשבון, קוסינוס 30 הוא כ-0.866.", math_expression: "x ≈ 20 × 0.866 = 17.32" }
-        ],
-        final_answer: "17.32 ס\"מ"
-    },
-
-    // --- שאלה 60 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במלבן, הזווית שיוצר האלכסון עם הבסיס היא 40°. אורך הגובה של המלבן (הצלע הקצרה) הוא 8 ס\"מ. מהו אורך האלכסון של המלבן?",
-        options: ["12.45 ס\"מ", "10.44 ס\"מ", "9.53 ס\"מ", "15.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הגובה (8) הוא הניצב שמול ה-40°. אתם מחפשים את האלכסון (היתר). משוואה: sin(40°) = 8 / x.",
-        solution_steps: [
-            { verbal_explanation: "נזהה את הנתונים: זווית=40°, ניצב מול=8. אנו מחפשים את היתר (x).", math_expression: "sin(40°) = 8 / x" },
-            { verbal_explanation: "נחלץ את ה-x על ידי הכפלה ב-x וחלוקה בסינוס.", math_expression: "x = 8 / sin(40°)" },
-            { verbal_explanation: "נחשב בעזרת המחשבון.", math_expression: "x ≈ 8 / 0.6427 ≈ 12.45" }
-        ],
-        final_answer: "12.45 ס\"מ"
-    },
-
-    // --- שאלה 61 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במעוין, אורך האלכסון הקצר הוא 10 ס\"מ, ואורך האלכסון הארוך הוא 24 ס\"מ. מהו אורך צלע המעוין?",
-        options: ["13 ס\"מ", "12 ס\"מ", "17 ס\"מ", "26 ס\"מ"],
-        correctAnswer: 0,
-        hint: "אלכסוני המעוין חוצים זה את זה ויוצרים ארבעה משולשים ישרי זווית. ניצבי משולש אחד הם 5 (חצי מ-10) ו-12 (חצי מ-24). השתמשו בפיתגורס למציאת היתר (הצלע).",
-        solution_steps: [
-            { verbal_explanation: "אלכסונים במעוין חוצים זה את זה ומאונכים, ולכן אפשר לעבוד עם רבע מעוין המהווה משולש ישר זווית.", math_expression: "חצי אלכסון א' = 5" },
-            { verbal_explanation: "נמצא את החצי של האלכסון השני.", math_expression: "חצי אלכסון ב' = 12" },
-            { verbal_explanation: "במשולש ישר הזווית הקטן, הניצבים הם 5 ו-12. נשתמש במשפט פיתגורס למציאת היתר (שהוא צלע המעוין).", math_expression: "c² = 5² + 12²" },
-            { verbal_explanation: "נחשב.", math_expression: "c² = 25 + 144 = 169" },
-            { verbal_explanation: "נוציא שורש לקבלת הצלע.", math_expression: "c = √169 = 13" }
-        ],
-        final_answer: "13 ס\"מ"
-    },
-
-    // --- שאלה 62 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "עבור אותו מעוין (שבו חצאי האלכסונים הם 5 ס\"מ ו-12 ס\"מ), מהו גודלה של הזווית החדה של המעוין כולו?",
-        options: ["45.24°", "22.62°", "67.38°", "30.00°"],
-        correctAnswer: 0,
-        hint: "במשולש ישר הזווית הקטן, חשבו את הזווית שמול הניצב של ה-5 (בעזרת טנגנס). זווית זו היא רק מחצית מהזווית המלאה של המעוין, לכן זכרו להכפיל ב-2 בסוף.",
-        solution_steps: [
-            { verbal_explanation: "נסתכל על המשולש הקטן. נחשב את הזווית שמול הניצב הקצר (5). נקרא לה α.", math_expression: "tan(α) = 5 / 12" },
-            { verbal_explanation: "נפעיל מחשבון למציאת חצי הזווית.", math_expression: "α = tan⁻¹(5/12) ≈ 22.62°" },
-            { verbal_explanation: "האלכסון במעוין גם חוצה את זוויות המעוין. לכן, הזווית המלאה היא פעמיים אלפא.", math_expression: "זווית מעוין = 2 × 22.62° = 45.24°" }
-        ],
-        final_answer: "45.24°"
-    },
-
-    // --- שאלה 63 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במעוין, אורך כל צלע הוא 10 ס\"מ. הזווית החדה של המעוין היא בת 60°. מהו אורך האלכסון הקצר של המעוין?",
-        options: ["10 ס\"מ", "5 ס\"מ", "8.66 ס\"מ", "17.32 ס\"מ"],
-        correctAnswer: 0,
-        hint: "האלכסון הקצר מחלק את המעוין לשני משולשים. אם זווית אחת היא 60°, והצלעות הסמוכות הן 10 ו-10, נוצר משולש שווה שוקיים שהוא בעצם משולש שווה צלעות!",
-        solution_steps: [
-            { verbal_explanation: "האלכסון הקצר מחבר את הקודקודים של הזוויות הקהות, ויוצר משולש שווה שוקיים שבו צלעות המעוין (10) הן השוקיים והזווית שביניהן היא 60°.", math_expression: "משולש עם זווית ראש 60°" },
-            { verbal_explanation: "במשולש שווה שוקיים, אם זווית הראש היא 60°, גם שתי זוויות הבסיס משלימות ל-60° כל אחת.", math_expression: "60°, 60°, 60°" },
-            { verbal_explanation: "לכן, מדובר במשולש שווה צלעות. האלכסון הקצר שווה באורכו לשאר הצלעות.", math_expression: "אלכסון = 10" }
-        ],
-        final_answer: "10 ס\"מ"
-    },
-
-    // --- שאלה 64 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במעוין, אורך הצלע הוא 8 ס\"מ והזווית החדה היא 40°. מהו אורך הגובה של המעוין?",
-        options: ["5.14 ס\"מ", "6.12 ס\"מ", "4.00 ס\"מ", "10.00 ס\"מ"],
-        correctAnswer: 0,
-        hint: "גובה במעוין יוצר משולש ישר זווית עם אחת הצלעות (שהיא היתר) ועם הזווית (40°). הגובה הוא הניצב שמול ה-40°. השתמשו בסינוס.",
-        solution_steps: [
-            { verbal_explanation: "נוריד גובה מקודקוד המעוין לצלע ממול. יצרנו משולש ישר זווית בקצה.", math_expression: "משולש ישר זווית" },
-            { verbal_explanation: "במשולש זה, צלע המעוין משמשת כיתר (8). הזווית החדה נתונה (40°). הגובה (h) הוא הניצב שמול הזווית.", math_expression: "מול = h,  יתר = 8" },
-            { verbal_explanation: "נשתמש בסינוס.", math_expression: "sin(40°) = h / 8" },
-            { verbal_explanation: "נכפיל ב-8 ונחשב.", math_expression: "h = 8 × sin(40°) ≈ 5.14" }
-        ],
-        final_answer: "5.14 ס\"מ"
-    },
-
-    // --- שאלה 65 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במלבן, אורך האלכסון הוא 12 ס\"מ. הזווית החדה שנוצרת בין שני האלכסונים (בנקודת המפגש שלהם) היא 60°. מהו אורך הצלע הקצרה של המלבן?",
-        options: ["6 ס\"מ", "12 ס\"מ", "10.39 ס\"מ", "3 ס\"מ"],
-        correctAnswer: 0,
-        hint: "אלכסוני מלבן שווים וחוצים זה את זה. לכן נוצר משולש שווה שוקיים מצלעות באורך 6 (חצי אלכסון) וזווית ראש של 60 מעלות. איזה משולש זה בעצם?",
-        solution_steps: [
-            { verbal_explanation: "אלכסוני מלבן חוצים זה את זה שווה בשווה. לכן, כל 'חצי אלכסון' שווה ל-6 ס\"מ.", math_expression: "צלע משולש פנימי = 6" },
-            { verbal_explanation: "במשולש הפנימי שנוצר עם הצלע הקצרה, שתי הצלעות הן באורך 6 והזווית שביניהן היא 60°.", math_expression: "משולש שווה שוקיים עם זווית 60°" },
-            { verbal_explanation: "משולש שווה שוקיים עם זווית ראש של 60 מעלות הוא בהכרח משולש שווה צלעות.", math_expression: "60°, 60°, 60°" },
-            { verbal_explanation: "לכן הצלע הקצרה של המלבן שווה בדיוק לחצי האלכסון.", math_expression: "צלע קצרה = 6" }
-        ],
-        final_answer: "6 ס\"מ"
-    },
-
-    // --- שאלה 66 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במעוין, אורך האלכסון הארוך הוא 20 ס\"מ, והזווית הקהה של המעוין היא בת 120°. מהו אורך צלע המעוין?",
-        options: ["11.55 ס\"מ", "10.00 ס\"מ", "20.00 ס\"מ", "14.14 ס\"מ"],
-        correctAnswer: 0,
-        hint: "האלכסון הארוך מחולק ל-2 (לכן 10). הזווית הקהה גם נחצית על ידי האלכסון הקצר, לכן 60°. בחצי המשולש: 10 הוא הניצב מול ה-60°. מצאו את היתר בעזרת סינוס.",
-        solution_steps: [
-            { verbal_explanation: "נסתכל על אחד ממשולשי הרבע במעוין. הניצב הארוך הוא מחצית מהאלכסון הארוך, כלומר 10.", math_expression: "ניצב = 10" },
-            { verbal_explanation: "האלכסון הקצר חוצה את הזווית הקהה של ה-120°. לכן הזווית הפנימית במשולש היא 60°.", math_expression: "α = 60°" },
-            { verbal_explanation: "הניצב שאורכו 10 נמצא בדיוק מול זווית ה-60°. אנו מחפשים את הצלע של המעוין, שהיא היתר.", math_expression: "sin(60°) = 10 / y" },
-            { verbal_explanation: "נחלץ את y. נכפיל בו ונחלק בסינוס.", math_expression: "y = 10 / sin(60°)" },
-            { verbal_explanation: "נחשב במחשבון.", math_expression: "y ≈ 10 / 0.866 ≈ 11.55" }
-        ],
-        final_answer: "11.55 ס\"מ"
-    },
-
-    // --- שאלה 67 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במלבן, אורך הצלע הקצרה הוא 7 ס\"מ. הזווית החדה הנוצרת בין שני האלכסונים (בנקודת המפגש שלהם) היא 50°. מהו אורך האלכסון של המלבן?",
-        options: ["16.56 ס\"מ", "8.28 ס\"מ", "14.00 ס\"מ", "18.32 ס\"מ"],
-        correctAnswer: 0,
-        hint: "האלכסונים יוצרים משולש שווה שוקיים שבו הבסיס הוא 7 וזווית הראש היא 50°. הורידו גובה (שמחלק את 7 ל-3.5 ואת 50 ל-25). מצאו את השוק (שהיא חצי אלכסון) באמצעות סינוס, ואז הכפילו ב-2.",
-        solution_steps: [
-            { verbal_explanation: "במשולש שנוצר מהאלכסונים והצלע הקצרה, זווית הראש היא 50° והבסיס 7.", math_expression: "משולש שווה שוקיים" },
-            { verbal_explanation: "הורדת גובה תחלק את הזווית ל-25° ואת הבסיס ל-3.5.", math_expression: "זווית=25°, מול=3.5" },
-            { verbal_explanation: "אנו מחפשים את היתר בחצי המשולש הזה, המהווה את חצי האלכסון (R).", math_expression: "sin(25°) = 3.5 / R" },
-            { verbal_explanation: "נחשב את R.", math_expression: "R = 3.5 / sin(25°) ≈ 8.28" },
-            { verbal_explanation: "האלכסון השלם הוא פעמיים R.", math_expression: "D = 2 × 8.28 = 16.56" }
-        ],
-        final_answer: "16.56 ס\"מ"
-    },
-
-    // --- שאלה 68 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "במעוין, אורך כל צלע הוא 15 ס\"מ והזווית החדה היא בת 50°. מהו אורך האלכסון הארוך של המעוין?",
-        options: ["27.19 ס\"מ", "13.59 ס\"מ", "15.00 ס\"מ", "22.35 ס\"מ"],
-        correctAnswer: 0,
-        hint: "האלכסון הארוך נמצא מול הזווית הקהה, אבל נחצה את המעוין ל-4 משולשים ישרי זווית. הזווית החדה נחצית ל-25°. היתר הוא 15. האלכסון הארוך מורכב מפעמיים הניצב ש-ליד ה-25°. השתמשו בקוסינוס.",
-        solution_steps: [
-            { verbal_explanation: "נסתכל על רבע מעוין. היתר (הצלע) הוא 15. חצי מהזווית החדה הוא 25°.", math_expression: "זווית = 25°, יתר = 15" },
-            { verbal_explanation: "חצי האלכסון הארוך הוא הניצב שצמוד (ליד) הזווית 25°. נשתמש בקוסינוס.", math_expression: "cos(25°) = x / 15" },
-            { verbal_explanation: "נחשב את חצי האלכסון.", math_expression: "x = 15 × cos(25°) ≈ 13.59" },
-            { verbal_explanation: "האלכסון המלא הוא פעמיים x.", math_expression: "אלכסון = 2 × 13.59 = 27.18 (בערך 27.19 תלוי בעיגול)" }
-        ],
-        final_answer: "27.19 ס\"מ"
-    },
-
-    // --- שאלה 69 ---
-    {
-        subject: "מתמטיקה",
-        topic: "טריגונומטריה במישור",
-        subTopic: "טריגונומטריה במרובעים (מלבן ומעוין)",
-        question: "היקפו של מעוין הוא 40 ס\"מ. אורך הגובה של המעוין הוא 6 ס\"מ. מהו גודלה של הזווית החדה של המעוין?",
-        options: ["36.87°", "30.00°", "45.00°", "53.13°"],
-        correctAnswer: 0,
-        hint: "אם ההיקף הוא 40, כל צלע היא 10. הגובה יוצר משולש ישר זווית שבו היתר הוא 10 והניצב ממול הוא 6. מצאו את הזווית בעזרת סינוס.",
-        solution_steps: [
-            { verbal_explanation: "נמצא את אורך הצלע מתוך ההיקף.", math_expression: "צלע = 40 / 4 = 10" },
-            { verbal_explanation: "במשולש ישר הזווית שנוצר על ידי הגובה: היתר הוא צלע המעוין (10), והגובה (6) הוא הניצב שמול הזווית החדה.", math_expression: "מול = 6, יתר = 10" },
-            { verbal_explanation: "נשתמש בסינוס.", math_expression: "sin(α) = 6 / 10 = 0.6" },
-            { verbal_explanation: "נחשב במחשבון.", math_expression: "α = sin⁻¹(0.6) ≈ 36.87°" }
-        ],
-        final_answer: "36.87°"
+        final_answer: "75.08"
     }
 ];

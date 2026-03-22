@@ -1,1211 +1,791 @@
+// ========================================================================
+// שכבת גיל: כיתה ח'-ט' | נושא: מערכת משוואות ממעלה ראשונה
+// 4 תתי נושאים | 48 שאלות סה"כ
+// פתרונות מפורטים צעד-אחר-צעד, כולל בניית משוואות מילוליות וקריאת גרפים.
+// כתיבה נוקשה: חילוק מוצג כ- (:) בלבד! כפל כ- (×). ללא LaTeX.
+// ========================================================================
+
 const questionsDB = [
-    // ==============================================================
-    // --- תת נושא 1: שיטת ההצבה (20 שאלות) ---
-    // ==============================================================
+
+    // ==========================================================
+    // תת נושא 1: שיטת ההצבה (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 1
     {
-        "id": 1,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Low",
-        "question_text": "פתרו את מערכת המשוואות הבאה בעזרת <strong>שיטת ההצבה</strong>:<br>משוואה א: y = 3x<br>משוואה ב: x + y = 12<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='60'><rect x='5' y='5' width='110' height='50' fill='#f1f5f9' stroke='#1e293b' rx='5'/><text x='15' y='25' font-size='12'>y = 3x</text><text x='15' y='45' font-size='12'>x + y = 12</text></svg></div>",
-        "hint": "כאשר אנו יודעים למה שווה אחד הנעלמים (כאן y), נשתיל אותו בתוך המשוואה השנייה במקום האות שלו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה מהמשוואה הראשונה ש-y שווה לביטוי 3x. נציב את הביטוי 3x במקום ה-y במשוואה השנייה.", "math_expression": "x + (3x) = 12" },
-            { "verbal_explanation": "שלב 2: נחבר את האיברים הדומים באגף שמאל (x ועוד 3x הם 4x).", "math_expression": "4x = 12" },
-            { "verbal_explanation": "שלב 3: נחלק את שני אגפי המשוואה ב-4 כדי לבודד את x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 4: נחזור למשוואה הראשונה (y=3x) ונציב בה את ה-x שמצאנו כדי למצוא את y.", "math_expression": "y = 3 * 3 = 9" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "נתונה מערכת המשוואות הבאה:<br>1) y = 2x<br>2) x + y = 12<br>פתרו את המערכת בשיטת ההצבה ומצאו את x ו-y.&rlm;",
+        options: ["x = 4, y = 8", "x = 8, y = 4", "x = 6, y = 6", "x = 3, y = 6"],
+        correctAnswer: 0,
+        hint: "מכיוון שמשוואה 1 כבר מבודדת את y (y שווה ל-2x), הציבו '2x' במקום האות y במשוואה השנייה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את הערך של y מהמשוואה הראשונה לתוך המשוואה השנייה.&rlm;", math_expression: "x + (2x) = 12" },
+            { verbal_explanation: "שלב ב': נכנס איברים (x ועוד 2x הם 3x).&rlm;", math_expression: "3x = 12" },
+            { verbal_explanation: "שלב ג': נחלק ב-3 כדי למצוא את x.&rlm;", math_expression: "x = 4" },
+            { verbal_explanation: "שלב ד': נחזור למשוואה הראשונה ונציב x=4 כדי למצוא את y.&rlm;", math_expression: "y = 2 × 4 = 8" }
         ],
-        "final_answer": "x = 3 , y = 9",
-        "options": ["x=3, y=9", "x=9, y=3", "x=4, y=8", "x=2, y=6"],
-        "correctAnswer": 0
+        final_answer: "x = 4, y = 8"
     },
+    // שאלה 2
     {
-        "id": 2,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Low",
-        "question_text": "פתרו את המערכת: <br>משוואה א: x = y + 4<br>משוואה ב: 2x + y = 14",
-        "hint": "כאן ה-x הוא הנעלם המבודד. הציבו את הביטוי (y + 4) בתוך סוגריים במקום ה-x במשוואה השנייה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הביטוי של x מהמשוואה הראשונה לתוך המשוואה השנייה (נשתמש בסוגריים).", "math_expression": "2 * (y + 4) + y = 14" },
-            { "verbal_explanation": "שלב 2: נפתח את הסוגריים בעזרת חוק הפילוג (2 כפול y ו-2 כפול 4).", "math_expression": "2y + 8 + y = 14" },
-            { "verbal_explanation": "שלב 3: נכנס איברים דומים (3y) ונעביר את המספר 8 לאגף ימין בסימן הפוך.", "math_expression": "3y = 6" },
-            { "verbal_explanation": "שלב 4: נחלק ב-3 ונקבל את ערך ה-y. לאחר מכן נציב אותו במשוואה הראשונה למציאת x.", "math_expression": "y = 2 -> x = 2 + 4 = 6" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "מהו הפתרון של המערכת הבאה?<br>1) x = y + 3<br>2) 2x + y = 15&rlm;",
+        options: ["x = 6, y = 3", "x = 5, y = 2", "x = 7, y = 4", "x = 9, y = -3"],
+        correctAnswer: 0,
+        hint: "המשוואה הראשונה מבודדת את x. הציבו את הביטוי (y+3) במקום x במשוואה השנייה (אל תשכחו סוגריים!).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב (y+3) במקום x במשוואה השנייה.&rlm;", math_expression: "2 × (y + 3) + y = 15" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים לפי חוק הפילוג.&rlm;", math_expression: "2y + 6 + y = 15" },
+            { verbal_explanation: "שלב ג': נכנס איברים (3y) ונעביר את ה-6 לאגף השני בחיסור.&rlm;", math_expression: "3y = 9" },
+            { verbal_explanation: "שלב ד': נחלק ב-3 למציאת y.&rlm;", math_expression: "y = 3" },
+            { verbal_explanation: "שלב ה': נציב y=3 במשוואה הראשונה למציאת x.&rlm;", math_expression: "x = 3 + 3 = 6" }
         ],
-        "final_answer": "x = 6 , y = 2",
-        "options": ["x=2, y=6", "x=6, y=2", "x=10, y=4", "x=5, y=1"],
-        "correctAnswer": 1
+        final_answer: "x = 6, y = 3"
     },
+    // שאלה 3
     {
-        "id": 3,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "מצאו את פתרון המערכת: <br>4x - y = 10<br>y = x + 2",
-        "hint": "הציבו את הביטוי (x + 2) במקום ה-y. שימו לב שיש סימן מינוס לפני ה-y, לכן הסוגריים קריטיים!",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבצע הצבה של y לתוך המשוואה הראשונה. נשמור על הסוגריים בגלל המינוס.", "math_expression": "4x - (x + 2) = 10" },
-            { "verbal_explanation": "שלב 2: נפתח את הסוגריים. המינוס לפני הסוגריים הופך את כל הסימנים שבפנים.", "math_expression": "4x - x - 2 = 10" },
-            { "verbal_explanation": "שלב 3: נכנס איברים (3x) ונעביר את המספר 2 ימינה בסימן פלוס.", "math_expression": "3x = 12" },
-            { "verbal_explanation": "שלב 4: נפתור למציאת x ואז נחשב את y על ידי הצבה חזרה.", "math_expression": "x = 4 -> y = 4 + 2 = 6" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "נתונה מערכת המשוואות:<br>1) y = 4x - 1<br>2) y = 2x + 7<br>מהי משוואת ההצבה שנקבל?&rlm;",
+        options: ["4x - 1 = 2x + 7", "4x = y + 7", "y - 1 = y + 7", "2x + 1 = 4x - 7"],
+        correctAnswer: 0,
+        hint: "כאשר שתי המשוואות מבודדות את אותו משתנה (y), אפשר פשוט להשוות בין שני הביטויים (השוואת ביטויים היא מקרה פרטי של שיטת ההצבה).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כאשר משתנה אחד (y) שווה לשני ביטויים שונים, הרי ששני הביטויים חייבים להיות שווים זה לזה.&rlm;", math_expression: "" },
+            { verbal_explanation: "נציב את ערך ה-y של המשוואה הראשונה לתוך ה-y של המשוואה השנייה.&rlm;", math_expression: "4x - 1 = 2x + 7" }
         ],
-        "final_answer": "x = 4 , y = 6",
-        "options": ["x=3, y=5", "x=4, y=6", "x=2, y=4", "x=1, y=3"],
-        "correctAnswer": 1
+        final_answer: "4x - 1 = 2x + 7"
     },
+    // שאלה 4
     {
-        "id": 4,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "פתרו את המערכת הבאה שבה אף נעלם אינו מבודד בתחילה: <br>x + y = 8<br>3x - y = 4<br>בודדו את x מהמשוואה הראשונה ופתרו.",
-        "hint": "העבירו את y אגף במשוואה הראשונה כדי לקבל x = 8 - y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד את המשתנה x מהמשוואה הראשונה על ידי העברת y אגף.", "math_expression": "x = 8 - y" },
-            { "verbal_explanation": "שלב 2: נציב את הביטוי שקיבלנו במקום x במשוואה השנייה.", "math_expression": "3 * (8 - y) - y = 4" },
-            { "verbal_explanation": "שלב 3: נפתח סוגריים: 24 פחות 3y פחות y שווה 4.", "math_expression": "24 - 4y = 4" },
-            { "verbal_explanation": "שלב 4: נעביר אגפים: 20 שווה ל-4y. לכן y=5. כעת נמצא את x.", "math_expression": "y = 5 -> x = 8 - 5 = 3" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "בהמשך לשאלה הקודמת (y = 4x - 1 וגם y = 2x + 7), מהו הפתרון הסופי (x,y)?&rlm;",
+        options: ["(4, 15)", "(3, 11)", "(2, 7)", "(4, 11)"],
+        correctAnswer: 0,
+        hint: "פתרו את המשוואה: 4x - 1 = 2x + 7. לאחר שתמצאו את x, הציבו אותו באחת המשוואות למצוא את y.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נפתור את המשוואה. נעביר 2x שמאלה במינוס, ואת מינוס 1 ימינה בפלוס.&rlm;", math_expression: "4x - 2x = 7 + 1" },
+            { verbal_explanation: "שלב ב': נכנס איברים ונחלק ב-2.&rlm;", math_expression: "2x = 8  =>  x = 4" },
+            { verbal_explanation: "שלב ג': נציב x=4 במשוואה הראשונה.&rlm;", math_expression: "y = 4 × 4 - 1 = 16 - 1 = 15" },
+            { verbal_explanation: "הפתרון כזוג סדור (x,y).&rlm;", math_expression: "(4, 15)" }
         ],
-        "final_answer": "x = 3 , y = 5",
-        "options": ["x=3, y=5", "x=5, y=3", "x=4, y=4", "x=2, y=6"],
-        "correctAnswer": 0
+        final_answer: "(4, 15)"
     },
+    // שאלה 5
     {
-        "id": 5,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו את המערכת בעזרת הצבה:<br>2x + 3y = 13<br>x - 2y = -4",
-        "hint": "הכי קל לבודד את x מהמשוואה השנייה: x = 2y - 4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד את הנעלם x מהמשוואה השנייה.", "math_expression": "x = 2y - 4" },
-            { "verbal_explanation": "שלב 2: נציב את הביטוי שבודדנו בתוך המשוואה הראשונה.", "math_expression": "2 * (2y - 4) + 3y = 13" },
-            { "verbal_explanation": "שלב 3: נפתח סוגריים ונכנס איברים דומים באגף שמאל.", "math_expression": "4y - 8 + 3y = 13 -> 7y = 21" },
-            { "verbal_explanation": "שלב 4: נחשב את y ואז נציב למציאת x.", "math_expression": "y = 3 -> x = 2 * 3 - 4 = 2" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "כדי לפתור את המערכת הבאה בשיטת ההצבה, איזה נעלם כדאי לבודד קודם מאיזו משוואה (כדי להימנע משברים)?<br>1) 3x - y = 5<br>2) 4x + 2y = 10&rlm;",
+        options: ["לבודד את y ממשוואה 1 (y = 3x - 5).", "לבודד את x ממשוואה 1 (x = (y+5)/3).", "לבודד את y ממשוואה 2.", "לבודד את x ממשוואה 2."],
+        correctAnswer: 0,
+        hint: "חפשו את הנעלם שהמקדם שלו הוא 1 או 1- (או שאפשר לחלק את כל המשוואה בקלות). בידוד ה-y מהמשוואה הראשונה לא ייצור שברים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כדי להימנע משברים, נחפש נעלם עם מקדם של 1 או מינוס 1.&rlm;", math_expression: "" },
+            { verbal_explanation: "במשוואה 1, ל-y יש מקדם של מינוס 1. נעביר אותו ימינה (לפלוס y) ואת 5 שמאלה (למינוס 5).&rlm;", math_expression: "3x - 5 = y" },
+            { verbal_explanation: "קיבלנו ביטוי נקי ל-y ללא שברים, אותו קל להציב במשוואה 2.&rlm;", math_expression: "y = 3x - 5" }
         ],
-        "final_answer": "x = 2 , y = 3",
-        "options": ["x=2, y=3", "x=3, y=2", "x=1, y=5", "x=4, y=1"],
-        "correctAnswer": 0
+        final_answer: "לבודד את y ממשוואה 1 (y = 3x - 5)."
     },
+    // שאלה 6
     {
-        "id": 6,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Low",
-        "question_text": "נתון x = 4. במערכת המשוואות הבאה:<br>x = 4<br>y = 2x - 3<br>מהו ערכו של y?",
-        "hint": "זוהי הצבה ישירה. החליפו את האות x במספר 4 וחשבו את התוצאה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את המספר 4 במקום הנעלם x בתוך הביטוי של y.", "math_expression": "y = 2 * 4 - 3" },
-            { "verbal_explanation": "שלב 2: נבצע קודם את פעולת הכפל ואחר כך את החיסור.", "math_expression": "y = 8 - 3 = 5" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "פתרו את המערכת הבאה:<br>1) x - 2y = 4<br>2) 3x + y = 26&rlm;",
+        options: ["x = 8, y = 2", "x = 4, y = 0", "x = 6, y = 8", "x = 10, y = 3"],
+        correctAnswer: 0,
+        hint: "בודדו את x ממשוואה 1 (x = 2y + 4). הציבו את הביטוי (2y+4) במקום x במשוואה 2.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבודד את x ממשוואה 1.&rlm;", math_expression: "x = 2y + 4" },
+            { verbal_explanation: "שלב ב': נציב (2y+4) במשוואה 2 במקום x (עם סוגריים!).&rlm;", math_expression: "3 × (2y + 4) + y = 26" },
+            { verbal_explanation: "שלב ג': נפתח סוגריים ונקבץ איברים.&rlm;", math_expression: "6y + 12 + y = 26" },
+            { verbal_explanation: "שלב ד': נחסר 12 מ-26 ונחלק את 7y.&rlm;", math_expression: "7y = 14  =>  y = 2" },
+            { verbal_explanation: "שלב ה': נציב y=2 בביטוי של x.&rlm;", math_expression: "x = 2 × 2 + 4 = 8" }
         ],
-        "final_answer": "y = 5",
-        "options": ["y=5", "y=4", "y=8", "y=1"],
-        "correctAnswer": 0
+        final_answer: "x = 8, y = 2"
     },
+    // שאלה 7
     {
-        "id": 7,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "פתרו את המערכת שבה שני הנעלמים מבודדים:<br>y = 5x - 2<br>y = 2x + 7",
-        "hint": "אם שני הביטויים שווים ל-y, הם חייבים להיות שווים זה לזה. השוו ביניהם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבנה משוואה על ידי השוואת שני האגפים הימניים.", "math_expression": "5x - 2 = 2x + 7" },
-            { "verbal_explanation": "שלב 2: נעביר את ה-2x שמאלה בחיסור ואת ה-2 ימינה בחיבור.", "math_expression": "3x = 9" },
-            { "verbal_explanation": "שלב 3: נמצא את ערך ה-x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 4: נציב x=3 באחת המשוואות כדי למצוא את y.", "math_expression": "y = 2 * 3 + 7 = 13" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "האם יכול להיות פתרון שבו שני הנעלמים הם מספרים שליליים? פתרו:<br>1) y = 3x<br>2) x - y = 4&rlm;",
+        options: ["x = -2, y = -6", "x = -6, y = -2", "x = 2, y = -6", "x = -2, y = 6"],
+        correctAnswer: 0,
+        hint: "הציבו את '3x' במקום y במשוואה השנייה: x - 3x = 4.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב y=3x בתוך המשוואה השנייה.&rlm;", math_expression: "x - (3x) = 4" },
+            { verbal_explanation: "שלב ב': x פחות 3x נותן מינוס 2x.&rlm;", math_expression: "-2x = 4" },
+            { verbal_explanation: "שלב ג': נחלק במינוס 2.&rlm;", math_expression: "x = 4 : (-2) = -2" },
+            { verbal_explanation: "שלב ד': נציב למציאת y.&rlm;", math_expression: "y = 3 × (-2) = -6" }
         ],
-        "final_answer": "x = 3 , y = 13",
-        "options": ["x=3, y=13", "x=13, y=3", "x=2, y=8", "x=4, y=18"],
-        "correctAnswer": 0
+        final_answer: "x = -2, y = -6"
     },
+    // שאלה 8
     {
-        "id": 8,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו את המערכת הבאה המכילה שברים:<br>x/3 + y = 4<br>x + y = 6",
-        "hint": "בודדו את y מהמשוואה השנייה: y = 6 - x. הצבה בשבר דורשת זהירות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד את y מהמשוואה השנייה (הפשוטה יותר).", "math_expression": "y = 6 - x" },
-            { "verbal_explanation": "שלב 2: נציב את הביטוי שקיבלנו במקום y במשוואה הראשונה.", "math_expression": "x/3 + (6 - x) = 4" },
-            { "verbal_explanation": "שלב 3: נכפיל את כל המשוואה ב-3 כדי לבטל את המכנה.", "math_expression": "x + 18 - 3x = 12" },
-            { "verbal_explanation": "שלב 4: נכנס איברים (מינוס 2x) ונעביר את 18 אגף.", "math_expression": "-2x = -6 -> x = 3" },
-            { "verbal_explanation": "שלב 5: נמצא את y.", "math_expression": "y = 6 - 3 = 3" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "מלכודת מינוס! מה הפתרון של המערכת?<br>1) y = x + 5<br>2) 2x - y = -2&rlm;",
+        options: ["x = 3, y = 8", "x = 1, y = 6", "x = -1, y = 4", "x = 2, y = 7"],
+        correctAnswer: 0,
+        hint: "הציבו (x+5) במקום y. שימו לב שיש מינוס לפני ה-y! לכן זה: 2x - (x+5) = -2. המינוס הופך את הסימנים שבתוך הסוגריים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את הביטוי במקום y. חובה להשתמש בסוגריים בגלל המינוס!&rlm;", math_expression: "2x - (x + 5) = -2" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים. המינוס משפיע גם על ה-x וגם על ה-5.&rlm;", math_expression: "2x - x - 5 = -2" },
+            { verbal_explanation: "שלב ג': נכנס איברים ונעביר את מינוס 5 לימין (הופך לפלוס 5).&rlm;", math_expression: "x = -2 + 5 = 3" },
+            { verbal_explanation: "שלב ד': נמצא את y.&rlm;", math_expression: "y = 3 + 5 = 8" }
         ],
-        "final_answer": "x = 3 , y = 3",
-        "options": ["x=3, y=3", "x=6, y=0", "x=0, y=6", "x=4, y=2"],
-        "correctAnswer": 0
+        final_answer: "x = 3, y = 8"
     },
+    // שאלה 9
     {
-        "id": 9,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "בדקו האם הנקודה (3, 5) היא פתרון של המערכת:<br>y = 2x - 1<br>x + y = 8?",
-        "hint": "הציבו x=3 ו-y=5 בשתי המשוואות ובדקו האם מתקבל 'פסוק אמת' בשתיהן.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב במשוואה הראשונה. 5 שווה ל-2 כפול 3 פחות 1? כן.", "math_expression": "5 = 2 * 3 - 1 (אמת)" },
-            { "verbal_explanation": "שלב 2: נציב במשוואה השנייה. 3 ועוד 5 שווה ל-8? כן.", "math_expression": "3 + 5 = 8 (אמת)" },
-            { "verbal_explanation": "שלב 3: מאחר ושתי הבדיקות הצליחו, הנקודה היא פתרון תקין למערכת.", "math_expression": "V" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "קבעו מה הפתרון של המערכת הבאה מבלי לחשב הרבה:<br>1) x = 5<br>2) 3x + y = 20&rlm;",
+        options: ["x = 5, y = 5", "x = 5, y = 15", "x = 15, y = 5", "אין פתרון"],
+        correctAnswer: 0,
+        hint: "זו המערכת הקלה ביותר: x כבר נתון! פשוט הציבו 5 במקום x במשוואה השנייה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב x=5 במשוואה השנייה.&rlm;", math_expression: "3 × 5 + y = 20" },
+            { verbal_explanation: "שלב ב': נחשב את הכפל.&rlm;", math_expression: "15 + y = 20" },
+            { verbal_explanation: "שלב ג': נמצא מה חסר ל-15 כדי להגיע ל-20.&rlm;", math_expression: "y = 20 - 15 = 5" }
         ],
-        "final_answer": "כן, הנקודה היא פתרון.",
-        "options": ["כן", "לא", "רק למשוואה הראשונה", "רק למשוואה השנייה"],
-        "correctAnswer": 0
+        final_answer: "x = 5, y = 5"
     },
+    // שאלה 10
     {
-        "id": 10,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו את המערכת הבאה:<br>y = 2x - 7<br>3x + 2y = 14",
-        "hint": "הציבו את הביטוי (2x - 7) במקום ה-y במשוואה השנייה והשתמשו בחוק הפילוג.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבצע הצבה לתוך המשוואה השנייה.", "math_expression": "3x + 2 * (2x - 7) = 14" },
-            { "verbal_explanation": "שלב 2: נפתח סוגריים: 3x פלוס 4x פחות 14 שווה 14.", "math_expression": "7x - 14 = 14" },
-            { "verbal_explanation": "שלב 3: נעביר את 14 ימינה בסימן פלוס: 7x שווה 28.", "math_expression": "7x = 28 -> x = 4" },
-            { "verbal_explanation": "שלב 4: נמצא את y על ידי הצבה חזרה.", "math_expression": "y = 2 * 4 - 7 = 1" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "המערכת עם פתרון 'אין פתרון'. מה יקרה כשנפתור בשיטת ההצבה?<br>1) y = 2x + 4<br>2) y = 2x - 1&rlm;",
+        options: ["נקבל פסוק שקר כמו 4 = 1-, ולכן אין פתרון.", "נקבל x = 0 ו- y = 0.", "נקבל פסוק אמת כמו 4 = 4.", "נקבל y = 3."],
+        correctAnswer: 0,
+        hint: "השוו בין שתי המשוואות. האם 2x יכול להיות שווה לעצמו, אבל פעם עם תוספת 4 ופעם עם חיסור 1?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נשווה את שני הביטויים.&rlm;", math_expression: "2x + 4 = 2x - 1" },
+            { verbal_explanation: "שלב ב': ננסה להעביר את איברי ה-x לאגף אחד. 2x פחות 2x שווה אפס.&rlm;", math_expression: "0 = -1 - 4" },
+            { verbal_explanation: "שלב ג': קיבלנו 0 שווה למינוס 5. זהו פסוק שקר (סתירה).&rlm;", math_expression: "0 = -5" },
+            { verbal_explanation: "מסקנה: אין זוג מספרים שמקיים את שתי המשוואות במקביל.&rlm;", math_expression: "" }
         ],
-        "final_answer": "x = 4 , y = 1",
-        "options": ["x=4, y=1", "x=1, y=4", "x=2, y=-3", "x=5, y=3"],
-        "correctAnswer": 0
+        final_answer: "נקבל פסוק שקר כמו 4 = 1-, ולכן אין פתרון."
     },
+    // שאלה 11
     {
-        "id": 11,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>x = 2y<br>x + 4y = 18",
-        "hint": "החליפו את x בביטוי 2y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבצע את ההצבה.", "math_expression": "(2y) + 4y = 18" },
-            { "verbal_explanation": "שלב 2: נחבר את המשתנים: 6y שווה 18.", "math_expression": "6y = 18" },
-            { "verbal_explanation": "שלב 3: נמצא את y ואז את x.", "math_expression": "y = 3 -> x = 2 * 3 = 6" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "המערכת עם 'אינסוף פתרונות'. מה יקרה במערכת הזו?<br>1) y = x + 2<br>2) 2y = 2x + 4&rlm;",
+        options: ["נקבל פסוק אמת 0 = 0 (או 4 = 4). כל נקודה על הישר היא פתרון.", "נקבל פסוק שקר.", "נקבל x = 2.", "נקבל y = 4."],
+        correctAnswer: 0,
+        hint: "הציבו את (x+2) במקום y במשוואה השנייה. תראו ששני האגפים יוצאים זהים לחלוטין.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב את הביטוי מתוך משוואה 1 לתוך משוואה 2.&rlm;", math_expression: "2 × (x + 2) = 2x + 4" },
+            { verbal_explanation: "שלב ב': נפתח סוגריים.&rlm;", math_expression: "2x + 4 = 2x + 4" },
+            { verbal_explanation: "שלב ג': שני האגפים זהים לחלוטין! זהו פסוק אמת שתמיד נכון.&rlm;", math_expression: "0 = 0" },
+            { verbal_explanation: "מסקנה: אלו שתי צורות כתיבה של אותה משוואה (אותו ישר), ולכן כל נקודה עליהן מהווה פתרון.&rlm;", math_expression: "" }
         ],
-        "final_answer": "x = 6 , y = 3",
-        "options": ["x=6, y=3", "x=3, y=6", "x=4, y=2", "x=8, y=4"],
-        "correctAnswer": 0
+        final_answer: "נקבל פסוק אמת 0 = 0 (או 4 = 4). כל נקודה על הישר היא פתרון."
     },
+    // שאלה 12
     {
-        "id": 12,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>y = x/2<br>3x - 2y = 12",
-        "hint": "הציבו x/2 במקום y. שימו לב שהשבר יצטמצם עם המקדם 2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הביטוי השברי במשוואה השנייה.", "math_expression": "3x - 2 * (x/2) = 12" },
-            { "verbal_explanation": "שלב 2: נצמצם את ה-2 במונה ובמכנה: 3x פחות x שווה 12.", "math_expression": "2x = 12" },
-            { "verbal_explanation": "שלב 3: נמצא את x ואז את y.", "math_expression": "x = 6 -> y = 6 / 2 = 3" }
+        topic: "system_of_equations",
+        subTopic: "שיטת ההצבה",
+        question_text: "אתגר שברים בשיטת ההצבה. נתון:<br>1) x = y : 2<br>2) 4x + 3y = 20<br>מהו y?&rlm;",
+        options: ["4", "2", "5", "8"],
+        correctAnswer: 0,
+        hint: "הציבו y/2 (כלומר 0.5y) במקום x במשוואה השנייה. 4 כפול חצי y שווה 2y.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נציב y חלקי 2 במקום x במשוואה 2.&rlm;", math_expression: "4 × (y : 2) + 3y = 20" },
+            { verbal_explanation: "שלב ב': 4 כפול חצי שווה 2 שלמים.&rlm;", math_expression: "2y + 3y = 20" },
+            { verbal_explanation: "שלב ג': נכנס איברים (5y) ונחלק ב-5.&rlm;", math_expression: "5y = 20  =>  y = 4" }
         ],
-        "final_answer": "x = 6 , y = 3",
-        "options": ["x=6, y=3", "x=4, y=2", "x=12, y=6", "x=8, y=4"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 13,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>x + y = 0<br>4x + y = 9",
-        "hint": "בודדו את y מהמשוואה הראשונה: y = -x.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד נעלם.", "math_expression": "y = -x" },
-            { "verbal_explanation": "שלב 2: נציב במשוואה השנייה.", "math_expression": "4x + (-x) = 9" },
-            { "verbal_explanation": "שלב 3: נפתור: 3x שווה 9.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 4: נמצא את y.", "math_explanation": "y = -3" }
-        ],
-        "final_answer": "x = 3 , y = -3",
-        "options": ["x=3, y=-3", "x=-3, y=3", "x=0, y=0", "x=1, y=8"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 14,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>x = 3y - 2<br>2x - 5y = 1",
-        "hint": "הציבו את (3y - 2) במקום x והיזהרו בפתיחת הסוגריים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב במשוואה השנייה.", "math_expression": "2 * (3y - 2) - 5y = 1" },
-            { "verbal_explanation": "שלב 2: נפתח סוגריים: 6y פחות 4 פחות 5y שווה 1.", "math_expression": "y - 4 = 1" },
-            { "verbal_explanation": "שלב 3: נעביר את ה-4 אגף.", "math_expression": "y = 5" },
-            { "verbal_explanation": "שלב 4: נמצא את x.", "math_expression": "x = 3 * 5 - 2 = 13" }
-        ],
-        "final_answer": "x = 13 , y = 5",
-        "options": ["x=13, y=5", "x=5, y=13", "x=7, y=3", "x=1, y=1"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 15,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>y = -2x + 10<br>y = x + 1",
-        "hint": "השוו בין שני הביטויים של y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבנה משוואת השוואה.", "math_expression": "-2x + 10 = x + 1" },
-            { "verbal_explanation": "שלב 2: נעביר את ה-x שמאלה בחיסור ואת ה-10 ימינה בחיסור.", "math_expression": "-3x = -9" },
-            { "verbal_explanation": "שלב 3: נחלק במינוס 3.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 4: נמצא את y.", "math_expression": "y = 3 + 1 = 4" }
-        ],
-        "final_answer": "x = 3 , y = 4",
-        "options": ["x=3, y=4", "x=4, y=3", "x=2, y=6", "x=1, y=2"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 16,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Low",
-        "question_text": "נתון ש-y=0. פתרו את המערכת:<br>y = 0<br>5x + 2y = 20",
-        "hint": "הציבו y=0 ופתרו את המשוואה שנותרה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב 0 במקום y. האיבר 2y מתבטל.", "math_expression": "5x + 0 = 20" },
-            { "verbal_explanation": "שלב 2: נחלק ב-5.", "math_expression": "x = 4" }
-        ],
-        "final_answer": "x = 4 , y = 0",
-        "options": ["x=4, y=0", "x=0, y=4", "x=5, y=0", "x=2, y=0"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 17,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>x = 5y<br>x/5 + y = 10",
-        "hint": "הציבו 5y במקום x בשבר.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב 5y במונה של השבר.", "math_expression": "(5y) / 5 + y = 10" },
-            { "verbal_explanation": "שלב 2: נבצע את החילוק (נקבל y). נחבר את ה-y.", "math_expression": "y + y = 10 -> 2y = 10" },
-            { "verbal_explanation": "שלב 3: נמצא את המשתנים.", "math_expression": "y = 5 -> x = 5 * 5 = 25" }
-        ],
-        "final_answer": "x = 25 , y = 5",
-        "options": ["x=25, y=5", "x=5, y=1", "x=10, y=2", "x=50, y=10"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 18,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>y = -4x + 12<br>x + y = 6",
-        "hint": "הציבו את הביטוי של y לתוך המשוואה השנייה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ביצוע הצבה.", "math_expression": "x + (-4x + 12) = 6" },
-            { "verbal_explanation": "שלב 2: כינוס איברים: מינוס 3x ועוד 12 שווה 6.", "math_expression": "-3x + 12 = 6" },
-            { "verbal_explanation": "שלב 3: נעביר 12 אגף: מינוס 3x שווה למינוס 6.", "math_expression": "-3x = -6 -> x = 2" },
-            { "verbal_explanation": "שלב 4: נמצא את y.", "math_expression": "y = 6 - 2 = 4" }
-        ],
-        "final_answer": "x = 2 , y = 4",
-        "options": ["x=2, y=4", "x=4, y=2", "x=3, y=0", "x=1, y=5"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 19,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "מה ניתן לומר על מערכת שבה הצבנו וקיבלנו פסוק שקר (למשל 0=5)?",
-        "hint": "חשבו על היחס בין הקווים הישרים שמייצגות המשוואות.",
-        "solution_steps": [
-            { "verbal_explanation": "אם במהלך פתרון מערכת משוואות בהצבה אנו מקבלים פסוק שקר (מספר שאינו שווה לעצמו), זה מעיד על כך שהישרים מקבילים ואינם נפגשים לעולם.", "math_expression": "0 ≠ 5" }
-        ],
-        "final_answer": "למערכת אין פתרון.",
-        "options": ["אין פתרון", "אינסוף פתרונות", "פתרון יחיד (0,0)", "הפתרון הוא 5"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 20,
-        "subTopic": "שיטת ההצבה",
-        "difficulty": "High",
-        "question_text": "פתרו את המערכת המאתגרת:<br>x - y = 4<br>2x - 2y = 8",
-        "hint": "בודדו את x מהראשונה: x = y + 4 והציבו.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בידוד x.", "math_expression": "x = y + 4" },
-            { "verbal_explanation": "שלב 2: הצבה במשוואה השנייה.", "math_expression": "2 * (y + 4) - 2y = 8" },
-            { "verbal_explanation": "שלב 3: פתיחת סוגריים: 2y פלוס 8 פחות 2y שווה 8.", "math_expression": "8 = 8" },
-            { "verbal_explanation": "שלב 4: קיבלנו פסוק אמת (8=8) לכל ערך. זה אומר ששתי המשוואות מייצגות את אותו קו.", "math_expression": "אינסוף פתרונות" }
-        ],
-        "final_answer": "למערכת יש אינסוף פתרונות.",
-        "options": ["אינסוף פתרונות", "אין פתרון", "x=4, y=0", "x=0, y=-4"],
-        "correctAnswer": 0
+        final_answer: "4"
     },
 
-    // ==============================================================
-    // --- תת נושא 2: שיטת השוואת מקדמים (20 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 2: שיטת השוואת מקדמים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 13
     {
-        "id": 21,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Low",
-        "question_text": "פתרו בעזרת <strong>שיטת השוואת מקדמים</strong> (חיבור משוואות):<br>x + y = 14<br>x - y = 6<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='70'><line x1='10' y1='50' x2='110' y2='50' stroke='red' stroke-width='2'/><text x='50' y='65' fill='red'>+</text><text x='15' y='20' font-size='12'>x + y = 14</text><text x='15' y='40' font-size='12'>x - y = 6</text></svg></div>",
-        "hint": "חברו את שתי המשוואות זו לזו. שימו לב שה-+y וה--y יבטלו זה את זה.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחבר את שתי המשוואות בטור. x ועוד x הם 2x. המשתנה y מתבטל (y פחות y שווה 0).", "math_expression": "2x = 20" },
-            { "verbal_explanation": "שלב 2: נחלק את שני האגפים ב-2 כדי למצוא את x.", "math_expression": "x = 10" },
-            { "verbal_explanation": "שלב 3: נציב x=10 באחת המשוואות המקוריות כדי למצוא את y.", "math_expression": "10 + y = 14 -> y = 4" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "העיקרון של שיטת השוואת מקדמים הוא לחבר או לחסר את שתי המשוואות (כמו בטור) כדי להעלים את אחד המשתנים. פתרו את המערכת הבאה בעזרת חיבור המשוואות:<br>1) x + y = 10<br>2) x - y = 4&rlm;",
+        options: ["x = 7, y = 3", "x = 6, y = 4", "x = 5, y = 5", "x = 8, y = 2"],
+        correctAnswer: 0,
+        hint: "אם תחברו את המשוואות (צד שמאל עם צד שמאל, וימין עם ימין), הפלוס y והמינוס y יבטלו זה את זה (0). תקבלו 2x = 14.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחבר את שתי המשוואות זו לזו. פעולה זו 'מחסלת' את המשתנה y (כי פלוס y ומינוס y מתאפסים).&rlm;", math_expression: "(x + y) + (x - y) = 10 + 4" },
+            { verbal_explanation: "שלב ב': קיבלנו משוואה בנעלם אחד.&rlm;", math_expression: "2x = 14" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 למציאת x.&rlm;", math_expression: "x = 7" },
+            { verbal_explanation: "שלב ד': נציב x=7 באחת המשוואות המקוריות.&rlm;", math_expression: "7 + y = 10  =>  y = 3" }
         ],
-        "final_answer": "x = 10 , y = 4",
-        "options": ["x=10, y=4", "x=4, y=10", "x=7, y=7", "x=20, y=0"],
-        "correctAnswer": 0
+        final_answer: "x = 7, y = 3"
     },
+    // שאלה 14
     {
-        "id": 22,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Low",
-        "question_text": "פתרו את המערכת:<br>3x + y = 10<br>2x - y = 5",
-        "hint": "חברו את המשוואות. המקדמים של y הם 1 ו-מינוס 1, לכן הם יצטמצמו לאפס.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור משוואות בטור.", "math_expression": "5x = 15" },
-            { "verbal_explanation": "שלב 2: נחלק ב-5 למציאת x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 3: נציב x=3 במשוואה הראשונה למציאת y.", "math_expression": "3 * 3 + y = 10 -> 9 + y = 10 -> y = 1" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "לפעמים המקדמים זהים באותו הסימן, ואז נשתמש בפעולת חיסור. פתרו את המערכת על ידי חיסור משוואה 2 ממשוואה 1:<br>1) 3x + 2y = 20<br>2) x + 2y = 12&rlm;",
+        options: ["x = 4, y = 4", "x = 2, y = 5", "x = 6, y = 1", "x = 8, y = -2"],
+        correctAnswer: 0,
+        hint: "חסרו: 3x פחות x משאיר 2x. שני y פחות שני y נעלמים. 20 פחות 12 משאיר 8.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': המקדם של y הוא 2 בשתי המשוואות. כדי לבטל אותו נחסר את המשוואות.&rlm;", math_expression: "(3x - x) + (2y - 2y) = 20 - 12" },
+            { verbal_explanation: "שלב ב': נחשב את התוצאה.&rlm;", math_expression: "2x = 8" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 למציאת x.&rlm;", math_expression: "x = 4" },
+            { verbal_explanation: "שלב ד': נציב x=4 למשוואה 2 למציאת y.&rlm;", math_expression: "4 + 2y = 12  =>  2y = 8  =>  y = 4" }
         ],
-        "final_answer": "x = 3 , y = 1",
-        "options": ["x=3, y=1", "x=1, y=3", "x=2, y=4", "x=5, y=0"],
-        "correctAnswer": 0
+        final_answer: "x = 4, y = 4"
     },
+    // שאלה 15
     {
-        "id": 23,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את המערכת בעזרת <strong>חיסור</strong> משוואות:<br>x + 3y = 12<br>x + y = 8",
-        "hint": "המקדמים של x זהים (1). אם נחסיר את המשוואה השנייה מהראשונה, ה-x יעלם.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסיר את המשוואה השנייה מהראשונה. x פחות x זה 0. 3y פחות y זה 2y.", "math_expression": "2y = 4" },
-            { "verbal_explanation": "שלב 2: נחלק ב-2 ונקבל את ערך ה-y.", "math_expression": "y = 2" },
-            { "verbal_explanation": "שלב 3: נציב y=2 במשוואה השנייה כדי למצוא את x.", "math_expression": "x + 2 = 8 -> x = 6" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "אם המקדמים אינם שווים ואף אינם נגדיים, עלינו להרחיב (לכפול) את אחת המשוואות. פתרו:<br>1) x + 3y = 9<br>2) 2x - y = 4&rlm;",
+        options: ["x = 3, y = 2", "x = 6, y = 1", "x = 0, y = 3", "x = 4, y = 4"],
+        correctAnswer: 0,
+        hint: "כדי להעלים את x, כפלו את המשוואה הראשונה פי 2 (ואז חסרו). כדי להעלים את y, כפלו את המשוואה השנייה פי 3 (ואז חברו).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרחיב את משוואה 2 פי 3, כדי שהמקדם של y יהיה 3- (נגדי למשוואה הראשונה).&rlm;", math_expression: "3 × (2x - y) = 3 × 4  =>  6x - 3y = 12" },
+            { verbal_explanation: "שלב ב': נחבר את משוואה 1 עם המשוואה החדשה שקיבלנו. ה-y יתבטל.&rlm;", math_expression: "(x + 6x) + (3y - 3y) = 9 + 12" },
+            { verbal_explanation: "שלב ג': התקבלה משוואה בנעלם x.&rlm;", math_expression: "7x = 21  =>  x = 3" },
+            { verbal_explanation: "שלב ד': נציב x=3 במשוואה 1.&rlm;", math_expression: "3 + 3y = 9  =>  3y = 6  =>  y = 2" }
         ],
-        "final_answer": "x = 6 , y = 2",
-        "options": ["x=6, y=2", "x=2, y=6", "x=4, y=4", "x=8, y=0"],
-        "correctAnswer": 0
+        final_answer: "x = 3, y = 2"
     },
+    // שאלה 16
     {
-        "id": 24,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "פתרו את המערכת:<br>4x + 2y = 20<br>x + 2y = 11",
-        "hint": "המקדמים של y זהים. בצעו חיסור בין המשוואות כדי לבטל את y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסיר בטור. 4x פחות x זה 3x. ה-2y מתבטל לחלוטין.", "math_expression": "3x = 20 - 11" },
-            { "verbal_explanation": "שלב 2: 3x = 9, לכן x = 3.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 3: נציב x=3 במשוואה השנייה.", "math_expression": "3 + 2y = 11" },
-            { "verbal_explanation": "שלב 4: נפתור: 2y = 8, לכן y = 4.", "math_expression": "y = 4" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "איזה מהפעולות הבאות מותר לבצע על משוואה במערכת מבלי לשנות את הפתרון שלה?&rlm;",
+        options: ["להכפיל או לחלק את שני אגפי המשוואה באותו מספר (שאינו 0).", "להוסיף x רק לאגף שמאל.", "להכפיל רק את ה-y במספר כלשהו.", "להעלות בריבוע את שני האגפים."],
+        correctAnswer: 0,
+        hint: "משוואה היא כמו מאזניים. כל פעולה שעושים (כפל, חילוק, חיבור, חיסור) חייבת להתבצע בדיוק באותו אופן על שני הצדדים.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "כלל יסוד באלגברה: משוואה נשמרת כל עוד מבצעים פעולות מתמטיות זהות על שני אגפיה.&rlm;", math_expression: "" },
+            { verbal_explanation: "בשיטת השוואת מקדמים, אנו מרבים לכפול את כל אגף ימין וכל אגף שמאל במספר קבוע כדי 'ליישר קו' עם המשוואה השנייה.&rlm;", math_expression: "" }
         ],
-        "final_answer": "x = 3 , y = 4",
-        "options": ["x=3, y=4", "x=4, y=3", "x=5, y=0", "x=2, y=6"],
-        "correctAnswer": 0
+        final_answer: "להכפיל או לחלק את שני אגפי המשוואה באותו מספר (שאינו 0)."
     },
+    // שאלה 17
     {
-        "id": 25,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "במערכת הבאה המקדמים אינם שווים: <br>x + y = 6<br>2x + 3y = 16<br>באיזה מספר כדאי להכפיל את המשוואה הראשונה כדי להשוות מקדמים?",
-        "hint": "עלינו להביא את אחד הנעלמים לאותו מספר. אם נכפיל את הראשונה ב-2, נקבל 2x בשתי המשוואות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבחר להשוות את המקדמים של x. נכפיל את כל איברי המשוואה הראשונה ב-2.", "math_expression": "2 * (x + y = 6) -> 2x + 2y = 12" },
-            { "verbal_explanation": "שלב 2: כעת נרשום את המערכת החדשה ונחסיר משוואות.", "math_expression": "(2x + 3y = 16) - (2x + 2y = 12)" },
-            { "verbal_explanation": "שלב 3: נבצע חיסור: y = 4.", "math_expression": "y = 4" },
-            { "verbal_explanation": "שלב 4: נציב x + 4 = 6 למציאת x.", "math_expression": "x = 2" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "לפעמים צריך להרחיב את **שתי** המשוואות כדי להגיע למקדם משותף. מהו הגורם המשותף המינימלי למקדמים של y כדי לפתור את המערכת הבאה?<br>1) 2x + 3y = 12<br>2) 5x + 2y = 19&rlm;",
+        options: ["6 (נכפיל משוואה 1 ב-2, ומשוואה 2 ב-3)", "5 (נכפיל את הראשונה ב-5 ואת השנייה ב-2)", "12 (נכפיל ב-4 וב-6)", "אי אפשר לפתור ככה"],
+        correctAnswer: 0,
+        hint: "המקדמים של y הם 3 ו-2. המספר המשותף הקטן ביותר ששניהם מגיעים אליו בכפל הוא 6.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "המקדמים של y הם 3 ו-2. הכפולה המשותפת המינימלית שלהם היא 6.&rlm;", math_expression: "" },
+            { verbal_explanation: "כדי להגיע ל-6y במשוואה העליונה, נכפול אותה ב-2.&rlm;", math_expression: "2 × (2x + 3y = 12) => 4x + 6y = 24" },
+            { verbal_explanation: "כדי להגיע ל-6y (או מינוס 6) במשוואה התחתונה, נכפול אותה ב-3.&rlm;", math_expression: "3 × (5x + 2y = 19) => 15x + 6y = 57" },
+            { verbal_explanation: "כעת יש לשתי המשוואות מקדם זהה ל-y (6y), וניתן לחסר ביניהן.&rlm;", math_expression: "" }
         ],
-        "final_answer": "כדאי להכפיל ב-2. x=2, y=4.",
-        "options": ["להכפיל ב-2", "להכפיל ב-5", "לחלק ב-2", "אין צורך"],
-        "correctAnswer": 0
+        final_answer: "6 (נכפיל משוואה 1 ב-2, ומשוואה 2 ב-3)"
     },
+    // שאלה 18
     {
-        "id": 26,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>5x - y = 12<br>3x + y = 4",
-        "hint": "המקדמים של y הם נגדיים (1 ו-מינוס 1). חברו את המשוואות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור משוואות.", "math_expression": "8x = 16" },
-            { "verbal_explanation": "שלב 2: נמצא את x.", "math_expression": "x = 2" },
-            { "verbal_explanation": "שלב 3: נמצא את y על ידי הצבה.", "math_expression": "3 * 2 + y = 4 -> y = -2" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "המשך לשאלה הקודמת: פתרו את המערכת לאחר ההרחבות שיצרנו (משוואה 1: 4x+6y=24. משוואה 2: 15x+6y=57). מהו הפתרון?&rlm;",
+        options: ["x = 3, y = 2", "x = 2, y = 3", "x = 4, y = 1", "x = 5, y = 2"],
+        correctAnswer: 0,
+        hint: "חסרו את משוואה 1 ממשוואה 2: 15x פחות 4x שווה ל-11x. ה-6y מתבטל. 57 פחות 24 שווה 33. כמה זה 33 לחלק ל-11?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחסר את המשוואה הקטנה מהגדולה.&rlm;", math_expression: "(15x + 6y) - (4x + 6y) = 57 - 24" },
+            { verbal_explanation: "שלב ב': נכנס איברים.&rlm;", math_expression: "11x = 33" },
+            { verbal_explanation: "שלב ג': נחלק ב-11.&rlm;", math_expression: "x = 3" },
+            { verbal_explanation: "שלב ד': נציב x=3 באחת המשוואות (למשל 2x + 3y = 12).&rlm;", math_expression: "2 × 3 + 3y = 12  =>  6 + 3y = 12  =>  3y = 6  =>  y = 2" }
         ],
-        "final_answer": "x = 2 , y = -2",
-        "options": ["x=2, y=-2", "x=-2, y=2", "x=4, y=8", "x=1, y=1"],
-        "correctAnswer": 0
+        final_answer: "x = 3, y = 2"
     },
+    // שאלה 19
     {
-        "id": 27,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>3x + 4y = 18<br>3x - y = 3",
-        "hint": "המקדמים של x זהים. חסרו משוואות ושימו לב: 4y פחות (מינוס y) הופך ל-5y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסיר את המשוואה השנייה מהראשונה.", "math_expression": "(3x-3x) + (4y - (-y)) = 18 - 3" },
-            { "verbal_explanation": "שלב 2: נחשב את התוצאה: 5y שווה ל-15.", "math_expression": "5y = 15" },
-            { "verbal_explanation": "שלב 3: נמצא את y.", "math_expression": "y = 3" },
-            { "verbal_explanation": "שלב 4: נמצא את x.", "math_expression": "3x - 3 = 3 -> 3x = 6 -> x = 2" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "קבעו מה יקרה כשנחבר את שתי המשוואות הבאות (מבלי לפתור עד הסוף):<br>1) 5x - 7y = 10<br>2) -5x + 7y = 12&rlm;",
+        options: ["אגף שמאל יתאפס כולו (נקבל 0 = 22), ולכן אין למערכת פתרון.", "נקבל 10x = 22.", "נקבל 14y = 2.", "שני הנעלמים יתבטלו ונקבל אינסוף פתרונות."],
+        correctAnswer: 0,
+        hint: "5x ומינוס 5x הם נגדיים. מינוס 7y ופלוס 7y הם גם נגדיים. בחיבור הכל נעלם משמאל, אבל בימין נשארנו עם 10+12.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נחבר את אגף שמאל עם אגף שמאל.&rlm;", math_expression: "(5x - 5x) + (-7y + 7y) = 0" },
+            { verbal_explanation: "שלב ב': נחבר את אגף ימין עם אגף ימין.&rlm;", math_expression: "10 + 12 = 22" },
+            { verbal_explanation: "שלב ג': המשוואה שקיבלנו היא 0 = 22. זהו פסוק שקר, ולכן למערכת אין פתרון.&rlm;", math_expression: "" }
         ],
-        "final_answer": "x = 2 , y = 3",
-        "options": ["x=2, y=3", "x=3, y=2", "x=4, y=1.5", "x=1, y=4"],
-        "correctAnswer": 0
+        final_answer: "אגף שמאל יתאפס כולו (נקבל 0 = 22), ולכן אין למערכת פתרון."
     },
+    // שאלה 20
     {
-        "id": 28,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>x + 2y = 10<br>2x + y = 11",
-        "hint": "הכפילו את המשוואה הראשונה ב-2 כדי להשוות את המקדמים של x.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הכפלת משוואה ראשונה ב-2.", "math_expression": "2x + 4y = 20" },
-            { "verbal_explanation": "שלב 2: חיסור המשוואה השנייה המקורית מהחדשה.", "math_expression": "3y = 9" },
-            { "verbal_explanation": "שלב 3: מציאת y.", "math_expression": "y = 3" },
-            { "verbal_explanation": "שלב 4: מציאת x.", "math_expression": "x + 2*3 = 10 -> x = 4" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "במערכת הבאה, במקום לכפול, אפשר גם לחלק את אחת המשוואות כדי להקל על הפתרון. איזו פעולה כדאי לעשות?<br>1) x - 2y = 8<br>2) 10x + 10y = 50&rlm;",
+        options: ["לחלק את משוואה 2 במספר 10 כדי לקבל x + y = 5.", "לחלק את משוואה 1 במספר 2.", "לחלק את משוואה 1 ב-8.", "אי אפשר לחלק משוואות."],
+        correctAnswer: 0,
+        hint: "במשוואה 2 (10x + 10y = 50), כל המקדמים והתוצאה הם כפולות של 10! חלוקה ב-10 'תכווץ' את המשוואה ותהפוך אותה לקלה מאוד.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "פעולת חלוקה שומרת על השוויון של המשוואה אם מבצעים אותה על כל האיברים.&rlm;", math_expression: "" },
+            { verbal_explanation: "במשוואה השנייה, 10, 10 ו-50 מתחלקים כולם ב-10.&rlm;", math_expression: "(10x + 10y) : 10 = 50 : 10" },
+            { verbal_explanation: "כך נקבל משוואה קטנה ופשוטה (x + y = 5), שנוכל לחסר או לחבר בקלות למשוואה הראשונה.&rlm;", math_expression: "" }
         ],
-        "final_answer": "x = 4 , y = 3",
-        "options": ["x=4, y=3", "x=3, y=4", "x=5, y=1", "x=2, y=4"],
-        "correctAnswer": 0
+        final_answer: "לחלק את משוואה 2 במספר 10 כדי לקבל x + y = 5."
     },
+    // שאלה 21
     {
-        "id": 29,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "מתי נעדיף להשתמש בחיבור משוואות במקום חיסור בשיטה זו?",
-        "hint": "חשבו על המקרה שבו המקדמים הם מספרים כמו 4 ו-מינוס 4.",
-        "solution_steps": [
-            { "verbal_explanation": "אנו מחברים משוואות כאשר לאחד הנעלמים יש מקדמים שהם מספרים נגדיים, כי פעולת החיבור תבטל אותם ותיתן אפס.", "math_expression": "A + (-A) = 0" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "מהו הפתרון של המערכת:<br>1) 2x + y = 11<br>2) x + 3y = 13&rlm;",
+        options: ["x = 4, y = 3", "x = 5, y = 1", "x = 3, y = 5", "x = 2, y = 7"],
+        correctAnswer: 0,
+        hint: "כפלו את משוואה 2 במספר 2 (תקבלו 2x + 6y = 26). חסרו את משוואה 1 מהמשוואה החדשה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרחיב את המשוואה התחתונה פי 2.&rlm;", math_expression: "2 × (x + 3y) = 2 × 13  =>  2x + 6y = 26" },
+            { verbal_explanation: "שלב ב': נחסר את המשוואה העליונה (2x+y=11) מהמשוואה התחתונה המורחבת. ה-2x מתבטל.&rlm;", math_expression: "6y - y = 26 - 11" },
+            { verbal_explanation: "שלב ג': נפתור עבור y.&rlm;", math_expression: "5y = 15  =>  y = 3" },
+            { verbal_explanation: "שלב ד': נציב y=3 במשוואה המקורית (x+3y=13) למציאת x.&rlm;", math_expression: "x + 9 = 13  =>  x = 4" }
         ],
-        "final_answer": "כאשר המקדמים של אותו נעלם הם מספרים נגדיים.",
-        "options": ["כשהמקדמים נגדיים", "כשהמקדמים זהים", "תמיד", "אף פעם"],
-        "correctAnswer": 0
+        final_answer: "x = 4, y = 3"
     },
+    // שאלה 22
     {
-        "id": 30,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Low",
-        "question_text": "פתרו: <br>x + y = 20<br>-x + y = 10",
-        "hint": "חברו את המשוואות. ה-x יתבטל מיד.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור.", "math_expression": "2y = 30" },
-            { "verbal_explanation": "שלב 2: מציאת y.", "math_expression": "y = 15" },
-            { "verbal_explanation": "שלב 3: מציאת x.", "math_expression": "x + 15 = 20 -> x = 5" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "לעיתים צריך לסדר את המשוואות לפני שפותרים. סדרו ופתרו:<br>1) 3x = 12 - 2y<br>2) y - 2x = 6&rlm;",
+        options: ["x = 0, y = 6", "x = 2, y = 3", "x = 4, y = 0", "x = -2, y = 2"],
+        correctAnswer: 0,
+        hint: "במשוואה 1, העבירו את ה-2y- שמאלה (+2y). במשוואה 2, סדרו את ה-x לפני ה-y. ואז תכפילו ותפתרו! (קל להציב תשובות כדי לבדוק).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סידור המשוואות. משוואה 1: נעביר 2y שמאלה. משוואה 2: נשנה סדר בין x ל-y.&rlm;", math_expression: "1) 3x + 2y = 12 ,  2) -2x + y = 6" },
+            { verbal_explanation: "שלב ב': נרחיב את משוואה 2 פי 2 כדי לקבל מקדם נגדי ל-y.&rlm;", math_expression: "2 × (-2x + y) = 2 × 6  =>  -4x + 2y = 12" },
+            { verbal_explanation: "שלב ג': נחסר את המשוואה החדשה ממשוואה 1 המקורית. ה-2y יתבטל.&rlm;", math_expression: "(3x) - (-4x) = 12 - 12" },
+            { verbal_explanation: "שלב ד': נפתור. 7x שווה אפס. לכן x=0. נציב ונמצא ש-y=6.&rlm;", math_expression: "7x = 0  =>  x = 0  =>  y = 6" }
         ],
-        "final_answer": "x = 5 , y = 15",
-        "options": ["x=5, y=15", "x=15, y=5", "x=10, y=10", "x=20, y=0"],
-        "correctAnswer": 0
+        final_answer: "x = 0, y = 6"
     },
+    // שאלה 23
     {
-        "id": 31,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>2x + 2y = 12<br>2x + 2y = 20",
-        "hint": "מה קורה אם ננסה להחסיר את המשוואות?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסיר את המשוואות. נקבל: 0 שווה למינוס 8.", "math_expression": "0 = -8" },
-            { "verbal_explanation": "שלב 2: קיבלנו פסוק שקר. זה אומר שאין אף זוג (x,y) שיכול לקיים את שתי המשוואות בו-זמנית.", "math_expression": "פסוק שקר" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "מהו הפתרון של המערכת שבה יש שברים אלגבריים פשוטים?<br>1) x:2 + y = 6<br>2) x - y = 3&rlm;",
+        options: ["x = 6, y = 3", "x = 8, y = 2", "x = 4, y = 1", "x = 10, y = 7"],
+        correctAnswer: 0,
+        hint: "חברו את שתי המשוואות כפי שהן! ה-y יתבטל ותקבלו 'איקס חלקי שתיים, ועוד איקס' שווה ל-9.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': מאחר והמקדמים של y הם 1 ומינוס 1, פשוט נחבר את המשוואות.&rlm;", math_expression: "(x:2 + x) + (y - y) = 6 + 3" },
+            { verbal_explanation: "שלב ב': x ועוד חצי x זה אחד וחצי x (או 1.5x).&rlm;", math_expression: "1.5x = 9" },
+            { verbal_explanation: "שלב ג': נחלק 9 ב-1.5.&rlm;", math_expression: "x = 9 : 1.5 = 6" },
+            { verbal_explanation: "שלב ד': נציב x=6 במשוואה 2 למציאת y.&rlm;", math_expression: "6 - y = 3  =>  y = 3" }
         ],
-        "final_answer": "אין פתרון למערכת.",
-        "options": ["אין פתרון", "אינסוף פתרונות", "x=0, y=0", "x=4, y=2"],
-        "correctAnswer": 0
+        final_answer: "x = 6, y = 3"
     },
+    // שאלה 24
     {
-        "id": 32,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>x + 2y = 8<br>3x - y = 3",
-        "hint": "הכפילו את המשוואה השנייה ב-2 כדי להשוות את המקדמים של y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הכפלת משוואה ב' ב-2.", "math_expression": "6x - 2y = 6" },
-            { "verbal_explanation": "שלב 2: חיבור עם משוואה א'.", "math_expression": "7x = 14" },
-            { "verbal_explanation": "שלב 3: מציאת x.", "math_expression": "x = 2" },
-            { "verbal_explanation": "שלב 4: מציאת y.", "math_expression": "2 + 2y = 8 -> 2y = 6 -> y = 3" }
+        topic: "system_of_equations",
+        subTopic: "שיטת השוואת מקדמים",
+        question_text: "פתרו את המערכת (ניתן להשתמש בכל אחת מהשיטות):<br>1) 5x - 3y = 9<br>2) -2x + 3y = 0&rlm;",
+        options: ["x = 3, y = 2", "x = 1, y = -1", "x = -3, y = 2", "x = 2, y = 3"],
+        correctAnswer: 0,
+        hint: "המקדמים של y מנוגדים (3- ו-3+). חיבור המשוואות יעשה קסמים מיידיים!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': חיבור המשוואות מעלים את המשתנה y מיד.&rlm;", math_expression: "(5x - 2x) = 9 + 0" },
+            { verbal_explanation: "שלב ב': נפתור עבור x.&rlm;", math_expression: "3x = 9  =>  x = 3" },
+            { verbal_explanation: "שלב ג': נציב x=3 במשוואה השנייה.&rlm;", math_expression: "-2 × 3 + 3y = 0" },
+            { verbal_explanation: "שלב ד': נחשב.&rlm;", math_expression: "-6 + 3y = 0  =>  3y = 6  =>  y = 2" }
         ],
-        "final_answer": "x = 2 , y = 3",
-        "options": ["x=2, y=3", "x=3, y=2", "x=4, y=2", "x=1, y=3.5"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 33,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>8x + y = 30<br>2x + y = 12",
-        "hint": "חסרו משוואות כדי לבטל את y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיסור.", "math_expression": "6x = 18" },
-            { "verbal_explanation": "שלב 2: מציאת x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 3: מציאת y.", "math_expression": "2 * 3 + y = 12 -> y = 6" }
-        ],
-        "final_answer": "x = 3 , y = 6",
-        "options": ["x=3, y=6", "x=6, y=3", "x=4, y=-2", "x=2, y=8"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 34,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>x/2 + y = 7<br>x/2 - y = 1",
-        "hint": "חברו את המשוואות כפי שהן עם השברים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור. חצי x ועוד חצי x זה x שלם. ה-y מתבטל.", "math_expression": "x = 8" },
-            { "verbal_explanation": "שלב 2: הצבה במשוואה הראשונה.", "math_expression": "8/2 + y = 7 -> 4 + y = 7" },
-            { "verbal_explanation": "שלב 3: פתרון ל-y.", "math_expression": "y = 3" }
-        ],
-        "final_answer": "x = 8 , y = 3",
-        "options": ["x=8, y=3", "x=4, y=5", "x=10, y=2", "x=6, y=4"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 35,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>2x + 3y = 8<br>3x - 2y = -1",
-        "hint": "כאן צריך להכפיל את שתי המשוואות. נסו להגיע ל-6y ומינוס 6y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את הראשונה ב-2 ואת השנייה ב-3.", "math_expression": "4x+6y=16 , 9x-6y=-3" },
-            { "verbal_explanation": "שלב 2: נחבר בין המשוואות.", "math_expression": "13x = 13" },
-            { "verbal_explanation": "שלב 3: נמצא את x.", "math_expression": "x = 1" },
-            { "verbal_explanation": "שלב 4: נמצא את y.", "math_expression": "2*1 + 3y = 8 -> 3y = 6 -> y = 2" }
-        ],
-        "final_answer": "x = 1 , y = 2",
-        "options": ["x=1, y=2", "x=2, y=1", "x=0, y=2.6", "x=4, y=0"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 36,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Medium",
-        "question_text": "פתרו: <br>6x + y = 22<br>2x + y = 10",
-        "hint": "חסרו משוואות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיסור.", "math_expression": "4x = 12" },
-            { "verbal_explanation": "שלב 2: מציאת x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 3: מציאת y.", "math_expression": "2*3 + y = 10 -> y = 4" }
-        ],
-        "final_answer": "x = 3 , y = 4",
-        "options": ["x=3, y=4", "x=4, y=3", "x=2, y=10", "x=5, y=0"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 37,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "באיזה מקרה שיטת השוואת מקדמים היא היעילה ביותר?",
-        "hint": "חשבו על מבנה המשוואות.",
-        "solution_steps": [
-            { "verbal_explanation": "השיטה יעילה במיוחד כאשר המשוואות מסודרות כך שהנעלמים נמצאים זה מתחת לזה, וכאשר המקדמים הם מספרים קטנים שקל למצוא להם מכנה משותף.", "math_expression": "מבנה טורי" }
-        ],
-        "final_answer": "כאשר המשוואות מסודרות בטור והמקדמים נוחים להשוואה.",
-        "options": ["כשהמשוואות מסודרות בטור", "כשיש נעלם מבודד", "רק כשיש שברים", "תמיד"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 38,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "Low",
-        "question_text": "פתרו: <br>x + y = 11<br>x - y = 1",
-        "hint": "חברו משוואות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור.", "math_expression": "2x = 12" },
-            { "verbal_explanation": "שלב 2: מציאת x.", "math_expression": "x = 6" },
-            { "verbal_explanation": "שלב 3: מציאת y.", "math_expression": "6 + y = 11 -> y = 5" }
-        ],
-        "final_answer": "x = 6 , y = 5",
-        "options": ["x=6, y=5", "x=5, y=6", "x=10, y=1", "x=11, y=0"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 39,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>2x + y = 10<br>x + 3y = 15",
-        "hint": "הכפילו את המשוואה הראשונה ב-3 כדי להשוות את ה-y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הכפלת משוואה א' ב-3.", "math_expression": "6x + 3y = 30" },
-            { "verbal_explanation": "שלב 2: חיסור משוואה ב' מהחדשה.", "math_expression": "5x = 15" },
-            { "verbal_explanation": "שלב 3: מציאת x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 4: מציאת y.", "math_expression": "2*3 + y = 10 -> y = 4" }
-        ],
-        "final_answer": "x = 3 , y = 4",
-        "options": ["x=3, y=4", "x=4, y=3", "x=5, y=0", "x=2, y=6"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 40,
-        "subTopic": "שיטת השוואת מקדמים",
-        "difficulty": "High",
-        "question_text": "פתרו: <br>x/4 + y/3 = 5<br>x/4 - y/3 = 1",
-        "hint": "חברו את המשוואות כפי שהן.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: חיבור משוואות. ה-y מתבטל. רבע x ועוד רבע x זה חצי x.", "math_expression": "x/2 = 6" },
-            { "verbal_explanation": "שלב 2: נמצא את x.", "math_expression": "x = 12" },
-            { "verbal_explanation": "שלב 3: הצבה במשוואה השנייה.", "math_expression": "12/4 - y/3 = 1 -> 3 - y/3 = 1" },
-            { "verbal_explanation": "שלב 4: נמצא את y.", "math_expression": "y/3 = 2 -> y = 6" }
-        ],
-        "final_answer": "x = 12 , y = 6",
-        "options": ["x=12, y=6", "x=8, y=9", "x=4, y=12", "x=16, y=3"],
-        "correctAnswer": 0
-    },,
-    // ==============================================================
-    // --- תת נושא 3: פתרון גרף (20 שאלות) ---
-    // ==============================================================
-    {
-        "id": 41,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Low",
-        "question_text": "מה מייצגת <strong>נקודת החיתוך</strong> של שני ישרים המשורטטים במערכת צירים אחת?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='100'><line x1='10' y1='80' x2='110' y2='20' stroke='#1e293b' stroke-width='2'/><line x1='10' y1='20' x2='110' y2='80' stroke='#b09151' stroke-width='2'/><circle cx='60' cy='50' r='4' fill='red'/><text x='65' y='45' fill='red' font-size='10'>?</text></svg></div>",
-        "hint": "חשבו על ערכי ה-x וה-y בנקודה המשותפת לשני הישרים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כל נקודה על ישר מייצגת פתרון אפשרי למשוואה שלו.", "math_expression": "נקודה = פתרון" },
-            { "verbal_explanation": "שלב 2: נקודת החיתוך היא הנקודה היחידה שנמצאת על שני הישרים בו-זמנית.", "math_expression": "נקודה משותפת" },
-            { "verbal_explanation": "שלב 3: לכן, שיעורי ה-x וה-y של נקודה זו הם הפתרון של מערכת המשוואות.", "math_expression": "פתרון המערכת" }
-        ],
-        "final_answer": "נקודת החיתוך היא פתרון מערכת המשוואות.",
-        "options": ["את שיפוע הישרים", "את נקודת האפס", "את פתרון מערכת המשוואות.", "את אורך הישרים"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 42,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Low",
-        "question_text": "נתונים שני ישרים במערכת צירים הנפגשים בנקודה <strong>(4, 2)</strong>. מהו פתרון מערכת המשוואות?",
-        "hint": "המספר השמאלי בזוג הסדור הוא ה-x והימני הוא ה-y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את שיעור ה-x של נקודת המפגש.", "math_expression": "x = 4" },
-            { "verbal_explanation": "שלב 2: נזהה את שיעור ה-y של נקודת המפגש.", "math_expression": "y = 2" }
-        ],
-        "final_answer": "x = 4 , y = 2",
-        "options": ["x=2, y=4", "x=4, y=2", "x=6, y=0", "אין פתרון"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 43,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "למערכת משוואות מסוימת אין אף פתרון. כיצד ייראו הישרים שלה במערכת הצירים?<br><div style='text-align:center; margin:15px 0;'><svg width='120' height='80'><line x1='10' y1='30' x2='110' y2='30' stroke='#1e293b' stroke-width='2'/><line x1='10' y1='60' x2='110' y2='60' stroke='#1e293b' stroke-width='2'/></svg></div>",
-        "hint": "אם אין פתרון, זה אומר שאין אף נקודה משותפת בין הישרים.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: אי קיום פתרון פירושו שהישרים לעולם לא נפגשים.", "math_expression": "0 נקודות חיתוך" },
-            { "verbal_explanation": "שלב 2: ישרים במישור שאינם נפגשים לעולם נקראים ישרים מקבילים.", "math_expression": "ישרים מקבילים" }
-        ],
-        "final_answer": "הישרים יהיו מקבילים זה לזה.",
-        "options": ["הישרים יהיו מאונכים", "הישרים יהיו מקבילים זה לזה.", "הישרים יתלכדו", "ישר אחד יהיה מעגל"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 44,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "נתונה מערכת משוואות שבה שני הישרים <strong>מתלכדים</strong> (אחד על השני). כמה פתרונות יש למערכת?",
-        "hint": "חשבו כמה נקודות משותפות יש לשני קווים שיושבים בדיוק אחד על השני.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: כאשר ישרים מתלכדים, הם למעשה מייצגים את אותה המשוואה בדיוק.", "math_expression": "ישר א = ישר ב" },
-            { "verbal_explanation": "שלב 2: מכיוון שכל נקודה על הישר הראשון נמצאת גם על השני, יש אינספור נקודות משותפות.", "math_expression": "אינסוף פתרונות" }
-        ],
-        "final_answer": "אינסוף פתרונות.",
-        "options": ["פתרון יחיד", "אין פתרון", "אינסוף פתרונות.", "שני פתרונות"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 45,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "נתונות שתי פונקציות: <strong>y = 2x - 2</strong> ו- <strong>y = x + 1</strong>. מהו הפתרון הגרפי שלהן?",
-        "hint": "מצאו את הנקודה שבה ערכי ה-y שווים. נסו להציב x=3.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נשווה בין שתי המשוואות כדי למצוא את נקודת המפגש.", "math_expression": "2x - 2 = x + 1" },
-            { "verbal_explanation": "שלב 2: נעביר את ה-x שמאלה בחיסור ואת ה-2 ימינה בחיבור.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 3: נציב x=3 באחת המשוואות למציאת y.", "math_expression": "y = 3 + 1 = 4" },
-            { "verbal_explanation": "שלב 4: נרשום את הפתרון כנקודה.", "math_expression": "(3, 4)" }
-        ],
-        "final_answer": "x = 3 , y = 4",
-        "options": ["(3, 4)", "(4, 3)", "(2, 2)", "(0, 1)"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 46,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "איזה תנאי חייב להתקיים בגרף כדי שלמערכת יהיה <strong>פתרון יחיד</strong>?",
-        "hint": "חשבו מתי שני קווים ישרים נפגשים בנקודה אחת בדיוק.",
-        "solution_steps": [
-            { "verbal_explanation": "כדי שיהיה פתרון יחיד, הישרים חייבים להיחתך.", "math_expression": "חיתוך בנקודה אחת" },
-            { "verbal_explanation": "זה קורה תמיד כאשר לכל ישר יש שיפוע שונה.", "math_expression": "שיפוע א ≠ שיפוע ב" }
-        ],
-        "final_answer": "הישרים חייבים להיחתך בנקודה אחת.",
-        "options": ["הישרים חייבים להיות מקבילים", "הישרים חייבים להיחתך בנקודה אחת.", "הישרים חייבים להיות מאונכים", "הישרים חייבים לעבור בראשית"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 47,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "נתונות המשוואות: <strong>y = 3x + 5</strong> ו- <strong>y = 3x - 2</strong>. מה ניתן לומר על הפתרון הגרפי שלהן?",
-        "hint": "הסתכלו על המקדמים של x (השיפועים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה את השיפוע של שני הישרים. בשניהם המקדם של x הוא 3.", "math_expression": "m1 = 3 , m2 = 3" },
-            { "verbal_explanation": "שלב 2: מכיוון שהשיפועים שווים אך נקודות החיתוך עם ציר ה-y שונות, הישרים מקבילים.", "math_expression": "מקבילים" },
-            { "verbal_explanation": "שלב 3: ישרים מקבילים לא נפגשים לעולם, ולכן אין פתרון.", "math_expression": "אין פתרון" }
-        ],
-        "final_answer": "אין פתרון כי הישרים מקבילים.",
-        "options": ["אין פתרון", "פתרון יחיד", "אינסוף פתרונות", "(3, -2)"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 48,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "ישר א' עובר דרך הנקודות (0,0) ו-(2,6). ישר ב' עובר דרך (0,8) ו-(2,6). מהו פתרון המערכת?",
-        "hint": "חפשו את הנקודה המופיעה בשתי רשימות הנקודות.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נזהה נקודה שמשותפת לשני הישרים.", "math_expression": "(2, 6) מופיעה בשניהם" },
-            { "verbal_explanation": "שלב 2: מכיוון שזו הנקודה היחידה המשותפת לשני קווים שונים, היא מהווה את נקודת החיתוך.", "math_expression": "פתרון = (2, 6)" }
-        ],
-        "final_answer": "x = 2 , y = 6",
-        "options": ["(0, 0)", "(0, 8)", "(2, 6)", "(6, 2)"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 49,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Low",
-        "question_text": "באיזו מערכת צירים ניתן לפתור גרף של מערכת משוואות?",
-        "hint": "זוהי המערכת הסטנדרטית עם ציר ה-x וה-y.",
-        "solution_steps": [
-            { "verbal_explanation": "מערכת משוואות בשני נעלמים נפתרת על גבי מערכת צירים קרטזית.", "math_expression": "ציר x וציר y" }
-        ],
-        "final_answer": "מערכת צירים הכוללת ציר x וציר y.",
-        "options": ["רק ציר x", "רק ציר y", "מערכת צירים x ו-y.", "לוח כפל"],
-        "correctAnswer": 2
-    },
-    {
-        "id": 50,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "שני ישרים נפגשים בנקודה שבה x=2. הישר השני הוא <strong>y = 4x - 3</strong>. מהו שיעור ה-y של הפתרון?",
-        "hint": "אם הנקודה נמצאת על הישר, היא חייבת לקיים את המשוואה שלו. הציבו x=2.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נתון שנקודת המפגש מתרחשת ב-x=2.", "math_expression": "x = 2" },
-            { "verbal_explanation": "שלב 2: נציב x=2 בתוך משוואת הישר כדי למצוא את ה-y התואם.", "math_expression": "y = 4 * 2 - 3" },
-            { "verbal_explanation": "שלב 3: נחשב את התוצאה: 8 פחות 3.", "math_expression": "y = 5" }
-        ],
-        "final_answer": "y = 5",
-        "options": ["y=8", "y=5", "y=3", "y=2"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 51,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "מה ניתן לומר על השיפועים של שני ישרים במערכת שאין לה פתרון?",
-        "hint": "אם אין פתרון, הישרים לעולם לא נפגשים (הם מקבילים).",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: ישרים שאינם נפגשים לעולם חייבים להיות בעלי אותה נטייה בדיוק.", "math_expression": "שיפועים שווים" },
-            { "verbal_explanation": "שלב 2: במתמטיקה, שוויון בין שיפועים מבטיח שהקווים יהיו מקבילים.", "math_expression": "m1 = m2" }
-        ],
-        "final_answer": "השיפועים שלהם שווים.",
-        "options": ["שיפועים שונים", "השיפועים שלהם שווים.", "שיפוע אחד הוא 0", "אחד חיובי ואחד שלילי"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 52,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "במערכת צירים, ישר אחד הוא <strong>y = 6</strong> והשני הוא <strong>x = 4</strong>. מהו פתרון המערכת?",
-        "hint": "ישר y=6 הוא קו אופקי בגובה 6. ישר x=4 הוא קו אנכי במיקום 4. איפה הם נפגשים?",
-        "solution_steps": [
-            { "verbal_explanation": "המשוואה הראשונה מחייבת ששיעור ה-y בפתרון יהיה 6.", "math_expression": "y = 6" },
-            { "verbal_explanation": "המשוואה השנייה מחייבת ששיעור ה-x בפתרון יהיה 4.", "math_expression": "x = 4" },
-            { "verbal_explanation": "הנקודה היחידה שמקיימת את שתיהן היא המפגש ב-(4, 6).", "math_expression": "(4, 6)" }
-        ],
-        "final_answer": "(4, 6)",
-        "options": ["(6, 4)", "(4, 6)", "(0, 0)", "אין פתרון"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 53,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Low",
-        "question_text": "כמה נקודות חיתוך יכולות להיות לכל היותר לשני ישרים שאינם זהים?",
-        "hint": "דמיינו שני סרגלים ישרים מונחים על שולחן.",
-        "solution_steps": [
-            { "verbal_explanation": "שני קווים ישרים שונים (שאינם מונחים אחד על השני) יכולים להיפגש לכל היותר פעם אחת בלבד.", "math_expression": "נקודה אחת" }
-        ],
-        "final_answer": "נקודה אחת.",
-        "options": ["אפס", "נקודה אחת.", "שתי נקודות", "אינסוף"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 54,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "נתון גרף ובו נקודת חיתוך ברביע השני. מה ניתן לומר על סימני ה-x וה-y של הפתרון?",
-        "hint": "הרביע השני נמצא בצד שמאל למעלה.",
-        "solution_steps": [
-            { "verbal_explanation": "ברביע השני אנו נמצאים משמאל לציר ה-y, לכן ה-x הוא שלילי.", "math_expression": "x < 0" },
-            { "verbal_explanation": "כמו כן, אנו נמצאים מעל ציר ה-x, לכן ה-y הוא חיובי.", "math_expression": "y > 0" }
-        ],
-        "final_answer": "x שלילי ו-y חיובי.",
-        "options": ["x חיובי, y חיובי", "x שלילי, y שלילי", "x חיובי, y שלילי", "x שלילי ו-y חיובי."],
-        "correctAnswer": 3
-    },
-    {
-        "id": 55,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "שני ישרים עוברים דרך הנקודה <strong>(0, 0)</strong>. מה ניתן לומר בוודאות על פתרון המערכת שלהם?",
-        "hint": "הנקודה (0,0) היא ראשית הצירים.",
-        "solution_steps": [
-            { "verbal_explanation": "מכיוון ששני הישרים עוברים בנקודה (0,0), נקודה זו היא משותפת לשניהם.", "math_expression": "(0, 0) משותפת" },
-            { "verbal_explanation": "בכל מערכת ישרים, נקודה משותפת היא פתרון המערכת.", "math_expression": "x=0, y=0 הוא פתרון" }
-        ],
-        "final_answer": "הנקודה (0,0) היא פתרון של המערכת.",
-        "options": ["אין פתרון", "הנקודה (0,0) היא פתרון.", "אי אפשר לדעת", "הפתרון הוא תמיד (1,1)"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 56,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "נתון ישר עולה (שיפוע חיובי) וישר יורד (שיפוע שלילי). האם למערכת תמיד יהיה פתרון יחיד?",
-        "hint": "חשבו: האם ישרים בעלי כיוונים הפוכים יכולים להיות מקבילים?",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: לישר עולה יש שיפוע m > 0. לישר יורד יש שיפוע m < 0.", "math_expression": "m1 ≠ m2" },
-            { "verbal_explanation": "שלב 2: מכיוון שהשיפועים בהכרח שונים, הישרים אינם מקבילים וחייבים להיחתך.", "math_expression": "חיתוך ודאי" }
-        ],
-        "final_answer": "כן, תמיד יהיה פתרון יחיד.",
-        "options": ["כן, תמיד.", "לא, ייתכן שאין פתרון", "רק אם הם עוברים ב-(0,0)", "רק במקרים מיוחדים"],
-        "correctAnswer": 0
-    },
-    {
-        "id": 57,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Low",
-        "question_text": "מהו החיסרון העיקרי של שיטת הפתרון הגרפי לעומת השיטה האלגברית?",
-        "hint": "חשבו על מקרה שבו הפתרון הוא שבר מסובך כמו 0.123.",
-        "solution_steps": [
-            { "verbal_explanation": "השיטה הגרפית תלויה בדייקנות השרטוט ובמבט של העין.", "math_expression": "תלות בדיוק ויזואלי" },
-            { "verbal_explanation": "קשה מאוד לקרוא במדויק ערכים שאינם מספרים שלמים מתוך הגרף.", "math_expression": "חוסר דיוק בערכים שבריים" }
-        ],
-        "final_answer": "הקושי לדייק בקריאת ערכים שאינם שלמים מהשרטוט.",
-        "options": ["היא איטית מדי", "הקושי לדייק בערכים שאינם שלמים.", "היא עובדת רק עם x", "אין לה שום חיסרון"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 58,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "מערכת משוואות כוללת את ציר ה-x ואת ציר ה-y. מהו הפתרון של מערכת זו?",
-        "hint": "באיזו נקודה נפגשים שני הצירים המרכזיים של מערכת הצירים?",
-        "solution_steps": [
-            { "verbal_explanation": "ציר ה-x וציר ה-y הם קווים ישרים המאונכים זה לזה.", "math_expression": "x ⊥ y" },
-            { "verbal_explanation": "הם נפגשים בנקודה אחת בדיוק - ראשית הצירים.", "math_expression": "(0, 0)" }
-        ],
-        "final_answer": "(0, 0)",
-        "options": ["אין פתרון", "(0, 0)", "(1, 1)", "אינסוף פתרונות"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 59,
-        "subTopic": "פתרון גרף",
-        "difficulty": "Medium",
-        "question_text": "האם פתרון גרף ופתרון אלגברי של אותה מערכת אמורים לתת תוצאה שונה?",
-        "hint": "אלו פשוט שתי דרכים שונות להגיע לאותה מטרה.",
-        "solution_steps": [
-            { "verbal_explanation": "שתי השיטות הן פשוט כלים לפתרון אותה בעיה מתמטית בדיוק. הפתרון (הנקודה) חייב להיות זהה.", "math_expression": "תוצאה זהה" }
-        ],
-        "final_answer": "לא, הפתרון חייב להיות זהה בשתי השיטות.",
-        "options": ["כן, תמיד", "לא, הפתרון זהה.", "רק אם x=y", "תלוי בשיפוע הישר"],
-        "correctAnswer": 1
-    },
-    {
-        "id": 60,
-        "subTopic": "פתרון גרף",
-        "difficulty": "High",
-        "question_text": "נמצא שנקודת החיתוך של שתי משוואות היא (5, 1). אם נכפיל את אחת המשוואות ב-10, האם הנקודה תשתנה?",
-        "hint": "חשבו: האם הכפלת משוואה (משני צידיה) יוצרת ישר חדש או פשוט ישר שקול?",
-        "solution_steps": [
-            { "verbal_explanation": "הכפלת משוואה במספר אינה משנה את היחס בין x ל-y, ולכן היא מייצגת בדיוק את אותו קו ישר.", "math_expression": "משוואות שקולות" },
-            { "verbal_explanation": "מכיוון שהישרים הפיזיים לא זזו ממקומם, נקודת המפגש תישאר בדיוק באותו מקום.", "math_expression": "ללא שינוי" }
-        ],
-        "final_answer": "לא, הנקודה תישאר זהה.",
-        "options": ["כן, היא תזוז פי 10", "לא, הנקודה תישאר זהה.", "היא תיעלם", "הישר יהפוך לעקום"],
-        "correctAnswer": 1
+        final_answer: "x = 3, y = 2"
     },
 
-    // ==============================================================
-    // --- תת נושא 4: בעיות מילוליות בשני נעלמים (20 שאלות) ---
-    // ==============================================================
+    // ==========================================================
+    // תת נושא 3: פתרון גרף (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 25
     {
-        "id": 61,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Low",
-        "question_text": "סכום שני מספרים הוא 30 וההפרש ביניהם הוא 10. מצאו את המספר הגדול מבין השניים.",
-        "hint": "סמנו את המספר הראשון ב-x ואת השני ב-y. בנו שתי משוואות: לחיבור ולחיסור.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר את הנעלמים ונבנה מערכת משוואות.", "math_expression": "x + y = 30 , x - y = 10" },
-            { "verbal_explanation": "שלב 2: נשתמש בשיטת השוואת מקדמים ונחבר את המשוואות. ה-y יתבטל.", "math_expression": "2x = 40" },
-            { "verbal_explanation": "שלב 3: נחלק ב-2 כדי למצוא את המספר הראשון.", "math_expression": "x = 20" },
-            { "verbal_explanation": "שלב 4: נציב x=20 במשוואת הסכום כדי למצוא את המספר השני.", "math_expression": "20 + y = 30 -> y = 10" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "במערכת צירים משורטטים שני ישרים המייצגים מערכת משוואות. הישרים נחתכים בנקודה אחת בלבד. מה משמעות נקודת החיתוך הזו?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 150' width='100%' height='150' style='max-width:200px;'><line x1='10' y1='130' x2='190' y2='130' stroke='#334155' stroke-width='2'/><line x1='100' y1='10' x2='100' y2='140' stroke='#334155' stroke-width='2'/><line x1='40' y1='110' x2='160' y2='30' stroke='#ef4444' stroke-width='2'/><line x1='60' y1='30' x2='150' y2='110' stroke='#3b82f6' stroke-width='2'/><circle cx='115' cy='60' r='5' fill='#10b981'/><text x='130' y='55' font-family='Arial' font-size='12' font-weight='bold' fill='#10b981'>(x, y)</text></svg></div>",
+        options: ["זוהי הנקודה היחידה המהווה פתרון של שתי המשוואות גם יחד.", "זוהי נקודת האפס של שתי המשוואות.", "זהו פתרון של המשוואה הראשונה בלבד.", "זוהי נקודה שאינה שייכת לאף אחת מהמשוואות."],
+        correctAnswer: 0,
+        hint: "כל נקודה על ישר מייצגת פתרון למשוואה שלו. נקודה שנמצאת על שני הישרים בו זמנית...&rlm;",
+        solution_steps: [
+            { verbal_explanation: "גרף של ישר מורכב מאינסוף נקודות שכל אחת מהן מהווה פתרון למשוואה שלו.&rlm;", math_expression: "" },
+            { verbal_explanation: "נקודת החיתוך נמצאת על שני הישרים בו זמנית.&rlm;", math_expression: "" },
+            { verbal_explanation: "לכן, הקואורדינטות (x,y) של הנקודה הזו הן הפתרון היחיד המקיים את שתי המשוואות במערכת.&rlm;", math_expression: "" }
         ],
-        "final_answer": "20",
-        "options": ["10", "20", "25", "15"],
-        "correctAnswer": 1
+        final_answer: "זוהי הנקודה היחידה המהווה פתרון של שתי המשוואות גם יחד."
     },
+    // שאלה 26
     {
-        "id": 62,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Low",
-        "question_text": "מחיר 2 קילוגרם בננות וקילוגרם אחד של ענבים הוא 20 שקלים. מחיר קילוגרם אחד מכל סוג הוא 12 שקלים. מהו מחיר קילוגרם <strong>בננות</strong>?",
-        "hint": "סמנו בננה ב-x וענבים ב-y. המשוואות יהיו: 2x + y = 20 וגם x + y = 12.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בניית מערכת המשוואות המייצגת את הקניות.", "math_expression": "2x + y = 20 , x + y = 12" },
-            { "verbal_explanation": "שלב 2: נחסיר את המשוואה השנייה מהראשונה כדי לבטל את y (מחיר הענבים).", "math_expression": "x = 8" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "שרטטו לכם במערכת צירים את שני הישרים הבאים:<br>1) y = 2x + 1<br>2) y = 2x - 3<br>כמה פתרונות יש למערכת המשוואות הזו?&rlm;",
+        options: ["אפס פתרונות (הישרים מקבילים).", "פתרון אחד.", "אינסוף פתרונות.", "שני פתרונות."],
+        correctAnswer: 0,
+        hint: "הביטו על השיפוע של שני הישרים (המקדם של x). בשניהם הוא 2. מה זה אומר על הישרים בגרף?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "לשני הישרים יש את אותו השיפוע בדיוק (m=2).&rlm;", math_expression: "" },
+            { verbal_explanation: "ישרים בעלי שיפוע זהה ונקודות חיתוך שונות (b=1 מול b=-3) הם ישרים מקבילים.&rlm;", math_expression: "" },
+            { verbal_explanation: "ישרים מקבילים אינם נחתכים לעולם, ולכן למערכת אין אף פתרון.&rlm;", math_expression: "" }
         ],
-        "final_answer": "8 שקלים",
-        "options": ["8 שקלים", "4 שקלים", "10 שקלים", "12 שקלים"],
-        "correctAnswer": 0
+        final_answer: "אפס פתרונות (הישרים מקבילים)."
     },
+    // שאלה 27
     {
-        "id": 63,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "היקף מלבן הוא 40 ס\"מ. אורך המלבן גדול ב-4 ס\"מ מרוחבו. מהו <strong>אורך</strong> המלבן?",
-        "hint": "היקף הוא 2 פעמים אורך ועוד 2 פעמים רוחב. לכן סכום צלע אחת מכל סוג הוא 20 ס\"מ.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נגדיר אורך כ-x ורוחב כ-y. סכומם הוא חצי מההיקף.", "math_expression": "x + y = 20" },
-            { "verbal_explanation": "שלב 2: נשתמש בנתון שהאורך גדול ב-4 מהרוחב.", "math_expression": "x = y + 4" },
-            { "verbal_explanation": "שלב 3: נציב את x במשוואה הראשונה.", "math_expression": "(y + 4) + y = 20 -> 2y = 16 -> y = 8" },
-            { "verbal_explanation": "שלב 4: נמצא את האורך x על ידי הוספת 4 לרוחב.", "math_expression": "x = 8 + 4 = 12" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "קריאת גרף: לפי השרטוט, מהו הפתרון של מערכת המשוואות המוצגת? (חפשו את נקודת החיתוך).&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 150' width='100%' height='150' style='max-width:200px;'><line x1='10' y1='120' x2='190' y2='120' stroke='#334155' stroke-width='2'/><line x1='100' y1='10' x2='100' y2='140' stroke='#334155' stroke-width='2'/><line x1='40' y1='100' x2='160' y2='40' stroke='#ef4444' stroke-width='2'/><line x1='140' y1='140' x2='140' y2='20' stroke='#3b82f6' stroke-width='2'/><circle cx='140' cy='50' r='5' fill='#10b981'/><line x1='140' y1='50' x2='100' y2='50' stroke='#94a3b8' stroke-dasharray='4,4'/><text x='140' y='135' font-family='Arial' font-size='10' fill='#0f172a'>4</text><text x='85' y='55' font-family='Arial' font-size='10' fill='#0f172a'>3</text></svg></div>",
+        options: ["(4, 3)", "(3, 4)", "אין פתרון", "אי אפשר לדעת מהגרף"],
+        correctAnswer: 0,
+        hint: "הסתכלו היכן הצלב הירוק יושב. קודם קוראים את ציר ה-x (האופקי) ואחר כך את ציר ה-y (האנכי).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נמצא את נקודת המפגש של שני הישרים בגרף.&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ב': נרד מהנקודה אל ציר ה-x (הציר השוכב). אנו רואים שהערך הוא 4.&rlm;", math_expression: "x = 4" },
+            { verbal_explanation: "שלב ג': נלך מהנקודה שמאלה אל ציר ה-y (הציר העומד). אנו רואים שהערך הוא 3.&rlm;", math_expression: "y = 3" },
+            { verbal_explanation: "הפתרון הוא הזוג הסדור (x,y).&rlm;", math_expression: "(4, 3)" }
         ],
-        "final_answer": "12 ס\"מ",
-        "options": ["8 ס\"מ", "12 ס\"מ", "16 ס\"מ", "20 ס\"מ"],
-        "correctAnswer": 1
+        final_answer: "(4, 3)"
     },
+    // שאלה 28
     {
-        "id": 64,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "גילו של אייל גדול פי 3 מגילו של בנו. סכום הגילאים שלהם הוא 48. בן כמה <strong>אייל</strong>?",
-        "hint": "סמנו אייל x ובן y. המשוואות: x = 3y וגם x + y = 48.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב את הביטוי x=3y לתוך משוואת הסכום.", "math_expression": "3y + y = 48" },
-            { "verbal_explanation": "שלב 2: נפתור עבור גיל הבן.", "math_expression": "4y = 48 -> y = 12" },
-            { "verbal_explanation": "שלב 3: נמצא את גילו של אייל (האב).", "math_expression": "x = 3 * 12 = 36" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "כיצד ייראה הגרף של המערכת הבאה, בעלת אינסוף פתרונות?<br>1) y = 3x - 2<br>2) 2y = 6x - 4&rlm;",
+        options: ["ישר אחד המכסה בדיוק את הישר השני (ישרים מתלכדים).", "שני ישרים מקבילים (שלא נוגעים זה בזה).", "שני ישרים החותכים זה את זה בצורת X.", "נקודה אחת בלבד בחלל."],
+        correctAnswer: 0,
+        hint: "אם נחלק את המשוואה השנייה ב-2, נגלה שהיא בעצם בדיוק, אבל בדיוק, המשוואה הראשונה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נבדוק את המשוואה השנייה ונחלק אותה ב-2.&rlm;", math_expression: "(2y) : 2 = (6x - 4) : 2  =>  y = 3x - 2" },
+            { verbal_explanation: "שלב ב': אנו רואים ששתי המשוואות זהות לחלוטין. מדובר באותו ישר!&rlm;", math_expression: "" },
+            { verbal_explanation: "שלב ג': כאשר משרטטים אותן, ישר אחד יונח בדיוק על גבי הישר השני. המצב נקרא ישרים מתלכדים.&rlm;", math_expression: "" }
         ],
-        "final_answer": "36 שנים",
-        "options": ["30 שנים", "36 שנים", "40 שנים", "12 שנים"],
-        "correctAnswer": 1
+        final_answer: "ישר אחד המכסה בדיוק את הישר השני (ישרים מתלכדים)."
     },
+    // שאלה 29
     {
-        "id": 65,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "במבחן היו 25 שאלות. על כל תשובה נכונה מקבלים 5 נקודות, ועל כל תשובה שגויה יורדות 2 נקודות. תלמיד קיבל 81 נקודות. כמה תשובות <strong>נכונות</strong> היו לו?",
-        "hint": "סמנו נכונות x ושגויות y. המשוואות: x + y = 25 ו- 5x - 2y = 81.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד את y ממשוואת כמות השאלות.", "math_expression": "y = 25 - x" },
-            { "verbal_explanation": "שלב 2: נציב במשוואת הניקוד.", "math_expression": "5x - 2 * (25 - x) = 81" },
-            { "verbal_explanation": "שלב 3: נפתח סוגריים בזהירות: 5x פחות 50 ועוד 2x שווה 81.", "math_expression": "7x - 50 = 81" },
-            { "verbal_explanation": "שלב 4: נעביר אגפים ונפתור: 7x שווה 131.", "math_explanation": "בדיקה מחדש: 131 לא מתחלק ב-7. נתקן נתונים." },
-            { "verbal_explanation": "שלב 5 (תיקון): אם התלמיד קיבל 86 נקודות, אז 7x=136. ננסה פתרון ל-x=17.", "math_expression": "x = 18.7... ננסה 19 נכונות: 95-12=83." },
-            { "verbal_explanation": "שלב 6: נניח שהתלמיד ענה על 19 נכונות ו-6 שגויות.", "math_expression": "19 * 5 - 6 * 2 = 95 - 12 = 83" },
-            { "verbal_explanation": "שלב 7 סופי: עבור הניקוד 81, התלמיד ענה על 18.7 שאלות - לא הגיוני. נבחר שאלה עם פתרון שלם.", "math_expression": "x = 19" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "נתונות המשוואות y = 2x ו- y = -x. היכן הן ייחתכו בגרף?&rlm;",
+        options: ["בראשית הצירים (0,0).", "לא ייחתכו לעולם.", "בנקודה (1, 2).", "בנקודה (-1, 1)."],
+        correctAnswer: 0,
+        hint: "שתי הפונקציות חסרות 'איבר חופשי' (אין להן + בוסף). מה זה אומר על נקודת החיתוך שלהן עם ציר ה-y?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "דרך א' (הבנה גרפית): פונקציה קווית ללא איבר חופשי (b=0) עוברת תמיד דרך ראשית הצירים (0,0). מכיוון ששתיהן עוברות שם, שם הן ייחתכו.&rlm;", math_expression: "" },
+            { verbal_explanation: "דרך ב' (השוואה): נשווה את הפונקציות.&rlm;", math_expression: "2x = -x  =>  3x = 0  =>  x = 0" },
+            { verbal_explanation: "נציב x=0 ונקבל y=0.&rlm;", math_expression: "(0,0)" }
         ],
-        "final_answer": "19",
-        "options": ["15", "19", "20", "17"],
-        "correctAnswer": 1
+        final_answer: "בראשית הצירים (0,0)."
     },
+    // שאלה 30
     {
-        "id": 66,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "בשני מחסנים יש בסך הכל 100 טון סחורה. אם נעביר 20 טון מהראשון לשני, יהיה בשתיהן מספר טונות שווה. כמה טון היו ב<strong>מחסן הראשון</strong> בתחילה?",
-        "hint": "משוואה א: x + y = 100. משוואה ב: x - 20 = y + 20.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נסדר את המשוואה השנייה כדי לבודד את ההפרש.", "math_expression": "x - y = 40" },
-            { "verbal_explanation": "שלב 2: נחבר את משוואת הסכום וההפרש.", "math_expression": "(x + y = 100) + (x - y = 40)" },
-            { "verbal_explanation": "שלב 3: נמצא את x.", "math_expression": "2x = 140 -> x = 70" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "קריאת גרף עם נתונים מציאותיים: ישר א' מתאר את כמות המים בבריכה א' (מתחילה מ-0 ומתמלאת). ישר ב' מתאר את המים בבריכה ב' (מתחילה מ-100 ליטר ומתרוקנת). מה מסמלת נקודת החיתוך ביניהם?&rlm;",
+        options: ["את הזמן שבו בשתי הבריכות יש כמות מים שווה.", "את הזמן שבו שתי הבריכות ריקות.", "את הרגע שבו סוגרים את הברזים.", "את קצב זרימת המים."],
+        correctAnswer: 0,
+        hint: "בנקודת החיתוך, לשני הישרים יש את אותו ה-x (זמן) ואת אותו ה-y (כמות מים).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נקודת חיתוך אומרת שבדיוק באותו ערך של x, שתי הפונקציות מקבלות את אותו הערך ב-y.&rlm;", math_expression: "" },
+            { verbal_explanation: "בהקשר של הסיפור: בזמן המסוים (x), כמות המים (y) בשתי הבריכות זהה לחלוטין.&rlm;", math_expression: "" }
         ],
-        "final_answer": "70 טון",
-        "options": ["50 טון", "70 טון", "80 טון", "60 טון"],
-        "correctAnswer": 1
+        final_answer: "את הזמן שבו בשתי הבריכות יש כמות מים שווה."
     },
+    // שאלה 31
     {
-        "id": 67,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "מחיר כרטיס טיסה למבוגר יקר ב-100 שקלים ממחיר כרטיס לילד. משפחה של 2 מבוגרים וילד אחד שילמה 1100 שקלים. מהו מחיר כרטיס <strong>לילד</strong>?",
-        "hint": "סמנו מחיר ילד ב-x. לכן מחיר מבוגר הוא x + 100.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבנה את משוואת התשלום.", "math_expression": "2 * (x + 100) + x = 1100" },
-            { "verbal_explanation": "שלב 2: נפתח סוגריים: 2x פלוס 200 ועוד x שווה 1100.", "math_expression": "3x + 200 = 1100" },
-            { "verbal_explanation": "שלב 3: נחסיר 200 ונחלק ב-3.", "math_expression": "3x = 900 -> x = 300" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "איזה מבין הצמדים הבאים **ייחתך** בוודאות בגרף (יהיה פתרון אחד למערכת)?&rlm;",
+        options: ["y = 3x ו- y = -3x", "y = 5x + 1 ו- y = 5x + 8", "y = 2x ו- y = 2x - 4", "y = 0.5x + 3 ו- y = 1/2x + 3"],
+        correctAnswer: 0,
+        hint: "כדי שישרים ייחתכו, חייב להיות להם שיפוע שונה (m שונה). אם השיפוע זהה, הם או מקבילים (אין פתרון) או מתלכדים (אינסוף).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את השיפועים (המקדם של x) בכל אופציה.&rlm;", math_expression: "" },
+            { verbal_explanation: "באופציה ב' השיפוע הוא 5 בשניהם. הם מקבילים.&rlm;", math_expression: "" },
+            { verbal_explanation: "באופציה ג' השיפוע הוא 2 בשניהם. הם מקבילים.&rlm;", math_expression: "" },
+            { verbal_explanation: "באופציה ד' השיפוע הוא 0.5 (חצי) בשניהם. הם למעשה מתלכדים.&rlm;", math_expression: "" },
+            { verbal_explanation: "באופציה א', השיפועים שונים לחלוטין (3 לעומת 3-). לכן הם חייבים להיחתך.&rlm;", math_expression: "" }
         ],
-        "final_answer": "300 שקלים",
-        "options": ["300 שקלים", "400 שקלים", "500 שקלים", "200 שקלים"],
-        "correctAnswer": 0
+        final_answer: "y = 3x ו- y = -3x"
     },
+    // שאלה 32
     {
-        "id": 68,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "מספר אחד גדול ב-10 ממספר שני. סכום חצי מהמספר הראשון ושליש מהמספר השני הוא 20. מהו המספר <strong>הקטן</strong>?",
-        "hint": "סמנו x כגדול ו-y כקטן. המשוואות: x = y + 10 וגם x/2 + y/3 = 20.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נציב x=y+10 במשוואת השברים.", "math_expression": "(y + 10) / 2 + y / 3 = 20" },
-            { "verbal_explanation": "שלב 2: נכפיל הכל ב-6.", "math_expression": "3(y + 10) + 2y = 120" },
-            { "verbal_explanation": "שלב 3: נפתח סוגריים ונפתור: 5y פלוס 30 שווה 120.", "math_expression": "5y = 90 -> y = 18" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "אם פתרנו מערכת משוואות וקיבלנו את הפתרון (5, 0), איפה תהיה ממוקמת נקודת החיתוך בשרטוט?&rlm;",
+        options: ["על ציר ה-x.", "על ציר ה-y.", "בראשית הצירים.", "ברביע הראשון (אמצע הדף ימינה למעלה)."],
+        correctAnswer: 0,
+        hint: "נקודה שבה ה-y הוא 0 לא עלתה למעלה ולא ירדה למטה, אלא נשארה 'על הקרקע'.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "בקואורדינטה (5,0), ה-x הוא 5 וה-y הוא 0.&rlm;", math_expression: "" },
+            { verbal_explanation: "כאשר ערך ה-y של נקודה הוא אפס, הנקודה לא מתרוממת ולא יורדת מעל רצפת האפס, ולכן היא מונחת בדיוק על ציר ה-x האופקי.&rlm;", math_expression: "" }
         ],
-        "final_answer": "18",
-        "options": ["18", "28", "20", "12"],
-        "correctAnswer": 0
+        final_answer: "על ציר ה-x."
     },
+    // שאלה 33
     {
-        "id": 69,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Low",
-        "question_text": "מהו הצעד הראשון בפתרון בעיה מילולית בשני נעלמים?",
-        "hint": "חשבו על האותיות שבהן נשתמש.",
-        "solution_steps": [
-            { "verbal_explanation": "הצעד הקריטי הוא להגדיר מה כל אות מייצגת בסיפור המילולי.", "math_expression": "הגדרת x ו-y" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "מהו הפתרון של המערכת המיוצגת על ידי שני הישרים האופקיים והאנכיים: x = 4 ו- y = 7 ?&rlm;",
+        options: ["(4, 7)", "(7, 4)", "אין פתרון, אלו קווים ישרים ולא פונקציות רגילות", "אינסוף פתרונות"],
+        correctAnswer: 0,
+        hint: "x=4 הוא קו אנכי שחוצה את ציר ה-x ב-4. y=7 הוא קו אופקי שחוצה את ציר ה-y ב-7. נקודת המפגש היא פשוט החיבור של שניהם!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "קו x=4 אומר שכל נקודה על הקו הזה מקבלת x=4, ללא קשר ל-y.&rlm;", math_expression: "" },
+            { verbal_explanation: "קו y=7 אומר שכל נקודה על הקו הזה מקבלת y=7, ללא קשר ל-x.&rlm;", math_expression: "" },
+            { verbal_explanation: "בנקודת המפגש של הקווים, הנקודה חייבת לקיים את שני התנאים. לכן היא (4,7).&rlm;", math_expression: "" }
         ],
-        "final_answer": "הגדרת הנעלמים בעזרת אותיות.",
-        "options": ["חישוב מהיר", "הגדרת הנעלמים.", "ציור גרף", "אין צורך בצעד מקדים"],
-        "correctAnswer": 1
+        final_answer: "(4, 7)"
     },
+    // שאלה 34
     {
-        "id": 70,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "בחווה יש תרנגולות ופרות. בסך הכל 25 חיות ו-70 רגליים. כמה <strong>פרות</strong> יש בחווה?",
-        "hint": "סמנו תרנגולות x ופרות y. משוואות: x + y = 25 ו- 2x + 4y = 70.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נכפיל את משוואת החיות ב-2.", "math_expression": "2x + 2y = 50" },
-            { "verbal_explanation": "שלב 2: נחסיר אותה ממשוואת הרגליים.", "math_expression": "2y = 20" },
-            { "verbal_explanation": "שלב 3: נמצא את מספר הפרות.", "math_expression": "y = 10" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "תלמיד רצה לפתור את המערכת y=2x ו- y=3x בדרך גרפית, והכין טבלת ערכים מוקדמת כדי לשרטט. אילו זוגות יופיעו בטבלה של המשוואה הראשונה (y=2x)?&rlm;",
+        options: ["(1, 2) , (2, 4) , (3, 6)", "(1, 3) , (2, 6) , (3, 9)", "(2, 1) , (4, 2) , (6, 3)", "(1, 1) , (2, 2) , (3, 3)"],
+        correctAnswer: 0,
+        hint: "הפונקציה היא y=2x. כפלו כל קלט x (1,2,3) פי 2 כדי לקבל את ה-y.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נציב x=1. התוצאה היא 2 כפול 1.&rlm;", math_expression: "y = 2 × 1 = 2  =>  (1, 2)" },
+            { verbal_explanation: "נציב x=2. התוצאה היא 2 כפול 2.&rlm;", math_expression: "y = 2 × 2 = 4  =>  (2, 4)" },
+            { verbal_explanation: "נציב x=3. התוצאה היא 2 כפול 3.&rlm;", math_expression: "y = 2 × 3 = 6  =>  (3, 6)" }
         ],
-        "final_answer": "10 פרות",
-        "options": ["10 פרות", "15 פרות", "5 פרות", "20 פרות"],
-        "correctAnswer": 0
+        final_answer: "(1, 2) , (2, 4) , (3, 6)"
     },
+    // שאלה 35
     {
-        "id": 71,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "סכום הספרות של מספר דו-ספרתי הוא 9. אם נחליף את הספרות, נקבל מספר הגדול מהמקורי ב-27. מהו המספר <strong>המקורי</strong>?",
-        "hint": "x עשרות, y אחדות. x+y=9 וגם (10y+x)-(10x+y)=27.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נפשט את משוואת ההפרש.", "math_expression": "9y - 9x = 27 -> y - x = 3" },
-            { "verbal_explanation": "שלב 2: נחבר עם x+y=9.", "math_expression": "2y = 12 -> y = 6" },
-            { "verbal_explanation": "שלב 3: נמצא את x.", "math_expression": "x = 3" },
-            { "verbal_explanation": "שלב 4: נרכיב את המספר.", "math_expression": "36" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "למערכת משוואות יש פתרון שהוא (3-, 2). איזה מהשרטוטים (תיאור מילולי) מתאים לפתרון זה?&rlm;",
+        options: ["נקודת חיתוך הנמצאת בחלק הימני-תחתון של מערכת הצירים (הרביע הרביעי).", "נקודת חיתוך בחלק השמאלי-תחתון (הרביע השלישי).", "נקודת חיתוך על ציר ה-x.", "נקודת חיתוך בחלק הימני-עליון."],
+        correctAnswer: 0,
+        hint: "ה-x הוא 2 (זזים ימינה לחלק החיובי). ה-y הוא 3- (זזים למטה לחלק השלילי). באיזה אזור אנחנו?&rlm;",
+        solution_steps: [
+            { verbal_explanation: "קואורדינטת ה-x חיובית, ולכן אנו בצד ימין של הציר האנכי.&rlm;", math_expression: "x = 2 > 0" },
+            { verbal_explanation: "קואורדינטת ה-y שלילית, ולכן אנו למטה (מתחת לציר האופקי).&rlm;", math_expression: "y = -3 < 0" },
+            { verbal_explanation: "האזור הימני-התחתון במערכת הצירים נקרא הרביע הרביעי.&rlm;", math_expression: "" }
         ],
-        "final_answer": "36",
-        "options": ["63", "36", "45", "54"],
-        "correctAnswer": 1
+        final_answer: "נקודת חיתוך הנמצאת בחלק הימני-תחתון של מערכת הצירים (הרביע הרביעי)."
     },
+    // שאלה 36
     {
-        "id": 72,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "בארנק מטבעות של 5 שקלים ו-10 שקלים. סך הכל 20 מטבעות בשווי 160 שקלים. כמה מטבעות של <strong>10 שקלים</strong> יש?",
-        "hint": "x+y=20 ו- 5x+10y=160.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד x מהראשונה.", "math_expression": "x = 20 - y" },
-            { "verbal_explanation": "שלב 2: נציב במשוואת השווי.", "math_expression": "5(20-y) + 10y = 160" },
-            { "verbal_explanation": "שלב 3: נפתור: 100 פלוס 5y שווה 160.", "math_expression": "5y = 60 -> y = 12" }
+        topic: "system_of_equations",
+        subTopic: "פתרון גרף",
+        question_text: "קבעו האם למערכת הבאה יש פתרון, ללא חישוב, רק על ידי הסתכלות על המשוואות כגרפים:<br>1) 2y = 4x + 10<br>2) y = 2x + 5&rlm;",
+        options: ["יש אינסוף פתרונות, כי אם נחלק את המשוואה הראשונה ב-2, נקבל בדיוק את השנייה (אלו ישרים מתלכדים).", "יש פתרון אחד בלבד.", "אין פתרון (ישרים מקבילים).", "אין מספיק נתונים."],
+        correctAnswer: 0,
+        hint: "תמיד נסו 'לפשט' משוואה למצב של y=... כדי לראות את השיפוע והחיתוך. חלקו את המשוואה הראשונה ב-2!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "נפשט את משוואה 1 על ידי חלוקה ב-2 כדי להביא אותה לצורה הסטנדרטית.&rlm;", math_expression: "(2y) : 2 = (4x + 10) : 2  =>  y = 2x + 5" },
+            { verbal_explanation: "אנו רואים שמשוואה 1 הזהה לחלוטין למשוואה 2. אלו בעצם שני ייצוגים לאותו הישר.&rlm;", math_expression: "" },
+            { verbal_explanation: "מכיוון שהם מונחים אחד על השני (מתלכדים), כל נקודה על הישר היא פתרון.&rlm;", math_expression: "" }
         ],
-        "final_answer": "12",
-        "options": ["8", "12", "10", "15"],
-        "correctAnswer": 1
+        final_answer: "יש אינסוף פתרונות, כי אם נחלק את המשוואה הראשונה ב-2, נקבל בדיוק את השנייה (אלו ישרים מתלכדים)."
     },
+
+    // ==========================================================
+    // תת נושא 4: בעיות מילוליות בשני נעלמים (12 שאלות)
+    // ==========================================================
+    
+    // שאלה 37
     {
-        "id": 73,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "היחס בין שני מספרים הוא 2 ל-5. אם נוסיף לכל אחד מהם 6, היחס יהיה 1 ל-2. מהו המספר <strong>הקטן</strong>?",
-        "hint": "סמנו 2x ו-5x. בנו משוואה לפי היחס החדש.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בניית המשוואה.", "math_expression": "(2x+6)/(5x+6) = 1/2" },
-            { "verbal_explanation": "שלב 2: כפל בהצלבה.", "math_expression": "4x+12 = 5x+6" },
-            { "verbal_explanation": "שלב 3: מציאת x.", "math_expression": "x = 6" },
-            { "verbal_explanation": "שלב 4: המספר הקטן (2x).", "math_expression": "12" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "בחווה יש תרנגולות ופרות. יחד יש בחווה 30 חיות. כשספרו את כל הרגליים של החיות בחווה, מצאו שיש 100 רגליים. כמה תרנגולות וכמה פרות יש בחווה? (נסמן תרנגולות כ-x ופרות כ-y).&rlm;",
+        options: ["10 תרנגולות, 20 פרות", "15 תרנגולות, 15 פרות", "20 תרנגולות, 10 פרות", "5 תרנגולות, 25 פרות"],
+        correctAnswer: 0,
+        hint: "משוואה 1 (חיות): x + y = 30. משוואה 2 (רגליים): 2x (כי לתרנגולת 2 רגליים) + 4y (כי לפרה 4 רגליים) = 100. עכשיו פתרו!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרכיב משוואת כמויות. סך החיות הוא 30.&rlm;", math_expression: "x + y = 30  =>  x = 30 - y" },
+            { verbal_explanation: "שלב ב': נרכיב משוואת רגליים. לתרנגולת יש 2, לפרה 4.&rlm;", math_expression: "2x + 4y = 100" },
+            { verbal_explanation: "שלב ג': נציב את x ממשוואה ראשונה לשנייה.&rlm;", math_expression: "2 × (30 - y) + 4y = 100" },
+            { verbal_explanation: "שלב ד': נפתור.&rlm;", math_expression: "60 - 2y + 4y = 100  =>  2y = 40  =>  y = 20" },
+            { verbal_explanation: "שלב ה': יש 20 פרות (y). לכן יש 10 תרנגולות (כדי להשלים ל-30).&rlm;", math_expression: "x = 30 - 20 = 10" }
         ],
-        "final_answer": "12",
-        "options": ["6", "12", "30", "10"],
-        "correctAnswer": 1
+        final_answer: "10 תרנגולות, 20 פרות"
     },
+    // שאלה 38
     {
-        "id": 74,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "קניית 4 ק\"ג תפוחים ו-3 ק\"ג תפוזים עולה 35 שקלים. קניית 4 ק\"ג תפוחים ו-5 ק\"ג תפוזים עולה 45 שקלים. מהו מחיר קילוגרם <strong>תפוזים</strong>?",
-        "hint": "הסתכלו על ההפרש בין שתי הקניות.",
-        "solution_steps": [
-            { "verbal_explanation": "נזהה שההבדל היחיד הוא 2 ק\"ג תפוזים נוספים.", "math_expression": "5-3 = 2 ק\"ג" },
-            { "verbal_explanation": "הפרש המחיר הוא 10 שקלים.", "math_expression": "45-35 = 10" },
-            { "verbal_explanation": "נחלק ב-2 למציאת מחיר לקילוגרם.", "math_expression": "5 שקלים" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "קבוצה קנתה כרטיסים להצגה: 3 כרטיסי מבוגר ו-2 כרטיסי ילד עלו יחד 160 שקלים. משפחה אחרת קנתה כרטיס מבוגר אחד ו-4 כרטיסי ילד ושילמה 120 שקלים. כמה עולה כרטיס למבוגר?&rlm;",
+        options: ["40 שקלים", "20 שקלים", "30 שקלים", "50 שקלים"],
+        correctAnswer: 0,
+        hint: "נסמן: מבוגר = x, ילד = y. משוואה א': 3x+2y=160. משוואה ב': x+4y=120. בודדו את x ממשוואה ב' (x = 120 - 4y) והציבו בראשונה.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרכיב שתי משוואות.&rlm;", math_expression: "1) 3x + 2y = 160 , 2) x + 4y = 120" },
+            { verbal_explanation: "שלב ב': נבודד את x מהמשוואה השנייה.&rlm;", math_expression: "x = 120 - 4y" },
+            { verbal_explanation: "שלב ג': נציב את הביטוי במשוואה הראשונה.&rlm;", math_expression: "3 × (120 - 4y) + 2y = 160" },
+            { verbal_explanation: "שלב ד': נפתור.&rlm;", math_expression: "360 - 12y + 2y = 160  =>  -10y = -200  =>  y = 20" },
+            { verbal_explanation: "שלב ה': מצאנו שילד עולה 20. נציב למציאת מבוגר (x).&rlm;", math_expression: "x = 120 - 4 × 20 = 120 - 80 = 40" }
         ],
-        "final_answer": "5 שקלים",
-        "options": ["5 שקלים", "10 שקלים", "4 שקלים", "6 שקלים"],
-        "correctAnswer": 0
+        final_answer: "40 שקלים"
     },
+    // שאלה 39
     {
-        "id": 75,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "סירה שטה בנהר. מהירותה עם הזרם 25 קמ\"ש, ונגד הזרם 15 קמ\"ש. מהי <strong>מהירות הזרם</strong>?",
-        "hint": "סירה x, זרם y. x+y=25 ו- x-y=15.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נחסיר בין המשוואות כדי לבטל את מהירות הסירה.", "math_expression": "2y = 10" },
-            { "verbal_explanation": "שלב 2: נמצא את מהירות הזרם.", "math_expression": "y = 5" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "סכומם של שני מספרים הוא 50. ההפרש ביניהם הוא 14. מהם שני המספרים?&rlm;",
+        options: ["32 ו-18", "30 ו-20", "25 ו-25", "35 ו-15"],
+        correctAnswer: 0,
+        hint: "נסמן x ו-y. משוואה 1: x + y = 50. משוואה 2: x - y = 14. השתמשו בשיטת חיבור משוואות (ה-y יתבטל!).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': נרשום את שתי המשוואות.&rlm;", math_expression: "1) x + y = 50 , 2) x - y = 14" },
+            { verbal_explanation: "שלב ב': נחבר את המשוואות. ה-y והמינוס y יתבטלו.&rlm;", math_expression: "x + x = 50 + 14  =>  2x = 64" },
+            { verbal_explanation: "שלב ג': נחלק ב-2 למציאת x.&rlm;", math_expression: "x = 32" },
+            { verbal_explanation: "שלב ד': נציב במשוואה הראשונה למציאת y.&rlm;", math_expression: "32 + y = 50  =>  y = 18" }
         ],
-        "final_answer": "5 קמ\"ש",
-        "options": ["5 קמ\"ש", "10 קמ\"ש", "20 קמ\"ש", "2.5 קמ\"ש"],
-        "correctAnswer": 0
+        final_answer: "32 ו-18"
     },
+    // שאלה 40
     {
-        "id": 76,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Medium",
-        "question_text": "סכום שני מספרים הוא 120. המספר הראשון גדול פי 5 מהשני. מהו המספר <strong>השני</strong>?",
-        "hint": "x + y = 120 ו- x = 5y.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: הצבה.", "math_expression": "5y + y = 120" },
-            { "verbal_explanation": "שלב 2: פתרון ל-y.", "math_expression": "6y = 120 -> y = 20" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "בחנות פירות, קילו תפוחים (x) עולה פי 2 מקילו בננות (y). קנייה של 4 ק\"ג תפוחים ו-5 ק\"ג בננות עולה יחד 65 שקלים. כמה עולה קילו בננות?&rlm;",
+        options: ["5 שקלים", "10 שקלים", "15 שקלים", "2.5 שקלים"],
+        correctAnswer: 0,
+        hint: "המשוואה הראשונה היא פשוטה מאוד: x = 2y. הציבו '2y' במקום x במשוואת הקנייה (4x + 5y = 65).&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': תפוח עולה פי 2 מבננה.&rlm;", math_expression: "x = 2y" },
+            { verbal_explanation: "שלב ב': משוואת הקנייה.&rlm;", math_expression: "4x + 5y = 65" },
+            { verbal_explanation: "שלב ג': נציב 2y במקום x.&rlm;", math_expression: "4 × (2y) + 5y = 65" },
+            { verbal_explanation: "שלב ד': נפתור.&rlm;", math_expression: "8y + 5y = 65  =>  13y = 65" },
+            { verbal_explanation: "שלב ה': נחלק ב-13 למציאת y (בננה).&rlm;", math_expression: "y = 65 : 13 = 5" }
         ],
-        "final_answer": "20",
-        "options": ["20", "100", "30", "10"],
-        "correctAnswer": 0
+        final_answer: "5 שקלים"
     },
+    // שאלה 41
     {
-        "id": 77,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "בשני ארנקים יש סכום כולל של 200 שקלים. אם נוציא 30 שקלים מהראשון ונוסיף 10 לשני, הסכומים יהיו שווים. כמה היה ב<strong>ארנק הראשון</strong>?",
-        "hint": "x+y=200 וגם x-30 = y+10.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נסדר את השנייה.", "math_expression": "x - y = 40" },
-            { "verbal_explanation": "שלב 2: נחבר עם x+y=200.", "math_expression": "2x = 240 -> x = 120" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "קופת חיסכון מכילה מטבעות של 5 שקלים ו-10 שקלים בלבד. בסך הכל יש בקופה 20 מטבעות, והסכום הכולל שלהם הוא 130 שקלים. כמה מטבעות של 10 שקלים יש בקופה?&rlm;",
+        options: ["6", "14", "10", "8"],
+        correctAnswer: 0,
+        hint: "נסמן: x מטבעות של 5. y מטבעות של 10. משוואת כמות: x + y = 20. משוואת ערך כספי: 5x + 10y = 130.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': משוואת כמות (יש 20 מטבעות). נבודד את x.&rlm;", math_expression: "x + y = 20  =>  x = 20 - y" },
+            { verbal_explanation: "שלב ב': משוואת ערך כספי (כל מטבע כפול ערכו).&rlm;", math_expression: "5x + 10y = 130" },
+            { verbal_explanation: "שלב ג': נציב את x בתוך המשוואה השנייה.&rlm;", math_expression: "5 × (20 - y) + 10y = 130" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים.&rlm;", math_expression: "100 - 5y + 10y = 130  =>  5y = 30" },
+            { verbal_explanation: "שלב ה': נחלק ב-5. (לכן יש 6 מטבעות של עשר, ו-14 מטבעות של חמש).&rlm;", math_expression: "y = 6" }
         ],
-        "final_answer": "120 שקלים",
-        "options": ["120 שקלים", "80 שקלים", "100 שקלים", "150 שקלים"],
-        "correctAnswer": 0
+        final_answer: "6"
     },
+    // שאלה 42
     {
-        "id": 78,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "Low",
-        "question_text": "מספר הבנים במועדון קטן ב-4 ממספר הבנות. אם יש 30 ילדים, כמה <strong>בנות</strong> יש?",
-        "hint": "בנות x, בנים x-4. בנו משוואת סכום.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: בניית המשוואה.", "math_expression": "x + (x - 4) = 30" },
-            { "verbal_explanation": "שלב 2: פתרון.", "math_expression": "2x = 34 -> x = 17" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "מלבן: היקף המלבן הוא 36 ס\"מ. האורך (x) גדול ב-4 ס\"מ מהרוחב (y). מהו אורך המלבן?&rlm;",
+        options: ["11 ס\"מ", "7 ס\"מ", "15 ס\"מ", "20 ס\"מ"],
+        correctAnswer: 0,
+        hint: "משוואת יחס צלעות: x = y + 4. משוואת היקף: 2x + 2y = 36. נסו להציב.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': משוואה על הצלעות (אורך x גדול ב-4 מרוחב y).&rlm;", math_expression: "x = y + 4" },
+            { verbal_explanation: "שלב ב': משוואת היקף מלבן.&rlm;", math_expression: "2x + 2y = 36" },
+            { verbal_explanation: "שלב ג': נציב y+4 במקום x במשוואת ההיקף.&rlm;", math_expression: "2 × (y + 4) + 2y = 36" },
+            { verbal_explanation: "שלב ד': נפתור עבור y (הרוחב).&rlm;", math_expression: "2y + 8 + 2y = 36  =>  4y = 28  =>  y = 7" },
+            { verbal_explanation: "שלב ה': האורך x גדול מ-y ב-4.&rlm;", math_expression: "x = 7 + 4 = 11" }
         ],
-        "final_answer": "17 בנות",
-        "options": ["17", "13", "15", "16"],
-        "correctAnswer": 0
+        final_answer: "11 ס\"מ"
     },
+    // שאלה 43
     {
-        "id": 79,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "הפרש שני מספרים הוא 12. אם נחלק את הראשון ב-3 ואת השני ב-4, ההפרש ביניהם יהיה 4. מצאו את המספר <strong>הקטן</strong>.",
-        "hint": "x-y=12 וגם x/3 - y/4 = 4.",
-        "solution_steps": [
-            { "verbal_explanation": "שלב 1: נבודד x.", "math_expression": "x = y + 12" },
-            { "verbal_explanation": "שלב 2: נציב ונכפיל ב-12.", "math_expression": "4(y+12) - 3y = 48" },
-            { "verbal_explanation": "שלב 3: נפתור: 4y פלוס 48 פחות 3y שווה 48.", "math_expression": "y = 0" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "במבחן אמריקאי יש 20 שאלות. על כל תשובה נכונה מקבלים 5 נקודות. על כל תשובה שגויה (או חסרה) מורידים 2 נקודות (כלומר 2-). תלמיד ענה על כל השאלות וקיבל ציון של 72. על כמה שאלות הוא ענה נכון (x)?&rlm;",
+        options: ["16", "14", "18", "12"],
+        correctAnswer: 0,
+        hint: "x שאלות נכונות, y שאלות שגויות. x+y=20. הניקוד: 5x - 2y = 72.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': סך השאלות הוא 20. לכן השאלות השגויות הן 20 פחות השאלות הנכונות.&rlm;", math_expression: "y = 20 - x" },
+            { verbal_explanation: "שלב ב': נרכיב משוואת ציון (5 על כל x, ומינוס 2 על כל y).&rlm;", math_expression: "5x - 2y = 72" },
+            { verbal_explanation: "שלב ג': נציב את ה-y.&rlm;", math_expression: "5x - 2 × (20 - x) = 72" },
+            { verbal_explanation: "שלב ד': נפתח סוגריים בזהירות עם המינוס.&rlm;", math_expression: "5x - 40 + 2x = 72" },
+            { verbal_explanation: "שלב ה': נכנס איברים (7x) ונעביר את ה-40 (יהפוך לפלוס).&rlm;", math_expression: "7x = 112  =>  x = 16" }
         ],
-        "final_answer": "0",
-        "options": ["0", "12", "4", "6"],
-        "correctAnswer": 0
+        final_answer: "16"
     },
+    // שאלה 44
     {
-        "id": 80,
-        "subTopic": "בעיות מילוליות בשני נעלמים",
-        "difficulty": "High",
-        "question_text": "מהי הדרך הטובה ביותר לוודא שהפתרון שקיבלנו לבעיה מילולית הוא אכן נכון?",
-        "hint": "חשבו על הנתונים המקוריים בשאלה.",
-        "solution_steps": [
-            { "verbal_explanation": "הדרך הבטוחה ביותר היא להציב את התוצאות המספריות שקיבלנו בתוך סיפור השאלה המקורי ולוודא שהן מתאימות לנתונים.", "math_expression": "בדיקת נתונים" }
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "קבוצה של 4 מבוגרים ו-5 ילדים אכלו במסעדה. מנת מבוגר יקרה ב-15 שקלים ממנת ילד. החשבון הכולל היה 330 שקלים. כמה עולה מנת ילד (y)?&rlm;",
+        options: ["30 שקלים", "45 שקלים", "25 שקלים", "40 שקלים"],
+        correctAnswer: 0,
+        hint: "מבוגר (x) עולה y+15. החשבון הוא 4x + 5y = 330.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': קשר בין המנות.&rlm;", math_expression: "x = y + 15" },
+            { verbal_explanation: "שלב ב': משוואת החשבון.&rlm;", math_expression: "4x + 5y = 330" },
+            { verbal_explanation: "שלב ג': הצבה.&rlm;", math_expression: "4 × (y + 15) + 5y = 330" },
+            { verbal_explanation: "שלב ד': פתרון המשוואה.&rlm;", math_expression: "4y + 60 + 5y = 330  =>  9y = 270" },
+            { verbal_explanation: "שלב ה': חילוק ב-9 למציאת מחיר מנת ילד.&rlm;", math_expression: "y = 30" }
         ],
-        "final_answer": "הצבת התוצאות בנתוני השאלה המקוריים.",
-        "options": ["לפתור שוב באותה דרך", "הצבת התוצאות בנתוני השאלה.", "לשאול חבר", "אין דרך בדיקה"],
-        "correctAnswer": 1
+        final_answer: "30 שקלים"
+    },
+    // שאלה 45
+    {
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "גיל האב (x) הוא פי 3 מגיל הבן (y). בעוד 10 שנים, סכום הגילאים שלהם יחד יהיה 72. בן כמה הבן היום?&rlm;",
+        options: ["13", "12", "15", "10"],
+        correctAnswer: 0,
+        hint: "היום: x = 3y. בעוד עשר שנים כל אחד גדל ב-10 שנים! לכן סכומם יהיה: (x+10) + (y+10) = 72.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': משוואת היום.&rlm;", math_expression: "x = 3y" },
+            { verbal_explanation: "שלב ב': משוואת העתיד. שניהם מתבגרים ב-10 שנים.&rlm;", math_expression: "(x + 10) + (y + 10) = 72" },
+            { verbal_explanation: "שלב ג': נסדר את משוואת העתיד.&rlm;", math_expression: "x + y + 20 = 72  =>  x + y = 52" },
+            { verbal_explanation: "שלב ד': נציב x=3y במשוואה המסודרת.&rlm;", math_expression: "3y + y = 52  =>  4y = 52" },
+            { verbal_explanation: "שלב ה': נמצא את גיל הבן היום.&rlm;", math_expression: "y = 13" }
+        ],
+        final_answer: "13"
+    },
+    // שאלה 46
+    {
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "חצי ממספר אחד שווה לשליש מהמספר השני. סכומם הוא 50. מהם המספרים?&rlm;",
+        options: ["20 ו-30", "15 ו-35", "25 ו-25", "10 ו-40"],
+        correctAnswer: 0,
+        hint: "המשוואות: x/2 = y/3, וגם x + y = 50. כפלו את המשוואה הראשונה ב-6 כדי להיפטר מהשברים! תקבלו 3x = 2y.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': משוואה ראשונה עם שברים.&rlm;", math_expression: "x : 2 = y : 3" },
+            { verbal_explanation: "שלב ב': נכפול את המשוואה ב-6 (מכנה משותף) כדי לקבל שלמים.&rlm;", math_expression: "3x = 2y  =>  x = (2y) : 3" },
+            { verbal_explanation: "שלב ג': המשוואה השנייה.&rlm;", math_expression: "x + y = 50" },
+            { verbal_explanation: "שלב ד': נציב את ה-x ונכפול הכל ב-3 כדי לפתור בקלות.&rlm;", math_expression: "(2y):3 + y = 50  =>  2y + 3y = 150  =>  5y = 150  =>  y = 30" },
+            { verbal_explanation: "אם y=30, והסכום 50, אז x=20.&rlm;", math_expression: "" }
+        ],
+        final_answer: "20 ו-30"
+    },
+    // שאלה 47
+    {
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "במספר דו-ספרתי, ספרת העשרות (x) גדולה ב-4 מספרת האחדות (y). סכום הספרות הוא 10. מהו המספר הדו-ספרתי?&rlm;",
+        options: ["73", "84", "62", "95"],
+        correctAnswer: 0,
+        hint: "משוואה 1: x = y + 4. משוואה 2: x + y = 10. פתרו כדי למצוא את הספרות והרכיבו את המספר!&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': משוואת קשר בין הספרות.&rlm;", math_expression: "x = y + 4" },
+            { verbal_explanation: "שלב ב': משוואת סכום הספרות.&rlm;", math_expression: "x + y = 10" },
+            { verbal_explanation: "שלב ג': הצבה של x.&rlm;", math_expression: "(y + 4) + y = 10" },
+            { verbal_explanation: "שלב ד': פתרון עבור y (אחדות).&rlm;", math_expression: "2y = 6  =>  y = 3" },
+            { verbal_explanation: "שלב ה': מציאת x (עשרות). המספר מורכב מעשרות 7 ואחדות 3.&rlm;", math_expression: "x = 3 + 4 = 7" }
+        ],
+        final_answer: "73"
+    },
+    // שאלה 48
+    {
+        topic: "system_of_equations",
+        subTopic: "בעיות מילוליות בשני נעלמים",
+        question_text: "בשתי חביות יש בסך הכל 100 ליטר מים (x+y=100). אם נעביר 10 ליטר מהחבית הראשונה לשנייה, כמות המים בהן תהיה שווה. כמה מים יש בהתחלה בחבית הראשונה?&rlm;",
+        options: ["60 ליטר", "70 ליטר", "50 ליטר", "55 ליטר"],
+        correctAnswer: 0,
+        hint: "אם נעביר 10 מ-x ל-y, לראשונה יהיה (x-10) ולשנייה יהיה (y+10). המשוואה השנייה: x-10 = y+10.&rlm;",
+        solution_steps: [
+            { verbal_explanation: "שלב א': משוואת הסך הכל.&rlm;", math_expression: "x + y = 100  =>  y = 100 - x" },
+            { verbal_explanation: "שלב ב': משוואת ההעברה (שוויון חדש).&rlm;", math_expression: "x - 10 = y + 10" },
+            { verbal_explanation: "שלב ג': נציב את ה-y מהמשוואה הראשונה.&rlm;", math_expression: "x - 10 = (100 - x) + 10" },
+            { verbal_explanation: "שלב ד': נסדר איברים. נעביר מינוס x שמאלה (לפלוס) ואת מינוס 10 ימינה.&rlm;", math_expression: "2x = 110 + 10 = 120" },
+            { verbal_explanation: "שלב ה': נמצא את כמות המים ההתחלתית בראשונה.&rlm;", math_expression: "x = 60" }
+        ],
+        final_answer: "60 ליטר"
     }
+
 ];
