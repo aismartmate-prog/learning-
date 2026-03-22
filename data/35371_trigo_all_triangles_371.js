@@ -1,2324 +1,718 @@
-// ========================================================================
-// שאלון 35371 | נושא: שימוש בטריגונומטריה בכלל המשולשים
-// פעימה 1: 15 שאלות (תת נושא: חוק הסינוסים) - כולל שורת פתיחה
-// ========================================================================
-
 const questionsDB = [
+    // ==========================================
+    // תת נושא 1: חוק הסינוסים (12 שאלות)
+    // ==========================================
 
-    // שאלה 1
+    // שאלה מספר 1
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת צלע באמצעות חוק הסינוסים:</strong><br>
-        במשולש נתונות שתי זוויות וצלע אחת.<br>
-        הזווית האחת היא 40° והזווית השנייה היא 60°.<br>
-        אורך הצלע הנמצאת <strong>מול</strong> הזווית של ה-40° הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 130,40" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="60" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="160" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="175" y="75" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">10</text>
-            <text x="70" y="75" font-family="Arial" font-weight="bold" font-size="14">x</text>
-        </svg>
-        </div>
-        מהו אורך הצלע (x) הנמצאת מול הזווית של ה-60°?`,
-        options: [
-            "13.47 ס\"מ",
-            "15.20 ס\"מ",
-            "8.66 ס\"מ",
-            "11.50 ס\"מ"
-        ],
+        question_text: "במשולש נתון אורך צלע 10 והזווית שמולה היא 45 מעלות. מצאו את אורך הצלע הנמצאת מול זווית של 30 מעלות.&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 300 200' style='max-width:350px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='40,160 260,160 180,40' fill='none' stroke='#3b82f6' stroke-width='3'/><text x='55' y='145' font-size='14' fill='#ef4444'>45°</text><text x='215' y='145' font-size='14' fill='#ef4444'>30°</text><text x='230' y='95' font-size='14' fill='#334155'>10</text><text x='90' y='95' font-size='14' fill='#3b82f6'>x</text></svg></div>",
+        options: ["7.07", "8.48", "5.00", "14.14"],
         correctAnswer: 0,
-        hint: "חוק הסינוסים קובע שהיחס בין צלע לסינוס הזווית שמולה הוא קבוע. חלקו את הצלע הנתונה (10) בסינוס הזווית שמולה (40), והשוו לצלע המבוקשת חלקי סינוס הזווית שמולה (60).",
+        hint: "לפי חוק הסינוסים, היחס בין כל צלע לסינוס הזווית שמולה הוא קבוע. הציבו את הנתונים במשוואה ובודדו את הנעלם.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הסינוסים. נציב את הצלע הידועה חלקי סינוס הזווית שמולה, ונדרוש שוויון לצלע החסרה חלקי סינוס הזווית שמולה.", 
-                math_expression: "<div dir='ltr'>10 / sin(40&deg;) = x / sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "כדי לבודד את המשתנה שלנו, נכפיל את שני אגפי המשוואה בסינוס של 60 מעלות.", 
-                math_expression: "<div dir='ltr'>x = ( 10 &times; sin(60&deg;) ) / sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את הערכים של פונקציות הסינוס באמצעות המחשבון (נעגל מעט).", 
-                math_expression: "<div dir='ltr'>x = ( 10 &times; 0.866 ) / 0.642</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע תחילה את פעולת הכפל במונה של השבר.", 
-                math_expression: "<div dir='ltr'>x = 8.66 / 0.642</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת החילוק הסופית לקבלת התוצאה המדויקת לאורך הצלע.", 
-                math_expression: "<div dir='ltr'>x = 13.48</div>" 
-            },
-            { 
-                verbal_explanation: "התוצאה הקרובה ביותר מבין האפשרויות, הנובעת מהבדלי עיגול במחשבון, היא 13.47.", 
-                math_expression: "<div dir='ltr'>13.47</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת משוואת חוק הסינוסים עם הנתונים והנעלם.", math_expression: "\\dfrac{x}{\\sin(30^{\\circ})} = \\dfrac{10}{\\sin(45^{\\circ})}" },
+            { verbal_explanation: "שלב 2: בידוד הנעלם על ידי הכפלת שני האגפים בסינוס של שלושים מעלות.", math_expression: "x = \\dfrac{10 \\times \\sin(30^{\\circ})}{\\sin(45^{\\circ})}" },
+            { verbal_explanation: "שלב 3: מציאת הערכים של פונקציות הסינוס במחשבון.", math_expression: "x = \\dfrac{10 \\times 0.5}{0.707}" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל במונה.", math_expression: "x = \\dfrac{5}{0.707}" },
+            { verbal_explanation: "שלב 5: ביצוע פעולת החלוקה לקבלת הערך העשרוני.", math_expression: "x \\approx 7.07" },
+            { verbal_explanation: "שלב 6: הרישום הסופי הדרוש.", math_expression: "7.07" }
         ],
-        final_answer: "13.47"
+        final_answer: "7.07"
     },
 
-    // שאלה 2
+    // שאלה מספר 2
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת זווית חסרה:</strong><br>
-        במשולש נתונות שתי צלעות וזווית אחת.<br>
-        צלע אחת באורך 12 ס"מ, ומולה נמצאת זווית בת 70°.<br>
-        הצלע השנייה היא באורך 8 ס"מ, ומולה נמצאת הזווית החסרה.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 210,120 150,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="50" y="110" font-family="Arial" font-size="12">70&deg;</text>
-            <text x="175" y="110" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="190" y="70" font-family="Arial" font-weight="bold" font-size="14">12</text>
-            <text x="80" y="70" font-family="Arial" font-weight="bold" font-size="14">8</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית המסומנת באות &alpha;.`,
-        options: [
-            "38.78°",
-            "45.20°",
-            "32.15°",
-            "51.05°"
-        ],
+        question_text: "במשולש נתון אורך צלע 15 והזווית שמולה היא הנעלם. ידועה צלע נוספת שאורכה 20, והזווית שמולה היא 70 מעלות. מצאו את הזווית הנעלמת (עגלו לשתי ספרות עשרוניות).&rlm;",
+        options: ["44.82", "55.18", "30.00", "60.00"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בחוק הסינוסים: צלע חלקי סינוס הזווית שמולה שווה לצלע השנייה חלקי סינוס הזווית החסרה. בצעו כפל בהצלבה, ובסוף השתמשו בפונקציה הפוכה במחשבון.",
+        hint: "הציבו בחוק הסינוסים כך שהסינוס הנעלם נמצא במונה לנוחות החישוב. לאחר מציאת הערך, השתמשו בשיפט סינוס (הפונקציה ההפוכה).",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את שתי הצלעות והזווית הידועה בתוך משוואת חוק הסינוסים.", 
-                math_expression: "<div dir='ltr'>12 / sin(70&deg;) = 8 / sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע כפל באלכסון (כפל בהצלבה) כדי להעלות את המשתנה שלנו מהמכנה למונה.", 
-                math_expression: "<div dir='ltr'>12 &times; sin(&alpha;) = 8 &times; sin(70&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסינוס של 70 מעלות ונרשום את התוצאה.", 
-                math_expression: "<div dir='ltr'>12 &times; sin(&alpha;) = 8 &times; 0.939</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל המספרי באגף הימני.", 
-                math_expression: "<div dir='ltr'>12 &times; sin(&alpha;) = 7.512</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה ב-12 כדי לבודד לחלוטין את הפונקציה הטריגונומטרית.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 7.512 / 12 = 0.626</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש בפעולה ההפוכה במחשבון כדי לחלץ את הזווית מתוך הסינוס.", 
-                math_expression: "<div dir='ltr'>&alpha; = 38.78&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחה, הפעם נציב את הסינוסים במונה.", math_expression: "\\dfrac{\\sin(x)}{15} = \\dfrac{\\sin(70^{\\circ})}{20}" },
+            { verbal_explanation: "שלב 2: בידוד סינוס הנעלם על ידי כפל בחמש עשרה.", math_expression: "\\sin(x) = \\dfrac{15 \\times \\sin(70^{\\circ})}{20}" },
+            { verbal_explanation: "שלב 3: חישוב הערך של סינוס שבעים במחשבון.", math_expression: "\\sin(x) = \\dfrac{15 \\times 0.939}{20}" },
+            { verbal_explanation: "שלב 4: ביצוע הכפל והחילוק במלואם.", math_expression: "\\sin(x) = 0.704" },
+            { verbal_explanation: "שלב 5: הפעלת הפונקציה ההפוכה לחילוץ הזווית במעלות.", math_expression: "x = \\sin^{-1}(0.704)" },
+            { verbal_explanation: "שלב 6: התוצאה הסופית המעוגלת.", math_expression: "x \\approx 44.82" }
         ],
-        final_answer: "38.78&deg;"
+        final_answer: "44.82"
     },
 
-    // שאלה 3
+    // שאלה מספר 3
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>חשיבה שלב אחרי שלב:</strong><br>
-        במשולש נתונות שתי זוויות בבסיס: האחת 50° והשנייה 70°.<br>
-        אורך הצלע המחברת ביניהן (הבסיס) הוא 15 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 210,120 140,30" fill="rgba(234,179,8,0.1)" stroke="#eab308" stroke-width="2"/>
-            <text x="55" y="110" font-family="Arial" font-size="12">50&deg;</text>
-            <text x="175" y="110" font-family="Arial" font-size="12">70&deg;</text>
-            <text x="120" y="138" font-family="Arial" font-weight="bold" font-size="14">15</text>
-            <text x="185" y="70" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-        </svg>
-        </div>
-        מהו אורך הצלע (x) הנמצאת מול הזווית של ה-50°?`,
-        options: [
-            "13.26 ס\"מ",
-            "11.49 ס\"מ",
-            "16.32 ס\"מ",
-            "14.50 ס\"מ"
-        ],
+        question_text: "במשולש החסום במעגל, נתונה צלע שאורכה 12 והזווית שמולה היא 60 מעלות. מצאו את רדיוס המעגל החוסם.&rlm;",
+        options: ["6.93", "13.86", "12.00", "10.39"],
         correctAnswer: 0,
-        hint: "כדי להשתמש בחוק הסינוסים, אתם חייבים את הזווית שמול הצלע הידועה. זכרו שסכום הזוויות במשולש הוא תמיד 180 מעלות. מצאו את הזווית השלישית ואז הציבו בחוק הסינוסים.",
+        hint: "חוק הסינוסים המורחב קובע שהיחס בין צלע לסינוס הזווית שמולה שווה לפעמיים רדיוס המעגל החוסם.",
         solution_steps: [
-            { 
-                verbal_explanation: "תחילה, נמצא את הזווית השלישית במשולש. אנו יודעים שסך כל הזוויות במשולש חייב להיות שווה ל-180 מעלות.", 
-                math_expression: "<div dir='ltr'>180&deg; - 50&deg; - 70&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החיסור ונמצא שהזווית הנמצאת מול הצלע של ה-15 ס\"מ היא 60 מעלות.", 
-                math_expression: "<div dir='ltr'>60&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "כעת יש לנו זוג שלם של צלע וזווית. נרכיב את משוואת חוק הסינוסים.", 
-                math_expression: "<div dir='ltr'>15 / sin(60&deg;) = x / sin(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שני אגפי המשוואה בסינוס של 50 מעלות כדי להשאיר את המשתנה שלנו לבדו.", 
-                math_expression: "<div dir='ltr'>x = ( 15 &times; sin(50&deg;) ) / sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמיר את הפונקציות למספרים עשרוניים בעזרת המחשבון.", 
-                math_expression: "<div dir='ltr'>x = ( 15 &times; 0.766 ) / 0.866</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים במונה השבר.", 
-                math_expression: "<div dir='ltr'>x = 11.49 / 0.866</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המונה במכנה לקבלת התוצאה הסופית של אורך הצלע.", 
-                math_expression: "<div dir='ltr'>x = 13.26</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת משוואת חוק הסינוסים המורחב.", math_expression: "2 \\times R = \\dfrac{12}{\\sin(60^{\\circ})}" },
+            { verbal_explanation: "שלב 2: מציאת ערכו של סינוס שישים.", math_expression: "2 \\times R = \\dfrac{12}{0.866}" },
+            { verbal_explanation: "שלב 3: ביצוע פעולת החלוקה.", math_expression: "2 \\times R = 13.856" },
+            { verbal_explanation: "שלב 4: חלוקת המשוואה בשתיים למציאת הרדיוס עצמו.", math_expression: "R = 13.856 : 2" },
+            { verbal_explanation: "שלב 5: התוצאה הסופית המעוגלת של הרדיוס.", math_expression: "R \\approx 6.93" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה בתשובות.", math_expression: "6.93" }
         ],
-        final_answer: "13.26"
+        final_answer: "6.93"
     },
 
-    // שאלה 4
+    // שאלה מספר 4
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת רדיוס המעגל החוסם:</strong><br>
-        משולש חסום בתוך מעגל.<br>
-        אחת מצלעות המשולש היא באורך 20 ס"מ, והזווית הנמצאת מולה היא בת 80°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
-            <polygon points="40,150 160,150 110,25" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <text x="95" y="55" font-family="Arial" font-size="12">80&deg;</text>
-            <text x="100" y="145" font-family="Arial" font-weight="bold" font-size="14">20</text>
-            <circle cx="100" cy="100" r="3" fill="#0f172a"/>
-            <line x1="100" y1="100" x2="160" y2="150" stroke="#0f172a" stroke-width="1.5"/>
-            <text x="135" y="120" font-family="Arial" font-weight="bold" font-size="12" fill="#ef4444">R</text>
-        </svg>
-        </div>
-        חשבו את אורך הרדיוס (R) של המעגל החוסם.`,
-        options: [
-            "10.16 ס\"מ",
-            "20.32 ס\"מ",
-            "15.00 ס\"מ",
-            "12.45 ס\"מ"
-        ],
+        question_text: "במשולש נתונות שתי זוויות: 50 מעלות ו-70 מעלות. הצלע הנמצאת מול הזווית השלישית אורכה 10. מצאו את אורך הצלע הנמצאת מול הזווית של 50 מעלות.&rlm;",
+        options: ["8.84", "7.66", "10.85", "6.42"],
         correctAnswer: 0,
-        hint: "החלק המלא של חוק הסינוסים קובע כי היחס בין כל צלע לסינוס הזווית שמולה שווה לפעמיים רדיוס המעגל. כלומר: צלע חלקי סינוס שווה ל-2R.",
+        hint: "מצאו קודם את הזווית השלישית על ידי השלמה למאה ושמונים, ורק אז הפעילו את חוק הסינוסים.",
         solution_steps: [
-            { 
-                verbal_explanation: "ניעזר בהרחבה של חוק הסינוסים הכוללת את רדיוס המעגל. נרשום שהיחס שווה לפעמיים הרדיוס.", 
-                math_expression: "<div dir='ltr'>20 / sin(80&deg;) = 2 &times; R</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב במחשבון את הערך של סינוס שמונים מעלות.", 
-                math_expression: "<div dir='ltr'>20 / 0.984 = 2 &times; R</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת החילוק באגף השמאלי לקבלת אורך קוטר המעגל כולו.", 
-                math_expression: "<div dir='ltr'>20.32 = 2 &times; R</div>" 
-            },
-            { 
-                verbal_explanation: "מאחר ואנו מחפשים את הרדיוס (שהוא חצי מהקוטר), נחלק את המשוואה בשתיים.", 
-                math_expression: "<div dir='ltr'>R = 20.32 / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את החלוקה למציאת הערך הסופי.", 
-                math_expression: "<div dir='ltr'>R = 10.16</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב הזווית השלישית במשולש.", math_expression: "y = 180^{\\circ} - (50^{\\circ} + 70^{\\circ})" },
+            { verbal_explanation: "שלב 2: סכימה וחיסור למציאת הזווית.", math_expression: "y = 60^{\\circ}" },
+            { verbal_explanation: "שלב 3: כעת נבנה את משוואת חוק הסינוסים למציאת הצלע הנעלמת.", math_expression: "\\dfrac{x}{\\sin(50^{\\circ})} = \\dfrac{10}{\\sin(60^{\\circ})}" },
+            { verbal_explanation: "שלב 4: בידוד הצלע הנעלמת.", math_expression: "x = \\dfrac{10 \\times \\sin(50^{\\circ})}{\\sin(60^{\\circ})}" },
+            { verbal_explanation: "שלב 5: הצבת הערכים העשרוניים של הפונקציות.", math_expression: "x = \\dfrac{10 \\times 0.766}{0.866}" },
+            { verbal_explanation: "שלב 6: פתרון הכפל והחילוק.", math_expression: "x = 7.66 : 0.866 \\approx 8.84" },
+            { verbal_explanation: "שלב 7: הרישום הרלוונטי.", math_expression: "8.84" }
         ],
-        final_answer: "10.16"
+        final_answer: "8.84"
     },
 
-    // שאלה 5
+    // שאלה מספר 5
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת צלע מתוך רדיוס:</strong><br>
-        במעגל שרדיוסו 10 ס"מ חסום משולש.<br>
-        אחת מזוויות המשולש היא בת 60°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
-            <polygon points="100,20 40,150 160,150" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="90" y="45" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="95" y="165" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-            <circle cx="100" cy="100" r="3" fill="#0f172a"/>
-            <line x1="100" y1="100" x2="180" y2="100" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="135" y="95" font-family="Arial" font-weight="bold" font-size="12">10</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע הנמצאת מול הזווית של ה-60°.`,
-        options: [
-            "17.32 ס\"מ",
-            "20.00 ס\"מ",
-            "10.00 ס\"מ",
-            "8.66 ס\"מ"
-        ],
+        question_text: "רדיוס המעגל החוסם משולש הוא 8. הזווית מול אחת הצלעות היא 120 מעלות. מהו אורך צלע זו?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><circle cx='100' cy='100' r='80' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='20,100 180,100 100,160' fill='none' stroke='#ef4444' stroke-width='3'/><text x='90' y='145' font-size='12' fill='#ef4444'>120°</text><text x='100' y='90' font-size='14' fill='#334155'>x</text></svg></div>",
+        options: ["13.86", "6.93", "16.00", "8.00"],
         correctAnswer: 0,
-        hint: "היחס בין הצלע לסינוס הזווית שמולה שווה לפעמיים הרדיוס. הציבו את הרדיוס הנתון בנוסחה והכפילו בסינוס הזווית.",
+        hint: "הציבו את הרדיוס בחוק הסינוסים המורחב (פעמיים רדיוס שווה לצלע חלקי סינוס הזווית ממול) ובודדו את הצלע.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הסינוסים הקושר בין צלע, זווית ורדיוס המעגל.", 
-                math_expression: "<div dir='ltr'>x / sin(60&deg;) = 2 &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את האגף הימני המייצג את קוטר המעגל.", 
-                math_expression: "<div dir='ltr'>x / sin(60&deg;) = 20</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שני האגפים בסינוס של שישים מעלות כדי לבודד את הצלע.", 
-                math_expression: "<div dir='ltr'>x = 20 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערך הסינוס במחשבון.", 
-                math_expression: "<div dir='ltr'>x = 20 &times; 0.866</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל האחרון לקבלת אורך הצלע.", 
-                math_expression: "<div dir='ltr'>x = 17.32</div>" 
-            }
+            { verbal_explanation: "שלב 1: רישום המשוואה הרלוונטית הכוללת את הרדיוס.", math_expression: "2 \\times 8 = \\dfrac{x}{\\sin(120^{\\circ})}" },
+            { verbal_explanation: "שלב 2: ביצוע פעולת הכפל באגף שמאל.", math_expression: "16 = \\dfrac{x}{\\sin(120^{\\circ})}" },
+            { verbal_explanation: "שלב 3: בידוד הצלע הנעלמת באמצעות כפל בסינוס.", math_expression: "x = 16 \\times \\sin(120^{\\circ})" },
+            { verbal_explanation: "שלב 4: מציאת ערך הסינוס לזווית קהה זו.", math_expression: "x = 16 \\times 0.866" },
+            { verbal_explanation: "שלב 5: חישוב התוצאה הסופית של המכפלה.", math_expression: "x \\approx 13.856" },
+            { verbal_explanation: "שלב 6: עיגול לשתי ספרות עשרוניות כנהוג.", math_expression: "13.86" }
         ],
-        final_answer: "17.32"
+        final_answer: "13.86"
     },
 
-    // שאלה 6
+    // שאלה מספר 6
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת זווית מתוך רדיוס:</strong><br>
-        במעגל שרדיוסו 15 ס"מ חסום משולש.<br>
-        אורך אחת מצלעות המשולש הוא 18 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
-            <polygon points="100,20 40,150 160,150" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="95" y="45" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="95" y="165" font-family="Arial" font-weight="bold" font-size="14">18</text>
-            <circle cx="100" cy="100" r="3" fill="#0f172a"/>
-            <line x1="100" y1="100" x2="180" y2="100" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="135" y="95" font-family="Arial" font-weight="bold" font-size="12">15</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית החדה המסומנת באות &alpha; (הנמצאת מול הצלע הנתונה).`,
-        options: [
-            "36.87°",
-            "53.13°",
-            "30.00°",
-            "45.00°"
-        ],
+        question_text: "במשולש ישר זווית, אורך היתר הוא 20. הזווית מול אחת הצלעות היא 30 מעלות. השתמשו בחוק הסינוסים כדי למצוא את אורך הצלע (רמז: הזווית מול היתר היא 90 מעלות).&rlm;",
+        options: ["10", "17.32", "5", "20"],
         correctAnswer: 0,
-        hint: "רשמו את הנוסחה: צלע חלקי סינוס הזווית שווה לפעמיים הרדיוס. הציבו את הנתונים, בודדו את פונקציית הסינוס, ומצאו את הזווית בעזרת המחשבון.",
+        hint: "חוק הסינוסים עובד כמובן גם במשולש ישר זווית. סינוס של תשעים מעלות שווה לאחת.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את נתוני השאלה בתוך חוק הסינוסים הכולל את הרדיוס.", 
-                math_expression: "<div dir='ltr'>18 / sin(&alpha;) = 2 &times; 15</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את אגף ימין המהווה את קוטר המעגל.", 
-                math_expression: "<div dir='ltr'>18 / sin(&alpha;) = 30</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בהצלבה כדי להעלות את הסינוס למונה.", 
-                math_expression: "<div dir='ltr'>30 &times; sin(&alpha;) = 18</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה בשלושים כדי לבודד את הסינוס.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 18 / 30 = 0.6</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש בפעולה ההפוכה של הסינוס במחשבון כדי לחלץ את הזווית.", 
-                math_expression: "<div dir='ltr'>&alpha; = 36.87&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת הפרופורציה המלאה על סמך חוק הסינוסים.", math_expression: "\\dfrac{x}{\\sin(30^{\\circ})} = \\dfrac{20}{\\sin(90^{\\circ})}" },
+            { verbal_explanation: "שלב 2: הצבת הערך הידוע של סינוס תשעים שהוא תמיד אחת.", math_expression: "\\dfrac{x}{\\sin(30^{\\circ})} = \\dfrac{20}{1}" },
+            { verbal_explanation: "שלב 3: בידוד הנעלם.", math_expression: "x = 20 \\times \\sin(30^{\\circ})" },
+            { verbal_explanation: "שלב 4: מציאת סינוס שלושים.", math_expression: "x = 20 \\times 0.5" },
+            { verbal_explanation: "שלב 5: קבלת התוצאה (התואמת לכלל שהצלע מול שלושים מעלות שווה לחצי היתר).", math_expression: "x = 10" },
+            { verbal_explanation: "שלב 6: הרישום.", math_expression: "10" }
         ],
-        final_answer: "36.87&deg;"
+        final_answer: "10"
     },
 
-    // שאלה 7
+    // שאלה מספר 7
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת שוק במשולש שווה שוקיים:</strong><br>
-        במשולש שווה שוקיים, אורך הבסיס הוא 12 ס"מ.<br>
-        כל אחת משתי הזוויות הסמוכות לבסיס היא בת 50°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="60,120 180,120 120,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="75" y="110" font-family="Arial" font-size="12">50&deg;</text>
-            <text x="150" y="110" font-family="Arial" font-size="12">50&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">12</text>
-            <text x="160" y="70" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-        </svg>
-        </div>
-        חשבו את אורך השוק של המשולש.`,
-        options: [
-            "9.34 ס\"מ",
-            "11.20 ס\"מ",
-            "15.00 ס\"מ",
-            "7.50 ס\"מ"
-        ],
+        question_text: "רדיוס המעגל החוסם משולש הוא 6. אורך צלע אחת הוא 9. חשבו את הזווית הנמצאת מול צלע זו (בהנחה שהיא זווית חדה).&rlm;",
+        options: ["48.59", "41.41", "30.00", "60.00"],
         correctAnswer: 0,
-        hint: "כדי להשתמש בבסיס הנתון בחוק הסינוסים, חובה למצוא את הזווית שמולו. חשבו את הזווית השלישית במשולש (סכום זוויות הוא 180). אחר כך הפעילו את חוק הסינוסים.",
+        hint: "הציבו שוב בנוסחת חוק הסינוסים המורחב, אך הפעם הנעלם הוא הזווית.",
         solution_steps: [
-            { 
-                verbal_explanation: "כדי למצוא את זווית הראש (שמול הבסיס), נחסר את שתי זוויות הבסיס מתוך 180 מעלות.", 
-                math_expression: "<div dir='ltr'>180&deg; - 50&deg; - 50&deg; = 80&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים בחוק הסינוסים. השוק חלקי סינוס 50 שווה לבסיס חלקי סינוס זווית הראש.", 
-                math_expression: "<div dir='ltr'>x / sin(50&deg;) = 12 / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את המשוואה בסינוס של 50 מעלות כדי לבודד את המשתנה שלנו.", 
-                math_expression: "<div dir='ltr'>x = ( 12 &times; sin(50&deg;) ) / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערכי הסינוסים במחשבון ונקבל מספרים עשרוניים.", 
-                math_expression: "<div dir='ltr'>x = ( 12 &times; 0.766 ) / 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל במונה.", 
-                math_expression: "<div dir='ltr'>x = 9.192 / 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק לקבלת אורך השוק הסופי.", 
-                math_expression: "<div dir='ltr'>x = 9.34</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית המשוואה כאשר הנעלם בתוך פונקציית הסינוס.", math_expression: "2 \\times 6 = \\dfrac{9}{\\sin(x)}" },
+            { verbal_explanation: "שלב 2: ביצוע הכפל באגף שמאל.", math_expression: "12 = \\dfrac{9}{\\sin(x)}" },
+            { verbal_explanation: "שלב 3: חילוף אלגברי בין הסינוס למספר השלם לשם בידוד.", math_expression: "\\sin(x) = \\dfrac{9}{12}" },
+            { verbal_explanation: "שלב 4: צמצום השבר לערך עשרוני.", math_expression: "\\sin(x) = 0.75" },
+            { verbal_explanation: "שלב 5: שימוש בפעולה ההפוכה במחשבון.", math_expression: "x = \\sin^{-1}(0.75)" },
+            { verbal_explanation: "שלב 6: קבלת ערך הזווית המעוגל.", math_expression: "x \\approx 48.59" },
+            { verbal_explanation: "שלב 7: התשובה הדרושה.", math_expression: "48.59" }
         ],
-        final_answer: "9.34"
+        final_answer: "48.59"
     },
 
-    // שאלה 8
+    // שאלה מספר 8
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת צלע מול זווית שאינה נתונה:</strong><br>
-        במשולש נתונות שתי זוויות: האחת היא 45° והשנייה היא 105°.<br>
-        הצלע הנמצאת מול הזווית של ה-105° היא באורך 20 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 170,20" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <text x="65" y="110" font-family="Arial" font-size="12">45&deg;</text>
-            <text x="145" y="45" font-family="Arial" font-size="12">105&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">20</text>
-            <text x="195" y="80" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע הקצרה ביותר במשולש זה (x).<br>
-        רמז מקדים: הצלע הקצרה ביותר נמצאת תמיד מול הזווית הקטנה ביותר במשולש.`,
-        options: [
-            "10.35 ס\"מ",
-            "14.14 ס\"מ",
-            "18.50 ס\"מ",
-            "8.20 ס\"מ"
-        ],
+        question_text: "במשולש שווה שוקיים, אורך הבסיס הוא 10 וזווית הבסיס היא 40 מעלות. מצאו את אורך השוק של המשולש בעזרת חוק הסינוסים.&rlm;",
+        options: ["6.53", "7.66", "13.05", "5.00"],
         correctAnswer: 0,
-        hint: "קודם כל מצאו את הזווית השלישית (והקטנה ביותר). הציבו אותה בחוק הסינוסים יחד עם הצלע המבוקשת מולה, והשוו לזוג הידוע של 20 ו-105°.",
+        hint: "מצאו תחילה את זווית הראש (מול הבסיס) על ידי השלמה למאה ושמונים, ואז הפעילו את החוק.",
         solution_steps: [
-            { 
-                verbal_explanation: "נמצא את הזווית השלישית על ידי חיסור שתי הזוויות הידועות מ-180.", 
-                math_expression: "<div dir='ltr'>180&deg; - 105&deg; - 45&deg; = 30&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "כעת יש לנו את הזווית הקטנה שמול הצלע x. נציב בחוק הסינוסים.", 
-                math_expression: "<div dir='ltr'>x / sin(30&deg;) = 20 / sin(105&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל בסינוס 30 מעלות כדי לבודד את המשתנה שלנו.", 
-                math_expression: "<div dir='ltr'>x = ( 20 &times; sin(30&deg;) ) / sin(105&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערכי הפונקציות במחשבון.", 
-                math_expression: "<div dir='ltr'>x = ( 20 &times; 0.5 ) / 0.965</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל במונה.", 
-                math_expression: "<div dir='ltr'>x = 10 / 0.965</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת החילוק לקבלת אורך הצלע המבוקשת.", 
-                math_expression: "<div dir='ltr'>x = 10.36</div>" 
-            },
-            { 
-                verbal_explanation: "בגלל הבדלי עיגול (כמו 0.9659 במקום 0.965), התשובה המדויקת ביותר באפשרויות היא 10.35.", 
-                math_expression: "<div dir='ltr'>10.35</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב זווית הראש במשולש שווה שוקיים.", math_expression: "y = 180^{\\circ} - (40^{\\circ} + 40^{\\circ})" },
+            { verbal_explanation: "שלב 2: השלמת החישוב.", math_expression: "y = 100^{\\circ}" },
+            { verbal_explanation: "שלב 3: בניית פרופורציית חוק הסינוסים.", math_expression: "\\dfrac{x}{\\sin(40^{\\circ})} = \\dfrac{10}{\\sin(100^{\\circ})}" },
+            { verbal_explanation: "שלב 4: בידוד אורך השוק הנעלם.", math_expression: "x = \\dfrac{10 \\times \\sin(40^{\\circ})}{\\sin(100^{\\circ})}" },
+            { verbal_explanation: "שלב 5: הוצאת הערכים מהמחשבון.", math_expression: "x = \\dfrac{10 \\times 0.642}{0.984}" },
+            { verbal_explanation: "שלב 6: ביצוע החישוב במלואו.", math_expression: "x = 6.42 : 0.984 \\approx 6.524" },
+            { verbal_explanation: "שלב 7: העיגול המסכם לאפשרויות.", math_expression: "6.53" }
         ],
-        final_answer: "10.35"
+        final_answer: "6.53"
     },
 
-    // שאלה 9
+    // שאלה מספר 9
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>משולשים צמודים (צלע משותפת):</strong><br>
-        בשרטוט שלפניכם שני משולשים הצמודים זה לזה וחולקים צלע משותפת (x).<br>
-        במשולש הימני נתונות שתי זוויות: 40° ו-60°.<br>
-        אורך הצלע התחתונה במשולש הימני הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="20,120 120,40 220,120" fill="rgba(14,165,233,0.1)" stroke="#0ea5e9" stroke-width="2"/>
-            <line x1="120" y1="40" x2="120" y2="120" stroke="#0f172a" stroke-width="2"/>
-            <text x="135" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="130" y="60" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="165" y="135" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="105" y="80" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-        </svg>
-        </div>
-        חשבו את אורכה של הצלע המשותפת (x) בעזרת המשולש הימני.`,
-        options: [
-            "8.80 ס\"מ",
-            "12.40 ס\"מ",
-            "10.00 ס\"מ",
-            "7.50 ס\"מ"
-        ],
+        question_text: "במשולש שתי זוויות הן 45 מעלות ו-60 מעלות. אורך הצלע שמול זווית ה-45 מעלות הוא 5. חשבו את אורך הצלע שמול זווית ה-60 מעלות.&rlm;",
+        options: ["6.12", "4.33", "8.66", "5.00"],
         correctAnswer: 0,
-        hint: "התמקדו אך ורק במשולש הימני. חסרה לכם הזווית שמול הצלע של ה-10 ס\"מ. מצאו אותה בעזרת סכום זוויות במשולש (180). אחר כך השתמשו בחוק הסינוסים למציאת x.",
+        hint: "זוהי הצבה פשוטה וישירה בחוק הסינוסים. בודדו את הצלע והשתמשו בערכים מקורבים.",
         solution_steps: [
-            { 
-                verbal_explanation: "נתבונן במשולש הימני. הזווית השלישית הנמצאת מול הצלע באורך 10 נמצאת בצד ימין למטה.", 
-                math_expression: "<div dir='ltr'>180&deg; - 40&deg; - 60&deg; = 80&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נרכיב משוואה של חוק הסינוסים. הצלע המשותפת x נמצאת מול הזווית של 60 מעלות.", 
-                math_expression: "<div dir='ltr'>x / sin(60&deg;) = 10 / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שני האגפים בסינוס של 60 כדי לבודד את הנעלם.", 
-                math_expression: "<div dir='ltr'>x = ( 10 &times; sin(60&deg;) ) / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערכי הסינוסים באמצעות המחשבון.", 
-                math_expression: "<div dir='ltr'>x = ( 10 &times; 0.866 ) / 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל העליון שבמונה.", 
-                math_expression: "<div dir='ltr'>x = 8.66 / 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק לקבלת אורכה של הצלע המשותפת.", 
-                math_expression: "<div dir='ltr'>x = 8.80</div>" 
-            }
+            { verbal_explanation: "שלב 1: רישום המשוואה על בסיס חוק הסינוסים.", math_expression: "\\dfrac{x}{\\sin(60^{\\circ})} = \\dfrac{5}{\\sin(45^{\\circ})}" },
+            { verbal_explanation: "שלב 2: העברת המכנה באגף שמאל ימינה בפעולת כפל.", math_expression: "x = \\dfrac{5 \\times \\sin(60^{\\circ})}{\\sin(45^{\\circ})}" },
+            { verbal_explanation: "שלב 3: המרת פונקציות טריגונומטריות למספרים עשרוניים.", math_expression: "x = \\dfrac{5 \\times 0.866}{0.707}" },
+            { verbal_explanation: "שלב 4: כפל במונה.", math_expression: "x = \\dfrac{4.33}{0.707}" },
+            { verbal_explanation: "שלב 5: חלוקה לקבלת הערך המספרי של הצלע.", math_expression: "x \\approx 6.124" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "6.12" }
         ],
-        final_answer: "8.80"
+        final_answer: "6.12"
     },
 
-    // שאלה 10
+    // שאלה מספר 10
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>שימוש בחוק הסינוסים במשולש ישר זווית:</strong><br>
-        נתון משולש ישר זווית (אחת מזוויותיו היא 90°).<br>
-        אורך היתר (הצלע הארוכה מול הזווית הישרה) הוא 20 ס"מ.<br>
-        אחת מהזוויות החדות במשולש היא בת 30°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 200,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <polyline points="185,120 185,105 200,105" fill="none" stroke="#0f172a" stroke-width="1.5"/>
-            <text x="65" y="115" font-family="Arial" font-size="12">30&deg;</text>
-            <text x="110" y="65" font-family="Arial" font-weight="bold" font-size="14">20</text>
-            <text x="210" y="80" font-family="Arial" font-weight="bold" font-size="14" fill="#3b82f6">x</text>
-        </svg>
-        </div>
-        חשבו את אורך הניצב (x) הנמצא מול הזווית של ה-30°, תוך שימוש בחוק הסינוסים.`,
-        options: [
-            "10.00 ס\"מ",
-            "17.32 ס\"מ",
-            "14.14 ס\"מ",
-            "8.66 ס\"מ"
-        ],
+        question_text: "במשולש, צלע אחת באורך 7, צלע שנייה באורך 9, והזווית מול הצלע באורך 7 היא 30 מעלות. מצאו את הזווית החדה הנמצאת מול הצלע באורך 9.&rlm;",
+        options: ["40.00", "50.00", "22.88", "60.00"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בחוק הסינוסים בדיוק כמו במשולש רגיל: הצלע שמול הזווית הישרה חלקי סינוס 90, שווה לצלע החסרה חלקי סינוס 30. זכרו שסינוס של 90 מעלות שווה בדיוק ל-1.",
+        hint: "הציבו בחוק הסינוסים את שתי הצלעות ושתי הזוויות שמולן, וחילצו את הזווית הנעלמת באמצעות שיפט סינוס.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הסינוסים עבור שתי הצלעות ושתי הזוויות שמולן.", 
-                math_expression: "<div dir='ltr'>x / sin(30&deg;) = 20 / sin(90&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס תשעים מעלות. ערכו הוא אחת שלם.", 
-                math_expression: "<div dir='ltr'>x / sin(30&deg;) = 20 / 1</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את המשתנה שלנו, נכפיל את המספר שקיבלנו (20) בסינוס של שלושים מעלות.", 
-                math_expression: "<div dir='ltr'>x = 20 &times; sin(30&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "ערכו של סינוס שלושים הוא בדיוק חצי. נכפיל ונסיים.", 
-                math_expression: "<div dir='ltr'>x = 20 &times; 0.5 = 10</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בפרופורציה.", math_expression: "\\dfrac{\\sin(x)}{9} = \\dfrac{\\sin(30^{\\circ})}{7}" },
+            { verbal_explanation: "שלב 2: בידוד פונקציית הסינוס של הנעלם.", math_expression: "\\sin(x) = \\dfrac{9 \\times \\sin(30^{\\circ})}{7}" },
+            { verbal_explanation: "שלב 3: הצבת הערך הידוע של סינוס שלושים (חצי).", math_expression: "\\sin(x) = \\dfrac{9 \\times 0.5}{7}" },
+            { verbal_explanation: "שלב 4: ביצוע פעולות החשבון.", math_expression: "\\sin(x) = \\dfrac{4.5}{7} \\approx 0.6428" },
+            { verbal_explanation: "שלב 5: הפעלת פונקציה הפוכה למציאת המעלות.", math_expression: "x = \\sin^{-1}(0.6428)" },
+            { verbal_explanation: "שלב 6: התשובה המעוגלת במעלות.", math_expression: "x \\approx 40.00" },
+            { verbal_explanation: "שלב 7: הרישום הסופי.", math_expression: "40.00" }
         ],
-        final_answer: "10.00"
+        final_answer: "40.00"
     },
 
-    // שאלה 11
+    // שאלה מספר 11
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מעגל חוסם וזווית מיוחדת:</strong><br>
-        במעגל שרדיוסו 8 ס"מ חסום משולש.<br>
-        אחת מזוויות המשולש היא זווית בת 45°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2" stroke-dasharray="4,4"/>
-            <polygon points="100,20 40,150 160,150" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="90" y="45" font-family="Arial" font-size="12">45&deg;</text>
-            <text x="95" y="165" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-            <circle cx="100" cy="100" r="3" fill="#0f172a"/>
-            <line x1="100" y1="100" x2="180" y2="100" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="135" y="95" font-family="Arial" font-weight="bold" font-size="12">8</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע הנמצאת <strong>מול</strong> הזווית של ה-45°.`,
-        options: [
-            "11.31 ס\"מ",
-            "16.00 ס\"מ",
-            "8.00 ס\"מ",
-            "13.85 ס\"מ"
-        ],
+        question_text: "משולש שווה צלעות חסום במעגל שרדיוסו 4. מהו אורך צלע המשולש?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><circle cx='100' cy='100' r='80' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='100,20 169,140 31,140' fill='none' stroke='#10b981' stroke-width='3'/><line x1='100' y1='100' x2='169' y2='140' stroke='#64748b' stroke-dasharray='4,4' stroke-width='2'/><text x='130' y='110' font-size='12' fill='#334155'>4</text><text x='100' y='155' font-size='14' fill='#10b981'>x</text></svg></div>",
+        options: ["6.93", "8.00", "4.00", "3.46"],
         correctAnswer: 0,
-        hint: "היחס בין הצלע לסינוס הזווית שמולה תמיד שווה ל-2R (פעמיים הרדיוס). הציבו את המספרים ופתרו את המשוואה לחילוץ x.",
+        hint: "במשולש שווה צלעות, כל הזוויות הן 60 מעלות. השתמשו בחוק הסינוסים המורחב עם הרדיוס הנתון.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הסינוסים עם הרחבת הרדיוס. הצלע חלקי סינוס הזווית שווה לפעמיים הרדיוס.", 
-                math_expression: "<div dir='ltr'>x / sin(45&deg;) = 2 &times; 8</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את אגף ימין המייצג את קוטר המעגל המלא.", 
-                math_expression: "<div dir='ltr'>x / sin(45&deg;) = 16</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שני אגפי המשוואה בסינוס 45 מעלות כדי לבודד את הצלע.", 
-                math_expression: "<div dir='ltr'>x = 16 &times; sin(45&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס 45, שהוא מספר שורש ארוך שנעגל קצת.", 
-                math_expression: "<div dir='ltr'>x = 16 &times; 0.707</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת הכפל כדי לקבל את האורך הסופי של הצלע.", 
-                math_expression: "<div dir='ltr'>x = 11.31</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי הזווית הפנימית הרלוונטית במשולש שווה צלעות.", math_expression: "y = 60^{\\circ}" },
+            { verbal_explanation: "שלב 2: בניית המשוואה המקשרת בין הצלע, הזווית והרדיוס החוסם.", math_expression: "\\dfrac{x}{\\sin(60^{\\circ})} = 2 \\times 4" },
+            { verbal_explanation: "שלב 3: פישוט אגף ימין.", math_expression: "\\dfrac{x}{\\sin(60^{\\circ})} = 8" },
+            { verbal_explanation: "שלב 4: בידוד הצלע על ידי הכפלה בסינוס.", math_expression: "x = 8 \\times \\sin(60^{\\circ})" },
+            { verbal_explanation: "שלב 5: המרת הסינוס לעשרוני.", math_expression: "x = 8 \\times 0.866" },
+            { verbal_explanation: "שלב 6: המכפלה הסופית.", math_expression: "x = 6.928" },
+            { verbal_explanation: "שלב 7: העיגול לקבלת התשובה הנכונה.", math_expression: "6.93" }
         ],
-        final_answer: "11.31"
+        final_answer: "6.93"
     },
 
-    // שאלה 12
+    // שאלה מספר 12
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת זווית שנייה במשולש:</strong><br>
-        במשולש נתונות שתי צלעות: האחת באורך 14 ס"מ והשנייה באורך 10 ס"מ.<br>
-        הזווית הנמצאת <strong>מול</strong> הצלע הקטנה (ה-10 ס"מ) היא בת 40°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 180,120 100,20" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <text x="50" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="155" y="110" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="145" y="70" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="60" y="70" font-family="Arial" font-weight="bold" font-size="14">14</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית (&alpha;) הנמצאת <strong>מול</strong> הצלע הארוכה (ה-14 ס"מ).`,
-        options: [
-            "64.10°",
-            "52.20°",
-            "70.50°",
-            "60.00°"
-        ],
+        question_text: "במשולש, אורך צלע אחת הוא 12 והזווית שמולה היא 45 מעלות. הזווית מול צלע שנייה היא 90 מעלות. חשבו את אורך הצלע השנייה.&rlm;",
+        options: ["16.97", "12.00", "8.48", "24.00"],
         correctAnswer: 0,
-        hint: "השתמשו בחוק הסינוסים. הציבו את 14 חלקי סינוס אלפא, ושוו ל-10 חלקי סינוס 40. כפלו בהצלבה ומצאו את אלפא בעזרת הפונקציה ההפוכה (SHIFT SIN).",
+        hint: "זהו למעשה משולש ישר זווית, והצלע השנייה היא היתר. הפעילו את חוק הסינוסים וזכרו שסינוס של תשעים הוא אחת.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הסינוסים בהתאם לזוגות של הצלע והזווית שמולה.", 
-                math_expression: "<div dir='ltr'>14 / sin(&alpha;) = 10 / sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בהצלבה כדי לארגן את המשוואה בשורה אופקית אחת ולעלות את המשתנה מהמכנה.", 
-                math_expression: "<div dir='ltr'>10 &times; sin(&alpha;) = 14 &times; sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את הערך של סינוס 40 במחשבון ונרשום אותו במשוואה.", 
-                math_expression: "<div dir='ltr'>10 &times; sin(&alpha;) = 14 &times; 0.642</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל באגף הימני.", 
-                math_expression: "<div dir='ltr'>10 &times; sin(&alpha;) = 8.988</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק בעשר כדי לבודד את הסינוס של הזווית המבוקשת.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 8.988 / 10 = 0.898</div>" 
-            },
-            { 
-                verbal_explanation: "נחלץ את הזווית עצמה באמצעות הפונקציה ההפוכה במחשבון.", 
-                math_expression: "<div dir='ltr'>&alpha; = 63.89&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "התשובה המדויקת ביותר באפשרויות, בהתחשב בעיגולי ספרות קטנים בחישובים פנימיים, היא 64.10 מעלות.", 
-                math_expression: "<div dir='ltr'>64.10&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית פרופורציית חוק הסינוסים.", math_expression: "\\dfrac{x}{\\sin(90^{\\circ})} = \\dfrac{12}{\\sin(45^{\\circ})}" },
+            { verbal_explanation: "שלב 2: הצבת הערך הידוע של סינוס תשעים.", math_expression: "\\dfrac{x}{1} = \\dfrac{12}{\\sin(45^{\\circ})}" },
+            { verbal_explanation: "שלב 3: הוצאת סינוס ארבעים וחמש במחשבון.", math_expression: "x = \\dfrac{12}{0.707}" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת החלוקה.", math_expression: "x \\approx 16.97" },
+            { verbal_explanation: "שלב 5: התוצאה המוכנה להזנה.", math_expression: "16.97" }
         ],
-        final_answer: "64.10&deg;"
+        final_answer: "16.97"
     },
 
-    // שאלה 13
-    {
-        topic: "bagrut_35371",
-        subTopic: "חוק הסינוסים",
-        question_text: `<strong>חישוב היקף משולש (תרגיל רב שלבי):</strong><br>
-        במשולש נתונות שתי זוויות בבסיס: 40° ו-60°.<br>
-        הצלע המחברת בין שתי זוויות אלו היא באורך 15 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 220,120 160,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="50" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="180" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">15</text>
-        </svg>
-        </div>
-        חשבו את <strong>היקף המשולש</strong> הכולל (סכום אורכי כל שלוש הצלעות).`,
-        options: [
-            "37.98 ס\"מ",
-            "42.50 ס\"מ",
-            "28.20 ס\"מ",
-            "30.00 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "זהו תרגיל בשלושה שלבים. 1) מצאו את הזווית השלישית (השלמה ל-180). 2) הפעילו את חוק הסינוסים פעמיים כדי למצוא את שתי הצלעות החסרות. 3) חברו את כל הצלעות יחד להיקף.",
-        solution_steps: [
-            { 
-                verbal_explanation: "בשלב הראשון, נחשב את הזווית השלישית במשולש הנמצאת מול הצלע הידועה.", 
-                math_expression: "<div dir='ltr'>180&deg; - 40&deg; - 60&deg; = 80&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את הצלע הראשונה החסרה (הנמצאת מול ה-40 מעלות). נקרא לה x. נשתמש בחוק הסינוסים.", 
-                math_expression: "<div dir='ltr'>x / sin(40&deg;) = 15 / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס 40 ונחשב בעזרת מחשבון.", 
-                math_expression: "<div dir='ltr'>x = ( 15 &times; sin(40&deg;) ) / sin(80&deg;) = 9.64 / 0.984 = 9.79</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נחזור על התהליך למציאת הצלע השנייה החסרה (הנמצאת מול ה-60 מעלות). נקרא לה y.", 
-                math_expression: "<div dir='ltr'>y / sin(60&deg;) = 15 / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס 60 ונחשב את אורכה של צלע y.", 
-                math_expression: "<div dir='ltr'>y = ( 15 &times; sin(60&deg;) ) / sin(80&deg;) = 12.99 / 0.984 = 13.20</div>" 
-            },
-            { 
-                verbal_explanation: "בשלב הסופי, נחשב את ההיקף הכולל על ידי חיבור כל שלוש הצלעות במשולש.", 
-                math_expression: "<div dir='ltr'>15 + 9.79 + 13.20 = 37.99</div>" 
-            },
-            { 
-                verbal_explanation: "התשובה המדויקת ביותר באפשרויות שלנו, המתחשבת בהבדלי עיגול מזעריים, היא 37.98.", 
-                math_expression: "<div dir='ltr'>37.98</div>" 
-            }
-        ],
-        final_answer: "37.98"
-    },
+    // ==========================================
+    // תת נושא 2: חוק הקוסינוסים (12 שאלות)
+    // ==========================================
 
-    // שאלה 14
+    // שאלה מספר 13
     {
-        topic: "bagrut_35371",
-        subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת הצלע הארוכה ביותר:</strong><br>
-        במשולש כלשהו שלוש הזוויות הפנימיות הן: 50° , 60° , ו-70°.<br>
-        אורך הצלע <strong>הקצרה ביותר</strong> במשולש הוא 8 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 150,30" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2"/>
-            <text x="60" y="110" font-family="Arial" font-size="12">50&deg;</text>
-            <text x="165" y="110" font-family="Arial" font-size="12">70&deg;</text>
-            <text x="135" y="55" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="180" y="70" font-family="Arial" font-weight="bold" font-size="14">8</text>
-            <text x="90" y="70" font-family="Arial" font-weight="bold" font-size="14" fill="#3b82f6">x</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע <strong>הארוכה ביותר</strong> במשולש זה (x).`,
-        options: [
-            "9.80 ס\"מ",
-            "12.10 ס\"מ",
-            "10.00 ס\"מ",
-            "8.50 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "בגיאומטריה של משולשים, הצלע הקצרה תמיד נמצאת מול הזווית הקטנה ביותר (50 מעלות), והצלע הארוכה תמיד נמצאת מול הזווית הגדולה ביותר (70 מעלות). השתמשו בשני זוגות אלו בחוק הסינוסים.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נזהה את הזוגות. הצלע הקצרה (8) נמצאת מול הזווית הקטנה ביותר (50 מעלות).", 
-                math_expression: "<div dir='ltr'>8 / sin(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "הצלע הארוכה ביותר, שנקרא לה x, חייבת להימצא מול הזווית הגדולה ביותר במשולש, שהיא 70 מעלות.", 
-                math_expression: "<div dir='ltr'>x / sin(70&deg;) = 8 / sin(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את המשוואה בסינוס של 70 מעלות כדי לבודד את המשתנה x.", 
-                math_expression: "<div dir='ltr'>x = ( 8 &times; sin(70&deg;) ) / sin(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערכי הסינוסים באמצעות המחשבון.", 
-                math_expression: "<div dir='ltr'>x = ( 8 &times; 0.939 ) / 0.766</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת הכפל שבמונה השבר.", 
-                math_expression: "<div dir='ltr'>x = 7.512 / 0.766</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק לקבלת אורכה של הצלע הארוכה ביותר.", 
-                math_expression: "<div dir='ltr'>x = 9.80</div>" 
-            }
-        ],
-        final_answer: "9.80"
-    },
-
-    // שאלה 15
-    {
-        topic: "bagrut_35371",
-        subTopic: "חוק הסינוסים",
-        question_text: `<strong>שאלת מציאות - תמיכה לעמוד חשמל:</strong><br>
-        עמוד חשמל נתמך על ידי שני כבלי מתכת המחוברים לקרקע.<br>
-        הזווית שיוצר הכבל השמאלי עם הקרקע היא 45°.<br>
-        הזווית שיוצר הכבל הימני עם הקרקע היא 55°.<br>
-        המרחק על הקרקע בין שתי נקודות העיגון של הכבלים הוא 20 מטרים.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <line x1="20" y1="130" x2="230" y2="130" stroke="#0f172a" stroke-width="2"/> <polygon points="50,130 200,130 140,40" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="65" y="125" font-family="Arial" font-size="12">45&deg;</text>
-            <text x="170" y="125" font-family="Arial" font-size="12">55&deg;</text>
-            <text x="120" y="145" font-family="Arial" font-weight="bold" font-size="14">20</text>
-            <text x="80" y="80" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-        </svg>
-        </div>
-        חשבו את אורכו של הכבל <strong>הארוך יותר</strong> מבין השניים (המסומן כ-x בשרטוט, ונמצא מול הזווית של 55°).`,
-        options: [
-            "16.64 מטרים",
-            "14.36 מטרים",
-            "20.50 מטרים",
-            "12.00 מטרים"
-        ],
-        correctAnswer: 0,
-        hint: "זהו משולש שבסיסו 20 והזוויות בבסיס הן 45 ו-55. קודם חשבו את זווית הראש (מול הצלע של ה-20) בעזרת סכום זוויות. לאחר מכן, הפעילו את חוק הסינוסים כדי למצוא את הכבל x הנמצא מול הזווית של 55.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נמצא את זווית הראש של המשולש (הזווית שבין שני הכבלים בראש העמוד) על ידי השלמה ל-180 מעלות.", 
-                math_expression: "<div dir='ltr'>180&deg; - 45&deg; - 55&deg; = 80&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "כעת יש לנו את הצלע המלאה (20) והזווית שמולה (80). נרכיב משוואה עם הכבל המבוקש (x) והזווית שמולו (55).", 
-                math_expression: "<div dir='ltr'>x / sin(55&deg;) = 20 / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס של חמישים וחמש כדי להשאיר את המשתנה לבד באגף.", 
-                math_expression: "<div dir='ltr'>x = ( 20 &times; sin(55&deg;) ) / sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמיר את הפונקציות למספרים עשרוניים בעזרת המחשבון.", 
-                math_expression: "<div dir='ltr'>x = ( 20 &times; 0.819 ) / 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל שבמונה.", 
-                math_expression: "<div dir='ltr'>x = 16.38 / 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נסיים בפעולת חילוק פשוטה כדי לקבל את אורכו של הכבל המבוקש.", 
-                math_expression: "<div dir='ltr'>x = 16.64</div>" 
-            }
-        ],
-        final_answer: "16.64"
-    },// ========================================================================
-// פעימה 2: שאלות 16 עד 30 - חוק הקוסינוסים, שטחים ושאלות משולבות
-// ========================================================================
-
-    // שאלה 16
-    {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הקוסינוסים",
-        question_text: `<strong>מציאת צלע באמצעות חוק הקוסינוסים:</strong><br>
-        במשולש כללי נתונות שתי צלעות והזווית הכלואה ביניהן.<br>
-        אורך הצלע האחת הוא 8 ס"מ, ואורך הצלע השנייה הוא 11 ס"מ.<br>
-        הזווית הנמצאת בדיוק בין שתי צלעות אלו היא בת 60°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 100,30" fill="rgba(239,68,68,0.05)" stroke="#ef4444" stroke-width="2"/>
-            <text x="95" y="60" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="60" y="80" font-family="Arial" font-weight="bold" font-size="14">8</text>
-            <text x="145" y="80" font-family="Arial" font-weight="bold" font-size="14">11</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14" fill="#3b82f6">x</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע השלישית (x).`,
-        options: [
-            "9.84 ס\"מ",
-            "12.15 ס\"מ",
-            "8.50 ס\"מ",
-            "10.20 ס\"מ"
-        ],
+        question_text: "במשולש, אורך צלע אחת הוא 5, אורך שנייה הוא 8, והזווית הכלואה ביניהן היא 60 מעלות. חשבו את אורך הצלע השלישית.&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='20,160 160,160 80,40' fill='none' stroke='#f59e0b' stroke-width='3'/><path d='M 40 160 A 20 20 0 0 0 35 130' fill='none' stroke='#ef4444' stroke-width='2'/><text x='50' y='145' font-size='12' fill='#ef4444'>60°</text><text x='90' y='180' font-size='14' fill='#334155'>8</text><text x='35' y='95' font-size='14' fill='#334155'>5</text><text x='130' y='95' font-size='14' fill='#f59e0b'>x</text></svg></div>",
+        options: ["7", "8.94", "49", "9"],
         correctAnswer: 0,
-        hint: "השתמשו בחוק הקוסינוסים: הצלע שמול הזווית בריבוע שווה לסכום ריבועי הצלעות האחרות פחות פעמיים מכפלתן בקוסינוס הזווית. בסוף החישוב אל תשכחו להוציא שורש.",
+        hint: "הפעילו את חוק הקוסינוסים. סכום ריבועי שתי הצלעות פחות פעמיים מכפלתן בקוסינוס הזווית הכלואה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הקוסינוסים. הצלע שאנו מחפשים נמצאת לבדה באגף השמאלי, כי היא נמצאת מול הזווית הנתונה.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 8<sup>2</sup> + 11<sup>2</sup> - 2 &times; 8 &times; 11 &times; cos(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נעלה את המספרים בריבוע ונחשב את המכפלה שלפני הקוסינוס.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 64 + 121 - 176 &times; cos(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את הריבועים, ונציב את הערך של קוסינוס 60 מעלות מהמחשבון (שהוא חצי).", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 185 - 176 &times; 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל. חובה לעשות כפל לפני החיסור.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 185 - 88</div>" 
-            },
-            { 
-                verbal_explanation: "נחסר את המספרים כדי לקבל את אורך הצלע בריבוע.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 97</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי כדי לקבל את אורך הצלע עצמה.", 
-                math_expression: "<div dir='ltr'>x = &radic;97 = 9.84</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת חוק הקוסינוסים.", math_expression: "x^{2} = 5^{2} + 8^{2} - 2 \\times 5 \\times 8 \\times \\cos(60^{\\circ})" },
+            { verbal_explanation: "שלב 2: העלאת המספרים בריבוע.", math_expression: "x^{2} = 25 + 64 - 80 \\times \\cos(60^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת ערך הקוסינוס.", math_expression: "\\cos(60^{\\circ}) = 0.5" },
+            { verbal_explanation: "שלב 4: ביצוע פעולות הכפל והחיבור.", math_expression: "x^{2} = 89 - 80 \\times 0.5" },
+            { verbal_explanation: "שלב 5: המשך הפעולות (חיסור ארבעים).", math_expression: "x^{2} = 89 - 40 = 49" },
+            { verbal_explanation: "שלב 6: הוצאת שורש ריבועי למציאת אורך הצלע המבוקשת.", math_expression: "x = \\sqrt{49} = 7" },
+            { verbal_explanation: "שלב 7: הרישום לבדיקה.", math_expression: "7" }
         ],
-        final_answer: "9.84"
+        final_answer: "7"
     },
 
-    // שאלה 17
+    // שאלה מספר 14
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הקוסינוסים",
-        question_text: `<strong>מציאת זווית חסרה (חוק הקוסינוסים):</strong><br>
-        במשולש כללי נתונים אורכיהן של כל שלוש הצלעות: 5 ס"מ, 7 ס"מ ו-9 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 220,120 100,30" fill="rgba(14,165,233,0.1)" stroke="#0ea5e9" stroke-width="2"/>
-            <text x="100" y="60" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="60" y="80" font-family="Arial" font-weight="bold" font-size="14">5</text>
-            <text x="155" y="80" font-family="Arial" font-weight="bold" font-size="14">7</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">9</text>
-        </svg>
-        </div>
-        חשבו את גודל הזווית המסומנת באות &alpha; הנמצאת <strong>מול</strong> הצלע שאורכה 9 ס"מ.`,
-        options: [
-            "95.73°",
-            "84.27°",
-            "105.00°",
-            "70.50°"
-        ],
+        question_text: "במשולש, צלעות באורך 4 ו-6 יוצרות ביניהן זווית קהה של 120 מעלות. מהו אורך הצלע שמול זווית זו?&rlm;",
+        options: ["8.71", "76", "5.29", "10"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בחוק הקוסינוסים כך שהצלע שמול הזווית (9) תעמוד לבדה באגף. בודדו את הקוסינוס (העברת אגפים וחילוק) והשתמשו בפונקציה של שיפט-קוסינוס. שימו לב לסימן המינוס.",
+        hint: "קוסינוס של זווית קהה (מעל 90) הוא שלילי. לכן, הביטוי המחוסר בסוף הנוסחה יהפוך לחיבור.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרכיב את משוואת חוק הקוסינוסים. הצלע 9 תבודד מכיוון שהיא מול הזווית המבוקשת.", 
-                math_expression: "<div dir='ltr'>9<sup>2</sup> = 5<sup>2</sup> + 7<sup>2</sup> - 2 &times; 5 &times; 7 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את כל הריבועים ואת המכפלה המספרית.", 
-                math_expression: "<div dir='ltr'>81 = 25 + 49 - 70 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את המספרים באגף הימני.", 
-                math_expression: "<div dir='ltr'>81 = 74 - 70 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את המספר 74 לאגף השמאלי (הפעולה הופכת לחיסור).", 
-                math_expression: "<div dir='ltr'>81 - 74 = -70 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החיסור.", 
-                math_expression: "<div dir='ltr'>7 = -70 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה במינוס שבעים כדי לבודד את הקוסינוס.", 
-                math_expression: "<div dir='ltr'>cos(&alpha;) = 7 / -70 = -0.1</div>" 
-            },
-            { 
-                verbal_explanation: "ערך שלילי לקוסינוס מצביע על כך שהזווית היא קהה. נשתמש במחשבון למציאת הזווית.", 
-                math_expression: "<div dir='ltr'>&alpha; = 95.73&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית המשוואה המלאה לחוק הקוסינוסים.", math_expression: "x^{2} = 4^{2} + 6^{2} - 2 \\times 4 \\times 6 \\times \\cos(120^{\\circ})" },
+            { verbal_explanation: "שלב 2: חישוב הריבועים.", math_expression: "x^{2} = 16 + 36 - 48 \\times \\cos(120^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת ערך הקוסינוס (הוא שלילי כי הזווית קהה).", math_expression: "\\cos(120^{\\circ}) = -0.5" },
+            { verbal_explanation: "שלב 4: הצבה והיפוך הסימן מחיסור לחיבור בגלל כפל בשלילי.", math_expression: "x^{2} = 52 - 48 \\times (-0.5)" },
+            { verbal_explanation: "שלב 5: חישוב הסכום.", math_expression: "x^{2} = 52 + 24 = 76" },
+            { verbal_explanation: "שלב 6: הוצאת שורש לקבלת הצלע.", math_expression: "x = \\sqrt{76} \\approx 8.717" },
+            { verbal_explanation: "שלב 7: העיגול המסכם.", math_expression: "8.71" }
         ],
-        final_answer: "95.73&deg;"
+        final_answer: "8.71"
     },
 
-    // שאלה 18
+    // שאלה מספר 15
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב בסיסי של שטח משולש:</strong><br>
-        במשולש כללי נתונים אורכיהן של שתי צלעות: 12 ס"מ ו-16 ס"מ.<br>
-        הזווית הנמצאת בדיוק בין שתי צלעות אלו (הזווית הכלואה) היא בת 45°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 200,120 120,20" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="115" y="45" font-family="Arial" font-size="12">45&deg;</text>
-            <text x="60" y="65" font-family="Arial" font-weight="bold" font-size="14">12</text>
-            <text x="165" y="65" font-family="Arial" font-weight="bold" font-size="14">16</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המשולש בסמ"ר.`,
-        options: [
-            "67.87",
-            "96.00",
-            "135.76",
-            "48.50"
-        ],
-        correctAnswer: 0,
-        hint: "הנוסחה לחישוב שטח משולש בעזרת טריגונומטריה היא: חצי כפול הצלע הראשונה כפול הצלע השנייה כפול סינוס הזווית שביניהן.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נרשום את הנוסחה לשטח משולש ונציב את המספרים הידועים לנו.", 
-                math_expression: "<div dir='ltr'>0.5 &times; 12 &times; 16 &times; sin(45&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים הרגילים זה בזה (חצי כפול 12 כפול 16).", 
-                math_expression: "<div dir='ltr'>96 &times; sin(45&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב במחשבון את הערך של סינוס 45 מעלות.", 
-                math_expression: "<div dir='ltr'>96 &times; 0.707</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את פעולת הכפל לקבלת השטח המדויק.", 
-                math_expression: "<div dir='ltr'>67.87</div>" 
-            }
-        ],
-        final_answer: "67.87"
-    },
-
-    // שאלה 19
-    {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>מציאת צלע מתוך שטח נתון:</strong><br>
-        שטחו הכולל של משולש מסוים הוא 40 סמ"ר.<br>
-        אורך אחת הצלעות במשולש הוא 10 ס"מ, והזווית הסמוכה אליה היא בת 30°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 180,40" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="60" y="110" font-family="Arial" font-size="12">30&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="100" y="70" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">x</text>
-            <text x="135" y="85" font-family="Arial" font-weight="bold" font-size="16">S = 40</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע השנייה הכלואה באותה זווית (המסומנת ב-x).`,
-        options: [
-            "16.00 ס\"מ",
-            "8.00 ס\"מ",
-            "20.00 ס\"מ",
-            "12.50 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "הציבו את נתוני השטח, הצלע והזווית בנוסחת השטח הטריגונומטרית, כך ש-x יישאר המשתנה היחיד. פתרו את המשוואה לחילוץ x.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים בתוך נוסחת השטח. השטח הכולל נכתב באגף השמאלי.", 
-                math_expression: "<div dir='ltr'>40 = 0.5 &times; 10 &times; x &times; sin(30&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס שלושים.", 
-                math_expression: "<div dir='ltr'>40 = 0.5 &times; 10 &times; x &times; 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את כל המספרים יחד באגף הימני כדי לפשט את המשוואה.", 
-                math_expression: "<div dir='ltr'>40 = 2.5 &times; x</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את אורך הצלע, נחלק את שני האגפים ב-2.5.", 
-                math_expression: "<div dir='ltr'>x = 40 / 2.5</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת החילוק.", 
-                math_expression: "<div dir='ltr'>x = 16</div>" 
-            }
-        ],
-        final_answer: "16.00"
-    },
-
-    // שאלה 20
-    {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>מציאת זווית מתוך שטח משולש:</strong><br>
-        שטחו של משולש הוא 30 סמ"ר.<br>
-        אורכי שתי צלעות במשולש הם 10 ס"מ ו-12 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 210,120 100,30" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2"/>
-            <text x="60" y="80" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="110" y="135" font-family="Arial" font-weight="bold" font-size="14">12</text>
-            <text x="55" y="110" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="100" y="90" font-family="Arial" font-weight="bold" font-size="16">S = 30</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית החדה (הקטנה מ-90°) הכלואה בין שתי צלעות אלו.`,
-        options: [
-            "30.00°",
-            "45.00°",
-            "60.00°",
-            "35.50°"
-        ],
-        correctAnswer: 0,
-        hint: "הציבו את השטח ושתי הצלעות בנוסחת השטח (שטח = חצי × צלע × צלע × סינוס הזווית). בודדו את פונקציית הסינוס ומצאו את הזווית.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נרשום את נוסחת השטח ונציב את הנתונים המספריים שבשאלה.", 
-                math_expression: "<div dir='ltr'>30 = 0.5 &times; 10 &times; 12 &times; sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים באגף הימני כדי לפשט את המשוואה.", 
-                math_expression: "<div dir='ltr'>30 = 60 &times; sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה ב-60 כדי לבודד את הסינוס.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 30 / 60 = 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש בפעולה ההפוכה של סינוס במחשבון כדי לקבל את הזווית המדויקת במעלות.", 
-                math_expression: "<div dir='ltr'>&alpha; = 30&deg;</div>" 
-            }
-        ],
-        final_answer: "30.00&deg;"
-    },
-
-    // שאלה 21
-    {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח משולש שווה שוקיים (רב שלבי):</strong><br>
-        במשולש שווה שוקיים, אורך הבסיס הוא 14 ס"מ.<br>
-        כל אחת מזוויות הבסיס היא בת 40°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 120,40" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="60" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="165" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">14</text>
-        </svg>
-        </div>
-        חשבו את שטח המשולש בסמ"ר.`,
-        options: [
-            "41.03",
-            "54.20",
-            "38.50",
-            "45.00"
-        ],
-        correctAnswer: 0,
-        hint: "שלב א': מצאו את זווית הראש (השלמה ל-180). שלב ב': מצאו את אורך אחת השוקיים בעזרת חוק הסינוסים. שלב ג': חשבו שטח לפי שתי צלעות וזווית כלואה (בסיס, שוק והזווית שביניהם).",
-        solution_steps: [
-            { 
-                verbal_explanation: "בשלב הראשון, נחשב את זווית הראש על ידי חיסור הזוויות הידועות מ-180.", 
-                math_expression: "<div dir='ltr'>180&deg; - 40&deg; - 40&deg; = 100&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את אורך אחת מהשוקיים (נקרא לה x) באמצעות חוק הסינוסים.", 
-                math_expression: "<div dir='ltr'>x / sin(40&deg;) = 14 / sin(100&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס 40 כדי לבודד את השוק שלנו.", 
-                math_expression: "<div dir='ltr'>x = ( 14 &times; sin(40&deg;) ) / sin(100&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הערכים מהמחשבון ונחשב את אורך השוק.", 
-                math_expression: "<div dir='ltr'>x = ( 14 &times; 0.642 ) / 0.984 = 8.988 / 0.984 = 9.13</div>" 
-            },
-            { 
-                verbal_explanation: "כעת, כשיש לנו את אורך הבסיס (14), אורך השוק (9.13) והזווית שביניהם (40 מעלות), נחשב שטח.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 14 &times; 9.13 &times; sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ונציב את ערך הסינוס.", 
-                math_expression: "<div dir='ltr'>S = 63.91 &times; 0.642</div>" 
-            },
-            { 
-                verbal_explanation: "נסיים בפעולת הכפל לקבלת שטח המשולש.", 
-                math_expression: "<div dir='ltr'>S = 41.03</div>" 
-            }
-        ],
-        final_answer: "41.03"
-    },
-
-    // שאלה 22
-    {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הקוסינוסים",
-        question_text: `<strong>מציאת אלכסון במקבילית:</strong><br>
-        במקבילית נתונים אורכיהן של שתי צלעות סמוכות: 6 ס"מ ו-10 ס"מ.<br>
-        הזווית הכלואה ביניהן היא בת 50°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,120 200,120 160,30 10,30" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <line x1="50" y1="120" x2="160" y2="30" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="65" y="110" font-family="Arial" font-size="12">50&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="20" y="80" font-family="Arial" font-weight="bold" font-size="14">6</text>
-            <text x="100" y="70" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">d</text>
-        </svg>
-        </div>
-        חשבו את אורכו של <strong>האלכסון הקצר</strong> (d) הנמצא מול הזווית הנתונה.`,
-        options: [
-            "7.67 ס\"מ",
-            "11.40 ס\"מ",
-            "58.96 ס\"מ",
-            "9.50 ס\"מ"
-        ],
+        question_text: "במשולש, אורכי הצלעות הם 7, 8 ו-9. מצאו את הזווית הנמצאת מול הצלע שאורכה 9.&rlm;",
+        options: ["73.40", "48.19", "58.41", "80.00"],
         correctAnswer: 0,
-        hint: "האלכסון מחלק את המקבילית לשני משולשים. התמקדו באחד המשולשים: יש לכם בו שתי צלעות (6 ו-10) וזווית כלואה (50). השתמשו בחוק הקוסינוסים.",
+        hint: "הציבו את 9 בצד אחד של המשוואה לבדו. העבירו אגפים כדי לבודד את הקוסינוס ואז הפעילו שיפט קוסינוס.",
         solution_steps: [
-            { 
-                verbal_explanation: "נפעיל את חוק הקוסינוסים במשולש התחתון שנוצר על ידי האלכסון.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 6<sup>2</sup> + 10<sup>2</sup> - 2 &times; 6 &times; 10 &times; cos(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נעלה בריבוע ונחשב את מכפלת המקדמים של הקוסינוס.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 36 + 100 - 120 &times; cos(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את המספרים ונציב את ערך הקוסינוס מהמחשבון.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 136 - 120 &times; 0.642</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את כפל המספרים תחילה.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 136 - 77.04</div>" 
-            },
-            { 
-                verbal_explanation: "נחסר לקבלת האלכסון בריבוע.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 58.96</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי כדי לקבל את אורכו המדויק של האלכסון.", 
-                math_expression: "<div dir='ltr'>d = &radic;58.96 = 7.67</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבה בחוק הקוסינוסים כאשר הזווית היא הנעלם.", math_expression: "9^{2} = 7^{2} + 8^{2} - 2 \\times 7 \\times 8 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 2: חישוב הערכים המספריים (חזקות ומכפלות).", math_expression: "81 = 49 + 64 - 112 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 3: כינוס שני המספרים באגף ימין.", math_expression: "81 = 113 - 112 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 4: העברת המאה ושלוש עשרה בחיסור אגף.", math_expression: "-32 = -112 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 5: בידוד הקוסינוס על ידי חלוקה.", math_expression: "\\cos(y) = -32 : -112 \\approx 0.2857" },
+            { verbal_explanation: "שלב 6: חילוץ הזווית במחשבון בעזרת פעולה הפוכה.", math_expression: "y = \\cos^{-1}(0.2857) \\approx 73.398" },
+            { verbal_explanation: "שלב 7: עיגול הערך כנדרש בבחינה.", math_expression: "73.40" }
         ],
-        final_answer: "7.67"
+        final_answer: "73.40"
     },
 
-    // שאלה 23
+    // שאלה מספר 16
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח מקבילית:</strong><br>
-        במקבילית נתונים אורכיהן של שתי צלעות סמוכות: 8 ס"מ ו-15 ס"מ.<br>
-        הזווית החדה של המקבילית היא בת 60°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,120 200,120 160,30 10,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="65" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">15</text>
-            <text x="20" y="80" font-family="Arial" font-weight="bold" font-size="14">8</text>
-        </svg>
-        </div>
-        חשבו את <strong>השטח הכולל</strong> של המקבילית בסמ"ר.`,
-        options: [
-            "103.92",
-            "51.96",
-            "120.00",
-            "60.00"
-        ],
-        correctAnswer: 0,
-        hint: "חשבו את שטחו של משולש אחד במקבילית (חצי כפול צלע כפול צלע כפול סינוס הזווית) ואז הכפילו בשתיים. נוסחת שטח מקבילית היא גם פשוט צלע כפול צלע כפול סינוס הזווית.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נחשב את שטחו של משולש אחד המהווה חצי מהמקבילית.", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 8 &times; 15 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים זה בזה.", 
-                math_expression: "<div dir='ltr'>S1 = 60 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את הסינוס במחשבון ונסיים את הכפל לקבלת שטח המשולש.", 
-                math_expression: "<div dir='ltr'>S1 = 60 &times; 0.866 = 51.96</div>" 
-            },
-            { 
-                verbal_explanation: "מקבילית מורכבת משני משולשים זהים כאלו, לכן נכפיל את התוצאה פי שתיים לשטח הכולל.", 
-                math_expression: "<div dir='ltr'>S = 51.96 &times; 2 = 103.92</div>" 
-            }
-        ],
-        final_answer: "103.92"
-    },
-
-    // שאלה 24
-    {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח מעוין:</strong><br>
-        נתון מעוין שבו אורך כל אחת מהצלעות הוא 10 ס"מ.<br>
-        אחת הזוויות הקהות במעוין היא בת 120°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,120 150,120 200,30 100,30" fill="rgba(14,165,233,0.1)" stroke="#0ea5e9" stroke-width="2"/>
-            <text x="110" y="110" font-family="Arial" font-size="12">120&deg;</text>
-            <text x="100" y="135" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="175" y="80" font-family="Arial" font-weight="bold" font-size="14">10</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המעוין בסמ"ר.`,
-        options: [
-            "86.60",
-            "43.30",
-            "100.00",
-            "50.00"
-        ],
-        correctAnswer: 0,
-        hint: "המעוין מורכב משני משולשים. זווית קהה של 120 מעלות אומרת שהזווית החדה הסמוכה אליה היא 60 מעלות. תוכלו לחשב שטח משולש לפי אחת הזוויות (הסינוס שלהן זהה!) ולהכפיל ב-2.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נחשב את שטח אחד מהמשולשים המרכיבים את המעוין בעזרת הזווית הקהה (או החדה, הסינוס שווה).", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 10 &times; 10 &times; sin(120&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים.", 
-                math_expression: "<div dir='ltr'>S1 = 50 &times; sin(120&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס 120 (אשר שווה לסינוס 60) ונכפול.", 
-                math_expression: "<div dir='ltr'>S1 = 50 &times; 0.866 = 43.30</div>" 
-            },
-            { 
-                verbal_explanation: "המעוין מורכב משני משולשים חופפים. נכפיל את התוצאה פי שתיים לשטח הכולל.", 
-                math_expression: "<div dir='ltr'>S = 43.30 &times; 2 = 86.60</div>" 
-            }
-        ],
-        final_answer: "86.60"
-    },
-
-    // שאלה 25
-    {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח מרובע המורכב משני משולשים:</strong><br>
-        במרובע כלשהו עובר אלכסון המחלק אותו לשני משולשים.<br>
-        במשולש העליון נתונות צלעות של 6 ס"מ ו-8 ס"מ, והזווית ביניהן היא 110°.<br>
-        במשולש התחתון נתונות צלעות של 12 ס"מ (האלכסון המשותף) ו-9 ס"מ, והזווית ביניהן היא 40°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 160" width="100%" height="160" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="20,80 140,20 220,100 80,140" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <line x1="20" y1="80" x2="220" y2="100" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="100" y="60" font-family="Arial" font-size="12">110&deg;</text>
-            <text x="130" y="115" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="70" y="45" font-family="Arial" font-weight="bold" font-size="14">6</text>
-            <text x="180" y="55" font-family="Arial" font-weight="bold" font-size="14">8</text>
-            <text x="150" y="135" font-family="Arial" font-weight="bold" font-size="14">9</text>
-            <text x="110" y="85" font-family="Arial" font-weight="bold" font-size="14">12</text>
-        </svg>
-        </div>
-        חשבו את השטח הכולל של המרובע כולו בסמ"ר.`,
-        options: [
-            "57.19",
-            "60.00",
-            "45.30",
-            "68.50"
-        ],
-        correctAnswer: 0,
-        hint: "חשבו את שטחו של כל משולש בנפרד באמצעות נוסחת השטח (חצי כפול צלע כפול צלע כפול סינוס הזווית שביניהן). בסוף, חברו את שני השטחים יחד.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נחשב את שטח המשולש העליון המוגדר על ידי הצלעות 6 ו-8 והזווית הכלואה ביניהן.", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 6 &times; 8 &times; sin(110&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את מכפלת המספרים ואת הסינוס במחשבון לשטח המשולש הראשון.", 
-                math_expression: "<div dir='ltr'>S1 = 24 &times; 0.939 = 22.53</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב כעת את שטח המשולש התחתון בעזרת האלכסון (12), הצלע השנייה (9) והזווית (40).", 
-                math_expression: "<div dir='ltr'>S2 = 0.5 &times; 12 &times; 9 &times; sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את המכפלה עבור המשולש השני.", 
-                math_expression: "<div dir='ltr'>S2 = 54 &times; 0.642 = 34.66</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את השטח הכולל של המרובע, נחבר את שני השטחים יחד.", 
-                math_expression: "<div dir='ltr'>S = 22.53 + 34.66 = 57.19</div>" 
-            }
-        ],
-        final_answer: "57.19"
-    },
-
-    // שאלה 26
-    {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הקוסינוסים",
-        question_text: `<strong>מציאת בסיס במשולש שווה שוקיים קהה-זווית:</strong><br>
-        נתון משולש שווה שוקיים שאורך כל אחת משוקיו הוא 15 ס"מ.<br>
-        זווית הראש של המשולש היא זווית קהה בת 130°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="10,120 240,120 125,50" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2"/>
-            <text x="110" y="80" font-family="Arial" font-size="12">130&deg;</text>
-            <text x="60" y="80" font-family="Arial" font-weight="bold" font-size="14">15</text>
-            <text x="180" y="80" font-family="Arial" font-weight="bold" font-size="14">15</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14" fill="#3b82f6">x</text>
-        </svg>
-        </div>
-        חשבו את אורכו של בסיס המשולש (x).`,
-        options: [
-            "27.18 ס\"מ",
-            "15.00 ס\"מ",
-            "30.00 ס\"מ",
-            "21.21 ס\"מ"
-        ],
+        question_text: "אורכי צלעות משולש הם 3, 5 ו-7. מהי הזווית הנמצאת מול הצלע הארוכה ביותר (7)?&rlm;",
+        options: ["120", "60", "150", "90"],
         correctAnswer: 0,
-        hint: "הפעילו את חוק הקוסינוסים עם שתי שוקיים של 15 וזווית של 130. זכרו שקוסינוס של זווית קהה (מעל 90) הוא מספר שלילי, וזה יהפוך את סימן החיסור שבנוסחה לחיבור.",
+        hint: "כמו בשאלה הקודמת, בודדו את קוסינוס הזווית. אם התוצאה שלילית, מדובר בזווית קהה (מעל 90).",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את חוק הקוסינוסים למציאת הצלע שמול הזווית הנתונה.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 15<sup>2</sup> + 15<sup>2</sup> - 2 &times; 15 &times; 15 &times; cos(130&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נעלה את השוקיים בריבוע ונחשב את מכפלת המקדמים שלפני הקוסינוס.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 225 + 225 - 450 &times; cos(130&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את ערך הקוסינוס במחשבון (זהו מספר שלילי).", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 450 - 450 &times; (-0.642)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים השליליים, דבר שהופך את הפעולה לחיבור.", 
-                math_expression: "<div dir='ltr'>x<sup>2</sup> = 450 + 288.9 = 738.9</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי לקבלת אורך בסיס המשולש.", 
-                math_expression: "<div dir='ltr'>x = &radic;738.9 = 27.18</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת חוק הקוסינוסים עם הצלע שבע כמבודדת.", math_expression: "7^{2} = 3^{2} + 5^{2} - 2 \\times 3 \\times 5 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 2: ביצוע חזקות וכפל מוקדם.", math_expression: "49 = 9 + 25 - 30 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 3: חיבור המספרים הפשוטים באגף ימין.", math_expression: "49 = 34 - 30 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 4: העברת אגפים לקראת חלוקה.", math_expression: "15 = -30 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 5: חלוקת חמש עשרה במינוס שלושים.", math_expression: "\\cos(y) = 15 : -30 = -0.5" },
+            { verbal_explanation: "שלב 6: הפעלת פונקציה הפוכה לקוסינוס שלילי.", math_expression: "y = \\cos^{-1}(-0.5) = 120^{\\circ}" },
+            { verbal_explanation: "שלב 7: זו אכן זווית קהה כמצופה.", math_expression: "120" }
         ],
-        final_answer: "27.18"
+        final_answer: "120"
     },
 
-    // שאלה 27
+    // שאלה מספר 17
     {
-        topic: "bagrut_35371",
-        subTopic: "חוק הסינוסים",
-        question_text: `<strong>מציאת גובה בתוך משולש (אתגר רב שלבי):</strong><br>
-        במשולש כללי נתונה צלע הבסיס באורך 20 ס"מ.<br>
-        שתי הזוויות הסמוכות לבסיס הן בת 45° ו-65°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 220,120 140,20" fill="rgba(234,179,8,0.1)" stroke="#eab308" stroke-width="2"/>
-            <line x1="140" y1="20" x2="140" y2="120" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="145" y="80" font-family="Arial" font-weight="bold" font-size="14" fill="#ef4444">h</text>
-            <text x="50" y="110" font-family="Arial" font-size="12">45&deg;</text>
-            <text x="175" y="110" font-family="Arial" font-size="12">65&deg;</text>
-            <text x="125" y="135" font-family="Arial" font-weight="bold" font-size="14">20</text>
-        </svg>
-        </div>
-        חשבו את אורך הגובה (h) היורד אל צלע הבסיס.`,
-        options: [
-            "13.63 ס\"מ",
-            "18.12 ס\"מ",
-            "10.00 ס\"מ",
-            "15.45 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "שלב א': מצאו את הזווית העליונה (מול הבסיס) והשלימו ל-180. שלב ב': בעזרת חוק הסינוסים, מצאו את אחת הצלעות הצדדיות. שלב ג': התמקדו באחד המשולשים ישרי הזווית שנוצרו על ידי הגובה, והשתמשו בסינוס של הזווית שבבסיסו.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נמצא תחילה את זווית הראש של המשולש (מול הבסיס 20) על ידי השלמה ל-180 מעלות.", 
-                math_expression: "<div dir='ltr'>180&deg; - 45&deg; - 65&deg; = 70&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש בחוק הסינוסים כדי למצוא את הצלע הצדדית השמאלית (נקרא לה y), הנמצאת מול הזווית של 65 מעלות.", 
-                math_expression: "<div dir='ltr'>y / sin(65&deg;) = 20 / sin(70&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס שישים וחמש ונחשב במחשבון את אורך הצלע השמאלית.", 
-                math_expression: "<div dir='ltr'>y = ( 20 &times; sin(65&deg;) ) / sin(70&deg;) = 18.12 / 0.939 = 19.29</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נתמקד במשולש ישר הזווית השמאלי. היתר שלו הוא הצלע שמצאנו (19.29), הזווית הבסיסית היא 45, והגובה h הוא הניצב שמול הזווית.", 
-                math_expression: "<div dir='ltr'>sin(45&deg;) = h / 19.29</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את היתר בסינוס הזווית כדי לחלץ את הגובה.", 
-                math_expression: "<div dir='ltr'>h = 19.29 &times; sin(45&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל ונמצא את אורך הגובה בסנטימטרים.", 
-                math_expression: "<div dir='ltr'>h = 19.29 &times; 0.707 = 13.63</div>" 
-            }
-        ],
-        final_answer: "13.63"
-    },
-
-    // שאלה 28
-    {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "חוק הקוסינוסים",
-        question_text: `<strong>הוכחת זווית ישרה באמצעות חוק הקוסינוסים:</strong><br>
-        במשולש כללי נתונים אורכיהן של כל שלוש הצלעות: 6 ס"מ, 8 ס"מ ו-10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 180,120 40,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="50" y="110" font-family="Arial" font-size="14" fill="#3b82f6">&alpha;</text>
-            <text x="30" y="80" font-family="Arial" font-weight="bold" font-size="14">6</text>
-            <text x="110" y="135" font-family="Arial" font-weight="bold" font-size="14">8</text>
-            <text x="115" y="70" font-family="Arial" font-weight="bold" font-size="14">10</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית המסומנת באות &alpha; הנמצאת מול הצלע שאורכה 10 ס"מ.`,
-        options: [
-            "90°",
-            "60°",
-            "45°",
-            "120°"
-        ],
+        question_text: "במקבילית, שתי צלעות סמוכות הן באורך 6 ו-10. הזווית החדה ביניהן היא 60 מעלות. חשבו את אורך האלכסון הקצר של המקבילית.&rlm;",
+        options: ["8.71", "76", "14", "11.66"],
         correctAnswer: 0,
-        hint: "הציבו את שלוש הצלעות בחוק הקוסינוסים כך שהצלע 10 תעמוד לבדה באגף (כי היא מול הזווית המבוקשת). פתרו את המשוואה וראו מה קורה למקדם של הקוסינוס.",
+        hint: "האלכסון הקצר נמצא ממול לזווית החדה. השתמשו בחוק הקוסינוסים במשולש שנוצר.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים בחוק הקוסינוסים כדי למצוא את הזווית אלפא.", 
-                math_expression: "<div dir='ltr'>10<sup>2</sup> = 6<sup>2</sup> + 8<sup>2</sup> - 2 &times; 6 &times; 8 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נעלה את כל המספרים בריבוע ונחשב את מכפלת המקדמים.", 
-                math_expression: "<div dir='ltr'>100 = 36 + 64 - 96 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את המספרים שבאגף הימני.", 
-                math_expression: "<div dir='ltr'>100 = 100 - 96 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את המאה לאגף השמאלי בחיסור. נקבל אפס בצד אחד של המשוואה.", 
-                math_expression: "<div dir='ltr'>0 = -96 &times; cos(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק במינוס תשעים ושש. נקבל שהקוסינוס שווה לאפס. המשמעות של כך היא שהזווית היא 90 מעלות (משולש ישר זווית).", 
-                math_expression: "<div dir='ltr'>cos(&alpha;) = 0 &nbsp;&#10132;&nbsp; &alpha; = 90&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: האלכסון מחלק את המקבילית למשולש שבו שתי צלעות ידועות וזווית כלואה ידועה.", math_expression: "x^{2} = 6^{2} + 10^{2} - 2 \\times 6 \\times 10 \\times \\cos(60^{\\circ})" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע של הערכים.", math_expression: "x^{2} = 36 + 100 - 120 \\times 0.5" },
+            { verbal_explanation: "שלב 3: ביצוע כפל (מאה ועשרים כפול חצי).", math_expression: "x^{2} = 136 - 60" },
+            { verbal_explanation: "שלב 4: פעולת החיסור.", math_expression: "x^{2} = 76" },
+            { verbal_explanation: "שלב 5: הוצאת שורש למציאת אורך האלכסון.", math_expression: "x = \\sqrt{76} \\approx 8.717" },
+            { verbal_explanation: "שלב 6: העיגול המסכם לאפשרות הרצויה.", math_expression: "8.71" }
         ],
-        final_answer: "90&deg;"
+        final_answer: "8.71"
     },
 
-    // שאלה 29
+    // שאלה מספר 18
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח משולש שווה צלעות:</strong><br>
-        נתון משולש שווה צלעות שבו כל אחת מהצלעות היא באורך 10 ס"מ.<br>
-        במשולש שווה צלעות, כל הזוויות שוות ל-60°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="60,120 180,120 120,20" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="80" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="155" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="120" y="45" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="75" y="70" font-family="Arial" font-weight="bold" font-size="14">10</text>
-        </svg>
-        </div>
-        חשבו את שטחו של המשולש בסמ"ר.`,
-        options: [
-            "43.30",
-            "50.00",
-            "86.60",
-            "25.00"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "באותה מקבילית (צלעות 6 ו-10), חשבו את אורך האלכסון הארוך.&rlm;",
+        options: ["14", "196", "8.71", "16"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בנוסחת השטח הטריגונומטרית. השתמשו בכל שתי צלעות סמוכות (10 ו-10) והזווית שביניהן (60 מעלות).",
+        hint: "האלכסון הארוך מונח מול הזווית הקהה. במקבילית זוויות סמוכות משלימות ל-180, לכן הזווית הקהה היא 120 מעלות.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את הנוסחה לחישוב השטח בעזרת שתי הצלעות והזווית הכלואה.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 10 &times; 10 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ההתחלתיים (חצי כפול מאה).", 
-                math_expression: "<div dir='ltr'>S = 50 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס שישים מעלות.", 
-                math_expression: "<div dir='ltr'>S = 50 &times; 0.866</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את ההכפלה לקבלת השטח המדויק.", 
-                math_expression: "<div dir='ltr'>S = 43.30</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב הזווית הקהה של המקבילית.", math_expression: "\\alpha = 180^{\\circ} - 60^{\\circ} = 120^{\\circ}" },
+            { verbal_explanation: "שלב 2: בניית המשוואה לפי חוק הקוסינוסים עם הזווית החדשה.", math_expression: "x^{2} = 6^{2} + 10^{2} - 2 \\times 6 \\times 10 \\times \\cos(120^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת ערך הקוסינוס שהוא שלילי עתה.", math_expression: "\\cos(120^{\\circ}) = -0.5" },
+            { verbal_explanation: "שלב 4: פישוט המשוואה תוך היפוך סימן המינוס הכפול לפלוס.", math_expression: "x^{2} = 36 + 100 - 120 \\times (-0.5) = 136 + 60" },
+            { verbal_explanation: "שלב 5: סכום התוצאה באגף הימני.", math_expression: "x^{2} = 196" },
+            { verbal_explanation: "שלב 6: הוצאת שורש ריבועי לקבלת אורך האלכסון הארוך.", math_expression: "x = \\sqrt{196} = 14" },
+            { verbal_explanation: "שלב 7: הרישום לבדיקה.", math_expression: "14" }
         ],
-        final_answer: "43.30"
+        final_answer: "14"
     },
 
-    // שאלה 30
+    // שאלה מספר 19
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שאלת אתגר מסכמת: שטח משושה משוכלל בתוך מעגל</strong><br>
-        משושה משוכלל (בעל 6 צלעות שוות) חסום במעגל שרדיוסו הוא 8 ס"מ.<br>
-        משושה כזה מורכב מ-6 משולשים שווי-שוקיים חופפים הנפגשים במרכז המעגל.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <polygon points="100,20 169.3,60 169.3,140 100,180 30.7,140 30.7,60" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <line x1="100" y1="100" x2="100" y2="20" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="169.3" y2="60" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="169.3" y2="140" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="100" y2="180" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="30.7" y2="140" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="30.7" y2="60" stroke="#0f172a" stroke-width="1"/>
-            <text x="110" y="60" font-family="Arial" font-size="12">8</text>
-        </svg>
-        </div>
-        חשבו את השטח הכולל של המשושה בסמ"ר.`,
-        options: [
-            "166.27",
-            "192.00",
-            "83.14",
-            "144.50"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "במשולש שווה שוקיים, אורך כל שוק הוא 10 וזווית הראש היא 30 מעלות. מצאו את אורך הבסיס בעזרת חוק הקוסינוסים.&rlm;",
+        options: ["5.17", "26.8", "10", "8.66"],
         correctAnswer: 0,
-        hint: "במשושה, 360 המעלות שסביב המרכז מתחלקות ל-6 משולשים (360 חלקי 6). חשבו את השטח של משולש בודד כזה בעזרת שני הרדיוסים (8 ו-8) והזווית שביניהם, ואז הכפילו ב-6.",
+        hint: "הציבו במשפט הקוסינוס את שתי השוקיים (10 ו-10) והזווית הכלואה (30).",
         solution_steps: [
-            { 
-                verbal_explanation: "נמצא את זווית הראש של משולש אחד בתוך המשושה, על ידי חלוקת המעגל השלם לשישה חלקים שווים.", 
-                math_expression: "<div dir='ltr'>360&deg; / 6 = 60&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטחו של משולש בודד במשושה. שתי הצלעות שלו הן בעצם הרדיוסים (שאורכם 8), והזווית ביניהם היא 60.", 
-                math_expression: "<div dir='ltr'>0.5 &times; 8 &times; 8 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים, ונמצא במחשבון את סינוס שישים.", 
-                math_expression: "<div dir='ltr'>32 &times; 0.866</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את הכפל כדי לקבל את שטח המשולש האחד.", 
-                math_expression: "<div dir='ltr'>27.71</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שהמשושה מורכב משישה משולשים זהים, נכפיל את השטח ב-6.", 
-                math_expression: "<div dir='ltr'>27.71 &times; 6 = 166.26</div>" 
-            },
-            { 
-                verbal_explanation: "כתוצאה מעיגולי ספרות קטנים בחישוב, התשובה הקרובה ביותר והמדויקת ביותר היא 166.27.", 
-                math_expression: "<div dir='ltr'>166.27</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בתבנית הנוסחה.", math_expression: "x^{2} = 10^{2} + 10^{2} - 2 \\times 10 \\times 10 \\times \\cos(30^{\\circ})" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע והכפלות.", math_expression: "x^{2} = 100 + 100 - 200 \\times \\cos(30^{\\circ})" },
+            { verbal_explanation: "שלב 3: הוצאת קוסינוס במחשבון.", math_expression: "\\cos(30^{\\circ}) \\approx 0.866" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל.", math_expression: "x^{2} = 200 - 200 \\times 0.866 = 200 - 173.2" },
+            { verbal_explanation: "שלב 5: פעולת החיסור.", math_expression: "x^{2} = 26.8" },
+            { verbal_explanation: "שלב 6: הוצאת שורש לקבלת הבסיס.", math_expression: "x = \\sqrt{26.8} \\approx 5.17" },
+            { verbal_explanation: "שלב 7: השלמה לבחירה הנכונה.", math_expression: "5.17" }
         ],
-        final_answer: "166.27"
-    },// שאלה 1
-    {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב בסיסי של שטח משולש:</strong><br>
-        במשולש נתונים אורכיהן של שתי צלעות: 10 ס"מ ו-12 ס"מ.<br>
-        הזווית הנמצאת <strong>בדיוק ביניהן</strong> (הזווית הכלואה) היא בת 30°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 120,40" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="115" y="65" font-family="Arial" font-size="12">30&deg;</text>
-            <text x="70" y="75" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="165" y="75" font-family="Arial" font-weight="bold" font-size="14">12</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המשולש בסמ"ר.`,
-        options: [
-            "30.00",
-            "60.00",
-            "120.00",
-            "15.00"
-        ],
-        correctAnswer: 0,
-        hint: "נוסחת השטח הטריגונומטרית היא: חצי כפול צלע ראשונה כפול צלע שנייה כפול סינוס הזווית שביניהן.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נרשום את הנוסחה לחישוב השטח. נציב את שתי הצלעות הידועות ואת הזווית שביניהן.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 10 &times; 12 &times; sin(30&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל של המספרים הרגילים (חצי כפול עשר כפול שתים-עשרה).", 
-                math_expression: "<div dir='ltr'>S = 60 &times; sin(30&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס שלושים מעלות.", 
-                math_expression: "<div dir='ltr'>S = 60 &times; 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את פעולת הכפל האחרונה לקבלת השטח המדויק.", 
-                math_expression: "<div dir='ltr'>S = 30</div>" 
-            }
-        ],
-        final_answer: "30.00"
+        final_answer: "5.17"
     },
 
-    // שאלה 2
+    // שאלה מספר 20
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח משולש - שימוש בסינוס:</strong><br>
-        נתון משולש שאורכי שתיים מצלעותיו הם 8 ס"מ ו-15 ס"מ.<br>
-        הזווית הכלואה בין שתי צלעות אלו היא 45°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 220,120 120,20" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="115" y="50" font-family="Arial" font-size="12">45&deg;</text>
-            <text x="65" y="70" font-family="Arial" font-weight="bold" font-size="14">8</text>
-            <text x="175" y="70" font-family="Arial" font-weight="bold" font-size="14">15</text>
-        </svg>
-        </div>
-        חשבו את שטח המשולש (עגלו לשתי ספרות אחרי הנקודה).`,
-        options: [
-            "42.42",
-            "84.84",
-            "60.00",
-            "30.00"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "במשולש, צלע אחת גדולה פי 2 מהצלע השנייה. הזווית הכלואה ביניהן היא 60 מעלות. אורך הצלע השלישית הוא שורש של 21. מצאו את אורך הצלע הקצרה ביותר במשולש.&rlm;",
+        options: ["2.64", "7", "5.29", "14"],
         correctAnswer: 0,
-        hint: "הציבו את שתי הצלעות וסינוס הזווית בנוסחת השטח (0.5 כפול צלע כפול צלע כפול סינוס הזווית).",
+        hint: "סמנו צלע אחת באיקס ואת השנייה בשני איקס. בנו משוואת קוסינוס, כנסו איברים ופתרו משוואה ריבועית.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרכיב את משוואת השטח באמצעות שתי הצלעות והזווית שביניהן.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 8 &times; 15 &times; sin(45&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ההתחלתיים זה בזה.", 
-                math_expression: "<div dir='ltr'>S = 60 &times; sin(45&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסינוס במחשבון.", 
-                math_expression: "<div dir='ltr'>S = 60 &times; 0.707</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל הסופי לקבלת השטח.", 
-                math_expression: "<div dir='ltr'>S = 42.42</div>" 
-            }
+            { verbal_explanation: "שלב 1: הגדרת הצלעות עם נעלמים.", math_expression: "a = x \\quad , \\quad b = 2x" },
+            { verbal_explanation: "שלב 2: הצבה בחוק הקוסינוסים, כשהצלע השלישית בריבוע בודדת באגף.", math_expression: "(\\sqrt{21})^{2} = x^{2} + (2x)^{2} - 2 \\times x \\times 2x \\times \\cos(60^{\\circ})" },
+            { verbal_explanation: "שלב 3: פישוט חזקות. שורש מעלה בריבוע מבטל את עצמו.", math_expression: "21 = x^{2} + 4x^{2} - 4x^{2} \\times 0.5" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל באגף ימין.", math_expression: "21 = 5x^{2} - 2x^{2}" },
+            { verbal_explanation: "שלב 5: כינוס של האיקסים.", math_expression: "21 = 3x^{2}" },
+            { verbal_explanation: "שלב 6: חלוקת המשוואה בשלוש.", math_expression: "x^{2} = 7" },
+            { verbal_explanation: "שלב 7: הוצאת שורש למציאת הצלע הקצרה (שהיא איקס אחד).", math_expression: "x = \\sqrt{7} \\approx 2.645" }
         ],
-        final_answer: "42.42"
+        final_answer: "2.64"
     },
 
-    // שאלה 3
+    // שאלה מספר 21
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח משולש קהה-זווית:</strong><br>
-        במשולש קהה-זווית, אורך הצלע האחת הוא 14 ס"מ, ואורך הצלע השנייה הוא 20 ס"מ.<br>
-        הזווית הקהה שבין שתי צלעות אלו היא 150°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="10,120 240,120 140,70" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="2"/>
-            <text x="125" y="95" font-family="Arial" font-size="12">150&deg;</text>
-            <text x="70" y="85" font-family="Arial" font-weight="bold" font-size="14">14</text>
-            <text x="190" y="85" font-family="Arial" font-weight="bold" font-size="14">20</text>
-        </svg>
-        </div>
-        חשבו את שטח המשולש בסמ"ר.`,
-        options: [
-            "70.00",
-            "140.00",
-            "121.24",
-            "35.00"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "במעוין, אורך צלע הוא 8 והזווית החדה היא 40 מעלות. מהו אורך האלכסון הקצר של המעוין?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='100,20 160,100 100,180 40,100' fill='none' stroke='#10b981' stroke-width='3'/><line x1='40' y1='100' x2='160' y2='100' stroke='#f59e0b' stroke-dasharray='4,4' stroke-width='2'/><path d='M 100 150 A 30 30 0 0 0 85 160' fill='none' stroke='#ef4444' stroke-width='2'/><text x='75' y='145' font-size='10' fill='#ef4444'>40°</text><text x='140' y='155' font-size='14' fill='#334155'>8</text><text x='100' y='90' font-size='14' fill='#f59e0b'>x</text></svg></div>",
+        options: ["5.47", "29.95", "8", "6.22"],
         correctAnswer: 0,
-        hint: "נוסחת השטח עובדת בצורה מושלמת גם עבור זוויות קהות. הציבו את המספרים וחשבו.",
+        hint: "האלכסון הקצר סוגר משולש שווה שוקיים (שתיהן 8) שזווית הראש שלו היא 40. חוק הקוסינוסים יפתור זאת מיד.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים ישירות לתוך נוסחת השטח הכללית למשולש.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 14 &times; 20 &times; sin(150&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים (חצי כפול ארבע עשרה כפול עשרים).", 
-                math_expression: "<div dir='ltr'>S = 140 &times; sin(150&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נבדוק את ערכו של סינוס מאה וחמישים במחשבון.", 
-                math_expression: "<div dir='ltr'>S = 140 &times; 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את הכפל לקבלת שטח המשולש הקהה-זווית.", 
-                math_expression: "<div dir='ltr'>S = 70</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבה ישירה למשוואת משפט הקוסינוסים.", math_expression: "x^{2} = 8^{2} + 8^{2} - 2 \\times 8 \\times 8 \\times \\cos(40^{\\circ})" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע והכפלה של שני האגפים הראשונים.", math_expression: "x^{2} = 64 + 64 - 128 \\times \\cos(40^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת הקוסינוס של ארבעים מעלות.", math_expression: "\\cos(40^{\\circ}) \\approx 0.766" },
+            { verbal_explanation: "שלב 4: ביצוע פעולות הכפל והחיבור.", math_expression: "x^{2} = 128 - 128 \\times 0.766 = 128 - 98.048" },
+            { verbal_explanation: "שלב 5: תוצאת החיסור.", math_expression: "x^{2} = 29.952" },
+            { verbal_explanation: "שלב 6: הוצאת שורש ריבועי למציאת אורך האלכסון.", math_expression: "x = \\sqrt{29.952} \\approx 5.47" },
+            { verbal_explanation: "שלב 7: הבחירה הנכונה.", math_expression: "5.47" }
         ],
-        final_answer: "70.00"
+        final_answer: "5.47"
     },
 
-    // שאלה 4
+    // שאלה מספר 22
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>מציאת צלע חסרה מתוך שטח נתון:</strong><br>
-        שטחו הכולל של משולש מסוים הוא 50 סמ"ר.<br>
-        אורך אחת מהצלעות במשולש הוא 10 ס"מ, והזווית הסמוכה לה היא 30°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 200,120 160,40" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="60" y="110" font-family="Arial" font-size="12">30&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">x</text>
-            <text x="95" y="70" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="130" y="85" font-family="Arial" font-weight="bold" font-size="16">S = 50</text>
-        </svg>
-        </div>
-        חשבו את אורך הצלע השנייה (x) הכלואה באותה זווית.`,
-        options: [
-            "20.00 ס\"מ",
-            "10.00 ס\"מ",
-            "25.00 ס\"מ",
-            "15.00 ס\"מ"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "במשולש שווה שוקיים, אורך השוקיים הוא 5 ואורך הבסיס הוא 8. מצאו את זווית הבסיס (זווית שבין שוק לבסיס).&rlm;",
+        options: ["36.87", "53.13", "106.26", "45.00"],
         correctAnswer: 0,
-        hint: "הציבו את כל הנתונים, כולל השטח, בתוך נוסחת השטח כך שרק הצלע x תישאר כנעלם. פתרו את המשוואה וחלצו את x.",
+        hint: "הציבו את השוק (5) מבודדת בצד אחד של המשוואה. הצלעות האחרות (השוק השנייה 5 והבסיס 8) יחד עם זווית הבסיס הלא ידועה ירכיבו את צד ימין.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את נוסחת השטח ונציב את הנתונים הידועים לנו בתוכה.", 
-                math_expression: "<div dir='ltr'>50 = 0.5 &times; 10 &times; x &times; sin(30&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא במחשבון את הערך של סינוס שלושים מעלות.", 
-                math_expression: "<div dir='ltr'>50 = 0.5 &times; 10 &times; x &times; 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את כל המספרים יחד באגף הימני כדי לפשט.", 
-                math_expression: "<div dir='ltr'>50 = 2.5 &times; x</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את אורך הצלע, נחלק את המשוואה ב-2.5.", 
-                math_expression: "<div dir='ltr'>x = 50 / 2.5</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת החילוק לקבלת התוצאה.", 
-                math_expression: "<div dir='ltr'>x = 20</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבה של הנתונים כך שהצלע ממול לזווית (שוק 5) מבודדת.", math_expression: "5^{2} = 5^{2} + 8^{2} - 2 \\times 5 \\times 8 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע של כל האיברים.", math_expression: "25 = 25 + 64 - 80 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 3: העברת העשרים וחמש שמאלה וכינוס איברים.", math_expression: "0 = 64 - 80 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 4: העברת השמונים קוסינוס אגף לבידודו.", math_expression: "80 \\times \\cos(y) = 64" },
+            { verbal_explanation: "שלב 5: חלוקה בשמונים למציאת הערך העשרוני של הקוסינוס.", math_expression: "\\cos(y) = 64 : 80 = 0.8" },
+            { verbal_explanation: "שלב 6: חילוץ הזווית בעזרת שיפט קוסינוס.", math_expression: "y = \\cos^{-1}(0.8) \\approx 36.869" },
+            { verbal_explanation: "שלב 7: הרישום של התוצאה המעוגלת.", math_expression: "36.87" }
         ],
-        final_answer: "20.00"
+        final_answer: "36.87"
     },
 
-    // שאלה 5
+    // שאלה מספר 23
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>מציאת זווית מתוך שטח נתון:</strong><br>
-        שטחו של משולש הוא 40 סמ"ר.<br>
-        אורכי שתיים מצלעותיו הם 10 ס"מ ו-16 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 220,120 100,30" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2"/>
-            <text x="60" y="80" font-family="Arial" font-weight="bold" font-size="14">10</text>
-            <text x="150" y="80" font-family="Arial" font-weight="bold" font-size="14">16</text>
-            <text x="100" y="60" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="110" y="95" font-family="Arial" font-weight="bold" font-size="16">S = 40</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית החדה (הקטנה מ-90°) הכלואה בין שתי צלעות אלו.`,
-        options: [
-            "30.00°",
-            "45.00°",
-            "60.00°",
-            "35.50°"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "במעוין, האלכסונים הם 10 ו-24, וצלע המעוין היא 13 (ניתן לחשב בפיתגורס). השתמשו בחוק הקוסינוסים כדי למצוא את הזווית החדה של המעוין שמול האלכסון הקצר.&rlm;",
+        options: ["45.24", "22.62", "67.38", "90.48"],
         correctAnswer: 0,
-        hint: "הציבו את השטח ושתי הצלעות בנוסחת השטח. לאחר מכן בודדו את הביטוי הכולל את הסינוס, והשתמשו בפונקציה ההפוכה (SHIFT SIN).",
+        hint: "משולש המורכב משתי צלעות המעוין והאלכסון הקצר: הצלעות הן 13 ו-13, והיתר (במשוואה) הוא 10.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים המספריים בתוך משוואת השטח.", 
-                math_expression: "<div dir='ltr'>40 = 0.5 &times; 10 &times; 16 &times; sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים באגף הימני.", 
-                math_expression: "<div dir='ltr'>40 = 80 &times; sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה בשמונים כדי להשאיר את הסינוס לבדו באגף.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 40 / 80</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערך השבר.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 0.5</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש בפעולה ההפוכה של הסינוס במחשבון כדי לקבל את הזווית המדויקת.", 
-                math_expression: "<div dir='ltr'>&alpha; = 30&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבה בחוק הקוסינוסים במשולש הנבחר במעוין.", math_expression: "10^{2} = 13^{2} + 13^{2} - 2 \\times 13 \\times 13 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע.", math_expression: "100 = 169 + 169 - 338 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 3: חיבור המספרים הפשוטים יחד.", math_expression: "100 = 338 - 338 \\times \\cos(y)" },
+            { verbal_explanation: "שלב 4: העברת אגפים לבידוד פונקציית הקוסינוס.", math_expression: "338 \\times \\cos(y) = 338 - 100 = 238" },
+            { verbal_explanation: "שלב 5: חלוקה בשלוש מאות שלושים ושמונה.", math_expression: "\\cos(y) = 238 : 338 \\approx 0.7041" },
+            { verbal_explanation: "שלב 6: מציאת הזווית במעלות בעזרת המחשבון.", math_expression: "y = \\cos^{-1}(0.7041) \\approx 45.24" },
+            { verbal_explanation: "שלב 7: התוצאה המוזנת.", math_expression: "45.24" }
         ],
-        final_answer: "30.00&deg;"
+        final_answer: "45.24"
     },
 
-    // שאלה 6
+    // שאלה מספר 24
     {
-        topic: "bagrut_35371",
-        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח משולש שווה שוקיים - רב שלבי:</strong><br>
-        במשולש שווה שוקיים, אורך צלע הבסיס הוא 16 ס"מ.<br>
-        כל אחת מזוויות הבסיס היא בת 40°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 210,120 125,30" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <text x="60" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="175" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">16</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המשולש בסמ"ר.`,
-        options: [
-            "53.56",
-            "83.44",
-            "107.12",
-            "45.20"
-        ],
+        topic: "trig_general_triangles_35371",
+        subTopic: "חוק הקוסינוסים",
+        question_text: "במשולש ישר זווית שני ניצבים באורכים 12 ו-16, והזווית הכלואה ביניהם היא 90. הוכיחו כי חוק הקוסינוסים מניב את אותה תוצאה של היתר כמו משפט פיתגורס.&rlm;",
+        options: ["20", "400", "28", "14"],
         correctAnswer: 0,
-        hint: "שלב א': מצאו את זווית הראש. שלב ב': השתמשו בחוק הסינוסים כדי למצוא את אורך אחת השוקיים. שלב ג': הפעילו את נוסחת השטח בעזרת שתי הצלעות שיש לכם (בסיס ושוק) והזווית הכלואה ביניהן (40).",
+        hint: "הציבו את כל הנתונים, כולל קוסינוס 90 (שהוא אפס), ותראו שזה מתלכד לפיתגורס.",
         solution_steps: [
-            { 
-                verbal_explanation: "בשלב הראשון, נחשב את זווית הראש של המשולש על ידי חיסור מזוויות הבסיס.", 
-                math_expression: "<div dir='ltr'>180&deg; - 40&deg; - 40&deg; = 100&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נמצא את אורך השוק (x) בעזרת חוק הסינוסים.", 
-                math_expression: "<div dir='ltr'>x / sin(40&deg;) = 16 / sin(100&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס ארבעים כדי לבודד את הצלע הנעלמת.", 
-                math_expression: "<div dir='ltr'>x = ( 16 &times; sin(40&deg;) ) / sin(100&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הערכים מהמחשבון ונבצע חילוק למציאת השוק.", 
-                math_expression: "<div dir='ltr'>x = ( 16 &times; 0.642 ) / 0.984 = 10.27 / 0.984 = 10.43</div>" 
-            },
-            { 
-                verbal_explanation: "עכשיו נחשב את השטח. ניקח את צלע הבסיס (16), את השוק שמצאנו (10.43) ואת הזווית שביניהם (40).", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 16 &times; 10.43 &times; sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ונקבל תוצאת ביניים.", 
-                math_expression: "<div dir='ltr'>S = 83.44 &times; 0.642</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את ההכפלה לקבלת השטח הסופי של המשולש.", 
-                math_expression: "<div dir='ltr'>S = 53.56</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחה המורחבת של פיתגורס (משפט הקוסינוסים).", math_expression: "x^{2} = 12^{2} + 16^{2} - 2 \\times 12 \\times 16 \\times \\cos(90^{\\circ})" },
+            { verbal_explanation: "שלב 2: קוסינוס תשעים מעלות שווה תמיד לאפס ולכן מאפס את כל הביטוי.", math_expression: "\\cos(90^{\\circ}) = 0" },
+            { verbal_explanation: "שלב 3: פישוט המשוואה שנשארה (שזהה למשפט פיתגורס).", math_expression: "x^{2} = 144 + 256 - 0" },
+            { verbal_explanation: "שלב 4: סכימה.", math_expression: "x^{2} = 400" },
+            { verbal_explanation: "שלב 5: הוצאת שורש למציאת היתר.", math_expression: "x = \\sqrt{400} = 20" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "20" }
         ],
-        final_answer: "53.56"
+        final_answer: "20"
     },
 
-    // שאלה 7
+    // ==========================================
+    // תת נושא 3: מציאת שטח משולש באמצעות טריגונומטריה (12 שאלות)
+    // ==========================================
+
+    // שאלה מספר 25
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח משולש שווה שוקיים מזווית הראש:</strong><br>
-        במשולש שווה שוקיים, אורך כל אחת משתי השוקיים הוא 12 ס"מ.<br>
-        זווית הראש (הזווית הכלואה בין השוקיים) היא בת 100°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="20,120 230,120 125,50" fill="rgba(14,165,233,0.1)" stroke="#0ea5e9" stroke-width="2"/>
-            <text x="110" y="80" font-family="Arial" font-size="12">100&deg;</text>
-            <text x="60" y="80" font-family="Arial" font-weight="bold" font-size="14">12</text>
-            <text x="180" y="80" font-family="Arial" font-weight="bold" font-size="14">12</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המשולש.`,
-        options: [
-            "70.84",
-            "141.68",
-            "35.42",
-            "84.00"
-        ],
+        question_text: "במשולש, אורך צלע אחת הוא 8, אורך הצלע השנייה הוא 10, והזווית הכלואה ביניהן היא 30 מעלות. חשבו את שטח המשולש.&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='20,160 160,160 120,40' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 50 160 A 30 30 0 0 0 45 140' fill='none' stroke='#ef4444' stroke-width='2'/><text x='55' y='150' font-size='12' fill='#ef4444'>30°</text><text x='90' y='180' font-size='14' fill='#334155'>10</text><text x='50' y='95' font-size='14' fill='#334155'>8</text></svg></div>",
+        options: ["20", "40", "69.28", "34.64"],
         correctAnswer: 0,
-        hint: "הנתונים כוללים שתי צלעות וזווית כלואה (12, 12 ו-100 מעלות). פשוט הציבו הכל בנוסחת השטח ופתרו במכה אחת.",
+        hint: "הנוסחה הטריגונומטרית לשטח משולש היא: מכפלת שתי צלעות, כפול סינוס הזווית הכלואה ביניהן, הכל חלקי שתיים.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים ישירות בנוסחת השטח.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 12 &times; 12 &times; sin(100&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ההתחלתיים זה בזה.", 
-                math_expression: "<div dir='ltr'>S = 72 &times; sin(100&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסינוס במחשבון.", 
-                math_expression: "<div dir='ltr'>S = 72 &times; 0.984</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל האחרון לקבלת השטח המדויק.", 
-                math_expression: "<div dir='ltr'>S = 70.84</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים הישירים בנוסחת השטח הטריגונומטרית.", math_expression: "S = \\dfrac{8 \\times 10 \\times \\sin(30^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 2: החלפת פונקציית הסינוס בערך המספרי שלה.", math_expression: "\\sin(30^{\\circ}) = 0.5" },
+            { verbal_explanation: "שלב 3: ביצוע פעולות הכפל שבמונה השבר.", math_expression: "S = \\dfrac{80 \\times 0.5}{2}" },
+            { verbal_explanation: "שלב 4: השלמת הכפל במונה (שמונים כפול חצי).", math_expression: "S = \\dfrac{40}{2}" },
+            { verbal_explanation: "שלב 5: ביצוע פעולת החלוקה האחרונה.", math_expression: "S = 20" },
+            { verbal_explanation: "שלב 6: הרישום לבדיקה במערכת.", math_expression: "20" }
         ],
-        final_answer: "70.84"
+        final_answer: "20"
     },
 
-    // שאלה 8
+    // שאלה מספר 26
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח מקבילית:</strong><br>
-        במקבילית נתונים אורכיהן של שתי צלעות סמוכות: 10 ס"מ ו-20 ס"מ.<br>
-        הזווית הכלואה ביניהן היא בת 60°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,120 220,120 180,30 10,30" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="65" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="125" y="135" font-family="Arial" font-weight="bold" font-size="14">20</text>
-            <text x="20" y="80" font-family="Arial" font-weight="bold" font-size="14">10</text>
-        </svg>
-        </div>
-        חשבו את שטחה הכולל של המקבילית.`,
-        options: [
-            "173.20 סמ\"ר",
-            "86.60 סמ\"ר",
-            "200.00 סמ\"ר",
-            "100.00 סמ\"ר"
-        ],
+        question_text: "אורכי צלעות של משולש קהה זווית הם 12 ו-15. הזווית הקהה שביניהן היא 150 מעלות. מהו שטח המשולש?&rlm;",
+        options: ["45", "90", "77.94", "38.97"],
         correctAnswer: 0,
-        hint: "האלכסון של המקבילית מחלק אותה לשני משולשים שווים. חשבו שטח של משולש אחד והכפילו בשתיים. (לחלופין, נוסחת המקבילית היא פשוט צלע כפול צלע כפול סינוס הזווית).",
+        hint: "הנוסחה תקפה לכל משולש, כולל כהה זווית. סינוס של זווית משלימה ל-180 (כלומר 30) זהה לסינוס הזווית הקהה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחשב את שטחו של המשולש שמהווה בדיוק חצי מהמקבילית.", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 10 &times; 20 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים השלמים.", 
-                math_expression: "<div dir='ltr'>S1 = 100 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסינוס ונסיים את חישוב שטח המשולש.", 
-                math_expression: "<div dir='ltr'>S1 = 100 &times; 0.866 = 86.60</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שהמקבילית מורכבת משני משולשים חופפים לחלוטין, נכפיל בשתיים לשטח המלא.", 
-                math_expression: "<div dir='ltr'>S = 86.60 &times; 2 = 173.20</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים לנוסחת השטח.", math_expression: "S = \\dfrac{12 \\times 15 \\times \\sin(150^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 2: חישוב ערך הסינוס לזווית קהה זו במחשבון.", math_expression: "\\sin(150^{\\circ}) = 0.5" },
+            { verbal_explanation: "שלב 3: הכפלת המספרים השלמים שבמונה.", math_expression: "12 \\times 15 = 180" },
+            { verbal_explanation: "שלב 4: הכפלת התוצאה בסינוס וחלוקה בשתיים.", math_expression: "S = \\dfrac{180 \\times 0.5}{2}" },
+            { verbal_explanation: "שלב 5: חישוב סופי.", math_expression: "S = \\dfrac{90}{2} = 45" },
+            { verbal_explanation: "שלב 6: הרישום של השטח המסכם.", math_expression: "45" }
         ],
-        final_answer: "173.20"
+        final_answer: "45"
     },
 
-    // שאלה 9
+    // שאלה מספר 27
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח מעוין:</strong><br>
-        במעוין, כל הצלעות שוות באורכן. אורך צלע המעוין הוא 8 ס"מ.<br>
-        אחת מהזוויות החדות של המעוין היא בת 50°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,120 180,120 210,30 80,30" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <text x="65" y="110" font-family="Arial" font-size="12">50&deg;</text>
-            <text x="110" y="135" font-family="Arial" font-weight="bold" font-size="14">8</text>
-            <text x="35" y="80" font-family="Arial" font-weight="bold" font-size="14">8</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המעוין.`,
-        options: [
-            "49.02",
-            "24.51",
-            "64.00",
-            "32.00"
-        ],
+        question_text: "מהו שטחו של משולש שווה צלעות שאורך צלעו הוא 6?&rlm;",
+        options: ["15.58", "31.17", "18.00", "9.00"],
         correctAnswer: 0,
-        hint: "חשבו את השטח של אחד משני המשולשים המרכיבים את המעוין (לפי שתי צלעות של 8 וזווית של 50), ואז הכפילו פי שתיים.",
+        hint: "במשולש שווה צלעות כל הצלעות שוות ל-6, וכל הזוויות שוות ל-60 מעלות. הפעילו את הנוסחה הטריגונומטרית.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחשב תחילה את השטח של חצי מהמעוין, כלומר משולש שצלעותיו הן 8 והזווית שביניהן 50.", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 8 &times; 8 &times; sin(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ההתחלתיים.", 
-                math_expression: "<div dir='ltr'>S1 = 32 &times; sin(50&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסינוס ונמצא את שטח המשולש.", 
-                math_expression: "<div dir='ltr'>S1 = 32 &times; 0.766 = 24.51</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שטח המשולש בשתיים כדי למצוא את השטח של כל המעוין.", 
-                math_expression: "<div dir='ltr'>S = 24.51 &times; 2 = 49.02</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי צלעות וזווית במשולש המיוחד.", math_expression: "a = 6 \\quad , \\quad b = 6 \\quad , \\quad \\alpha = 60^{\\circ}" },
+            { verbal_explanation: "שלב 2: הצבה בנוסחת השטח עם הנתונים הללו.", math_expression: "S = \\dfrac{6 \\times 6 \\times \\sin(60^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 3: חילוץ ערך סינוס שישים.", math_expression: "\\sin(60^{\\circ}) \\approx 0.866" },
+            { verbal_explanation: "שלב 4: כפל וביצוע החלוקה להקלה (שלושים ושש חלקי שתיים שווה שמונה עשרה).", math_expression: "S = 18 \\times 0.866" },
+            { verbal_explanation: "שלב 5: ביצוע הכפל העשרוני.", math_expression: "S \\approx 15.588" },
+            { verbal_explanation: "שלב 6: עיגול לשתי ספרות נדרש.", math_expression: "15.58" }
         ],
-        final_answer: "49.02"
+        final_answer: "15.58"
     },
 
-    // שאלה 10
+    // שאלה מספר 28
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח משולש הנוצר מתוך מעגל:</strong><br>
-        בתוך מעגל שרדיוסו 10 ס"מ, שורטטו שני רדיוסים.<br>
-        הזווית הכלואה בין שני הרדיוסים היא בת 70°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <polygon points="100,100 175.4,72.6 127.3,176.6" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="2"/>
-            <circle cx="100" cy="100" r="3" fill="#0f172a"/>
-            <text x="110" y="115" font-family="Arial" font-size="12">70&deg;</text>
-            <text x="135" y="80" font-family="Arial" font-weight="bold" font-size="12">10</text>
-            <text x="100" y="145" font-family="Arial" font-weight="bold" font-size="12">10</text>
-        </svg>
-        </div>
-        חשבו את שטחו של המשולש שנוצר (המשולש הצבוע).`,
-        options: [
-            "46.95",
-            "93.90",
-            "50.00",
-            "34.20"
-        ],
+        question_text: "שטח משולש הוא 30. אורך צלע אחת הוא 10 ואורך הצלע השנייה הוא 12. מהי הזווית החדה הכלואה ביניהן?&rlm;",
+        options: ["30", "60", "45", "15"],
         correctAnswer: 0,
-        hint: "המשולש מורכב משתי צלעות שאורכן שווה לרדיוס (10 כל אחת), והזווית שביניהן. הציבו בנוסחת השטח הרגילה.",
+        hint: "הציבו את כל הנתונים, כולל השטח, לתוך הנוסחה המוכרת. בודדו את סינוס הזווית (הנעלם) ואז הפעילו פונקציה הפוכה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים בנוסחת השטח. שתי הצלעות הן הרדיוסים, והזווית נמצאת ביניהם.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 10 &times; 10 &times; sin(70&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים השלמים יחד.", 
-                math_expression: "<div dir='ltr'>S = 50 &times; sin(70&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נבדוק את ערכו של סינוס שבעים במחשבון.", 
-                math_expression: "<div dir='ltr'>S = 50 &times; 0.939</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את פעולת ההכפלה.", 
-                math_expression: "<div dir='ltr'>S = 46.95</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבה של הנתונים בנוסחת השטח כשהזווית היא נעלם.", math_expression: "30 = \\dfrac{10 \\times 12 \\times \\sin(x)}{2}" },
+            { verbal_explanation: "שלב 2: פישוט המונה וחלוקתו בשתיים (מאה ועשרים חלקי שתיים).", math_expression: "30 = 60 \\times \\sin(x)" },
+            { verbal_explanation: "שלב 3: חלוקת המשוואה בשישים לבידוד פונקציית הסינוס.", math_expression: "\\sin(x) = 30 : 60 = 0.5" },
+            { verbal_explanation: "שלב 4: שימוש בשיפט סינוס במחשבון.", math_expression: "x = \\sin^{-1}(0.5)" },
+            { verbal_explanation: "שלב 5: קבלת ערך הזווית המדויק.", math_expression: "x = 30^{\\circ}" },
+            { verbal_explanation: "שלב 6: הרישום.", math_expression: "30" }
         ],
-        final_answer: "46.95"
+        final_answer: "30"
     },
 
-    // שאלה 11
+    // שאלה מספר 29
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב שטח מתקדם - מציאת צלע תחילה:</strong><br>
-        במשולש כללי נתון אורך של צלע אחת בלבד: 15 ס"מ.<br>
-        הזווית הנמצאת <strong>מול</strong> הצלע הזו היא בת 40°.<br>
-        זווית נוספת במשולש היא בת 60°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 220,120 160,30" fill="rgba(234,179,8,0.1)" stroke="#eab308" stroke-width="2"/>
-            <text x="50" y="110" font-family="Arial" font-size="12">40&deg;</text>
-            <text x="180" y="110" font-family="Arial" font-size="12">60&deg;</text>
-            <text x="185" y="70" font-family="Arial" font-weight="bold" font-size="14">15</text>
-            <text x="80" y="70" font-family="Arial" font-weight="bold" font-size="14" fill="#3b82f6">x</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המשולש.<br>
-        רמז: תצטרכו למצוא גם את הזווית השלישית וגם צלע נוספת (x).`,
-        options: [
-            "149.29",
-            "151.72",
-            "120.50",
-            "98.40"
-        ],
+        question_text: "שטח של משולש הוא 40. צלע אחת שווה ל-8, והזווית שבינה לצלע נוספת היא 45 מעלות. מהו אורך הצלע הנוספת (הלא ידועה)?&rlm;",
+        options: ["14.14", "10", "20", "7.07"],
         correctAnswer: 0,
-        hint: "שלב 1: מצאו את הזווית השלישית (השלמה ל-180). שלב 2: השתמשו בחוק הסינוסים כדי למצוא את הצלע x הנמצאת מול זווית 60. שלב 3: הפעילו את נוסחת השטח עם הצלעות שיש לכם והזווית שביניהן (הזווית השלישית שמצאתם).",
+        hint: "נוסחת השטח פועלת גם כשצלע חסרה. הציבו את מה שיש וחשבו כדי לבודד את הצלע הנעלמת.",
         solution_steps: [
-            { 
-                verbal_explanation: "ראשית נחשב את הזווית השלישית במשולש על ידי חיסור מ-180.", 
-                math_expression: "<div dir='ltr'>180&deg; - 40&deg; - 60&deg; = 80&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נשתמש בחוק הסינוסים כדי למצוא את הצלע x.", 
-                math_expression: "<div dir='ltr'>x / sin(60&deg;) = 15 / sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול בסינוס של שישים כדי להשאיר את הנעלם לבדו.", 
-                math_expression: "<div dir='ltr'>x = ( 15 &times; sin(60&deg;) ) / sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערכי הסינוס ואת אורך הצלע x.", 
-                math_expression: "<div dir='ltr'>x = ( 15 &times; 0.866 ) / 0.642 = 12.99 / 0.642 = 20.23</div>" 
-            },
-            { 
-                verbal_explanation: "עכשיו כשיש לנו שתי צלעות (15 ו-20.23) ואת הזווית שביניהן (80 מעלות, זו שמצאנו בהתחלה), נציב בנוסחת השטח.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 15 &times; 20.23 &times; sin(80&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ונקבל את שטח המשולש המבוקש.", 
-                math_expression: "<div dir='ltr'>S = 151.72 &times; 0.984 = 149.29</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית המשוואה המלאה על סמך נתוני השטח.", math_expression: "40 = \\dfrac{8 \\times y \\times \\sin(45^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 2: חלוקת השמונה בשתיים לפישוט.", math_expression: "40 = 4 \\times y \\times \\sin(45^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת ערך הסינוס.", math_expression: "\\sin(45^{\\circ}) \\approx 0.707" },
+            { verbal_explanation: "שלב 4: הכפלה במקדם ארבע.", math_expression: "40 = 2.828 \\times y" },
+            { verbal_explanation: "שלב 5: חלוקה לבידוד הצלע.", math_expression: "y = 40 : 2.828" },
+            { verbal_explanation: "שלב 6: קבלת אורך הצלע המעוגל.", math_expression: "y \\approx 14.14" },
+            { verbal_explanation: "שלב 7: הרישום לבדיקה.", math_expression: "14.14" }
         ],
-        final_answer: "149.29"
+        final_answer: "14.14"
     },
 
-    // שאלה 12
+    // שאלה מספר 30
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח מקבילית באמצעות אלכסונים:</strong><br>
-        במקבילית נתונים אורכיהם של שני האלכסונים: האחד הוא 12 ס"מ והשני הוא 16 ס"מ.<br>
-        הזווית החדה שנוצרת במפגש האלכסונים היא בת 40°.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 180,120 210,30 70,30" fill="rgba(239,68,68,0.05)" stroke="#ef4444" stroke-width="2"/>
-            <line x1="40" y1="120" x2="210" y2="30" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3"/>
-            <line x1="180" y1="120" x2="70" y2="30" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3"/>
-            <text x="130" y="80" font-family="Arial" font-size="12">40&deg;</text>
-        </svg>
-        </div>
-        חשבו את שטחה הכולל של המקבילית בסמ"ר.`,
-        options: [
-            "61.63",
-            "123.26",
-            "30.80",
-            "45.00"
-        ],
+        question_text: "במקבילית, אורכי הצלעות הם 6 ו-14. הזווית החדה של המקבילית היא 60 מעלות. מהו שטח המקבילית כולה?&rlm;",
+        options: ["72.74", "84", "42", "36.37"],
         correctAnswer: 0,
-        hint: "האלכסונים במקבילית חוצים זה את זה, ולכן כל משולש קטן בפנים מורכב מצלעות של חצי אלכסון (6 ו-8). חשבו את השטח של משולש קטן אחד שיש בו את הזווית של 40°, ואז הכפילו בארבע (כל 4 המשולשים מרכיבים שטח זהה).",
+        hint: "מקבילית מורכבת משני משולשים חופפים (אם נעביר אלכסון). חשבו את שטח המשולש בעזרת נוסחת הסינוס והכפילו ב-2 (או פשוט אל תחלקו ב-2).",
         solution_steps: [
-            { 
-                verbal_explanation: "האלכסונים חוצים זה את זה, אז נחשב את אורכי הצלעות של המשולשים הפנימיים הקטנים.", 
-                math_expression: "<div dir='ltr'>12 / 2 = 6 <br><br> 16 / 2 = 8</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטחו של אחד המשולשים הקטנים, שצלעותיו 6 ו-8, והזווית ביניהן היא 40 מעלות.", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 6 &times; 8 &times; sin(40&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים זה בזה ונחשב את הסינוס.", 
-                math_expression: "<div dir='ltr'>S1 = 24 &times; 0.642 = 15.40</div>" 
-            },
-            { 
-                verbal_explanation: "שטח המקבילית כולה מורכב מארבעה משולשים ששטחם זהה (מבחינת החישוב הטריגונומטרי הכולל סינוס). לכן נכפיל בארבע.", 
-                math_expression: "<div dir='ltr'>S = 15.40 &times; 4 = 61.60</div>" 
-            },
-            { 
-                verbal_explanation: "התוצאה הקרובה ביותר, בהתחשב בדיוק המחשבון, היא 61.63.", 
-                math_expression: "<div dir='ltr'>61.63</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת שטח משולש יחיד המרכיב את המקבילית.", math_expression: "S_{1} = \\dfrac{6 \\times 14 \\times \\sin(60^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 2: שטח מקבילית הוא פעמיים שטח המשולש, לכן המכנה (2) מתבטל.", math_expression: "S_{total} = 6 \\times 14 \\times \\sin(60^{\\circ})" },
+            { verbal_explanation: "שלב 3: ביצוע כפל הצלעות תחילה.", math_expression: "S_{total} = 84 \\times \\sin(60^{\\circ})" },
+            { verbal_explanation: "שלב 4: מציאת ערך הסינוס.", math_expression: "\\sin(60^{\\circ}) \\approx 0.866" },
+            { verbal_explanation: "שלב 5: כפל לקבלת השטח המלא.", math_expression: "S_{total} = 84 \\times 0.866" },
+            { verbal_explanation: "שלב 6: התוצאה.", math_expression: "S_{total} \\approx 72.744" },
+            { verbal_explanation: "שלב 7: העיגול המסכם.", math_expression: "72.74" }
         ],
-        final_answer: "61.63"
+        final_answer: "72.74"
     },
 
-    // שאלה 13
+    // שאלה מספר 31
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>חישוב מהיר של שטח משולש שווה צלעות:</strong><br>
-        במשולש שווה צלעות, אורך כל אחת מהצלעות הוא 14 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="60,120 180,120 120,20" fill="rgba(148,163,184,0.1)" stroke="#64748b" stroke-width="2"/>
-            <text x="120" y="135" font-family="Arial" font-weight="bold" font-size="14">14</text>
-            <text x="75" y="70" font-family="Arial" font-weight="bold" font-size="14">14</text>
-            <text x="155" y="70" font-family="Arial" font-weight="bold" font-size="14">14</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המשולש.`,
-        options: [
-            "84.86",
-            "98.00",
-            "49.00",
-            "169.70"
-        ],
+        question_text: "במעוין, אורך צלע הוא 10. הזווית החדה של המעוין היא 40 מעלות. חשבו את שטח המעוין (רמז: הוא מורכב משני משולשים שווי שוקיים).&rlm;",
+        options: ["64.28", "32.14", "100", "76.60"],
         correctAnswer: 0,
-        hint: "במשולש שווה צלעות, כל הזוויות שוות ל-60 מעלות. השתמשו בנוסחת השטח עם שתי צלעות וזווית ה-60 שביניהן.",
+        hint: "כמו במקבילית, שטח מעוין הוא פשוט מכפלת שתי צלעות סמוכות כפול סינוס הזווית הכלואה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזכור שבמשולש שווה צלעות, כל זווית שווה ל-60 מעלות.", 
-                math_expression: "<div dir='ltr'>&alpha; = 60&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נציב בנוסחת השטח שתי צלעות (14 ו-14) ואת הזווית הכלואה.", 
-                math_expression: "<div dir='ltr'>S = 0.5 &times; 14 &times; 14 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים השלמים (חצי מ-196 זה 98).", 
-                math_expression: "<div dir='ltr'>S = 98 &times; sin(60&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסינוס במחשבון ונכפול כדי לקבל את השטח המדויק.", 
-                math_expression: "<div dir='ltr'>S = 98 &times; 0.866 = 84.86</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי שהמעוין מורכב משני משולשים ונוסחת השטח פשוטה יותר.", math_expression: "S = a \\times a \\times \\sin(x)" },
+            { verbal_explanation: "שלב 2: הצבת צלעות המעוין ששוות זו לזו.", math_expression: "S = 10 \\times 10 \\times \\sin(40^{\\circ})" },
+            { verbal_explanation: "שלב 3: ביצוע הכפל.", math_expression: "S = 100 \\times \\sin(40^{\\circ})" },
+            { verbal_explanation: "שלב 4: מציאת הערך הטריגונומטרי.", math_expression: "\\sin(40^{\\circ}) \\approx 0.6427" },
+            { verbal_explanation: "שלב 5: הכפלת המאה בערך העשרוני (הזזת הנקודה).", math_expression: "S \\approx 64.278" },
+            { verbal_explanation: "שלב 6: תוצאה סופית מעוגלת.", math_expression: "64.28" }
         ],
-        final_answer: "84.86"
+        final_answer: "64.28"
     },
 
-    // שאלה 14
+    // שאלה מספר 32
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>מציאת זווית קהה מתוך שטח (אתגר סינוס):</strong><br>
-        שטחו של משולש <strong>קהה-זווית</strong> הוא 60 סמ"ר.<br>
-        אורך הצלע האחת הוא 12 ס"מ, ואורך הצלע השנייה הוא 15 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="20,120 220,120 150,50" fill="rgba(249,115,22,0.1)" stroke="#f97316" stroke-width="2"/>
-            <text x="140" y="75" font-family="Arial" font-size="14" fill="#ef4444">&alpha;</text>
-            <text x="80" y="80" font-family="Arial" font-weight="bold" font-size="14">12</text>
-            <text x="185" y="80" font-family="Arial" font-weight="bold" font-size="14">15</text>
-            <text x="70" y="100" font-family="Arial" font-weight="bold" font-size="16">S = 60</text>
-        </svg>
-        </div>
-        חשבו את גודלה של הזווית הקהה המסומנת באות &alpha;.`,
-        options: [
-            "138.25°",
-            "41.75°",
-            "120.00°",
-            "150.00°"
-        ],
+        question_text: "משוש משוכלל (מצולע בעל 6 צלעות) בעל אורך צלע 4. הוא מורכב מ-6 משולשים שווי צלעות בפנים. חשבו את שטח המשוש כולו.&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='100,20 169,60 169,140 100,180 31,140 31,60' fill='none' stroke='#3b82f6' stroke-width='3'/><line x1='31' y1='60' x2='169' y2='140' stroke='#94a3b8' stroke-dasharray='4,4' stroke-width='1'/><line x1='31' y1='140' x2='169' y2='60' stroke='#94a3b8' stroke-dasharray='4,4' stroke-width='1'/><line x1='100' y1='20' x2='100' y2='180' stroke='#94a3b8' stroke-dasharray='4,4' stroke-width='1'/><text x='110' y='40' font-size='12' fill='#334155'>4</text></svg></div>",
+        options: ["41.57", "20.78", "24", "83.14"],
         correctAnswer: 0,
-        hint: "הציבו את המספרים ופתרו רגיל כדי למצוא את הזווית בעזרת פונקציית הסינוס (SHIFT SIN). המחשבון ייתן לכם זווית חדה. מאחר והמשולש הוא קהה זווית, עליכם להשלים את התוצאה ל-180 מעלות (180 פחות התשובה מהמחשבון).",
+        hint: "חשבו שטח של משולש שווה צלעות אחד בעזרת הנוסחה הטריגונומטרית. זכרו שהזווית היא 60, והצלעות הן 4. אחר כך הכפילו ב-6.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את נתוני השטח והצלעות בתוך משוואת השטח הכללית.", 
-                math_expression: "<div dir='ltr'>60 = 0.5 &times; 12 &times; 15 &times; sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את כל המספרים באגף ימין.", 
-                math_expression: "<div dir='ltr'>60 = 90 &times; sin(&alpha;)</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק בתשעים כדי לבודד את פונקציית הסינוס.", 
-                math_expression: "<div dir='ltr'>sin(&alpha;) = 60 / 90 = 0.666</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש במחשבון כדי לחלץ את הזווית. המחשבון נותן את האפשרות החדה.", 
-                math_expression: "<div dir='ltr'>&alpha; = 41.81&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שנתון שהזווית היא קהה (גדולה מ-90), נשתמש בזהות הסינוס ונחסר מ-180 מעלות את הזווית שמצאנו.", 
-                math_expression: "<div dir='ltr'>&alpha; = 180&deg; - 41.81&deg; = 138.19&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "בגלל פערי עיגול מזעריים במחשבון, התשובה התואמת ביותר היא 138.25 מעלות.", 
-                math_expression: "<div dir='ltr'>138.25&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית נוסחת השטח למשולש אחד מתוך המשוש (כל הזוויות 60).", math_expression: "S_{1} = \\dfrac{4 \\times 4 \\times \\sin(60^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 2: פישוט המשוואה עבור המשולש היחיד.", math_expression: "S_{1} = 8 \\times \\sin(60^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת ערך סינוס שישים.", math_expression: "\\sin(60^{\\circ}) \\approx 0.866" },
+            { verbal_explanation: "שלב 4: חישוב השטח למשולש בודד.", math_expression: "S_{1} = 8 \\times 0.866 \\approx 6.928" },
+            { verbal_explanation: "שלב 5: הכפלת השטח בשש, כיוון שיש שישה משולשים חופפים במשוש.", math_expression: "S = 6 \\times 6.928" },
+            { verbal_explanation: "שלב 6: ביצוע הכפל האחרון לקבלת השטח הכולל.", math_expression: "S \\approx 41.568" },
+            { verbal_explanation: "שלב 7: בחירת התשובה הנכונה ביותר.", math_expression: "41.57" }
         ],
-        final_answer: "138.25&deg;"
+        final_answer: "41.57"
     },
 
-    // שאלה 15
+    // שאלה מספר 33
     {
-        topic: "bagrut_35371",
+        topic: "trig_general_triangles_35371",
         subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
-        question_text: `<strong>שטח מחומש משוכלל (שאלת סיכום):</strong><br>
-        מחומש משוכלל (בעל 5 צלעות שוות) חסום בתוך מעגל.<br>
-        רדיוס המעגל החוסם הוא באורך 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <polygon points="100,20 176,75 147,164.7 53,164.7 24,75" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="2"/>
-            <line x1="100" y1="100" x2="100" y2="20" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="176" y2="75" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="147" y2="164.7" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="53" y2="164.7" stroke="#0f172a" stroke-width="1"/>
-            <line x1="100" y1="100" x2="24" y2="75" stroke="#0f172a" stroke-width="1"/>
-            <text x="110" y="60" font-family="Arial" font-size="12">10</text>
-        </svg>
-        </div>
-        חשבו את שטחו הכולל של המחומש בסמ"ר.`,
-        options: [
-            "237.75",
-            "118.88",
-            "250.00",
-            "190.20"
-        ],
+        question_text: "במשולש שווה שוקיים, אורך כל שוק הוא 7, וזווית הבסיס היא 50 מעלות. חשבו את השטח של המשולש.&rlm;",
+        options: ["24.12", "18.77", "12.06", "48.24"],
         correctAnswer: 0,
-        hint: "המחומש מורכב מ-5 משולשים חופפים לחלוטין הנפגשים במרכז. חלקו 360 ב-5 כדי למצוא את זווית הראש של משולש אחד. חשבו את השטח של משולש כזה בעזרת שני הרדיוסים והזווית, ולאחר מכן הכפילו את התוצאה ב-5.",
+        hint: "אם יש לכם שתי צלעות, אתם צריכים את הזווית שביניהן (זווית הראש) כדי להשתמש בנוסחת השטח הטריגונומטרית.",
         solution_steps: [
-            { 
-                verbal_explanation: "נמצא את זווית הראש של כל משולש על ידי חלוקת המעגל השלם לחמישה חלקים שווים.", 
-                math_expression: "<div dir='ltr'>360&deg; / 5 = 72&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטחו של משולש בודד בתוך המחומש. שתי הצלעות הן רדיוסים באורך 10, והזווית היא 72.", 
-                math_expression: "<div dir='ltr'>S1 = 0.5 &times; 10 &times; 10 &times; sin(72&deg;)</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ונעזר במחשבון לחישוב הסינוס.", 
-                math_expression: "<div dir='ltr'>S1 = 50 &times; 0.951</div>" 
-            },
-            { 
-                verbal_explanation: "נשלים את הכפל כדי לקבל את השטח של משולש אחד.", 
-                math_expression: "<div dir='ltr'>S1 = 47.55</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את השטח של כל המחומש, נכפיל את שטח המשולש ב-5.", 
-                math_expression: "<div dir='ltr'>S = 47.55 &times; 5 = 237.75</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב סכום זוויות הבסיס הידועות.", math_expression: "50^{\\circ} + 50^{\\circ} = 100^{\\circ}" },
+            { verbal_explanation: "שלב 2: מציאת זווית הראש הנמצאת בין שתי השוקיים.", math_expression: "y = 180^{\\circ} - 100^{\\circ} = 80^{\\circ}" },
+            { verbal_explanation: "שלב 3: כעת מציבים בנוסחת השטח את שתי השוקיים והזווית שביניהן.", math_expression: "S = \\dfrac{7 \\times 7 \\times \\sin(80^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 4: ביצוע הכפל במונה.", math_expression: "S = \\dfrac{49 \\times \\sin(80^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 5: מציאת ערך הסינוס.", math_expression: "\\sin(80^{\\circ}) \\approx 0.9848" },
+            { verbal_explanation: "שלב 6: השלמת החישוב (ארבעים ותשע כפול ערך זה חלקי שתיים).", math_expression: "S \\approx \\dfrac{48.255}{2}" },
+            { verbal_explanation: "שלב 7: התוצאה המסכמת לשטח.", math_expression: "24.12" } // Approximate value depending on rounding is 24.12
         ],
-        final_answer: "237.75"
+        final_answer: "24.12"
+    },
+
+    // שאלה מספר 34
+    {
+        topic: "trig_general_triangles_35371",
+        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
+        question_text: "משולש ישר זווית חסום במעגל כך שהיתר שלו מונח על הקוטר. רדיוס המעגל הוא 5. אחד הניצבים הוא באורך 6. חשבו את שטח המשולש (רמז: השתמשו בפיתגורס למציאת הניצב השני).&rlm;",
+        options: ["24", "30", "15", "48"],
+        correctAnswer: 0,
+        hint: "היתר הוא הקוטר כולו (פעמיים הרדיוס). מצאו את הניצב השני עם פיתגורס, וחשבו את השטח ללא צורך בזוויות כלל.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב אורך היתר (קוטר המעגל החוסם הוא כפול מהרדיוס).", math_expression: "c = 2 \\times 5 = 10" },
+            { verbal_explanation: "שלב 2: שימוש במשפט פיתגורס למציאת הניצב השני.", math_expression: "y^{2} + 6^{2} = 10^{2}" },
+            { verbal_explanation: "שלב 3: העלאה בריבוע.", math_expression: "y^{2} + 36 = 100" },
+            { verbal_explanation: "שלב 4: העברת אגפים וחיסור.", math_expression: "y^{2} = 64" },
+            { verbal_explanation: "שלב 5: הוצאת שורש למציאת הניצב.", math_expression: "y = 8" },
+            { verbal_explanation: "שלב 6: במשולש ישר זווית, השטח הוא מכפלת הניצבים לחלק לשתיים.", math_expression: "S = \\dfrac{6 \\times 8}{2}" },
+            { verbal_explanation: "שלב 7: התוצאה לאחר חילוק.", math_expression: "24" }
+        ],
+        final_answer: "24"
+    },
+
+    // שאלה מספר 35
+    {
+        topic: "trig_general_triangles_35371",
+        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
+        question_text: "שטחו של מעוין הוא 50. זווית אחת במעוין היא 30 מעלות. מהו אורך צלע המעוין?&rlm;",
+        options: ["10", "100", "5", "7.07"],
+        correctAnswer: 0,
+        hint: "שטח מעוין שווה למכפלת שתי צלעות סמוכות כפול סינוס הזווית שביניהן. צלעות המעוין שוות זו לזו.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: כתיבת הנוסחה לשטח מעוין באמצעות צלעותיו.", math_expression: "50 = x \\times x \\times \\sin(30^{\\circ})" },
+            { verbal_explanation: "שלב 2: כינוס הצלעות לחזקה שנייה.", math_expression: "50 = x^{2} \\times \\sin(30^{\\circ})" },
+            { verbal_explanation: "שלב 3: חילוץ ערכו של הסינוס מהמחשבון.", math_expression: "50 = x^{2} \\times 0.5" },
+            { verbal_explanation: "שלב 4: חלוקת המשוואה בחצי (שקול להכפלה בשתיים) כדי לבודד את הנעלם.", math_expression: "x^{2} = 50 : 0.5 = 100" },
+            { verbal_explanation: "שלב 5: הוצאת שורש ריבועי.", math_expression: "x = \\sqrt{100}" },
+            { verbal_explanation: "שלב 6: המסקנה לגבי אורך צלע המעוין.", math_expression: "10" },
+            { verbal_explanation: "שלב 7: הרישום לבדיקה.", math_expression: "10" }
+        ],
+        final_answer: "10"
+    },
+
+    // שאלה מספר 36
+    {
+        topic: "trig_general_triangles_35371",
+        subTopic: "מציאת שטח משולש באמצעות טריגונומטריה",
+        question_text: "שטח משולש הוא 25. זווית אחת היא 45 מעלות. שתי הצלעות שיוצרות את הזווית שוות באורכן. מהו אורכן?&rlm;",
+        options: ["8.41", "70.72", "6.12", "12.05"],
+        correctAnswer: 0,
+        hint: "הציבו את הנוסחה: צלע כפול צלע כפול סינוס הזווית חלקי 2 שווה לשטח. מאחר והצלעות שוות, זה יהיה איקס בריבוע.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: בניית משוואת השטח עם נעלמים זהים.", math_expression: "25 = \\dfrac{x \\times x \\times \\sin(45^{\\circ})}{2}" },
+            { verbal_explanation: "שלב 2: הכפלת המשוואה בשתיים למניעת המכנה וכינוס החזקה.", math_expression: "50 = x^{2} \\times \\sin(45^{\\circ})" },
+            { verbal_explanation: "שלב 3: מציאת הערך הטריגונומטרי.", math_expression: "\\sin(45^{\\circ}) \\approx 0.707" },
+            { verbal_explanation: "שלב 4: הצבה של הערך.", math_expression: "50 = x^{2} \\times 0.707" },
+            { verbal_explanation: "שלב 5: חלוקת חמישים בערך העשרוני.", math_expression: "x^{2} = 50 : 0.707 \\approx 70.72" },
+            { verbal_explanation: "שלב 6: הפעלת שורש ריבועי.", math_expression: "x = \\sqrt{70.72} \\approx 8.409" },
+            { verbal_explanation: "שלב 7: קבלת הערך המעוגל.", math_expression: "8.41" }
+        ],
+        final_answer: "8.41"
     }
-
 ];

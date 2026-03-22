@@ -1,891 +1,553 @@
-// ========================================================================
-// שאלון 35372 | נושא: סדרות
-// פעימה 1: 20 שאלות (תתי נושאים: סדרה חשבונית + סכום סדרה)
-// ========================================================================
-
 const questionsDB = [
+    // ==========================================
+    // תת נושא 1: סדרה חשבונית (10 שאלות)
+    // ==========================================
 
-    // ---------------------------------------------------------
-    // תת נושא 1: סדרה חשבונית (שאלות 1-10)
-    // ---------------------------------------------------------
-
-    // שאלה 1
+    // שאלה מספר 1
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>מציאת איבר כללי בסדרה חשבונית:</strong><br>
-        בסדרה חשבונית, האיבר הראשון הוא 5, והפרש הסדרה הוא 3.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 300 80" width="100%" height="80" style="max-width:300px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <text x="30" y="45" font-family="Arial" font-size="16" font-weight="bold">5</text>
-            <text x="70" y="45" font-family="Arial" font-size="16" font-weight="bold">8</text>
-            <text x="110" y="45" font-family="Arial" font-size="16" font-weight="bold">11</text>
-            <text x="150" y="45" font-family="Arial" font-size="16" font-weight="bold">14</text>
-            <text x="190" y="45" font-family="Arial" font-size="16" font-weight="bold">...</text>
-            <path d="M 35,25 Q 50,10 65,25" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <polygon points="65,25 60,20 68,18" fill="#3b82f6"/>
-            <text x="50" y="15" font-family="Arial" font-size="10" font-weight="bold" fill="#3b82f6" text-anchor="middle">+3</text>
-        </svg>
-        </div>
-        מהו <strong>האיבר ה-10</strong> בסדרה זו?`,
-        options: [
-            "32",
-            "35",
-            "30",
-            "28"
-        ],
+        question_text: "בסדרה חשבונית האיבר הראשון הוא 5 והפרש הסדרה הוא 3. מהו האיבר העשירי בסדרה?&rlm;",
+        options: ["32", "35", "30", "27"],
         correctAnswer: 0,
-        hint: "השתמשו בנוסחת האיבר הכללי: a<sub>n</sub> = a<sub>1</sub> + (n-1)d. הציבו: a<sub>1</sub>=5, d=3, n=10.",
+        hint: "השתמשו בנוסחת האיבר הכללי של סדרה חשבונית: האיבר הראשון ועוד (n פחות 1) כפול ההפרש.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את הנתונים מתוך השאלה. האיבר הראשון (a1) והפרש הסדרה (d).", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 5 , d = 3</div>" 
-            },
-            { 
-                verbal_explanation: "אנו מחפשים את האיבר העשירי, לכן מיקומו בסדרה (n) הוא 10.", 
-                math_expression: "<div dir='ltr'>n = 10</div>" 
-            },
-            { 
-                verbal_explanation: "נרשום את נוסחת האיבר הכללי של סדרה חשבונית.", 
-                math_expression: "<div dir='ltr'>a<sub>n</sub> = a<sub>1</sub> + (n - 1) &times; d</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים שלנו לתוך הנוסחה.", 
-                math_expression: "<div dir='ltr'>a<sub>10</sub> = 5 + (10 - 1) &times; 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב קודם את מה שבתוך הסוגריים (10 פחות 1 זה 9).", 
-                math_expression: "<div dir='ltr'>a<sub>10</sub> = 5 + 9 &times; 3</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל ואז נחבר כדי למצוא את האיבר העשירי.", 
-                math_expression: "<div dir='ltr'>a<sub>10</sub> = 5 + 27 = 32</div>" 
-            }
+            { verbal_explanation: "שלב 1: חילוץ הנתונים מהשאלה להצבה בנוסחה.", math_expression: "a_{1} = 5 \\quad , \\quad d = 3 \\quad , \\quad n = 10" },
+            { verbal_explanation: "שלב 2: כתיבת נוסחת האיבר הכללי.", math_expression: "a_{n} = a_{1} + (n - 1) \\times d" },
+            { verbal_explanation: "שלב 3: הצבת הנתונים בנוסחה למציאת האיבר העשירי.", math_expression: "a_{10} = 5 + (10 - 1) \\times 3" },
+            { verbal_explanation: "שלב 4: ביצוע החיסור בתוך הסוגריים.", math_expression: "a_{10} = 5 + 9 \\times 3" },
+            { verbal_explanation: "שלב 5: פעולת כפל לפני חיבור.", math_expression: "a_{10} = 5 + 27" },
+            { verbal_explanation: "שלב 6: סכימה וקבלת התוצאה הסופית.", math_expression: "a_{10} = 32" }
         ],
         final_answer: "32"
     },
 
-    // שאלה 2
+    // שאלה מספר 2
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>מציאת האיבר הראשון:</strong><br>
-        בסדרה חשבונית, האיבר ה-8 הוא 26 (a<sub>8</sub> = 26).<br>
-        הפרש הסדרה הוא 4 (d = 4).<br>
-        מהו <strong>האיבר הראשון</strong> בסדרה (a<sub>1</sub>)?`,
-        options: [
-            "-2",
-            "2",
-            "4",
-            "-6"
-        ],
+        question_text: "בסדרה חשבונית, האיבר הרביעי הוא 12 והאיבר השישי הוא 20. מהו הפרש הסדרה?&rlm;",
+        options: ["4", "2", "8", "6"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בנוסחה a<sub>n</sub> = a<sub>1</sub> + (n-1)d. המשוואה תהיה: 26 = a<sub>1</sub> + (8-1)*4. פתרו עבור a<sub>1</sub>.",
+        hint: "ההפרש בין האיבר השישי לרביעי מורכב מפעמיים הפרש הסדרה (2d). בנו משוואה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את הנתונים הידועים לנו מהשאלה.", 
-                math_expression: "<div dir='ltr'>a<sub>8</sub> = 26 , d = 4 , n = 8</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את כל הנתונים בנוסחת האיבר הכללי. הנעלם היחיד שיישאר הוא האיבר הראשון.", 
-                math_expression: "<div dir='ltr'>26 = a<sub>1</sub> + (8 - 1) &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסוגריים (8 פחות 1 שווה 7).", 
-                math_expression: "<div dir='ltr'>26 = a<sub>1</sub> + 7 &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל (7 כפול 4 שווה 28).", 
-                math_expression: "<div dir='ltr'>26 = a<sub>1</sub> + 28</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את 28 לאגף השני ונחסר אותו מ-26 כדי לבודד את האיבר הראשון.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 26 - 28 = -2</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצגת הקשר בין שני האיברים הנתונים באמצעות הפרש הסדרה.", math_expression: "a_{6} = a_{4} + 2d" },
+            { verbal_explanation: "שלב 2: הצבת הערכים המספריים לתוך המשוואה.", math_expression: "20 = 12 + 2d" },
+            { verbal_explanation: "שלב 3: העברת אגף בחיסור לבידוד הנעלם.", math_expression: "2d = 20 - 12" },
+            { verbal_explanation: "שלב 4: ביצוע החיסור.", math_expression: "2d = 8" },
+            { verbal_explanation: "שלב 5: חלוקה בשתיים לקבלת ההפרש.", math_expression: "d = 4" }
         ],
-        final_answer: "-2"
+        final_answer: "4"
     },
 
-    // שאלה 3
+    // שאלה מספר 3
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>זיהוי הפרש ומציאת איבר רחוק:</strong><br>
-        נתונה הסדרה החשבונית הבאה:<br>
-        <div dir="ltr" style="font-weight:bold; font-size:1.4em; margin: 10px 0; text-align:center; color:#0f172a;">7, 11, 15, 19...</div>
-        מהו <strong>האיבר ה-20</strong> בסדרה זו?`,
-        options: [
-            "83",
-            "87",
-            "79",
-            "100"
-        ],
+        question_text: "האיבר הראשון בסדרה חשבונית הוא 10, וההפרש הוא -2 (מינוס שתיים). איזה מקום בסדרה תופס האיבר שערכו -14?&rlm;",
+        options: ["13", "12", "14", "11"],
         correctAnswer: 0,
-        hint: "קודם גלו את ההפרש (d) על ידי חיסור איבר מהאיבר שלפניו (11 פחות 7). לאחר שמצאתם ש-d=4 ו-a<sub>1</sub>=7, הציבו בנוסחה עבור n=20.",
+        hint: "הפעם הנעלם הוא המיקום (n). הציבו את כל שאר הנתונים בנוסחת האיבר הכללי ופתרו משוואה.",
         solution_steps: [
-            { 
-                verbal_explanation: "תחילה נזהה את האיבר הראשון ישירות מהסדרה המוצגת.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 7</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את ההפרש (d), נחסר את האיבר הראשון מהשני (או השני מהשלישי).", 
-                math_expression: "<div dir='ltr'>d = 11 - 7 = 4</div>" 
-            },
-            { 
-                verbal_explanation: "כעת יש לנו את כל הנתונים. נציב בנוסחת האיבר הכללי עבור מיקום 20.", 
-                math_expression: "<div dir='ltr'>a<sub>20</sub> = 7 + (20 - 1) &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסוגריים.", 
-                math_expression: "<div dir='ltr'>a<sub>20</sub> = 7 + 19 &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל (19 כפול 4) ואז נוסיף 7.", 
-                math_expression: "<div dir='ltr'>a<sub>20</sub> = 7 + 76 = 83</div>" 
-            }
+            { verbal_explanation: "שלב 1: איסוף הנתונים להצבה.", math_expression: "a_{1} = 10 \\quad , \\quad d = -2 \\quad , \\quad a_{n} = -14" },
+            { verbal_explanation: "שלב 2: הצבה בנוסחת האיבר הכללי.", math_expression: "-14 = 10 + (n - 1) \\times (-2)" },
+            { verbal_explanation: "שלב 3: העברת האיבר הראשון לאגף השני בחיסור.", math_expression: "-24 = (n - 1) \\times (-2)" },
+            { verbal_explanation: "שלב 4: חלוקת שני האגפים במינוס שתיים.", math_expression: "12 = n - 1" },
+            { verbal_explanation: "שלב 5: העברת המינוס אחת בפלוס לבידוד המיקום.", math_expression: "n = 13" }
         ],
-        final_answer: "83"
+        final_answer: "13"
     },
 
-    // שאלה 4
+    // שאלה מספר 4
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>מציאת מספר האיברים (n):</strong><br>
-        נתונה סדרה חשבונית סופית:<br>
-        <div dir="ltr" style="font-weight:bold; font-size:1.4em; margin: 10px 0; text-align:center; color:#0f172a;">2, 5, 8, ... , 29</div>
-        כמה איברים יש בסדרה זו בסך הכל?`,
-        options: [
-            "<span dir=\"rtl\">10 איברים</span>",
-            "<span dir=\"rtl\">9 איברים</span>",
-            "<span dir=\"rtl\">11 איברים</span>",
-            "<span dir=\"rtl\">12 איברים</span>"
-        ],
+        question_text: "בסדרה חשבונית שהפרשה 3, האיבר ה-15 הוא 50. מהו האיבר הראשון בסדרה?&rlm;",
+        options: ["8", "5", "11", "2"],
         correctAnswer: 0,
-        hint: "זהו את הנתונים: האיבר הראשון הוא 2, ההפרש הוא 3 (5-2), והאיבר האחרון (a<sub>n</sub>) הוא 29. הציבו הכל בנוסחה: 29 = 2 + (n-1)*3 ופתרו כדי למצוא את n.",
+        hint: "הציבו את האיבר ה-15 ואת ההפרש בנוסחת האיבר הכללי, כאשר האיבר הראשון הוא הנעלם.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את הנתונים. האיבר הראשון הוא 2. ההפרש הוא 3.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 2 , d = 3</div>" 
-            },
-            { 
-                verbal_explanation: "האיבר האחרון ידוע לנו. נתייחס אליו כאל האיבר הכללי שאת מיקומו אנו מחפשים.", 
-                math_expression: "<div dir='ltr'>a<sub>n</sub> = 29</div>" 
-            },
-            { 
-                verbal_explanation: "נציב הכל בנוסחת האיבר הכללי. הנעלם היחיד שיישאר הוא n.", 
-                math_expression: "<div dir='ltr'>29 = 2 + (n - 1) &times; 3</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את 2 לאגף שמאל ונחסר אותו מ-29.", 
-                math_expression: "<div dir='ltr'>27 = (n - 1) &times; 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את שני האגפים ב-3 כדי להיפטר מהכפל.", 
-                math_expression: "<div dir='ltr'>9 = n - 1</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את מינוס אחת אגף ונקבל את מספר האיברים.", 
-                math_expression: "<div dir='ltr'>n = 9 + 1 = 10</div>" 
-            }
+            { verbal_explanation: "שלב 1: רישום הנתונים למשוואה.", math_expression: "a_{15} = 50 \\quad , \\quad d = 3 \\quad , \\quad n = 15" },
+            { verbal_explanation: "שלב 2: בניית המשוואה כאשר האיבר הראשון הוא המשתנה.", math_expression: "50 = a_{1} + (15 - 1) \\times 3" },
+            { verbal_explanation: "שלב 3: חיסור בתוך הסוגריים.", math_expression: "50 = a_{1} + 14 \\times 3" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל.", math_expression: "50 = a_{1} + 42" },
+            { verbal_explanation: "שלב 5: בידוד האיבר הראשון על ידי חיסור.", math_expression: "a_{1} = 50 - 42 = 8" }
         ],
-        final_answer: "<span dir=\"rtl\">10 איברים</span>"
+        final_answer: "8"
     },
 
-    // שאלה 5
+    // שאלה מספר 5
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>שאלת יישום מילולית:</strong><br>
-        תלמיד החליט לחסוך כסף לקניית אופניים.<br>
-        בחודש הראשון הוא חסך 100 שקלים.<br>
-        בכל חודש לאחר מכן, הוא הגדיל את החיסכון החודשי שלו ב-50 שקלים קבועים (בחודש השני שמר 150, וכן הלאה).<br>
-        כמה כסף הוא יכניס לקופה <strong>בחודש ה-12</strong> בלבד?`,
-        options: [
-            "<span dir=\"rtl\">650 שקלים</span>",
-            "<span dir=\"rtl\">600 שקלים</span>",
-            "<span dir=\"rtl\">700 שקלים</span>",
-            "<span dir=\"rtl\">550 שקלים</span>"
-        ],
+        question_text: "שלושת האיברים הראשונים בסדרה חשבונית הם: \\( x \\) , \\( x+4 \\) , \\( 3x \\). מצאו את הערך של x.&rlm;",
+        options: ["4", "2", "6", "8"],
         correctAnswer: 0,
-        hint: "זוהי סדרה חשבונית! החודש הראשון הוא האיבר הראשון (100). התוספת הקבועה היא ההפרש (50). אנו מחפשים את האיבר ה-12 (a<sub>12</sub>).",
+        hint: "בסדרה חשבונית, האיבר האמצעי מבין שלושה הוא הממוצע החשבוני של שני האיברים שלצידיו.",
         solution_steps: [
-            { 
-                verbal_explanation: "נתרגם את הבעיה המילולית לשפת הסדרות. הסכום בחודש הראשון הוא האיבר הראשון.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 100</div>" 
-            },
-            { 
-                verbal_explanation: "התוספת הקבועה בכל חודש היא הפרש הסדרה.", 
-                math_expression: "<div dir='ltr'>d = 50</div>" 
-            },
-            { 
-                verbal_explanation: "אנו מעוניינים לדעת מה קרה בחודש ה-12, כלומר האיבר ה-12.", 
-                math_expression: "<div dir='ltr'>n = 12</div>" 
-            },
-            { 
-                verbal_explanation: "נציב הכל בנוסחה.", 
-                math_expression: "<div dir='ltr'>a<sub>12</sub> = 100 + (12 - 1) &times; 50</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסוגריים ואת הכפל (11 כפול 50 שווה 550).", 
-                math_expression: "<div dir='ltr'>a<sub>12</sub> = 100 + 11 &times; 50 = 100 + 550</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר ונקבל את הסכום ששם התלמיד בחודש זה.", 
-                math_expression: "<div dir='ltr'>a<sub>12</sub> = 650</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת תכונת הממוצע החשבוני בין שלושה איברים עוקבים.", math_expression: "x + 4 = \\dfrac{x + 3x}{2}" },
+            { verbal_explanation: "שלב 2: כינוס איברים במונה של השבר.", math_expression: "x + 4 = \\dfrac{4x}{2}" },
+            { verbal_explanation: "שלב 3: חלוקת המונה במכנה.", math_expression: "x + 4 = 2x" },
+            { verbal_explanation: "שלב 4: העברת איקס ימינה לבידוד הנעלם.", math_expression: "x = 4" },
+            { verbal_explanation: "שלב 5: התוצאה המדויקת למשתנה.", math_expression: "4" }
         ],
-        final_answer: "<span dir=\"rtl\">650 שקלים</span>"
+        final_answer: "4"
     },
 
-    // שאלה 6
+    // שאלה מספר 6
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>מציאת ההפרש מתוך שני איברים שאינם עוקבים:</strong><br>
-        בסדרה חשבונית נתון כי:<br>
-        האיבר ה-3 הוא 10 (a<sub>3</sub> = 10).<br>
-        האיבר ה-5 הוא 16 (a<sub>5</sub> = 16).<br>
-        מהו <strong>הפרש הסדרה</strong> (d)?`,
-        options: [
-            "3",
-            "6",
-            "2",
-            "4"
-        ],
+        question_text: "בסדרה חשבונית נתון: \\( a_{3} = 10 \\) ו- \\( a_{8} = 30 \\). מצאו את האיבר הראשון של הסדרה.&rlm;",
+        options: ["2", "4", "0", "6"],
         correctAnswer: 0,
-        hint: "המרחק במיקומים בין האיבר ה-5 לאיבר ה-3 הוא 2 'קפיצות' (5 פחות 3). המרחק במספרים הוא 6 (16 פחות 10). לכן 2 קפיצות שוות ל-6. קפיצה אחת (d) שווה...?",
+        hint: "ההפרש בין האיבר השמיני לשלישי הוא 5 פעמים הפרש הסדרה (d). מצאו את d, ואז חזרו אחורה למצוא את האיבר הראשון.",
         solution_steps: [
-            { 
-                verbal_explanation: "נבדוק בכמה 'קפיצות' (פעמים של הוספת ההפרש) אנחנו מתקדמים מהאיבר השלישי לחמישי.", 
-                math_expression: "<div dir='ltr'>5 - 3 = 2</div>" 
-            },
-            { 
-                verbal_explanation: "זה אומר שפעמיים d שווה להפרש בערכים של האיברים עצמם. נחשב את ההפרש בערכים.", 
-                math_expression: "<div dir='ltr'>16 - 10 = 6</div>" 
-            },
-            { 
-                verbal_explanation: "נרכיב משוואה: שתי קפיצות שוות לערך של שש.", 
-                math_expression: "<div dir='ltr'>2d = 6</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק בשתיים כדי למצוא את ההפרש עבור קפיצה אחת בודדת.", 
-                math_expression: "<div dir='ltr'>d = 6 / 2 = 3</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת הקשר בין שני האיברים הנתונים למציאת ההפרש.", math_expression: "a_{8} - a_{3} = 5d" },
+            { verbal_explanation: "שלב 2: הצבת הערכים ופתרון עבור ההפרש.", math_expression: "30 - 10 = 5d \\Rightarrow 20 = 5d \\Rightarrow d = 4" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת האיבר השלישי כדי לחלץ את האיבר הראשון.", math_expression: "a_{3} = a_{1} + 2d" },
+            { verbal_explanation: "שלב 4: הצבת הערכים שכבר מצאנו.", math_expression: "10 = a_{1} + 2 \\times 4" },
+            { verbal_explanation: "שלב 5: ביצוע הכפל והעברת אגף לחילוץ האיבר הראשון.", math_expression: "10 = a_{1} + 8 \\Rightarrow a_{1} = 2" }
         ],
-        final_answer: "3"
+        final_answer: "2"
     },
 
-    // שאלה 7
+    // שאלה מספר 7
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>מציאת האיבר הראשון מתוך שני איברים מתקדמים:</strong><br>
-        בסדרה חשבונית נתון:<br>
-        a<sub>4</sub> = 15<br>
-        a<sub>8</sub> = 35<br>
-        מהו <strong>האיבר הראשון</strong> (a<sub>1</sub>) בסדרה זו?`,
-        options: [
-            "0",
-            "5",
-            "10",
-            "-5"
-        ],
+        question_text: "האיבר הכללי של סדרה נתון על ידי הנוסחה \\( a_{n} = 3n - 1 \\). מהו ערכו של האיבר החמישי בסדרה זו?&rlm;",
+        options: ["14", "15", "12", "17"],
         correctAnswer: 0,
-        hint: "שלב א': מצאו את ההפרש d. (בין איבר 8 לאיבר 4 יש 4 קפיצות. ההפרש בערך הוא 35-15=20. מכאן d=5). שלב ב': 'לכו אחורה' מהאיבר הרביעי לאיבר הראשון בעזרת הנוסחה.",
+        hint: "הנוסחה כבר מסודרת עבור כל מקום. פשוט הציבו 5 במקום n.",
         solution_steps: [
-            { 
-                verbal_explanation: "נמצא את הפרש הסדרה (d). נבדוק כמה קפיצות יש בין איבר 8 לאיבר 4.", 
-                math_expression: "<div dir='ltr'>8 - 4 = 4</div>" 
-            },
-            { 
-                verbal_explanation: "המרחק המספרי בין שני האיברים הוא עשרים.", 
-                math_expression: "<div dir='ltr'>35 - 15 = 20</div>" 
-            },
-            { 
-                verbal_explanation: "ארבע קפיצות שוות לעשרים, לכן קפיצה אחת (d) שווה חמש.", 
-                math_expression: "<div dir='ltr'>4d = 20 &nbsp;&#10132;&nbsp; d = 5</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נמצא את האיבר הראשון בעזרת a4 והנוסחה. נציב את מה שידוע לנו.", 
-                math_expression: "<div dir='ltr'>a<sub>4</sub> = a<sub>1</sub> + 3d</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הערך של a4 ואת ה-d שמצאנו.", 
-                math_expression: "<div dir='ltr'>15 = a<sub>1</sub> + 3 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את 15 לאגף השני ונחסר אותו.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 15 - 15 = 0</div>" 
-            }
+            { verbal_explanation: "שלב 1: העתקת הנוסחה הנתונה למציאת איבר כלשהו בסדרה.", math_expression: "a_{n} = 3n - 1" },
+            { verbal_explanation: "שלב 2: הצבת המיקום הנדרש (חמש) במקום המשתנה.", math_expression: "a_{5} = 3 \\times 5 - 1" },
+            { verbal_explanation: "שלב 3: ביצוע פעולת הכפל.", math_expression: "a_{5} = 15 - 1" },
+            { verbal_explanation: "שלב 4: פעולת החיסור מניבה את ערך האיבר.", math_expression: "a_{5} = 14" },
+            { verbal_explanation: "שלב 5: התשובה הישירה במערכת.", math_expression: "14" }
         ],
-        final_answer: "0"
+        final_answer: "14"
     },
 
-    // שאלה 8
+    // שאלה מספר 8
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>התמודדות עם הפרש שלילי (סדרה יורדת):</strong><br>
-        נתונה הסדרה הבאה:<br>
-        <div dir="ltr" style="font-weight:bold; font-size:1.4em; margin: 10px 0; text-align:center; color:#0f172a;">20, 17, 14, 11...</div>
-        מהו <strong>האיבר ה-15</strong> (a<sub>15</sub>) בסדרה?`,
-        options: [
-            "-22",
-            "-20",
-            "62",
-            "-25"
-        ],
+        question_text: "משכורתו ההתחלתית של פועל בחודש הראשון הייתה 6000 שקלים. בכל חודש נוסף משכורתו גדלה ב-150 שקלים. מה תהיה משכורתו בחודש ה-12 לעבודתו?&rlm;",
+        options: ["7650", "7800", "7500", "8000"],
         correctAnswer: 0,
-        hint: "הסדרה יורדת, כלומר ההפרש הוא מספר שלילי. 17 פחות 20 נותן מינוס 3 (d=-3). הציבו את המינוס בזהירות בנוסחה: 20 פלוס 14 כפול (מינוס 3).",
+        hint: "זוהי סדרה חשבונית שבה האיבר הראשון הוא 6000 וההפרש הוא 150. חשבו את האיבר ה-12.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את האיבר הראשון בסדרה.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 20</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ההפרש על ידי חיסור האיבר הראשון מהשני. נקבל מספר שלילי מכיוון שהסדרה יורדת.", 
-                math_expression: "<div dir='ltr'>d = 17 - 20 = -3</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים בנוסחה למציאת האיבר החמישה עשר.", 
-                math_expression: "<div dir='ltr'>a<sub>15</sub> = 20 + (15 - 1) &times; (-3)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסוגריים.", 
-                math_expression: "<div dir='ltr'>a<sub>15</sub> = 20 + 14 &times; (-3)</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל. מספר חיובי כפול שלילי נותן תוצאה שלילית.", 
-                math_expression: "<div dir='ltr'>14 &times; (-3) = -42</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החיסור מ-20 לקבלת התשובה הסופית.", 
-                math_expression: "<div dir='ltr'>a<sub>15</sub> = 20 - 42 = -22</div>" 
-            }
+            { verbal_explanation: "שלב 1: המרת הבעיה המילולית לנתונים של סדרה חשבונית.", math_expression: "a_{1} = 6000 \\quad , \\quad d = 150 \\quad , \\quad n = 12" },
+            { verbal_explanation: "שלב 2: הצבה בנוסחת האיבר הכללי.", math_expression: "a_{12} = 6000 + (12 - 1) \\times 150" },
+            { verbal_explanation: "שלב 3: חישוב הפער במיקומים.", math_expression: "a_{12} = 6000 + 11 \\times 150" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל המייצגת את תוספת השכר הכוללת.", math_expression: "a_{12} = 6000 + 1650" },
+            { verbal_explanation: "שלב 5: חיבור לבסיס להשגת השכר בחודש השנים עשר.", math_expression: "a_{12} = 7650" }
         ],
-        final_answer: "-22"
+        final_answer: "7650"
     },
 
-    // שאלה 9
+    // שאלה מספר 9
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>בדיקה האם מספר נמצא בסדרה:</strong><br>
-        בסדרה חשבונית האיבר הראשון הוא 3, וההפרש הוא 4.<br>
-        האם המספר <strong>32</strong> יכול להיות אחד מאיברי הסדרה?`,
-        options: [
-            "<span dir=\"rtl\">לא, מכיוון שהמיקום שיצא אינו מספר שלם חיובי</span>",
-            "<span dir=\"rtl\">כן, זהו האיבר ה-8</span>",
-            "<span dir=\"rtl\">כן, זהו האיבר ה-9</span>",
-            "<span dir=\"rtl\">לא, מכיוון שהמספר 32 הוא זוגי</span>"
-        ],
+        question_text: "נתונה הסדרה החשבונית: 2, 6, 10, ... האם המספר 30 נמצא בסדרה זו? אם כן, באיזה מקום?&rlm;",
+        options: ["כן, במקום ה-8", "כן, במקום ה-7", "כן, במקום ה-9", "המספר אינו בסדרה"],
         correctAnswer: 0,
-        hint: "הציבו את 32 בתור a<sub>n</sub> ונסו למצוא את n (המיקום). אם ה-n יוצא מספר שלם וחיובי (למשל האיבר ה-5), הוא בסדרה. אם ה-n יוצא שבר (כמו 7.25), המספר לא בסדרה, כי אין דבר כזה 'האיבר במקום השבע ורבע'.",
+        hint: "מצאו את ההפרש. הציבו את 30 כאיבר כללי n ופתרו את המשוואה עבור n. אם n יוצא מספר שלם, הוא בסדרה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנתונים למשוואה כאילו אנו יודעים ש-32 נמצא בסדרה, וננסה למצוא את המיקום שלו (n).", 
-                math_expression: "<div dir='ltr'>32 = 3 + (n - 1) &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את ה-3 לאגף השמאלי ונחסר אותו.", 
-                math_expression: "<div dir='ltr'>29 = (n - 1) &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה ב-4.", 
-                math_expression: "<div dir='ltr'>n - 1 = 29 / 4</div>" 
-            },
-            { 
-                verbal_explanation: "התוצאה של החילוק היא 7.25.", 
-                math_expression: "<div dir='ltr'>n - 1 = 7.25 &nbsp;&#10132;&nbsp; n = 8.25</div>" 
-            },
-            { 
-                verbal_explanation: "n חייב להיות מספר טבעי שלם (מיקום של איבר). כיוון שקיבלנו שבר, המספר כלל לא מופיע בסדרה.", 
-                math_expression: "<div dir='ltr'>8.25 <bdi dir='rtl'>אינו שלם</bdi></div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי האיבר הראשון וההפרש מתוך תחילת הסדרה.", math_expression: "a_{1} = 2 \\quad , \\quad d = 4" },
+            { verbal_explanation: "שלב 2: בניית משוואה שבה שלושים הוא האיבר הנבדק והמיקום הוא נעלם.", math_expression: "30 = 2 + (n - 1) \\times 4" },
+            { verbal_explanation: "שלב 3: העברת שתיים באגפים.", math_expression: "28 = 4n - 4" },
+            { verbal_explanation: "שלב 4: הוספת ארבע באגפים.", math_expression: "32 = 4n" },
+            { verbal_explanation: "שלב 5: חלוקה בארבע למציאת המיקום. מכיוון שהתוצאה שלמה, האיבר קיים.", math_expression: "n = 8" }
         ],
-        final_answer: "<span dir=\"rtl\">לא, מכיוון שהמיקום שיצא אינו מספר שלם</span>"
+        final_answer: "כן, במקום ה-8"
     },
 
-    // שאלה 10
+    // שאלה מספר 10
     {
-        topic: "bagrut_35372",
+        topic: "sequences_372",
         subTopic: "סדרה חשבונית",
-        question_text: `<strong>הבנת סדרה מתוך מודל גיאומטרי:</strong><br>
-        קבלן בונה גרם מדרגות מלבנים. <br>
-        במדרגה הראשונה (העליונה ביותר) הוא מניח 5 לבנים.<br>
-        במדרגה השנייה הוא מניח 7 לבנים.<br>
-        במדרגה השלישית הוא מניח 9 לבנים, וכן הלאה.<br>
-        כמה לבנים הוא יניח <strong>במדרגה ה-8</strong>?`,
-        options: [
-            "<span dir=\"rtl\">19 לבנים</span>",
-            "<span dir=\"rtl\">21 לבנים</span>",
-            "<span dir=\"rtl\">15 לבנים</span>",
-            "<span dir=\"rtl\">17 לבנים</span>"
-        ],
+        question_text: "בסדרה חשבונית יורדת נתון: \\( a_{1} = 20 \\) ו- \\( d = -3 \\). מהו האיבר השלילי הראשון בסדרה?&rlm;",
+        options: ["-1", "-2", "-4", "-3"],
         correctAnswer: 0,
-        hint: "תרגמו את הבעיה לסדרה מתמטית: 5, 7, 9... זה אומר שהאיבר הראשון הוא 5, וההפרש הוא 2. חשבו את האיבר ה-8 בעזרת הנוסחה.",
+        hint: "בנו אי שוויון: נוסחת האיבר הכללי קטנה מאפס. מצאו את ה-n השלם הראשון שמקיים זאת, ואז חשבו את ערך האיבר באותו מקום.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את הנתונים מתוך הסיפור. כמות הלבנים במדרגה הראשונה היא האיבר הראשון.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 5</div>" 
-            },
-            { 
-                verbal_explanation: "בכל מדרגה מתווספות שתי לבנים לעומת המדרגה הקודמת. זהו ההפרש.", 
-                math_expression: "<div dir='ltr'>d = 7 - 5 = 2</div>" 
-            },
-            { 
-                verbal_explanation: "אנו מחפשים את כמות הלבנים במדרגה השמינית.", 
-                math_expression: "<div dir='ltr'>n = 8</div>" 
-            },
-            { 
-                verbal_explanation: "נציב הכל בנוסחת האיבר הכללי.", 
-                math_expression: "<div dir='ltr'>a<sub>8</sub> = 5 + (8 - 1) &times; 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסוגריים והכפל.", 
-                math_expression: "<div dir='ltr'>a<sub>8</sub> = 5 + 7 &times; 2 = 5 + 14</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החיבור ונקבל את הכמות הנדרשת.", 
-                math_expression: "<div dir='ltr'>a<sub>8</sub> = 19</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית אי השוויון לאיבר שערכו קטן מאפס.", math_expression: "20 + (n - 1) \\times (-3) < 0" },
+            { verbal_explanation: "שלב 2: פתיחת סוגריים עם המינוס.", math_expression: "20 - 3n + 3 < 0" },
+            { verbal_explanation: "שלב 3: כינוס איברים והעברת המיקום ימינה.", math_expression: "23 < 3n" },
+            { verbal_explanation: "שלב 4: חלוקה בשלוש חושפת את המיקום ההתחלתי. המספר השלם הראשון הגדול מכך הוא שמונה.", math_expression: "n > 7.66 \\Rightarrow n = 8" },
+            { verbal_explanation: "שלב 5: חישוב ערך האיבר במקום השמיני שהוא השלילי הראשון.", math_expression: "a_{8} = 20 + 7 \\times (-3) = 20 - 21 = -1" }
         ],
-        final_answer: "<span dir=\"rtl\">19 לבנים</span>"
+        final_answer: "-1"
     },
 
-    // ---------------------------------------------------------
-    // תת נושא 2: סכום סדרה (שאלות 11-20)
-    // ---------------------------------------------------------
+    // ==========================================
+    // תת נושא 2: סכום סדרה חשבונית (10 שאלות)
+    // ==========================================
 
-    // שאלה 11
+    // שאלה מספר 11
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>חישוב סכום סדרה כאשר האיבר הראשון והאחרון ידועים:</strong><br>
-        בסדרה חשבונית יש 10 איברים בסך הכל (n = 10).<br>
-        האיבר הראשון בסדרה הוא 2.<br>
-        האיבר האחרון (העשירי) בסדרה הוא 29.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 80" width="100%" height="80" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <text x="125" y="45" font-family="Arial" font-size="16" font-weight="bold" fill="#1d4ed8" text-anchor="middle">S&#8340; = n &times; (a&#8321; + a&#8340;) / 2</text>
-        </svg>
-        </div>
-        מהו <strong>סכום</strong> כל 10 איברי הסדרה?`,
-        options: [
-            "155",
-            "310",
-            "145",
-            "290"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "בסדרה חשבונית ידוע כי \\( a_{1} = 4 \\) ו- \\( d = 5 \\). מהו סכום עשרת האיברים הראשונים בסדרה?&rlm;",
+        options: ["265", "250", "285", "300"],
         correctAnswer: 0,
-        hint: "הנוסחה הקצרה לסכום סדרה היא: מספר האיברים כפול (האיבר הראשון + האיבר האחרון), וכל זה חלקי 2. הציבו: 10 כפול (2 + 29), לחלק ב-2.",
+        hint: "השתמשו בנוסחת הסכום הראשונה: n חלקי 2, כפול (פעמיים a1 ועוד n-1 כפול d).",
         solution_steps: [
-            { 
-                verbal_explanation: "כאשר האיבר הראשון והאחרון ידועים, ניתן להשתמש בנוסחת הסכום הקצרה של גאוס.", 
-                math_expression: "<div dir='ltr'>S<sub>n</sub> = n &times; (a<sub>1</sub> + a<sub>n</sub>) / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים הידועים לנו מהשאלה למשוואה.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 10 &times; (2 + 29) / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב תחילה את הסכום בתוך הסוגריים.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 10 &times; 31 / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל במונה (עשר כפול שלושים ואחת).", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 310 / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק בשתיים לקבלת הסכום הכולל של הסדרה.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 155</div>" 
-            }
+            { verbal_explanation: "שלב 1: העלאת נוסחת הסכום הרלוונטית כשיש בידינו את ההפרש אך לא את האיבר האחרון.", math_expression: "S_{n} = \\dfrac{n \\times (2a_{1} + (n - 1)d)}{2}" },
+            { verbal_explanation: "שלב 2: הצבת הנתונים מהשאלה.", math_expression: "S_{10} = \\dfrac{10 \\times (2 \\times 4 + 9 \\times 5)}{2}" },
+            { verbal_explanation: "שלב 3: חישוב המכפלות בתוך הסוגריים הפנימיים.", math_expression: "S_{10} = \\dfrac{10 \\times (8 + 45)}{2}" },
+            { verbal_explanation: "שלב 4: חיבור האיברים וחלוקת המקדם החיצוני בשתיים.", math_expression: "S_{10} = 5 \\times 53" },
+            { verbal_explanation: "שלב 5: הכפלה לקבלת הסכום הסופי.", math_expression: "S_{10} = 265" }
         ],
-        final_answer: "155"
+        final_answer: "265"
     },
 
-    // שאלה 12
+    // שאלה מספר 12
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>חישוב סכום בעזרת הנוסחה המלאה (כשהאיבר האחרון חסר):</strong><br>
-        בסדרה חשבונית, האיבר הראשון הוא 5, וההפרש הוא 3.<br>
-        מהו הסכום של <strong>20 האיברים הראשונים</strong> בסדרה זו?`,
-        options: [
-            "670",
-            "700",
-            "640",
-            "1340"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "בסדרה חשבונית בעלת 20 איברים, האיבר הראשון הוא 10 והאיבר האחרון (ה-20) הוא 86. מהו סכום כל איברי הסדרה?&rlm;",
+        options: ["960", "860", "1000", "920"],
         correctAnswer: 0,
-        hint: "השתמשו בנוסחה המלאה המשלבת את ההפרש: Sn = (n/2) * [2*a1 + (n-1)*d]. הציבו: n=20, a1=5, d=3. פתרו קודם את מה שבתוך הסוגריים המרובעים.",
+        hint: "השתמשו בנוסחת הסכום השנייה והמהירה יותר: n חלקי 2, כפול (האיבר הראשון ועוד האיבר האחרון).",
         solution_steps: [
-            { 
-                verbal_explanation: "מכיוון שהאיבר האחרון אינו נתון, נשתמש בנוסחת הסכום המלאה המבוססת על ההפרש.", 
-                math_expression: "<div dir='ltr'>S<sub>n</sub> = (n / 2) &times; [2a<sub>1</sub> + (n - 1)d]</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים הידועים: האיבר הראשון, ההפרש, וכמות האיברים.", 
-                math_expression: "<div dir='ltr'>S<sub>20</sub> = (20 / 2) &times; [2 &times; 5 + (20 - 1) &times; 3]</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החלוקה שבחוץ ואת הסוגריים הפנימיים.", 
-                math_expression: "<div dir='ltr'>S<sub>20</sub> = 10 &times; [10 + 19 &times; 3]</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל שבתוך הסוגריים המרובעים (תשע עשרה כפול שלוש).", 
-                math_expression: "<div dir='ltr'>S<sub>20</sub> = 10 &times; [10 + 57]</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר בתוך הסוגריים, ולבסוף נכפיל בעשר.", 
-                math_expression: "<div dir='ltr'>S<sub>20</sub> = 10 &times; 67 = 670</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצגת נוסחת הסכום כאשר האיבר האחרון נתון.", math_expression: "S_{n} = \\dfrac{n \\times (a_{1} + a_{n})}{2}" },
+            { verbal_explanation: "שלב 2: הצבת הנתונים המדויקים לנוסחה.", math_expression: "S_{20} = \\dfrac{20 \\times (10 + 86)}{2}" },
+            { verbal_explanation: "שלב 3: חלוקת מספר האיברים בשתיים וביצוע החיבור בסוגריים.", math_expression: "S_{20} = 10 \\times 96" },
+            { verbal_explanation: "שלב 4: תוצאת המכפלה היא סכום הסדרה כולה.", math_expression: "S_{20} = 960" },
+            { verbal_explanation: "שלב 5: התשובה הישירה במערכת.", math_expression: "960" }
         ],
-        final_answer: "670"
+        final_answer: "960"
     },
 
-    // שאלה 13
+    // שאלה מספר 13
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>שאלת אתגר - חישוב רצף מספרים (סכום גאוס):</strong><br>
-        ילד התבקש לחבר את כל המספרים השלמים מ-1 עד 100.<br>
-        <div dir="ltr" style="font-weight:bold; font-size:1.4em; margin: 10px 0; text-align:center; color:#0f172a;">1 + 2 + 3 + ... + 100 = ?</div>
-        כמה זה יוצא בסך הכל? (נסו להשתמש בנוסחת הסכום!)`,
-        options: [
-            "5050",
-            "10000",
-            "5000",
-            "4950"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "בסדרה חשבונית נתון: \\( a_{1} = 5 \\) ו- \\( d = 2 \\). סכום מספר איברים ראשונים הוא 140. כמה איברים חוברו? (מצאו את n).&rlm;",
+        options: ["10", "12", "8", "14"],
         correctAnswer: 0,
-        hint: "המספרים מ-1 עד 100 יוצרים סדרה חשבונית פשוטה. האיבר הראשון הוא 1. האיבר האחרון הוא 100. כמות האיברים היא 100. הציבו בנוסחה הקצרה של ממוצע הקצוות כפול הכמות.",
+        hint: "הציבו את כל הנתונים בנוסחת הסכום. תקבלו משוואה ריבועית עבור n, פתרו אותה וקחו את התוצאה החיובית השלמה.",
         solution_steps: [
-            { 
-                verbal_explanation: "רצף המספרים מתנהג כמו סדרה חשבונית שבה ההפרש הוא 1. נזהה את נתוני הקצוות.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 1 , a<sub>n</sub> = 100 , n = 100</div>" 
-            },
-            { 
-                verbal_explanation: "נשתמש בנוסחת הסכום הקצרה המחברת את האיבר הראשון והאחרון.", 
-                math_expression: "<div dir='ltr'>S<sub>100</sub> = 100 &times; (1 + 100) / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסכום בסוגריים.", 
-                math_expression: "<div dir='ltr'>S<sub>100</sub> = 100 &times; 101 / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את מאה בשתיים (כדי להקל על הכפל).", 
-                math_expression: "<div dir='ltr'>S<sub>100</sub> = 50 &times; 101</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל הסופי ונגלה את הסכום של מאה המספרים הראשונים.", 
-                math_expression: "<div dir='ltr'>S<sub>100</sub> = 5050</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת הסכום כאשר המיקום הוא נעלם.", math_expression: "140 = \\dfrac{n \\times (2 \\times 5 + (n - 1) \\times 2)}{2}" },
+            { verbal_explanation: "שלב 2: הכפלת המשוואה בשתיים כדי לבטל את המכנה.", math_expression: "280 = n \\times (10 + 2n - 2)" },
+            { verbal_explanation: "שלב 3: כינוס איברים בתוך הסוגריים.", math_expression: "280 = n \\times (8 + 2n)" },
+            { verbal_explanation: "שלב 4: פתיחת סוגריים וסידור משוואה ריבועית.", math_expression: "2n^{2} + 8n - 280 = 0" },
+            { verbal_explanation: "שלב 5: חלוקה בשתיים ופתרון המשוואה הריבועית באמצעות טרינום מניב את הפתרון החיובי.", math_expression: "n^{2} + 4n - 140 = 0 \\Rightarrow n = 10" }
         ],
-        final_answer: "5050"
+        final_answer: "10"
     },
 
-    // שאלה 14
+    // שאלה מספר 14
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>מציאת כמות האיברים (n) מתוך סכום:</strong><br>
-        ידוע כי סכום סדרה חשבונית הוא 150 (S<sub>n</sub> = 150).<br>
-        האיבר הראשון הוא 5, והאיבר האחרון הוא 25.<br>
-        כמה <strong>איברים</strong> יש בסדרה זו?`,
-        options: [
-            "<span dir=\"rtl\">10 איברים</span>",
-            "<span dir=\"rtl\">15 איברים</span>",
-            "<span dir=\"rtl\">5 איברים</span>",
-            "<span dir=\"rtl\">12 איברים</span>"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "חשבו את סכום 50 המספרים הזוגיים החיוביים הראשונים (2, 4, 6...).&rlm;",
+        options: ["2550", "2500", "2600", "1275"],
         correctAnswer: 0,
-        hint: "בנו משוואה על פי נוסחת הסכום הקצרה: 150 שווה n כפול (5 פלוס 25) חלקי 2. חשבו את הסוגריים. הכפילו ב-2 וחילקו למציאת n.",
+        hint: "זוהי סדרה חשבונית שבה האיבר הראשון הוא 2 וההפרש הוא 2. ישנם 50 איברים. הציבו בנוסחה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את נוסחת הסכום התלויה באיבר הראשון והאחרון הנתונים לנו.", 
-                math_expression: "<div dir='ltr'>S<sub>n</sub> = n &times; (a<sub>1</sub> + a<sub>n</sub>) / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים, כאשר הפעם דווקא מספר האיברים (n) חסר לנו.", 
-                math_expression: "<div dir='ltr'>150 = n &times; (5 + 25) / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החיבור בסוגריים.", 
-                math_expression: "<div dir='ltr'>150 = n &times; 30 / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את 30 ב-2 ונפשט את המשוואה.", 
-                math_expression: "<div dir='ltr'>150 = 15n</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה ב-15 כדי לבודד את כמות האיברים.", 
-                math_expression: "<div dir='ltr'>n = 150 / 15 = 10</div>" 
-            }
+            { verbal_explanation: "שלב 1: ניסוח הבעיה במונחים של סדרה חשבונית.", math_expression: "a_{1} = 2 \\quad , \\quad d = 2 \\quad , \\quad n = 50" },
+            { verbal_explanation: "שלב 2: מציאת האיבר האחרון (המספר הזוגי החמישים) מקלה על חישוב הסכום.", math_expression: "a_{50} = 2 + 49 \\times 2 = 100" },
+            { verbal_explanation: "שלב 3: שימוש בנוסחת הסכום עם איבר אחרון ידוע.", math_expression: "S_{50} = \\dfrac{50 \\times (2 + 100)}{2}" },
+            { verbal_explanation: "שלב 4: חלוקת מספר האיברים בשתיים וחיבור הסוגריים.", math_expression: "S_{50} = 25 \\times 102" },
+            { verbal_explanation: "שלב 5: ביצוע הכפל לקבלת התשובה הסופית.", math_expression: "S_{50} = 2550" }
         ],
-        final_answer: "<span dir=\"rtl\">10 איברים</span>"
+        final_answer: "2550"
     },
 
-    // שאלה 15
+    // שאלה מספר 15
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>סכום סדרה שמתחילה במספרים שליליים:</strong><br>
-        נתונה הסדרה החשבונית הבאה:<br>
-        <div dir="ltr" style="font-weight:bold; font-size:1.4em; margin: 10px 0; text-align:center; color:#0f172a;">-10, -8, -6, -4...</div>
-        חשבו את הסכום של <strong>15 האיברים הראשונים</strong> בסדרה זו.`,
-        options: [
-            "60",
-            "150",
-            "-60",
-            "90"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "סכום עשרת האיברים הראשונים בסדרה הוא 200. האיבר הראשון הוא 2. מהו הפרש הסדרה (d)?&rlm;",
+        options: ["4", "5", "3", "6"],
         correctAnswer: 0,
-        hint: "האיבר הראשון שלילי (-10). ההפרש חיובי (פלוס 2). הציבו בנוסחה המלאה: n=15, a1=-10, d=2. הקפידו על סימני המינוס בעת ההכפלה.",
+        hint: "הציבו הכל בנוסחת הסכום הראשונה, כאשר d הוא הנעלם היחיד, ופתרו משוואה פשוטה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחלץ את הנתונים הבסיסיים. האיבר הראשון שלילי. ההפרש הוא חיובי (כי הסדרה עולה ממינוס עשר למינוס שמונה).", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = -10 , d = 2 , n = 15</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים בנוסחת הסכום המלאה.", 
-                math_expression: "<div dir='ltr'>S<sub>15</sub> = (15 / 2) &times; [2 &times; (-10) + (15 - 1) &times; 2]</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החלוקה שבחוץ ואת ההכפלה במינוס שבפנים.", 
-                math_expression: "<div dir='ltr'>S<sub>15</sub> = 7.5 &times; [-20 + 14 &times; 2]</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הכפל בתוך הסוגריים.", 
-                math_expression: "<div dir='ltr'>S<sub>15</sub> = 7.5 &times; [-20 + 28]</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את המספרים בסוגריים ונקבל ערך חיובי.", 
-                math_expression: "<div dir='ltr'>S<sub>15</sub> = 7.5 &times; 8</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל הסופי (אפשר להשתמש במחשבון או להכפיל 7 בשמונה ולהוסיף חצי משמונה).", 
-                math_expression: "<div dir='ltr'>S<sub>15</sub> = 60</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת הסכום.", math_expression: "200 = \\dfrac{10 \\times (2 \\times 2 + 9d)}{2}" },
+            { verbal_explanation: "שלב 2: חלוקת המקדם החיצוני במכנה שתיים.", math_expression: "200 = 5 \\times (4 + 9d)" },
+            { verbal_explanation: "שלב 3: פתיחת סוגריים (או חלוקת המשוואה בחמש). חלוקה קלה יותר.", math_expression: "40 = 4 + 9d" },
+            { verbal_explanation: "שלב 4: בידוד איבר ההפרש.", math_expression: "36 = 9d" },
+            { verbal_explanation: "שלב 5: חלוקה בתשע למציאת ההפרש המדויק.", math_expression: "d = 4" }
         ],
-        final_answer: "60"
+        final_answer: "4"
     },
 
-    // שאלה 16
+    // שאלה מספר 16
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>שאלת יישום מילולית (סכום - אולם תיאטרון):</strong><br>
-        באולם תיאטרון מסודרים כיסאות בשורות. <br>
-        בשורה הראשונה יש 20 כיסאות.<br>
-        בכל שורה יש 4 כיסאות <strong>יותר</strong> מאשר בשורה שלפניה.<br>
-        באולם יש 10 שורות בסך הכל.<br>
-        כמה כיסאות יש <strong>בכל האולם יחד</strong>?`,
-        options: [
-            "<span dir=\"rtl\">380 כיסאות</span>",
-            "<span dir=\"rtl\">400 כיסאות</span>",
-            "<span dir=\"rtl\">56 כיסאות</span>",
-            "<span dir=\"rtl\">240 כיסאות</span>"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "אדם חוסך כסף בקופה לפי הכלל הבא: ביום הראשון הוא שם 10 שקלים, וכל יום לאחר מכן הוא שם 2 שקלים יותר מביום הקודם. כמה כסף סך הכל יצטבר בקופה לאחר 15 ימים?&rlm;",
+        options: ["360", "350", "400", "300"],
         correctAnswer: 0,
-        hint: "כאשר שואלים על 'הסך הכל יחד', מדובר בחישוב סכום (Sn) של סדרה חשבונית! a1=20, d=4, n=10. הציבו הכל בנוסחת הסכום המלאה.",
+        hint: "זוהי בעיית סכום של סדרה חשבונית, שבה צריך למצוא את s15.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את הנתונים מתוך הסיפור. שורה ראשונה היא האיבר הראשון, תוספת הכיסאות היא ההפרש, וכמות השורות היא n.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 20 , d = 4 , n = 10</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שמבקשים את סך כל הכיסאות, נשתמש בנוסחת הסכום המלאה.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = (10 / 2) &times; [2 &times; 20 + (10 - 1) &times; 4]</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הביטויים הבסיסיים.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 5 &times; [40 + 9 &times; 4]</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הכפל בסוגריים.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 5 &times; [40 + 36]</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את המספרים בתוך הסוגריים המרובעים.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 5 &times; 76</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל הסופי לקבלת כלל הכיסאות באולם.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 380</div>" 
-            }
+            { verbal_explanation: "שלב 1: הגדרת משתני הסדרה מהסיפור המילולי.", math_expression: "a_{1} = 10 \\quad , \\quad d = 2 \\quad , \\quad n = 15" },
+            { verbal_explanation: "שלב 2: הצבה בנוסחת הסכום לשבועיים בתוספת יום.", math_expression: "S_{15} = \\dfrac{15 \\times (2 \\times 10 + 14 \\times 2)}{2}" },
+            { verbal_explanation: "שלב 3: כפל פנימי בסוגריים.", math_expression: "S_{15} = \\dfrac{15 \\times (20 + 28)}{2}" },
+            { verbal_explanation: "שלב 4: חיבור וחציון הערך.", math_expression: "S_{15} = 15 \\times 24" },
+            { verbal_explanation: "שלב 5: כפל לקבלת סך כל החיסכון.", math_expression: "S_{15} = 360" }
         ],
-        final_answer: "<span dir=\"rtl\">380 כיסאות</span>"
+        final_answer: "360"
     },
 
-    // שאלה 17
+    // שאלה מספר 17
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>שאלת יישום מילולית (סכום משכורות):</strong><br>
-        עובד חתם על חוזה עבודה לשנה (12 חודשים).<br>
-        בחודש הראשון משכורתו היא 5,000 שקלים.<br>
-        מובטח לו שבכל חודש הוא יקבל תוספת של 100 שקלים לעומת החודש הקודם.<br>
-        מהו <strong>הסכום הכולל</strong> של הכסף שירוויח במשך שנת עבודה שלמה?`,
-        options: [
-            "<span dir=\"rtl\">66,600 שקלים</span>",
-            "<span dir=\"rtl\">60,000 שקלים</span>",
-            "<span dir=\"rtl\">6,100 שקלים</span>",
-            "<span dir=\"rtl\">65,000 שקלים</span>"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "חשבו את סכום 12 האיברים הראשונים בסדרה שבה \\( a_{1} = 50 \\) וההפרש הוא יורד: \\( d = -4 \\).&rlm;",
+        options: ["336", "350", "400", "312"],
         correctAnswer: 0,
-        hint: "הציבו בנוסחת הסכום (Sn) כאשר n=12 (מספר חודשי עבודה), a1=5000, ו-d=100. זה יחבר את כל המשכורות שלו יחד.",
+        hint: "הציבו בנוסחת הסכום בדיוק כפי שהיא. שימו לב להכפלה במינוס.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את הנתונים הפיננסיים: משכורת בסיס (a1), קצב עלייה (d) וזמן (n=12 חודשים).", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 5000 , d = 100 , n = 12</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הערכים בנוסחת הסכום הכולל.", 
-                math_expression: "<div dir='ltr'>S<sub>12</sub> = (12 / 2) &times; [2 &times; 5000 + (12 - 1) &times; 100]</div>" 
-            },
-            { 
-                verbal_explanation: "נפשט את התרגיל צעד אחר צעד.", 
-                math_expression: "<div dir='ltr'>S<sub>12</sub> = 6 &times; [10000 + 11 &times; 100]</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הכפל ואת החיבור שבתוך הסוגריים.", 
-                math_expression: "<div dir='ltr'>S<sub>12</sub> = 6 &times; [10000 + 1100] = 6 &times; 11100</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול ב-6 ונקבל את הרווח השנתי המצטבר של העובד.", 
-                math_expression: "<div dir='ltr'>S<sub>12</sub> = 66600</div>" 
-            }
+            { verbal_explanation: "שלב 1: שימוש בנוסחת הסכום עם מקדם ירידה שלילי.", math_expression: "S_{12} = \\dfrac{12 \\times (2 \\times 50 + 11 \\times (-4))}{2}" },
+            { verbal_explanation: "שלב 2: חלוקת המקדם בשתיים וכפל בתוך הסוגריים.", math_expression: "S_{12} = 6 \\times (100 - 44)" },
+            { verbal_explanation: "שלב 3: ביצוע החיסור בסוגריים המייצג סכום איברים מקוזז.", math_expression: "S_{12} = 6 \\times 56" },
+            { verbal_explanation: "שלב 4: מכפלה לקבלת הסכום הכולל.", math_expression: "S_{12} = 336" },
+            { verbal_explanation: "שלב 5: התשובה הישירה.", math_expression: "336" }
         ],
-        final_answer: "<span dir=\"rtl\">66,600 שקלים</span>"
+        final_answer: "336"
     },
 
-    // שאלה 18
+    // שאלה מספר 18
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>שאלת אתגר - סכום אי-זוגיים בלבד:</strong><br>
-        מהו הסכום של כל המספרים <strong>האי-זוגיים</strong> מ-1 עד 49 (כולל)?<br>
-        <div dir="ltr" style="font-weight:bold; font-size:1.4em; margin: 10px 0; text-align:center; color:#0f172a;">1 + 3 + 5 + ... + 49</div>
-        (רמז: מצאו קודם כמה מספרים אי זוגיים כאלה קיימים על ידי נוסחת האיבר הכללי, ואז חשבו את סכומם).`,
-        options: [
-            "625",
-            "1250",
-            "600",
-            "2450"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "נתונה הסדרה: 7, 11, 15... סכום מספר איברים ראשונים בסדרה זו הוא 247. מצאו כמה איברים חוברו (הנעלם n).&rlm;",
+        options: ["10", "12", "11", "9"],
         correctAnswer: 0,
-        hint: "בסדרה זו a1=1, d=2, an=49. מצאו את n: משוואה 49 = 1 + (n-1)*2. תגלו שיש 25 מספרים כאלה. לאחר מכן הציבו n=25, a1=1, a25=49 בנוסחת הסכום הקצרה.",
+        hint: "האיבר הראשון הוא 7, ההפרש הוא 4. הציבו בנוסחת הסכום ופתרו משוואה ריבועית עבור n.",
         solution_steps: [
-            { 
-                verbal_explanation: "מספרים אי זוגיים עוקבים יוצרים סדרה חשבונית שבה הקפיצה היא 2. נרשום את הנתונים הידועים.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 1 , d = 2 , a<sub>n</sub> = 49</div>" 
-            },
-            { 
-                verbal_explanation: "תחילה חייבים לגלות כמה איברים יש. נשתמש בנוסחת האיבר הכללי ונציב את האיבר האחרון כתוצאה.", 
-                math_expression: "<div dir='ltr'>49 = 1 + (n - 1) &times; 2</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את 1 ונחלק ב-2.", 
-                math_expression: "<div dir='ltr'>48 = (n - 1) &times; 2 &nbsp;&#10132;&nbsp; 24 = n - 1</div>" 
-            },
-            { 
-                verbal_explanation: "גילינו שיש 25 מספרים אי-זוגיים בסדרה.", 
-                math_expression: "<div dir='ltr'>n = 25</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נחשב את הסכום שלהם בעזרת הנוסחה הקצרה (כי יש לנו את ההתחלה והסוף).", 
-                math_expression: "<div dir='ltr'>S<sub>25</sub> = 25 &times; (1 + 49) / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסוגריים, נחלק ונכפיל.", 
-                math_expression: "<div dir='ltr'>S<sub>25</sub> = 25 &times; 50 / 2 = 25 &times; 25 = 625</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת הסכום עם מספר איברים נעלם.", math_expression: "247 = \\dfrac{n \\times (2 \\times 7 + (n - 1) \\times 4)}{2}" },
+            { verbal_explanation: "שלב 2: הכפלת המשוואה בשתיים לפתיחת המכנה.", math_expression: "494 = n \\times (14 + 4n - 4)" },
+            { verbal_explanation: "שלב 3: כינוס בסוגריים.", math_expression: "494 = n \\times (10 + 4n)" },
+            { verbal_explanation: "שלב 4: יצירת משוואה ריבועית רגילה.", math_expression: "4n^{2} + 10n - 494 = 0" },
+            { verbal_explanation: "שלב 5: פתרון המשוואה חושף את כמות האיברים החיובית והשלמה.", math_expression: "n = 10" }
         ],
-        final_answer: "625"
+        final_answer: "10"
     },
 
-    // שאלה 19
+    // שאלה מספר 19
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>מציאת האיבר הראשון מתוך הסכום (משוואה):</strong><br>
-        סכום של 10 האיברים הראשונים בסדרה חשבונית הוא 210.<br>
-        הפרש הסדרה הוא 4.<br>
-        מהו <strong>האיבר הראשון</strong> בסדרה?`,
-        options: [
-            "3",
-            "5",
-            "1",
-            "-2"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "נתון כי בסדרה חשבונית, האיבר העשירי שווה ל-50. חשבו, בעזרת תכונות הסדרה החשבונית, את סכום 19 האיברים הראשונים שלה. (רמז: איבר אמצעי כפול מספר איברים).&rlm;",
+        options: ["950", "1000", "900", "1050"],
         correctAnswer: 0,
-        hint: "הציבו בנוסחת הסכום המלאה: 210 שווה (10 חלקי 2) כפול [שתיים a1 ועוד 9 כפול 4]. כלומר, 210 שווה 5 כפול (2a1 + 36). חלקו ב-5 ופתרו את המשוואה עבור a1.",
+        hint: "בסדרה אי זוגית של איברים (19), האיבר האמצעי הוא במקום ה-10. סכום הסדרה שווה למספר האיברים כפול האיבר האמצעי.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחלץ את הנתונים הידועים: הסכום, כמות האיברים, וההפרש.", 
-                math_expression: "<div dir='ltr'>S<sub>10</sub> = 210 , n = 10 , d = 4</div>" 
-            },
-            { 
-                verbal_explanation: "נציב בנוסחת הסכום המלאה, כאשר האיבר הראשון הוא הנעלם במשוואה זו.", 
-                math_expression: "<div dir='ltr'>210 = (10 / 2) &times; [2a<sub>1</sub> + (10 - 1) &times; 4]</div>" 
-            },
-            { 
-                verbal_explanation: "נפשט את הביטויים (10 חלקי 2 זה 5, והכפל בפנים נותן 36).", 
-                math_expression: "<div dir='ltr'>210 = 5 &times; [2a<sub>1</sub> + 36]</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את שני האגפים ב-5 כדי לבטל את הכפל שמחוץ לסוגריים.", 
-                math_expression: "<div dir='ltr'>42 = 2a<sub>1</sub> + 36</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר אגפים ונבודד את האיבר הראשון.", 
-                math_expression: "<div dir='ltr'>2a<sub>1</sub> = 42 - 36 = 6</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק ב-2 למציאת התשובה.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 3</div>" 
-            }
+            { verbal_explanation: "שלב 1: הבנת הקשר בין סכום הקצוות לאיבר האמצעי לפי נוסחת הסכום השנייה.", math_expression: "S_{19} = \\dfrac{19 \\times (a_{1} + a_{19})}{2}" },
+            { verbal_explanation: "שלב 2: סכום איברים מרוחקים באותה מידה שווה לפעמיים האיבר המרכזי.", math_expression: "a_{1} + a_{19} = 2 \\times a_{10}" },
+            { verbal_explanation: "שלב 3: הצבה חוזרת של הקשר הזה לתוך נוסחת הסכום.", math_expression: "S_{19} = \\dfrac{19 \\times (2 \\times a_{10})}{2}" },
+            { verbal_explanation: "שלב 4: צמצום השתיים במכנה ובמונה מעניק לנו את הכלל הקצר.", math_expression: "S_{19} = 19 \\times a_{10}" },
+            { verbal_explanation: "שלב 5: הכפלת מספר האיברים בערך האיבר האמצעי הנתון.", math_expression: "S_{19} = 19 \\times 50 = 950" }
         ],
-        final_answer: "3"
+        final_answer: "950"
     },
 
-    // שאלה 20
+    // שאלה מספר 20
     {
-        topic: "bagrut_35372",
-        subTopic: "סכום סדרה",
-        question_text: `<strong>הבנת הקשר בין סכומים עוקבים לאיבר הבודד:</strong><br>
-        בסדרה חשבונית ידוע הנתון הבא:<br>
-        סכום 10 האיברים הראשונים הוא 100 (S<sub>10</sub> = 100).<br>
-        סכום 9 האיברים הראשונים הוא 85 (S<sub>9</sub> = 85).<br>
-        מהו ערכו של <strong>האיבר העשירי</strong> עצמו (a<sub>10</sub>)?`,
-        options: [
-            "15",
-            "10",
-            "85",
-            "185"
-        ],
+        topic: "sequences_372",
+        subTopic: "סכום סדרה חשבונית",
+        question_text: "נוסחת הסכום של סדרה חשבונית נתונה על ידי הביטוי \\( S_{n} = 3n^{2} + 2n \\). מצאו את האיבר הראשון בסדרה זו.&rlm;",
+        options: ["5", "3", "2", "8"],
         correctAnswer: 0,
-        hint: "חשבו בהיגיון: הקבוצה של 10 האיברים שוקלת 100. הקבוצה של 9 האיברים שוקלת 85. מה ההבדל בין שתי הקבוצות? בדיוק האיבר ה-10! פשוט חסרו את הסכומים זה מזה.",
+        hint: "זכרו שסכום של איבר אחד בלבד (n=1) שווה בדיוק לאיבר הראשון עצמו.",
         solution_steps: [
-            { 
-                verbal_explanation: "לפנינו חוק מתמטי חשוב בסדרות: ההפרש בין סכום של N איברים לסכום של (N-1) איברים שווה לאיבר האחרון בעצמו.", 
-                math_expression: "<div dir='ltr'>a<sub>n</sub> = S<sub>n</sub> - S<sub>n-1</sub></div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את האיבר העשירי, כל מה שעלינו לעשות הוא לחסר את סכום תשעת האיברים מתוך הסכום הכולל של עשרת האיברים.", 
-                math_expression: "<div dir='ltr'>a<sub>10</sub> = S<sub>10</sub> - S<sub>9</sub></div>" 
-            },
-            { 
-                verbal_explanation: "נציב את המספרים שניתנו בשאלה.", 
-                math_expression: "<div dir='ltr'>a<sub>10</sub> = 100 - 85</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החיסור הפשוט ונגלה את הערך המדויק של האיבר העשירי העומד לבדו.", 
-                math_expression: "<div dir='ltr'>a<sub>10</sub> = 15</div>" 
-            }
+            { verbal_explanation: "שלב 1: הבנה אלגברית שסכום איבר בודד זהה לערך האיבר.", math_expression: "S_{1} = a_{1}" },
+            { verbal_explanation: "שלב 2: הצבת המיקום אחד בנוסחת הסכום הנתונה.", math_expression: "S_{1} = 3 \\times 1^{2} + 2 \\times 1" },
+            { verbal_explanation: "שלב 3: ביצוע חזקה ומכפלה פשוטות.", math_expression: "S_{1} = 3 + 2" },
+            { verbal_explanation: "שלב 4: סיום הפעולה חושף את האיבר הפותח.", math_expression: "S_{1} = 5" },
+            { verbal_explanation: "שלב 5: התשובה הישירה במערכת.", math_expression: "5" }
         ],
-        final_answer: "15"
+        final_answer: "5"
+    },
+
+    // ==========================================
+    // תת נושא 3: בעיות גידול ודעיכה פשוטות (10 שאלות)
+    // ==========================================
+
+    // שאלה מספר 21
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "אוכלוסיית חיידקים התחלתית היא 1000. קצב הריבוי (גדילה) הוא 20% בכל שעה. כמה חיידקים יהיו לאחר שעתיים?&rlm;",
+        options: ["1440", "1200", "1400", "1500"],
+        correctAnswer: 0,
+        hint: "חשבו את מקדם הגדילה q (אחד פלוס 20/100). ואז הציבו: כמות התחלתית כפול q בחזקת הזמן.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב מקדם הגדילה.", math_expression: "q = 1 + \\dfrac{20}{100} = 1.2" },
+            { verbal_explanation: "שלב 2: הצבת הנתונים בפונקציה המעריכית.", math_expression: "M_{2} = 1000 \\times 1.2^{2}" },
+            { verbal_explanation: "שלב 3: העלאת המקדם בריבוע.", math_expression: "M_{2} = 1000 \\times 1.44" },
+            { verbal_explanation: "שלב 4: מכפלה לקבלת הכמות הסופית של האוכלוסייה.", math_expression: "M_{2} = 1440" },
+            { verbal_explanation: "שלב 5: בחירת התשובה הנכונה מבין החלופות.", math_expression: "1440" }
+        ],
+        final_answer: "1440"
+    },
+
+    // שאלה מספר 22
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "ערכו ההתחלתי של מוצר חשמלי הוא 500 שקלים. ערכו יורד ב-10% בכל שנה. מה יהיה ערכו לאחר שנתיים?&rlm;",
+        options: ["405", "450", "400", "410"],
+        correctAnswer: 0,
+        hint: "ירידה של 10% משמעותה שמקדם הדעיכה הוא 0.9. הציבו בנוסחה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב מקדם הפחת השנתי.", math_expression: "q = 1 - \\dfrac{10}{100} = 0.9" },
+            { verbal_explanation: "שלב 2: בניית המודל למציאת המחיר לאחר הזמן הנתון.", math_expression: "M_{2} = 500 \\times 0.9^{2}" },
+            { verbal_explanation: "שלב 3: חישוב החזקה של המקדם העשרוני.", math_expression: "0.9^{2} = 0.81" },
+            { verbal_explanation: "שלב 4: הכפלת המחיר במקדם המצטבר.", math_expression: "M_{2} = 500 \\times 0.81" },
+            { verbal_explanation: "שלב 5: התוצאה הסופית.", math_expression: "M_{2} = 405" }
+        ],
+        final_answer: "405"
+    },
+
+    // שאלה מספר 23
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "סכום כסף הופקד בתוכנית חיסכון הנושאת ריבית קבועה של 10% בשנה. לאחר שנתיים, הסכום בחשבון היה 1210 שקלים. מהו הסכום שהופקד במקור (בהתחלה)?&rlm;",
+        options: ["1000", "1100", "1200", "900"],
+        correctAnswer: 0,
+        hint: "הכמות ההתחלתית היא הנעלם. בנו משוואה: סכום התחלתי כפול 1.1 בריבוע שווה ל-1210.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: קביעת מקדם הריבית.", math_expression: "q = 1.1" },
+            { verbal_explanation: "שלב 2: בניית משוואה כשהקרן המקורית היא נעלם.", math_expression: "1210 = M_{0} \\times 1.1^{2}" },
+            { verbal_explanation: "שלב 3: ביצוע החזקה למקדם.", math_expression: "1210 = M_{0} \\times 1.21" },
+            { verbal_explanation: "שלב 4: בידוד הקרן על ידי חלוקת המשוואה בשבר העשרוני.", math_expression: "M_{0} = 1210 : 1.21" },
+            { verbal_explanation: "שלב 5: התוצאה המדויקת לסכום ההתחלתי.", math_expression: "M_{0} = 1000" }
+        ],
+        final_answer: "1000"
+    },
+
+    // שאלה מספר 24
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "מספר עובדים בחברה היה 200, ולאחר שנתיים גדל באופן מעריכי ל-288 עובדים. מהו מקדם הגידול השנתי (q) של החברה?&rlm;",
+        options: ["1.2", "1.44", "1.1", "1.25"],
+        correctAnswer: 0,
+        hint: "בנו משוואה שהנעלם שלה הוא q בריבוע. חלקו את 288 ב-200 והוציאו שורש ריבועי.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הצבת הנתונים בפונקציה כשבסיס החזקה נעלם.", math_expression: "288 = 200 \\times q^{2}" },
+            { verbal_explanation: "שלב 2: חלוקת הכמות הסופית בכמות ההתחלתית.", math_expression: "q^{2} = 288 : 200" },
+            { verbal_explanation: "שלב 3: התוצאה לחלוקה.", math_expression: "q^{2} = 1.44" },
+            { verbal_explanation: "שלב 4: הוצאת שורש ריבועי למציאת המקדם המדויק לשנה אחת.", math_expression: "q = \\sqrt{1.44} = 1.2" },
+            { verbal_explanation: "שלב 5: בחירת התשובה במערכת.", math_expression: "1.2" }
+        ],
+        final_answer: "1.2"
+    },
+
+    // שאלה מספר 25
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "משקל חומר דועך לאורך זמן. משקלו ההתחלתי היה 800 גרם ולאחר שנתיים נותרו ממנו 450 גרם. מהו מקדם הדעיכה השנתי (q)?&rlm;",
+        options: ["0.75", "0.5625", "0.5", "0.8"],
+        correctAnswer: 0,
+        hint: "כמו בשאלה הקודמת, חלקו 450 ב-800 והוציאו שורש ריבועי.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: בניית פונקציית דעיכה לבידוד המקדם.", math_expression: "450 = 800 \\times q^{2}" },
+            { verbal_explanation: "שלב 2: חלוקה במסה המקורית.", math_expression: "q^{2} = 450 : 800" },
+            { verbal_explanation: "שלב 3: הפקת ערך המנה העשרוני.", math_expression: "q^{2} = 0.5625" },
+            { verbal_explanation: "שלב 4: הפעלת שורש לקבלת הבסיס.", math_expression: "q = \\sqrt{0.5625} = 0.75" },
+            { verbal_explanation: "שלב 5: התשובה הישירה.", math_expression: "0.75" }
+        ],
+        final_answer: "0.75"
+    },
+
+    // שאלה מספר 26
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "חומר רדיואקטיבי מאבד מחצית ממשקלו בכל שעה (מקדם 0.5). משקלו ההתחלתי הוא 100 גרם. כמה חומר יישאר לאחר 3 שעות?&rlm;",
+        options: ["12.5", "25", "50", "15"],
+        correctAnswer: 0,
+        hint: "העלו את החצי בחזקת 3 (שזה 0.125), והכפילו במשקל ההתחלתי.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הצבת נתוני מחצית חיים בנוסחה.", math_expression: "M_{3} = 100 \\times 0.5^{3}" },
+            { verbal_explanation: "שלב 2: ביצוע חזקת שלוש על השבר העשרוני.", math_expression: "M_{3} = 100 \\times 0.125" },
+            { verbal_explanation: "שלב 3: הכפלת המסה בתוצאת המקדם.", math_expression: "M_{3} = 12.5" },
+            { verbal_explanation: "שלב 4: הרישום לבדיקה.", math_expression: "12.5" }
+        ],
+        final_answer: "12.5"
+    },
+
+    // שאלה מספר 27
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "כמות תאים ביולוגיים מכפילה את עצמה בכל יום (מקדם 2). הכמות ההתחלתית הייתה 10 תאים. כמה תאים יהיו לאחר 4 ימים?&rlm;",
+        options: ["160", "80", "40", "320"],
+        correctAnswer: 0,
+        hint: "העלו 2 בחזקת 4 (16), והכפילו בכמות ההתחלתית.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: בניית מודל הכפלה יומית.", math_expression: "M_{4} = 10 \\times 2^{4}" },
+            { verbal_explanation: "שלב 2: חישוב החזקה של שתיים בבסיס ארבע.", math_expression: "M_{4} = 10 \\times 16" },
+            { verbal_explanation: "שלב 3: כפל לקבלת מספר התאים הכולל.", math_expression: "M_{4} = 160" },
+            { verbal_explanation: "שלב 4: קביעת הפתרון.", math_expression: "160" }
+        ],
+        final_answer: "160"
+    },
+
+    // שאלה מספר 28
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "כמות חומר יורדת ב-20% בשנה אחת, ושוב יורדת ב-20% בשנה שלאחריה. מהו אחוז הירידה הכולל מתחילת התקופה? (רמז: הכפילו את המקדמים).&rlm;",
+        options: ["36%", "40%", "64%", "20%"],
+        correctAnswer: 0,
+        hint: "המקדם ל-20% ירידה הוא 0.8. מקדם כולל לשנתיים הוא 0.8 כפול 0.8. האחוז שחסר להשלים ל-1 הוא התשובה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הגדרת מקדם הדעיכה השנתי.", math_expression: "q = 0.8" },
+            { verbal_explanation: "שלב 2: יצירת מקדם משוקלל לשנתיים ברצף.", math_expression: "q_{total} = 0.8 \\times 0.8 = 0.64" },
+            { verbal_explanation: "שלב 3: שימוש בנוסחה הממירה מקדם דעיכה בחזרה לאחוז פחת.", math_expression: "p = (1 - 0.64) \\times 100" },
+            { verbal_explanation: "שלב 4: פתרון והמרה למספר שלם.", math_expression: "p = 0.36 \\times 100 = 36" },
+            { verbal_explanation: "שלב 5: התשובה הנבחרת.", math_expression: "36" }
+        ],
+        final_answer: "36%"
+    },
+
+    // שאלה מספר 29
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "ערך של נכס היה 400 שקלים וגדל ב-5% בכל שנה. מה יהיה ערכו לאחר שנתיים?&rlm;",
+        options: ["441", "440", "420", "405"],
+        correctAnswer: 0,
+        hint: "מקדם גדילה של 5% הוא 1.05. הציבו בפונקציה: 400 כפול 1.05 בריבוע.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב המקדם עבור חמישה אחוזים.", math_expression: "q = 1.05" },
+            { verbal_explanation: "שלב 2: בניית המודל לשנתיים.", math_expression: "M_{2} = 400 \\times 1.05^{2}" },
+            { verbal_explanation: "שלב 3: פעולת העלאה בריבוע.", math_expression: "M_{2} = 400 \\times 1.1025" },
+            { verbal_explanation: "שלב 4: כפל לקבלת הערך החדש של הנכס.", math_expression: "M_{2} = 441" },
+            { verbal_explanation: "שלב 5: אישור התשובה.", math_expression: "441" }
+        ],
+        final_answer: "441"
+    },
+
+    // שאלה מספר 30
+    {
+        topic: "sequences_372",
+        subTopic: "בעיות גידול ודעיכה פשוטות",
+        question_text: "מניית בורסה ששוויה 100 שקלים, עלתה ביום ראשון ב-10%, וביום שני ירדה ב-10%. מהו שוויה בסוף יום שני?&rlm;",
+        options: ["99", "100", "101", "90"],
+        correctAnswer: 0,
+        hint: "עליות וירידות באחוזים אינן מבטלות זו את זו, אלא מוכפלות. חשבו 100 כפול 1.1 כפול 0.9.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הגדרת מקדם העלייה הראשוני.", math_expression: "q_{1} = 1.1" },
+            { verbal_explanation: "שלב 2: הגדרת מקדם הירידה המשני.", math_expression: "q_{2} = 0.9" },
+            { verbal_explanation: "שלב 3: כתיבת משוואה משולבת של התהליך כולו.", math_expression: "M_{2} = 100 \\times 1.1 \\times 0.9" },
+            { verbal_explanation: "שלב 4: כפל משמאל לימין.", math_expression: "M_{2} = 110 \\times 0.9" },
+            { verbal_explanation: "שלב 5: תוצאה המראה שהערך קטן במעט ולא חזר לעצמו.", math_expression: "M_{2} = 99" },
+            { verbal_explanation: "שלב 6: הרישום לבחירה.", math_expression: "99" }
+        ],
+        final_answer: "99"
     }
 ];

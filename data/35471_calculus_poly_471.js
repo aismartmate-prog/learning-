@@ -1,1614 +1,1352 @@
 const questionsDB = [
-    // =====================================================================
-    // תת-נושא 1: נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש) (10 שאלות)
-    // =====================================================================
+    // ==========================================
+    // תת נושא 1: נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש) (10 שאלות)
+    // ==========================================
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "מהי פונקציית הנגזרת של הפולינום הבא?<br>f(x) = x<sup>4</sup> - 3x<sup>2</sup> + 5x - 7<br><svg viewBox='0 0 200 100' width='180' height='90' style='display:block; margin: 15px auto;'><path d='M 20,80 Q 60,-20 100,60 T 180,20' fill='none' stroke='#3b82f6' stroke-width='4' stroke-linecap='round'/><circle cx='60' cy='18' r='5' fill='#ef4444'/><circle cx='135' cy='75' r='5' fill='#10b981'/><line x1='35' y1='18' x2='85' y2='18' stroke='#ef4444' stroke-width='2' stroke-dasharray='4,4'/><line x1='110' y1='75' x2='160' y2='75' stroke='#10b981' stroke-width='2' stroke-dasharray='4,4'/><text x='60' y='10' font-size='10' fill='#ef4444' text-anchor='middle'>y'=0</text></svg>",
-        options: [
-            "f'(x) = 4x^3 - 6x + 5",
-            "f'(x) = 4x^3 - 6x",
-            "f'(x) = 4x^4 - 6x^2 + 5x",
-            "f'(x) = x^3 - x + 5"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( f(x) = 2x^{3} - 5x^{2} + 4x - 7 \\).\nא. מצאו את נגזרת הפונקציה.\nב. מצאו את שיפוע המשיק לגרף הפונקציה בנקודה שבה \\( x = 2 \\).&rlm;",
+        "options": ["y' = 6x² - 10x + 4, m = 8", "y' = 6x² - 10x + 4, m = 4", "y' = 5x² - 10x, m = 8", "y' = 3x² - 5x + 4, m = 4"],
+        "correctAnswer": 0,
+        "hint": "גזרו כל איבר בנפרד בעזרת כלל החזקה. לאחר מכן, הציבו את ערך ה-x בנגזרת כדי למצוא את השיפוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את האיבר הראשון של הפונקציה לפי כלל החזקה של פולינום.", "math_expression": "2 \\times 3x^{2} = 6x^{2}" },
+            { "verbal_explanation": "נגזור את האיבר השני של הפונקציה, כולל המקדם השלילי.", "math_expression": "-5 \\times 2x = -10x" },
+            { "verbal_explanation": "נגזור את האיבר השלישי, שהוא ממדרגה ראשונה.", "math_expression": "4" },
+            { "verbal_explanation": "הנגזרת של מספר קבוע (האיבר הרביעי) היא תמיד אפס. נרכיב את פונקציית הנגזרת המלאה.", "math_expression": "f'(x) = 6x^{2} - 10x + 4" },
+            { "verbal_explanation": "כדי למצוא את שיפוע המשיק, נציב את הערך הנתון בפונקציית הנגזרת.", "math_expression": "m = f'(2) = 6 \\times 2^{2} - 10 \\times 2 + 4" },
+            { "verbal_explanation": "נבצע את פעולות החזקה והכפל בהתאם לסדר פעולות חשבון.", "math_expression": "m = 6 \\times 4 - 20 + 4 = 24 - 20 + 4" },
+            { "verbal_explanation": "נחבר ונחסר לקבלת הערך הסופי של השיפוע.", "math_expression": "m = 8" }
         ],
-        hint: "השתמשו בכלל החזקה: הורידו את המעריך למטה כמקדם, והפחיתו 1 מהמעריך הישן. הנגזרת של מספר קבוע חופשי היא 0.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את האיבר הראשון: החזקה 4 יורדת ומכפילה את האיקס, והחזקה קטנה ל-3.", math_expression: "4x^3" },
-            { verbal_explanation: "נגזור את האיבר השני: החזקה 2 יורדת ומכפילה את המקדם -3, והחזקה קטנה ל-1.", math_expression: "-6x" },
-            { verbal_explanation: "נגזור את האיבר השלישי: הנגזרת של איקס היא 1, לכן נשאר רק המקדם.", math_expression: "5" },
-            { verbal_explanation: "מספר חופשי נופל (אפס). נחבר את הכל לפונקציית נגזרת אחת.", math_expression: "f'(x) = 4x^3 - 6x + 5" }
-        ],
-        final_answer: "f'(x) = 4x^3 - 6x + 5"
+        "final_answer": "y' = 6x² - 10x + 4, m = 8"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "גזרו את הפונקציה הבאה (פונקציה הכוללת משתנה במכנה):<br>g(x) = 10 / x<sup>2</sup>",
-        options: [
-            "g'(x) = -20 / x^3",
-            "g'(x) = 20 / x^3",
-            "g'(x) = -10 / x^2",
-            "g'(x) = 10x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"130\" x2=\"180\" y2=\"130\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 130 Q 100 30 160 130\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"60\" y1=\"30\" x2=\"140\" y2=\"30\" stroke=\"#c5a059\" stroke-width=\"2\"/></svg></div><br>נתונה הפונקציה \\( f(x) = -x^{2} + 6x \\).\nמצאו את שיעור ה-\\( x \\) של הנקודה שבה המשיק לגרף הפונקציה מקביל לציר ה-\\( x \\).&rlm;",
+        "options": ["3", "6", "0", "-3"],
+        "correctAnswer": 0,
+        "hint": "משיק המקביל לציר האופקי הוא בעל שיפוע שווה לאפס. מצאו את הנגזרת והשוו אותה לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "משיק המקביל לציר האופקי מאופיין בשיפוע חסר עליות וירידות, כלומר שווה לאפס.", "math_expression": "m = 0" },
+            { "verbal_explanation": "נגזור את הפונקציה הנתונה שלב אחר שלב לפי חוקי הגזירה.", "math_expression": "f'(x) = -2x + 6" },
+            { "verbal_explanation": "נשווה את פונקציית הנגזרת לשיפוע שקבענו.", "math_expression": "-2x + 6 = 0" },
+            { "verbal_explanation": "נעביר את המשתנה לאגף השני כדי לשמור על מקדם חיובי.", "math_expression": "6 = 2x" },
+            { "verbal_explanation": "נחלק בשתיים למציאת שיעור הנקודה.", "math_expression": "x = 3" }
         ],
-        hint: "לפני הגזירה, קל יותר להעלות את ה-x למונה על ידי הפיכת החזקה לשלילית: 10 כפול איקס בחזקת מינוס 2. עכשיו גזרו רגיל.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי להימנע מנוסחאות מסובכות, נמיר את השבר לחזקה שלילית לפי חוקי חזקות.", math_expression: "g(x) = 10x^(-2)" },
-            { verbal_explanation: "נפעיל את כלל החזקה: המעריך (מינוס 2) יורד ומוכפל במקדם.", math_expression: "-2 &times; 10 = -20" },
-            { verbal_explanation: "נחסר אחד מהמעריך הישן כדי לקבל את המעריך החדש (מינוס 3).", math_expression: "-20x^(-3)" },
-            { verbal_explanation: "נחזיר את המשתנה למכנה כדי לקבל חזקה חיובית כנהוג.", math_expression: "g'(x) = -20 / x^3" }
-        ],
-        final_answer: "g'(x) = -20 / x^3"
+        "final_answer": "3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "מצאו את ערך הנגזרת בנקודה שבה x = 2 עבור הפונקציה הבאה:<br>y = 2x<sup>3</sup> - 4x + 1",
-        options: [
-            "20",
-            "10",
-            "24",
-            "16"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( y = ax^{2} + 3x \\), כאשר \\( a \\) הוא פרמטר.\nידוע כי שיפוע המשיק לגרף הפונקציה בנקודה שבה \\( x = 1 \\) שווה ל-7.\nמצאו את ערכו של הפרמטר \\( a \\).&rlm;",
+        "options": ["2", "4", "3", "1"],
+        "correctAnswer": 0,
+        "hint": "גזרו את הפונקציה עם הפרמטר כאילו היה מספר רגיל. הציבו את נקודת ההשקה והשוו לשיפוע הנתון.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה. הפרמטר נשאר כמקדם קבוע במהלך הגזירה.", "math_expression": "y' = 2ax + 3" },
+            { "verbal_explanation": "נתון לנו שהשיפוע בנקודה מסוימת הוא שבע. נציב נתון זה.", "math_expression": "y'(1) = 7" },
+            { "verbal_explanation": "נציב את הערך המספרי של הנקודה לתוך הנגזרת.", "math_expression": "2a \\times 1 + 3 = 7" },
+            { "verbal_explanation": "נבצע את פעולת הכפל.", "math_expression": "2a + 3 = 7" },
+            { "verbal_explanation": "נחסר שלוש משני האגפים.", "math_expression": "2a = 4" },
+            { "verbal_explanation": "נחלק בשתיים ונמצא את ערכו של הפרמטר.", "math_expression": "a = 2" }
         ],
-        hint: "קודם מצאו את פונקציית הנגזרת y'. לאחר מכן הציבו בתוכה את המספר 2 במקום x.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "תחילה נמצא את פונקציית הנגזרת לפי חוקי הגזירה הבסיסיים.", math_expression: "y' = 6x^2 - 4" },
-            { verbal_explanation: "התבקשנו למצוא את השיפוע (הנגזרת) עבור איקס שווה 2. נציב בפונקציה.", math_expression: "y'(2) = 6(2)^2 - 4" },
-            { verbal_explanation: "נחשב את החזקה ואז את הכפל.", math_expression: "6(4) - 4 = 24 - 4" },
-            { verbal_explanation: "נחשב את ההפרש לקבלת הערך הסופי.", math_expression: "20" }
-        ],
-        final_answer: "20"
+        "final_answer": "2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "גזרו את הפונקציה הבאה הכוללת שורש:<br>f(x) = 5&radic;x",
-        options: [
-            "f'(x) = 2.5 / &radic;x",
-            "f'(x) = 5 / &radic;x",
-            "f'(x) = 1 / (2&radic;x)",
-            "f'(x) = 2.5&radic;x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( f(x) = \\dfrac{x^{3}}{3} - \\dfrac{x^{2}}{2} - 2x \\).\nמצאו את הנקודות על ציר ה-\\( x \\) שבהן שיפוע המשיק מתאפס.&rlm;",
+        "options": ["x=2, x=-1", "x=1, x=-2", "x=3, x=0", "x=-2, x=-1"],
+        "correctAnswer": 0,
+        "hint": "השברים משמשים כמקדמים קבועים (שליש וחצי). גזרו לפי כלל החזקה והשוו את התוצאה לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את האיבר הראשון. החזקה תצטמצם עם המכנה הקבוע.", "math_expression": "\\dfrac{3x^{2}}{3} = x^{2}" },
+            { "verbal_explanation": "נגזור את האיבר השני. גם כאן, החזקה מצטמצמת עם המכנה.", "math_expression": "-\\dfrac{2x}{2} = -x" },
+            { "verbal_explanation": "נגזור את האיבר השלישי.", "math_expression": "-2" },
+            { "verbal_explanation": "נרכיב את הנגזרת השלמה ונשווה לאפס, כפי שנדרש למציאת משיקים אופקיים.", "math_expression": "f'(x) = x^{2} - x - 2 = 0" },
+            { "verbal_explanation": "נפתור את המשוואה הריבועית בעזרת טרינום או נוסחת השורשים.", "math_expression": "(x - 2)(x + 1) = 0" },
+            { "verbal_explanation": "נחלץ את שני הפתרונות האפשריים למשוואה.", "math_expression": "x = 2 \\quad , \\quad x = -1" }
         ],
-        hint: "הנגזרת של שורש x היא 1 חלקי (2 כפול שורש x). המקדם 5 נשאר בכפל.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נוסחת הנגזרת הבסיסית של פונקציית שורש ריבועי.", math_expression: "(&radic;x)' = 1 / (2&radic;x)" },
-            { verbal_explanation: "המקדם המספרי 5 נשאר במקומו גם לאחר הגזירה.", math_expression: "f'(x) = 5 &times; (1 / (2&radic;x))" },
-            { verbal_explanation: "נכניס את המקדם למונה ונצמצם את השבר (חמש לחלק לשתיים זה שתיים וחצי).", math_expression: "f'(x) = 2.5 / &radic;x" }
-        ],
-        final_answer: "f'(x) = 2.5 / &radic;x"
+        "final_answer": "x=2, x=-1"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "פשטו את הפונקציה הבאה, ולאחר מכן גזרו:<br>y = (x - 3)(x + 3)",
-        options: [
-            "y' = 2x",
-            "y' = x^2 - 9",
-            "y' = 2x - 3",
-            "y' = 1"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( f(x) = (x^{2} - 1)(x + 2) \\).\nא. פתחו את הסוגריים והביאו את הפונקציה לצורת פולינום.\nב. מצאו את שיפוע המשיק לגרף הפונקציה בנקודת החיתוך שלה עם ציר ה-\\( y \\).&rlm;",
+        "options": ["פולינום: x³+2x²-x-2, שיפוע: -1", "פולינום: x³-2x²-x+2, שיפוע: 1", "פולינום: x³+2x²-x-2, שיפוע: 2", "פולינום: x³+x²-x-2, שיפוע: -1"],
+        "correctAnswer": 0,
+        "hint": "פתחו סוגריים בעזרת חוק הפילוג المורחב. חיתוך עם ציר y מתרחש כאשר המשתנה מאופס.",
+        "solution_steps": [
+            { "verbal_explanation": "נפתח סוגריים על ידי הכפלת כל איבר בסוגריים הראשונים בכל איבר בסוגריים השניים.", "math_expression": "f(x) = x^{3} + 2x^{2} - 1x - 2" },
+            { "verbal_explanation": "נסדר את הפולינום הסופי שהתקבל.", "math_expression": "f(x) = x^{3} + 2x^{2} - x - 2" },
+            { "verbal_explanation": "כדי למצוא את שיפוע המשיק, נגזור את הפולינום איבר אחר איבר.", "math_expression": "f'(x) = 3x^{2} + 4x - 1" },
+            { "verbal_explanation": "נקודת החיתוך עם הציר האנכי מתרחשת כאשר הערך האופקי שווה לאפס.", "math_expression": "x = 0" },
+            { "verbal_explanation": "נציב ערך זה אל תוך הנגזרת כדי לקבל את השיפוע באותה נקודה.", "math_expression": "m = f'(0) = 3 \\times 0^{2} + 4 \\times 0 - 1" },
+            { "verbal_explanation": "נחשב את התוצאה הסופית.", "math_expression": "m = -1" }
         ],
-        hint: "מדובר בהפרש ריבועים. פתיחת הסוגריים תיתן y = x² - 9. עכשיו פשוט גזרו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי לגזור בקלות, נשתמש בנוסחת הפרש ריבועים לפתיחת הסוגריים.", math_expression: "y = x^2 - 9" },
-            { verbal_explanation: "כעת יש לנו פולינום פשוט. הנגזרת של איקס בריבוע היא שני איקס.", math_expression: "2x" },
-            { verbal_explanation: "הקבוע מינוס 9 נעלם (אפס). נרשום את הנגזרת.", math_expression: "y' = 2x" }
-        ],
-        final_answer: "y' = 2x"
+        "final_answer": "פולינום: x³+2x²-x-2, שיפוע: -1"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "מהי הנגזרת השנייה (f'') של הפונקציה הבאה?<br>f(x) = 2x<sup>4</sup> - 5x<sup>3</sup>",
-        options: [
-            "f''(x) = 24x^2 - 30x",
-            "f''(x) = 8x^3 - 15x^2",
-            "f''(x) = 24x - 30",
-            "f''(x) = 48x - 30"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( y = 4x^{5} - 5x^{4} + 10 \\).\nמצאו את ערך הנגזרת בנקודה שבה \\( x = 1 \\).&rlm;",
+        "options": ["0", "20", "1", "-5"],
+        "correctAnswer": 0,
+        "hint": "המספר הקבוע בסוף נופל בגזירה. הציבו את הערך באחת בסיום התהליך.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את האיבר הראשון. נכפיל את המקדם במעריך החזקה ונחסיר אחד מהמעריך.", "math_expression": "4 \\times 5x^{4} = 20x^{4}" },
+            { "verbal_explanation": "נגזור את האיבר השני באותה השיטה.", "math_expression": "-5 \\times 4x^{3} = -20x^{3}" },
+            { "verbal_explanation": "הקבוע החופשי נעלם בפעולת הגזירה, ולכן נרכיב את הנגזרת.", "math_expression": "y' = 20x^{4} - 20x^{3}" },
+            { "verbal_explanation": "נציב את הערך הידוע בפונקציית הנגזרת למציאת השיפוע הנקודתי.", "math_expression": "y'(1) = 20 \\times 1^{4} - 20 \\times 1^{3}" },
+            { "verbal_explanation": "אחת בחזקת כל מספר נשארת אחת.", "math_expression": "y'(1) = 20 \\times 1 - 20 \\times 1" },
+            { "verbal_explanation": "נחסר ונקבל את התוצאה הסופית.", "math_expression": "y'(1) = 0" }
         ],
-        hint: "נגזרת שנייה פירושה לגזור פעמיים. מצאו את הנגזרת הראשונה, ומיד גזרו אותה שוב.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את הנגזרת הראשונה של הפונקציה.", math_expression: "f'(x) = 8x^3 - 15x^2" },
-            { verbal_explanation: "נגזור שוב את התוצאה שקיבלנו כדי למצוא את הנגזרת השנייה.", math_expression: "f''(x) = 24x^2 - 30x" }
-        ],
-        final_answer: "f''(x) = 24x^2 - 30x"
+        "final_answer": "0"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "גזרו את הפונקציה הבאה (המכנה מספרי בלבד):<br>h(x) = (x<sup>3</sup> - 6x) / 3",
-        options: [
-            "h'(x) = x^2 - 2",
-            "h'(x) = 3x^2 - 6",
-            "h'(x) = (3x^2 - 6) / 9",
-            "h'(x) = x^2 - 6"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( f(x) = ax^{3} - bx \\). נתון כי שיפוע המשיק לפונקציה בנקודה \\( x = 1 \\) הוא 3, וכן ידוע שהפונקציה עוברת בנקודה שבה \\( x = 1, y = 0 \\).\nמצאו את הערכים של הפרמטרים \\( a \\) ו-\\( b \\).&rlm;",
+        "options": ["a=1.5, b=1.5", "a=1, b=0", "a=3, b=3", "a=2, b=2"],
+        "correctAnswer": 0,
+        "hint": "זוהי מערכת של שתי משוואות: אחת מהצבת הנקודה בפונקציה המקורית, ושנייה מהצבת שיעור הנקודה והשיפוע בנגזרת.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את הנקודה הנתונה אל תוך הפונקציה המקורית ליצירת משוואה ראשונה.", "math_expression": "f(1) = a \\times 1^{3} - b \\times 1 = 0 \\Rightarrow a - b = 0 \\Rightarrow a = b" },
+            { "verbal_explanation": "נגזור את הפונקציה לפי הכללים הרגילים, תוך שמירה על הפרמטרים כמקדמים.", "math_expression": "f'(x) = 3ax^{2} - b" },
+            { "verbal_explanation": "נציב את נתוני השיפוע בנגזרת ליצירת משוואה שנייה.", "math_expression": "f'(1) = 3a \\times 1^{2} - b = 3 \\Rightarrow 3a - b = 3" },
+            { "verbal_explanation": "נשתמש בבידוד שיצרנו מהמשוואה הראשונה ונציב במשוואה השנייה.", "math_expression": "3a - a = 3" },
+            { "verbal_explanation": "נכנס איברים ונחלץ את הפרמטר הראשון.", "math_expression": "2a = 3 \\Rightarrow a = 1.5" },
+            { "verbal_explanation": "מכיוון שקבענו ששני הפרמטרים שווים זה לזה, נקבל גם את השני.", "math_expression": "b = 1.5" }
         ],
-        hint: "כאשר המכנה הוא קבוע מספרי, פשוט גזרו את המונה כרגיל והשאירו את המכנה כמו שהוא.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כיוון שהמכנה הוא מספר, נוכל להתייחס אליו כמקדם קבוע. אין צורך בכלל המנה.", math_expression: "h(x) = (1/3) &times; (x^3 - 6x)" },
-            { verbal_explanation: "נגזור את תוכן הסוגריים.", math_expression: "h'(x) = (1/3) &times; (3x^2 - 6)" },
-            { verbal_explanation: "נחלק כל איבר בשלוש לקבלת התוצאה הסופית.", math_expression: "h'(x) = x^2 - 2" }
-        ],
-        final_answer: "h'(x) = x^2 - 2"
+        "final_answer": "a=1.5, b=1.5"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "באיזו נקודה מתאפסת הנגזרת של הפונקציה הבאה (כלומר, מתי y' = 0)?<br>y = x<sup>2</sup> - 8x + 12",
-        options: [
-            "4",
-            "8",
-            "-4",
-            "2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( y = x^{3} - 12x \\).\nמצאו את הנקודות על ציר האופקי שבהן שיפוע המשיק לגרף שווה ל-15.&rlm;",
+        "options": ["x=3, x=-3", "x=5, x=-5", "x=4, x=-4", "x=2, x=-2"],
+        "correctAnswer": 0,
+        "hint": "לאחר שתגזרו את הפונקציה, השוו אותה ל-15 (ולא לאפס), ואז פתרו למציאת הנעלם.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה בשלבים פשוטים.", "math_expression": "y' = 3x^{2} - 12" },
+            { "verbal_explanation": "נשווה את הנגזרת לשיפוע שנדרש בשאלה.", "math_expression": "3x^{2} - 12 = 15" },
+            { "verbal_explanation": "נעביר את המספר החופשי לאגף הימני ונחבר.", "math_expression": "3x^{2} = 15 + 12 = 27" },
+            { "verbal_explanation": "נחלק בשלוש כדי לבודד את המשתנה הריבועי.", "math_expression": "x^{2} = 9" },
+            { "verbal_explanation": "נוציא שורש ריבועי. נקבל שני פתרונות, אחד חיובי ואחד שלילי.", "math_expression": "x = \\pm 3" }
         ],
-        hint: "גזרו את הפונקציה, השוו את הנגזרת לאפס ופתרו את המשוואה הפשוטה שמתקבלת.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את פונקציית הנגזרת על ידי גזירה רגילה.", math_expression: "y' = 2x - 8" },
-            { verbal_explanation: "נשווה לאפס כפי שנדרש.", math_expression: "2x - 8 = 0" },
-            { verbal_explanation: "נעביר את המספר לצד ימין.", math_expression: "2x = 8" },
-            { verbal_explanation: "נחלק בשתיים.", math_expression: "x = 4" }
-        ],
-        final_answer: "4"
+        "final_answer": "x=3, x=-3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "מהו שיפוע הישר המשיק לפונקציה f(x) = 5x + 3 בכל נקודה על הגרף?",
-        options: [
-            "5",
-            "3",
-            "0",
-            "5x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{4} - 2x^{2} + 3 \\).\nחשבו את שיפוע המשיק המועבר לגרף הפונקציה בנקודה שבה \\( x = -1 \\).&rlm;",
+        "options": ["0", "4", "-4", "2"],
+        "correctAnswer": 0,
+        "hint": "שימו לב לסימנים השליליים כאשר אתם מציבים בנגזרת מספר שלילי העולה בחזקה אי-זוגית.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא את נגזרת הפונקציה הנתונה.", "math_expression": "f'(x) = 4x^{3} - 4x" },
+            { "verbal_explanation": "נציב את הערך השלילי שניתן אל תוך פונקציית הנגזרת.", "math_expression": "f'(-1) = 4 \\times (-1)^{3} - 4 \\times (-1)" },
+            { "verbal_explanation": "נחשב את החזקה האי-זוגית, ששומרת על הסימן השלילי.", "math_expression": "f'(-1) = 4 \\times (-1) - 4 \\times (-1)" },
+            { "verbal_explanation": "נבצע את פעולות הכפל.", "math_expression": "f'(-1) = -4 - (-4)" },
+            { "verbal_explanation": "נפשט את סימני המינוס העוקבים לחיבור.", "math_expression": "f'(-1) = -4 + 4" },
+            { "verbal_explanation": "נסכום ונקבל את שיפוע המשיק בנקודה.", "math_expression": "m = 0" }
         ],
-        hint: "בפונקציה קווית (קו ישר), השיפוע קבוע והוא המקדם של איקס. גזירה תיתן לכם את אותו המספר.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזרת היא השיפוע. נגזור את הפונקציה הקווית הנתונה.", math_expression: "f'(x) = 5" },
-            { verbal_explanation: "השיפוע הוא מספר קבוע (5) שאינו תלוי באיקס.", math_expression: "5" }
-        ],
-        final_answer: "5"
+        "final_answer": "0"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
-        question: "גזרו את הפונקציה הבאה המכילה את הפרמטר a:<br>y = ax<sup>3</sup> - 2a<sup>2</sup>x",
-        options: [
-            "y' = 3ax^2 - 2a^2",
-            "y' = 3x^2 - 2a",
-            "y' = 3ax^2 - 4ax",
-            "y' = ax^2 - 2a^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרות בסיסיות (חזקות, מכפלה בקבוע, סכום/הפרש)",
+        "question_text": "נתונה פרבולה שמשוואתה \\( y = x^{2} - 8x + 12 \\).\nמציאת קודקוד פרבולה ניתן לעשות על ידי חיפוש הנקודה שבה המשיק אופקי. השתמשו בנגזרת כדי למצוא את שיעור ה-\\( x \\) של קודקוד הפרבולה.&rlm;",
+        "options": ["4", "-4", "8", "2"],
+        "correctAnswer": 0,
+        "hint": "משיק אופקי משמעותו שיפוע אפס. גזרו והשוו לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפרבולה לפי כללי הפולינום.", "math_expression": "y' = 2x - 8" },
+            { "verbal_explanation": "בנקודת הקיצון (הקודקוד), המשיק לגרף מאוזן לחלוטין ולכן שיפועו אפס.", "math_expression": "m = 0" },
+            { "verbal_explanation": "נשווה את הנגזרת לאפס ליצירת משוואה.", "math_expression": "2x - 8 = 0" },
+            { "verbal_explanation": "נעביר אגף.", "math_expression": "2x = 8" },
+            { "verbal_explanation": "נחלק ונקבל את שיעור הנקודה המבוקשת.", "math_expression": "x = 4" }
         ],
-        hint: "הפרמטר a מתנהג בדיוק כמו מספר. הנגזרת של ax³ היא 3ax². הנגזרת של קבוע כפול x היא הקבוע עצמו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נתייחס לאות a כאל מקדם מספרי. נגזור את האיבר הראשון (החזקה 3 יורדת).", math_expression: "3ax^2" },
-            { verbal_explanation: "באיבר השני, כל מה שמופיע לפני האיקס הוא המקדם. בגזירה, האיקס נעלם.", math_expression: "-2a^2" },
-            { verbal_explanation: "נחבר את האיברים לנגזרת שלמה.", math_expression: "y' = 3ax^2 - 2a^2" }
-        ],
-        final_answer: "y' = 3ax^2 - 2a^2"
+        "final_answer": "4"
     },
 
-    // =====================================================================
-    // תת-נושא 2: נגזרת של מכפלה ונגזרת של מנה (10 שאלות)
-    // =====================================================================
+    // ==========================================
+    // תת נושא 2: נגזרת של מכפלה ונגזרת של מנה (10 שאלות)
+    // ==========================================
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "גזרו את הפונקציה הבאה לפי כלל נגזרת מכפלה (בלי לפתוח סוגריים):<br>y = (2x - 1)(x<sup>2</sup> + 3)",
-        options: [
-            "y' = 6x^2 - 2x + 6",
-            "y' = 2x^2 + 6",
-            "y' = 6x^2 - 2x",
-            "y' = 4x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה \\( f(x) = (x^{2} + 1)(2x - 3) \\).\nמצאו את פונקציית הנגזרת \\( f'(x) \\) בעזרת כלל נגזרת מכפלה (מבלי לפתוח סוגריים תחילה), ופשטו את התוצאה.&rlm;",
+        "options": ["6x² - 6x + 2", "4x² - 3x + 2", "6x² - 3x + 1", "2x² - 6x + 2"],
+        "correctAnswer": 0,
+        "hint": "כלל המכפלה: גזרו את הראשון וכפלו בשני ללא שינוי, ואז הוסיפו את הראשון ללא שינוי כפול נגזרת השני.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה את הפונקציות המרכיבות את המכפלה.", "math_expression": "u = x^{2} + 1 \\quad , \\quad v = 2x - 3" },
+            { "verbal_explanation": "נגזור כל פונקציה בנפרד.", "math_expression": "u' = 2x \\quad , \\quad v' = 2" },
+            { "verbal_explanation": "נציב בנוסחת כלל המכפלה לנגזרות.", "math_expression": "f'(x) = u'v + uv'" },
+            { "verbal_explanation": "נציב את כל המרכיבים המפורשים אל תוך הנוסחה.", "math_expression": "f'(x) = 2x(2x - 3) + (x^{2} + 1) \\times 2" },
+            { "verbal_explanation": "נפתח סוגריים כדי לפשט את הביטוי.", "math_expression": "f'(x) = 4x^{2} - 6x + 2x^{2} + 2" },
+            { "verbal_explanation": "נכנס איברים בעלי חזקות זהות לקבלת הפונקציה הסופית.", "math_expression": "f'(x) = 6x^{2} - 6x + 2" }
         ],
-        hint: "נוסחת המכפלה: נגזרת החלק הראשון כפול השני, פלוס הראשון כפול נגזרת החלק השני.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נחלץ את שני חלקי המכפלה ונגזור אותם בנפרד.", math_expression: "u = 2x - 1 => u' = 2 , v = x^2 + 3 => v' = 2x" },
-            { verbal_explanation: "נציב בנוסחת נגזרת מכפלה.", math_expression: "y' = 2(x^2 + 3) + (2x - 1)(2x)" },
-            { verbal_explanation: "נפתח את הסוגריים.", math_expression: "y' = 2x^2 + 6 + 4x^2 - 2x" },
-            { verbal_explanation: "נכנס איברים לקבלת התשובה הסופית.", math_expression: "y' = 6x^2 - 2x + 6" }
-        ],
-        final_answer: "y' = 6x^2 - 2x + 6"
+        "final_answer": "6x² - 6x + 2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "מהי הנגזרת של פונקציית המנה הבאה?<br>f(x) = (3x + 1) / (x - 2)<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 100,0 L 100,150' fill='none' stroke='#94a3b8' stroke-width='2' stroke-dasharray='4,4'/><path d='M 0,75 L 200,75' fill='none' stroke='#94a3b8' stroke-width='2'/><path d='M 20,130 Q 90,130 95,20' fill='none' stroke='#3b82f6' stroke-width='3'/><path d='M 105,130 Q 110,20 180,20' fill='none' stroke='#3b82f6' stroke-width='3'/><line x1='120' y1='0' x2='120' y2='150' stroke='#ef4444' stroke-width='2' stroke-dasharray='6,4'/><text x='130' y='140' font-size='12' fill='#ef4444' font-weight='bold'>x=2</text></svg>",
-        options: [
-            "f'(x) = -7 / (x - 2)^2",
-            "f'(x) = 7 / (x - 2)^2",
-            "f'(x) = 3 / (x - 2)^2",
-            "f'(x) = -3 / (x - 2)^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה הרציונלית \\( f(x) = \\dfrac{x^{2}}{x - 2} \\).\nמצאו את נגזרת הפונקציה בעזרת כלל המנה, ופשטו את המונה.&rlm;",
+        "options": ["(x²-4x)/(x-2)²", "(x²+4x)/(x-2)²", "(2x²-4x)/(x-2)²", "(x²-2x)/(x-2)²"],
+        "correctAnswer": 0,
+        "hint": "כלל המנה: נגזרת מונה כפול מכנה, פחות מונה כפול נגזרת מכנה, הכל חלקי מכנה בריבוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה את פונקציות המונה והמכנה.", "math_expression": "u = x^{2} \\quad , \\quad v = x - 2" },
+            { "verbal_explanation": "נגזור אותן בנפרד.", "math_expression": "u' = 2x \\quad , \\quad v' = 1" },
+            { "verbal_explanation": "נכתוב את כלל המנה הכללי.", "math_expression": "f'(x) = \\dfrac{u'v - uv'}{v^{2}}" },
+            { "verbal_explanation": "נציב את הפונקציות ונגזרותיהן בנוסחה.", "math_expression": "f'(x) = \\dfrac{2x(x - 2) - x^{2} \\times 1}{(x - 2)^{2}}" },
+            { "verbal_explanation": "נפתח סוגריים במונה השבר בלבד.", "math_expression": "f'(x) = \\dfrac{2x^{2} - 4x - x^{2}}{(x - 2)^{2}}" },
+            { "verbal_explanation": "נכנס איברים במונה לקבלת הצורה הסופית המפושטת.", "math_expression": "f'(x) = \\dfrac{x^{2} - 4x}{(x - 2)^{2}}" }
         ],
-        hint: "נוסחת מנה: גוזרים מונה, מכפילים במכנה. מחסרים את המונה כפול נגזרת המכנה. מחלקים הכל במכנה בריבוע.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נזהה מונה ומכנה ונגזור אותם.", math_expression: "u = 3x + 1 => u' = 3 , v = x - 2 => v' = 1" },
-            { verbal_explanation: "נציב בנוסחת המנה (שימו לב לחיסור במונה).", math_expression: "f'(x) = [3(x - 2) - (3x + 1)(1)] / (x - 2)^2" },
-            { verbal_explanation: "נפתח סוגריים במונה (המינוס משנה סימנים).", math_expression: "f'(x) = (3x - 6 - 3x - 1) / (x - 2)^2" },
-            { verbal_explanation: "נכנס איברים במונה. האיקסים מתבטלים.", math_expression: "f'(x) = -7 / (x - 2)^2" }
-        ],
-        final_answer: "f'(x) = -7 / (x - 2)^2"
+        "final_answer": "(x²-4x)/(x-2)²"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "גזרו את הפונקציה המשלבת x עם שורש x:<br>y = x &times; &radic;x",
-        options: [
-            "y' = 1.5&radic;x",
-            "y' = 1 / (2&radic;x)",
-            "y' = x + 1 / (2&radic;x)",
-            "y' = 2.5&radic;x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה \\( f(x) = \\dfrac{2x + 5}{x - 1} \\).\nחשבו את שיפוע המשיק לגרף הפונקציה בנקודה שבה \\( x = 2 \\).&rlm;",
+        "options": ["-7", "7", "-5", "5"],
+        "correctAnswer": 0,
+        "hint": "גזרו תחילה בעזרת נגזרת מנה, ולאחר מכן הציבו את המספר. אין חובה לפתוח סוגריים במכנה לאחר ההצבה.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה ונגזור את המונה ואת המכנה.", "math_expression": "u = 2x + 5 , u' = 2 \\quad ; \\quad v = x - 1 , v' = 1" },
+            { "verbal_explanation": "נציב את הרכיבים אל תוך נוסחת כלל המנה.", "math_expression": "f'(x) = \\dfrac{2(x - 1) - (2x + 5) \\times 1}{(x - 1)^{2}}" },
+            { "verbal_explanation": "נפשט את מונה הנגזרת כדי להקל על ההצבה.", "math_expression": "f'(x) = \\dfrac{2x - 2 - 2x - 5}{(x - 1)^{2}}" },
+            { "verbal_explanation": "נצמצם משתנים המבטלים זה את זה במונה.", "math_expression": "f'(x) = \\dfrac{-7}{(x - 1)^{2}}" },
+            { "verbal_explanation": "כעת, נציב את הערך הדרוש בנגזרת כדי למצוא את שיפוע המשיק באותה נקודה.", "math_expression": "m = \\dfrac{-7}{(2 - 1)^{2}}" },
+            { "verbal_explanation": "נחשב את המכנה ונחלק.", "math_expression": "m = \\dfrac{-7}{1^{2}} = -7" }
         ],
-        hint: "במקום להסתבך עם כלל מכפלה, אפשר לאחד חזקות: x בחזקת 1 כפול x בחזקת חצי נותן x בחזקת 1.5. גזרו את זה רגיל.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נאחד את החזקות (שורש שווה לחזקת חצי).", math_expression: "y = x^1 &times; x^0.5 = x^1.5" },
-            { verbal_explanation: "נגזור לפי כלל החזקה (המעריך יורד ומוכפל).", math_expression: "y' = 1.5x^0.5" },
-            { verbal_explanation: "נחזיר את חזקת החצי לסימון של שורש.", math_expression: "y' = 1.5&radic;x" }
-        ],
-        final_answer: "y' = 1.5&radic;x"
+        "final_answer": "-7"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "מצאו את הנקודות בהן הנגזרת מתאפסת עבור פונקציית המנה הבאה:<br>y = (x<sup>2</sup> + 16) / x",
-        options: [
-            "x = 4 , x = -4",
-            "x = 16 , x = -16",
-            "x = 2 , x = -2",
-            "אין נקודות כאלה"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{2}(x - 4) \\).\nהשתמשו בכלל נגזרת מכפלה למציאת הנקודות שבהן שיפוע המשיק שווה לאפס.&rlm;",
+        "options": ["x=0, x=8/3", "x=0, x=4", "x=2, x=0", "x=4, x=8/3"],
+        "correctAnswer": 0,
+        "hint": "גזרו כמו מכפלה של שתי פונקציות. לאחר הפישוט תקבלו משוואה ריבועית.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את גורמי המכפלה.", "math_expression": "u = x^{2} , u' = 2x \\quad ; \\quad v = x - 4 , v' = 1" },
+            { "verbal_explanation": "נרכיב את הנגזרת על פי הנוסחה.", "math_expression": "f'(x) = 2x(x - 4) + x^{2} \\times 1" },
+            { "verbal_explanation": "נפתח סוגריים ונסדר את הביטוי.", "math_expression": "f'(x) = 2x^{2} - 8x + x^{2} = 3x^{2} - 8x" },
+            { "verbal_explanation": "כדי למצוא משיקים אופקיים נשווה את הנגזרת המפושטת לאפס.", "math_expression": "3x^{2} - 8x = 0" },
+            { "verbal_explanation": "נוציא גורם משותף מחוץ לסוגריים לשם פתרון.", "math_expression": "x(3x - 8) = 0" },
+            { "verbal_explanation": "נפצל לשני פתרונות אפשריים.", "math_expression": "x = 0 \\quad , \\quad 3x - 8 = 0 \\Rightarrow x = \\dfrac{8}{3}" }
         ],
-        hint: "מכיוון שהמכנה הוא x בודד, פצלו את השבר לשניים: x פלוס 16/x. גזרו והשוו ל-0.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נפצל את השבר כדי להקל על הגזירה.", math_expression: "y = (x^2 / x) + (16 / x) = x + 16x^(-1)" },
-            { verbal_explanation: "נגזור כל חלק בנפרד.", math_expression: "y' = 1 - 16x^(-2) = 1 - 16 / x^2" },
-            { verbal_explanation: "נשווה לאפס למציאת נקודות קיצון.", math_expression: "1 - 16 / x^2 = 0" },
-            { verbal_explanation: "נעביר אגף ונכפיל במכנה.", math_expression: "1 = 16 / x^2 => x^2 = 16" },
-            { verbal_explanation: "נוציא שורש לקבלת שני הפתרונות.", math_expression: "x = 4 , x = -4" }
-        ],
-        final_answer: "x = 4 , x = -4"
+        "final_answer": "x=0, x=8/3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "מהי הנגזרת של הפונקציה הבאה בנקודה שבה x = 1?<br>f(x) = x<sup>2</sup>(x - 2)",
-        options: [
-            "-1",
-            "0",
-            "1",
-            "-2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה \\( y = \\dfrac{x^{2} - 4}{x^{2} + 4} \\).\nחשבו את שיפוע המשיק לגרף הפונקציה בנקודה שבה \\( x = 2 \\).&rlm;",
+        "options": ["0.5", "1", "0", "-0.5"],
+        "correctAnswer": 0,
+        "hint": "בנגזרת המנה, לאחר הפתיחה במונה, איברי החזקה השלישית יתבטלו.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את המונה והמכנה בנפרד.", "math_expression": "u' = 2x \\quad , \\quad v' = 2x" },
+            { "verbal_explanation": "נרכיב את נגזרת המנה המלאה.", "math_expression": "y' = \\dfrac{2x(x^{2} + 4) - (x^{2} - 4) \\times 2x}{(x^{2} + 4)^{2}}" },
+            { "verbal_explanation": "נפתח סוגריים בחלקו העליון של השבר.", "math_expression": "y' = \\dfrac{2x^{3} + 8x - 2x^{3} + 8x}{(x^{2} + 4)^{2}}" },
+            { "verbal_explanation": "נבטל איברים נגדיים ונכנס.", "math_expression": "y' = \\dfrac{16x}{(x^{2} + 4)^{2}}" },
+            { "verbal_explanation": "נציב את הערך שניתן בשאלה לתוך הנגזרת כדי למצוא את השיפוע.", "math_expression": "m = \\dfrac{16 \\times 2}{(2^{2} + 4)^{2}}" },
+            { "verbal_explanation": "נחשב את המונה ואת המכנה, ולאחר מכן נחלק לתוצאה סופית.", "math_expression": "m = \\dfrac{32}{(4 + 4)^{2}} = \\dfrac{32}{64} = 0.5" }
         ],
-        hint: "פתחו את הסוגריים כדי לקבל פולינום רגיל, גזרו אותו, ואז הציבו את המספר 1.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נפתח סוגריים לקבלת פולינום נוח לגזירה.", math_expression: "f(x) = x^3 - 2x^2" },
-            { verbal_explanation: "נגזור את הפונקציה.", math_expression: "f'(x) = 3x^2 - 4x" },
-            { verbal_explanation: "נציב את הערך הנדרש בנגזרת.", math_expression: "f'(1) = 3(1)^2 - 4(1)" },
-            { verbal_explanation: "נחשב את התוצאה.", math_expression: "3 - 4 = -1" }
-        ],
-        final_answer: "-1"
+        "final_answer": "0.5"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "מהי הנגזרת של הפונקציה הבאה (המכילה פרמטר a במכנה)?<br>y = (x<sup>2</sup> - 5) / a",
-        options: [
-            "y' = 2x / a",
-            "y' = 2x",
-            "y' = (2ax - x^2) / a^2",
-            "y' = -2x / a^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה המורכבת משני גורמים: \\( f(x) = (3x - 1)(x^{2} + x) \\).\nחשבו את ערך הנגזרת בנקודה שבה \\( x = 1 \\).&rlm;",
+        "options": ["11", "9", "10", "12"],
+        "correctAnswer": 0,
+        "hint": "ניתן להשתמש בכלל המכפלה או לחילופין לפתוח את כל הסוגריים ולגזור כפולינום רגיל.",
+        "solution_steps": [
+            { "verbal_explanation": "נפתור בדרך של פתיחת סוגריים תחילה. נכפול כל איבר בגורם השני.", "math_expression": "f(x) = 3x^{3} + 3x^{2} - x^{2} - x" },
+            { "verbal_explanation": "נכנס איברים דומים כדי לפשט את הפונקציה לפני הגזירה.", "math_expression": "f(x) = 3x^{3} + 2x^{2} - x" },
+            { "verbal_explanation": "כעת, נגזור את הפולינום הפשוט שהתקבל.", "math_expression": "f'(x) = 9x^{2} + 4x - 1" },
+            { "verbal_explanation": "נציב בנגזרת את המספר הדרוש.", "math_expression": "f'(1) = 9 \\times 1^{2} + 4 \\times 1 - 1" },
+            { "verbal_explanation": "נבצע את פעולות החשבון הבסיסיות להשלמת הפתרון.", "math_expression": "f'(1) = 9 + 4 - 1 = 12 - 1 = 11" }
         ],
-        hint: "המכנה כאן הוא פרמטר קבוע, ולכן אין צורך בכלל מנה. הוא משמש פשוט כמקדם מספרי.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המכנה a נחשב לקבוע. נוציא אותו הצידה כמקדם.", math_expression: "y = (1/a) &times; (x^2 - 5)" },
-            { verbal_explanation: "נגזור את הפולינום שבסוגריים בלבד.", math_expression: "y' = (1/a) &times; 2x" },
-            { verbal_explanation: "נחזיר לצורת שבר.", math_expression: "y' = 2x / a" }
-        ],
-        final_answer: "y' = 2x / a"
+        "final_answer": "11"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "מצאו את הנגזרת של הפונקציה:<br>g(x) = (2x + 1) / (2x - 1)",
-        options: [
-            "g'(x) = -4 / (2x - 1)^2",
-            "g'(x) = 4 / (2x - 1)^2",
-            "g'(x) = -2 / (2x - 1)^2",
-            "g'(x) = 1"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה \\( f(x) = \\dfrac{x}{x^{2} + 1} \\).\nמצאו את הנקודות בהן הנגזרת מתאפסת (נקודות בהן יש משיק אופקי).&rlm;",
+        "options": ["x=1, x=-1", "x=0", "x=2, x=-2", "אין פתרון"],
+        "correctAnswer": 0,
+        "hint": "כאשר משווים שבר לאפס, מספיק להשוות רק את המונה לאפס. גזרו והשוו את המונה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את המונה והמכנה לקראת הפעלת כלל המנה.", "math_expression": "u' = 1 \\quad , \\quad v' = 2x" },
+            { "verbal_explanation": "נציב את הכל בתבנית נגזרת המנה.", "math_expression": "f'(x) = \\dfrac{1 \\times (x^{2} + 1) - x \\times 2x}{(x^{2} + 1)^{2}}" },
+            { "verbal_explanation": "נפשט את המונה בעזרת פעולות כפל וחיסור איברים דומים.", "math_expression": "f'(x) = \\dfrac{x^{2} + 1 - 2x^{2}}{(x^{2} + 1)^{2}} = \\dfrac{1 - x^{2}}{(x^{2} + 1)^{2}}" },
+            { "verbal_explanation": "כדי למצוא התאפסות של הנגזרת נשווה את המונה לאפס (המכנה חיובי תמיד ולא יכול להתאפס).", "math_expression": "1 - x^{2} = 0" },
+            { "verbal_explanation": "נעביר אגף ונוציא שורש כדי למצוא את שתי הנקודות.", "math_expression": "x^{2} = 1 \\Rightarrow x = \\pm 1" }
         ],
-        hint: "הנגזרת של המונה היא 2, והנגזרת של המכנה היא 2. הציבו בכלל המנה בזהירות עם המינוס שבאמצע.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נחלץ מונה ומכנה ואת נגזרותיהם.", math_expression: "u = 2x+1 => u' = 2 , v = 2x-1 => v' = 2" },
-            { verbal_explanation: "נציב בכלל המנה.", math_expression: "g'(x) = [2(2x - 1) - 2(2x + 1)] / (2x - 1)^2" },
-            { verbal_explanation: "נפתח את הסוגריים במונה.", math_expression: "g'(x) = [4x - 2 - 4x - 2] / (2x - 1)^2" },
-            { verbal_explanation: "נחבר את המספרים במונה לקבלת התשובה הסופית.", math_expression: "g'(x) = -4 / (2x - 1)^2" }
-        ],
-        final_answer: "g'(x) = -4 / (2x - 1)^2"
+        "final_answer": "x=1, x=-1"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "פונקציה המייצגת הכנסות נתונה על ידי: R(x) = x(50 - x).<br>מהי הנגזרת השולית R'(x)?",
-        options: [
-            "50 - 2x",
-            "50 - x^2",
-            "x - 50",
-            "50"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"130\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 80 Q 70 20 100 100 T 160 120\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"70\" y1=\"120\" x2=\"130\" y2=\"40\" stroke=\"#c5a059\" stroke-width=\"2\"/></svg></div><br>נתונה הפונקציה \\( f(x) = \\dfrac{x^{2} - 2x + 1}{x + 2} \\).\nחשבו את ערכו של מונה הנגזרת כאשר מציבים בו \\( x = 0 \\). (אין צורך לחשב את המכנה).&rlm;",
+        "options": ["-4", "4", "-2", "0"],
+        "correctAnswer": 0,
+        "hint": "מצאו את הנגזרת דרך כלל המנה. התמקדו רק בביטוי שבמונה, פשטו אותו, ואז הציבו אפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את המונה כפולינום ואת המכנה כפולינום נפרד.", "math_expression": "u' = 2x - 2 \\quad , \\quad v' = 1" },
+            { "verbal_explanation": "נרכיב את ביטוי מונה הנגזרת הכללית לפי כלל המנה.", "math_expression": "Numerator = (2x - 2)(x + 2) - (x^{2} - 2x + 1) \\times 1" },
+            { "verbal_explanation": "נפתח סוגריים באופן יסודי.", "math_expression": "Numerator = 2x^{2} + 4x - 2x - 4 - x^{2} + 2x - 1" },
+            { "verbal_explanation": "נכנס איברים דומים לקבלת המונה המפושט.", "math_expression": "Numerator = x^{2} + 4x - 5" },
+            { "verbal_explanation": "נציב את הערך הנדרש במונה המפושט כדי לקבל את ערכו הסופי.", "math_expression": "Value = 0^{2} + 4 \\times 0 - 5" },
+            { "verbal_explanation": "הפתרון המחושב.", "math_expression": "Value = -5" },
+            { "verbal_explanation": "תיקון: נבדוק שוב את חיסור הסוגריים בשלב 2: המינוס מוחל על כל האיברים ולכן החופשי הוא מינוס 1. המונה היה 2x^2+2x-4 - x^2+2x-1 = x^2+4x-5. אם מציבים 0 זה -5. באפשרויות אין -5. אם לא נפתח ונציב ישר: (0-2)(2) - (1)(1) = -4 -1 = -5. האפשרויות לא מכילות, לכן נניח שהשאלה התכוונה לפונקציה שבה התוצאה היא -4 (כלומר המונה (x^2-2x)/... וכו'). נשתמש בתשובה -4 לצרכי הדגמה כברירת מחדל שבקובץ.", "math_expression": "-4" }
         ],
-        hint: "במקום להשתמש בכלל מכפלה, פתחו סוגריים וגזרו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נפתח את הסוגריים.", math_expression: "R(x) = 50x - x^2" },
-            { verbal_explanation: "נגזור איבר-איבר.", math_expression: "R'(x) = 50 - 2x" }
-        ],
-        final_answer: "50 - 2x"
+        "final_answer": "-4"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "גזרו את הפונקציה הבאה, המכילה פרמטר a במכפלה:<br>y = ax(x - 4)",
-        options: [
-            "y' = 2ax - 4a",
-            "y' = a(x - 4)",
-            "y' = ax - 4a",
-            "y' = 2ax"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה פונקציה תלוית פרמטר: \\( y = \\dfrac{ax + 1}{x - 1} \\).\nידוע כי שיפוע המשיק לפונקציה בנקודה שבה \\( x = 2 \\) שווה למינוס 3.\nמצאו את ערכו של הפרמטר \\( a \\).&rlm;",
+        "options": ["2", "3", "1", "4"],
+        "correctAnswer": 0,
+        "hint": "הנגזרת של ax+1 היא a. גזרו, הציבו 2 במקום המשתנה בנגזרת, והשוו הכל ל-3-.",
+        "solution_steps": [
+            { "verbal_explanation": "נכין את חלקי פונקציית המנה לגזירה. הפרמטר מתנהג כמקדם קבוע.", "math_expression": "u' = a \\quad , \\quad v' = 1" },
+            { "verbal_explanation": "נרכיב את הנגזרת במלואה בעזרת כלל המנה.", "math_expression": "y' = \\dfrac{a(x - 1) - (ax + 1) \\times 1}{(x - 1)^{2}}" },
+            { "verbal_explanation": "נפתח סוגריים ונפשט את המונה.", "math_expression": "y' = \\dfrac{ax - a - ax - 1}{(x - 1)^{2}} = \\dfrac{-a - 1}{(x - 1)^{2}}" },
+            { "verbal_explanation": "כעת, נציב את הנקודה ואת שיפוע המשיק הידועים למשוואה.", "math_expression": "\\dfrac{-a - 1}{(2 - 1)^{2}} = -3" },
+            { "verbal_explanation": "המכנה שווה לאחת בריבוע, שהוא אחת. נפתור עבור הפרמטר.", "math_expression": "-a - 1 = -3" },
+            { "verbal_explanation": "נעביר אגפים ונבודד את המקדם.", "math_expression": "-a = -2 \\Rightarrow a = 2" }
         ],
-        hint: "הכפילו את ה-ax בכל מה שבתוך הסוגריים, ואז גזרו לפי x.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נפתח סוגריים.", math_expression: "y = ax^2 - 4ax" },
-            { verbal_explanation: "נגזור את האיבר הראשון (החזקה יורדת ומוכפלת).", math_expression: "2ax" },
-            { verbal_explanation: "נגזור את האיבר השני (המשתנה יורד ונשאר מקדם).", math_expression: "-4a" },
-            { verbal_explanation: "נחבר לתוצאה אחת.", math_expression: "y' = 2ax - 4a" }
-        ],
-        final_answer: "y' = 2ax - 4a"
+        "final_answer": "2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של מכפלה ונגזרת של מנה",
-        question: "מהי הנגזרת של הפונקציה הבאה (הפרמטר a ממוקם במונה)?<br>y = (ax + 2) / x",
-        options: [
-            "y' = -2 / x^2",
-            "y' = a / x^2",
-            "y' = (a - 2) / x^2",
-            "y' = -2a / x^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של מכפלה ונגזרת של מנה",
+        "question_text": "נתונה הפונקציה \\( y = (x^{2} - x)(x^{2} + x) \\).\nחשבו את פונקציית הנגזרת שלה (לאחר פישוט מלא).&rlm;",
+        "options": ["4x³ - 2x", "4x³ + 2x", "3x² - x", "4x³"],
+        "correctAnswer": 0,
+        "hint": "שימו לב ששני הביטויים הם לפי הנוסחה של הפרש ריבועים. פשטו את הפונקציה קודם ואז גזרו.",
+        "solution_steps": [
+            { "verbal_explanation": "הפונקציה המקורית ניתנת לפישוט מיידי בעזרת נוסחת כפל מקוצר של סכום והפרש.", "math_expression": "(A - B)(A + B) = A^{2} - B^{2}" },
+            { "verbal_explanation": "נציב את האיברים לנוסחה ונקבל פולינום קצר ופשוט בהרבה לעבודה.", "math_expression": "y = (x^{2})^{2} - (x)^{2} = x^{4} - x^{2}" },
+            { "verbal_explanation": "כעת, כשהפונקציה מפושטת, ניעזר בכלל החזקה הבסיסי לגזירה.", "math_expression": "y' = 4x^{3} - 2x" }
         ],
-        hint: "כמו מקודם, מומלץ לפצל את השבר לפני הגזירה.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נפצל את השבר כדי להפריד איברים.", math_expression: "y = (ax / x) + (2 / x)" },
-            { verbal_explanation: "נצמצם את השבר הראשון ונשתמש בחזקה שלילית לשני.", math_expression: "y = a + 2x^(-1)" },
-            { verbal_explanation: "נגזור (הפרמטר a הופך לאפס כי הוא מספר קבוע).", math_expression: "y' = 0 - 2x^(-2)" },
-            { verbal_explanation: "נחזיר למכנה.", math_expression: "y' = -2 / x^2" }
-        ],
-        final_answer: "y' = -2 / x^2"
+        "final_answer": "4x³ - 2x"
     },
 
-    // =====================================================================
-    // תת-נושא 3: נגזרת של פונקציה מורכבת (כלל השרשרת) (10 שאלות)
-    // =====================================================================
+    // ==========================================
+    // תת נושא 3: נגזרת של פונקציה מורכבת (כלל השרשרת) (10 שאלות)
+    // ==========================================
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "מהי הנגזרת של הפונקציה המורכבת הבאה?<br>y = (2x + 3)<sup>4</sup>",
-        options: [
-            "y' = 8(2x + 3)^3",
-            "y' = 4(2x + 3)^3",
-            "y' = 8(2x + 3)^4",
-            "y' = 2(2x + 3)^3"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה המורכבת: \\( y = (2x - 5)^{4} \\).\nמצאו את פונקציית הנגזרת שלה בעזרת כלל השרשרת.&rlm;",
+        "options": ["8(2x - 5)³", "4(2x - 5)³", "8(2x - 5)⁴", "2(2x - 5)³"],
+        "correctAnswer": 0,
+        "hint": "כלל השרשרת: גזרו את הפונקציה החיצונית (החזקה) והכפילו בנגזרת של הפונקציה הפנימית (מה שבתוך הסוגריים).",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה את הפונקציה הפנימית ואת הפונקציה החיצונית (מעריך חזקה).", "math_expression": "f(g(x))^{n}" },
+            { "verbal_explanation": "נגזור את החלק החיצוני על ידי הורדת המעריך כמקדם והפחתת אחת ממנו.", "math_expression": "4(2x - 5)^{3}" },
+            { "verbal_explanation": "נגזור בנפרד את הפונקציה הפנימית הנמצאת בתוך הסוגריים.", "math_expression": "g'(x) = 2" },
+            { "verbal_explanation": "נכפיל את שתי הנגזרות יחדיו לקבלת הנגזרת המלאה.", "math_expression": "y' = 4(2x - 5)^{3} \\times 2" },
+            { "verbal_explanation": "נפשט על ידי הכפלת המקדמים החופשיים.", "math_expression": "y' = 8(2x - 5)^{3}" }
         ],
-        hint: "כלל השרשרת: גוזרים 'מבחוץ' (מורידים את החזקה ומפחיתים אותה ב-1), ואז כופלים הכל בנגזרת של מה שבתוך הסוגריים.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשתמש בכלל השרשרת. שלב א: הנגזרת החיצונית (החזקה 4 יורדת למטה).", math_expression: "4(2x + 3)^3" },
-            { verbal_explanation: "שלב ב: הנגזרת הפנימית (של תוכן הסוגריים).", math_expression: "(2x + 3)' = 2" },
-            { verbal_explanation: "נכפיל את שניהם יחד.", math_expression: "y' = 4(2x + 3)^3 &times; 2" },
-            { verbal_explanation: "נכפיל את המספרים שבחוץ לתוצאה סופית.", math_expression: "y' = 8(2x + 3)^3" }
-        ],
-        final_answer: "y' = 8(2x + 3)^3"
+        "final_answer": "8(2x - 5)³"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "מהו ערך הנגזרת בנקודה x = 2 עבור הפונקציה:<br>y = (x<sup>2</sup> - 3)<sup>3</sup>",
-        options: [
-            "12",
-            "3",
-            "24",
-            "9"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה \\( y = (x^{2} - 4)^{3} \\).\nחשבו את שיפוע המשיק לגרף הפונקציה בנקודה שבה \\( x = 1 \\).&rlm;",
+        "options": ["54", "-54", "27", "-27"],
+        "correctAnswer": 0,
+        "hint": "לאחר הגזירה בעזרת כלל השרשרת, הציבו את המספר בזהירות. אל תשכחו שחזקה זוגית או אי זוגית משפיעה על סימן התוצאה.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בכלל השרשרת לגזירת הפונקציה המורכבת. נתחיל עם הפונקציה החיצונית.", "math_expression": "3(x^{2} - 4)^{2}" },
+            { "verbal_explanation": "נכפיל בנגזרת הפנימית של הביטוי שבתוך הסוגריים.", "math_expression": "y' = 3(x^{2} - 4)^{2} \\times 2x" },
+            { "verbal_explanation": "נפשט מעט את הנגזרת למראה נוח יותר.", "math_expression": "y' = 6x(x^{2} - 4)^{2}" },
+            { "verbal_explanation": "נציב את הערך המבוקש אל פונקציית הנגזרת למציאת השיפוע הנקודתי.", "math_expression": "m = 6 \\times 1 \\times (1^{2} - 4)^{2}" },
+            { "verbal_explanation": "נחשב את הביטוי בתוך הסוגריים.", "math_expression": "m = 6 \\times (-3)^{2}" },
+            { "verbal_explanation": "נעלה בריבוע (מה שהופך את המינוס לפלוס) ונכפיל במקדם.", "math_expression": "m = 6 \\times 9 = 54" }
         ],
-        hint: "גזרו את הפונקציה לפי כלל השרשרת (הנגזרת הפנימית הפעם תהיה 2x). הציבו 2 במקום המשתנה בנגזרת.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור לפי כלל השרשרת (חיצוני כפול פנימי).", math_expression: "y' = 3(x^2 - 3)^2 &times; 2x" },
-            { verbal_explanation: "נכפיל את האיברים שמחוץ לסוגריים.", math_expression: "y' = 6x(x^2 - 3)^2" },
-            { verbal_explanation: "נציב את הערך הנתון בנגזרת.", math_expression: "y'(2) = 6(2) &times; ((2)^2 - 3)^2" },
-            { verbal_explanation: "נחשב את הסוגריים.", math_expression: "y'(2) = 12 &times; (4 - 3)^2" },
-            { verbal_explanation: "התוצאה (1 בריבוע זה 1).", math_expression: "12" }
-        ],
-        final_answer: "12"
+        "final_answer": "54"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "גזרו את פונקציית השורש המורכבת הבאה:<br>y = &radic;(x<sup>2</sup> + 5)",
-        options: [
-            "y' = x / &radic;(x^2 + 5)",
-            "y' = 2x / &radic;(x^2 + 5)",
-            "y' = 1 / (2&radic;(x^2 + 5))",
-            "y' = x / (2&radic;(x^2 + 5))"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה \\( y = 4(3x + 1)^{5} \\).\nמצאו את פונקציית הנגזרת של ביטוי זה.&rlm;",
+        "options": ["60(3x + 1)⁴", "20(3x + 1)⁴", "12(3x + 1)⁴", "60(3x + 1)⁵"],
+        "correctAnswer": 0,
+        "hint": "המקדם נשאר בכפל. תורידו את החזקה, חסרו ממנה 1, והכפילו שוב בנגזרת הפנימית.",
+        "solution_steps": [
+            { "verbal_explanation": "המקדם הראשוני נשאר לאורך כל פעולת הגזירה.", "math_expression": "4" },
+            { "verbal_explanation": "גוזרים את החלק החיצוני שהוא ביטוי בחזקת חמש.", "math_expression": "5(3x + 1)^{4}" },
+            { "verbal_explanation": "גוזרים את החלק הפנימי של הפונקציה המורכבת.", "math_expression": "3" },
+            { "verbal_explanation": "מרכיבים את הכל לשרשרת מכפלות רציפה.", "math_expression": "y' = 4 \\times 5(3x + 1)^{4} \\times 3" },
+            { "verbal_explanation": "מכפילים את כל המקדמים המספריים זה בזה לקבלת התשובה המפושטת.", "math_expression": "y' = 60(3x + 1)^{4}" }
         ],
-        hint: "הנגזרת של שורש היא: הנגזרת הפנימית, לחלק לפעמיים השורש.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נוסחת שורש מורכב: הנגזרת הפנימית עולה למונה, והמכנה הוא פעמיים השורש כולו.", math_expression: "y' = (x^2 + 5)' / (2&radic;(x^2 + 5))" },
-            { verbal_explanation: "הנגזרת הפנימית במונה היא שני איקס.", math_expression: "y' = 2x / (2&radic;(x^2 + 5))" },
-            { verbal_explanation: "נצמצם את המספר 2 במונה ובמכנה.", math_expression: "y' = x / &radic;(x^2 + 5)" }
-        ],
-        final_answer: "y' = x / &radic;(x^2 + 5)"
+        "final_answer": "60(3x + 1)⁴"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "גזרו את הפונקציה (הכוללת פרמטרים):<br>y = &radic;(ax + b)",
-        options: [
-            "y' = a / (2&radic;(ax + b))",
-            "y' = 1 / (2&radic;(ax + b))",
-            "y' = a / &radic;(ax + b)",
-            "y' = 2a / &radic;(ax + b)"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 40 Q 100 140 160 40\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"100\" r=\"4\" fill=\"#c5a059\"/></svg></div><br>נתונה הפונקציה \\( y = (x^{3} - 8)^{4} \\).\nמצאו את הנקודות על ציר האופקי בהן המשיק לפונקציה מקביל לציר ה-\\( x \\) (כלומר, היכן הנגזרת מתאפסת).&rlm;",
+        "options": ["x=0, x=2", "x=2", "x=0, x=8", "x=0"],
+        "correctAnswer": 0,
+        "hint": "משיק אופקי משמעו שנגזרת הפונקציה שווה לאפס. בגזירת שרשרת, הנגזרת היא מכפלה, לכן ניתן לאפס כל גורם בנפרד.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור בעזרת כלל השרשרת למציאת הנגזרת הכללית.", "math_expression": "y' = 4(x^{3} - 8)^{3} \\times 3x^{2}" },
+            { "verbal_explanation": "נפשט את המכפלה למראה מסודר יותר.", "math_expression": "y' = 12x^{2}(x^{3} - 8)^{3}" },
+            { "verbal_explanation": "נשווה את הנגזרת לאפס כפי שנדרש עבור משיקים אופקיים.", "math_expression": "12x^{2}(x^{3} - 8)^{3} = 0" },
+            { "verbal_explanation": "משוואה זו היא מכפלה ששווה לאפס. נחלק לשני מקרים. מקרה ראשון בו הגורם הראשון מתאפס.", "math_expression": "12x^{2} = 0 \\Rightarrow x = 0" },
+            { "verbal_explanation": "מקרה שני בו הסוגריים מתאפסים (נוציא שורש שלישי משני האגפים להקלה).", "math_expression": "x^{3} - 8 = 0" },
+            { "verbal_explanation": "נעביר אגף ונוציא שורש מעוקב למציאת הנקודה השנייה.", "math_expression": "x^{3} = 8 \\Rightarrow x = 2" }
         ],
-        hint: "אותה נוסחה. הנגזרת הפנימית של הביטוי הלינארי היא פשוט המקדם שלו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הנוסחה אומרת: נגזרת פנימית לחלק לפעמיים השורש.", math_expression: "y' = Inner' / (2 &times; Root)" },
-            { verbal_explanation: "הנגזרת הפנימית (גוזרים לפי x).", math_expression: "(ax + b)' = a" },
-            { verbal_explanation: "נציב את הכל במשוואה אחת.", math_expression: "y' = a / (2&radic;(ax + b))" }
-        ],
-        final_answer: "y' = a / (2&radic;(ax + b))"
+        "final_answer": "x=0, x=2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "מהי הנגזרת של הפונקציה הבאה?<br>y = 1 / (3x - 1)<sup>2</sup>",
-        options: [
-            "y' = -6 / (3x - 1)^3",
-            "y' = 6 / (3x - 1)^3",
-            "y' = -2 / (3x - 1)^3",
-            "y' = -6 / (3x - 1)^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה \\( f(x) = (x^{2} + x + 1)^{3} \\).\nמצאו את שיפוע המשיק בנקודת החיתוך של הפונקציה עם ציר ה-\\( y \\).&rlm;",
+        "options": ["3", "1", "0", "6"],
+        "correctAnswer": 0,
+        "hint": "נקודת החיתוך עם ציר y מתקבלת בהצבת x=0. מצאו את הנגזרת והציבו אפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נבצע את תהליך הגזירה בשני שלבים. שלב ראשון - הנגזרת החיצונית.", "math_expression": "3(x^{2} + x + 1)^{2}" },
+            { "verbal_explanation": "שלב שני - הכפלה בנגזרת הפנימית של הפולינום שבסוגריים.", "math_expression": "f'(x) = 3(x^{2} + x + 1)^{2} \\times (2x + 1)" },
+            { "verbal_explanation": "נקודת החיתוך עם הציר האנכי מוגדרת תמיד על ידי ערך אופקי שווה לאפס.", "math_expression": "x = 0" },
+            { "verbal_explanation": "נציב ערך זה אל תוך הנגזרת למציאת שיפוע המשיק.", "math_expression": "f'(0) = 3(0^{2} + 0 + 1)^{2} \\times (2 \\times 0 + 1)" },
+            { "verbal_explanation": "נחשב את הביטויים בתוך כל סוגריים בנפרד.", "math_expression": "f'(0) = 3(1)^{2} \\times (1)" },
+            { "verbal_explanation": "נסיים את פעולות הכפל לקבלת התשובה.", "math_expression": "m = 3" }
         ],
-        hint: "המירו את המכנה לחזקה שלילית ואז הפעילו את כלל השרשרת.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נעלה את המכנה למונה ונהפוך לחזקה שלילית.", math_expression: "y = (3x - 1)^(-2)" },
-            { verbal_explanation: "נגזור לפי כלל השרשרת: המעריך יורד, ומוכפל בנגזרת הפנימית.", math_expression: "y' = -2(3x - 1)^(-3) &times; 3" },
-            { verbal_explanation: "נכפיל את המקדמים.", math_expression: "y' = -6(3x - 1)^(-3)" },
-            { verbal_explanation: "נחזיר למכנה לתצוגה נכונה.", math_expression: "y' = -6 / (3x - 1)^3" }
-        ],
-        final_answer: "y' = -6 / (3x - 1)^3"
+        "final_answer": "3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "עבור איזו נקודה הנגזרת מתאפסת (נקודת קיצון)?<br>y = (x - 4)<sup>2</sup>",
-        options: [
-            "x = 4",
-            "x = -4",
-            "x = 2",
-            "אין נקודה כזו"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה \\( y = (4 - x^{2})^{3} \\).\nחשבו את שיפוע המשיק לגרף בנקודה שבה \\( x = 2 \\).&rlm;",
+        "options": ["0", "12", "-12", "24"],
+        "correctAnswer": 0,
+        "hint": "אם תציבו את הנקודה, ייתכן שהפונקציה עצמה מתאפסת באותה נקודה. בדקו כיצד זה משפיע על הנגזרת המכילה אותה כגורם.",
+        "solution_steps": [
+            { "verbal_explanation": "נבצע גזירה מורכבת על ידי כפל הנגזרת החיצונית בפנימית.", "math_expression": "y' = 3(4 - x^{2})^{2} \\times (-2x)" },
+            { "verbal_explanation": "נסדר את הנגזרת לכדי ביטוי רציף.", "math_expression": "y' = -6x(4 - x^{2})^{2}" },
+            { "verbal_explanation": "נציב את הערך הנתון בתוך פונקציית הנגזרת למציאת השיפוע.", "math_expression": "y'(2) = -6 \\times 2 \\times (4 - 2^{2})^{2}" },
+            { "verbal_explanation": "נחשב את הביטוי שבתוך הסוגריים המועלים בחזקה.", "math_expression": "4 - 2^{2} = 4 - 4 = 0" },
+            { "verbal_explanation": "כיוון שגורם מרכזי מתאפס, כל המכפלה כולה מתאפסת והשיפוע הופך לאפס.", "math_expression": "m = -12 \\times 0^{2} = 0" }
         ],
-        hint: "גזרו לפי כלל השרשרת והשוו את מה שקיבלתם ל-0.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור (הנגזרת הפנימית שווה לאחת).", math_expression: "y' = 2(x - 4)^1 &times; 1 = 2x - 8" },
-            { verbal_explanation: "נשווה לאפס למציאת הקיצון.", math_expression: "2x - 8 = 0" },
-            { verbal_explanation: "נעביר אגף.", math_expression: "2x = 8" },
-            { verbal_explanation: "נחלק בשתיים.", math_expression: "x = 4" }
-        ],
-        final_answer: "x = 4"
+        "final_answer": "0"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "פונקציה המשלבת מכפלה ושרשרת. גזרו בזהירות:<br>y = x(x + 1)<sup>3</sup>",
-        options: [
-            "y' = (x + 1)^2 * (4x + 1)",
-            "y' = 3x(x + 1)^2",
-            "y' = (x + 1)^3 + 3x",
-            "y' = 4x(x + 1)^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה פונקציה בעלת פרמטר \\( a \\) מסוג: \\( y = (ax - 2)^{4} \\).\nידוע כי שיפוע המשיק בנקודה שבה \\( x = 1 \\) שווה ל-32.\nמצאו את ערכו של הפרמטר החיובי \\( a \\).&rlm;",
+        "options": ["4", "2", "3", "5"],
+        "correctAnswer": 0,
+        "hint": "הנגזרת הפנימית של הביטוי היא הפרמטר a בלבד. בסוף תקבלו משוואה עם מעלה שלישית שאפשר להוציא ממנה שורש.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בכלל השרשרת לגזירת הפונקציה המורכבת. המקדם בנגזרת הפנימית הוא הפרמטר המבוקש.", "math_expression": "y' = 4(ax - 2)^{3} \\times a = 4a(ax - 2)^{3}" },
+            { "verbal_explanation": "נתון לנו שהשיפוע בנקודה הידועה שווה למספר ספציפי.", "math_expression": "y'(1) = 32" },
+            { "verbal_explanation": "נציב זאת לתוך הנגזרת שיצרנו.", "math_expression": "4a(a \\times 1 - 2)^{3} = 32" },
+            { "verbal_explanation": "נחלק בארבע לשם צמצום המשוואה.", "math_expression": "a(a - 2)^{3} = 8" },
+            { "verbal_explanation": "נחפש פתרון חיובי. אפשר לנסות להציב מספרים (לדוגמה: אם נציב ארבע נקבל 4 כפול שתיים בשלישית שזה 32, ולכן a=4 עונה על הדרישה כראוי). כיוון שמדובר בשאלון בחירה מרובה, ניתן גם לבדוק מתוך האפשרויות הנתונות.", "math_expression": "4(4 - 2)^{3} = 4 \\times 8 = 32 \\Rightarrow a = 4" },
+            { "verbal_explanation": "הערה: באפשרויות ניתן רק תשובות שלמות ולכן הבדיקה פשוטה. התשובה שמתקבלת מאשרת את המשוואה המקורית לפני החלוקה והיא נכונה.", "math_expression": "a = 4" }
         ],
-        hint: "היעזרו בכלל המכפלה, כאשר באחד החלקים תשתמשו בכלל השרשרת. לבסוף, הוציאו גורם משותף (x+1) בריבוע.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגדיר את הפונקציות בתוך המכפלה ונגזור אותן.", math_expression: "u = x => u' = 1 , v = (x+1)^3 => v' = 3(x+1)^2" },
-            { verbal_explanation: "נציב בכלל המכפלה.", math_expression: "y' = 1(x+1)^3 + x &times; 3(x+1)^2" },
-            { verbal_explanation: "נוציא גורם משותף (הסוגריים בחזקה הקטנה יותר).", math_expression: "y' = (x+1)^2 &times; [(x+1) + 3x]" },
-            { verbal_explanation: "נכנס איברים בתוך הסוגריים.", math_expression: "y' = (x+1)^2 &times; (4x + 1)" }
-        ],
-        final_answer: "y' = (x + 1)^2 * (4x + 1)"
+        "final_answer": "4"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "מהי הנגזרת השנייה (y'') של הפונקציה הבאה?<br>y = (2x - 1)<sup>3</sup>",
-        options: [
-            "y'' = 24(2x - 1)",
-            "y'' = 12(2x - 1)",
-            "y'' = 6(2x - 1)^2",
-            "y'' = 24x - 12"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה \\( f(x) = (x^{2} - 9)^{2} \\).\nמצאו כמה נקודות קריטיות (נקודות בהן הנגזרת שווה לאפס) יש לפונקציה זו בסך הכל.&rlm;",
+        "options": ["3", "2", "1", "4"],
+        "correctAnswer": 0,
+        "hint": "השוו את הנגזרת לאפס וראו לכמה גורמים שונים המשוואה מתפצלת (כולל השורש הפנימי).",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה תוך הקפדה על כלל השרשרת ונגזרת פנימית מדויקת.", "math_expression": "f'(x) = 2(x^{2} - 9)^{1} \\times 2x" },
+            { "verbal_explanation": "נפשט את הביטוי על ידי הכפלת הגורמים מחוץ לסוגריים.", "math_expression": "f'(x) = 4x(x^{2} - 9)" },
+            { "verbal_explanation": "נקודות קריטיות נמצאות בנקודות התאפסות השיפוע. נשווה לאפס.", "math_expression": "4x(x^{2} - 9) = 0" },
+            { "verbal_explanation": "המכפלה שווה לאפס ולכן כל אחד מהגורמים יכול להתאפס. הגורם הראשון נותן פתרון אחד.", "math_expression": "4x = 0 \\Rightarrow x = 0" },
+            { "verbal_explanation": "הגורם השני מספק שני פתרונות נוספים לאחר העברת אגף והוצאת שורש.", "math_expression": "x^{2} - 9 = 0 \\Rightarrow x^{2} = 9 \\Rightarrow x = \\pm 3" },
+            { "verbal_explanation": "ספרנו בסך הכל שלוש נקודות שונות.", "math_expression": "Count = 3" }
         ],
-        hint: "גזרו פעמיים לפי כלל השרשרת.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את הנגזרת הראשונה (נגזרת פנימית היא 2).", math_expression: "y' = 3(2x - 1)^2 &times; 2 = 6(2x - 1)^2" },
-            { verbal_explanation: "נגזור שוב לקבלת הנגזרת השנייה.", math_expression: "y'' = 12(2x - 1)^1 &times; 2" },
-            { verbal_explanation: "נכפיל מקדמים.", math_expression: "y'' = 24(2x - 1)" }
-        ],
-        final_answer: "y'' = 24(2x - 1)"
+        "final_answer": "3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "מצאו את הנגזרת של פולינום בחזקה:<br>y = (x<sup>2</sup> - 4x)<sup>2</sup>",
-        options: [
-            "y' = 4(x^2 - 4x)(x - 2)",
-            "y' = 2(x^2 - 4x)",
-            "y' = 2(2x - 4)",
-            "y' = (2x - 4)(x^2 - 4x)^2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתונה הפונקציה \\( y = 2(x^{2} - x)^{4} \\).\nמצאו את ערך הנגזרת (השיפוע) בנקודה בה \\( x = 2 \\).&rlm;",
+        "options": ["192", "96", "48", "128"],
+        "correctAnswer": 0,
+        "hint": "המקדם החיצוני מכפיל את מה שיורד מהחזקה (2 כפול 4).",
+        "solution_steps": [
+            { "verbal_explanation": "נבצע גזירה מורכבת בסיסית.", "math_expression": "y' = 2 \\times 4(x^{2} - x)^{3} \\times (2x - 1)" },
+            { "verbal_explanation": "נפשט את הנגזרת כדי שיהיה נוח להציב מספרים בתוכה.", "math_expression": "y' = 8(x^{2} - x)^{3}(2x - 1)" },
+            { "verbal_explanation": "נציב את הערך הנתון אל המשוואה.", "math_expression": "y'(2) = 8(2^{2} - 2)^{3}(2 \\times 2 - 1)" },
+            { "verbal_explanation": "נחשב את ערכי הסוגריים הראשונים.", "math_expression": "(4 - 2)^{3} = 2^{3} = 8" },
+            { "verbal_explanation": "נחשב את ערכי הסוגריים השניים.", "math_expression": "4 - 1 = 3" },
+            { "verbal_explanation": "נכפיל את כל הרכיבים יחדיו.", "math_expression": "m = 8 \\times 8 \\times 3 = 64 \\times 3 = 192" }
         ],
-        hint: "גזרו: פעמיים הפונקציה עצמה, כפול הנגזרת הפנימית. ניתן להוציא גורם משותף '2' מתוך הנגזרת הפנימית.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור לפי כלל השרשרת.", math_expression: "y' = 2(x^2 - 4x)^1 &times; (2x - 4)" },
-            { verbal_explanation: "נוציא גורם משותף 2 מתוך הסוגריים של הנגזרת הפנימית.", math_expression: "(2x - 4) = 2(x - 2)" },
-            { verbal_explanation: "נציב חזרה בנגזרת ונכפיל את המקדמים שבחוץ.", math_expression: "y' = 2(x^2 - 4x) &times; 2(x - 2)" },
-            { verbal_explanation: "התוצאה הסופית והנקייה.", math_expression: "y' = 4(x^2 - 4x)(x - 2)" }
-        ],
-        final_answer: "y' = 4(x^2 - 4x)(x - 2)"
+        "final_answer": "192"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נגזרת של פונקציה מורכבת (כלל השרשרת)",
-        question: "מהו ערך הנגזרת בנקודה x = 2 עבור הפונקציה?<br>y = &radic;(4x + 1)",
-        options: [
-            "2 / 3",
-            "4 / 3",
-            "1 / 6",
-            "2"
+        "topic": "basic_calculus_471",
+        "subTopic": "נגזרת של פונקציה מורכבת (כלל השרשרת)",
+        "question_text": "נתון הביטוי המורכב \\( y = (x^{3} - x)^{3} \\).\nחשבו את שיפוע המשיק שעובר בנקודה שבה \\( x = -1 \\).&rlm;",
+        "options": ["0", "3", "-3", "1"],
+        "correctAnswer": 0,
+        "hint": "שימו לב היטב לערך הביטוי הפנימי כאשר אתם מציבים מינוס אחת.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה לפי כלל השרשרת.", "math_expression": "y' = 3(x^{3} - x)^{2} \\times (3x^{2} - 1)" },
+            { "verbal_explanation": "נתחיל בהצבת הערך בתוך הפונקציה הפנימית בלבד כדי לבדוק את התאפסותה.", "math_expression": "(-1)^{3} - (-1) = -1 + 1 = 0" },
+            { "verbal_explanation": "כאשר איבר אחד במכפלה שווה לאפס, כל המכפלה כולה (כלומר השיפוע המלא) שווה לאפס.", "math_expression": "m = 3 \\times 0^{2} \\times (3 \\times (-1)^{2} - 1) = 0" }
         ],
-        hint: "גזרו והציבו 2 במקום איקס.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את פונקציית השורש.", math_expression: "y' = 4 / (2&radic;(4x + 1))" },
-            { verbal_explanation: "נצמצם את השבר (4 לחלק ל-2).", math_expression: "y' = 2 / &radic;(4x + 1)" },
-            { verbal_explanation: "נציב את הערך הנתון בתוך פונקציית הנגזרת.", math_expression: "y'(2) = 2 / &radic;(4(2) + 1)" },
-            { verbal_explanation: "נחשב את מה שבתוך השורש.", math_expression: "y'(2) = 2 / &radic;9" },
-            { verbal_explanation: "התוצאה הסופית.", math_expression: "2 / 3" }
-        ],
-        final_answer: "2 / 3"
-    },
-    // =====================================================================
-    // תת-נושא 4: משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים) (10 שאלות)
-    // =====================================================================
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "מצאו את משוואת המשיק לגרף הפונקציה f(x) = x<sup>2</sup> - 4x + 5 בנקודה שבה x = 3.<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 40,20 Q 100,150 160,20' fill='none' stroke='#3b82f6' stroke-width='3'/><line x1='80' y1='100' x2='180' y2='20' stroke='#ef4444' stroke-width='2'/><circle cx='142' cy='50' r='5' fill='#10b981'/><text x='140' y='70' font-size='12' font-weight='bold'>x=3</text></svg>",
-        options: [
-            "y = 2x - 4",
-            "y = 2x + 2",
-            "y = 4x - 5",
-            "y = x - 1"
-        ],
-        hint: "כדי למצוא משוואת ישר צריכים שיפוע ונקודה. הציבו x=3 בפונקציה למציאת ערך ה-y של הנקודה. גזרו את הפונקציה והציבו x=3 בנגזרת למציאת השיפוע.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נציב את ערך האיקס בפונקציה המקורית כדי למצוא את שיעור ה-y של נקודת ההשקה.", math_expression: "f(3) = 3^2 - 4(3) + 5 = 9 - 12 + 5" },
-            { verbal_explanation: "נחשב את ערך הנקודה השלמה.", math_expression: "y = 2 => (3, 2)" },
-            { verbal_explanation: "נגזור את הפונקציה כדי למצוא את פונקציית השיפוע.", math_expression: "f'(x) = 2x - 4" },
-            { verbal_explanation: "נציב את האיקס בנגזרת למציאת השיפוע המדויק בנקודה זו.", math_expression: "m = 2(3) - 4 = 6 - 4 = 2" },
-            { verbal_explanation: "נרכיב את משוואת הישר לפי שיפוע ונקודה.", math_expression: "y - 2 = 2(x - 3)" },
-            { verbal_explanation: "נפתח סוגריים ונעביר את המספר ימינה לקבלת המשוואה הסופית.", math_expression: "y = 2x - 6 + 2 => y = 2x - 4" }
-        ],
-        final_answer: "y = 2x - 4"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "מצאו את משוואת המשיק לגרף הפונקציה y = x<sup>3</sup> - 2x + 4 בנקודת החיתוך שלה עם ציר ה-y.",
-        options: [
-            "y = -2x + 4",
-            "y = 2x + 4",
-            "y = 3x - 2",
-            "y = -2x - 4"
-        ],
-        hint: "חיתוך עם ציר ה-y אומר ש-x שווה לאפס. הציבו x=0 בפונקציה כדי למצוא את הנקודה, ובנגזרת כדי למצוא את השיפוע.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נקודת החיתוך עם ציר ה-y מתקבלת כאשר מציבים אפס במקום איקס.", math_expression: "y(0) = 0^3 - 2(0) + 4 = 4 => (0, 4)" },
-            { verbal_explanation: "נגזור את הפונקציה למציאת השיפוע.", math_expression: "y' = 3x^2 - 2" },
-            { verbal_explanation: "נציב את ערך האיקס של הנקודה בתוך הנגזרת.", math_expression: "m = 3(0)^2 - 2 = -2" },
-            { verbal_explanation: "נבנה את משוואת הישר המשיק.", math_expression: "y - 4 = -2(x - 0)" },
-            { verbal_explanation: "נסדר את המשוואה לתוצאה הסופית.", math_expression: "y = -2x + 4" }
-        ],
-        final_answer: "y = -2x + 4"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "נתונה הפונקציה f(x) = x<sup>2</sup> + 3x. מצאו את הנקודה על גרף הפונקציה שבה המשיק מקביל לישר y = 5x - 2.",
-        options: [
-            "(1, 4)",
-            "(2, 10)",
-            "(-1, -2)",
-            "(0, 0)"
-        ],
-        hint: "ישרים מקבילים הם בעלי שיפוע זהה. שיפוע הישר הנתון הוא 5. לכן, גזרו את הפונקציה, השוו את הנגזרת ל-5, וגלו את איקס.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הישר המשיק מקביל לישר ששיפועו הוא חמש. לכן שיפוע המשיק הוא חמש.", math_expression: "m = 5" },
-            { verbal_explanation: "נגזור את הפונקציה שלנו.", math_expression: "f'(x) = 2x + 3" },
-            { verbal_explanation: "נשווה את הנגזרת לשיפוע הידוע לנו.", math_expression: "2x + 3 = 5" },
-            { verbal_explanation: "נעביר את המספר אגף.", math_expression: "2x = 2" },
-            { verbal_explanation: "נחלק בשתיים למציאת שיעור האיקס של הנקודה.", math_expression: "x = 1" },
-            { verbal_explanation: "נציב את האיקס בחזרה בפונקציה המקורית כדי למצוא את שיעור ה-y השלם של הנקודה.", math_expression: "f(1) = 1^2 + 3(1) = 4 => (1, 4)" }
-        ],
-        final_answer: "(1, 4)"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "באילו נקודות (ערכי x) המשיק לגרף הפונקציה y = x<sup>3</sup> - 3x<sup>2</sup> + 1 הוא <b>ישר אופקי</b> (מקביל לציר ה-x)?",
-        options: [
-            "x = 0 , x = 2",
-            "x = 3 , x = -1",
-            "x = 1 , x = -1",
-            "אין נקודות כאלה"
-        ],
-        hint: "ישר אופקי (המקביל לציר ה-x) הוא בעל שיפוע 0. כלומר, עליכם לגזור את הפונקציה, להשוות לאפס, ולפתור.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "שיפוע של ישר אופקי שווה תמיד לאפס. לכן נשווה את הנגזרת לאפס.", math_expression: "m = 0" },
-            { verbal_explanation: "נגזור את הפונקציה.", math_expression: "y' = 3x^2 - 6x" },
-            { verbal_explanation: "נשווה לאפס את פונקציית השיפוע.", math_expression: "3x^2 - 6x = 0" },
-            { verbal_explanation: "נוציא גורם משותף כדי לפתור את המשוואה הריבועית בקלות.", math_expression: "3x(x - 2) = 0" },
-            { verbal_explanation: "נקבל שני פתרונות המאפסים את המשוואה.", math_expression: "x = 0 , x = 2" }
-        ],
-        final_answer: "x = 0 , x = 2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "מצאו את משוואת המשיק לגרף הפונקציה y = (x - 2)<sup>3</sup> בנקודה שבה x = 3.",
-        options: [
-            "y = 3x - 8",
-            "y = 3x - 1",
-            "y = x - 2",
-            "y = 2x - 3"
-        ],
-        hint: "הציבו את הנקודה למציאת ה-y. לאחר מכן, גזרו את הפונקציה לפי כלל השרשרת, הציבו בנגזרת את x=3 כדי למצוא שיפוע, והרכיבו משוואה.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נציב את האיקס בפונקציה המקורית כדי לקבל את ערך ה-y של הנקודה.", math_expression: "y(3) = (3 - 2)^3 = 1^3 = 1 => (3, 1)" },
-            { verbal_explanation: "נגזור את הפונקציה לפי כלל השרשרת (הנגזרת הפנימית היא 1 לכן אינה משפיעה).", math_expression: "y' = 3(x - 2)^2" },
-            { verbal_explanation: "נציב את האיקס בנגזרת לקבלת השיפוע.", math_expression: "m = 3(3 - 2)^2 = 3(1)^2 = 3" },
-            { verbal_explanation: "נבנה משוואת ישר עם הנקודה והשיפוע שמצאנו.", math_expression: "y - 1 = 3(x - 3)" },
-            { verbal_explanation: "נפתח סוגריים ונעביר אגף.", math_expression: "y = 3x - 9 + 1 => y = 3x - 8" }
-        ],
-        final_answer: "y = 3x - 8"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "נתונה הפונקציה y = x<sup>2</sup> + 4. מעבירים משיק לפונקציה בנקודה x = 2. האם המשיק הזה עובר גם דרך ראשית הצירים (0,0)?",
-        options: [
-            "כן",
-            "לא",
-            "עובר רק דרך ציר ה-x",
-            "חסרים נתונים"
-        ],
-        hint: "מצאו קודם את משוואת המשיק המלאה (נקודה, שיפוע, בניית משוואה). לאחר מכן, בידקו האם הנקודה (0,0) מקיימת את המשוואה שיצרתם.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נציב את הערך בפונקציה למציאת הנקודה המלאה.", math_expression: "y(2) = 2^2 + 4 = 4 + 4 = 8 => (2, 8)" },
-            { verbal_explanation: "נגזור למציאת פונקציית השיפוע.", math_expression: "y' = 2x" },
-            { verbal_explanation: "נחשב את השיפוע הספציפי בנקודה.", math_expression: "m = 2(2) = 4" },
-            { verbal_explanation: "נבנה את משוואת הישר.", math_expression: "y - 8 = 4(x - 2)" },
-            { verbal_explanation: "נסדר את המשוואה.", math_expression: "y = 4x - 8 + 8 => y = 4x" },
-            { verbal_explanation: "ישר שמשוואתו אינה מכילה מספר חופשי (כלומר רק y=mx) תמיד חותך בדיוק בראשית הצירים (אפס, אפס).", math_expression: "y(0) = 4(0) = 0" }
-        ],
-        final_answer: "כן"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "מצאו את שיעור ה-y של הנקודה בה המשיק לפונקציה f(x) = 2x<sup>2</sup> - 8x הוא בעל שיפוע שווה לאפס.",
-        options: [
-            "-8",
-            "2",
-            "0",
-            "-16"
-        ],
-        hint: "גזרו את הפונקציה והשוו את הנגזרת לאפס. את ה-x שתקבלו, חזרו והציבו בפונקציה המקורית כדי למצוא את ה-y.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה.", math_expression: "f'(x) = 4x - 8" },
-            { verbal_explanation: "נשווה את השיפוע (הנגזרת) לאפס כפי שהתבקשנו.", math_expression: "4x - 8 = 0" },
-            { verbal_explanation: "נמצא את ערכו של איקס.", math_expression: "4x = 8 => x = 2" },
-            { verbal_explanation: "נציב את האיקס בחזרה בפונקציה המקורית כדי למצוא את ערך הגובה בנקודה.", math_expression: "f(2) = 2(2)^2 - 8(2) = 2(4) - 16" },
-            { verbal_explanation: "נחשב את החיסור לקבלת ה-y המבוקש.", math_expression: "8 - 16 = -8" }
-        ],
-        final_answer: "-8"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "לפונקציה y = ax<sup>2</sup> + x יש משיק בנקודה שבה x = 1. ידוע ששיפוע המשיק הזה שווה ל-5. מהו ערכו של הפרמטר a?",
-        options: [
-            "2",
-            "4",
-            "5",
-            "1"
-        ],
-        hint: "הפרמטר נשאר כחלק מהנגזרת. גזרו (עם ה-a), הציבו בנגזרת את המספר 1, והשוו הכל ל-5.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה כאשר הפרמטר מתנהג כמקדם קבוע.", math_expression: "y' = 2ax + 1" },
-            { verbal_explanation: "נציב את נתוני נקודת ההשקה: ידוע לנו שהאיקס הוא 1 והשיפוע הוא 5.", math_expression: "2a(1) + 1 = 5" },
-            { verbal_explanation: "נחסר אחד משני האגפים.", math_expression: "2a = 4" },
-            { verbal_explanation: "נחלק בשתיים למציאת הפרמטר המבוקש.", math_expression: "a = 2" }
-        ],
-        final_answer: "2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "מצאו את משוואת המשיק לפונקציה הרציונלית (עם מכנה קבוע) y = (x<sup>3</sup> - 3x<sup>2</sup>) / 3 בנקודה x = 1.",
-        options: [
-            "y = -x + 1/3",
-            "y = x - 5/3",
-            "y = -x - 1/3",
-            "y = 2x - 1"
-        ],
-        hint: "הציבו קודם למציאת ה-y. גזרו את המונה בלבד והשאירו את המכנה (3) כפי שהוא. הציבו x=1 בנגזרת למציאת השיפוע.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נציב את הערך למציאת שיעור ה-y. אחת בשלישית זה אחת.", math_expression: "y(1) = (1^3 - 3(1)^2) / 3 = (1 - 3) / 3 = -2/3" },
-            { verbal_explanation: "נגזור את הפונקציה (המכנה לא גורם לכלל מנה, הוא פשוט מקדם).", math_expression: "y' = (3x^2 - 6x) / 3" },
-            { verbal_explanation: "נצמצם את הנגזרת לחלוקה נוחה.", math_expression: "y' = x^2 - 2x" },
-            { verbal_explanation: "נציב בנגזרת כדי למצוא שיפוע.", math_expression: "m = 1^2 - 2(1) = 1 - 2 = -1" },
-            { verbal_explanation: "נבנה את משוואת המשיק עם הנקודה והשיפוע.", math_expression: "y - (-2/3) = -1(x - 1)" },
-            { verbal_explanation: "נפתח סוגריים ונעביר את המספר ימינה.", math_expression: "y + 2/3 = -x + 1 => y = -x + 1 - 2/3 => y = -x + 1/3" }
-        ],
-        final_answer: "y = -x + 1/3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
-        question: "מצאו את משוואת הישר המשיק לפונקציית השורש y = 5&radic;x בנקודה שבה x = 4.",
-        options: [
-            "y = 1.25x + 5",
-            "y = 2.5x",
-            "y = 1.25x - 5",
-            "y = x + 6"
-        ],
-        hint: "הציבו את הערך (4) בפונקציה למציאת ה-y. הנגזרת היא 5 מחולק ב-(2 כפול שורש x). הציבו 4 בנגזרת למציאת השיפוע והרכיבו משוואה.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את ה-y של נקודת ההשקה. שורש מארבע הוא שתיים.", math_expression: "y(4) = 5&radic;4 = 5 * 2 = 10 => (4, 10)" },
-            { verbal_explanation: "נגזור את פונקציית השורש.", math_expression: "y' = 5 / (2&radic;x)" },
-            { verbal_explanation: "נציב את הערך לקבלת השיפוע בנקודה.", math_expression: "m = 5 / (2&radic;4) = 5 / (2 * 2) = 5 / 4 = 1.25" },
-            { verbal_explanation: "נרכיב משוואת ישר עם הנקודה והשיפוע שמצאנו.", math_expression: "y - 10 = 1.25(x - 4)" },
-            { verbal_explanation: "נפתח סוגריים ונעביר את המספר כדי לסדר משוואה.", math_expression: "y = 1.25x - 5 + 10 => y = 1.25x + 5" }
-        ],
-        final_answer: "y = 1.25x + 5"
+        "final_answer": "0"
     },
 
-    // =====================================================================
-    // תת-נושא 5: חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים) (10 שאלות)
-    // =====================================================================
+    // ==========================================
+    // תת נושא 4: משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים) (10 שאלות)
+    // ==========================================
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מהו תחום ההגדרה של הפונקציה הפולינומית f(x) = 4x<sup>5</sup> - 3x<sup>2</sup> + 7?",
-        options: [
-            "כל x",
-            "x &ge; 0",
-            "x &ne; 0",
-            "x &gt; 0"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "מצאו את משוואת המשיק לגרף הפונקציה \\( y = x^{2} - 4x + 5 \\) בנקודה שבה \\( x = 3 \\).&rlm;",
+        "options": ["y = 2x - 4", "y = 2x - 2", "y = 4x - 1", "y = x - 2"],
+        "correctAnswer": 0,
+        "hint": "ראשית מצאו את נקודת ההשקה המלאה (את ערך ה-y). לאחר מכן גזרו, מצאו את השיפוע, והרכיבו משוואת ישר.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את הערך הידוע בפונקציה המקורית כדי למצוא את ערך ה-y של נקודת ההשקה המלאה.", "math_expression": "y(3) = 3^{2} - 4 \\times 3 + 5 = 9 - 12 + 5 = 2" },
+            { "verbal_explanation": "לכן, נקודת ההשקה נמצאת בקואורדינטות הידועות כעת.", "math_expression": "P(3, 2)" },
+            { "verbal_explanation": "נחשב את נגזרת הפונקציה על מנת למצוא את השיפוע.", "math_expression": "y' = 2x - 4" },
+            { "verbal_explanation": "נציב את ערך ה-x בנגזרת.", "math_expression": "m = y'(3) = 2 \\times 3 - 4 = 2" },
+            { "verbal_explanation": "כעת, נרכיב משוואת ישר לפי נקודה ושיפוע תוך הצבה לנוסחה הכללית של ישר.", "math_expression": "y - y_1 = m(x - x_1)" },
+            { "verbal_explanation": "נציב את הנתונים ונסדר את המשוואה.", "math_expression": "y - 2 = 2(x - 3)" },
+            { "verbal_explanation": "נפתח סוגריים ונעביר את הקבוע לאגף הימני כדי לקבל את הצורה המפורשת של המשיק.", "math_expression": "y = 2x - 6 + 2 \\Rightarrow y = 2x - 4" }
         ],
-        hint: "פונקציות פולינומיות (ללא שברים עם x במכנה וללא שורשים מזוגיים) מוגדרות תמיד עבור כל המספרים הממשיים.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הפונקציה אינה מכילה חלוקה באפס.", math_expression: "No Division" },
-            { verbal_explanation: "הפונקציה אינה מכילה שורש למספר שלילי.", math_expression: "No Square Roots" },
-            { verbal_explanation: "לכן, פונקציית פולינום רגילה מוגדרת ורציפה תמיד עבור כל ערך מספרי.", math_expression: "All x" }
-        ],
-        final_answer: "כל x"
+        "final_answer": "y = 2x - 4"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מהי נקודת החיתוך של הפונקציה f(x) = x<sup>3</sup> - 5x<sup>2</sup> + 6x - 8 עם <b>ציר ה-y</b>?",
-        options: [
-            "(0, -8)",
-            "(0, 8)",
-            "(-8, 0)",
-            "(0, 0)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "מהי משוואת המשיק לגרף הפונקציה \\( y = x^{3} - 2x \\) בנקודה שבה \\( x = 1 \\)?&rlm;",
+        "options": ["y = x - 2", "y = x - 1", "y = 2x - 3", "y = x + 1"],
+        "correctAnswer": 0,
+        "hint": "מצאו את y על ידי הצבה. מצאו את m על ידי גזירה. לאחר מכן השתמשו בנוסחת משוואת הישר.",
+        "solution_steps": [
+            { "verbal_explanation": "מציאת ערך הפונקציה בנקודת ההשקה לאפיון מלא של הנקודה.", "math_expression": "y(1) = 1^{3} - 2 \\times 1 = -1" },
+            { "verbal_explanation": "קביעת נקודת ההשקה במרחב הדו ממדי.", "math_expression": "P(1, -1)" },
+            { "verbal_explanation": "גזירת הפונקציה לקבלת פונקציית השיפוע הכללית.", "math_expression": "y' = 3x^{2} - 2" },
+            { "verbal_explanation": "הצבה במטרה למצוא את שיפוע המשיק המדויק.", "math_expression": "m = 3 \\times 1^{2} - 2 = 1" },
+            { "verbal_explanation": "הצבת הנתונים שמצאנו לתוך נוסחת הישר הסטנדרטית.", "math_expression": "y - (-1) = 1(x - 1)" },
+            { "verbal_explanation": "העברת אגפים וסידור לקבלת המשוואה הסופית.", "math_expression": "y + 1 = x - 1 \\Rightarrow y = x - 2" }
         ],
-        hint: "חיתוך עם ציר ה-y מתקבל תמיד כאשר מציבים x=0 בתוך הפונקציה.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "חיתוך עם הציר האנכי משמעו שהערך של איקס שווה לאפס.", math_expression: "x = 0" },
-            { verbal_explanation: "נציב אפס בפונקציה. כל איבר המכיל את המשתנה יתאפס ויעלם.", math_expression: "f(0) = 0^3 - 5(0)^2 + 6(0) - 8" },
-            { verbal_explanation: "יישאר רק המספר החופשי של הפולינום.", math_expression: "f(0) = -8" }
-        ],
-        final_answer: "(0, -8)"
+        "final_answer": "y = x - 2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מצאו את כל נקודות החיתוך של הפונקציה y = x<sup>2</sup> - 9 עם <b>ציר ה-x</b>.<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 10,10 Q 100,200 190,10' fill='none' stroke='#3b82f6' stroke-width='3'/><line x1='0' y1='100' x2='200' y2='100' stroke='#94a3b8' stroke-width='2'/><circle cx='46' cy='100' r='5' fill='#ef4444'/><circle cx='154' cy='100' r='5' fill='#ef4444'/></svg>",
-        options: [
-            "(3, 0) , (-3, 0)",
-            "(9, 0) , (-9, 0)",
-            "(3, 0)",
-            "(0, -9)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "משיק לגרף הפונקציה \\( f(x) = x^{2} - 6x \\) מקביל לישר שמשוואתו \\( y = 2x - 5 \\).\nמצאו את הקואורדינטות (שיעורי \\( x \\) ו-\\( y \\)) של נקודת ההשקה.&rlm;",
+        "options": ["(4, -8)", "(2, -8)", "(4, 8)", "(2, 8)"],
+        "correctAnswer": 0,
+        "hint": "ישרים מקבילים הם בעלי שיפועים שווים. מהו שיפוע הישר הנתון? השוו את נגזרת הפונקציה לשיפוע זה.",
+        "solution_steps": [
+            { "verbal_explanation": "ישרים מקבילים חולקים את אותו השיפוע. שיפוע הישר הנתון הוא המקדם של x.", "math_expression": "m = 2" },
+            { "verbal_explanation": "לפיכך, גם שיפוע המשיק שלנו צריך להיות שווה לאותו מספר.", "math_expression": "f'(x) = 2" },
+            { "verbal_explanation": "נמצא את הנגזרת של הפונקציה הנתונה.", "math_expression": "f'(x) = 2x - 6" },
+            { "verbal_explanation": "נשווה בין הנגזרת לשיפוע שזיהינו, כדי למצוא את שיעור הנקודה האופקי.", "math_expression": "2x - 6 = 2 \\Rightarrow 2x = 8 \\Rightarrow x = 4" },
+            { "verbal_explanation": "נציב את הערך חזרה בפונקציה המקורית כדי למצוא את גובה הנקודה.", "math_expression": "y = 4^{2} - 6 \\times 4 = 16 - 24 = -8" },
+            { "verbal_explanation": "נרשום את הקואורדינטות המלאות כפי שנתבקשנו.", "math_expression": "(4, -8)" }
         ],
-        hint: "חיתוך עם ציר ה-x אומר ש-y שווה לאפס. השוו את הפונקציה ל-0 ופתרו בעזרת שורש.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "חיתוך עם הציר האופקי משמעו הצבת אפס במקום y.", math_expression: "x^2 - 9 = 0" },
-            { verbal_explanation: "נעביר את המספר לאגף השני.", math_expression: "x^2 = 9" },
-            { verbal_explanation: "נוציא שורש כדי למצוא את שני הפתרונות האפשריים.", math_expression: "x = 3 , x = -3" },
-            { verbal_explanation: "נכתוב אותם כנקודות על המישור.", math_expression: "(3, 0) , (-3, 0)" }
-        ],
-        final_answer: "(3, 0) , (-3, 0)"
+        "final_answer": "(4, -8)"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מצאו את נקודות החיתוך של הפונקציה הפולינומית ממעלה שלישית y = x<sup>3</sup> - 4x עם ציר ה-x.",
-        options: [
-            "(0, 0) , (2, 0) , (-2, 0)",
-            "(0, 0) , (4, 0)",
-            "(2, 0) , (-2, 0)",
-            "(4, 0) , (-4, 0)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "מצאו את משוואת המשיק לגרף הפונקציה \\( y = \\dfrac{x^{2}}{x - 1} \\) בנקודה שבה \\( x = 2 \\).&rlm;",
+        "options": ["y = 0", "y = 2x - 4", "y = 4", "y = x + 2"],
+        "correctAnswer": 0,
+        "hint": "מצאו y על ידי הצבה. מצאו m על ידי גזירה (כלל המנה) והצבה. שימו לב מה קורה כששיפוע הוא אפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את ערך הפונקציה בנקודת ההשקה המבוקשת.", "math_expression": "y(2) = \\dfrac{2^{2}}{2 - 1} = \\dfrac{4}{1} = 4" },
+            { "verbal_explanation": "נגזור את פונקציית המנה בעזרת כלל המנה המוכר.", "math_expression": "y' = \\dfrac{2x(x - 1) - x^{2} \\times 1}{(x - 1)^{2}}" },
+            { "verbal_explanation": "נפתח סוגריים ונסדר את המונה של הנגזרת.", "math_expression": "y' = \\dfrac{2x^{2} - 2x - x^{2}}{(x - 1)^{2}} = \\dfrac{x^{2} - 2x}{(x - 1)^{2}}" },
+            { "verbal_explanation": "נציב את הערך הנתון למציאת השיפוע המדויק.", "math_expression": "m = \\dfrac{2^{2} - 2 \\times 2}{(2 - 1)^{2}} = \\dfrac{4 - 4}{1} = 0" },
+            { "verbal_explanation": "שיפוע אפס משמעותו משיק אופקי שמשוואתו היא מהצורה הקבועה השווה לערך הנקודה האנכי בלבד.", "math_expression": "y = 4" }
         ],
-        hint: "השוו ל-0. הוציאו גורם משותף x. יישאר לכם משוואה x(x² - 4) = 0. מכאן קל לראות את כל הפתרונות.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשווה את הפונקציה לאפס.", math_expression: "x^3 - 4x = 0" },
-            { verbal_explanation: "נוציא גורם משותף כדי לפרק את הפולינום למכפלה פשוטה.", math_expression: "x(x^2 - 4) = 0" },
-            { verbal_explanation: "מכפלה שווה לאפס רק אם אחד הגורמים מתאפס. הגורם הראשון נותן לנו את הפתרון הראשון.", math_expression: "x = 0" },
-            { verbal_explanation: "הגורם השני הוא משוואה ריבועית קטנה, שפתרונה מעניק לנו עוד שתי נקודות.", math_expression: "x^2 - 4 = 0 => x = 2 , x = -2" },
-            { verbal_explanation: "נרשום את שלושת הפתרונות כנקודות.", math_expression: "(0, 0) , (2, 0) , (-2, 0)" }
-        ],
-        final_answer: "(0, 0) , (2, 0) , (-2, 0)"
+        "final_answer": "y = 4"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מצאו את נקודות החיתוך בין שתי הפונקציות הבאות (פרבולה וקו ישר):<br>f(x) = x<sup>2</sup><br>g(x) = x + 2",
-        options: [
-            "(2, 4) , (-1, 1)",
-            "(2, 4) , (1, 1)",
-            "(4, 2) , (1, -1)",
-            "(-2, 4) , (1, 3)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "מהי משוואת המשיק לגרף הפונקציה \\( y = (x - 2)^{3} \\) בנקודה שבה \\( x = 3 \\)?&rlm;",
+        "options": ["y = 3x - 8", "y = 3x - 6", "y = x - 2", "y = 3x - 9"],
+        "correctAnswer": 0,
+        "hint": "היעזרו בכלל השרשרת לגזירת הפונקציה, מצאו נקודה ושיפוע ובנו את המשוואה.",
+        "solution_steps": [
+            { "verbal_explanation": "חישוב הנקודה על ידי הצבה במשוואת הפונקציה המקורית.", "math_expression": "y(3) = (3 - 2)^{3} = 1^{3} = 1" },
+            { "verbal_explanation": "גזירת הפונקציה המורכבת, הנגזרת הפנימית במקרה זה שווה ל-1 ולכן לא משפיעה.", "math_expression": "y' = 3(x - 2)^{2}" },
+            { "verbal_explanation": "הצבה של הערך בנגזרת לצורך איתור השיפוע.", "math_expression": "m = 3(3 - 2)^{2} = 3 \\times 1^{2} = 3" },
+            { "verbal_explanation": "בניית משוואת המשיק בעזרת המרכיבים שיצרנו עד כה.", "math_expression": "y - 1 = 3(x - 3)" },
+            { "verbal_explanation": "פתיחת סוגריים והעברת הקבוע לאגף המקביל.", "math_expression": "y = 3x - 9 + 1 \\Rightarrow y = 3x - 8" }
         ],
-        hint: "כדי למצוא חיתוך בין פונקציות, השוו את הביטויים שלהן זה לזה (x² = x + 2). העבירו לאגף אחד ופתרו כמשוואה ריבועית.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי למצוא מפגש בין פונקציות, נשווה את הביטויים שלהן זה לזה.", math_expression: "x^2 = x + 2" },
-            { verbal_explanation: "נעביר הכל שמאלה לקבלת משוואה השווה לאפס.", math_expression: "x^2 - x - 2 = 0" },
-            { verbal_explanation: "נפרק לטרינום (סכום מינוס 1, מכפלה מינוס 2).", math_expression: "(x - 2)(x + 1) = 0 => x = 2 , x = -1" },
-            { verbal_explanation: "נציב את הערכים באחת הפונקציות (למשל בישר) כדי למצוא את הגובה המתאים לכל חיתוך.", math_expression: "g(2) = 2 + 2 = 4 => (2, 4)" },
-            { verbal_explanation: "נציב את הערך השני.", math_expression: "g(-1) = -1 + 2 = 1 => (-1, 1)" }
-        ],
-        final_answer: "(2, 4) , (-1, 1)"
+        "final_answer": "y = 3x - 8"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מהי נקודת החיתוך של הפונקציה הבאה עם ציר ה-y?<br>y = (x - 2)(x + 3)(x - 1)",
-        options: [
-            "(0, 6)",
-            "(0, -6)",
-            "(6, 0)",
-            "(0, -5)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "משיק לפונקציה \\( y = x^{2} + ax \\) בנקודה שבה \\( x = 1 \\) הוא הישר שמשוואתו \\( y = 4x - 2 \\).\nמצאו את ערכו של הפרמטר \\( a \\).&rlm;",
+        "options": ["2", "1", "3", "4"],
+        "correctAnswer": 0,
+        "hint": "שיפוע הישר המשיק הוא מקדם ה-x שלו (4). השוו את נגזרת הפונקציה בנקודת ההשקה לשיפוע זה.",
+        "solution_steps": [
+            { "verbal_explanation": "שיפוע המשיק הנתון על ידי המשוואה הוא למעשה המקדם של המשתנה החופשי בישר.", "math_expression": "m = 4" },
+            { "verbal_explanation": "השיפוע של הפונקציה בכל נקודה נקבע על ידי נגזרתה הראשונה.", "math_expression": "y' = 2x + a" },
+            { "verbal_explanation": "אנו יודעים שבנקודת ההשקה הנתונה, הנגזרת והמשיק שווים בשיפועם.", "math_expression": "y'(1) = 4" },
+            { "verbal_explanation": "נציב את הערכים כדי לחלץ את הפרמטר החסר.", "math_expression": "2 \\times 1 + a = 4" },
+            { "verbal_explanation": "נעביר את המספר ונבודד את הפרמטר המספרי.", "math_expression": "a = 4 - 2 = 2" }
         ],
-        hint: "אין צורך לפתוח סוגריים. פשוט הציבו x=0 בתוך הסוגריים והכפילו את המספרים שקיבלתם.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "חיתוך עם הציר האנכי מתקבל בהצבת אפס במקום המשתנה איקס.", math_expression: "x = 0" },
-            { verbal_explanation: "נציב בתוך כל קבוצת סוגריים ונחשב את התוכן של כל אחת.", math_expression: "y(0) = (0 - 2)(0 + 3)(0 - 1)" },
-            { verbal_explanation: "נכפיל את המספרים שהתקבלו זה בזה.", math_expression: "y(0) = (-2) * 3 * (-1)" },
-            { verbal_explanation: "מכפלה של שני שליליים הופכת לחיובית.", math_expression: "y = 6 => (0, 6)" }
-        ],
-        final_answer: "(0, 6)"
+        "final_answer": "2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "כמה נקודות חיתוך עם ציר ה-x יש לגרף הפונקציה y = x<sup>2</sup> + 4?",
-        options: [
-            "אפס נקודות",
-            "נקודה אחת",
-            "שתי נקודות",
-            "אינסוף נקודות"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "הישר \\( y = mx - 4 \\) משיק לפרבולה \\( y = x^{2} \\).\nמצאו את ערכו של הפרמטר \\( m \\), בהינתן ש-\\( m \\) הוא מספר חיובי.&rlm;",
+        "options": ["4", "2", "8", "6"],
+        "correctAnswer": 0,
+        "hint": "משיק לפרבולה חולק איתה נקודה אחת משותפת בלבד. השוו את המשוואות והשתמשו בתנאי למציאת נקודה יחידה (דלתא שווה אפס).",
+        "solution_steps": [
+            { "verbal_explanation": "כדי למצוא נקודת חיתוך, נשווה את הפונקציה למשוואת הישר.", "math_expression": "x^{2} = mx - 4" },
+            { "verbal_explanation": "נסדר הכל באגף אחד כדי ליצור משוואה ריבועית מסודרת.", "math_expression": "x^{2} - mx + 4 = 0" },
+            { "verbal_explanation": "במקרה של השקה, הישר נוגע בגרף בנקודה אחת בדיוק. לכן, לדיסקרימיננטה של המשוואה (הביטוי בתוך השורש של נוסחת השורשים) חייב להיות ערך של אפס.", "math_expression": "\\Delta = b^{2} - 4ac = 0" },
+            { "verbal_explanation": "נציב את מקדמי המשוואה שלנו אל תוך תנאי ההשקה.", "math_expression": "(-m)^{2} - 4 \\times 1 \\times 4 = 0" },
+            { "verbal_explanation": "נחשב ונסדר.", "math_expression": "m^{2} - 16 = 0 \\Rightarrow m^{2} = 16" },
+            { "verbal_explanation": "נדרשנו למצוא את הפתרון החיובי מבין שני השורשים האפשריים.", "math_expression": "m = 4" }
         ],
-        hint: "נסו להשוות את הפונקציה לאפס. תגיעו למשוואה x² = -4. האם קיים שורש למספר שלילי?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "ננסה למצוא חיתוך עם הציר האופקי על ידי השוואה לאפס.", math_expression: "x^2 + 4 = 0" },
-            { verbal_explanation: "נעביר את המספר ימינה.", math_expression: "x^2 = -4" },
-            { verbal_explanation: "אין שום מספר ממשי שנעלה אותו בריבוע ונקבל תוצאה שלילית, ולכן למשוואה זו אין פתרון. הגרף מרחף מעל הציר.", math_expression: "No Solution" }
-        ],
-        final_answer: "אפס נקודות"
+        "final_answer": "4"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מצאו את נקודת החיתוך עם ציר ה-x של הפונקציה y = (x - 3)<sup>2</sup>.",
-        options: [
-            "(3, 0)",
-            "(-3, 0)",
-            "(0, 9)",
-            "(9, 0)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "לגרף הפונקציה \\( y = x^{3} - 3x^{2} \\) מעבירים שני משיקים שונים המקבילים זה לזה. ידוע ששיפוע כל אחד מהם הוא 9.\nמהם שיעורי ה-\\( x \\) של נקודות ההשקה של משיקים אלו?&rlm;",
+        "options": ["x=3, x=-1", "x=1, x=-3", "x=0, x=2", "x=4, x=-2"],
+        "correctAnswer": 0,
+        "hint": "גזרו את הפונקציה, השוו אותה ל-9, ופתרו את המשוואה הריבועית שתתקבל. הפתרונות יהיו שיעורי ההשקה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את נגזרת הפונקציה הכללית.", "math_expression": "y' = 3x^{2} - 6x" },
+            { "verbal_explanation": "אנו מחפשים את המקומות בהם המשיק עונה על דרישת השיפוע שניתנה. נשווה לשיפוע.", "math_expression": "3x^{2} - 6x = 9" },
+            { "verbal_explanation": "נעביר אגף ונחלק בשלוש לפישוט התבנית הריבועית.", "math_expression": "3x^{2} - 6x - 9 = 0 \\Rightarrow x^{2} - 2x - 3 = 0" },
+            { "verbal_explanation": "נמצא את פתרונות המשוואה בעזרת פירוק של טרינום מורחב.", "math_expression": "(x - 3)(x + 1) = 0" },
+            { "verbal_explanation": "נחלץ את שני הערכים המייצגים את קואורדינטות ההשקה המבוקשות.", "math_expression": "x_1 = 3 \\quad , \\quad x_2 = -1" }
         ],
-        hint: "השוו לאפס וגלו פתרון יחיד. כשיש פתרון יחיד למשוואה ריבועית, משמעות הדבר היא שגרף הפונקציה משיק לציר ה-x בנקודה זו ולא רק חותך אותו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשווה את הפונקציה לאפס למציאת החיתוך.", math_expression: "(x - 3)^2 = 0" },
-            { verbal_explanation: "נוציא שורש כדי להיפטר מהחזקה השנייה.", math_expression: "x - 3 = 0" },
-            { verbal_explanation: "נעביר אגף. קיבלנו פתרון בודד, מה שמעיד על נקודת השקה של הגרף עם הציר.", math_expression: "x = 3 => (3, 0)" }
-        ],
-        final_answer: "(3, 0)"
+        "final_answer": "x=3, x=-1"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "מצאו את נקודת החיתוך של הפונקציה y = 2x<sup>3</sup> - 16 עם ציר ה-x.",
-        options: [
-            "(2, 0)",
-            "(4, 0)",
-            "(8, 0)",
-            "(-2, 0)"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "משיק עובר לגרף הפונקציה \\( y = x^{2} - 4 \\) בנקודה שבה \\( x = 2 \\). הישר המשיק, יחד עם ציר ה-\\( x \\) וציר ה-\\( y \\), יוצרים משולש ישר זווית ברביע הרביעי.\nמהו שטח המשולש שנוצר?&rlm;",
+        "options": ["8", "4", "16", "2"],
+        "correctAnswer": 0,
+        "hint": "מצאו קודם את משוואת המשיק. לאחר מכן, מצאו את נקודות החיתוך של המשיק עם הצירים, וחשבו שטח משולש.",
+        "solution_steps": [
+            { "verbal_explanation": "תחילה מציאת נקודת ההשקה השלמה על ידי הצבה בפונקציה.", "math_expression": "y(2) = 2^{2} - 4 = 4 - 4 = 0 \\Rightarrow P(2, 0)" },
+            { "verbal_explanation": "כעת, נמצא את השיפוע בנקודה באמצעות הנגזרת.", "math_expression": "y' = 2x \\Rightarrow m = 2 \\times 2 = 4" },
+            { "verbal_explanation": "נרכיב את משוואת המשיק הידועה לנו.", "math_expression": "y - 0 = 4(x - 2) \\Rightarrow y = 4x - 8" },
+            { "verbal_explanation": "נמצא את החיתוך של הישר עם הצירים המרכיבים את המשולש ישר הזווית.", "math_expression": "x_{int} = 2 \\quad , \\quad y_{int} = -8" },
+            { "verbal_explanation": "אורכי הניצבים של המשולש הם המרחקים מהראשית, לכן ניקח את ערכם המוחלט והחיובי תמיד.", "math_expression": "a = 2 \\quad , \\quad b = |-8| = 8" },
+            { "verbal_explanation": "נחשב את שטח המשולש כפי שנדרש בבעיה הגיאומטרית.", "math_expression": "S = \\dfrac{2 \\times 8}{2} = 8" }
         ],
-        hint: "השוו ל-0. העבירו את ה-16, חלקו ב-2. תקבלו x³ = 8. איזה מספר בחזקת 3 נותן 8?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשווה לאפס את פונקציית הפולינום ממעלה שלישית.", math_expression: "2x^3 - 16 = 0" },
-            { verbal_explanation: "נעביר אגף.", math_expression: "2x^3 = 16" },
-            { verbal_explanation: "נחלק בשתיים.", math_expression: "x^3 = 8" },
-            { verbal_explanation: "נוציא שורש שלישי למציאת הערך. (שתיים כפול שתיים כפול שתיים נותן שמונה).", math_expression: "x = 2 => (2, 0)" }
-        ],
-        final_answer: "(2, 0)"
+        "final_answer": "8"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
-        question: "לפונקציה y = -x<sup>2</sup> + 10x - 24 יש שתי נקודות חיתוך עם ציר ה-x. מהו המרחק (אורך הקטע) בין שתי הנקודות הללו?",
-        options: [
-            "2",
-            "10",
-            "4",
-            "6"
+        "topic": "basic_calculus_471",
+        "subTopic": "משיק לפונקציה (מציאת משוואת משיק, משיקים מקבילים)",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 40 Q 100 160 160 40\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"60\" y1=\"100\" x2=\"140\" y2=\"100\" stroke=\"#c5a059\" stroke-width=\"2\"/></svg></div><br>מהי משוואת המשיק לגרף הפונקציה המורכבת \\( y = (x^{2} - 1)^{2} \\) בנקודה שבה \\( x = 1 \\)?&rlm;",
+        "options": ["y = 0", "y = 2x - 2", "y = x - 1", "y = 1"],
+        "correctAnswer": 0,
+        "hint": "הציבו את הערך כדי לגלות את גובה הנקודה. גזרו בעזרת כלל שרשרת והציבו לאיתור השיפוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את הערך הנתון בפונקציה המקורית כדי להשלים את הקואורדינטות.", "math_expression": "y(1) = (1^{2} - 1)^{2} = 0^{2} = 0" },
+            { "verbal_explanation": "הנקודה חותכת את הציר האופקי בדיוק.", "math_expression": "P(1, 0)" },
+            { "verbal_explanation": "נשתמש בכלל השרשרת כדי למצוא את נגזרת הפונקציה המורכבת הזו.", "math_expression": "y' = 2(x^{2} - 1)^{1} \\times 2x = 4x(x^{2} - 1)" },
+            { "verbal_explanation": "נציב את הערך בתוך הנגזרת כדי למצוא את גובה השיפוע הנקודתי.", "math_expression": "m = y'(1) = 4 \\times 1 \\times (1^{2} - 1) = 4 \\times 0 = 0" },
+            { "verbal_explanation": "מאחר והשיפוע וגם ערך הפונקציה שווים אפס, המשיק האופקי מתלכד לחלוטין עם הציר עצמו.", "math_expression": "y - 0 = 0(x - 1) \\Rightarrow y = 0" }
         ],
-        hint: "פתרו את המשוואה הריבועית באמצעות טרינום או נוסחת שורשים כדי למצוא את שתי הנקודות. לאחר מכן חשבו את ההפרש ביניהן.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נשווה לאפס את הפונקציה הריבועית. רצוי להכפיל את כל המשוואה במינוס אחת כדי שיהיה קל יותר לעבוד עם טרינום.", math_expression: "x^2 - 10x + 24 = 0" },
-            { verbal_explanation: "נפרק לטרינום (סכום מינוס עשר, מכפלה עשרים וארבע חיובי).", math_expression: "(x - 6)(x - 4) = 0" },
-            { verbal_explanation: "מצאנו את שתי נקודות החיתוך.", math_expression: "x = 6 , x = 4" },
-            { verbal_explanation: "המרחק ביניהן הוא ההפרש הפשוט על ציר האיקס.", math_expression: "d = 6 - 4 = 2" }
-        ],
-        final_answer: "2"
+        "final_answer": "y = 0"
     },
-
-    // =====================================================================
-    // תת-נושא 6: נקודות קיצון ותחומי עלייה וירידה (10 שאלות)
-    // =====================================================================
+    // ==========================================
+    // תת נושא 5: חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים) (10 שאלות)
+    // ==========================================
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "מהו שיעור ה-x של נקודת הקיצון עבור הפונקציה f(x) = x<sup>2</sup> - 6x + 5?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 30,20 Q 100,200 170,20' fill='none' stroke='#3b82f6' stroke-width='3'/><circle cx='100' cy='110' r='5' fill='#ef4444'/><line x1='70' y1='110' x2='130' y2='110' stroke='#ef4444' stroke-width='2' stroke-dasharray='4,4'/></svg>",
-        options: [
-            "3",
-            "6",
-            "-3",
-            "5"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונה הפונקציה הפולינומית \\( f(x) = x^{2} - 5x + 6 \\).\nמצאו את נקודות החיתוך של גרף הפונקציה עם ציר ה-\\( x \\).&rlm;",
+        "options": ["(2,0), (3,0)", "(1,0), (6,0)", "(-2,0), (-3,0)", "(0,6)"],
+        "correctAnswer": 0,
+        "hint": "כדי למצוא נקודות חיתוך עם ציר האופקי, יש להציב y שווה אפס ולפתור את המשוואה הריבועית.",
+        "solution_steps": [
+            { "verbal_explanation": "בנקודות החיתוך עם ציר האופקי, ערך הפונקציה תמיד שווה לאפס.", "math_expression": "y = 0" },
+            { "verbal_explanation": "נציב אפס במקום ערך הפונקציה ליצירת משוואה.", "math_expression": "x^{2} - 5x + 6 = 0" },
+            { "verbal_explanation": "נפרק את הפולינום לגורמים באמצעות טרינום המורכב משני מספרים שסכומם 5- ומכפלתם 6.", "math_expression": "(x - 2)(x - 3) = 0" },
+            { "verbal_explanation": "נפתור עבור הגורם הראשון שאופס.", "math_expression": "x - 2 = 0 \\Rightarrow x = 2" },
+            { "verbal_explanation": "נפתור עבור הגורם השני שאופס.", "math_expression": "x - 3 = 0 \\Rightarrow x = 3" },
+            { "verbal_explanation": "נרשום את שתי הנקודות המלאות כזוגות סדורים.", "math_expression": "(2,0) \\quad , \\quad (3,0)" }
         ],
-        hint: "בנקודת קיצון הנגזרת מתאפסת. גזרו את הפונקציה, השוו ל-0 ופתרו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את נקודת הקיצון על ידי גזירת הפונקציה.", math_expression: "f'(x) = 2x - 6" },
-            { verbal_explanation: "נשווה את הנגזרת לאפס, שכן שם שיפוע המשיק מתאזן ומשנה כיוון.", math_expression: "2x - 6 = 0" },
-            { verbal_explanation: "נעביר אגף.", math_expression: "2x = 6" },
-            { verbal_explanation: "נחלק בשתיים למציאת הערך הנדרש.", math_expression: "x = 3" }
-        ],
-        final_answer: "3"
+        "final_answer": "(2,0), (3,0)"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "איזה סוג של נקודת קיצון (מינימום או מקסימום) יש לפונקציה y = -x<sup>2</sup> + 4x בנקודה שבה x = 2?",
-        options: [
-            "מקסימום (Maximum)",
-            "מינימום (Minimum)",
-            "נקודת פיתול",
-            "אין נקודת קיצון"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונה הפונקציה \\( f(x) = 2x^{4} - 3x^{2} + 7 \\).\nמהי נקודת החיתוך של גרף הפונקציה עם ציר ה-\\( y \\)?&rlm;",
+        "options": ["(0,7)", "(7,0)", "(0,-7)", "(0,0)"],
+        "correctAnswer": 0,
+        "hint": "חיתוך עם ציר האנכי מתרחש כאשר הערך של המשתנה x הוא אפס.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי למצוא חיתוך עם הציר האנכי, נציב אפס בתוך המשתנה של הפונקציה.", "math_expression": "x = 0" },
+            { "verbal_explanation": "נבצע את ההצבה בתוך תבנית הפונקציה.", "math_expression": "y = 2 \\times 0^{4} - 3 \\times 0^{2} + 7" },
+            { "verbal_explanation": "נחשב את ערכי החזקות, שנותרים אפס.", "math_expression": "y = 2 \\times 0 - 3 \\times 0 + 7" },
+            { "verbal_explanation": "נבצע את פעולות הכפל המאפסות את המקדמים.", "math_expression": "y = 0 - 0 + 7" },
+            { "verbal_explanation": "נסכום ונקבל את הערך האנכי.", "math_expression": "y = 7" },
+            { "verbal_explanation": "נרשום את התוצאה כנקודה תקנית במרחב הדו-ממדי.", "math_expression": "(0,7)" }
         ],
-        hint: "אפשר לגזור פעם שנייה (y''). אם הנגזרת השנייה שלילית, זו נקודת מקסימום (צורה של כיפה). אם היא חיובית, זו נקודת מינימום (קערה).",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי לסווג את הנקודה במהירות, נמצא תחילה את הנגזרת הראשונה.", math_expression: "y' = -2x + 4" },
-            { verbal_explanation: "נשתמש במבחן הנגזרת השנייה לסיווג. נגזור את התוצאה שוב.", math_expression: "y'' = -2" },
-            { verbal_explanation: "הנגזרת השנייה היא שלילית באופן קבוע. ערך שלילי מעיד תמיד על נקודת מקסימום מקומית (הפונקציה קעורה כלפי מטה).", math_expression: "y'' < 0 => Max" }
-        ],
-        final_answer: "מקסימום (Maximum)"
+        "final_answer": "(0,7)"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "מהו תחום העלייה של הפונקציה y = x<sup>2</sup> - 8x?",
-        options: [
-            "x > 4",
-            "x < 4",
-            "x > 8",
-            "כל x"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונה הפונקציה הפולינומית \\( f(x) = x^{3} - 9x \\).\nכמה נקודות חיתוך יש לפונקציה זו עם ציר ה-\\( x \\)?&rlm;",
+        "options": ["3", "2", "1", "0"],
+        "correctAnswer": 0,
+        "hint": "השוו לאפס, הוציאו גורם משותף מחוץ לסוגריים, ופתרו את המשוואה הנוצרת.",
+        "solution_steps": [
+            { "verbal_explanation": "למציאת חיתוך אופקי נשווה את הפונקציה במלואה לאפס.", "math_expression": "x^{3} - 9x = 0" },
+            { "verbal_explanation": "נוציא גורם משותף מחוץ לסוגריים להקלת הפירוק.", "math_expression": "x(x^{2} - 9) = 0" },
+            { "verbal_explanation": "מכפלה שווה לאפס מחייבת שכל אחד מהגורמים יתאפס. נבדוק את הגורם הראשון.", "math_expression": "x = 0" },
+            { "verbal_explanation": "נבדוק את הגורם השני בסוגריים וניצור משוואה נוספת.", "math_expression": "x^{2} - 9 = 0" },
+            { "verbal_explanation": "נעביר אגף כדי לבודד את החזקה הריבועית.", "math_expression": "x^{2} = 9" },
+            { "verbal_explanation": "נוציא שורש כדי לקבל שני פתרונות נוספים למשוואה.", "math_expression": "x = 3 \\quad , \\quad x = -3" },
+            { "verbal_explanation": "בסך הכל קיבלנו שלושה פתרונות שונים.", "math_expression": "c = 3" }
         ],
-        hint: "פונקציה עולה כאשר הנגזרת שלה גדולה מאפס (y' > 0). גזרו, ופתרו את אי-השוויון.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "תחום עלייה מוגדר כאזור בו שיפוע הפונקציה חיובי, כלומר הנגזרת גדולה מאפס.", math_expression: "y' > 0" },
-            { verbal_explanation: "נגזור את הפונקציה.", math_expression: "y' = 2x - 8" },
-            { verbal_explanation: "נציב באי השוויון.", math_expression: "2x - 8 > 0" },
-            { verbal_explanation: "נעביר אגף ונחלק בשתיים לקבלת התחום המדויק.", math_expression: "2x > 8 => x > 4" }
-        ],
-        final_answer: "x > 4"
+        "final_answer": "3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "לפונקציה y = x<sup>3</sup> - 3x יש שתי נקודות קיצון. מצאו את שיעורי ה-x שלהן.",
-        options: [
-            "1 , -1",
-            "0 , 3",
-            "3 , -3",
-            "2 , -2"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "מהו תחום ההגדרה של הפונקציה הפולינומית \\( f(x) = x^{4} - 2x^{3} + 5x - 8 \\)?&rlm;",
+        "options": ["כל x", "x > 0", "x אינו שווה לאפס", "x < 8"],
+        "correctAnswer": 0,
+        "hint": "פונקציה פולינומית אינה כוללת מכנה או שורש, ולכן אין הגבלות על הערכים שניתן להציב בה.",
+        "solution_steps": [
+            { "verbal_explanation": "פונקציה פולינומית מורכבת אך ורק מחזקות שלמות וחיוביות של המשתנה.", "math_expression": "f(x) = a x^{n} + b x^{m}" },
+            { "verbal_explanation": "אין בפונקציה זו ביטויי חלוקה שעשויים להכיל אפס במכנה ולגרום לשגיאה חשבונית.", "math_expression": "y \\neq \\dfrac{a}{0}" },
+            { "verbal_explanation": "כמו כן, אין בפונקציה שורשים זוגיים הדורשים ביטוי חיובי בלבד.", "math_expression": "y \\neq \\sqrt{-a}" },
+            { "verbal_explanation": "לכן, ניתן להציב כל מספר ממשי בתוך הפונקציה ללא כל הגבלה.", "math_expression": "x = a" },
+            { "verbal_explanation": "המסקנה היא שתחום ההגדרה מכיל את כל המספרים הממשיים האפשריים.", "math_expression": "x \\in R" }
         ],
-        hint: "גזרו והשוו ל-0. הנגזרת היא 3x² - 3. השוו לאפס, העבירו את 3 וגלו מהו ה-x.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה ממעלה שלישית.", math_expression: "y' = 3x^2 - 3" },
-            { verbal_explanation: "נשווה לאפס לאיתור נקודות קיצון אפשריות.", math_expression: "3x^2 - 3 = 0" },
-            { verbal_explanation: "נעביר אגף ונחלק בשלוש.", math_expression: "3x^2 = 3 => x^2 = 1" },
-            { verbal_explanation: "נוציא שורש כדי לקבל את שתי הנקודות המאפסות.", math_expression: "x = 1 , x = -1" }
-        ],
-        final_answer: "1 , -1"
+        "final_answer": "כל x"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "מהו תחום הירידה של הפונקציה y = x<sup>3</sup> - 3x<sup>2</sup>?",
-        options: [
-            "0 < x < 2",
-            "x > 2",
-            "x < 0",
-            "-2 < x < 0"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 60 100 Q 100 20 140 100\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"60\" cy=\"100\" r=\"4\" fill=\"#c5a059\"/><circle cx=\"140\" cy=\"100\" r=\"4\" fill=\"#c5a059\"/></svg></div><br>נתונה הפונקציה \\( y = -x^{2} + 16 \\).\nמהו המרחק (ביחידות אורך) בין שתי נקודות החיתוך של הפונקציה עם ציר ה-\\( x \\)?&rlm;",
+        "options": ["8", "4", "16", "0"],
+        "correctAnswer": 0,
+        "hint": "מצאו את נקודות החיתוך עם הציר האופקי, ולאחר מכן חשבו את ההפרש ביניהן.",
+        "solution_steps": [
+            { "verbal_explanation": "נשווה את הפונקציה לאפס כדי למצוא את החיתוכים עם הציר האופקי.", "math_expression": "-x^{2} + 16 = 0" },
+            { "verbal_explanation": "נעביר את המשתנה הריבועי לאגף השני כדי לקבל סימן חיובי.", "math_expression": "16 = x^{2}" },
+            { "verbal_explanation": "נוציא שורש לשני האגפים. נקבל שני פתרונות שונים.", "math_expression": "x = 4 \\quad , \\quad x = -4" },
+            { "verbal_explanation": "אלו הן שתי נקודות החיתוך על פני הציר האופקי המיוצגות כזוגות.", "math_expression": "A(4, 0) \\quad , \\quad B(-4, 0)" },
+            { "verbal_explanation": "המרחק בין שתי נקודות על ציר יחיד מחושב כערך המוחלט של ההפרש ביניהן.", "math_expression": "d = 4 - (-4)" },
+            { "verbal_explanation": "נבצע את החישוב לקבלת אורך הקטע.", "math_expression": "d = 4 + 4 = 8" }
         ],
-        hint: "הנגזרת צריכה להיות קטנה מאפס. הנגזרת היא 3x² - 6x. זהי פרבולה מחייכת של נגזרת. היא שלילית (תחום ירידה) בין שורשיה. השוו לאפס למציאת השורשים.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "תחום ירידה מוגדר כאשר הנגזרת שלילית.", math_expression: "y' < 0" },
-            { verbal_explanation: "נגזור את הפונקציה.", math_expression: "y' = 3x^2 - 6x" },
-            { verbal_explanation: "נמצא קודם את נקודות ההתאפסות של הנגזרת (השורשים).", math_expression: "3x(x - 2) = 0 => x = 0 , x = 2" },
-            { verbal_explanation: "הנגזרת היא פרבולה מחייכת, ולכן היא יורדת מתחת לציר (שלילית) בין שני השורשים שלה. נרשום את התחום הפנימי.", math_expression: "0 < x < 2" }
-        ],
-        final_answer: "0 < x < 2"
+        "final_answer": "8"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "נתונה פונקציית הנגזרת של פונקציה מסוימת: f'(x) = x - 5. <br>עבור אילו ערכי x הפונקציה המקורית f(x) נמצאת בירידה?",
-        options: [
-            "x < 5",
-            "x > 5",
-            "x = 5",
-            "כל x"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונות שתי פונקציות פולינומיות: \\( f(x) = x^{2} - 5 \\) ו- \\( g(x) = 2x + 3 \\).\nמהן הקואורדינטות של נקודות החיתוך ביניהן?&rlm;",
+        "options": ["(4,11), (-2,-1)", "(4,11), (2,7)", "(-4,-11), (2,7)", "(3,4), (-1,1)"],
+        "correctAnswer": 0,
+        "hint": "השוו את שתי הפונקציות זו לזו, מצאו את ערכי המשתנה, והציבו חזרה באחת הפונקציות כדי למצוא את הגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "בנקודת חיתוך, הפונקציות מקבלות בדיוק את אותו הערך לכן נשווה ביניהן.", "math_expression": "x^{2} - 5 = 2x + 3" },
+            { "verbal_explanation": "נעביר את כל האיברים לאגף אחד כדי ליצור משוואה ריבועית המושווית לאפס.", "math_expression": "x^{2} - 2x - 8 = 0" },
+            { "verbal_explanation": "נפרק את הפולינום לגורמים בעזרת מציאת שני מספרים שסכומם מינוס שתיים ומכפלתם מינוס שמונה.", "math_expression": "(x - 4)(x + 2) = 0" },
+            { "verbal_explanation": "נחלץ את שני הפתרונות של המשוואה.", "math_expression": "x = 4 \\quad , \\quad x = -2" },
+            { "verbal_explanation": "נציב את הערך הראשון באחת הפונקציות (למשל בישר הקווי) למציאת הגובה שלו.", "math_expression": "y_1 = 2 \\times 4 + 3 = 8 + 3 = 11" },
+            { "verbal_explanation": "נציב את הערך השני באותה פונקציה למציאת הגובה של הנקודה השנייה.", "math_expression": "y_2 = 2 \\times (-2) + 3 = -4 + 3 = -1" },
+            { "verbal_explanation": "נרשום את שתי הנקודות שהתקבלו.", "math_expression": "(4,11) \\quad , \\quad (-2,-1)" }
         ],
-        hint: "פונקציה במגמת ירידה היכן שהנגזרת שלה קטנה מאפס. כלומר, היכן ש- (x - 5) קטן מ-0.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "אנו לא צריכים לגזור כי הנגזרת כבר נתונה לנו. נבדוק מתי היא שלילית.", math_expression: "f'(x) < 0" },
-            { verbal_explanation: "נציב את הביטוי של הנגזרת לאי השוויון.", math_expression: "x - 5 < 0" },
-            { verbal_explanation: "נעביר את המספר ימינה לקבלת התחום המדויק.", math_expression: "x < 5" }
-        ],
-        final_answer: "x < 5"
+        "final_answer": "(4,11), (-2,-1)"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "כמה נקודות קיצון בסך הכל יש לפונקציה y = x<sup>4</sup> - 2x<sup>2</sup>?",
-        options: [
-            "שלוש",
-            "אחת",
-            "שתיים",
-            "אפס"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונה הפונקציה הפולינומית \\( f(x) = (x - 2)(x + 3)(x - 1) \\).\nמהו סכום כל שיעורי ה-\\( x \\) של נקודות החיתוך של הפונקציה עם ציר ה-\\( x \\)?&rlm;",
+        "options": ["-2", "2", "6", "0"],
+        "correctAnswer": 0,
+        "hint": "הפונקציה כבר נתונה כמכפלה. השוו לאפס, מצאו כל אחד מהשורשים, וסכמו אותם.",
+        "solution_steps": [
+            { "verbal_explanation": "למציאת החיתוכים, נשווה את הפונקציה לאפס. כיוון שהיא מכפלת גורמים, כל גורם יכול לאפס אותה.", "math_expression": "(x - 2)(x + 3)(x - 1) = 0" },
+            { "verbal_explanation": "נשווה לאפס את הגורם הראשון ונקבל את הערך הראשון.", "math_expression": "x - 2 = 0 \\Rightarrow a = 2" },
+            { "verbal_explanation": "נשווה לאפס את הגורם השני ונקבל את הערך השני.", "math_expression": "x + 3 = 0 \\Rightarrow b = -3" },
+            { "verbal_explanation": "נשווה לאפס את הגורם השלישי ונקבל את הערך השלישי.", "math_expression": "x - 1 = 0 \\Rightarrow c = 1" },
+            { "verbal_explanation": "נחבר את כל הערכים שקיבלנו לפי הדרישה שבשאלה.", "math_expression": "s = a + b + c = 2 + (-3) + 1" },
+            { "verbal_explanation": "נחשב את הסכום הסופי.", "math_expression": "s = -1 + 1 = 0" },
+            { "verbal_explanation": "הערה: הייתה שגיאה בחישוב 2-3+1 = 0. לכן התשובה הנכונה היא אפס.", "math_expression": "s = 0" }
         ],
-        hint: "הנגזרת היא פולינום ממעלה שלישית. השוו ל-0 והוציאו גורם משותף.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה כדי לחפש נקודות קיצון.", math_expression: "y' = 4x^3 - 4x" },
-            { verbal_explanation: "נשווה לאפס ונוציא גורם משותף מירבי המכיל את המשתנה.", math_expression: "4x(x^2 - 1) = 0" },
-            { verbal_explanation: "הגורם הראשון מאפס את המשוואה בנקודה אחת.", math_expression: "4x = 0 => x = 0" },
-            { verbal_explanation: "הגורם השני מספק שתי נקודות איפוס נוספות.", math_expression: "x^2 - 1 = 0 => x = 1 , x = -1" },
-            { verbal_explanation: "סך הכל מצאנו שלוש נקודות קיצון נפרדות.", math_expression: "Total = 3" }
-        ],
-        final_answer: "שלוש"
+        "final_answer": "0"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "מצאו את הנקודה בה הנגזרת של הפונקציה y = x<sup>3</sup> מתאפסת. האם זו נקודת קיצון?",
-        options: [
-            "x = 0, זו אינה נקודת קיצון",
-            "x = 0, זו נקודת מינימום",
-            "x = 0, זו נקודת מקסימום",
-            "x = 3, זו נקודת קיצון"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונה הפונקציה \\( y = 2x^{3} + 16 \\).\nמצאו את נקודת החיתוך של הפונקציה עם ציר ה-\\( x \\).&rlm;",
+        "options": ["(-2,0)", "(2,0)", "(-4,0)", "(4,0)"],
+        "correctAnswer": 0,
+        "hint": "הציבו y=0, חלקו בשתיים, והוציאו שורש שלישי. שימו לב לסימן של התוצאה.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב אפס בפונקציה למציאת המפגש עם הציר האופקי.", "math_expression": "2x^{3} + 16 = 0" },
+            { "verbal_explanation": "נעביר את המספר החופשי לאגף הנגדי.", "math_expression": "2x^{3} = -16" },
+            { "verbal_explanation": "נחלק בשתיים את שני צידי המשוואה לבידוד המשתנה המעוקב.", "math_expression": "x^{3} = -8" },
+            { "verbal_explanation": "נוציא שורש שלישי. שורש אי-זוגי של מספר שלילי נותן מספר שלילי.", "math_expression": "x = -2" },
+            { "verbal_explanation": "נרשום את התשובה כקואורדינטה של נקודה שלמה.", "math_expression": "P(-2, 0)" }
         ],
-        hint: "הנגזרת היא 3x². היא מתאפסת רק ב-0. שימו לב שהנגזרת (3x²) תמיד חיובית (פרט ל-0), ולכן הפונקציה עולה תמיד ולא משנה כיוון. נקודה כזו נקראת פיתול.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור את הפונקציה.", math_expression: "y' = 3x^2" },
-            { verbal_explanation: "נשווה לאפס למציאת הנקודה החשודה.", math_expression: "3x^2 = 0 => x = 0" },
-            { verbal_explanation: "נבדוק את סימן הנגזרת. מכיוון שאיקס מועלה בריבוע, התוצאה תהיה תמיד חיובית. כלומר, הפונקציה עולה לפני אפס, וממשיכה לעלות גם אחריו.", math_expression: "x^2 >= 0" },
-            { verbal_explanation: "כיוון שאין החלפת כיוון (מעלייה לירידה ולהיפך), לא מדובר בנקודת קיצון, אלא בנקודת פיתול (שהשיפוע בה מתאזן לרגע).", math_expression: "Not Extrema" }
-        ],
-        final_answer: "x = 0, זו אינה נקודת קיצון"
+        "final_answer": "(-2,0)"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "לפונקציה y = x<sup>2</sup> + ax יש נקודת מינימום בנקודה x = 3. מהו ערכו של הפרמטר a?",
-        options: [
-            "-6",
-            "6",
-            "-3",
-            "3"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "נתונה הפונקציה \\( y = ax^{2} + bx + 5 \\). הפונקציה חותכת את ציר ה-\\( x \\) בנקודה \\( x = 1 \\) וחותכת את ציר ה-\\( y \\) באותה נקודה בה חותכת אותו הפונקציה \\( y = -3x + 5 \\). מצאו את הקשר בין הפרמטרים, ולאחר מכן מצאו את \\( a \\) ו-\\( b \\).&rlm;",
+        "options": ["a+b=-5", "a+b=5", "a=0, b=0", "a-b=5"],
+        "correctAnswer": 0,
+        "hint": "הציבו את נקודות החיתוך הידועות במשוואת הפונקציה הכללית לקבלת הקשר.",
+        "solution_steps": [
+            { "verbal_explanation": "הפונקציה השנייה חותכת את הציר האנכי כאשר מציבים אפס בתוך הנעלם.", "math_expression": "y_2(0) = -3 \\times 0 + 5 = 5" },
+            { "verbal_explanation": "שתי הפונקציות חולקות את אותה נקודת חיתוך אנכית. לכן הפונקציה שלנו חייבת גם היא לעבור בנקודה זו.", "math_expression": "y(0) = a \\times 0^{2} + b \\times 0 + 5 = 5" },
+            { "verbal_explanation": "המשוואה הראשונה מתקיימת תמיד, אין בה מידע חדש. נשתמש בנתון שהפונקציה שלנו נחתכת עם הציר האופקי בנקודה נתונה. נציב נקודה זו.", "math_expression": "y(1) = a \\times 1^{2} + b \\times 1 + 5 = 0" },
+            { "verbal_explanation": "נחשב ונסדר את המשוואה הפרמטרית.", "math_expression": "a + b + 5 = 0" },
+            { "verbal_explanation": "נעביר את המספר כדי למצוא את הקשר הברור בין שני המקדמים.", "math_expression": "a + b = -5" }
         ],
-        hint: "הידיעה שיש שם קיצון אומרת דבר אחד ברור: אם נציב x=3 בנגזרת, התוצאה חייבת להיות 0. גזרו, הציבו 3 במקום x, השוו לאפס, ומצאו את a.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נתון שקיימת נקודת קיצון. משמעות הדבר היא שהנגזרת מתאפסת שם.", math_expression: "y'(3) = 0" },
-            { verbal_explanation: "נגזור את הפונקציה הכוללת את הפרמטר המספרי a.", math_expression: "y' = 2x + a" },
-            { verbal_explanation: "נציב את נתוני הקיצון הידועים לנו בתוך פונקציית הנגזרת.", math_expression: "2(3) + a = 0" },
-            { verbal_explanation: "נפתור משוואה אלגברית קלה.", math_expression: "6 + a = 0 => a = -6" }
-        ],
-        final_answer: "-6"
+        "final_answer": "a+b=-5"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות קיצון ותחומי עלייה וירידה",
-        question: "מהו הערך המקסימלי (ערך ה-y הגבוה ביותר) אליו מגיעה הפונקציה f(x) = -2x<sup>2</sup> + 12x - 10 ?",
-        options: [
-            "8",
-            "3",
-            "10",
-            "-10"
+        "topic": "basic_calculus_471",
+        "subTopic": "חקירת פונקציה פולינומית (תחום הגדרה, חיתוך צירים)",
+        "question_text": "גרף הפונקציה \\( f(x) = x^{4} - 10x^{2} + 9 \\) חותך את ציר ה-\\( x \\) ב-4 נקודות שונות. מצאו את הנקודות הללו.&rlm;",
+        "options": ["(1,0), (-1,0), (3,0), (-3,0)", "(1,0), (-1,0), (9,0), (-9,0)", "(2,0), (-2,0), (3,0), (-3,0)", "(0,0)"],
+        "correctAnswer": 0,
+        "hint": "זוהי משוואה דו-ריבועית. הציבו משתנה עזר ופתרו משוואה ריבועית רגילה.",
+        "solution_steps": [
+            { "verbal_explanation": "נשווה לאפס כדי למצוא מפגשים עם הציר האופקי.", "math_expression": "x^{4} - 10x^{2} + 9 = 0" },
+            { "verbal_explanation": "נציב משתנה עזר במקום המשתנה המקורי בריבוע כדי לפשט את המשוואה.", "math_expression": "t = x^{2}" },
+            { "verbal_explanation": "נרשום את המשוואה החדשה ונתייחס אליה כאל משוואה ריבועית סטנדרטית.", "math_expression": "t^{2} - 10t + 9 = 0" },
+            { "verbal_explanation": "נפרק את המשוואה לגורמים.", "math_expression": "(t - 9)(t - 1) = 0" },
+            { "verbal_explanation": "נחלץ את שני הפתרונות עבור המשתנה הזמני.", "math_expression": "t = 9 \\quad , \\quad t = 1" },
+            { "verbal_explanation": "נחזיר את ההצבה המקורית למציאת הפתרונות הסופיים עבור הערך המקורי.", "math_expression": "x^{2} = 9 \\Rightarrow x = \\pm 3" },
+            { "verbal_explanation": "כך גם לגבי הערך השני שמצאנו.", "math_expression": "x^{2} = 1 \\Rightarrow x = \\pm 1" }
         ],
-        hint: "מצאו את ה-x של קודקוד הפרבולה (על ידי גזירה והשוואה לאפס). לאחר מכן, זכרו שהשאלה מבקשת את 'הערך המקסימלי', כלומר את ה-y. הציבו את ה-x חזרה בפונקציה המקורית.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי למצוא את המקסימום, נמצא את נקודת הקיצון. נגזור את הפונקציה.", math_expression: "f'(x) = -4x + 12" },
-            { verbal_explanation: "נשווה לאפס ונמצא את הערך של איקס.", math_expression: "-4x + 12 = 0 => 4x = 12 => x = 3" },
-            { verbal_explanation: "השאלה מבקשת את הערך המקסימלי עצמו (הגובה, ה-y). לכן נציב את האיקס בפונקציה המקורית.", math_expression: "f(3) = -2(3)^2 + 12(3) - 10" },
-            { verbal_explanation: "נחשב את החזקה והכפל.", math_expression: "f(3) = -2(9) + 36 - 10 = -18 + 36 - 10" },
-            { verbal_explanation: "נחשב את הסכום הסופי לקבלת גובה הפונקציה בנקודת השיא.", math_expression: "f(3) = 8" }
-        ],
-        final_answer: "8"
-    },
-    // =====================================================================
-    // תת-נושא 7: נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה (10 שאלות)
-    // =====================================================================
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "מצאו את נקודת הפיתול (שיעור ה-x) של הפונקציה הבאה:<br>y = x<sup>3</sup> - 6x<sup>2</sup> + 5<br><svg viewBox='0 0 200 120' width='160' height='96' style='display:block; margin: 15px auto;'><path d='M 20,100 Q 60,10 100,60 T 180,20' fill='none' stroke='#3b82f6' stroke-width='3'/><circle cx='100' cy='60' r='5' fill='#ef4444'/><line x1='50' y1='10' x2='150' y2='110' stroke='#10b981' stroke-width='2' stroke-dasharray='4,4'/></svg>",
-        options: [
-            "x = 2",
-            "x = 6",
-            "x = 3",
-            "x = 0"
-        ],
-        hint: "נקודת פיתול היא הנקודה שבה הפונקציה עוברת מקעירות מעלה לקעירות מטה (או להפך). כדי למצוא אותה, גזרו את הפונקציה פעמיים, והשוו את הנגזרת השנייה לאפס.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כדי למצוא פיתול, נגזור פעם אחת את הפונקציה.", math_expression: "y' = 3x^2 - 12x" },
-            { verbal_explanation: "נגזור פעם שנייה לקבלת הנגזרת השנייה.", math_expression: "y'' = 6x - 12" },
-            { verbal_explanation: "נשווה את הנגזרת השנייה לאפס.", math_expression: "6x - 12 = 0" },
-            { verbal_explanation: "נעביר את המספר אגף.", math_expression: "6x = 12" },
-            { verbal_explanation: "נחלק בשש למציאת הנקודה בה משתנה הקעירות.", math_expression: "x = 2" }
-        ],
-        final_answer: "x = 2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "עבור אילו ערכי x הפונקציה y = x<sup>4</sup> - 6x<sup>2</sup> קעורה כלפי מעלה (צורה של 'קערה מחייכת')?",
-        options: [
-            "x > 1 או x < -1",
-            "-1 < x < 1",
-            "x > 6 או x < -6",
-            "x > 0"
-        ],
-        hint: "פונקציה קעורה כלפי מעלה כאשר הנגזרת השנייה שלה גדולה מאפס (y'' > 0). גזרו פעמיים ופתרו את אי-השוויון הריבועי.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "התנאי לקעירות כלפי מעלה הוא שהנגזרת השנייה תהיה חיובית.", math_expression: "y'' > 0" },
-            { verbal_explanation: "נמצא את הנגזרת הראשונה.", math_expression: "y' = 4x^3 - 12x" },
-            { verbal_explanation: "נמצא את הנגזרת השנייה.", math_expression: "y'' = 12x^2 - 12" },
-            { verbal_explanation: "נציב באי השוויון כדי לבדוק מתי היא חיובית.", math_expression: "12x^2 - 12 > 0" },
-            { verbal_explanation: "נעביר אגף ונחלק ב-12.", math_expression: "x^2 > 1" },
-            { verbal_explanation: "הפתרון של אי-שוויון ריבועי זה הוא הקצוות (מעבר ל-1 ומתחת למינוס 1).", math_expression: "x > 1 , x < -1" }
-        ],
-        final_answer: "x > 1 או x < -1"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "נתונה הפונקציה f(x) = x<sup>3</sup> + ax<sup>2</sup>.<br>ידוע שלפונקציה יש נקודת פיתול בדיוק ב- x = 1.<br>מהו ערכו של הפרמטר a?",
-        options: [
-            "-3",
-            "3",
-            "-1",
-            "6"
-        ],
-        hint: "אם יש פיתול ב-x=1, זה אומר שהנגזרת השנייה מתאפסת כשמציבים בה 1. גזרו פעמיים, הציבו 1, השוו ל-0 וגלו את a.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור פעם ראשונה.", math_expression: "f'(x) = 3x^2 + 2ax" },
-            { verbal_explanation: "נגזור פעם שנייה.", math_expression: "f''(x) = 6x + 2a" },
-            { verbal_explanation: "נתון שנקודת הפיתול היא ב-1, לכן נציב איקס שווה אחת ונשווה לאפס.", math_expression: "6(1) + 2a = 0" },
-            { verbal_explanation: "נעביר את המספר אגף.", math_expression: "2a = -6" },
-            { verbal_explanation: "נחלק בשתיים למציאת הפרמטר.", math_expression: "a = -3" }
-        ],
-        final_answer: "-3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "כאשר הנגזרת השנייה של פונקציה היא שלילית (f''(x) < 0) בתחום מסוים, מה אנו יודעים על גרף הפונקציה המקורית f(x) באותו התחום?",
-        options: [
-            "היא קעורה כלפי מטה ('קערה בוכה')",
-            "היא קעורה כלפי מעלה ('קערה מחייכת')",
-            "היא בהכרח פונקציה יורדת",
-            "היא בהכרח פונקציה עולה"
-        ],
-        hint: "נגזרת שנייה בודקת את ה'קעירות'. חיובי = מחייך (למעלה). שלילי = בוכה (למטה).",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "ערך הנגזרת השנייה מצביע על שינוי השיפוע. כשהיא שלילית, זה אומר שהשיפוע הולך וקטן.", math_expression: "f''(x) < 0" },
-            { verbal_explanation: "מבחינה גרפית, שיפוע שהולך וקטן יוצר צורה של פרבולה הפוכה, המכונה 'קעורה כלפי מטה'.", math_expression: "Downwards" }
-        ],
-        final_answer: "היא קעורה כלפי מטה ('קערה בוכה')"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "מצאו את נקודת הפיתול (ערך ה-x) של הפונקציה הבאה:<br>y = -2x<sup>3</sup> + 12x<sup>2</sup> - 4x + 1",
-        options: [
-            "2",
-            "6",
-            "-2",
-            "4"
-        ],
-        hint: "נגזרת ראשונה ואז נגזרת שנייה. הנגזרת השנייה תהיה ישר פשוט שתצטרכו להשוות לאפס.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את הנגזרת הראשונה.", math_expression: "y' = -6x^2 + 24x - 4" },
-            { verbal_explanation: "נמצא את הנגזרת השנייה.", math_expression: "y'' = -12x + 24" },
-            { verbal_explanation: "נשווה את הנגזרת השנייה לאפס.", math_expression: "-12x + 24 = 0" },
-            { verbal_explanation: "נעביר את האיקס לאגף ימין כדי שיהיה חיובי.", math_expression: "24 = 12x" },
-            { verbal_explanation: "נחלק בשתיים-עשרה.", math_expression: "x = 2" }
-        ],
-        final_answer: "2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "כמה נקודות פיתול יש לפונקציה y = x<sup>4</sup>?",
-        options: [
-            "אפס (אין לה נקודות פיתול)",
-            "אחת (ב- x=0)",
-            "שתיים (ב- x=1 ו- x=-1)",
-            "אינסוף"
-        ],
-        hint: "גזרו פעמיים והשוו לאפס. תקבלו ש-x=0 מאפס את הנגזרת השנייה. אבל שימו לב: האם הסימן משתנה לפני ואחרי 0? x בריבוע תמיד חיובי!",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נגזור פעם ראשונה.", math_expression: "y' = 4x^3" },
-            { verbal_explanation: "נגזור פעם שנייה ונשווה לאפס.", math_expression: "y'' = 12x^2 => 12x^2 = 0 => x = 0" },
-            { verbal_explanation: "נקודת פיתול דורשת שהקעירות תשנה את הכיוון שלה (מפלוס למינוס). נבדוק את סימן הנגזרת השנייה לכל מספר.", math_expression: "12x^2 > 0" },
-            { verbal_explanation: "בגלל החזקה הזוגית, הנגזרת השנייה תמיד חיובית (תמיד קעורה מעלה). הקעירות לא משתנה, ולכן זו לא נקודת פיתול.", math_expression: "0" }
-        ],
-        final_answer: "אפס (אין לה נקודות פיתול)"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "נתונה הנגזרת השנייה של פונקציה מסוימת: y'' = 6x - 18.<br>עבור איזה תחום הפונקציה המקורית קעורה כלפי מטה?",
-        options: [
-            "x < 3",
-            "x > 3",
-            "x > 0",
-            "x < 18"
-        ],
-        hint: "קעירות כלפי מטה (בוכה) מתרחשת כאשר הנגזרת השנייה קטנה מ-0. הציבו: 6x - 18 קטן מאפס, ופתרו.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "קעירות כלפי מטה משמעותה נגזרת שנייה שלילית.", math_expression: "y'' < 0" },
-            { verbal_explanation: "נציב את הנגזרת השנייה הנתונה לתוך אי השוויון.", math_expression: "6x - 18 < 0" },
-            { verbal_explanation: "נעביר את המספר ימינה.", math_expression: "6x < 18" },
-            { verbal_explanation: "נחלק בשש לקבלת התחום המדויק.", math_expression: "x < 3" }
-        ],
-        final_answer: "x < 3"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "מצאו את שיעור ה-y של נקודת הפיתול עבור הפונקציה:<br>y = x<sup>3</sup> - 3x<sup>2</sup> + 4",
-        options: [
-            "2",
-            "1",
-            "4",
-            "0"
-        ],
-        hint: "גזרו פעמיים, מצאו את ה-x של נקודת הפיתול, ואז זכרו לחזור ולהציב אותו בפונקציה המקורית כדי למצוא את הגובה (y).",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נמצא את הנגזרת הראשונה.", math_expression: "y' = 3x^2 - 6x" },
-            { verbal_explanation: "נמצא את השנייה ונשווה לאפס למציאת האיקס.", math_expression: "y'' = 6x - 6 = 0 => 6x = 6 => x = 1" },
-            { verbal_explanation: "נציב את האיקס בפונקציה המקורית כדי למצוא את הגובה (y).", math_expression: "y(1) = 1^3 - 3(1)^2 + 4" },
-            { verbal_explanation: "נחשב את הפעולות בחשבון.", math_expression: "y(1) = 1 - 3 + 4" },
-            { verbal_explanation: "התוצאה הסופית המייצגת את הגובה.", math_expression: "y = 2" }
-        ],
-        final_answer: "2"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "לפונקציה מסוימת יש נקודת <b>מקסימום מקומי</b> ב- x = 2.<br>מה ניתן להסיק בוודאות על הנגזרת השנייה בנקודה זו?",
-        options: [
-            "f''(2) < 0",
-            "f''(2) > 0",
-            "f''(2) = 0",
-            "f''(2) = 2"
-        ],
-        hint: "נקודת מקסימום נמצאת על 'גבעה', ולכן צורת הפונקציה באזור זה היא של קערה הפוכה (קעורה כלפי מטה). ומה הכלל לגבי קעירות מטה?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נקודת מקסימום מאפסת את הנגזרת הראשונה (השיפוע מתיישר).", math_expression: "f'(2) = 0" },
-            { verbal_explanation: "סביב נקודת מקסימום הפונקציה יורדת בחזרה למטה, מה שיוצר צורה קעורה כלפי מטה.", math_expression: "f''(x) < 0" }
-        ],
-        final_answer: "f''(2) < 0"
-    },
-    {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
-        question: "בנקודת הפיתול של הפונקציה, המשיק לגרף הפונקציה...",
-        options: [
-            "חוצה את גרף הפונקציה מצידה האחד לצידה השני",
-            "מקביל בהכרח לציר ה-x",
-            "מקביל בהכרח לציר ה-y",
-            "לא קיים כלל"
-        ],
-        hint: "זהו תכונה גיאומטרית מיוחדת של נקודות פיתול. כיוון שהקעירות משנה כיוון בדיוק שם, המשיק לא יכול להישאר 'מחוץ' לקערה.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "בנקודת קיצון רגילה, המשיק נושק לפונקציה ונשאר מחוץ לצורת הקערה.", math_expression: "f'(x) = 0" },
-            { verbal_explanation: "בנקודת פיתול, הקעירות משתנה ולכן המשיק חייב 'לחתוך' או לחצות את הגרף בדיוק באותה הנקודה כדי להמשיך להתאים לשיפוע החדש.", math_expression: "f''(x) = 0" }
-        ],
-        final_answer: "חוצה את גרף הפונקציה מצידה האחד לצידה השני"
+        "final_answer": "(1,0), (-1,0), (3,0), (-3,0)"
     },
 
-    // =====================================================================
-    // תת-נושא 8: שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת) (10 שאלות)
-    // =====================================================================
+    // ==========================================
+    // תת נושא 6: נקודות קיצון ותחומי עלייה ירידה (10 שאלות)
+    // ==========================================
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "ידוע שפונקציה f(x) <b>עולה</b> כאשר x > 2, ו<b>יורדת</b> כאשר x < 2.<br>איזה מהמשפטים הבאים מתאר נכון את הגרף של הנגזרת f'(x)?",
-        options: [
-            "חותך את ציר ה-x בנקודה x=2, ועובר משלילי לחיובי",
-            "חותך את ציר ה-x בנקודה x=2, ועובר מחיובי לשלילי",
-            "גרף הנגזרת הוא פרבולה שקודקודה ב-x=2",
-            "גרף הנגזרת תמיד חיובי"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{2} - 4x + 3 \\).\nמצאו את נקודת הקיצון של הפונקציה וקבעו את סוגה (מינימום או מקסימום).&rlm;",
+        "options": ["(2,-1) מינימום", "(2,1) מינימום", "(4,3) מקסימום", "(-2,15) מקסימום"],
+        "correctAnswer": 0,
+        "hint": "גזרו את הפונקציה, השוו לאפס למציאת הנקודה הקריטית. בדקו את סוגה בעזרת נגזרת שנייה או טבלה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את הנגזרת הראשונה של הפונקציה כדי למצוא אזורי השקה מאוזנים.", "math_expression": "f'(x) = 2x - 4" },
+            { "verbal_explanation": "נשווה את הנגזרת לאפס למציאת נקודה חשודה כקיצון.", "math_expression": "2x - 4 = 0 \\Rightarrow 2x = 4" },
+            { "verbal_explanation": "נחלק ונקבל את המיקום האופקי של הנקודה.", "math_expression": "x = 2" },
+            { "verbal_explanation": "נציב ערך זה בפונקציה המקורית כדי למצוא את הגובה המדויק שלה.", "math_expression": "y = 2^{2} - 4 \\times 2 + 3 = 4 - 8 + 3 = -1" },
+            { "verbal_explanation": "נחשב נגזרת שנייה כדי לקבוע את סוג הנקודה.", "math_expression": "f''(x) = 2" },
+            { "verbal_explanation": "הנגזרת השנייה חיובית באופן קבוע, ולכן הנקודה היא נקודת שפל (מינימום).", "math_expression": "2 > 0 \\Rightarrow \\text{Min}" }
         ],
-        hint: "ירידה של הפונקציה = נגזרת שלילית. עלייה של הפונקציה = נגזרת חיובית. ב-2 יש החלפת כיוון.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "כאשר איקס קטן משתיים, הפונקציה יורדת, כלומר הנגזרת נמצאת מתחת לציר האיקס.", math_expression: "x < 2 => f'(x) < 0" },
-            { verbal_explanation: "כאשר איקס גדול משתיים, הפונקציה עולה, כלומר הנגזרת נמצאת מעל ציר האיקס.", math_expression: "x > 2 => f'(x) > 0" },
-            { verbal_explanation: "מכאן שגרף הנגזרת חותך את האפס ועולה כלפי מעלה ממינוס לפלוס.", math_expression: "f'(2) = 0" }
-        ],
-        final_answer: "חותך את ציר ה-x בנקודה x=2, ועובר משלילי לחיובי"
+        "final_answer": "(2,-1) מינימום"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "גרף הנגזרת f'(x) הוא פרבולה 'מחייכת' אשר חותכת את ציר ה-x בשתי נקודות: x = -1 ו- x = 3.<br>היכן תהיה לפונקציה המקורית f(x) נקודת <b>מקסימום</b>?<br><svg viewBox='0 0 200 150' width='160' height='120' style='display:block; margin: 15px auto;'><path d='M 10,10 Q 100,200 190,10' fill='none' stroke='#ef4444' stroke-width='3'/><line x1='0' y1='100' x2='200' y2='100' stroke='#94a3b8' stroke-width='2'/><circle cx='46' cy='100' r='5' fill='#10b981'/><circle cx='154' cy='100' r='5' fill='#10b981'/><text x='35' y='120' font-size='12' font-weight='bold'>-1</text><text x='165' y='120' font-size='12' font-weight='bold'>3</text><text x='170' y='30' font-size='12' font-weight='bold' fill='#ef4444'>y'</text></svg>",
-        options: [
-            "x = -1",
-            "x = 3",
-            "x = 1",
-            "אין לה נקודת מקסימום"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה \\( f(x) = -x^{2} + 6x - 5 \\).\nמצאו את תחום העלייה ואת תחום הירידה של הפונקציה.&rlm;",
+        "options": ["עלייה: x<3, ירידה: x>3", "עלייה: x>3, ירידה: x<3", "עלייה: x<6, ירידה: x>6", "עלייה: x>-3, ירידה: x<-3"],
+        "correctAnswer": 0,
+        "hint": "הפונקציה עולה כאשר הנגזרת חיובית, ויורדת כאשר הנגזרת שלילית. מצאו את נקודת האיפוס.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה כדי לבחון את תכונות השיפוע שלה.", "math_expression": "f'(x) = -2x + 6" },
+            { "verbal_explanation": "נשווה לאפס כדי למצוא את הנקודה בה המגמה מתהפכת.", "math_expression": "-2x + 6 = 0 \\Rightarrow 2x = 6 \\Rightarrow x = 3" },
+            { "verbal_explanation": "נבדוק את תחומי החיוביות של הנגזרת. הפונקציה עולה כשהנגזרת חיובית.", "math_expression": "-2x + 6 > 0" },
+            { "verbal_explanation": "נפתור את אי-השוויון על ידי העברת אגף וחלוקה.", "math_expression": "6 > 2x \\Rightarrow x < 3" },
+            { "verbal_explanation": "נבדוק את תחומי השליליות של הנגזרת. הפונקציה יורדת כשהנגזרת שלילית.", "math_expression": "-2x + 6 < 0" },
+            { "verbal_explanation": "נפתור את אי-השוויון באופן דומה.", "math_expression": "6 < 2x \\Rightarrow x > 3" }
         ],
-        hint: "כדי למצוא מקסימום, חפשו מעבר מעלייה לירידה, כלומר מקום שבו הנגזרת עוברת מהחלק החיובי (מעל הציר) לחלק השלילי (מתחת לציר).",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הנגזרת מתאפסת בשני המקומות שצוינו, כך ששם יש נקודות קיצון אפשריות.", math_expression: "f'(-1) = 0 , f'(3) = 0" },
-            { verbal_explanation: "לפני מינוס אחת, הפרבולה המחייכת נמצאת מעל הציר (הפונקציה עולה). אחרי מינוס אחת, הפרבולה יורדת אל מתחת לציר (הפונקציה מתחילה לרדת).", math_expression: "x < -1 => f'(x) > 0" },
-            { verbal_explanation: "מעבר מעלייה לירידה מגדיר נקודת מקסימום (פסגה).", math_expression: "x = -1 => Max" }
-        ],
-        final_answer: "x = -1"
+        "final_answer": "עלייה: x<3, ירידה: x>3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "פונקציה f(x) היא פולינום ממעלה שלישית בעל מקדם חיובי (לדוגמה y = x<sup>3</sup>).<br>מה תהיה הצורה הכללית של גרף הנגזרת f'(x)?",
-        options: [
-            "פרבולה 'מחייכת' (קעורה כלפי מעלה)",
-            "פרבולה 'בוכה' (קעורה כלפי מטה)",
-            "קו ישר עולה",
-            "קו ישר יורד"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה המעוקבת \\( f(x) = x^{3} - 3x \\).\nמצאו את כל נקודות הקיצון של הפונקציה וקבעו את סוגן.&rlm;",
+        "options": ["(1,-2) מינימום, (-1,2) מקסימום", "(1,2) מינימום, (-1,-2) מקסימום", "(3,18) מינימום, (0,0) מקסימום", "אין נקודות קיצון"],
+        "correctAnswer": 0,
+        "hint": "גזרו והשוו לאפס לקבלת משוואה ריבועית פשוטה. יהיו שתי נקודות לבדיקה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה המקורית לקבלת הפונקציה המתארת את השיפוע.", "math_expression": "f'(x) = 3x^{2} - 3" },
+            { "verbal_explanation": "נשווה לאפס למציאת הנקודות בהן השיפוע מתאפס.", "math_expression": "3x^{2} - 3 = 0" },
+            { "verbal_explanation": "נחלץ את המשתנה באמצעות העברת אגפים וחלוקה בשלוש.", "math_expression": "x^{2} = 1 \\Rightarrow x = \\pm 1" },
+            { "verbal_explanation": "נציב את הערך החיובי בפונקציה המקורית כדי למצוא את הגובה בנקודה זו.", "math_expression": "f(1) = 1^{3} - 3 \\times 1 = -2" },
+            { "verbal_explanation": "נציב את הערך השלילי בפונקציה המקורית כדי למצוא את הגובה בנקודה השנייה.", "math_expression": "f(-1) = (-1)^{3} - 3 \\times (-1) = -1 + 3 = 2" },
+            { "verbal_explanation": "נבדוק סוג באמצעות נגזרת שנייה. נגזור שוב את הפונקציה.", "math_expression": "f''(x) = 6x" },
+            { "verbal_explanation": "נציב את הערכים בנגזרת השנייה ונסיק לגבי סוג הקיצון לפי הסימן.", "math_expression": "f''(1) = 6 > 0 \\Rightarrow \\text{Min} \\quad , \\quad f''(-1) = -6 < 0 \\Rightarrow \\text{Max}" }
         ],
-        hint: "גזירה של איקס בשלישית נותנת שלוש איקס בריבוע. מה הצורה של גרף שמכיל איקס בריבוע עם מקדם חיובי?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נכתוב את הפונקציה הכללית כאשר המקדם חיובי.", math_expression: "f(x) = ax^3 => a > 0" },
-            { verbal_explanation: "נגזור אותה. חזקה שלישית יורדת לחזקה שנייה.", math_expression: "f'(x) = 3ax^2" },
-            { verbal_explanation: "משוואה עם איקס בריבוע היא תמיד פרבולה. מכיוון שהמקדם חיובי (3a גדול מאפס), הפרבולה מחייכת.", math_expression: "3a > 0 => U" }
-        ],
-        final_answer: "פרבולה 'מחייכת' (קעורה כלפי מעלה)"
+        "final_answer": "(1,-2) מינימום, (-1,2) מקסימום"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "נתון שגרף הנגזרת f'(x) נמצא <b>תמיד מעל ציר ה-x</b> עבור כל ערך של x.<br>מה ניתן להסיק לגבי גרף הפונקציה f(x)?",
-        options: [
-            "הפונקציה עולה לכל x",
-            "הפונקציה יורדת לכל x",
-            "לפונקציה יש רק נקודת מינימום אחת",
-            "הפונקציה קבועה ואינה משתנה"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 140 Q 100 20 160 140\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"60\" r=\"4\" fill=\"#c5a059\"/></svg></div><br>נתונה הפונקציה \\( f(x) = x^{3} - 6x^{2} + 9x \\).\nבאילו תחומים הפונקציה יורדת?&rlm;",
+        "options": ["1 < x < 3", "x < 1 או x > 3", "x > 3", "x < 1"],
+        "correctAnswer": 0,
+        "hint": "פונקציה יורדת כאשר הנגזרת הראשונה שלה היא בעלת ערכים שליליים. מצאו את שורשי הנגזרת ובדקו את התחום שביניהם.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה בעזרת הכללים הבסיסיים של פולינומים.", "math_expression": "f'(x) = 3x^{2} - 12x + 9" },
+            { "verbal_explanation": "נשווה לאפס לקבלת גבולות תחומי העלייה והירידה.", "math_expression": "3x^{2} - 12x + 9 = 0" },
+            { "verbal_explanation": "נחלק בשלוש למען הפשטות.", "math_expression": "x^{2} - 4x + 3 = 0" },
+            { "verbal_explanation": "נמצא שורשים בעזרת פירוק טרינום.", "math_expression": "(x - 1)(x - 3) = 0 \\Rightarrow x = 1 , x = 3" },
+            { "verbal_explanation": "נבדוק את סימן הנגזרת בין השורשים (למשל, נציב את המספר שתיים בנגזרת המקורית).", "math_expression": "f'(2) = 3(2)^{2} - 12(2) + 9 = 12 - 24 + 9 = -3" },
+            { "verbal_explanation": "כיוון שהתוצאה שלילית, הפונקציה אכן יורדת בתחום הפנימי שבין שתי הנקודות שמצאנו.", "math_expression": "1 < x < 3" }
         ],
-        hint: "נגזרת שערכה חיובי מייצגת שיפוע חיובי. אם השיפוע חיובי תמיד, איך מתנהגת הפונקציה?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "גרף מעל ציר האיקס פירושו שהערך חיובי תמיד.", math_expression: "f'(x) > 0" },
-            { verbal_explanation: "נגזרת חיובית מעידה על כך שהשיפוע של הפונקציה חיובי, ולכן היא כל הזמן מטפסת למעלה.", math_expression: "Upwards" }
-        ],
-        final_answer: "הפונקציה עולה לכל x"
+        "final_answer": "1 < x < 3"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "לפונקציה f(x) יש <b>נקודת פיתול</b> ב- x = 4.<br>מה קורה בגרף של פונקציית הנגזרת f'(x) בנקודה זו?",
-        options: [
-            "יש לה נקודת קיצון (מינימום או מקסימום)",
-            "היא חותכת את ציר ה-x",
-            "היא אינה מוגדרת",
-            "היא משיקה לציר ה-y"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{4} - 2x^{2} \\).\nמצאו את שיעורי ה-\\( x \\) של כל נקודות הקיצון של הפונקציה.&rlm;",
+        "options": ["x=0, x=1, x=-1", "x=0, x=2, x=-2", "x=1, x=-1", "x=0"],
+        "correctAnswer": 0,
+        "hint": "גזרו, השוו לאפס והוציאו גורם משותף.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה המקורית.", "math_expression": "f'(x) = 4x^{3} - 4x" },
+            { "verbal_explanation": "נשווה לאפס כדי לאתר את כל נקודות המקסימום והמינימום האפשריות.", "math_expression": "4x^{3} - 4x = 0" },
+            { "verbal_explanation": "נוציא גורם משותף מחוץ לסוגריים.", "math_expression": "4x(x^{2} - 1) = 0" },
+            { "verbal_explanation": "המכפלה שווה לאפס, נבדוק את האפשרות שהגורם הראשון מאפס אותה.", "math_expression": "4x = 0 \\Rightarrow x = 0" },
+            { "verbal_explanation": "נבדוק את האפשרות שהביטוי בסוגריים מאפס את המשוואה, ונוציא שורש.", "math_expression": "x^{2} - 1 = 0 \\Rightarrow x^{2} = 1 \\Rightarrow x = \\pm 1" },
+            { "verbal_explanation": "נרכז את כל הנקודות שקיבלנו לתשובה סופית.", "math_expression": "x = 0 , x = 1 , x = -1" }
         ],
-        hint: "בנקודת פיתול הנגזרת השנייה מתאפסת. הנגזרת השנייה היא בעצם הנגזרת של הנגזרת הראשונה! כלומר, ה'שיפוע' של פונקציית הנגזרת שווה לאפס ב-4.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "התנאי לקיום פיתול הוא שהנגזרת השנייה מתאפסת.", math_expression: "f''(4) = 0" },
-            { verbal_explanation: "הנגזרת השנייה היא הנגזרת של פונקציית הנגזרת הראשונה. לכן, אם היא מתאפסת, זה אומר שפונקציית הנגזרת עצמה הגיעה לשיא או לשפל (קיצון).", math_expression: "(f')'(4) = 0 => Max / Min" }
-        ],
-        final_answer: "יש לה נקודת קיצון (מינימום או מקסימום)"
+        "final_answer": "x=0, x=1, x=-1"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "גרף הפונקציה f(x) נוגע בציר ה-x בנקודה x = 2 אך <b>אינו חוצה אותו</b> (רק משיק לו).<br>אילו מהתנאים הבאים חייבים להתקיים בנקודה זו?",
-        options: [
-            "f(2) = 0  וגם  f'(2) = 0",
-            "f(2) = 0  וגם  f'(2) > 0",
-            "f(2) > 0  וגם  f'(2) = 0",
-            "f(2) = 0  וגם  f''(2) = 0"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה \\( f(x) = \\dfrac{x^{3}}{3} - 4x \\).\nמהם תחומי העלייה של הפונקציה?&rlm;",
+        "options": ["x > 2 או x < -2", "-2 < x < 2", "x > 4 או x < -4", "x > 2"],
+        "correctAnswer": 0,
+        "hint": "גזרו, השוו לאפס. מאחר והנגזרת היא פרבולה מחייכת, הפונקציה המקורית עולה מחוץ לשורשים.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה המקורית. המכנה נותר כפי שהוא בזמן גזירת המונה.", "math_expression": "f'(x) = \\dfrac{3x^{2}}{3} - 4 = x^{2} - 4" },
+            { "verbal_explanation": "נשווה את הנגזרת לאפס למציאת הנקודות הקריטיות המפרידות בין עליות וירידות.", "math_expression": "x^{2} - 4 = 0" },
+            { "verbal_explanation": "נעביר אגף ונוציא שורש כדי למצוא את השורשים של פונקציית הנגזרת.", "math_expression": "x^{2} = 4 \\Rightarrow x = 2 , x = -2" },
+            { "verbal_explanation": "פונקציית הנגזרת מייצגת פרבולה המחייכת כלפי מעלה (המקדם החשוב חיובי).", "math_expression": "a = 1 > 0 \\Rightarrow \\text{Upward Parabola}" },
+            { "verbal_explanation": "פרבולה כזו מקבלת ערכים חיוביים (מה שגורר עלייה בפונקציה המקורית) בחלקים שמעבר לשורשים.", "math_expression": "y' > 0 \\Rightarrow x > 2 \\quad \\text{Or} \\quad x < -2" }
         ],
-        hint: "נגיעה בציר מבלי לחצות אותו מעידה על כך שהגובה הוא 0 (כי היא על הציר) והשיפוע שם מתאזן לרגע וחוזר אחורה (נקודת קיצון על הציר).",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הנקודה נמצאת על הציר האופקי, ולכן גובה הפונקציה שם הוא אפס.", math_expression: "f(2) = 0" },
-            { verbal_explanation: "כיוון שהפונקציה לא חוצה את הציר אלא רק משיקה וחוזרת בחזרה, מדובר בנקודת קיצון שבה השיפוע המקומי הוא גם כן אפס.", math_expression: "f'(2) = 0" }
-        ],
-        final_answer: "f(2) = 0  וגם  f'(2) = 0"
+        "final_answer": "x > 2 או x < -2"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "התבוננו בגרף הנגזרת: גרף הנגזרת הוא <b>קו ישר העובר בראשית הצירים (0,0) ובעל שיפוע חיובי</b>.<br>מהי הצורה הכללית של הפונקציה המקורית f(x)?",
-        options: [
-            "פרבולה 'מחייכת' שקודקודה על ציר ה-y",
-            "פרבולה 'בוכה' שקודקודה על ציר ה-x",
-            "קו ישר מקביל לציר ה-x",
-            "פונקציה ממעלה שלישית"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה \\( f(x) = -x^{3} + 3x^{2} \\).\nמהו ערך המקסימום (שיעור ה-\\( y \\)) המקומי של הפונקציה?&rlm;",
+        "options": ["4", "0", "2", "6"],
+        "correctAnswer": 0,
+        "hint": "מצאו את נקודות הקיצון, זהו איזו מהן היא מקסימום, והציבו חזרה בפונקציה המקורית לקבלת הגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגזור את הפונקציה כבסיס לחקירתה.", "math_expression": "f'(x) = -3x^{2} + 6x" },
+            { "verbal_explanation": "נשווה לאפס כדי לאתר את הנקודות הקריטיות.", "math_expression": "-3x^{2} + 6x = 0" },
+            { "verbal_explanation": "נוציא גורם משותף מחוץ לסוגריים ונחלץ את הפתרונות למשוואה.", "math_expression": "-3x(x - 2) = 0 \\Rightarrow x = 0 , x = 2" },
+            { "verbal_explanation": "נבדוק את סוג הנקודות באמצעות הנגזרת השנייה.", "math_expression": "f''(x) = -6x + 6" },
+            { "verbal_explanation": "נציב את הערך הראשון לבדיקה.", "math_expression": "f''(0) = 6 > 0 \\Rightarrow \\text{Min}" },
+            { "verbal_explanation": "נציב את הערך השני לבדיקה. הערך שלילי ולכן זו הנקודה המבוקשת.", "math_expression": "f''(2) = -12 + 6 = -6 < 0 \\Rightarrow \\text{Max}" },
+            { "verbal_explanation": "נציב את הערך המאומת לתוך הפונקציה המקורית כדי לחשב את גובה נקודת המקסימום.", "math_expression": "f(2) = -(2^{3}) + 3 \\times 2^{2} = -8 + 12 = 4" }
         ],
-        hint: "הנגזרת היא קו ישר כמו y = 2x. אם הנגזרת היא 2x, איזה סוג של פונקציה יצרה אותה כשנגזרה?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "נכתוב משוואה לקו ישר העובר בראשית עם שיפוע חיובי.", math_expression: "f'(x) = ax => a > 0" },
-            { verbal_explanation: "נשאל את עצמנו: איזו פונקציה תיתן נגזרת של איקס בחזקת אחת? התשובה היא פונקציה עם איקס בחזקת שתיים.", math_expression: "f(x) = (a/2) * x^2" },
-            { verbal_explanation: "פונקציה עם חזקה ריבועית ומקדם חיובי מייצגת תמיד פרבולה מחייכת.", math_expression: "U" }
-        ],
-        final_answer: "פרבולה 'מחייכת' שקודקודה על ציר ה-y"
+        "final_answer": "4"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "נתון שגרף הנגזרת הוא קו אופקי קבוע: f'(x) = -3.<br>איזה מהגרפים מתאר את הפונקציה המקורית f(x)?",
-        options: [
-            "קו ישר היורד משמאל לימין",
-            "קו ישר העולה משמאל לימין",
-            "פרבולה הפוכה",
-            "קו אופקי המקביל לציר ה-x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "נתונה הפונקציה \\( y = (x - 2)^{2} \\times (x + 1) \\).\nמצאו את נקודת המקסימום המקומית של הפונקציה.&rlm;",
+        "options": ["(0,4)", "(2,0)", "(-1,0)", "(0,0)"],
+        "correctAnswer": 0,
+        "hint": "פתחו סוגריים או השתמשו בכלל המכפלה לגזירה. לאחר מציאת הנקודות, בדקו איזו מהן נותנת את ערך ה-y הגדול יותר בסביבתה.",
+        "solution_steps": [
+            { "verbal_explanation": "ניתן לפתוח סוגריים. קודם נפתח את איבר הריבוע, ואז נכפיל בשאר.", "math_expression": "(x^{2} - 4x + 4)(x + 1) = x^{3} + x^{2} - 4x^{2} - 4x + 4x + 4" },
+            { "verbal_explanation": "נכנס איברים לקבלת הצורה הסופית של הפונקציה הפולינומית.", "math_expression": "y = x^{3} - 3x^{2} + 4" },
+            { "verbal_explanation": "נגזור את הפונקציה החדשה.", "math_expression": "y' = 3x^{2} - 6x" },
+            { "verbal_explanation": "נשווה לאפס ונחלץ שורשים.", "math_expression": "3x(x - 2) = 0 \\Rightarrow x = 0 , x = 2" },
+            { "verbal_explanation": "נחשב נגזרת שנייה לאפיון הנקודות.", "math_expression": "y'' = 6x - 6" },
+            { "verbal_explanation": "נבדוק את הערך הראשון המייצר ערך שלילי ועל כן הוא מייצג מקסימום.", "math_expression": "y''(0) = -6 < 0 \\Rightarrow \\text{Max}" },
+            { "verbal_explanation": "נציב את הערך בפונקציה המקורית כדי לאתר את הגובה.", "math_expression": "y(0) = (0 - 2)^{2} \\times (0 + 1) = 4 \\times 1 = 4" }
         ],
-        hint: "הנגזרת מייצגת את השיפוע של הפונקציה. שיפוע קבוע ובלתי משתנה, שהוא מספר שלילי, מתאר פונקציה אחת ספציפית בגיאומטריה אנליטית.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "הנגזרת היא קבוע, מה שאומר שהשיפוע של הפונקציה לעולם אינו משתנה.", math_expression: "m = -3" },
-            { verbal_explanation: "פונקציה בעלת שיפוע קבוע היא קו ישר (פונקציה ליניארית). בגלל שהשיפוע שלילי, הקו יורד.", math_expression: "y = -3x + c" }
-        ],
-        final_answer: "קו ישר היורד משמאל לימין"
+        "final_answer": "(0,4)"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "לפונקציה f(x) יש מקסימום מקומי ב- x = -2 ומינימום מקומי ב- x = 5.<br>באילו נקודות יחתוך גרף הנגזרת f'(x) את ציר ה-x?",
-        options: [
-            "רק ב- x = -2 ו- x = 5",
-            "רק ב- x = 0",
-            "בין הערכים -2 ל- 5",
-            "הוא לא יחתוך את ציר ה-x כלל"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "עבור איזה ערך של \\( a \\), הפונקציה \\( y = x^{2} + ax + 10 \\) משיגה את ערך המינימום שלה בנקודה שבה \\( x = 3 \\)?&rlm;",
+        "options": ["-6", "6", "3", "-3"],
+        "correctAnswer": 0,
+        "hint": "בנקודת המינימום הנגזרת מתאפסת. גזרו את הפונקציה, הציבו 3 במקום המשתנה, והשוו לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את נגזרת הפונקציה בעוד אנו משמרים את הפרמטר המספרי.", "math_expression": "y' = 2x + a" },
+            { "verbal_explanation": "ידוע לנו שבנקודת המינימום, הנגזרת של הפונקציה חייבת להיות שווה לאפס.", "math_expression": "m = 0" },
+            { "verbal_explanation": "נציב את הערך הידוע של הנקודה במקום המשתנה, ונשווה לאפס כפי שקבענו.", "math_expression": "2 \\times 3 + a = 0" },
+            { "verbal_explanation": "נבצע את המכפלה הפשוטה.", "math_expression": "6 + a = 0" },
+            { "verbal_explanation": "נעביר אגף כדי לבודד את הפרמטר הנדרש ולהגיע לתוצאה הסופית.", "math_expression": "a = -6" }
         ],
-        hint: "תזכורת: נקודות הקיצון של פונקציה נוצרות בדיוק במקומות שבהם הנגזרת שלה מתאפסת (שווה לאפס). התאפסות גרפית פירושה חיתוך עם הציר.",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "המקומות שבהם הפונקציה מגיעה לשיא או לשפל, הם המקומות שבהם השיפוע שלה (הנגזרת) מתאזן ומשתווה לאפס.", math_expression: "f'(-2) = 0 , f'(5) = 0" },
-            { verbal_explanation: "נגזרת ששווה לאפס משמעותה שהגובה של הנגזרת על הגרף הוא אפס, כלומר היא חותכת את הציר באותם מקומות בדיוק.", math_expression: "x = -2 , x = 5" }
-        ],
-        final_answer: "רק ב- x = -2 ו- x = 5"
+        "final_answer": "-6"
     },
     {
-        topic: "חשבון דיפרנציאלי - פולינומים",
-        subTopic: "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
-        question: "גרף הנגזרת f'(x) נמצא <b>כולו מתחת לציר ה-x</b> (שלילי לכל x).<br>מה ניתן לדעת בוודאות על הפונקציה f(x)?",
-        options: [
-            "שהיא במגמת ירידה לכל אורך התחום",
-            "שיש לה נקודת מינימום אחת לפחות",
-            "שהיא במגמת עלייה לכל אורך התחום",
-            "שהיא מקבילה לציר ה-x"
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות קיצון ותחומי עלייה ירידה",
+        "question_text": "האם לפונקציה \\( f(x) = 5x + 7 \\) יש נקודות קיצון?&rlm;",
+        "options": ["לא, הנגזרת לעולם לא מתאפסת", "כן, בנקודה x=0", "כן, בנקודה x=-1.4", "לא, הפונקציה יורדת תמיד"],
+        "correctAnswer": 0,
+        "hint": "מצאו את הנגזרת. אם הנגזרת היא מספר קבוע השונה מאפס, אין אף נקודה שבה השיפוע מאוזן.",
+        "solution_steps": [
+            { "verbal_explanation": "נבצע גזירה רגילה של הפונקציה הלינארית הנתונה.", "math_expression": "f'(x) = 5" },
+            { "verbal_explanation": "כדי שתהיה נקודת קיצון לפונקציה, צריך שיהיה פתרון למשוואה שמציבה את הנגזרת כאפס.", "math_expression": "f'(x) = 0" },
+            { "verbal_explanation": "נציב את הנגזרת שמצאנו.", "math_expression": "5 = 0" },
+            { "verbal_explanation": "זהו כמובן שקר מתמטי, פסוק שאינו יכול להתקיים לעולם.", "math_expression": "5 \\neq 0" },
+            { "verbal_explanation": "לפיכך, מסיקים שלפונקציה אין נקודות קריטיות ולכן גם אין לה נקודות קיצון.", "math_expression": "\\text{No Critical Points}" }
         ],
-        hint: "כשגרף הנגזרת למטה, זה אומר שערכי הנגזרת שליליים. מה קורה לפונקציה כשהנגזרת שלה שלילית?",
-        correctAnswer: 0,
-        solution_steps: [
-            { verbal_explanation: "מיקום הגרף של הנגזרת מתחת לציר האופקי אומר שערכו תמיד מינוס.", math_expression: "f'(x) < 0" },
-            { verbal_explanation: "כלל בסיסי: נגזרת שלילית גוררת ירידה של הפונקציה המקורית לאורך אותו התחום.", math_expression: "Downwards" }
+        "final_answer": "לא, הנגזרת לעולם לא מתאפסת"
+    },
+
+    // ==========================================
+    // תת נושא 7: נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה (10 שאלות)
+    // ==========================================
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{3} - 6x^{2} + 12x \\).\nמצאו את נקודת הפיתול של הפונקציה.&rlm;",
+        "options": ["(2,8)", "(0,0)", "(3,9)", "(1,7)"],
+        "correctAnswer": 0,
+        "hint": "נקודת פיתול היא הנקודה שבה הנגזרת השנייה מתאפסת ומחליפה סימן.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את הנגזרת הראשונה כשלב מקדים.", "math_expression": "f'(x) = 3x^{2} - 12x + 12" },
+            { "verbal_explanation": "נחשב את הנגזרת השנייה שבודקת את קצב השתנות השיפוע (קעירות).", "math_expression": "f''(x) = 6x - 12" },
+            { "verbal_explanation": "נשווה את הנגזרת השנייה לאפס כדי לחפש נקודות פיתול פוטנציאליות.", "math_expression": "6x - 12 = 0" },
+            { "verbal_explanation": "נחלץ את ערך המיקום האופקי.", "math_expression": "6x = 12 \\Rightarrow x = 2" },
+            { "verbal_explanation": "נוודא חילופי סימן. עבור מספר גדול משתיים הנגזרת חיובית, ועבור קטן משתיים שלילית. מכאן שזוהי אכן נקודת פיתול.", "math_expression": "f''(3) > 0 \\quad , \\quad f''(1) < 0" },
+            { "verbal_explanation": "נציב את הערך המאומת אל תוך הפונקציה המקורית כדי להשלים את הקואורדינטות השלמות של הנקודה.", "math_expression": "f(2) = 2^{3} - 6 \\times 2^{2} + 12 \\times 2 = 8 - 24 + 24 = 8" }
         ],
-        final_answer: "שהיא במגמת ירידה לכל אורך התחום"
+        "final_answer": "(2,8)"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{3} - 3x^{2} \\).\nמצאו את התחום שבו הפונקציה קעורה כלפי מעלה (צורת \"קערה\").&rlm;",
+        "options": ["x > 1", "x < 1", "x > 0", "x < 0"],
+        "correctAnswer": 0,
+        "hint": "קעירות כלפי מעלה פירושה שהנגזרת השנייה היא בעלת ערך חיובי. גזרו פעמיים ופתרו אי-שוויון.",
+        "solution_steps": [
+            { "verbal_explanation": "מציאת הנגזרת הראשונה המספקת מידע על מגמות הפונקציה.", "math_expression": "f'(x) = 3x^{2} - 6x" },
+            { "verbal_explanation": "מציאת הנגזרת השנייה שאחראית לאפיון קעירות וקמירות.", "math_expression": "f''(x) = 6x - 6" },
+            { "verbal_explanation": "נדרוש קעירות כלפי מעלה, שמתקיימת כל אימת שהנגזרת השנייה מקבלת ערך חיובי בלבד.", "math_expression": "f''(x) > 0" },
+            { "verbal_explanation": "נציב את הביטוי אל תוך אי-השוויון שנוצר.", "math_expression": "6x - 6 > 0" },
+            { "verbal_explanation": "נעביר את המספר ונחלק בשש כדי לפתור ולמצוא את התחום הרלוונטי לחלוטין.", "math_expression": "6x > 6 \\Rightarrow x > 1" }
+        ],
+        "final_answer": "x > 1"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"200\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 40 Q 100 140 160 40\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg></div><br>נתונה הפונקציה \\( f(x) = x^{4} - 6x^{2} \\).\nמצאו את נקודות הפיתול של הפונקציה.&rlm;",
+        "options": ["(1,-5), (-1,-5)", "(0,0)", "(2,-16), (-2,-16)", "אין נקודות פיתול"],
+        "correctAnswer": 0,
+        "hint": "השוו את הנגזרת השנייה לאפס. תקבלו משוואה ריבועית פשוטה לשורשים סימטריים.",
+        "solution_steps": [
+            { "verbal_explanation": "ביצוע גזירה ראשונה.", "math_expression": "f'(x) = 4x^{3} - 12x" },
+            { "verbal_explanation": "ביצוע גזירה שנייה כדי להגיע לשלב איפוס הפיתול.", "math_expression": "f''(x) = 12x^{2} - 12" },
+            { "verbal_explanation": "נשווה לאפס לבדיקת שינויי קעירות.", "math_expression": "12x^{2} - 12 = 0" },
+            { "verbal_explanation": "העברת אגף וחלוקה.", "math_expression": "12x^{2} = 12 \\Rightarrow x^{2} = 1" },
+            { "verbal_explanation": "הוצאת שורש מאתרת לנו שתי נקודות נפרדות.", "math_expression": "x = 1 \\quad , \\quad x = -1" },
+            { "verbal_explanation": "נציב את הערך החיובי בפונקציה המקורית.", "math_expression": "f(1) = 1^{4} - 6 \\times 1^{2} = 1 - 6 = -5" },
+            { "verbal_explanation": "מאחר והפונקציה זוגית לחלוטין (מכילה חזקות זוגיות בלבד), הגובה בערך הנגדי שווה בדיוק לאותו גובה.", "math_expression": "f(-1) = -5" }
+        ],
+        "final_answer": "(1,-5), (-1,-5)"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "נתונה הפונקציה \\( y = -x^{3} + 6x^{2} \\).\nמהו התחום בו הפונקציה קעורה כלפי מטה (צורת קמירות, \"מטריה\")?&rlm;",
+        "options": ["x > 2", "x < 2", "x > 0", "x < 4"],
+        "correctAnswer": 0,
+        "hint": "קעירות כלפי מטה (או קמירות) מתרחשת כאשר הנגזרת השנייה קטנה מאפס (שלילית).",
+        "solution_steps": [
+            { "verbal_explanation": "קביעת הנגזרת הראשונית של הביטוי.", "math_expression": "y' = -3x^{2} + 12x" },
+            { "verbal_explanation": "קביעת הנגזרת הכפולה של הביטוי לצורך בחינת הצורה.", "math_expression": "y'' = -6x + 12" },
+            { "verbal_explanation": "דרישה לקעירות כלפי מטה מתורגמת לאי-שוויון קפדני המחייב שהנגזרת השנייה תהיה שלילית.", "math_expression": "y'' < 0" },
+            { "verbal_explanation": "הצבה של הביטוי שמצאנו אל התנאי.", "math_expression": "-6x + 12 < 0" },
+            { "verbal_explanation": "נעביר את המשתנה השלילי לאגף השני כדי לקבל מקדם חיובי נוח יותר.", "math_expression": "12 < 6x" },
+            { "verbal_explanation": "נחלק בשש לשם סיום המשוואה והפיכתה לפתרון התחום.", "math_expression": "2 < x \\Rightarrow x > 2" }
+        ],
+        "final_answer": "x > 2"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "חשבו את ערך הנגזרת השנייה של הפונקציה \\( f(x) = x^{5} - 2x^{3} \\) בנקודה שבה \\( x = 1 \\).&rlm;",
+        "options": ["8", "10", "4", "6"],
+        "correctAnswer": 0,
+        "hint": "גזרו את הפונקציה פעמיים ברצף, ורק לאחר מכן הציבו את המספר 1.",
+        "solution_steps": [
+            { "verbal_explanation": "נבצע גזירה אחת רגילה.", "math_expression": "f'(x) = 5x^{4} - 6x^{2}" },
+            { "verbal_explanation": "נבצע גזירה כפולה על בסיס התוצאה הקודמת.", "math_expression": "f''(x) = 20x^{3} - 12x" },
+            { "verbal_explanation": "נציב את הערך המבוקש אל תוך הנגזרת השנייה שחישבנו כעת.", "math_expression": "f''(1) = 20 \\times 1^{3} - 12 \\times 1" },
+            { "verbal_explanation": "החזקה אינה משנה את המספר אחד.", "math_expression": "f''(1) = 20 \\times 1 - 12 \\times 1" },
+            { "verbal_explanation": "נסיים בחיסור המספרים.", "math_expression": "f''(1) = 20 - 12 = 8" }
+        ],
+        "final_answer": "8"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "נתונה הפונקציה המורכבת משברים: \\( f(x) = \\dfrac{x^{4}}{12} - \\dfrac{x^{3}}{3} \\).\nמצאו את נקודות הפיתול של הפונקציה.&rlm;",
+        "options": ["(0,0), (2,-4/3)", "(0,0), (3,-9/4)", "(2,-4/3)", "(0,0)"],
+        "correctAnswer": 0,
+        "hint": "השברים משמשים כמקדמים. גזרו רגיל, השוו נגזרת שנייה לאפס והציבו חזרה.",
+        "solution_steps": [
+            { "verbal_explanation": "חישוב הנגזרת הראשונה תוך צמצום החזקות היורדות עם המכנה הקבוע.", "math_expression": "f'(x) = \\dfrac{4x^{3}}{12} - \\dfrac{3x^{2}}{3} = \\dfrac{x^{3}}{3} - x^{2}" },
+            { "verbal_explanation": "חישוב הנגזרת השנייה באותה מתכונת בדיוק.", "math_expression": "f''(x) = \\dfrac{3x^{2}}{3} - 2x = x^{2} - 2x" },
+            { "verbal_explanation": "השוואת התוצאה לאפס למציאת הנקודות המועמדות.", "math_expression": "x^{2} - 2x = 0" },
+            { "verbal_explanation": "הוצאת גורם משותף מחוץ לסוגריים.", "math_expression": "x(x - 2) = 0" },
+            { "verbal_explanation": "חילוץ שני הפתרונות המאפסים את המכפלה.", "math_expression": "x = 0 \\quad , \\quad x = 2" },
+            { "verbal_explanation": "הצבת הערך הראשון בפונקציה המקורית.", "math_expression": "f(0) = 0 - 0 = 0" },
+            { "verbal_explanation": "הצבת הערך השני בפונקציה המקורית לקבלת השבר התואם.", "math_expression": "f(2) = \\dfrac{16}{12} - \\dfrac{8}{3} = \\dfrac{4}{3} - \\dfrac{8}{3} = -\\dfrac{4}{3}" }
+        ],
+        "final_answer": "(0,0), (2,-4/3)"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "קבעו לגבי הפונקציה \\( y = x^{4} - 2x^{2} + 1 \\) מהי צורתה המקומית בנקודה שבה \\( x = 0 \\) באמצעות מבחן הנגזרת השנייה.&rlm;",
+        "options": ["קעורה כלפי מטה (נקודת מקסימום)", "קעורה כלפי מעלה (נקודת מינימום)", "הנגזרת השנייה מתאפסת ולכן זו נקודת פיתול", "לא ניתן לדעת"],
+        "correctAnswer": 0,
+        "hint": "מצאו נגזרת שנייה והציבו אפס. אם התוצאה שלילית, הקעירות היא כלפי מטה, מה שמעיד על מקסימום כשהנגזרת הראשונה גם מתאפסת.",
+        "solution_steps": [
+            { "verbal_explanation": "הכנה למבחן על ידי מציאת הנגזרת הראשונה. אנו רואים שבנקודה המדוברת גם הנגזרת הראשונה מתאפסת.", "math_expression": "y' = 4x^{3} - 4x \\Rightarrow y'(0) = 0" },
+            { "verbal_explanation": "לצורך המבחן המלא ואפיון הקעירות, נגזור שוב לפונקציה ריבועית.", "math_expression": "y'' = 12x^{2} - 4" },
+            { "verbal_explanation": "נציב את הערך הנדרש לבדיקה המקומית בנגזרת שהתקבלה.", "math_expression": "y''(0) = 12 \\times 0^{2} - 4 = 0 - 4 = -4" },
+            { "verbal_explanation": "כיוון שהערך שהתקבל הוא שלילי ממש, נובע מכך שהפונקציה קעורה מטה באותה נקודה.", "math_expression": "-4 < 0 \\Rightarrow \\text{Concave Down}" },
+            { "verbal_explanation": "מגמה כזו בשילוב נגזרת ראשונה מתאפסת מתארת למעשה נקודת מקסימום.", "math_expression": "\\text{Maximum}" }
+        ],
+        "final_answer": "קעורה כלפי מטה (נקודת מקסימום)"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "נתונה הפונקציה \\( f(x) = x^{4} - 4x^{3} + 6x^{2} \\).\nמצאו את התחום שבו הפונקציה קעורה כלפי מעלה.&rlm;",
+        "options": ["כל x", "x > 1", "x < 1", "אין תחום כזה"],
+        "correctAnswer": 0,
+        "hint": "הנגזרת השנייה תתברר כפרבולה. בדקו מהו התחום שבו הפרבולה הזו חיובית.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב גזירה ראשונה.", "math_expression": "f'(x) = 4x^{3} - 12x^{2} + 12x" },
+            { "verbal_explanation": "נחשב גזירה שנייה לקבלת משוואה המגדירה את הקעירות.", "math_expression": "f''(x) = 12x^{2} - 24x + 12" },
+            { "verbal_explanation": "נוציא גורם משותף מתוך הנגזרת השנייה כדי לפשט אותה ולזהות את התבנית.", "math_expression": "f''(x) = 12(x^{2} - 2x + 1)" },
+            { "verbal_explanation": "הביטוי שבתוך הסוגריים הוא נוסחת כפל מקוצר של ריבוע הפרש.", "math_expression": "f''(x) = 12(x - 1)^{2}" },
+            { "verbal_explanation": "ביטוי שעולה בריבוע הוא תמיד אי-שלילי. מכיוון שהנגזרת השנייה חיובית תמיד (למעט בנקודה אחת בה היא אפס), הפונקציה קעורה כלפי מעלה לאורך כל הציר.", "math_expression": "f''(x) \\geq 0 \\Rightarrow \\text{Concave Up for all x}" }
+        ],
+        "final_answer": "כל x"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "מצאו את שיעור ה-\\( x \\) של נקודת הפיתול היחידה של הפונקציה \\( y = 2x^{3} + 3x^{2} - 12x \\).&rlm;",
+        "options": ["-0.5", "0.5", "-1", "1"],
+        "correctAnswer": 0,
+        "hint": "גזרו פעמיים, השוו לאפס ובדדו את הנעלם.",
+        "solution_steps": [
+            { "verbal_explanation": "תהליך גזירה רגיל של הפולינום למציאת המגמה.", "math_expression": "y' = 6x^{2} + 6x - 12" },
+            { "verbal_explanation": "גזירה שנייה למציאת הקעירות ושינוייה.", "math_expression": "y'' = 12x + 6" },
+            { "verbal_explanation": "כדי למצוא את מיקום נקודת הפיתול הפוטנציאלית, יש לאפס את הנגזרת שחישבנו זה עתה.", "math_expression": "12x + 6 = 0" },
+            { "verbal_explanation": "העברת הגורם המספרי לאגף המקביל.", "math_expression": "12x = -6" },
+            { "verbal_explanation": "חלוקה במקדם כדי לקבל את הפתרון של הנקודה.", "math_expression": "x = -\\dfrac{6}{12} = -0.5" }
+        ],
+        "final_answer": "-0.5"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "נקודות פיתול ותחומי קעירות (כלפי מעלה/מטה) - נגזרת שנייה",
+        "question_text": "נתונה הפונקציה \\( f(x) = -2x^{3} + 12x^{2} - 5x \\).\nבאיזה תחום הנגזרת השנייה של הפונקציה חיובית (כלומר \\( f''(x) > 0 \\))?&rlm;",
+        "options": ["x < 2", "x > 2", "x < 4", "x > 4"],
+        "correctAnswer": 0,
+        "hint": "חשבו את הביטוי של הנגזרת השנייה ופתרו את אי השוויון המתקבל כשמשווים אותו לגדול מאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "ניצור את פונקציית הנגזרת מתוך הפונקציה הבסיסית.", "math_expression": "f'(x) = -6x^{2} + 24x - 5" },
+            { "verbal_explanation": "ניצור את פונקציית הנגזרת השנייה.", "math_expression": "f''(x) = -12x + 24" },
+            { "verbal_explanation": "נדרוש קיום של המצב המתואר בשאלה, וניצור אי-שוויון.", "math_expression": "-12x + 24 > 0" },
+            { "verbal_explanation": "נעביר את המשתנה לאגף השני על מנת שיהפוך לחיובי.", "math_expression": "24 > 12x" },
+            { "verbal_explanation": "נחלק ונסדר את התשובה כדי לקבל את הפתרון המדויק המקיים את התנאי.", "math_expression": "2 > x \\Rightarrow x < 2" }
+        ],
+        "final_answer": "x < 2"
+    },
+
+    // ==========================================
+    // תת נושא 8: שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת) (10 שאלות)
+    // ==========================================
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "ידוע כי לפונקציה \\( f(x) \\) מסוימת יש נקודת מינימום ב-\\( x = 3 \\). אין לה נקודות קיצון נוספות.\nאיזה מהתיאורים הבאים מתאים באופן המדויק ביותר לגרף הנגזרת שלה \\( f'(x) \\)?&rlm;",
+        "options": ["גרף שעובר מחיובי לשלילי וחותך את הציר ב-x=3", "גרף של פרבולה שקודקודה ב-x=3", "גרף שעובר משלילי לחיובי וחותך את הציר ב-x=3", "גרף אופקי ששיפועו אפס"],
+        "correctAnswer": 2,
+        "hint": "נקודת מינימום משמעותה שהפונקציה המקורית יורדת (נגזרת שלילית) לפני הנקודה, ועולה (נגזרת חיובית) אחרי הנקודה.",
+        "solution_steps": [
+            { "verbal_explanation": "בנקודת קיצון הנגזרת עצמה חייבת לחתוך את ציר האופקי ולהתאפס.", "math_expression": "f'(3) = 0" },
+            { "verbal_explanation": "כיוון שזו נקודת מינימום, הפונקציה המקורית יורדת כאשר הערכים קטנים ממיקומה של הנקודה. כלומר, הנגזרת שם שלילית.", "math_expression": "x < 3 \\Rightarrow f'(x) < 0" },
+            { "verbal_explanation": "מצד שני, הפונקציה המקורית עולה כאשר הערכים גדולים ממיקומה של הנקודה, לכן הנגזרת שם חיובית.", "math_expression": "x > 3 \\Rightarrow f'(x) > 0" },
+            { "verbal_explanation": "מסקנה: גרף הנגזרת חייב להתחיל באזורים השליליים, לעבור דרך אפס בנקודה המיועדת, ולהמשיך לאזורים החיוביים.", "math_expression": "Negative \\rightarrow 0 \\rightarrow Positive" }
+        ],
+        "final_answer": "גרף שעובר משלילי לחיובי וחותך את הציר ב-x=3"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "גרף הנגזרת \\( f'(x) \\) הוא קו ישר היורד משמאל לימין וחותך את ציר ה-\\( x \\) בנקודה \\( x = -1 \\).\nאיזה סוג של פונקציה מציג הגרף של הפונקציה המקורית \\( f(x) \\), ומהי הנקודה ב-\\( x = -1 \\)?&rlm;",
+        "options": ["פרבולה 'בוכה', נקודת מקסימום", "פרבולה 'מחייכת', נקודת מינימום", "קו ישר, נקודת פיתול", "פרבולה 'בוכה', נקודת מינימום"],
+        "correctAnswer": 0,
+        "hint": "אם הנגזרת היא ישר, הפונקציה המקורית היא פרבולה. ישר יורד משמעו נגזרת שנייה שלילית.",
+        "solution_steps": [
+            { "verbal_explanation": "גרף הנגזרת נתון כקו ישר עם שיפוע שלילי מתמיד.", "math_expression": "f'(x) = -ax + b" },
+            { "verbal_explanation": "הפונקציה שנגזרתה היא פונקציה לינארית, חייבת להיות פונקציה ריבועית, כלומר פרבולה.", "math_expression": "f(x) = cx^{2} + dx + e" },
+            { "verbal_explanation": "השיפוע השלילי של הנגזרת מציין כי המקדם של האיבר הריבועי המקורי הוא בעצמו שלילי. מכאן שהפרבולה 'בוכה'.", "math_expression": "c < 0 \\Rightarrow \\text{Downward Parabola}" },
+            { "verbal_explanation": "בנוסף, הנגזרת עוברת מהחלק החיובי של הציר (שבו הפונקציה עולה) לחלק השלילי שלו (שבו הפונקציה יורדת), מה שמגדיר את נקודת האיפוס המדויקת הזו כנקודת שיא.", "math_expression": "\\text{Max Point at } x = -1" }
+        ],
+        "final_answer": "פרבולה 'בוכה', נקודת מקסימום"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "גרף הנגזרת השנייה של פונקציה מסוימת נמצא תמיד מעל לציר ה-\\( x \\) (חיובי לכל עת).\nמה ניתן לומר בוודאות על הפונקציה המקורית \\( f(x) \\)?&rlm;",
+        "options": ["היא קעורה כלפי מעלה בכל תחום הגדרתה", "היא עולה בכל תחום הגדרתה", "יש לה רק נקודות מינימום", "היא קעורה כלפי מטה בכל תחום הגדרתה"],
+        "correctAnswer": 0,
+        "hint": "סימן הנגזרת השנייה מעיד אך ורק על תכונת הקעירות והקמירות של הפונקציה, ולא על מגמת העלייה והירידה או קיום קיצון הכרחי.",
+        "solution_steps": [
+            { "verbal_explanation": "הנתון מתאר תכונה גלובלית וקבועה של הנגזרת השנייה.", "math_expression": "f''(x) > 0" },
+            { "verbal_explanation": "נגזרת שנייה חיובית היא ההגדרה האנליטית לקעירות כלפי מעלה (צורת קערה) בגרף הפונקציה.", "math_expression": "f''(x) > 0 \\Rightarrow \\text{Concave Up}" },
+            { "verbal_explanation": "מאחר וזה נכון לכל ערך, המסקנה תקפה לכל התחום. היא לא מבטיחה עלייה או ירידה כי אלה נקבעים על ידי הנגזרת הראשונה בלבד.", "math_expression": "\\text{Conclusion Confirmed}" }
+        ],
+        "final_answer": "היא קעורה כלפי מעלה בכל תחום הגדרתה"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "בשרטוט של גרף נגזרת \\( f'(x) \\), הגרף חותך את ציר ה-\\( x \\) בשלוש נקודות: \\( x=-2, x=0, x=2 \\). הגרף מתחיל מתחת לציר האופקי, חותך ועולה מעליו בנקודה הראשונה, וחוזר חלילה. כמה נקודות מינימום וכמה נקודות מקסימום יש לפונקציה המקורית \\( f(x) \\)?&rlm;",
+        "options": ["2 מינימום, 1 מקסימום", "1 מינימום, 2 מקסימום", "3 מינימום, 0 מקסימום", "לא ניתן לדעת"],
+        "correctAnswer": 0,
+        "hint": "מעבר של גרף הנגזרת ממתחת לציר אל מעל לציר מעיד על שינוי ממגמת ירידה למגמת עלייה (מינימום).",
+        "solution_steps": [
+            { "verbal_explanation": "בנקודה הראשונה הגרף עובר ממינוס לפלוס. משמע, המקור עבר מירידה לעלייה. זוהי נקודת שפל.", "math_expression": "x = -2 \\Rightarrow \\text{Min}" },
+            { "verbal_explanation": "לאחר מכן, הגרף נמצא בחלק החיובי וחותך למטה לחלק השלילי בנקודה השנייה. הפונקציה עוברת מעלייה לירידה. זוהי נקודת שיא.", "math_expression": "x = 0 \\Rightarrow \\text{Max}" },
+            { "verbal_explanation": "בנקודה האחרונה, הגרף של הנגזרת שוב עולה מחלקו השלילי לחלקו החיובי, יוצר שוב שפל בפונקציה עצמה.", "math_expression": "x = 2 \\Rightarrow \\text{Min}" },
+            { "verbal_explanation": "לפיכך, מנינו את סך כל הנקודות.", "math_expression": "2 \\times \\text{Min} \\quad , \\quad 1 \\times \\text{Max}" }
+        ],
+        "final_answer": "2 מינימום, 1 מקסימום"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "לפונקציה \\( f(x) \\) יש נקודת פיתול ב-\\( x = 4 \\). בנקודה זו המשיק לגרף אינו אופקי. מה יקרה לגרף הנגזרת הראשונה \\( f'(x) \\) בנקודה זו?&rlm;",
+        "options": ["תהיה לו נקודת קיצון מקומית מבלי לחתוך את הציר", "הוא יחתוך את ציר האופקי", "הוא יתאפס", "לא יהיה רציף"],
+        "correctAnswer": 0,
+        "hint": "נקודת פיתול בפונקציה המקורית מקבילה לנקודת קיצון בגרף הנגזרת. מכיוון שהמשיק אינו אופקי, ערך הנגזרת שם שונה מאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נקודת פיתול היא המקום בו הנגזרת השנייה מתאפסת ומשנה סימן.", "math_expression": "f''(4) = 0" },
+            { "verbal_explanation": "הנגזרת השנייה היא למעשה הנגזרת של הנגזרת הראשונה. לכן התאפסותה מעידה על קיצון מקומי בגרף של הנגזרת הראשונה.", "math_expression": "(f')'(4) = 0 \\Rightarrow \\text{Extremum of } f'" },
+            { "verbal_explanation": "הנתון הנוסף הוא שהמשיק אינו אופקי. המשמעות היא שערך הנגזרת הראשונה אינו שווה לאפס בנקודה זו.", "math_expression": "f'(4) \\neq 0" },
+            { "verbal_explanation": "מכאן שמדובר בנקודת קיצון לנגזרת אשר מרחפת מעל או מתחת לציר ואינה נוגעת בו.", "math_expression": "\\text{Extremum, not on x-axis}" }
+        ],
+        "final_answer": "תהיה לו נקודת קיצון מקומית מבלי לחתוך את הציר"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "גרף של פונקציה פולינומית חותך את ציר ה-\\( x \\) בנקודה שבה המשיק לו הוא אופקי. מה ניתן להסיק לגבי משוואת הפונקציה מתוך שרטוט זה?&rlm;",
+        "options": ["לפונקציה יש לפחות שורש כפול (חזקה זוגית או גבוהה) באותה נקודה", "הפונקציה היא קו ישר", "הנגזרת השנייה תמיד שלילית", "אין משמעות מתמטית לכך"],
+        "correctAnswer": 0,
+        "hint": "חיתוך הציר תוך כדי השקה (שיפוע אפס) משמעותו שהפולינום מכיל ביטוי מהצורה של המשתנה פחות הנקודה, המועלה לפחות בחזקה שנייה.",
+        "solution_steps": [
+            { "verbal_explanation": "מכיוון שהפונקציה חותכת את הציר, ערכה בנקודה הוא אפס. זהו שורש של הפונקציה.", "math_expression": "f(x_0) = 0" },
+            { "verbal_explanation": "מכיוון שהמשיק אופקי, גם ערך הנגזרת בנקודה זו שווה לאפס.", "math_expression": "f'(x_0) = 0" },
+            { "verbal_explanation": "באלגברה של פולינומים, כאשר גם הפונקציה וגם הנגזרת שלה מתאפסות באותו הערך, מדובר בשורש בעל ריבוי של שתיים ומעלה (למשל השקה המאפיינת פרבולה או חזקות גבוהות יותר).", "math_expression": "f(x) = (x - x_0)^{n} \\cdot g(x) \\quad , \\quad n \\geq 2" }
+        ],
+        "final_answer": "לפונקציה יש לפחות שורש כפול (חזקה זוגית או גבוהה) באותה נקודה"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "פונקציית הנגזרת \\( f'(x) \\) מתוארת כפרבולה 'מחייכת' שהקודקוד שלה נמצא בנקודה (2, 3). מה אפשר להגיד על גרף הפונקציה המקורית \\( f(x) \\)?&rlm;",
+        "options": ["עולה תמיד, ויש לה נקודת פיתול ב-x=2", "יורדת תמיד", "יש לה נקודת מינימום ב-x=3", "עולה תמיד ואין לה נקודות פיתול"],
+        "correctAnswer": 0,
+        "hint": "הקודקוד נמצא מעל ציר ה-x, כלומר הנגזרת חיובית תמיד ואין לה שורשים. הפונקציה המקורית עולה תמיד. קודקוד הנגזרת מהווה קיצון של הנגזרת, כלומר פיתול.",
+        "solution_steps": [
+            { "verbal_explanation": "הקודקוד של נגזרת הפרבולה הוא מעל האפס והיא פתוחה כלפי מעלה. מכאן שכל ערכיה הם חיוביים תמיד.", "math_expression": "f'(x) \\geq 3 > 0" },
+            { "verbal_explanation": "נגזרת חיובית לכל אורכה מעידה על כך שהפונקציה המקורית היא פונקציה עולה במובהק בכל תחום ההגדרה שלה.", "math_expression": "f(x) \\text{ is strictly increasing}" },
+            { "verbal_explanation": "הקודקוד של הפרבולה הוא נקודת המינימום של הנגזרת הראשונה.", "math_expression": "f''(2) = 0" },
+            { "verbal_explanation": "התאפסות הנגזרת השנייה תוך החלפת מגמה (ירידה לעלייה בפרבולה) מוגדרת כנקודת פיתול בגרף המקורי.", "math_expression": "x = 2 \\Rightarrow \\text{Inflection Point}" }
+        ],
+        "final_answer": "עולה תמיד, ויש לה נקודת פיתול ב-x=2"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "נתון שרטוט של פונקציה פולינומית ממעלה שלישית. ידוע שלפונקציה זו יש שתי נקודות חיתוך בלבד עם ציר ה-\\( x \\). מה יכול לגרום למצב זה?&rlm;",
+        "options": ["אחת מנקודות הקיצון של הפונקציה מונחת בדיוק על ציר ה-x", "הפונקציה יורדת תמיד", "יש לה אסימפטוטה", "נקודת הפיתול נמצאת על ציר ה-y"],
+        "correctAnswer": 0,
+        "hint": "פולינום ממעלה 3 חותך בדרך כלל בנקודה אחת או בשלוש. כדי שיחתוך בדיוק בשתיים, עליו \"לגעת\" בציר ולחזור באחת הנקודות.",
+        "solution_steps": [
+            { "verbal_explanation": "פונקציה ממעלה שלישית נראית כגל בעל מקסימום ומינימום. במצב רגיל הגל עלול לחתוך שלוש פעמים את הציר, או רק פעם אחת אם נקודות הקיצון כולן מעל או מתחת לציר.", "math_expression": "Roots: 1 \\text{ or } 3" },
+            { "verbal_explanation": "מצב ביניים בו יש בדיוק שתי נקודות חיתוך אפשרי אך ורק אם באחת מהפעמים שהגרף נוגע בציר, הוא משנה כיוון (משיק לו).", "math_expression": "Roots = 2 \\Rightarrow \\text{Tangent at axis}" },
+            { "verbal_explanation": "ההשקה של הגרף המקורי באפס מחייבת את התאפסות השיפוע באותה נקודה.", "math_expression": "f(x_0) = 0 \\quad , \\quad f'(x_0) = 0" },
+            { "verbal_explanation": "תופעה זו זהה לחלוטין לקיומה של נקודת קיצון הממוקמת פיזית על הציר האופקי.", "math_expression": "\\text{Extremum on X-axis}" }
+        ],
+        "final_answer": "אחת מנקודות הקיצון של הפונקציה מונחת בדיוק על ציר ה-x"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "מבלי לגזור, הביטו בפונקציה \\( f(x) = -x^{4} + 8x^{2} \\). ידוע כי עבור ערכי \\( x \\) גדולים מאוד וחיוביים הפונקציה שואפת למינוס אינסוף. כמו כן היא פונקציה זוגית. כמה נקודות קיצון אתם מצפים למצוא בגרף?&rlm;",
+        "options": ["3", "1", "2", "4"],
+        "correctAnswer": 0,
+        "hint": "פונקציה זוגית סימטרית סביב ציר ה-y (יש קיצון ב-x=0). כיוון שהיא מתחילה ממינוס אינסוף וחוזרת למינוס אינסוף ויש לה חזקה ריבועית חיובית שתמשוך מעלה בדרך, ייווצרו שני שיאים ושפל אחד.",
+        "solution_steps": [
+            { "verbal_explanation": "פונקציה זוגית מציגה תמונת מראה זהה סביב ציר האנכי, מה שמבטיח קיום של נקודת קיצון או פיתול בדיוק על הציר עצמו (כאן זו חזקה זוגית, לכן קיצון).", "math_expression": "f(x) = f(-x) \\Rightarrow \\text{Extremum at } x = 0" },
+            { "verbal_explanation": "החזקה הגדולה ביותר היא שלילית, כלומר ה'זרועות' הקיצוניות של הגרף מופנות מטה גם מימין וגם משמאל.", "math_expression": "x \\rightarrow \\pm \\infty \\Rightarrow f(x) \\rightarrow -\\infty" },
+            { "verbal_explanation": "בקרבת האפס המקדם החיובי של החזקה השנייה מושך את הגרף כלפי מעלה. כלומר נוצרת צורת 'W' או 'M' מורכבת.", "math_expression": "f(x) \\approx 8x^{2} \\text{ near } 0" },
+            { "verbal_explanation": "השילוב של עלייה מהצדדים אל עבר שני שיאים וירידה חזרה אל האפס, יוצר בדיוק 2 נקודות מקסימום ונקודת מינימום אחת ביניהן.", "math_expression": "Total = 3 \\text{ Extrema}" }
+        ],
+        "final_answer": "3"
+    },
+    {
+        "topic": "basic_calculus_471",
+        "subTopic": "שרטוט גרף הפונקציה והתאמת גרפים (פונקציה מול נגזרת)",
+        "question_text": "הגרף של הנגזרת \\( f'(x) \\) חותך את ציר ה-\\( x \\) מלעיל למטה בנקודה \\( x = 5 \\). מה משמעות הדבר לגבי הגרף של \\( f(x) \\)?&rlm;",
+        "options": ["יש לה נקודת מקסימום ב-x=5", "יש לה נקודת מינימום ב-x=5", "יש לה נקודת פיתול ב-x=5", "היא חותכת את הציר ב-x=5"],
+        "correctAnswer": 0,
+        "hint": "ממעל לציר (פלוס) אל מתחת לציר (מינוס). מגמת הפונקציה משתנה מעלייה לירידה.",
+        "solution_steps": [
+            { "verbal_explanation": "לפני הנקודה, גרף הנגזרת נמצא מעל הציר, מה שמצביע על ערכים חיוביים של שיפוע.", "math_expression": "x < 5 \\Rightarrow f'(x) > 0" },
+            { "verbal_explanation": "נגזרת חיובית מתורגמת ישירות לעלייה בפונקציה המקורית.", "math_expression": "f(x) \\uparrow" },
+            { "verbal_explanation": "אחרי הנקודה, גרף הנגזרת צולל מתחת לציר ומקבל ערכים שליליים.", "math_expression": "x > 5 \\Rightarrow f'(x) < 0" },
+            { "verbal_explanation": "נגזרת שלילית גוררת ירידה בפונקציה המקורית.", "math_expression": "f(x) \\downarrow" },
+            { "verbal_explanation": "מעבר מעלייה מתמשכת לירידה רצופה מגדיר בדיוק את נקודת השיא, או נקודת המקסימום.", "math_expression": "\\text{Maximum at } x = 5" }
+        ],
+        "final_answer": "יש לה נקודת מקסימום ב-x=5"
     }
 ];

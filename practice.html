@@ -14,6 +14,10 @@
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
+        chtml: {
+          displayAlign: 'center',
+          scale: 1.05 
+        },
         svg: {
           fontCache: 'global'
         }
@@ -81,7 +85,7 @@
         
         header h1 { 
             margin: 0; 
-            font-size: 1.15rem; 
+            font-size: 1.1rem; 
             font-weight: 600; 
             letter-spacing: 0.5px; 
             color: #ffffff;
@@ -178,7 +182,6 @@
         .q-number-wrapper { text-align: center; color: var(--accent-gold); font-weight: 800; font-size: 1.1rem; flex: 1; }
         .spacer-wrapper { flex: 1; }
 
-        /* --- כפתורי רמות קושי --- */
         .diff-btn-group {
             display: flex;
             justify-content: center;
@@ -203,7 +206,7 @@
         .btn-diff.active { background: var(--primary-header); color: #fff; border-color: var(--primary-header); box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
         
         .question-title { 
-            font-size: 1.2rem; 
+            font-size: 1.15rem; 
             font-weight: 600; 
             margin-bottom: 15px; 
             color: #000000; 
@@ -211,12 +214,20 @@
             line-height: 1.5; 
         }
 
+        /* אילוץ הגדלת MathJax ומיקוד אלגנטי */
+        mjx-container {
+            font-size: 105% !important; 
+        }
+        mjx-frac {
+            font-size: 1.0em !important;
+        }
+
         .btn-tts { 
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe); 
             border: 2px solid #6366f1; 
             border-radius: 40px; 
             padding: 8px 25px; 
-            font-size: 1.1rem; 
+            font-size: 1.05rem; 
             cursor: pointer; 
             font-weight: 800; 
             color: #4338ca; 
@@ -250,7 +261,7 @@
             border: 2px solid var(--accent-gold); 
             border-radius: 8px; 
             padding: 6px 12px; 
-            font-size: 1rem; 
+            font-size: 0.95rem; 
             cursor: pointer; 
             font-weight: 800; 
             color: var(--primary-header); 
@@ -295,7 +306,7 @@
             color: #14532d; 
             padding: 10px; 
             border-bottom: 2px solid var(--sol-border); 
-            font-size: 1.05rem; 
+            font-size: 1rem; 
             font-weight: 700;
             text-align: center; 
             width: 50%; 
@@ -310,7 +321,7 @@
         }
         
         .text-col { 
-            font-size: 1.05rem; 
+            font-size: 1rem; 
             border-left: 1.5px solid rgba(34, 197, 94, 0.2); 
             color: #166534; 
             font-weight: 500;
@@ -318,7 +329,7 @@
         }
         
         .math-col, .math-expression-box { 
-            font-size: 1.3rem !important; 
+            font-size: 1.25rem !important; 
             font-weight: 600 !important; 
             color: #064e3b; 
             direction: ltr; 
@@ -330,13 +341,13 @@
 
         .final-answer-row { 
             margin: 10px 15px; 
-            padding: 12px; 
+            padding: 10px; 
             background: rgba(255,255,255,0.7); 
             border: 2px solid #4ade80; 
             border-radius: 6px; 
             text-align: center; 
             font-weight: 800; 
-            font-size: 1.15rem; 
+            font-size: 1.1rem; 
             color: #14532d; 
             display: flex; 
             justify-content: center; 
@@ -359,11 +370,11 @@
         
         .btn-option { 
             background: var(--surface-color); 
-            border: 1.5px solid var(--border-soft); 
-            padding: 16px; 
-            min-height: 60px;
+            border: 1px solid var(--border-soft); 
+            padding: 14px; 
+            min-height: 55px;
             border-radius: 8px; 
-            font-size: 1.2rem; 
+            font-size: 1.15rem; 
             font-weight: 600; 
             color: var(--text-main);
             cursor: pointer; 
@@ -387,7 +398,7 @@
             border-radius: 6px; 
             text-align: center; 
             font-weight: 800; 
-            font-size: 1.1rem; 
+            font-size: 1.05rem; 
             margin-bottom: 12px; 
             display: none; 
             width: 100%; 
@@ -399,7 +410,7 @@
             background: var(--primary-header); 
             color: white; 
             display: none; 
-            padding: 12px 45px; 
+            padding: 10px 40px; 
             border: 1px solid var(--accent-gold); 
             border-radius: 25px; 
             font-weight: 700; 
@@ -407,7 +418,7 @@
             align-self: center; 
             margin-top: 10px; 
             margin-bottom: 15px; 
-            font-size: 1.1rem; 
+            font-size: 1.05rem; 
             transition: all 0.2s ease; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
@@ -688,100 +699,101 @@
     window.allOriginalQuestions = [];
     window.difficultyTiers = { easy: [], medium: [], hard: [] };
 
-    // בסיס נתונים לחיפוש (רק נושאים שקיימים בוודאות)
-    const topicTranslations = {
-        "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
-        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
-        "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
-        "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
-        "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
-        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
-        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
-        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
-        "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
-        "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
-        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
-        "final_review": "תרגול מסכם", "logic_combinatorics": "לוגיקה וקומבינטוריקה", 
-        "advanced_verbal": "בעיות מילוליות מורכבות", "advanced_geometry": "גיאומטריה מתקדמת", 
-        "patterns_sequences": "חשיבה אלגברית", "algebra_172": "אלגברה ומשוואות", 
-        "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", 
-        "geometry_172": "הנדסת המישור והמרחב", "trigo_172": "טריגונומטריה במישור", 
-        "stats_prob_172": "סטטיסטיקה והסתברות", "algebraic_expr_172": "ביטויים אלגבריים", 
-        "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", 
-        "lines_plane_172": "ישר במישור", "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
-        "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
-        "triangles_quads_172": "משולשים ומרובעים", "triangle_sim_371": "דמיון משולשים", 
-        "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
-        "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים", "growth_decay_371": "גדילה ודעיכה", 
-        "exp_models_371": "מודלים מעריכיים", "prob_stats_371": "הסתברות וסטטיסטיקה", 
-        "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה", "quad_func_372": "פונקציה ריבועית", 
-        "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", 
-        "analytic_geom_372": "גאומטריה אנליטית", "space_geom_bodies_372": "הנדסת המרחב וגופים", 
-        "sequences_372": "סדרות", "alg_frac_471": "אלגברה ושברים אלגבריים",
-        "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
-        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
-        "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
-        "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
-        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
-        "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
-        "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
-        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
-        "sequences_571": "סדרות", "probability_571": "הסתברות",
-        "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
-        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
-        "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
-        "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
-        "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
-        "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
-        "vocabulary": "אוצר מילים", "grammar": "דקדוק", "reading_comprehension": "הבנת הנקרא",
-        "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)",
-        "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
-        "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם",
-        "סוגי_משפטים": "סוגי משפטים", "מילות_יחס_וקישור": "מילות יחס וקישור",
-        "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", "תקינות": "תקינות לשונית",
-        "alg_equations_471": "אלגברה - משוואות ואי-שוויונים",
-        "word_problems_471": "בעיות מילוליות (אלגברה)",
-        "prob_stats_471": "הסתברות קלאסית וסטטיסטיקה",
-        "calculus_poly_471": "חשבון דיפרנציאלי - פולינומים",
-        "calculus_rational_471": "חשבון דיפרנציאלי - פונקציות רציונליות",
-        "extrema_probs_471": "בעיות קיצון (אופטימיזציה)",
-        "sequences_472": "סדרות",
-        "trigo_plane_472": "טריגונומטריה במישור",
-        "trigo_space_472": "טריגונומטריה במרחב",
-        "calculus_root_472": "חדו\"א - פונקציות שורש (אי-רציונליות)",
-        "calculus_trigo_472": "חדו\"א - פונקציות טריגונומטריות",
-        "calculus_exp_log_472": "חדו\"א - מעריכיות ולוגריתמיות",
-        "integral_calculus_472": "חשבון אינטגרלי (כל הפונקציות)",
-        "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
-        "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
-        "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)",
-        "abc_basics": "אנגלית מהבסיס (ABC)", "חומרים_ומבנה_החומר": "מדעים: חומרים ומבנה החומר",
-        "כדור_הארץ_והיקום": "מדעים: כדור הארץ והיקום"
-    };
+    // מאגר החיפוש המדויק לכל הנושאים שקיימים בוודאות בלבד - ללא שגיאות וללא "חט"ב" כללי
+    const detailedSearchDB = [
+        // כיתות ה'-ו'
+        { name: "שברים", link: "practice.html?grade=5_6&topic=fractions", grade: "מתמטיקה ה'-ו'" },
+        { name: "מידות עשרוניות", link: "practice.html?grade=5_6&topic=decimals", grade: "מתמטיקה ה'-ו'" },
+        { name: "אחוזים", link: "practice.html?grade=5_6&topic=percents", grade: "מתמטיקה ה'-ו'" },
+        { name: "גיאומטריה", link: "practice.html?grade=5_6&topic=geometry", grade: "מתמטיקה ה'-ו'" },
+        { name: "בעיות מילוליות", link: "practice.html?grade=5_6&topic=verbal_problems", grade: "מתמטיקה ה'-ו'" },
 
-    let searchDB = [];
-    for(let key in topicTranslations) {
-        let name = topicTranslations[key];
-        let linkGrade = null; 
-        let displayGrade = '';
+        // כיתה ז'
+        { name: "מספרים מכוונים", link: "practice.html?grade=grade7&topic=signed_numbers", grade: "מתמטיקה כיתה ז'" },
+        { name: "חוקי פעולות החשבון", link: "practice.html?grade=grade7&topic=arithmetic_laws", grade: "מתמטיקה כיתה ז'" },
+        { name: "חזקות ושורשים", link: "practice.html?grade=grade7&topic=powers", grade: "מתמטיקה כיתה ז'" },
+        { name: "ביטויים אלגבריים", link: "practice.html?grade=grade7&topic=expressions", grade: "מתמטיקה כיתה ז'" },
+        { name: "משוואות", link: "practice.html?grade=grade7&topic=equations", grade: "מתמטיקה כיתה ז'" },
+        { name: "בעיות מילוליות", link: "practice.html?grade=grade7&topic=verbal_problems", grade: "מתמטיקה כיתה ז'" },
+        { name: "פונקציות", link: "practice.html?grade=grade7&topic=functions", grade: "מתמטיקה כיתה ז'" },
+        { name: "גיאומטריה וזוויות", link: "practice.html?grade=grade7&topic=angles", grade: "מתמטיקה כיתה ז'" },
+
+        // כיתה ח'
+        { name: "יחס ופרופורציה", link: "practice.html?grade=grade8&topic=ratio", grade: "מתמטיקה כיתה ח'" },
+        { name: "משוואות ואי-שוויונים", link: "practice.html?grade=grade8&topic=equations", grade: "מתמטיקה כיתה ח'" },
+        { name: "פונקציה קווית לינארית", link: "practice.html?grade=grade8&topic=linear_functions", grade: "מתמטיקה כיתה ח'" },
+        { name: "בעיות מילוליות", link: "practice.html?grade=grade8&topic=verbal_problems", grade: "מתמטיקה כיתה ח'" },
+        { name: "סטטיסטיקה והסתברות", link: "practice.html?grade=grade8&topic=statistics", grade: "מתמטיקה כיתה ח'" },
+        { name: "המשולש (גיאומטריה)", link: "practice.html?grade=grade8&topic=triangles", grade: "מתמטיקה כיתה ח'" },
+
+        // כיתה ט'
+        { name: "טכניקה אלגברית", link: "practice.html?grade=grade9&topic=algebraic_technique", grade: "מתמטיקה כיתה ט'" },
+        { name: "מערכת משוואות", link: "practice.html?grade=grade9&topic=linear_systems", grade: "מתמטיקה כיתה ט'" },
+        { name: "שברים אלגבריים", link: "practice.html?grade=grade9&topic=algebraic_fractions", grade: "מתמטיקה כיתה ט'" },
+        { name: "חוק הפילוג ופירוק לגורמים", link: "practice.html?grade=grade9&topic=distributive_and_factoring", grade: "מתמטיקה כיתה ט'" },
+        { name: "משוואות ריבועיות ופרמטרים", link: "practice.html?grade=grade9&topic=equations_and_parametric", grade: "מתמטיקה כיתה ט'" },
+        { name: "מרובעים (גיאומטריה)", link: "practice.html?grade=grade9&topic=quadrilaterals", grade: "מתמטיקה כיתה ט'" },
+        { name: "הסתברות", link: "practice.html?grade=grade9&topic=probability", grade: "מתמטיקה כיתה ט'" },
+        { name: "חקר נתונים וסיכויים", link: "practice.html?grade=grade9&topic=dataAnalysis", grade: "מתמטיקה כיתה ט'" },
+        { name: "תרגול מסכם כיתה ט'", link: "practice.html?grade=grade9&topic=summary", grade: "מתמטיקה כיתה ט'" },
+
+        // תיכון 172
+        { name: "הכנה לבגרות (172)", link: "practice.html?grade=35172&topic=bagrut_prep", grade: "מתמטיקה 172" },
+        { name: "אלגברה ומשוואות (172)", link: "practice.html?grade=35172&topic=algebra_172", grade: "מתמטיקה 172" },
+        { name: "בעיות מילוליות (172)", link: "practice.html?grade=35172&topic=word_problems_172", grade: "מתמטיקה 172" },
+        { name: "גיאומטריה אנליטית (172)", link: "practice.html?grade=35172&topic=analytic_geometry_172", grade: "מתמטיקה 172" },
+        { name: "הנדסת המישור (172)", link: "practice.html?grade=35172&topic=geometry_172", grade: "מתמטיקה 172" },
+        { name: "טריגונומטריה במישור (172)", link: "practice.html?grade=35172&topic=trigo_172", grade: "מתמטיקה 172" },
+        { name: "סטטיסטיקה והסתברות (172)", link: "practice.html?grade=35172&topic=stats_prob_172", grade: "מתמטיקה 172" },
+
+        // תיכון 371
+        { name: "הכנה לבגרות (371)", link: "practice.html?grade=35371&topic=bagrut_prep", grade: "מתמטיקה 371" },
+        { name: "דמיון משולשים (371)", link: "practice.html?grade=35371&topic=triangle_sim_371", grade: "מתמטיקה 371" },
+        { name: "טריגונומטריה במשולש ישר זווית (371)", link: "practice.html?grade=35371&topic=trigo_right_371", grade: "מתמטיקה 371" },
+        { name: "הסתברות וסטטיסטיקה (371)", link: "practice.html?grade=35371&topic=prob_stats_371", grade: "מתמטיקה 371" },
+
+        // תיכון 372
+        { name: "הכנה לבגרות (372)", link: "practice.html?grade=35472&topic=bagrut_prep", grade: "מתמטיקה 372" },
+        { name: "פונקציה ריבועית (372)", link: "practice.html?grade=35472&topic=quad_func_372", grade: "מתמטיקה 372" },
+        { name: "חקירת פונקציה (372)", link: "practice.html?grade=35472&topic=func_investigation_372", grade: "מתמטיקה 372" },
         
-        if(key.includes('_172')) { linkGrade = '35172'; displayGrade = 'מתמטיקה 172'; }
-        else if(key.includes('_371')) { linkGrade = '35371'; displayGrade = 'מתמטיקה 371'; }
-        else if(key.includes('_372')) { linkGrade = '35472'; displayGrade = 'מתמטיקה 372'; }
-        else if(key.includes('_471')) { linkGrade = '35471'; displayGrade = 'מתמטיקה 471'; }
-        else if(key.includes('_472')) { linkGrade = '35472'; displayGrade = 'מתמטיקה 472'; }
-        else if(key.includes('_571') || key.includes('_572')) { linkGrade = '35582'; displayGrade = 'מתמטיקה 582'; }
-        else if(['Elementary', 'Grammar_Tenses', 'Grammar_Advanced', 'Vocabulary_Cloze', 'Reading_Comprehension', 'Literature_High_School', 'abc_basics'].includes(key)) { linkGrade = 'english'; displayGrade = 'אנגלית'; }
-        else if(['יסודי_כללי', 'תורת_ההגה', 'פועל', 'גזרות_הפועל_מתקדם', 'שם_העצם', 'תחביר', 'סוגי_משפטים', 'מילות_יחס_וקישור', 'הבנת_הנקרא_והבעה', 'כתיבה_וסקירה', 'תקינות'].includes(key)) { linkGrade = 'hebrew'; displayGrade = 'לשון והבעה'; }
-        else if(['budget_consumerism', 'work_and_wages', 'banking_and_credit', 'savings_investments', 'insurance_risks', 'digital_economy'].includes(key)) { linkGrade = 'finance'; displayGrade = 'חינוך פיננסי'; }
-        else if(['חומרים_ומבנה_החומר', 'כדור_הארץ_והיקום'].includes(key)) { linkGrade = 'science'; displayGrade = 'מדעים'; }
-        else if(['bagrut_prep', 'percents', 'verbal_problems', 'geometry', 'dataAnalysis', 'ratio', 'decimals', 'fractions', 'summary', 'triangles', 'angles', 'arithmetic_laws', 'powers', 'signed_numbers', 'quadrilaterals', 'equations', 'expressions', 'functions', 'distributive_and_factoring', 'algebraic_technique', 'linear_systems', 'statistics', 'linear_functions', 'meitzav', 'algebraic_fractions', 'powers_and_roots', 'equations_and_parametric', 'probability', 'final_review', 'logic_combinatorics', 'advanced_verbal', 'advanced_geometry', 'patterns_sequences'].includes(key)) { linkGrade = 'grade9'; displayGrade = 'מתמטיקה חט"ב'; }
-        
-        if (linkGrade) {
-            let link = `practice.html?grade=${linkGrade}&topic=${key}`;
-            searchDB.push({ name: name, key: key, grade: linkGrade, displayGrade: displayGrade, link: link });
-        }
-    }
+        // תיכון 471
+        { name: "אלגברה ושברים אלגבריים (471)", link: "practice.html?grade=35471&topic=alg_frac_471", grade: "מתמטיקה 471" },
+        { name: "פונקציות לינאריות וריבועיות (471)", link: "practice.html?grade=35471&topic=func_lin_quad_471", grade: "מתמטיקה 471" },
+        { name: "טריגונומטריה (471)", link: "practice.html?grade=35471&topic=trigo_471", grade: "מתמטיקה 471" },
+
+        // אנגלית
+        { name: "אנגלית מהבסיס (ABC)", link: "practice.html?grade=english&topic=abc_basics", grade: "אנגלית" },
+        { name: "דקדוק זמנים (Grammar Tenses)", link: "practice.html?grade=english&topic=Grammar_Tenses", grade: "אנגלית" },
+        { name: "דקדוק מתקדם (Advanced Grammar)", link: "practice.html?grade=english&topic=Grammar_Advanced", grade: "אנגלית" },
+        { name: "אוצר מילים והשלמות (Vocabulary & Cloze)", link: "practice.html?grade=english&topic=Vocabulary_Cloze", grade: "אנגלית" },
+        { name: "הבנת הנקרא - טקסטים (Reading Comprehension)", link: "practice.html?grade=english&topic=Reading_Comprehension", grade: "אנגלית" },
+        { name: "ספרות (Literature)", link: "practice.html?grade=english&topic=Literature_High_School", grade: "אנגלית" },
+
+        // לשון והבעה
+        { name: "יסודות הלשון (ד'-ו')", link: "practice.html?grade=hebrew&topic=יסודי_כללי", grade: "לשון והבעה" },
+        { name: "תורת ההגה והצורות", link: "practice.html?grade=hebrew&topic=תורת_ההגה", grade: "לשון והבעה" },
+        { name: "מערכת הפועל", link: "practice.html?grade=hebrew&topic=פועל", grade: "לשון והבעה" },
+        { name: "שם העצם ותצורתו", link: "practice.html?grade=hebrew&topic=שם_העצם", grade: "לשון והבעה" },
+        { name: "תחביר בסיסי ומתקדם", link: "practice.html?grade=hebrew&topic=תחביר", grade: "לשון והבעה" },
+        { name: "סוגי משפטים", link: "practice.html?grade=hebrew&topic=סוגי_משפטים", grade: "לשון והבעה" },
+        { name: "מילות יחס וקישור", link: "practice.html?grade=hebrew&topic=מילות_יחס_וקישור", grade: "לשון והבעה" },
+        { name: "הבנת הנקרא והבעה", link: "practice.html?grade=hebrew&topic=הבנת_הנקרא_והבעה", grade: "לשון והבעה" },
+        { name: "כתיבה וסקירה ממזגת", link: "practice.html?grade=hebrew&topic=כתיבה_וסקירה", grade: "לשון והבעה" },
+        { name: "תקינות לשונית", link: "practice.html?grade=hebrew&topic=תקינות", grade: "לשון והבעה" },
+
+        // מדעים
+        { name: "חומרים ומבנה החומר", link: "practice.html?grade=science&topic=חומרים_ומבנה_החומר", grade: "מדעים" },
+        { name: "כדור הארץ והיקום", link: "practice.html?grade=science&topic=כדור_הארץ_והיקום", grade: "מדעים" },
+
+        // חינוך פיננסי
+        { name: "ניהול תקציב וצרכנות נבונה", link: "practice.html?grade=finance&topic=budget_consumerism", grade: "חינוך פיננסי" },
+        { name: "עולם העבודה וזכויות עובדים", link: "practice.html?grade=finance&topic=work_and_wages", grade: "חינוך פיננסי" },
+        { name: "בנקאות, אשראי והלוואות", link: "practice.html?grade=finance&topic=banking_and_credit", grade: "חינוך פיננסי" },
+        { name: "חיסכון, השקעות ושוק ההון", link: "practice.html?grade=finance&topic=savings_investments", grade: "חינוך פיננסי" },
+        { name: "ביטוח וניהול סיכונים", link: "practice.html?grade=finance&topic=insurance_risks", grade: "חינוך פיננסי" },
+        { name: "כלכלה דיגיטלית וזהירות פיננסית", link: "practice.html?grade=finance&topic=digital_economy", grade: "חינוך פיננסי" }
+    ];
 
     function openSearchModal() {
         document.getElementById('search-modal').style.display = 'flex';
@@ -800,12 +812,12 @@
         resBox.innerHTML = '';
         
         let count = 0;
-        for(let i=0; i<searchDB.length; i++) {
-            let item = searchDB[i];
-            if(item.name.toLowerCase().includes(val) || item.key.toLowerCase().includes(val)) {
+        for(let i=0; i < detailedSearchDB.length; i++) {
+            let item = detailedSearchDB[i];
+            if(item.name.toLowerCase().includes(val) || item.grade.toLowerCase().includes(val)) {
                 resBox.innerHTML += `<a href="${item.link}" class="search-item">
                     <span>${item.name}</span>
-                    <span class="search-tag">${item.displayGrade}</span>
+                    <span class="search-tag">${item.grade}</span>
                 </a>`;
                 count++;
             }
@@ -856,17 +868,38 @@
         } catch(e) { console.log("Audio not supported"); }
     }
 
+    // פונקציית הקראה קולית בעברית למשוב - קול מערכתי רשמי ומדרבן בלבד, בחירת קול מדויקת
     function playFeedbackVoice(isCorrect) {
         if (!window.speechSynthesis) return;
         window.speechSynthesis.cancel();
         
-        let text = isCorrect ? "כל הכבוד, תשובה נכונה!" : "לא נורא, נסה שוב, אתה יכול!";
+        // משפטים מערכתיים וברורים (לא "עצובים" בטעות, מדרבנים בלבד)
+        const correctPhrases = [
+            "תשובה נכונה!",
+            "מצוין, תשובה נכונה.",
+            "כל הכבוד, צדקת."
+        ];
+        
+        const wrongPhrases = [
+            "תשובה שגויה, נסה שוב.",
+            "טעות, אנא נסה שוב.",
+            "התשובה אינה נכונה."
+        ];
+        
+        let textArray = isCorrect ? correctPhrases : wrongPhrases;
+        let text = textArray[Math.floor(Math.random() * textArray.length)];
+        
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'he-IL';
-        utterance.rate = 1.0;
+        utterance.lang = 'he-IL'; 
+        utterance.rate = 1.0; 
+        utterance.pitch = 1.0; 
         
         const voices = window.speechSynthesis.getVoices();
-        const hebrewVoice = voices.find(v => v.lang === 'he-IL' || v.lang.includes('he'));
+        // בחירה מוכוונת לקולות המערכת הרשמיים בעברית כדי להישמע מקצועי ובלי מבטא אמריקאי
+        const hebrewVoice = voices.find(v => v.lang === 'he-IL' && v.name.includes('Microsoft')) || 
+                            voices.find(v => v.lang === 'he-IL' && v.name.includes('Google')) ||
+                            voices.find(v => v.lang === 'he-IL' || v.name.includes('Hebrew') || v.name.includes('עברית'));
+        
         if (hebrewVoice) {
             utterance.voice = hebrewVoice;
         }
@@ -881,11 +914,16 @@
         let html = String(text);
 
         const mathBlocks = [];
-        html = html.replace(/\\\([\s\S]*?\\\)/g, m => { mathBlocks.push(m); return `___MATH___`; });
+        html = html.replace(/\\\([\s\S]*?\\\)/g, m => { 
+            let inner = m.substring(2, m.length - 2);
+            // אילוץ פקודת displaystyle כדי שיוצג בגודל מלא
+            mathBlocks.push(`\\( \\displaystyle ${inner} \\)`); 
+            return `___MATH___`; 
+        });
         html = html.replace(/\$\$[\s\S]*?\$\$/g, m => { mathBlocks.push(m); return `___MATH___`; });
 
-        // זיהוי מדויק ובטוח של מילה עטופה בפעמיים x או סימן כפל, כולל רווחים (לדוגמה x x מסה x x או x × מסה × x)
-        html = html.replace(/(?:[xX×*]\s*){2,}([א-תA-Za-z0-9]+(?: [א-תA-Za-z0-9]+)*?)\s*(?:[xX×*]\s*){2,}/g, ' <strong style="background: rgba(197, 160, 89, 0.15); border-bottom: 2px solid var(--accent-gold); padding: 0 5px; border-radius: 4px; color: var(--primary-header);">$1</strong> ');
+        // זיהוי מדויק של מילה בין x מכל צד, העלמת ה-x לחלוטין, והדגשת המילה בצורה בטוחה
+        html = html.replace(/(?:x|X|×|\*){2,}\s*([^xX×*<>]+?)\s*(?:x|X|×|\*){2,}/gi, ' <strong style="background: rgba(197, 160, 89, 0.15); border-bottom: 2px solid var(--accent-gold); padding: 0 5px; border-radius: 4px; color: var(--primary-header);">$1</strong> ');
 
         const svgs = []; html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
         const htmlTags = []; html = html.replace(/<[^>]+>/g, m => { htmlTags.push(m); return `___TAG___`; });
@@ -907,7 +945,7 @@
         res = res.replace(/[\u200E\u200F\u202A\u202B\u202C\u202D\u202E]/g, '');
         res = res.replace(/&amp;rlm;/gi, '').replace(/&rlm;/gi, '').replace(/&lrm;/gi, '');
         
-        res = res.replace(/(?:[xX×*]\s*){2,}([א-תA-Za-z0-9]+(?: [א-תA-Za-z0-9]+)*?)\s*(?:[xX×*]\s*){2,}/g, '$1');
+        res = res.replace(/(?:x|X|×|\*){2,}\s*([^xX×*<>]+?)\s*(?:x|X|×|\*){2,}/gi, '$1');
         res = res.replace(/\*\*([^*]+)\*\*/g, '$1');
         res = res.replace(/(^|[\s])\*([א-ת][^*]*[א-ת]|[א-ת])\*(?=[\s.,?!]|$)/g, '$1$2');
 
@@ -944,7 +982,6 @@
         formulaWin.document.write(formulasHtml); formulaWin.document.close();
     }
 
-    // הפונקציה הבטוחה לחלוטין לחישוב רמות קושי
     function categorizeQuestions(allQs) {
         if (!allQs || !Array.isArray(allQs) || allQs.length < 3) {
             return { easy: allQs || [], medium: allQs || [], hard: allQs || [] };
@@ -959,9 +996,10 @@
                     if (q.question) len += String(q.question).length;
                     if (q.question_text) len += String(q.question_text).length;
                     if (q.solution) len += String(q.solution).length;
-                    // נמנעים מ-stringify כדי למנוע קריסה
                     if (q.options && Array.isArray(q.options)) {
-                        len += q.options.join('').length;
+                        for(let j=0; j<q.options.length; j++) {
+                            len += String(q.options[j]).length;
+                        }
                     }
                 }
                 scored.push({ q: q, len: len });
@@ -1037,13 +1075,84 @@
         currentGrade = gradeNames[gradeParam] || gradeParam || "";
         
         let displayTopic = "";
+        
+        const specificTopicTranslations = {
+            "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+            "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
+            "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
+            "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", "powers": "חזקות ושורשים",
+            "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+            "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+            "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+            "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות",
+            "linear_functions": "פונקציה קווית", "meitzav": "מבחני מיצ\"ב",
+            "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+            "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
+            "final_review": "תרגול מסכם", "logic_combinatorics": "לוגיקה וקומבינטוריקה", 
+            "advanced_verbal": "בעיות מילוליות מורכבות", "advanced_geometry": "גיאומטריה מתקדמת", 
+            "patterns_sequences": "חשיבה אלגברית", "algebra_172": "אלגברה ומשוואות", 
+            "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", 
+            "geometry_172": "הנדסת המישור והמרחב", "trigo_172": "טריגונומטריה במישור", 
+            "stats_prob_172": "סטטיסטיקה והסתברות", "algebraic_expr_172": "ביטויים אלגבריים", 
+            "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", 
+            "lines_plane_172": "ישר במישור", "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
+            "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
+            "triangles_quads_172": "משולשים ומרובעים", "triangle_sim_371": "דמיון משולשים", 
+            "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
+            "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים", "growth_decay_371": "גדילה ודעיכה", 
+            "exp_models_371": "מודלים מעריכיים", "prob_stats_371": "הסתברות וסטטיסטיקה", 
+            "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה", "quad_func_372": "פונקציה ריבועית", 
+            "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", 
+            "analytic_geom_372": "גאומטריה אנליטית", "space_geom_bodies_372": "הנדסת המרחב וגופים", 
+            "sequences_372": "סדרות", "alg_frac_471": "אלגברה ושברים אלגבריים",
+            "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+            "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
+            "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
+            "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+            "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+            "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
+            "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+            "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
+            "sequences_571": "סדרות", "probability_571": "הסתברות",
+            "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+            "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
+            "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
+            "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
+            "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
+            "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
+            "vocabulary": "אוצר מילים", "grammar": "דקדוק", "reading_comprehension": "הבנת הנקרא",
+            "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)",
+            "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
+            "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם",
+            "סוגי_משפטים": "סוגי משפטים", "מילות_יחס_וקישור": "מילות יחס וקישור",
+            "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", "תקינות": "תקינות לשונית",
+            "alg_equations_471": "אלגברה - משוואות ואי-שוויונים",
+            "word_problems_471": "בעיות מילוליות (אלגברה)",
+            "prob_stats_471": "הסתברות קלאסית וסטטיסטיקה",
+            "calculus_poly_471": "חשבון דיפרנציאלי - פולינומים",
+            "calculus_rational_471": "חשבון דיפרנציאלי - פונקציות רציונליות",
+            "extrema_probs_471": "בעיות קיצון (אופטימיזציה)",
+            "sequences_472": "סדרות",
+            "trigo_plane_472": "טריגונומטריה במישור",
+            "trigo_space_472": "טריגונומטריה במרחב",
+            "calculus_root_472": "חדו\"א - פונקציות שורש (אי-רציונליות)",
+            "calculus_trigo_472": "חדו\"א - פונקציות טריגונומטריות",
+            "calculus_exp_log_472": "חדו\"א - מעריכיות ולוגריתמיות",
+            "integral_calculus_472": "חשבון אינטגרלי (כל הפונקציות)",
+            "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
+            "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
+            "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)",
+            "abc_basics": "אנגלית מהבסיס (ABC)", "חומרים_ומבנה_החומר": "חומרים ומבנה החומר",
+            "כדור_הארץ_והיקום": "כדור הארץ והיקום"
+        };
+        
         if (currentTopic.toLowerCase().includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
         } else if (currentTopic === 'abc_basics') {
             displayTopic = "אנגלית מהבסיס (ABC)";
         } else {
             let topicsArray = currentTopic.split(',');
-            let translatedTopics = topicsArray.map(t => topicTranslations[t.trim()] || t.trim());
+            let translatedTopics = topicsArray.map(t => specificTopicTranslations[t.trim()] || t.trim());
             displayTopic = translatedTopics.join(', ');
         }
         
@@ -1270,7 +1379,7 @@
                 return `<div dir="ltr" style="direction: ltr; display: block; width: 100%; text-align: center; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.4rem; margin: 10px 0; font-weight: 800; color: #000000; letter-spacing: 1px;">${formatContent(trimmed)}</div>`;
             }
             
-            return `<div dir="${lineDir}" style="direction: ${lineDir}; margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; color: #000000; line-height: 1.5; text-align: center;">${formatContent(trimmed)}</div>`;
+            return `<div dir="${lineDir}" style="direction: ${lineDir}; margin-bottom: 10px; font-size: 1.15rem; font-weight: 600; color: #000000; line-height: 1.5; text-align: center;">${formatContent(trimmed)}</div>`;
         }).join('');
 
         document.getElementById('q-text').innerHTML = `<div style="width: 100%;">${formattedQText}</div>`;
@@ -1289,9 +1398,9 @@
         const hebrewLetters = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'", "ט'", "י'", "י\"א", "י\"ב"];
 
         if (!isMathMode) {
-            let nonMathHtml = `<div style="background: rgba(34, 197, 94, 0.08); border: 2px solid #4ade80; border-radius: 12px; padding: 20px; color: #14532d; font-size: 1.15rem; line-height: 1.8; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1); text-align: right; direction: rtl;">`;
+            let nonMathHtml = `<div style="background: rgba(34, 197, 94, 0.08); border: 2px solid #4ade80; border-radius: 12px; padding: 20px; color: #14532d; font-size: 1.05rem; line-height: 1.8; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1); text-align: right; direction: rtl;">`;
             
-            nonMathHtml += `<div style="font-weight: 500;"><b style="color: #166534; font-size: 1.25rem;">📝 פתרון:</b><br><br>`;
+            nonMathHtml += `<div style="font-weight: 500;"><b style="color: #166534; font-size: 1.15rem;">📝 פתרון:</b><br><br>`;
             
             if (q.solution) {
                 nonMathHtml += formatContent(q.solution);
@@ -1325,13 +1434,13 @@
 
                     htmlContent += `
                     <div class="step-card" style="background:#ffffff; border:2px solid #e2e8f0; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-                        <div class="step-header" style="font-size:1.1rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
+                        <div class="step-header" style="font-size:1.05rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
                             שלב ${stepLabel}:
                         </div>`;
                     
                     if (verbal) {
                         let verbalDir = /[\u0590-\u05FF]/.test(verbal) ? "rtl" : "ltr";
-                        htmlContent += `<div dir="${verbalDir}" style="font-size: 1.15rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
+                        htmlContent += `<div dir="${verbalDir}" style="font-size: 1.05rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
                     }
 
                     if (mathText) {
@@ -1339,7 +1448,7 @@
                         let contentToRender = "";
                         
                         if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(mathText)) {
-                            contentToRender = '\\( ' + cleanMathExpression(mathText) + ' \\)';
+                            contentToRender = '\\( \\displaystyle ' + cleanMathExpression(mathText) + ' \\)';
                         } else {
                             mathDir = /[\u0590-\u05FF]/.test(mathText) ? "rtl" : "ltr";
                             let cleanedText = mathText.replace(/=>/g, ' ⇒ ').replace(/->/g, ' → ').replace(/!=/g, ' ≠ ').replace(/<=/g, ' ≤ ').replace(/>=/g, ' ≥ ').replace(/\*/g, ' × ');
@@ -1347,7 +1456,7 @@
                         }
                         
                         htmlContent += `
-                        <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.4rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
+                        <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.3rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
                             ${contentToRender}
                         </div>`;
                     }
@@ -1362,22 +1471,23 @@
         htmlContent += '</div>';
 
         if (finalAnswerText && isMathMode) {
-            let ansDir = /[\u0590-\u05FF]/.test(finalAnswerText) ? "rtl" : "ltr";
+            let processedFinalAnswer = finalAnswerText.replace(/\*/g, ' × ');
+            let ansDir = /[\u0590-\u05FF]/.test(processedFinalAnswer) ? "rtl" : "ltr";
             let ansFont = (ansDir === "ltr") ? "'Cambria Math', 'Times New Roman', Arial, sans-serif" : "inherit";
             
             let finalContent = "";
-            if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(finalAnswerText)) {
-                let cleaned = cleanMathExpression(finalAnswerText);
-                finalContent = '\\( ' + cleaned + ' \\)';
+            if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(processedFinalAnswer)) {
+                let cleaned = cleanMathExpression(processedFinalAnswer);
+                finalContent = '\\( \\displaystyle ' + cleaned + ' \\)';
                 ansDir = "ltr";
             } else {
-                finalContent = formatContent(finalAnswerText);
+                finalContent = formatContent(processedFinalAnswer);
             }
             
             htmlContent += `
-            <div class="final-answer-row" style="margin-top: 10px; padding: 12px 20px; background: #ffffff; border: 3px solid #4ade80; border-radius: 12px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 4px 10px rgba(74, 222, 128, 0.15);">
-                <span style="color:#166534; font-weight:900; font-size:1.2rem;">תשובה סופית:</span> 
-                <bdi dir="${ansDir}" style="display:inline-block; font-family: ${ansFont}; font-weight: 800; font-size:1.4rem; color:#000000; letter-spacing: 1px;">
+            <div class="final-answer-row" style="margin-top: 10px; padding: 10px 20px; background: #ffffff; border: 3px solid #4ade80; border-radius: 12px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 4px 10px rgba(74, 222, 128, 0.15);">
+                <span style="color:#166534; font-weight:900; font-size:1.15rem;">תשובה סופית:</span> 
+                <bdi dir="${ansDir}" style="display:inline-block; font-family: ${ansFont}; font-weight: 800; font-size:1.35rem; color:#000000; letter-spacing: 1px;">
                     ${finalContent}
                 </bdi>
             </div>`;
@@ -1409,8 +1519,8 @@
                 
                 if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(shuffledOpt.text)) {
                      let cleaned = cleanMathExpression(shuffledOpt.text);
-                     btnContent = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.3rem; font-weight: 700; text-align: center; letter-spacing: 1px;">
-                        \\( ${cleaned} \\)
+                     btnContent = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.25rem; font-weight: 700; text-align: center; letter-spacing: 1px;">
+                        \\( \\displaystyle ${cleaned} \\)
                      </bdi>`;
                 } else {
                      btnContent = `<bdi dir="${optDir}" style="width:100%; display:inline-block; font-size: 1.15rem; text-align: center; font-weight: 600;">

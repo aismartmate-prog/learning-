@@ -14,6 +14,10 @@
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']]
         },
+        chtml: {
+          displayAlign: 'center',
+          scale: 1.08 
+        },
         svg: {
           fontCache: 'global'
         }
@@ -191,7 +195,7 @@
         }
 
         .question-title { 
-            font-size: 1.2rem; 
+            font-size: 1.15rem; 
             font-weight: 600; 
             margin-bottom: 15px; 
             color: #000000; 
@@ -211,11 +215,11 @@
         
         .btn-option { 
             background: var(--surface-color); 
-            border: 1.5px solid var(--border-soft); 
-            padding: 16px; 
-            min-height: 60px;
+            border: 1px solid var(--border-soft); 
+            padding: 14px; 
+            min-height: 55px;
             border-radius: 8px; 
-            font-size: 1.2rem; 
+            font-size: 1.15rem; 
             font-weight: 600; 
             color: var(--text-main); 
             cursor: pointer; 
@@ -235,7 +239,7 @@
         .opt-wrong { border-color: var(--wrong-border) !important; background: var(--wrong-bg) !important; color: var(--wrong-text) !important; text-decoration: line-through; }
 
         .info-box { display: none; border-radius: 8px; margin-bottom: 15px; border: 1.5px solid; width: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.02); box-sizing: border-box; overflow: hidden; }
-        .hint-box { padding: 12px; background: var(--hint-bg); border-color: var(--hint-border); font-size: 1.1rem; }
+        .hint-box { padding: 12px; background: var(--hint-bg); border-color: var(--hint-border); font-size: 1.05rem; }
         
         .solution-box { background: transparent; border: none;}
         
@@ -243,9 +247,9 @@
         .solution-table th { background: rgba(34, 197, 94, 0.15); color: #14532d; padding: 10px; border-bottom: 2px solid var(--sol-border); font-size: 1.05rem; font-weight: 700; text-align: center; width: 50%; }
         .solution-table td { padding: 12px 10px; border-bottom: 1px solid rgba(34, 197, 94, 0.2); vertical-align: middle; text-align: center; line-height: 1.4; }
         .text-col { font-size: 1.05rem; border-left: 1.5px solid rgba(34, 197, 94, 0.2); color: #166534; font-weight: 500; word-break: break-word;}
-        .math-col, .math-expression-box { font-size: 1.3rem !important; font-weight: 600 !important; color: #064e3b; direction: ltr; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', serif !important; letter-spacing: 1px; word-break: break-word;}
+        .math-col, .math-expression-box { font-size: 1.25rem !important; font-weight: 600 !important; color: #064e3b; direction: ltr; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', serif !important; letter-spacing: 1px; word-break: break-word;}
         
-        .final-answer-row { margin: 10px 15px; padding: 12px; background: rgba(255,255,255,0.7); border: 2px solid #4ade80; border-radius: 6px; text-align: center; font-weight: 800; font-size: 1.15rem; color: #14532d; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; width: calc(100% - 30px); box-sizing: border-box;}
+        .final-answer-row { margin: 10px 15px; padding: 10px; background: rgba(255,255,255,0.7); border: 2px solid #4ade80; border-radius: 6px; text-align: center; font-weight: 800; font-size: 1.1rem; color: #14532d; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; width: calc(100% - 30px); box-sizing: border-box;}
 
         .status-tag { font-weight: 700; font-size: 0.95rem; padding: 6px 18px; border-radius: 15px; display: inline-block;}
         
@@ -272,7 +276,7 @@
 
         .btn-tts { 
             background: linear-gradient(135deg, #e0e7ff, #c7d2fe); border: 2px solid #6366f1; border-radius: 40px; 
-            padding: 8px 25px; font-size: 1.1rem; cursor: pointer; font-weight: 800; color: #4338ca; 
+            padding: 8px 25px; font-size: 1.05rem; cursor: pointer; font-weight: 800; color: #4338ca; 
             display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 10px rgba(99,102,241,0.2); 
         }
         .btn-tts:hover { background: linear-gradient(135deg, #c7d2fe, #a5b4fc); transform: scale(1.05) translateY(-2px); box-shadow: 0 6px 12px rgba(99,102,241,0.3); }
@@ -285,7 +289,7 @@
             border: 2px solid var(--accent-gold); 
             border-radius: 8px; 
             padding: 6px 12px; 
-            font-size: 1rem; 
+            font-size: 0.95rem; 
             cursor: pointer; 
             font-weight: 800; 
             color: var(--primary-header); 
@@ -880,7 +884,7 @@
                     <div class="item"><span class="desc">נגזרת חזקה</span><span class="math">(x<sup>n</sup>)' = n&middot;x<sup>n-1</sup></span></div>
                     <div class="item"><span class="desc">נגזרת מכפלה</span><span class="math">(u&middot;v)' = u'v + uv'</span></div>
                     <div class="item"><span class="desc">נגזרת מנה</span><span class="math">(u/v)' = (u'v - uv') / v<sup>2</sup></span></div>
-                    <div class="item"><span class="desc">פונקציה מורכבת</span><span class="math">[f(g(x))]' = f'(g(x)) &middot; g'(x)</span></div>
+                    <div class="item"><span class="desc">פונציה מורכבת</span><span class="math">[f(g(x))]' = f'(g(x)) &middot; g'(x)</span></div>
                     <div class="item"><span class="desc">טריגונומטריות</span><span class="math">(sin x)' = cos x &nbsp;|&nbsp; (cos x)' = -sin x</span></div>
                     <div class="item"><span class="desc">מעריכיות ולוגריתמיות</span><span class="math">(e<sup>x</sup>)' = e<sup>x</sup> &nbsp;|&nbsp; (ln x)' = 1/x</span></div>
                 </div>
@@ -974,54 +978,41 @@
 
     function formatContent(text) {
         if (!text) return "";
-        let html = String(text);
+        let html = text.replace(/<svg[\s\S]*?<\/svg>/gi, m => m); 
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/(^|[^א-ת])(\d+(?:\.\d+)?)-(?!\d)/g, '$1-$2');
+        html = html.replace(/\*/g, '×'); 
 
-        const mathBlocks = [];
-        // הוספת displaystyle לכל בלוק MathJax כדי שהשברים ייראו בגודל טבעי
-        html = html.replace(/\\\([\s\S]*?\\\)/g, m => { 
-            let inner = m.substring(2, m.length - 2);
-            mathBlocks.push(`\\(\\displaystyle ${inner}\\)`); 
-            return `___MATH___`; 
+        html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
+            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            return match; 
         });
-        html = html.replace(/\$\$[\s\S]*?\$\$/g, m => { mathBlocks.push(m); return `___MATH___`; });
 
-        // הדגשת מילים עטופות ב-xxמילהxx (עם שני איקסים לפני ואחרי)
-        html = html.replace(/xx([^x]+)xx/gi, '<strong style="background: rgba(197, 160, 89, 0.15); border-bottom: 2px solid var(--accent-gold); padding: 0 5px; border-radius: 4px; color: var(--primary-header);">$1</strong>');
-
-        const svgs = []; html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
-        const htmlTags = []; html = html.replace(/<[^>]+>/g, m => { htmlTags.push(m); return `___TAG___`; });
-
-        html = html.replace(/\*/g, ' × ');
-        html = html.trim();
-
-        html = html.replace(/___TAG___/g, () => htmlTags.shift());
-        html = html.replace(/___SVG___/g, () => svgs.shift());
-        html = html.replace(/___MATH___/g, () => mathBlocks.shift());
+        const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
+        html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
         
-        return html;
+        html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
+        html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+
+        html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+
+        return html.trim();
     }
 
     function cleanMathExpression(text) {
         if (!text) return "";
         let res = String(text);
         
-        res = res.replace(/[\u200E\u200F\u202A\u202B\u202C\u202D\u202E]/g, '');
-        res = res.replace(/&amp;rlm;/gi, '').replace(/&rlm;/gi, '').replace(/&lrm;/gi, '');
+        res = res.replace(/=>/g, ' ⇒ ');
+        res = res.replace(/->/g, ' → ');
+        res = res.replace(/!=/g, ' ≠ ');
+        res = res.replace(/<=/g, ' ≤ ');
+        res = res.replace(/>=/g, ' ≥ ');
+        res = res.replace(/\*/g, ' × '); 
         
-        res = res.replace(/xx(.*?)xx/gi, '$1');
-        res = res.replace(/xx/gi, ''); 
-        res = res.replace(/\*\*([^*]+)\*\*/g, '$1');
-        res = res.replace(/(^|[\s])\*([א-ת][^*]*[א-ת]|[א-ת])\*(?=[\s.,?!]|$)/g, '$1$2');
-
-        res = res.replace(/=>/g, ' \\Rightarrow ');
-        res = res.replace(/->/g, ' \\rightarrow ');
-        res = res.replace(/!=/g, ' \\neq ');
-        res = res.replace(/<=/g, ' \\leq ');
-        res = res.replace(/>=/g, ' \\geq ');
-        
-        res = res.replace(/\bכפול\b/g, ' \\cdot ');
-        res = res.replace(/\bלחלק ל\b/g, ' : ');
-        res = res.replace(/\bלחלק\b/g, ' : ');
+        res = res.replace(/\bכפול\b/g, ' × ');
+        res = res.replace(/\bלחלק ל\b/g, ' / ');
+        res = res.replace(/\bלחלק\b/g, ' / ');
         res = res.replace(/\bשווה ל\b/g, ' = ');
         res = res.replace(/\bשווה\b/g, ' = ');
         res = res.replace(/\bפלוס\b/g, ' + ');
@@ -1030,6 +1021,10 @@
         res = res.replace(/\bפחות\b/g, ' - ');
         res = res.replace(/\bגדול מ\b/g, ' > ');
         res = res.replace(/\bקטן מ\b/g, ' < ');
+
+        res = res.replace(/\b(?!(sin|cos|tan|log|ln|lim|max|min|arcsin|arccos|arctan)\b)[A-Z]?[a-z]{2,}\b/g, '');
+        res = res.replace(/\\[a-zA-Z]+/g, '');
+        res = res.replace(/\\/g, '');
 
         return res.trim();
     }
@@ -1068,8 +1063,6 @@
         let displayTopic = "";
         if (currentTopicStr.toLowerCase().includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
-        } else if (currentTopicStr === 'abc_basics') {
-            displayTopic = "אנגלית מהבסיס (ABC)";
         } else {
             let topicsArray = currentTopicStr.split(',');
             let translatedTopics = topicsArray.map(t => topicNamesHe[t.trim()] || t.trim());
@@ -1079,11 +1072,9 @@
         let isFin = (gradeParam === "finance" || subjectParam === "finance");
         let isEng = (gradeParam === "english" || subjectParam === "english");
         let isHeb = (gradeParam === "hebrew" || subjectParam === "hebrew");
-        let isArabicModeInner = (gradeParam === "arabic" || subjectParam === "arabic");
+        let isArabicMode = (gradeParam === "arabic" || subjectParam === "arabic");
         
-        isEnglishMode = isEng;
-        
-        isMathMode = !(isFin || isEng || isHeb || isArabicModeInner || subjectParam === 'science' || gradeParam === 'science'); 
+        isMathMode = !(isFin || isEng || isHeb || isArabicMode || subjectParam === 'science' || gradeParam === 'science'); 
 
         if (!isMathMode) { 
             const btnFormulas = document.getElementById('formulas-btn');
@@ -1100,7 +1091,7 @@
             headerText = `אנגלית`;
         } else if (isHeb) {
             headerText = `לשון והבעה`;
-        } else if (isArabicModeInner) {
+        } else if (isArabicMode) {
             headerText = `ערבית`;
         } else {
             headerText = `${act} | כיתה ${displayGrade}`;
@@ -1269,9 +1260,6 @@
             }
             
             questions.forEach(q => {
-                if (!q.options) q.options = q.answers || q.choices || ["תשובה 1", "תשובה 2"];
-                if (q.correctAnswer === undefined) q.correctAnswer = q.correct_answer || 0;
-                
                 if (!isMathMode) {
                     q.shuffledOptions = shuffleOptions(q.options);
                 } else {
@@ -1371,7 +1359,7 @@
             if (isMathMode && !isHebrewLine) {
                 return `<div dir="ltr" style="direction: ltr; unicode-bidi: isolate; display: block; width: 100%; text-align: center; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.4rem; margin: 10px 0; font-weight: 800; color: #000000; letter-spacing: 1px;">${formatContent(trimmed)}</div>`;
             }
-            return `<div dir="${lineDir}" style="direction: ${lineDir}; unicode-bidi: isolate; margin-bottom: 10px; font-size: 1.2rem; font-weight: 600; color: #000000; line-height: 1.5; text-align: center;">${formatContent(trimmed)}</div>`;
+            return `<div dir="${lineDir}" style="direction: ${lineDir}; unicode-bidi: isolate; margin-bottom: 10px; font-size: 1.15rem; font-weight: 600; color: #000000; line-height: 1.5; text-align: center;">${formatContent(trimmed)}</div>`;
         }).join('');
 
         let qTextHtml = `<div style="width: 100%;">${formattedQText}</div>`;
@@ -1419,7 +1407,7 @@
         }
 
         if (showReadingBtn) {
-            readingBtnContainer.innerHTML += `
+            readingBtnContainer.innerHTML = `
                 <button class="btn-reading-window" onclick="openReadingWindow()">
                     <span style="font-size:1.2rem;">📖</span> <span>טקסט קריאה</span>
                 </button>
@@ -1427,7 +1415,20 @@
         }
 
         document.getElementById('q-text').innerHTML = qTextHtml;
-        document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint || "קראו את השאלה בעיון.")}</div>`;
+        
+        // תיקון הרמז במבחן כדי למנוע חזרתיות
+        const hintBtn = document.getElementById('hint-btn');
+        if (q.hint && String(q.hint).trim() !== "") {
+            document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint)}</div>`;
+            hintBtn.disabled = false;
+            hintBtn.classList.remove('btn-disabled-gray');
+        } else {
+            document.getElementById('hint-box').innerHTML = `<div dir="rtl" style="text-align:center; color:#713f12; font-weight:600;">אין רמז קיים לשאלה זו.</div>`;
+            if (isFinished) {
+                hintBtn.disabled = true;
+                hintBtn.classList.add('btn-disabled-gray');
+            }
+        }
         
         const wrapper = document.getElementById('solution-content-wrapper');
         wrapper.innerHTML = ''; 
@@ -1438,9 +1439,9 @@
         const hebrewLetters = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'", "ט'", "י'", "י\"א", "י\"ב"];
 
         if (!isMathMode) {
-            let nonMathHtml = `<div style="background: rgba(34, 197, 94, 0.08); border: 2px solid #4ade80; border-radius: 12px; padding: 20px; color: #14532d; font-size: 1.15rem; line-height: 1.8; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1); text-align: right; direction: rtl;">`;
+            let nonMathHtml = `<div style="background: rgba(34, 197, 94, 0.08); border: 2px solid #4ade80; border-radius: 12px; padding: 20px; color: #14532d; font-size: 1.05rem; line-height: 1.8; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1); text-align: right; direction: rtl;">`;
             
-            nonMathHtml += `<div style="font-weight: 500;"><b style="color: #166534; font-size: 1.25rem;">📝 פתרון:</b><br><br>`;
+            nonMathHtml += `<div style="font-weight: 500;"><b style="color: #166534; font-size: 1.15rem;">📝 פתרון:</b><br><br>`;
             
             if (q.solution) {
                 nonMathHtml += formatContent(q.solution);
@@ -1474,13 +1475,13 @@
 
                     htmlContent += `
                     <div class="step-card" style="background:#ffffff; border:2px solid #e2e8f0; border-radius:12px; padding:15px; margin-bottom:12px; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-                        <div class="step-header" style="font-size:1.1rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
+                        <div class="step-header" style="font-size:1.05rem; font-weight:800; color:#1e40af; margin-bottom:8px; border-bottom:2px solid #bfdbfe; padding-bottom:6px; display:inline-block;">
                             שלב ${stepLabel}:
                         </div>`;
                     
                     if (verbal) {
                         let verbalDir = /[\u0590-\u05FF]/.test(verbal) ? "rtl" : "ltr";
-                        htmlContent += `<div dir="${verbalDir}" style="font-size: 1.15rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
+                        htmlContent += `<div dir="${verbalDir}" style="font-size: 1.05rem; color: #000000; margin-bottom: 10px; line-height: 1.5; font-weight: 600;">${formatContent(verbal)}</div>`;
                     }
 
                     if (mathText) {
@@ -1496,7 +1497,7 @@
                         }
                         
                         htmlContent += `
-                        <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.4rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
+                        <div dir="${mathDir}" style="text-align:center; font-weight:800; font-size:1.3rem; color:#000000; margin:8px 0; background:#f0fdf4; padding:12px; border-radius:8px; border:2px solid #bbf7d0; unicode-bidi: isolate; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; letter-spacing: 1px; overflow-x: auto;">
                             ${contentToRender}
                         </div>`;
                     }
@@ -1524,9 +1525,9 @@
             }
             
             htmlContent += `
-            <div class="final-answer-row" style="margin-top: 10px; padding: 12px 20px; background: #ffffff; border: 3px solid #4ade80; border-radius: 12px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 4px 10px rgba(74, 222, 128, 0.15);">
-                <span style="color:#166534; font-weight:900; font-size:1.2rem;">תשובה סופית:</span> 
-                <bdi dir="${ansDir}" style="display:inline-block; font-family: ${ansFont}; font-weight: 800; font-size:1.4rem; color:#000000; letter-spacing: 1px;">
+            <div class="final-answer-row" style="margin-top: 10px; padding: 10px 20px; background: #ffffff; border: 3px solid #4ade80; border-radius: 12px; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; box-shadow: 0 4px 10px rgba(74, 222, 128, 0.15);">
+                <span style="color:#166534; font-weight:900; font-size:1.15rem;">תשובה סופית:</span> 
+                <bdi dir="${ansDir}" style="display:inline-block; font-family: ${ansFont}; font-weight: 800; font-size:1.35rem; color:#000000; letter-spacing: 1px;">
                     ${finalContent}
                 </bdi>
             </div>`;
@@ -1571,7 +1572,7 @@
             let btnContent = "";
             
             if (isMathMode && window.MathJax && !/[\u0590-\u05FF]/.test(processedOpt)) {
-                 btnContent = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.3rem; font-weight: 700; text-align: center; letter-spacing: 1px;">
+                 btnContent = `<bdi dir="ltr" style="width:100%; display:inline-block; font-family: 'Cambria Math', 'Times New Roman', Arial, sans-serif; font-size: 1.25rem; font-weight: 700; text-align: center; letter-spacing: 1px;">
                     \\( \\displaystyle ${cleanMathExpression(processedOpt)} \\)
                  </bdi>`;
             } else {
@@ -1624,6 +1625,17 @@
         
         document.getElementById('sol-btn').disabled = false;
         document.getElementById('sol-btn').classList.remove('btn-disabled-gray');
+        
+        // תיקון כפתור הרמז במצב הגשה לפי הלוגיקה החדשה
+        const q = questions[currentIndex];
+        const hintBtn = document.getElementById('hint-btn');
+        if (q.hint && String(q.hint).trim() !== "") {
+            hintBtn.disabled = false;
+            hintBtn.classList.remove('btn-disabled-gray');
+        } else {
+            hintBtn.disabled = true;
+            hintBtn.classList.add('btn-disabled-gray');
+        }
         
         showReviewSummary(); 
     }

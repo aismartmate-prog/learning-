@@ -1,2156 +1,1094 @@
-// ========================================================================
-// שאלון 35372 | נושא: הנדסת המרחב וגופים
-// פעימה 1: 20 שאלות (תתי נושאים: קובייה + תיבה)
-// ========================================================================
-
 const questionsDB = [
+    // ==========================================
+    // תת נושא 1: קובייה (10 שאלות)
+    // ==========================================
 
-    // ---------------------------------------------------------
-    // תת נושא 1: קובייה (שאלות 1-10)
-    // ---------------------------------------------------------
-
-    // שאלה 1
+    // שאלה מספר 1 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>חישוב נפח קובייה בסיסי:</strong><br>
-        נתונה קובייה שאורך המקצוע שלה הוא 4 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 160" width="100%" height="160" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="70,30 150,30 150,110 70,110" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <polygon points="40,60 120,60 120,140 40,140" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="40" y1="60" x2="70" y2="30" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="120" y1="60" x2="150" y2="30" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="120" y1="140" x2="150" y2="110" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="40" y1="140" x2="70" y2="110" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="80" y="155" font-family="Arial" font-size="12" font-weight="bold">4</text>
-            <text x="135" y="105" font-family="Arial" font-size="12" font-weight="bold">4</text>
-            <text x="30" y="105" font-family="Arial" font-size="12" font-weight="bold">4</text>
-        </svg>
-        </div>
-        מהו <strong>נפח</strong> הקובייה?`,
-        options: [
-            "<span dir=\"rtl\">64 סמ\"ק</span>",
-            "<span dir=\"rtl\">16 סמ\"ק</span>",
-            "<span dir=\"rtl\">12 סמ\"ק</span>",
-            "<span dir=\"rtl\">96 סמ\"ק</span>"
-        ],
+        question_text: "נתונה קובייה שאורך המקצוע שלה הוא 5 ס''מ.&rlm;<br>א. מהו נפח הקובייה?&rlm;<br>ב. מהו שטח הפנים הכולל של הקובייה?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='60,140 140,140 140,60 60,60' fill='#3b82f6' opacity='0.2' stroke='#3b82f6' stroke-width='2'/><polygon points='60,60 100,20 180,20 140,60' fill='#3b82f6' opacity='0.3' stroke='#3b82f6' stroke-width='2'/><polygon points='140,140 180,100 180,20 140,60' fill='#3b82f6' opacity='0.4' stroke='#3b82f6' stroke-width='2'/><text x='95' y='160' font-size='14'>5</text><text x='35' y='105' font-size='14'>5</text></svg></div>",
+        options: ["א. 125 | ב. 150", "א. 25 | ב. 150", "א. 125 | ב. 125", "א. 150 | ב. 125"],
         correctAnswer: 0,
-        hint: "בקובייה כל המקצועות (הצלעות) שווים. נפח מחושב על ידי הכפלת אורך, רוחב וגובה. לכן יש לחשב 4 כפול 4 כפול 4 (או 4 בחזקת 3).",
+        hint: "נפח קובייה שווה למקצוע בשלישית. שטח הפנים מורכב מ-6 ריבועים זהים שאורך צלעם שווה למקצוע.",
         solution_steps: [
-            { 
-                verbal_explanation: "בקובייה, כל הממדים (אורך, רוחב וגובה) שווים זה לזה. נסמן את אורך המקצוע באות a.", 
-                math_expression: "<div dir='ltr'>a = 4</div>" 
-            },
-            { 
-                verbal_explanation: "הנוסחה למציאת נפח (המסומן באות V) היא אורך כפול רוחב כפול גובה, או המקצוע בחזקת שלוש.", 
-                math_expression: "<div dir='ltr'>V = a<sup>3</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתון שלנו לתוך הנוסחה ונרשום את תרגיל הכפל המלא.", 
-                math_expression: "<div dir='ltr'>V = 4 &times; 4 &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב: 4 כפול 4 שווה 16. לאחר מכן נכפיל 16 ב-4 ונקבל 64.", 
-                math_expression: "<div dir='ltr'>V = 64</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח הקובייה באמצעות העלאת המקצוע בחזקת שלוש.", math_expression: "V = 5^{3}" },
+            { verbal_explanation: "שלב 2: פתרון החזקה (חמש כפול חמש כפול חמש) לקבלת הנפח (תשובה לא').", math_expression: "V = 125" },
+            { verbal_explanation: "שלב 3: חישוב שטח של פאה אחת (ריבוע).", math_expression: "S_{1} = 5^{2} = 25" },
+            { verbal_explanation: "שלב 4: הכפלת שטח הפאה בשש, מכיוון שלקובייה יש שש פאות זהות.", math_expression: "S = 6 \\times 25" },
+            { verbal_explanation: "שלב 5: חישוב שטח הפנים הכולל (תשובה לב').", math_expression: "S = 150" }
         ],
-        final_answer: "<span dir=\"rtl\">64 סמ\"ק</span>"
+        final_answer: "א. 125 | ב. 150"
     },
 
-    // שאלה 2
+    // שאלה מספר 2
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>חישוב שטח פנים של קובייה:</strong><br>
-        נתונה קובייה שאורך מקצועה הוא 5 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 160" width="100%" height="160" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,50 110,50 110,110 50,110" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-            <polygon points="110,50 140,20 140,80 110,110" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-            <polygon points="50,50 80,20 140,20 110,50" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
-            <text x="80" y="85" font-family="Arial" font-size="12" font-weight="bold">5&times;5</text>
-        </svg>
-        </div>
-        מהו <strong>שטח הפנים</strong> הכולל של הקובייה?`,
-        options: [
-            "<span dir=\"rtl\">150 סמ\"ר</span>",
-            "<span dir=\"rtl\">125 סמ\"ר</span>",
-            "<span dir=\"rtl\">25 סמ\"ר</span>",
-            "<span dir=\"rtl\">100 סמ\"ר</span>"
-        ],
+        question_text: "נפחה של קובייה הוא 64 סמ''ק. מהו סכום אורכי כל המקצועות של הקובייה?&rlm;",
+        options: ["48", "16", "64", "24"],
         correctAnswer: 0,
-        hint: "שטח פנים משמעותו סך כל השטחים של ה'קירות' (הפאות) שעוטפים את הגוף מבחוץ. לקובייה יש 6 פאות שוות, וכל אחת מהן היא ריבוע. חשבו שטח של פאה אחת (5 כפול 5) והכפילו ב-6.",
+        hint: "תחילה מצאו את אורך המקצוע הבודד (שורש שלישי של הנפח). לאחר מכן, זכרו שלקובייה יש 12 מקצועות בסך הכל.",
         solution_steps: [
-            { 
-                verbal_explanation: "קובייה מורכבת משישה ריבועים (פאות) הזהים לחלוטין זה לזה.", 
-                math_expression: "<div dir='ltr'>n = 6</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב תחילה את השטח של פאה אחת. שטח ריבוע מחושב על ידי צלע כפול צלע.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 5 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "שטחה של פאה בודדת הוא עשרים וחמישה.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 25</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את שטח הפנים הכולל, נכפיל את השטח של הפאה הבודדת בשש הפאות של הקובייה.", 
-                math_expression: "<div dir='ltr'>S = 6 &times; 25</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל ונגלה את שטח הפנים המלא.", 
-                math_expression: "<div dir='ltr'>S = 150</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת משוואת הנפח כדי לחלץ את המקצוע.", math_expression: "a^{3} = 64" },
+            { verbal_explanation: "שלב 2: הוצאת שורש שלישי למציאת אורך מקצוע בודד.", math_expression: "a = \\sqrt[3]{64} = 4" },
+            { verbal_explanation: "שלב 3: הגדרת כמות המקצועות בקובייה.", math_expression: "n = 12" },
+            { verbal_explanation: "שלב 4: חישוב סכום כל המקצועות על ידי הכפלה.", math_expression: "P = 12 \\times 4" },
+            { verbal_explanation: "שלב 5: התוצאה הסופית לסכום האורכים.", math_expression: "P = 48" }
         ],
-        final_answer: "<span dir=\"rtl\">150 סמ\"ר</span>"
+        final_answer: "48"
     },
 
-    // שאלה 3
+    // שאלה מספר 3 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>מציאת מקצוע מתוך נפח נתון (פעולה הפוכה):</strong><br>
-        ידוע כי נפחה של קובייה מסוימת הוא 216 סמ"ק.<br>
-        מהו אורך המקצוע שלה?`,
-        options: [
-            "<span dir=\"rtl\">6 ס\"מ</span>",
-            "<span dir=\"rtl\">8 ס\"מ</span>",
-            "<span dir=\"rtl\">36 ס\"מ</span>",
-            "<span dir=\"rtl\">72 ס\"מ</span>"
-        ],
+        question_text: "אורך מקצוע קובייה הוא 6 ס''מ.&rlm;<br>א. חשבו את אורך אלכסון הפאה (אלכסון של אחד הריבועים).&rlm;<br>ב. חשבו את אורך האלכסון הראשי של הקובייה (בתוך החלל).&rlm;",
+        options: ["א. 8.48 | ב. 10.39", "א. 12 | ב. 18", "א. 8.48 | ב. 12", "א. 7.2 | ב. 10.39"],
         correctAnswer: 0,
-        hint: "נפח קובייה הוא המקצוע בחזקת 3. הפעולה ההפוכה היא הוצאת 'שורש שלישי'. איזה מספר כפול עצמו שלוש פעמים ייתן 216? (היעזרו במחשבון או נסו להכפיל 5x5x5 ו- 6x6x6).",
+        hint: "אלכסון פאה מחושב ממשפט פיתגורס על שני מקצועות. האלכסון הראשי מחושב ממשפט פיתגורס על אלכסון הפאה והגובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "הנוסחה לנפח קובייה היא המקצוע (a) מועלה בחזקה שלישית.", 
-                math_expression: "<div dir='ltr'>V = a<sup>3</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנפח שנתון לנו בשאלה כדי ליצור משוואה.", 
-                math_expression: "<div dir='ltr'>216 = a<sup>3</sup></div>" 
-            },
-            { 
-                verbal_explanation: "כדי לבטל חזקה שלישית ולבודד את הצלע, נוציא שורש שלישי משני אגפי המשוואה.", 
-                math_expression: "<div dir='ltr'>a = <sup>3</sup>&radic;216</div>" 
-            },
-            { 
-                verbal_explanation: "המספר שפותר זאת הוא 6 (מכיוון ששש כפול שש כפול שש שווה מאתיים ושש עשרה). אורך המקצוע הוא 6.", 
-                math_expression: "<div dir='ltr'>a = 6</div>" 
-            }
+            { verbal_explanation: "שלב 1: שימוש במשפט פיתגורס בתוך פאה אחת (ריבוע) למציאת אלכסון הפאה.", math_expression: "d_{1} = \\sqrt{6^{2} + 6^{2}}" },
+            { verbal_explanation: "שלב 2: סכימת הריבועים והוצאת שורש (תשובה לא').", math_expression: "d_{1} = \\sqrt{36 + 36} = \\sqrt{72} \\approx 8.485" },
+            { verbal_explanation: "שלב 3: בניית משולש ישר זווית בחלל: ניצב אחד הוא אלכסון הפאה, ניצב שני הוא גובה הקובייה.", math_expression: "d_{2} = \\sqrt{(\\sqrt{72})^{2} + 6^{2}}" },
+            { verbal_explanation: "שלב 4: חישוב הערכים מתחת לשורש עבור האלכסון הראשי.", math_expression: "d_{2} = \\sqrt{72 + 36} = \\sqrt{108}" },
+            { verbal_explanation: "שלב 5: הוצאת שורש למציאת אלכסון הקובייה (תשובה לב').", math_expression: "d_{2} \\approx 10.392" }
         ],
-        final_answer: "<span dir=\"rtl\">6 ס\"מ</span>"
+        final_answer: "א. 8.48 | ב. 10.39"
     },
 
-    // שאלה 4
+    // שאלה מספר 4
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>חישוב אורך אלכסון של פאה (פיתגורס פשוט):</strong><br>
-        אורך מקצוע של קובייה הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 160" width="100%" height="160" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="50,50 150,50 150,150 50,150" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="50" y1="150" x2="150" y2="50" stroke="#ef4444" stroke-width="3"/>
-            <text x="100" y="145" font-family="Arial" font-size="12" font-weight="bold">10</text>
-            <text x="55" y="100" font-family="Arial" font-size="12" font-weight="bold">10</text>
-            <path d="M 50,140 L 60,140 L 60,150" fill="none" stroke="#0f172a" stroke-width="2"/>
-        </svg>
-        </div>
-        מהו <strong>אורך האלכסון של הפאה הריבועית</strong> (המסומן באדום)?`,
-        options: [
-            "<span dir=\"rtl\">&radic;200 ס\"מ</span>",
-            "<span dir=\"rtl\">&radic;100 ס\"מ</span>",
-            "<span dir=\"rtl\">&radic;300 ס\"מ</span>",
-            "<span dir=\"rtl\">20 ס\"מ</span>"
-        ],
+        question_text: "שטח הפנים של קובייה הוא 216 סמ''ר. מהו נפחה של הקובייה?&rlm;",
+        options: ["216", "36", "1296", "144"],
         correctAnswer: 0,
-        hint: "פאה של קובייה היא ריבוע. אלכסון מחלק את הריבוע לשני משולשים ישרי זווית. השתמשו במשפט פיתגורס: ניצב בריבוע ועוד ניצב בריבוע שווה לאלכסון בריבוע.",
+        hint: "חלקו את שטח הפנים ב-6 כדי לקבל שטח של פאה אחת. הוציאו שורש למציאת המקצוע, ואז העלו בשלישית לנפח.",
         solution_steps: [
-            { 
-                verbal_explanation: "כל פאה בקובייה היא ריבוע. כאשר מעבירים בה אלכסון, נוצר משולש ישר זווית שהניצבים שלו הם צלעות הקובייה.", 
-                math_expression: "<div dir='ltr'>a = 10 , b = 10</div>" 
-            },
-            { 
-                verbal_explanation: "אורך האלכסון הוא היתר (c) במשולש זה. נשתמש במשפט פיתגורס.", 
-                math_expression: "<div dir='ltr'>c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נציב את אורכי הצלעות לתוך המשוואה.", 
-                math_expression: "<div dir='ltr'>c<sup>2</sup> = 10<sup>2</sup> + 10<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החזקות. מאה ועוד מאה נותן לנו מאתיים.", 
-                math_expression: "<div dir='ltr'>c<sup>2</sup> = 100 + 100 = 200</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את האורך עצמו, נוציא שורש ריבועי.", 
-                math_expression: "<div dir='ltr'>c = &radic;200</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית משוואה לשטח הפנים הכללי של שש הפאות.", math_expression: "6 \\times a^{2} = 216" },
+            { verbal_explanation: "שלב 2: חלוקה בשש למציאת שטח פאה בודדת.", math_expression: "a^{2} = 216 : 6 = 36" },
+            { verbal_explanation: "שלב 3: הוצאת שורש ריבועי למציאת אורך המקצוע.", math_expression: "a = \\sqrt{36} = 6" },
+            { verbal_explanation: "שלב 4: חישוב הנפח על ידי העלאת המקצוע בחזקת שלוש.", math_expression: "V = 6^{3}" },
+            { verbal_explanation: "שלב 5: תוצאת החישוב של הנפח.", math_expression: "V = 216" }
         ],
-        final_answer: "<span dir=\"rtl\">&radic;200 ס\"מ</span>"
+        final_answer: "216"
     },
 
-    // שאלה 5
+    // שאלה מספר 5
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>מציאת מקצוע מתוך שטח פנים כולל:</strong><br>
-        שטח הפנים של קובייה גדולה הוא 600 סמ"ר.<br>
-        מהו אורך המקצוע (צלע) של הקובייה?`,
-        options: [
-            "<span dir=\"rtl\">10 ס\"מ</span>",
-            "<span dir=\"rtl\">100 ס\"מ</span>",
-            "<span dir=\"rtl\">15 ס\"מ</span>",
-            "<span dir=\"rtl\">20 ס\"מ</span>"
-        ],
+        question_text: "בקובייה, מהי הזווית שבין אלכסון הקובייה (הראשי) לבין בסיס הקובייה?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='60,140 140,140 180,100 100,100' fill='#f59e0b' opacity='0.2' stroke='#f59e0b' stroke-width='2'/><line x1='60' y1='60' x2='60' y2='140' stroke='#64748b' stroke-width='2'/><line x1='180' y1='20' x2='180' y2='100' stroke='#64748b' stroke-width='2'/><line x1='60' y1='60' x2='180' y2='100' stroke='#ef4444' stroke-width='2'/><line x1='60' y1='140' x2='180' y2='100' stroke='#10b981' stroke-dasharray='4,4' stroke-width='2'/></svg></div>",
+        options: ["35.26°", "45°", "30°", "60°"],
         correctAnswer: 0,
-        hint: "קודם כל, חלקו את שטח הפנים הכולל ב-6 כדי למצוא את השטח של פאה אחת בלבד. איזה מספר כפול עצמו ייתן לכם את השטח שמצאתם? הוציאו ממנו שורש ריבועי.",
+        hint: "הזווית נוצרת במשולש ישר זווית שבו הניצב שמול הזווית הוא מקצוע הקובייה (a), והניצב שליד הזווית הוא אלכסון הבסיס (a כפול שורש 2). השתמשו בטנגנס.",
         solution_steps: [
-            { 
-                verbal_explanation: "שטח הפנים (600) הוא הסכום של 6 פאות ריבועיות זהות. נמצא את שטחה של פאה אחת על ידי חילוק ב-6.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 600 / 6</div>" 
-            },
-            { 
-                verbal_explanation: "נקבל שכל פאה תופסת שטח של מאה.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 100</div>" 
-            },
-            { 
-                verbal_explanation: "הפאה היא ריבוע, ושטחה מחושב על ידי צלע בריבוע. נרכיב משוואה.", 
-                math_expression: "<div dir='ltr'>a<sup>2</sup> = 100</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי כדי לגלות מהו אורך הצלע שבונה את הריבוע הזה.", 
-                math_expression: "<div dir='ltr'>a = &radic;100</div>" 
-            },
-            { 
-                verbal_explanation: "השורש של מאה הוא עשר.", 
-                math_expression: "<div dir='ltr'>a = 10</div>" 
-            }
+            { verbal_explanation: "שלב 1: הגדרת הגובה של המשולש התלת-ממדי (מקצוע הקובייה).", math_expression: "h = a" },
+            { verbal_explanation: "שלב 2: הגדרת הבסיס של המשולש (אלכסון פאת הבסיס של הקובייה).", math_expression: "d = \\sqrt{a^{2} + a^{2}} = a\\sqrt{2}" },
+            { verbal_explanation: "שלב 3: שימוש בפונקציית הטנגנס (ניצב מול חלקי ניצב ליד) לחישוב הזווית.", math_expression: "\\tan(\\alpha) = \\dfrac{a}{a\\sqrt{2}}" },
+            { verbal_explanation: "שלב 4: צמצום המשתנה המשותף מהמונה והמכנה.", math_expression: "\\tan(\\alpha) = \\dfrac{1}{\\sqrt{2}} \\approx 0.707" },
+            { verbal_explanation: "שלב 5: ביצוע הפעולה ההפוכה במחשבון למציאת הזווית במעלות.", math_expression: "\\alpha = \\tan^{-1}(0.707) \\approx 35.26^{\\circ}" }
         ],
-        final_answer: "<span dir=\"rtl\">10 ס\"מ</span>"
+        final_answer: "35.26°"
     },
 
-    // שאלה 6
+    // שאלה מספר 6 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>הבנת ההבדל בין שטח פנים לנפח (שינוי קנה מידה):</strong><br>
-        הכפילו את אורך המקצוע של קובייה <strong>פי 2</strong>.<br>
-        בכמה גדל <strong>הנפח</strong> של הקובייה החדשה לעומת הישנה?`,
-        options: [
-            "<span dir=\"rtl\">גדל פי 8</span>",
-            "<span dir=\"rtl\">גדל פי 2</span>",
-            "<span dir=\"rtl\">גדל פי 4</span>",
-            "<span dir=\"rtl\">גדל פי 6</span>"
-        ],
+        question_text: "קובייה עשויה מחומר שצפיפותו 2 גרם לסמ''ק. אורך מקצוע הקובייה הוא 4 ס''מ.&rlm;<br>א. מהו נפח הקובייה?&rlm;<br>ב. מהי מסת הקובייה הכוללת (בגרמים)?&rlm;",
+        options: ["א. 64 | ב. 128", "א. 16 | ב. 32", "א. 64 | ב. 64", "א. 48 | ב. 96"],
         correctAnswer: 0,
-        hint: "נפח מחושב ב-3 ממדים (אורך כפול רוחב כפול גובה). אם אתם מכפילים כל אחד מהם פי 2, התוצאה היא 2 כפול 2 כפול 2.",
+        hint: "חשבו את הנפח כרגיל. המסה היא הנפח כפול הצפיפות.",
         solution_steps: [
-            { 
-                verbal_explanation: "כדי להבין שאלות כאלו בקלות, נמציא קובייה קטנה ונוחה. נניח שמקצוע הקובייה המקורית הוא 1.", 
-                math_expression: "<div dir='ltr'>a<sub>1</sub> = 1</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הנפח של הקובייה המקורית: 1 כפול 1 כפול 1.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 1<sup>3</sup> = 1</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נבנה קובייה חדשה שצלעותיה גדולות פי 2, כלומר אורכן יהיה 2.", 
-                math_expression: "<div dir='ltr'>a<sub>2</sub> = 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הנפח של הקובייה החדשה הגדולה: 2 בחזקת שלוש.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 2<sup>3</sup> = 8</div>" 
-            },
-            { 
-                verbal_explanation: "הנפח המקורי היה 1, והחדש הוא 8. המסקנה היא שכשהצלע גדלה פי 2, הנפח מזנק פי 8.", 
-                math_expression: "<div dir='ltr'>8 / 1 = 8</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב הנפח על ידי חזקה שלישית של המקצוע (תשובה לא').", math_expression: "V = 4^{3} = 64" },
+            { verbal_explanation: "שלב 2: ציון נתון הצפיפות שסופק.", math_expression: "d = 2" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת המסה הקושרת נפח וצפיפות.", math_expression: "M = V \\times d" },
+            { verbal_explanation: "שלב 4: הצבת הנתונים וחישוב המכפלה (תשובה לב').", math_expression: "M = 64 \\times 2 = 128" }
         ],
-        final_answer: "<span dir=\"rtl\">גדל פי 8</span>"
+        final_answer: "א. 64 | ב. 128"
     },
 
-    // שאלה 7
+    // שאלה מספר 7
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>הבנת פריסה של קובייה:</strong><br>
-        השטח של <strong>פריסת הקובייה</strong> (הצורה שמתקבלת כאשר גוזרים את הקובייה ופורסים אותה על משטח שטוח) הוא 54 סמ"ר.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 150" width="100%" height="150" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <rect x="80" y="20" width="30" height="30" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="50" y="50" width="30" height="30" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="80" y="50" width="30" height="30" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="110" y="50" width="30" height="30" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="140" y="50" width="30" height="30" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <rect x="80" y="80" width="30" height="30" fill="none" stroke="#3b82f6" stroke-width="2"/>
-        </svg>
-        </div>
-        מהו הנפח של קובייה זו?`,
-        options: [
-            "<span dir=\"rtl\">27 סמ\"ק</span>",
-            "<span dir=\"rtl\">9 סמ\"ק</span>",
-            "<span dir=\"rtl\">81 סמ\"ק</span>",
-            "<span dir=\"rtl\">18 סמ\"ק</span>"
-        ],
+        question_text: "בונים קובייה פתוחה (קופסה ללא מכסה עליון) מקרטון. אורך מקצוע הקובייה הוא 10 ס''מ. מהו שטח הקרטון הדרוש לבניית הקופסה?&rlm;",
+        options: ["500", "600", "400", "1000"],
         correctAnswer: 0,
-        hint: "פריסת קובייה היא פשוט דרך אחרת לומר 'שטח הפנים' שלה (סך כל 6 הריבועים שמקיפים אותה). חלקו 54 ב-6 כדי למצוא את שטח הריבוע הבודד. הוציאו ממנו שורש כדי למצוא את הצלע, ואז חשבו את הנפח.",
+        hint: "מכיוון שאין מכסה עליון, לקובייה זו יש רק 5 פאות ולא 6. חשבו שטח של פאה אחת והכפילו ב-5.",
         solution_steps: [
-            { 
-                verbal_explanation: "פריסה מורכבת מ-6 פאות זהות. לכן, השטח הנתון הוא למעשה שטח הפנים. נחלק אותו ב-6 למציאת שטח הפאה הבודדת.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 54 / 6 = 9</div>" 
-            },
-            { 
-                verbal_explanation: "שטח הריבוע הבודד הוא 9. כדי למצוא את אורך הצלע, נוציא שורש ריבועי מהשטח.", 
-                math_expression: "<div dir='ltr'>a = &radic;9 = 3</div>" 
-            },
-            { 
-                verbal_explanation: "מצאנו שאורך המקצוע הוא 3. כעת נעבור למציאת הנפח. נציב את הצלע בנוסחת הנפח.", 
-                math_expression: "<div dir='ltr'>V = a<sup>3</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב 3 בחזקת 3 (שלוש כפול שלוש כפול שלוש).", 
-                math_expression: "<div dir='ltr'>V = 3<sup>3</sup> = 27</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב שטח פאה בודדת (ריבוע).", math_expression: "S_{1} = 10^{2} = 100" },
+            { verbal_explanation: "שלב 2: קביעת מספר הפאות בקופסה ללא מכסה.", math_expression: "n = 5" },
+            { verbal_explanation: "שלב 3: חישוב שטח הפנים הכולל של הצורה הפתוחה.", math_expression: "S = 5 \\times 100" },
+            { verbal_explanation: "שלב 4: תוצאת המכפלה.", math_expression: "S = 500" },
+            { verbal_explanation: "שלב 5: הרישום לבדיקה.", math_expression: "500" }
         ],
-        final_answer: "<span dir=\"rtl\">27 סמ\"ק</span>"
+        final_answer: "500"
     },
 
-    // שאלה 8
+    // שאלה מספר 8
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>חישוב סכום אורכי כל המקצועות:</strong><br>
-        אדם רוצה לבנות מסגרת של קובייה מחוטי ברזל. אורך כל מקצוע חייב להיות 7 ס"מ.<br>
-        כמה סנטימטרים של חוט ברזל הוא צריך בסך הכל כדי לבנות את המסגרת?`,
-        options: [
-            "<span dir=\"rtl\">84 ס\"מ</span>",
-            "<span dir=\"rtl\">42 ס\"מ</span>",
-            "<span dir=\"rtl\">49 ס\"מ</span>",
-            "<span dir=\"rtl\">28 ס\"מ</span>"
-        ],
+        question_text: "שתי קוביות מונחות זו לצד זו. אורך מקצוע קובייה א' הוא x. אורך מקצוע קובייה ב' הוא 2x. מהו היחס בין נפח קובייה ב' לנפח קובייה א'?&rlm;",
+        options: ["8", "2", "4", "6"],
         correctAnswer: 0,
-        hint: "חשבו כמה צלעות (מקצועות) יש בקובייה בסך הכל! יש 4 צלעות בבסיס העליון, 4 בבסיס התחתון, ו-4 עמודים שמחברים ביניהם. בסך הכל 12. הכפילו את מספר הצלעות באורך הנדרש.",
+        hint: "הנפח מחושב כמקצוע בשלישית. העלו (2x) בשלישית ובדקו פי כמה זה גדול מ-x בשלישית.",
         solution_steps: [
-            { 
-                verbal_explanation: "נספור את כמות המקצועות בקובייה: 4 בריבוע העליון, 4 בריבוע התחתון, ו-4 עמודים ניצבים בפינות.", 
-                math_expression: "<div dir='ltr'>n = 12</div>" 
-            },
-            { 
-                verbal_explanation: "נתון שכל מקצוע חייב להיות באורך של 7.", 
-                math_expression: "<div dir='ltr'>a = 7</div>" 
-            },
-            { 
-                verbal_explanation: "כדי לגלות את האורך הכולל, נכפיל את אורך המקצוע הבודד בכמות המקצועות הכללית.", 
-                math_expression: "<div dir='ltr'>L = 12 &times; 7</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל ונקבל שמונים וארבע.", 
-                math_expression: "<div dir='ltr'>L = 84</div>" 
-            }
+            { verbal_explanation: "שלב 1: ביטוי מתמטי לנפח הקובייה הראשונה הקטנה.", math_expression: "V_{1} = x^{3}" },
+            { verbal_explanation: "שלב 2: ביטוי מתמטי לנפח הקובייה השנייה הגדולה.", math_expression: "V_{2} = (2x)^{3}" },
+            { verbal_explanation: "שלב 3: פתיחת הסוגריים על ידי העלאת גם המקדם וגם המשתנה בחזקה.", math_expression: "V_{2} = 8 \\times x^{3}" },
+            { verbal_explanation: "שלב 4: מציאת היחס בין הנפחים על ידי חלוקה.", math_expression: "R = \\dfrac{8x^{3}}{x^{3}}" },
+            { verbal_explanation: "שלב 5: צמצום המשתנה משאיר את היחס המספרי הנקי.", math_expression: "R = 8" }
         ],
-        final_answer: "<span dir=\"rtl\">84 ס\"מ</span>"
+        final_answer: "8"
     },
 
-    // שאלה 9
+    // שאלה מספר 9
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>קובייה פתוחה ללא מכסה:</strong><br>
-        נגר בונה קופסת עץ בצורת קובייה שאורך מקצועה 10 ס"מ.<br>
-        הקופסה מיועדת לאחסון, ולכן <strong>היא פתוחה מלמעלה (אין לה פאה עליונה)</strong>.<br>
-        מהו שטח העץ הכולל שהנגר יזדקק לו לבנייתה?`,
-        options: [
-            "<span dir=\"rtl\">500 סמ\"ר</span>",
-            "<span dir=\"rtl\">600 סמ\"ר</span>",
-            "<span dir=\"rtl\">400 סמ\"ר</span>",
-            "<span dir=\"rtl\">1000 סמ\"ר</span>"
-        ],
+        question_text: "מעבירים חתך אלכסוני בקובייה (מלבן הנוצר משני מקצועות נגדיים ושני אלכסוני פאות נגדיות). אורך המקצוע הוא 4 ס''מ. מהו שטח המלבן האלכסוני הזה?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='60,140 140,140 140,60 60,60' fill='none' stroke='#64748b' stroke-width='1'/><polygon points='100,20 180,20 180,100 100,100' fill='none' stroke='#64748b' stroke-width='1'/><line x1='60' y1='60' x2='100' y2='20' stroke='#64748b' stroke-width='1'/><line x1='140' y1='60' x2='180' y2='20' stroke='#64748b' stroke-width='1'/><line x1='60' y1='140' x2='100' y2='100' stroke='#64748b' stroke-width='1'/><line x1='140' y1='140' x2='180' y2='100' stroke='#64748b' stroke-width='1'/><polygon points='60,140 140,140 180,20 100,20' fill='#ef4444' opacity='0.3' stroke='#ef4444' stroke-width='2'/></svg></div>",
+        options: ["22.62", "16", "32", "11.31"],
         correctAnswer: 0,
-        hint: "לקובייה שלמה יש 6 פאות. אם מורידים את המכסה, כמה פאות נשארו לקופסה? חשבו שטח של פאה אחת (10 כפול 10) והכפילו במספר הפאות שנותרו.",
+        hint: "ממדי המלבן האלכסוני הם: מקצוע הקובייה (a) ואלכסון פאה (a כפול שורש 2). הכפילו אותם למציאת השטח.",
         solution_steps: [
-            { 
-                verbal_explanation: "לקובייה רגילה יש 6 פאות (קירות). מכיוון שהקופסה פתוחה, אין לה תקרה. נחסר פאה אחת מהסך הכל.", 
-                math_expression: "<div dir='ltr'>6 - 1 = 5</div>" 
-            },
-            { 
-                verbal_explanation: "הנגר יצטרך לבנות 5 פאות עץ בלבד.", 
-                math_expression: "<div dir='ltr'>n = 5</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את השטח של פאה אחת (שהיא ריבוע באורך עשר).", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 10 &times; 10 = 100</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את השטח הבודד בכמות הפאות שעל הנגר לבנות.", 
-                math_expression: "<div dir='ltr'>S = 5 &times; 100</div>" 
-            },
-            { 
-                verbal_explanation: "נקבל את שטח העץ הכולל.", 
-                math_expression: "<div dir='ltr'>S = 500</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי אורך צלע אחת של המלבן האלכסוני (הגובה של הקובייה).", math_expression: "h = 4" },
+            { verbal_explanation: "שלב 2: זיהוי הצלע השנייה המהווה אלכסון של בסיס הקובייה ממשפט פיתגורס.", math_expression: "d = \\sqrt{4^{2} + 4^{2}} = \\sqrt{32} \\approx 5.656" },
+            { verbal_explanation: "שלב 3: שימוש בנוסחת שטח מלבן פשוטה.", math_expression: "S = 4 \\times 5.656" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל.", math_expression: "S \\approx 22.627" },
+            { verbal_explanation: "שלב 5: בחירת התשובה בקירוב שתי ספרות עשרוניות.", math_expression: "22.62" }
         ],
-        final_answer: "<span dir=\"rtl\">500 סמ\"ר</span>"
+        final_answer: "22.62"
     },
 
-    // שאלה 10
+    // שאלה מספר 10 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "קובייה",
-        question_text: `<strong>חישוב האלכסון הראשי בקובייה:</strong><br>
-        אורך המקצוע של קובייה הוא 3 ס"מ.<br>
-        מעבירים קו אלכסוני המחבר את הפינה הקדמית-תחתונה עם הפינה האחורית-עליונה בתוך חלל הקובייה.<br>
-        מהו אורך <strong>האלכסון הראשי</strong> הזה?`,
-        options: [
-            "<span dir=\"rtl\">&radic;27 ס\"מ</span>",
-            "<span dir=\"rtl\">&radic;18 ס\"מ</span>",
-            "<span dir=\"rtl\">9 ס\"מ</span>",
-            "<span dir=\"rtl\">&radic;9 ס\"מ</span>"
-        ],
+        question_text: "אלכסון הפאה של קובייה הוא \\( 10\\sqrt{2} \\) ס''מ.&rlm;<br>א. מצאו את אורך מקצוע הקובייה.&rlm;<br>ב. מצאו את נפח הקובייה.&rlm;",
+        options: ["א. 10 | ב. 1000", "א. 10 | ב. 100", "א. 5 | ב. 125", "א. 20 | ב. 8000"],
         correctAnswer: 0,
-        hint: "הנוסחה לאלכסון ראשי של כל תיבה היא שורש של (אורך בריבוע + רוחב בריבוע + גובה בריבוע). בקובייה כל הממדים הם 3. לכן: שורש של (3 בריבוע + 3 בריבוע + 3 בריבוע).",
+        hint: "היחס בין אלכסון ריבוע לצלע שלו הוא שורש 2. חלקו את אורך האלכסון בשורש 2 כדי למצוא את המקצוע.",
         solution_steps: [
-            { 
-                verbal_explanation: "הנוסחה המלאה לאלכסון העובר בחלל הצורה היא שורש של סכום ריבועי שלושת הממדים.", 
-                math_expression: "<div dir='ltr'>D = &radic;(a<sup>2</sup> + b<sup>2</sup> + h<sup>2</sup>)</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שאנו עוסקים בקובייה, כל הממדים שווים ל-3.", 
-                math_expression: "<div dir='ltr'>D = &radic;(3<sup>2</sup> + 3<sup>2</sup> + 3<sup>2</sup>)</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב כל חזקה בנפרד (שלוש כפול שלוש הוא תשע).", 
-                math_expression: "<div dir='ltr'>D = &radic;(9 + 9 + 9)</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את המספרים יחד בתוך השורש לקבלת האורך הראשי.", 
-                math_expression: "<div dir='ltr'>D = &radic;27</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת משוואת פיתגורס המקשרת את המקצוע לאלכסון הפאה שנתון.", math_expression: "a^{2} + a^{2} = (10\\sqrt{2})^{2}" },
+            { verbal_explanation: "שלב 2: פישוט האגף הימני (העלאה בריבוע של עשר ושל שורש שתיים).", math_expression: "2a^{2} = 100 \\times 2 = 200" },
+            { verbal_explanation: "שלב 3: חלוקה בשתיים לבידוד הריבוע.", math_expression: "a^{2} = 100" },
+            { verbal_explanation: "שלב 4: הוצאת שורש למציאת אורך המקצוע הבודד (תשובה לא').", math_expression: "a = 10" },
+            { verbal_explanation: "שלב 5: הצבה בנוסחת נפח הקובייה לחישוב סופי (תשובה לב').", math_expression: "V = 10^{3} = 1000" }
         ],
-        final_answer: "<span dir=\"rtl\">&radic;27 ס\"מ</span>"
+        final_answer: "א. 10 | ב. 1000"
     },
 
-    // ---------------------------------------------------------
-    // תת נושא 2: תיבה (שאלות 11-20)
-    // ---------------------------------------------------------
+    // ==========================================
+    // תת נושא 2: תיבה (10 שאלות)
+    // ==========================================
 
-    // שאלה 11
+    // שאלה מספר 11 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>חישוב נפח תיבה:</strong><br>
-        מידותיה של תיבה הן: אורך 10 ס"מ, רוחב 4 ס"מ, וגובה 5 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 250 150" width="100%" height="150" style="max-width:250px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="60,40 180,40 180,100 60,100" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <polygon points="30,70 150,70 150,130 30,130" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
-            <line x1="30" y1="70" x2="60" y2="40" stroke="#22c55e" stroke-width="2"/>
-            <line x1="150" y1="70" x2="180" y2="40" stroke="#22c55e" stroke-width="2"/>
-            <line x1="150" y1="130" x2="180" y2="100" stroke="#22c55e" stroke-width="2"/>
-            <line x1="30" y1="130" x2="60" y2="100" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <text x="90" y="145" font-family="Arial" font-size="12" font-weight="bold">10</text>
-            <text x="175" y="125" font-family="Arial" font-size="12" font-weight="bold">4</text>
-            <text x="15" y="105" font-family="Arial" font-size="12" font-weight="bold">5</text>
-        </svg>
-        </div>
-        מהו <strong>נפח</strong> התיבה?`,
-        options: [
-            "<span dir=\"rtl\">200 סמ\"ק</span>",
-            "<span dir=\"rtl\">100 סמ\"ק</span>",
-            "<span dir=\"rtl\">19 סמ\"ק</span>",
-            "<span dir=\"rtl\">220 סמ\"ק</span>"
-        ],
+        question_text: "בתיבה שרירותית, ממדי הבסיס המלבני הם 3 ס''מ ו-4 ס''מ. גובה התיבה הוא 12 ס''מ.&rlm;<br>א. חשבו את אורך אלכסון הבסיס.&rlm;<br>ב. חשבו את אורך האלכסון הראשי של התיבה.&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 250 150' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='50,120 150,120 180,90 80,90' fill='#10b981' opacity='0.2' stroke='#10b981' stroke-width='2'/><line x1='50' y1='120' x2='50' y2='40' stroke='#64748b' stroke-width='2'/><line x1='150' y1='120' x2='150' y2='40' stroke='#64748b' stroke-width='2'/><line x1='50' y1='120' x2='180' y2='90' stroke='#ef4444' stroke-dasharray='4,4' stroke-width='2'/><line x1='50' y1='40' x2='180' y2='90' stroke='#f59e0b' stroke-width='2'/><text x='95' y='135' font-size='12'>4</text><text x='170' y='115' font-size='12'>3</text><text x='30' y='85' font-size='12'>12</text></svg></div>",
+        options: ["א. 5 | ב. 13", "א. 7 | ב. 14", "א. 5 | ב. 15", "א. 12 | ב. 13"],
         correctAnswer: 0,
-        hint: "נפח של תיבה הוא פשוט מכפלת כל שלושת הממדים יחד: אורך כפול רוחב כפול גובה (10 כפול 4 כפול 5).",
+        hint: "בסעיף א', עשו פיתגורס על צלעות הבסיס (3, 4). בסעיף ב', עשו פיתגורס נוסף במרחב בין אלכסון הבסיס שמצאתם לבין הגובה (12).",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את שלושת הממדים של התיבה לפי השרטוט.", 
-                math_expression: "<div dir='ltr'>a = 10 , b = 4 , h = 5</div>" 
-            },
-            { 
-                verbal_explanation: "נוסחת הנפח קובעת שיש להכפיל את שלושת הממדים זה בזה.", 
-                math_expression: "<div dir='ltr'>V = a &times; b &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים שלנו בתרגיל כפל.", 
-                math_expression: "<div dir='ltr'>V = 10 &times; 4 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב משמאל לימין: עשר כפול ארבע זה ארבעים. ארבעים כפול חמש זה מאתיים.", 
-                math_expression: "<div dir='ltr'>V = 200</div>" 
-            }
+            { verbal_explanation: "שלב 1: שימוש במשפט פיתגורס על פאת הבסיס בלבד.", math_expression: "d_{1} = \\sqrt{3^{2} + 4^{2}}" },
+            { verbal_explanation: "שלב 2: פתרון השורש למציאת אלכסון הבסיס המהווה שלשה פיתגורית (תשובה לא').", math_expression: "d_{1} = \\sqrt{9 + 16} = 5" },
+            { verbal_explanation: "שלב 3: כתיבת משפט פיתגורס במרחב, הכולל את אלכסון הבסיס והגובה האנכי אליו.", math_expression: "d_{2} = \\sqrt{5^{2} + 12^{2}}" },
+            { verbal_explanation: "שלב 4: ביצוע פעולות החזקה.", math_expression: "d_{2} = \\sqrt{25 + 144} = \\sqrt{169}" },
+            { verbal_explanation: "שלב 5: חילוץ אורך האלכסון הראשי בתוך החלל (תשובה לב').", math_expression: "d_{2} = 13" }
         ],
-        final_answer: "<span dir=\"rtl\">200 סמ\"ק</span>"
+        final_answer: "א. 5 | ב. 13"
     },
 
-    // שאלה 12
+    // שאלה מספר 12 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>חישוב שטח מעטפת בתיבה (ללא הבסיסים):</strong><br>
-        לתיבה יש בסיס שאורכו 8 ס"מ ורוחבו 3 ס"מ. גובה התיבה הוא 5 ס"מ.<br>
-        התבקשתם לצבוע <strong>רק את קירות הצד</strong> של התיבה (מעטפת), ללא הרצפה והתקרה.<br>
-        מהו השטח שתצטרכו לצבוע?`,
-        options: [
-            "<span dir=\"rtl\">110 סמ\"ר</span>",
-            "<span dir=\"rtl\">120 סמ\"ר</span>",
-            "<span dir=\"rtl\">158 סמ\"ר</span>",
-            "<span dir=\"rtl\">40 סמ\"ר</span>"
-        ],
+        question_text: "בתיבה, אורך בסיס אחד הוא 6, ורוחבו הוא 8. נפח התיבה הוא 480 סמ''ק.&rlm;<br>א. מצאו את גובה התיבה.&rlm;<br>ב. חשבו את שטח הפנים הכולל של התיבה.&rlm;",
+        options: ["א. 10 | ב. 376", "א. 12 | ב. 400", "א. 10 | ב. 280", "א. 8 | ב. 320"],
         correctAnswer: 0,
-        hint: "המעטפת כוללת 4 פאות צדדיות: פעמיים קיר ימני/שמאלי (3 כפול 5), ופעמיים קיר קדמי/אחורי (8 כפול 5). חברו את כולם. אל תוסיפו את הרצפה והתקרה!",
+        hint: "נפח שווה למכפלת שלושת הממדים. למציאת הגובה, חלקו את הנפח בשטח הבסיס. שטח פנים הוא סכום שטחי 6 המלבנים העוטפים את התיבה.",
         solution_steps: [
-            { 
-                verbal_explanation: "שטח המעטפת לא כולל את התקרה והרצפה. נתחיל מקירות הצד שמידותיהם הן הרוחב והגובה.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 3 &times; 5 = 15</div>" 
-            },
-            { 
-                verbal_explanation: "יש שני קירות צדדיים זהים, אז נכפיל בשתיים.", 
-                math_expression: "<div dir='ltr'>2 &times; 15 = 30</div>" 
-            },
-            { 
-                verbal_explanation: "נעבור לקירות הקדמיים והאחוריים. מידותיהם הן האורך והגובה.", 
-                math_expression: "<div dir='ltr'>S<sub>2</sub> = 8 &times; 5 = 40</div>" 
-            },
-            { 
-                verbal_explanation: "גם כאן יש שני קירות זהים, נכפיל בשתיים.", 
-                math_expression: "<div dir='ltr'>2 &times; 40 = 80</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את התוצאות יחד לקבלת שטח המעטפת הכולל.", 
-                math_expression: "<div dir='ltr'>S = 30 + 80 = 110</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב שטח הבסיס המלבני התחתון.", math_expression: "S_{base} = 6 \\times 8 = 48" },
+            { verbal_explanation: "שלב 2: בניית משוואת הנפח לחילוץ הגובה.", math_expression: "48 \\times h = 480" },
+            { verbal_explanation: "שלב 3: חלוקת אגפים למציאת הגובה (תשובה לא').", math_expression: "h = 480 : 48 = 10" },
+            { verbal_explanation: "שלב 4: הרכבת משוואת שטח הפנים הכולל (סכימת שלושת זוגות הפאות המנוגדות).", math_expression: "S = 2 \\times (6 \\times 8) + 2 \\times (6 \\times 10) + 2 \\times (8 \\times 10)" },
+            { verbal_explanation: "שלב 5: ביצוע פעולות הכפל בסוגריים והכפלה בזוגות.", math_expression: "S = 2 \\times 48 + 2 \\times 60 + 2 \\times 80 = 96 + 120 + 160" },
+            { verbal_explanation: "שלב 6: סכימה כוללת לשטח הפנים החיצוני (תשובה לב').", math_expression: "S = 376" }
         ],
-        final_answer: "<span dir=\"rtl\">110 סמ\"ר</span>"
+        final_answer: "א. 10 | ב. 376"
     },
 
-    // שאלה 13
+    // שאלה מספר 13
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>מציאת גובה חסר מתוך נפח (משוואה):</strong><br>
-        הנפח הכולל של תיבה הוא 300 סמ"ק.<br>
-        אורך בסיס התיבה הוא 10 ס"מ ורוחבו 6 ס"מ.<br>
-        מהו <strong>גובה</strong> התיבה?`,
-        options: [
-            "<span dir=\"rtl\">5 ס\"מ</span>",
-            "<span dir=\"rtl\">10 ס\"מ</span>",
-            "<span dir=\"rtl\">6 ס\"מ</span>",
-            "<span dir=\"rtl\">15 ס\"מ</span>"
-        ],
+        question_text: "בתיבה שבה הבסיס הוא מלבן במידות 5 על 12, גובה התיבה הוא 10. מהי הזווית שיוצר האלכסון הראשי של התיבה עם מישור הבסיס?&rlm;",
+        options: ["37.56°", "52.44°", "45°", "30°"],
         correctAnswer: 0,
-        hint: "הציבו את הנתונים בנוסחת הנפח: 300 שווה 10 כפול 6 כפול h (הגובה). הכפילו 10 ב-6, וחלקו את הנפח בתוצאה (60) כדי לבודד את הגובה.",
+        hint: "תחילה, מצאו את אלכסון הבסיס. זהו הניצב הסמוך לזווית. הגובה הוא הניצב שמול הזווית. השתמשו בטנגנס.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את משוואת הנפח הכללית.", 
-                math_expression: "<div dir='ltr'>V = a &times; b &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים לתבנית, כאשר הגובה הוא הנעלם.", 
-                math_expression: "<div dir='ltr'>300 = 10 &times; 6 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את המכפלה של אורך הבסיס ברוחבו (זהו השטח של הרצפה).", 
-                math_expression: "<div dir='ltr'>300 = 60 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את הנפח ב-60 לחילוץ הגובה.", 
-                math_expression: "<div dir='ltr'>h = 300 / 60</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק ונקבל את גובה התיבה.", 
-                math_expression: "<div dir='ltr'>h = 5</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב אלכסון הבסיס (הניצב האופקי במשולש המרחבי) על ידי פיתגורס.", math_expression: "d_{base} = \\sqrt{5^{2} + 12^{2}} = \\sqrt{25 + 144} = 13" },
+            { verbal_explanation: "שלב 2: זיהוי הניצב האנכי (הגובה הנתון בשאלה).", math_expression: "h = 10" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת טריגונומטריה טנגנס המשלבת ניצב מול וניצב סמוך.", math_expression: "\\tan(\\alpha) = \\dfrac{10}{13}" },
+            { verbal_explanation: "שלב 4: ביצוע החלוקה לשבר עשרוני.", math_expression: "\\tan(\\alpha) \\approx 0.769" },
+            { verbal_explanation: "שלב 5: חילוץ הזווית באמצעות פונקציה הפוכה.", math_expression: "\\alpha = \\tan^{-1}(0.769) \\approx 37.56^{\\circ}" }
         ],
-        final_answer: "<span dir=\"rtl\">5 ס\"מ</span>"
+        final_answer: "37.56°"
     },
 
-    // שאלה 14
+    // שאלה מספר 14 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>תיבה שבסיסה ריבוע:</strong><br>
-        נתונה תיבה אשר <strong>בסיסה הוא ריבוע</strong>.<br>
-        אורך צלע הבסיס הוא 4 ס"מ, וגובה התיבה הוא 10 ס"מ.<br>
-        מהו הנפח של תיבה זו?`,
-        options: [
-            "<span dir=\"rtl\">160 סמ\"ק</span>",
-            "<span dir=\"rtl\">40 סמ\"ק</span>",
-            "<span dir=\"rtl\">80 סמ\"ק</span>",
-            "<span dir=\"rtl\">200 סמ\"ק</span>"
-        ],
+        question_text: "בתיבה שבסיסה ריבוע, נתון כי אורך צלע הבסיס הוא x. גובה התיבה הוא כפול מצלע הבסיס (2x). ידוע שנפח התיבה הוא 250 סמ''ק.&rlm;<br>א. מצאו את x (אורך צלע הבסיס).&rlm;<br>ב. מצאו את שטח המעטפת (ארבע הפאות הצדדיות) של התיבה.&rlm;",
+        options: ["א. 5 | ב. 200", "א. 5 | ב. 250", "א. 10 | ב. 400", "א. 5 | ב. 100"],
         correctAnswer: 0,
-        hint: "המילה 'ריבוע' מסגירה לכם סוד: האורך והרוחב הם שווים! לכן האורך הוא 4 והרוחב הוא 4. הכפילו אותם אחד בשני, ואת התוצאה הכפילו בגובה (10).",
+        hint: "בנו משוואת נפח: x כפול x כפול 2x שווה 250. שטח המעטפת הוא סכום שטחי 4 המלבנים העומדים בצדדים.",
         solution_steps: [
-            { 
-                verbal_explanation: "בסיס ריבועי אומר שצלע האורך שווה לצלע הרוחב. שניהם ארבע.", 
-                math_expression: "<div dir='ltr'>a = 4 , b = 4</div>" 
-            },
-            { 
-                verbal_explanation: "גובה התיבה נתון בנפרד.", 
-                math_expression: "<div dir='ltr'>h = 10</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא נפח, נכפיל את שטח הבסיס הריבועי בגובה.", 
-                math_expression: "<div dir='ltr'>V = (4 &times; 4) &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח הרצפה.", 
-                math_expression: "<div dir='ltr'>V = 16 &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול ב-10 ונגלה את הנפח המלא.", 
-                math_expression: "<div dir='ltr'>V = 160</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית משוואת הנפח באמצעות הכפלת שלושת הממדים.", math_expression: "x \\times x \\times 2x = 250" },
+            { verbal_explanation: "שלב 2: כינוס איברים והעלאה לחזקה שלישית.", math_expression: "2x^{3} = 250" },
+            { verbal_explanation: "שלב 3: חלוקה בשתיים לבידוד הנעלם.", math_expression: "x^{3} = 125" },
+            { verbal_explanation: "שלב 4: הוצאת שורש שלישי למציאת המקצוע הבסיסי (תשובה לא').", math_expression: "x = 5" },
+            { verbal_explanation: "שלב 5: חישוב הגובה על פי הנתון שהוא כפול מצלע הבסיס.", math_expression: "h = 2 \\times 5 = 10" },
+            { verbal_explanation: "שלב 6: שטח המעטפת מורכב מארבע פאות צדדיות זהות (מלבנים של חמש על עשר). ביצוע החישוב (תשובה לב').", math_expression: "M = 4 \\times (5 \\times 10) = 4 \\times 50 = 200" }
         ],
-        final_answer: "<span dir=\"rtl\">160 סמ\"ק</span>"
+        final_answer: "א. 5 | ב. 200"
     },
 
-    // שאלה 15
+    // שאלה מספר 15
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>שימוש במשפט פיתגורס לחישוב אלכסון הבסיס:</strong><br>
-        בתיבה, אורך הבסיס הוא 8 ס"מ ורוחב הבסיס הוא 6 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 120" width="100%" height="120" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,80 140,80 180,40 80,40" fill="rgba(234,179,8,0.2)" stroke="#ca8a04" stroke-width="2"/>
-            <line x1="40" y1="80" x2="180" y2="40" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
-            <text x="90" y="95" font-family="Arial" font-size="12" font-weight="bold">8</text>
-            <text x="165" y="70" font-family="Arial" font-size="12" font-weight="bold">6</text>
-            <text x="110" y="55" font-family="Arial" font-size="12" font-weight="bold" fill="#b91c1c">d</text>
-        </svg>
-        </div>
-        מהו <strong>אורך אלכסון הבסיס</strong> (d)?`,
-        options: [
-            "<span dir=\"rtl\">10 ס\"מ</span>",
-            "<span dir=\"rtl\">14 ס\"מ</span>",
-            "<span dir=\"rtl\">100 ס\"מ</span>",
-            "<span dir=\"rtl\">48 ס\"מ</span>"
-        ],
+        question_text: "עושים מסגרת מחוט ברזל בצורת תיבה. ממדי התיבה הם: אורך 10, רוחב 4, גובה 6. מהו האורך הכולל של חוט הברזל הדרוש?&rlm;",
+        options: ["80", "120", "240", "100"],
         correctAnswer: 0,
-        hint: "בסיס של תיבה הוא מלבן. כשמעבירים בו אלכסון נוצר משולש ישר זווית. האורך והרוחב הם הניצבים (8 ו-6), והאלכסון הוא היתר. השתמשו בפיתגורס: 8 בריבוע ועוד 6 בריבוע.",
+        hint: "בתיבה יש 4 צלעות של אורך, 4 צלעות של רוחב, ו-4 צלעות של גובה. סכמו את כולן יחד.",
         solution_steps: [
-            { 
-                verbal_explanation: "האלכסון חוצה את הבסיס המלבני ויוצר משולש ישר זווית שהניצבים שלו הם האורך והרוחב.", 
-                math_expression: "<div dir='ltr'>a = 8 , b = 6</div>" 
-            },
-            { 
-                verbal_explanation: "האלכסון הוא היתר במשולש. נפעיל את משפט פיתגורס.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 8<sup>2</sup> + 6<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ערכי החזקות. שמונה בריבוע זה 64 ושש בריבוע זה 36.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 64 + 36</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את התוצאות.", 
-                math_expression: "<div dir='ltr'>d<sup>2</sup> = 100</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי לקבלת האורך הרגיל.", 
-                math_expression: "<div dir='ltr'>d = &radic;100 = 10</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי עובדה גיאומטרית - לתיבה יש ארבעה עותקים מכל ממד.", math_expression: "n = 4" },
+            { verbal_explanation: "שלב 2: כתיבת משוואה לסכום המקצועות האופקיים (אורכים).", math_expression: "L_{1} = 4 \\times 10 = 40" },
+            { verbal_explanation: "שלב 3: כתיבת משוואה לסכום המקצועות הרוחביים.", math_expression: "L_{2} = 4 \\times 4 = 16" },
+            { verbal_explanation: "שלב 4: כתיבת משוואה לסכום המקצועות האנכיים (גבהים).", math_expression: "L_{3} = 4 \\times 6 = 24" },
+            { verbal_explanation: "שלב 5: סכימת שלושת הרכיבים למציאת סך אורך החוט.", math_expression: "P = 40 + 16 + 24 = 80" }
         ],
-        final_answer: "<span dir=\"rtl\">10 ס\"מ</span>"
+        final_answer: "80"
     },
 
-    // שאלה 16
+    // שאלה מספר 16
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>מציאת שטח פנים מלא מתוך ממדים:</strong><br>
-        נתונה תיבה בעלת הממדים הבאים:<br>
-        אורך = 5 ס"מ, רוחב = 2 ס"מ, גובה = 3 ס"מ.<br>
-        מהו <strong>שטח הפנים</strong> הכולל של התיבה?`,
-        options: [
-            "<span dir=\"rtl\">62 סמ\"ר</span>",
-            "<span dir=\"rtl\">30 סמ\"ר</span>",
-            "<span dir=\"rtl\">60 סמ\"ר</span>",
-            "<span dir=\"rtl\">45 סמ\"ר</span>"
-        ],
+        question_text: "בתיבה, אורך הבסיס הוא 9 וגובה התיבה הוא 12. מהי הזווית בין אלכסון הפאה הצדדית (המלבן הנוצר מ-9 ו-12) לבין בסיס התיבה?&rlm;",
+        options: ["53.13°", "36.87°", "45°", "60°"],
         correctAnswer: 0,
-        hint: "בתיבה יש 3 זוגות של פאות (מלבנים). חשבו את השטח של פאה מכל סוג: רצפה (5 כפול 2), קדמית (5 כפול 3), וצדדית (2 כפול 3). חברו הכל והכפילו פי 2 (כי יש שתיים מכל אחת).",
+        hint: "המשולש מורכב מגובה התיבה, אורך הבסיס (ניצבים), ואלכסון הפאה (יתר). הזווית המבוקשת נמצאת מול הגובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "שטח הפנים הוא סכום כל הפאות. התיבה מורכבת מ-3 זוגות של פאות מקבילות.", 
-                math_expression: "<div dir='ltr'>a = 5 , b = 2 , h = 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח הרצפה/תקרה. אורך כפול רוחב.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 5 &times; 2 = 10</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח הפאה הקדמית. אורך כפול גובה.", 
-                math_expression: "<div dir='ltr'>S<sub>2</sub> = 5 &times; 3 = 15</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח קיר הצד. רוחב כפול גובה.", 
-                math_expression: "<div dir='ltr'>S<sub>3</sub> = 2 &times; 3 = 6</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את שלושת השטחים יחד.", 
-                math_expression: "<div dir='ltr'>10 + 15 + 6 = 31</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את התוצאה ב-2, כיוון שכל פאה מופיעה פעמיים.", 
-                math_expression: "<div dir='ltr'>S = 31 &times; 2 = 62</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי הניצב שמול הזווית المבוקשת (הגובה).", math_expression: "h = 12" },
+            { verbal_explanation: "שלב 2: זיהוי הניצב שלצד הזווית המונח על הבסיס.", math_expression: "b = 9" },
+            { verbal_explanation: "שלב 3: כתיבת המשוואה הטריגונומטרית טנגנס.", math_expression: "\\tan(\\alpha) = \\dfrac{12}{9}" },
+            { verbal_explanation: "שלב 4: צמצום השבר והמרה לערך עשרוני.", math_expression: "\\tan(\\alpha) = \\dfrac{4}{3} \\approx 1.333" },
+            { verbal_explanation: "שלב 5: חילוץ הזווית במעלות.", math_expression: "\\alpha = \\tan^{-1}(1.333) \\approx 53.13^{\\circ}" }
         ],
-        final_answer: "<span dir=\"rtl\">62 סמ\"ר</span>"
+        final_answer: "53.13°"
     },
 
-    // שאלה 17
+    // שאלה מספר 17 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>יצירת תיבה חדשה (השפעה על הנפח):</strong><br>
-        לתיבה יש נפח מסוים. החליטו לבנות תיבה חדשה שבה:<br>
-        האורך הוכפל פי 2.<br>
-        הרוחב נשאר בדיוק אותו דבר.<br>
-        הגובה קָטַן לחצי (חולק ב-2).<br>
-        מה קרה לנפח התיבה החדשה בהשוואה לישנה?`,
-        options: [
-            "<span dir=\"rtl\">הנפח נשאר בדיוק אותו הדבר</span>",
-            "<span dir=\"rtl\">הנפח גדל פי 2</span>",
-            "<span dir=\"rtl\">הנפח קטן פי 2</span>",
-            "<span dir=\"rtl\">לא ניתן לדעת ללא מידות</span>"
-        ],
+        question_text: "חתך אלכסוני בתיבה הוא המלבן שנוצר ממעבר של מישור דרך שני מקצועות אנכיים נגדיים. ממדי בסיס התיבה הם 6 ו-8, וגובה התיבה הוא 5.&rlm;<br>א. מהם ממדי המלבן האלכסוני (רוחב וגובה)?&rlm;<br>ב. מהו שטח המלבן האלכסוני?&rlm;",
+        options: ["א. 10 ו-5 | ב. 50", "א. 6 ו-5 | ב. 30", "א. 8 ו-5 | ב. 40", "א. 14 ו-5 | ב. 70"],
         correctAnswer: 0,
-        hint: "נפח מורכב ממכפלת שלושה מספרים. אם אחד מהם הוכפל פי 2, הנפח אמור לגדול פי 2. אבל אם מספר אחר חולק ב-2, הפעולות 'מבטלות' זו את זו.",
+        hint: "רוחב המלבן האלכסוני הוא אלכסון בסיס התיבה (חשבו בעזרת פיתגורס). גובה המלבן הוא פשוט גובה התיבה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נוסחת הנפח הבסיסית כופלת את הממדים.", 
-                math_expression: "<div dir='ltr'>V = a &times; b &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "האורך החדש הוכפל ב-2.", 
-                math_expression: "<div dir='ltr'>2a</div>" 
-            },
-            { 
-                verbal_explanation: "הגובה החדש נחלק ב-2.", 
-                math_expression: "<div dir='ltr'>h / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נרשום את הנוסחה המלאה עם השינויים.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = (2 &times; a) &times; b &times; (h / 2)</div>" 
-            },
-            { 
-                verbal_explanation: "אפשר לצמצם את ה-2 שמוכפל עם ה-2 שמחלק. המשוואה חוזרת בדיוק למצבה המקורי.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = V</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב צלע הבסיס של המלבן האלכסוני (המהווה את אלכסון בסיס התיבה).", math_expression: "d_{base} = \\sqrt{6^{2} + 8^{2}}" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע וחיבור לקבלת שלשה פיתגורית ידועה.", math_expression: "d_{base} = \\sqrt{36 + 64} = 10" },
+            { verbal_explanation: "שלב 3: הצלע השנייה של המלבן היא הגובה האנכי שנתון (תשובה לא').", math_expression: "h = 5" },
+            { verbal_explanation: "שלב 4: כתיבת משוואת שטח למלבן האלכסוני.", math_expression: "S = 10 \\times 5" },
+            { verbal_explanation: "שלב 5: חישוב סופי (תשובה לב').", math_expression: "S = 50" }
         ],
-        final_answer: "<span dir=\"rtl\">הנפח נשאר בדיוק אותו הדבר</span>"
+        final_answer: "א. 10 ו-5 | ב. 50"
     },
 
-    // שאלה 18
+    // שאלה מספר 18
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>מציאת גובה התיבה באמצעות האלכסון הראשי:</strong><br>
-        בתיבה, אורך אלכסון הבסיס הוא 5 ס"מ.<br>
-        אורך האלכסון הראשי (החוצה את חלל התיבה) הוא 13 ס"מ.<br>
-        מהו <strong>גובה</strong> התיבה?`,
-        options: [
-            "<span dir=\"rtl\">12 ס\"מ</span>",
-            "<span dir=\"rtl\">18 ס\"מ</span>",
-            "<span dir=\"rtl\">144 ס\"מ</span>",
-            "<span dir=\"rtl\">8 ס\"מ</span>"
-        ],
+        question_text: "בתיבה בעלת בסיס ריבועי, גובה התיבה קטן ב-2 מסנטימטרים מאורך צלע הבסיס. אורך צלע הבסיס הוא 6. מהו נפח התיבה?&rlm;",
+        options: ["144", "216", "180", "120"],
         correctAnswer: 0,
-        hint: "נוצר משולש ישר זווית שעומד בתוך התיבה: בסיסו 5, היתר 13, והניצב האנכי הוא הגובה h. השתמשו בפיתגורס: 5 בריבוע ועוד h בריבוע שווה ל-13 בריבוע.",
+        hint: "חשבו את הגובה קודם (6 פחות 2). בסיס ריבועי אומר שאורך ורוחב זהים. הנפח הוא אורך כפול רוחב כפול גובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "בתוך התיבה ישנו משולש ישר זווית שבו הניצב התחתון הוא אלכסון הרצפה.", 
-                math_expression: "<div dir='ltr'>d = 5</div>" 
-            },
-            { 
-                verbal_explanation: "היתר של המשולש הוא האלכסון הראשי.", 
-                math_expression: "<div dir='ltr'>c = 13</div>" 
-            },
-            { 
-                verbal_explanation: "הניצב האנכי החסר הוא גובה התיבה. נציב בפיתגורס.", 
-                math_expression: "<div dir='ltr'>5<sup>2</sup> + h<sup>2</sup> = 13<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החזקות.", 
-                math_expression: "<div dir='ltr'>25 + h<sup>2</sup> = 169</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את ה-25 ימינה ונחסר.", 
-                math_expression: "<div dir='ltr'>h<sup>2</sup> = 169 - 25 = 144</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש כדי למצוא את הגובה.", 
-                math_expression: "<div dir='ltr'>h = &radic;144 = 12</div>" 
-            }
+            { verbal_explanation: "שלב 1: הגדרת מידות הבסיס הריבועי (אורך ורוחב זהים).", math_expression: "a = 6 \\quad , \\quad b = 6" },
+            { verbal_explanation: "שלב 2: חישוב גובה התיבה בהתאם לאילוץ שבשאלה.", math_expression: "h = 6 - 2 = 4" },
+            { verbal_explanation: "שלב 3: בניית המשוואה לחישוב הנפח.", math_expression: "V = 6 \\times 6 \\times 4" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל השלבה.", math_expression: "V = 36 \\times 4" },
+            { verbal_explanation: "שלב 5: תוצאת הנפח הסופית.", math_expression: "V = 144" }
         ],
-        final_answer: "<span dir=\"rtl\">12 ס\"מ</span>"
+        final_answer: "144"
     },
 
-    // שאלה 19
+    // שאלה מספר 19
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>זיהוי פאה גדולה ביותר בתיבה:</strong><br>
-        לתיבה מידות של: 2 ס"מ, 7 ס"מ, ו- 10 ס"מ.<br>
-        מהו שטחה של ה<strong>פאה הגדולה ביותר</strong> בתיבה זו?`,
-        options: [
-            "<span dir=\"rtl\">70 סמ\"ר</span>",
-            "<span dir=\"rtl\">14 סמ\"ר</span>",
-            "<span dir=\"rtl\">20 סמ\"ר</span>",
-            "<span dir=\"rtl\">140 סמ\"ר</span>"
-        ],
+        question_text: "בריכת מים בצורת תיבה מכילה 120 מטרים מעוקבים של מים, והיא מלאה עד מחצית מגובהה בלבד. אורך הבסיס הוא 8 ורוחבו 5. מהו גובה התיבה השלמה?&rlm;",
+        options: ["6", "3", "12", "10"],
         correctAnswer: 0,
-        hint: "פאה היא מלבן שנוצר משניים מתוך שלושת הממדים. כדי לקבל את השטח המקסימלי, עליכם לבחור את שני המספרים הגדולים ביותר ולהכפיל אותם.",
+        hint: "אם מחצית מהנפח היא 120, הנפח הכולל של התיבה המלאה הוא 240. חלקו את הנפח המלא בשטח הבסיס כדי למצוא את הגובה המלא.",
         solution_steps: [
-            { 
-                verbal_explanation: "הפאות השונות מחושבות על ידי שילובים של שני ממדים מתוך השלושה.", 
-                math_expression: "<div dir='ltr'>a = 2 , b = 7 , c = 10</div>" 
-            },
-            { 
-                verbal_explanation: "פאה ראשונה (2 ו-7).", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 2 &times; 7 = 14</div>" 
-            },
-            { 
-                verbal_explanation: "פאה שנייה (2 ו-10).", 
-                math_expression: "<div dir='ltr'>S<sub>2</sub> = 2 &times; 10 = 20</div>" 
-            },
-            { 
-                verbal_explanation: "פאה שלישית מורכבת מהצלעות הארוכות ביותר, 7 ו-10, ולכן היא תניב שטח מקסימלי.", 
-                math_expression: "<div dir='ltr'>S<sub>3</sub> = 7 &times; 10 = 70</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב הנפח הכללי של הבריכה השלמה מתוך נתון המילוי החלקי.", math_expression: "V_{total} = 120 \\times 2 = 240" },
+            { verbal_explanation: "שלב 2: חישוב שטח הפנים של בסיס התיבה (רצפת הבריכה).", math_expression: "S_{base} = 8 \\times 5 = 40" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת הנפח כאשר הגובה הוא הנעלם.", math_expression: "240 = 40 \\times h" },
+            { verbal_explanation: "שלב 4: חלוקה בארבעים לבידוד הגובה.", math_expression: "h = 240 : 40" },
+            { verbal_explanation: "שלב 5: סיום התרגיל וקבלת הגובה השלם.", math_expression: "h = 6" }
         ],
-        final_answer: "<span dir=\"rtl\">70 סמ\"ר</span>"
+        final_answer: "6"
     },
 
-    // שאלה 20
+    // שאלה מספר 20 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "תיבה",
-        question_text: `<strong>חיבור גופים ליצירת תיבה:</strong><br>
-        לקחו 3 קוביות זהות בעלות צלע באורך 3 ס"מ כל אחת.<br>
-        הדביקו אותן זו לזו ברצף כדי ליצור תיבה אחת גדולה.<br>
-        מהו הנפח של התיבה הגדולה שנוצרה?`,
-        options: [
-            "<span dir=\"rtl\">81 סמ\"ק</span>",
-            "<span dir=\"rtl\">27 סמ\"ק</span>",
-            "<span dir=\"rtl\">9 סמ\"ק</span>",
-            "<span dir=\"rtl\">729 סמ\"ק</span>"
-        ],
+        question_text: "קופסת אחסון פתוחה מלמעלה נבנית מלוח חומר. הבסיס הוא מלבן של 20 על 30 ס''מ. גובה הקופסה הוא 10 ס''מ.&rlm;<br>א. מהו נפח הקופסה?&rlm;<br>ב. מהו שטח החומר הנדרש לבניית הקופסה כולה (ללא מכסה)?&rlm;",
+        options: ["א. 6000 | ב. 1600", "א. 6000 | ב. 2200", "א. 5000 | ב. 1600", "א. 6000 | ב. 1000"],
         correctAnswer: 0,
-        hint: "נפחים תמיד מתחברים! הדרך המהירה ביותר: מצאו נפח של קובייה קטנה אחת (3 כפול 3 כפול 3), והכפילו אותו פי 3.",
+        hint: "שטח החומר הוא שטח פנים. זכרו לחשב רק בסיס תחתון אחד, ועוד ארבע פאות צדדיות עומדות (שתיים באורך ושתיים ברוחב).",
         solution_steps: [
-            { 
-                verbal_explanation: "נמצא את נפחה של קובייה קטנה אחת שאורך צלעה הוא 3.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 3<sup>3</sup> = 27</div>" 
-            },
-            { 
-                verbal_explanation: "התיבה המלאה מורכבת משלוש קוביות כאלו שהוצמדו יחד. נפחה הכולל הוא סכום הנפחים.", 
-                math_expression: "<div dir='ltr'>V = 3 &times; 27</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את הכפל ונקבל את נפח התיבה השלמה.", 
-                math_expression: "<div dir='ltr'>V = 81</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח הקופסה באמצעות הכפלת כל שלושת הממדים (תשובה לא').", math_expression: "V = 20 \\times 30 \\times 10 = 6000" },
+            { verbal_explanation: "שלב 2: חישוב השטח של תחתית הקופסה בלבד (ללא מכסה עליון).", math_expression: "S_{bottom} = 20 \\times 30 = 600" },
+            { verbal_explanation: "שלב 3: חישוב שטחי הפאות הצדדיות העומדות לאורך הצלע הארוכה (יש שתיים כאלו).", math_expression: "S_{long} = 2 \\times (30 \\times 10) = 600" },
+            { verbal_explanation: "שלב 4: חישוב שטחי הפאות הצדדיות העומדות לאורך הצלע הקצרה (יש שתיים כאלו).", math_expression: "S_{short} = 2 \\times (20 \\times 10) = 400" },
+            { verbal_explanation: "שלב 5: חיבור של כל המשטחים יחד לקבלת כמות החומר הנדרשת (תשובה לב').", math_expression: "S = 600 + 600 + 400 = 1600" }
         ],
-        final_answer: "<span dir=\"rtl\">81 סמ\"ק</span>"
-    },// ---------------------------------------------------------
-    // תת נושא 3: פירמידה (שאלות 21-30)
-    // ---------------------------------------------------------
-
-    // שאלה 21
-    {
-        topic: "bagrut_35372",
-        subTopic: "פירמידה",
-        question_text: `<strong>חישוב נפח פירמידה בעלת בסיס ריבועי:</strong><br>
-        נתונה פירמידה ישרה שבסיסה הוא ריבוע.<br>
-        אורך צלע הבסיס הריבועי הוא 6 ס"מ.<br>
-        גובה הפירמידה (h) הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 160" width="100%" height="160" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 120,120 160,90 80,90" fill="rgba(234,179,8,0.2)" stroke="#ca8a04" stroke-width="2"/>
-            <line x1="40,120" x2="100" y2="20" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="120" y1="120" x2="100" y2="20" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="160" y1="90" x2="100" y2="20" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="80" y1="90" x2="100" y2="20" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <line x1="100" y1="20" x2="100" y2="105" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-            <text x="110" y="70" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">10</text>
-            <text x="80" y="135" font-family="Arial" font-size="12" font-weight="bold">6</text>
-        </svg>
-        </div>
-        מהו <strong>נפח</strong> הפירמידה?`,
-        options: [
-            "<span dir=\"rtl\">120 סמ\"ק</span>",
-            "<span dir=\"rtl\">360 סמ\"ק</span>",
-            "<span dir=\"rtl\">60 סמ\"ק</span>",
-            "<span dir=\"rtl\">100 סמ\"ק</span>"
-        ],
-        correctAnswer: 0,
-        hint: "נפח של פירמידה שווה לשטח הבסיס כפול הגובה, לחלק ב-3. חשבו קודם את שטח הבסיס הריבועי (6 כפול 6), הכפילו בגובה (10) וחלקו הכל ב-3.",
-        solution_steps: [
-            { 
-                verbal_explanation: "נחשב תחילה את השטח של בסיס הפירמידה (S). מכיוון שזהו ריבוע, השטח הוא צלע כפול צלע.", 
-                math_expression: "<div dir='ltr'>S = 6 &times; 6 = 36</div>" 
-            },
-            { 
-                verbal_explanation: "הנוסחה לנפח פירמידה (V) קובעת שיש להכפיל את שטח הבסיס בגובה (h), ואת התוצאה לחלק ב-3.", 
-                math_expression: "<div dir='ltr'>V = (S &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את שטח הבסיס שמצאנו ואת הגובה הנתון.", 
-                math_expression: "<div dir='ltr'>V = (36 &times; 10) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את המונה.", 
-                math_expression: "<div dir='ltr'>V = 360 / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את פעולת החילוק כדי לקבל את הנפח הסופי.", 
-                math_expression: "<div dir='ltr'>V = 120</div>" 
-            }
-        ],
-        final_answer: "<span dir=\"rtl\">120 סמ\"ק</span>"
+        final_answer: "א. 6000 | ב. 1600"
     },
 
-    // שאלה 22
+    // ==========================================
+    // תת נושא 3: פירמידה (10 שאלות)
+    // ==========================================
+
+    // שאלה מספר 21 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>חישוב נפח פירמידה בעלת בסיס מלבני:</strong><br>
-        בפירמידה ישרה הבסיס הוא מלבן שאורכו 8 ס"מ ורוחבו 5 ס"מ.<br>
-        גובה הפירמידה הוא 9 ס"מ.<br>
-        מהו הנפח של פירמידה זו?`,
-        options: [
-            "<span dir=\"rtl\">120 סמ\"ק</span>",
-            "<span dir=\"rtl\">360 סמ\"ק</span>",
-            "<span dir=\"rtl\">40 סמ\"ק</span>",
-            "<span dir=\"rtl\">72 סמ\"ק</span>"
-        ],
+        question_text: "נתונה פירמידה ישרה שבסיסה ריבוע. אורך צלע הבסיס הוא 10 ס''מ וגובה הפירמידה הוא 12 ס''מ.&rlm;<br>א. מהו נפח הפירמידה?&rlm;<br>ב. מצאו את אורך גובה הפאה הצדדית (המשולש השוקי שבצד).&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 250 200' style='max-width:250px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='125,20 40,160 210,160' fill='#f59e0b' opacity='0.2' stroke='#f59e0b' stroke-width='2'/><polygon points='125,20 40,160 125,120' fill='none' stroke='#f59e0b' stroke-width='1'/><line x1='125' y1='20' x2='125' y2='120' stroke='#64748b' stroke-dasharray='4,4' stroke-width='2'/><line x1='125' y1='120' x2='125' y2='160' stroke='#ef4444' stroke-dasharray='4,4' stroke-width='2'/><line x1='125' y1='20' x2='125' y2='160' stroke='#10b981' stroke-width='2'/><text x='130' y='80' font-size='12'>12</text><text x='110' y='175' font-size='12'>10</text></svg></div>",
+        options: ["א. 400 | ב. 13", "א. 1200 | ב. 13", "א. 400 | ב. 15", "א. 1200 | ב. 15"],
         correctAnswer: 0,
-        hint: "הבסיס הוא מלבן, לכן שטחו הוא אורך כפול רוחב (8 כפול 5). לאחר מכן, הכפילו את התוצאה בגובה (9) וזכרו לחלק ב-3 בסוף התהליך.",
+        hint: "נפח פירמידה הוא שטח הבסיס כפול הגובה לחלק ל-3. גובה הפאה מחושב ממשפט פיתגורס במשולש שנוצר בין גובה הפירמידה למחצית צלע הבסיס.",
         solution_steps: [
-            { 
-                verbal_explanation: "כדי למצוא את שטח בסיס הפירמידה, נחשב שטח מלבן: אורך כפול רוחב.", 
-                math_expression: "<div dir='ltr'>S = 8 &times; 5 = 40</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים בנוסחת הנפח של פירמידה (שטח הבסיס כפול הגובה, חלקי שלוש).", 
-                math_expression: "<div dir='ltr'>V = (40 &times; 9) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נפתור קודם כל את המונה.", 
-                math_expression: "<div dir='ltr'>V = 360 / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק בשלוש לקבלת הנפח המלא.", 
-                math_expression: "<div dir='ltr'>V = 120</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב שטח הבסיס הריבועי.", math_expression: "S_{base} = 10^{2} = 100" },
+            { verbal_explanation: "שלב 2: בניית נוסחת הנפח (שטח בסיס כפול גובה, חלקי שלוש).", math_expression: "V = \\dfrac{100 \\times 12}{3}" },
+            { verbal_explanation: "שלב 3: תוצאת הנפח (תשובה לא').", math_expression: "V = 400" },
+            { verbal_explanation: "שלב 4: מציאת הניצב האופקי ליצירת משולש פיתגורס פנימי (חצי מצלע הבסיס).", math_expression: "x = \\dfrac{10}{2} = 5" },
+            { verbal_explanation: "שלב 5: יישום פיתגורס עם הגובה הראשי למציאת גובה הפאה המשופע (תשובה לב').", math_expression: "h_{face} = \\sqrt{12^{2} + 5^{2}} = \\sqrt{144 + 25} = \\sqrt{169} = 13" }
         ],
-        final_answer: "<span dir=\"rtl\">120 סמ\"ק</span>"
+        final_answer: "א. 400 | ב. 13"
     },
 
-    // שאלה 23
+    // שאלה מספר 22
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>מציאת גובה חסר מתוך נפח פירמידה (משוואה):</strong><br>
-        נפחה של פירמידה ישרה הוא 200 סמ"ק.<br>
-        שטח הבסיס שלה ידוע והוא שווה ל-50 סמ"ר.<br>
-        מהו <strong>גובה</strong> הפירמידה (h)?`,
-        options: [
-            "<span dir=\"rtl\">12 ס\"מ</span>",
-            "<span dir=\"rtl\">4 ס\"מ</span>",
-            "<span dir=\"rtl\">15 ס\"מ</span>",
-            "<span dir=\"rtl\">8 ס\"מ</span>"
-        ],
+        question_text: "בהמשך לשאלה הקודמת (בסיס ריבוע של 10 ס''מ, וגובה פאה צדדית שחישבתם שהוא 13 ס''מ). מהו שטח המעטפת הכולל של הפירמידה (שטח 4 הפאות הצדדיות)?&rlm;",
+        options: ["260", "130", "520", "360"],
         correctAnswer: 0,
-        hint: "בנו משוואה: 200 שווה ל-(50 כפול h) חלקי 3. כדי להיפטר מהחלוקה ב-3, הכפילו את ה-200 פי 3 (תקבלו 600). עכשיו המשוואה היא 600 = 50h. מהו h?",
+        hint: "לפירמידה יש 4 פאות צדדיות שהן משולשים שווי שוקיים חופפים. חשבו שטח של משולש אחד (בסיס כפול גובה הפאה חלקי 2) והכפילו ב-4.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את נוסחת הנפח הבסיסית של פירמידה.", 
-                math_expression: "<div dir='ltr'>V = (S &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את המספרים הנתונים בשאלה.", 
-                math_expression: "<div dir='ltr'>200 = (50 &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "כדי לבטל את המכנה, נכפיל את שני אגפי המשוואה ב-3.", 
-                math_expression: "<div dir='ltr'>600 = 50 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "כעת, נחלק את שני האגפים ב-50 כדי לחלץ את הגובה לבדו.", 
-                math_expression: "<div dir='ltr'>h = 600 / 50</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק ונגלה את גובה הפירמידה.", 
-                math_expression: "<div dir='ltr'>h = 12</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת משוואת השטח עבור פאה אחת בודדת (משולש).", math_expression: "S_{1} = \\dfrac{10 \\times 13}{2}" },
+            { verbal_explanation: "שלב 2: חישוב השטח לפאה.", math_expression: "S_{1} = 65" },
+            { verbal_explanation: "שלב 3: הכפלת השטח של פאה אחת בארבע, מכיוון שיש ארבע פאות במעטפת הפירמידה.", math_expression: "M = 4 \\times 65" },
+            { verbal_explanation: "שלב 4: סכום השטחים הכללי של הפאות.", math_expression: "M = 260" },
+            { verbal_explanation: "שלב 5: התשובה לרישום במערכת.", math_expression: "260" }
         ],
-        final_answer: "<span dir=\"rtl\">12 ס\"מ</span>"
+        final_answer: "260"
     },
 
-    // שאלה 24
+    // שאלה מספר 23
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>מציאת צלע הבסיס הריבועי מתוך הנפח:</strong><br>
-        נתונה פירמידה בעלת <strong>בסיס ריבועי</strong>.<br>
-        נפח הפירמידה הוא 48 סמ"ק, וגובה הפירמידה הוא 4 ס"מ.<br>
-        מהו אורך <strong>צלע הבסיס</strong>?`,
-        options: [
-            "<span dir=\"rtl\">6 ס\"מ</span>",
-            "<span dir=\"rtl\">36 ס\"מ</span>",
-            "<span dir=\"rtl\">12 ס\"מ</span>",
-            "<span dir=\"rtl\">8 ס\"מ</span>"
-        ],
+        question_text: "בפירמידה ישרה מלבנית, בסיס הפירמידה הוא מלבן שממדיו 6 ו-8. גובה הפירמידה הוא 12. מהו אורך המקצוע הצדדי (הקו המחבר את קודקוד הפירמידה עם פינות הבסיס)?&rlm;",
+        options: ["13", "12.5", "14", "15"],
         correctAnswer: 0,
-        hint: "הציבו בנוסחה: 48 שווה (שטח בסיס כפול 4) חלקי 3. כפלו ב-3 וקבלו 144 = שטח בסיס כפול 4. חלקו ב-4, וגלו ששטח הבסיס הוא 36. מכיוון שהבסיס ריבוע, איזו צלע כפול עצמה שווה 36?",
+        hint: "בפירמידה מלבנית, הגובה פוגע בדיוק באמצע אלכסון הבסיס. חשבו את אלכסון הבסיס, קחו את החצי שלו (זה יהיה ניצב אחד), הגובה הוא הניצב השני (12), והמקצוע הוא היתר.",
         solution_steps: [
-            { 
-                verbal_explanation: "נציב את הנפח והגובה הידועים בנוסחת הפירמידה. שטח הבסיס יהיה הנעלם שלנו.", 
-                math_expression: "<div dir='ltr'>48 = (S &times; 4) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את המשוואה ב-3 כדי להיפטר מהשבר.", 
-                math_expression: "<div dir='ltr'>144 = S &times; 4</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את שני הצדדים בארבע כדי למצוא את השטח המלא של הבסיס.", 
-                math_expression: "<div dir='ltr'>S = 144 / 4 = 36</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שנתון לנו שהבסיס הוא ריבוע, השטח שלו שווה לצלע בריבוע.", 
-                math_expression: "<div dir='ltr'>a<sup>2</sup> = 36</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי כדי לגלות את אורך הצלע של הריבוע.", 
-                math_expression: "<div dir='ltr'>a = &radic;36 = 6</div>" 
-            }
+            { verbal_explanation: "שלב 1: מציאת אלכסון הבסיס המלבני במלואו.", math_expression: "d_{base} = \\sqrt{6^{2} + 8^{2}} = \\sqrt{100} = 10" },
+            { verbal_explanation: "שלב 2: הגובה פוגע בדיוק באמצע האלכסון, לכן ניקח את מחציתו כניצב במשולש המרחבי.", math_expression: "x = 10 : 2 = 5" },
+            { verbal_explanation: "שלב 3: כתיבת משוואת פיתגורס בין חצי האלכסון, הגובה הישר, והמקצוע הצדדי.", math_expression: "d_{edge} = \\sqrt{5^{2} + 12^{2}}" },
+            { verbal_explanation: "שלב 4: העלאה בריבוע של איברי השורש.", math_expression: "d_{edge} = \\sqrt{25 + 144} = \\sqrt{169}" },
+            { verbal_explanation: "שלב 5: תוצאת המקצוע הצדדי החיצוני.", math_expression: "d_{edge} = 13" }
         ],
-        final_answer: "<span dir=\"rtl\">6 ס\"מ</span>"
+        final_answer: "13"
     },
 
-    // שאלה 25
+    // שאלה מספר 24 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>הבנת שטח פנים של פירמידה ריבועית:</strong><br>
-        בפירמידה בעלת בסיס ריבועי, אורך צלע הבסיס הוא 5 ס"מ.<br>
-        שטחה של <strong>כל אחת מארבע הפאות הצדדיות</strong> (שהן משולשים) הוא 10 סמ"ר.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 160" width="100%" height="160" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,120 120,120 160,90 80,90" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
-            <polygon points="40,120 120,120 100,20" fill="rgba(59,130,246,0.3)" stroke="#3b82f6" stroke-width="2"/>
-            <text x="95" y="85" font-family="Arial" font-size="12" font-weight="bold" fill="#1d4ed8">S=10</text>
-            <line x1="120" y1="120" x2="160" y2="90" stroke="#0f172a" stroke-width="2"/>
-            <line x1="160" y1="90" x2="100" y2="20" stroke="#0f172a" stroke-width="2"/>
-        </svg>
-        </div>
-        מהו <strong>שטח הפנים הכולל</strong> של הפירמידה (בסיס + כל הפאות)?`,
-        options: [
-            "<span dir=\"rtl\">65 סמ\"ר</span>",
-            "<span dir=\"rtl\">40 סמ\"ר</span>",
-            "<span dir=\"rtl\">90 סמ\"ר</span>",
-            "<span dir=\"rtl\">25 סמ\"ר</span>"
-        ],
+        question_text: "נתונה פירמידה ישרה שבסיסה ריבוע. אורך מקצוע הבסיס הוא 8 ס''מ. אורך המקצוע הצדדי הוא 9 ס''מ.&rlm;<br>א. חשבו את אורך אלכסון הבסיס.&rlm;<br>ב. חשבו את גובה הפירמידה.&rlm;",
+        options: ["א. 11.31 | ב. 7.00", "א. 11.31 | ב. 8.00", "א. 8.00 | ב. 7.00", "א. 16.00 | ב. 9.00"],
         correctAnswer: 0,
-        hint: "שטח הפנים שווה לשטח הבסיס ועוד השטח של כל 4 המשולשים שעוטפים אותו מסביב. חשבו את שטח הבסיס הריבועי (5 כפול 5). לאחר מכן הוסיפו את השטח של המשולשים (4 כפול 10).",
+        hint: "האלכסון הוא 8 כפול שורש 2. הגובה מחושב בפיתגורס כאשר היתר הוא 9 והניצב הוא חצי מהאלכסון שמצאתם.",
         solution_steps: [
-            { 
-                verbal_explanation: "שטח פנים של גוף הוא סכום השטחים של כל הצורות המרכיבות את המעטפת שלו. נתחיל בשטח הבסיס (ריבוע).", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 5 &times; 5 = 25</div>" 
-            },
-            { 
-                verbal_explanation: "מעטפת הפירמידה מורכבת מארבעה משולשים. נתון לנו שטח משולש בודד.", 
-                math_expression: "<div dir='ltr'>S<sub>2</sub> = 10</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שטח המשולש ב-4 כדי לקבל את סך שטח הצדדים.", 
-                math_expression: "<div dir='ltr'>S<sub>3</sub> = 4 &times; 10 = 40</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את שטח הבסיס אל שטח הצדדים יחד כדי למצוא את שטח הפנים המלא.", 
-                math_expression: "<div dir='ltr'>S = 25 + 40</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע חיבור ונקבל את השטח הכולל.", 
-                math_expression: "<div dir='ltr'>S = 65</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב אלכסון הבסיס הריבועי (תשובה לא').", math_expression: "d_{base} = \\sqrt{8^{2} + 8^{2}} = \\sqrt{128} \\approx 11.313" },
+            { verbal_explanation: "שלב 2: חלוקת האלכסון בשתיים כדי ליצור את משולש הגובה.", math_expression: "x = \\dfrac{11.313}{2} \\approx 5.656" },
+            { verbal_explanation: "שלב 3: בניית פיתגורס להשגת הגובה כאשר היתר (מקצוע צדדי) נתון.", math_expression: "h^{2} + (5.656)^{2} = 9^{2}" },
+            { verbal_explanation: "שלב 4: בידוד הגובה בריבוע.", math_expression: "h^{2} = 81 - 32 = 49" },
+            { verbal_explanation: "שלב 5: מציאת הגובה הנקי (תשובה לב').", math_expression: "h = \\sqrt{49} = 7" }
         ],
-        final_answer: "<span dir=\"rtl\">65 סמ\"ר</span>"
+        final_answer: "א. 11.31 | ב. 7.00"
     },
 
-    // שאלה 26
+    // שאלה מספר 25
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>מציאת גובה פאה באמצעות משפט פיתגורס פנימי:</strong><br>
-        בפירמידה ישרה וריבועית, אורך צלע הבסיס הוא 8 ס"מ.<br>
-        גובה הפירמידה (היורד למרכז הבסיס) הוא 3 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 150" width="100%" height="150" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="30,120 130,120 170,80 70,80" fill="none" stroke="#cbd5e1" stroke-width="2"/>
-            <line x1="30" y1="120" x2="100" y2="20" stroke="#94a3b8" stroke-width="1"/>
-            <line x1="130" y1="120" x2="100" y2="20" stroke="#94a3b8" stroke-width="1"/>
-            <line x1="100" y1="20" x2="100" y2="100" stroke="#ef4444" stroke-width="2"/> <line x1="100" y1="100" x2="150" y2="100" stroke="#3b82f6" stroke-width="2"/> <line x1="100" y1="20" x2="150" y2="100" stroke="#22c55e" stroke-width="3"/> <text x="90" y="70" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">3</text>
-            <text x="120" y="115" font-family="Arial" font-size="12" font-weight="bold" fill="#3b82f6">4</text>
-            <text x="135" y="60" font-family="Arial" font-size="12" font-weight="bold" fill="#15803d">l = ?</text>
-        </svg>
-        </div>
-        מהו אורך <strong>גובה הפאה הצדדית</strong> (המסומן כיתר ירוק במשולש)?`,
-        options: [
-            "<span dir=\"rtl\">5 ס\"מ</span>",
-            "<span dir=\"rtl\">7 ס\"מ</span>",
-            "<span dir=\"rtl\">25 ס\"מ</span>",
-            "<span dir=\"rtl\">10 ס\"מ</span>"
-        ],
+        question_text: "נפחה של פירמידה ישרה מרובעת הוא 150 סמ''ק. גובה הפירמידה הוא 18 ס''מ. הבסיס הוא מלבן שאורכו 5 ס''מ. מהו רוחב בסיס הפירמידה?&rlm;",
+        options: ["5", "10", "15", "8"],
         correctAnswer: 0,
-        hint: "בתוך הפירמידה מסתתר משולש ישר זווית. הניצב האנכי הוא גובה הפירמידה (3). הניצב האופקי הוא בדיוק חצי מצלע הבסיס (8 חלקי 2 שווה 4). גובה הפאה הוא היתר. הפעילו פיתגורס: 3 בריבוע ועוד 4 בריבוע.",
+        hint: "הציבו בנוסחת הנפח: (5 כפול הרוחב) כפול 18 לחלק ל-3 שווה 150. פתרו את המשוואה ומיצאו את הרוחב.",
         solution_steps: [
-            { 
-                verbal_explanation: "נזהה את המשולש ישר הזווית הפנימי. הניצב האנכי שלו הוא גובה הפירמידה.", 
-                math_expression: "<div dir='ltr'>a = 3</div>" 
-            },
-            { 
-                verbal_explanation: "הניצב האופקי שעל הרצפה שווה בדיוק למחצית מאורך צלע הבסיס (שמונה לחלק לשתיים).", 
-                math_expression: "<div dir='ltr'>b = 8 / 2 = 4</div>" 
-            },
-            { 
-                verbal_explanation: "גובה הפאה הוא היתר (l). נחשב אותו בעזרת משפט פיתגורס.", 
-                math_expression: "<div dir='ltr'>l<sup>2</sup> = 3<sup>2</sup> + 4<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הריבועים ונחבר אותם.", 
-                math_expression: "<div dir='ltr'>l<sup>2</sup> = 9 + 16 = 25</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש ריבועי כדי למצוא את האורך.", 
-                math_expression: "<div dir='ltr'>l = &radic;25 = 5</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית נוסחת הנפח עם הנעלם במקום המיועד לרוחב הבסיס.", math_expression: "150 = \\dfrac{(5 \\times b) \\times 18}{3}" },
+            { verbal_explanation: "שלב 2: חלוקת הגובה במכנה כדי לפשט את המשוואה.", math_expression: "150 = (5 \\times b) \\times 6" },
+            { verbal_explanation: "שלב 3: כפל המקדמים שבאגף הימני.", math_expression: "150 = 30 \\times b" },
+            { verbal_explanation: "שלב 4: חלוקה בשלושים לבידוד המשתנה.", math_expression: "b = 150 : 30" },
+            { verbal_explanation: "שלב 5: התוצאה לממד הרוחב החסר.", math_expression: "b = 5" }
         ],
-        final_answer: "<span dir=\"rtl\">5 ס\"מ</span>"
+        final_answer: "5"
     },
 
-    // שאלה 27
+    // שאלה מספר 26
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>פיתגורס במרחב (מציאת מקצוע צדדי):</strong><br>
-        בפירמידה, נוצר משולש ישר זווית פנימי שבו הניצב האנכי (הגובה) הוא 4 ס"מ, וניצב הבסיס הוא 3 ס"מ.<br>
-        מהו אורך היתר, שהוא למעשה <strong>המקצוע הצדדי</strong> של הפירמידה?`,
-        options: [
-            "<span dir=\"rtl\">5 ס\"מ</span>",
-            "<span dir=\"rtl\">7 ס\"מ</span>",
-            "<span dir=\"rtl\">25 ס\"מ</span>",
-            "<span dir=\"rtl\">12 ס\"מ</span>"
-        ],
+        question_text: "בפירמידה ישרה בעלת בסיס ריבועי, זווית הנטייה של פאה צדדית (זווית בין גובה הפאה למישור הבסיס) היא 60 מעלות. אורך צלע הבסיס הוא 4. מהו גובה הפירמידה?&rlm;",
+        options: ["3.46", "6.92", "2", "4"],
         correctAnswer: 0,
-        hint: "זהו משולש פיתגורס המפורסם (שלשה פיתגורית). יש לכם ניצבים 3 ו-4. חברו את הריבועים שלהם והוציאו שורש מהתוצאה.",
+        hint: "הניצב הסמוך לזווית הוא בדיוק מחצית מצלע הבסיס (2 ס''מ). השתמשו בטנגנס 60 מעלות כפול 2 כדי למצוא את הניצב ממול (הגובה).",
         solution_steps: [
-            { 
-                verbal_explanation: "המשולש מורכב מגובה הפירמידה, מרכז הבסיס, והמקצוע הצדדי היורד לאחת הפינות. נציב בפיתגורס.", 
-                math_expression: "<div dir='ltr'>k<sup>2</sup> = 4<sup>2</sup> + 3<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החזקות.", 
-                math_expression: "<div dir='ltr'>k<sup>2</sup> = 16 + 9</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את התוצאות.", 
-                math_expression: "<div dir='ltr'>k<sup>2</sup> = 25</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש כדי לגלות את אורך המקצוע הצדדי.", 
-                math_expression: "<div dir='ltr'>k = &radic;25 = 5</div>" 
-            }
+            { verbal_explanation: "שלב 1: איתור הניצב האופקי של המשולש היוצר את זווית הפאה (מחצית מצלע הבסיס).", math_expression: "x = 4 : 2 = 2" },
+            { verbal_explanation: "שלב 2: כתיבת משוואת טנגנס המקשרת את הגובה לניצב זה.", math_expression: "\\tan(60^{\\circ}) = \\dfrac{h}{2}" },
+            { verbal_explanation: "שלב 3: בידוד הגובה במשוואה על ידי כפל.", math_expression: "h = 2 \\times \\tan(60^{\\circ})" },
+            { verbal_explanation: "שלב 4: הצבת ערך הטנגנס המוכר (שורש שלוש).", math_expression: "h = 2 \\times 1.732" },
+            { verbal_explanation: "שלב 5: תוצאה סופית לגובה.", math_expression: "h \\approx 3.464" }
         ],
-        final_answer: "<span dir=\"rtl\">5 ס\"מ</span>"
+        final_answer: "3.46"
     },
 
-    // שאלה 28
+    // שאלה מספר 27 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>הבנת טריגונומטריה פשוטה בפירמידה (זווית נטייה):</strong><br>
-        בפירמידה ישרה, הניצב האנכי (גובה הפירמידה) שווה באורכו בדיוק לניצב האופקי שעל הבסיס.<br>
-        כאשר במשולש ישר זווית שני הניצבים שווים זה לזה, המשולש הוא גם שווה שוקיים.<br>
-        מהי ה<strong>זווית</strong> שנוצרת בין היתר לבין הבסיס במקרה כזה?`,
-        options: [
-            "<span dir=\"rtl\">45 מעלות</span>",
-            "<span dir=\"rtl\">90 מעלות</span>",
-            "<span dir=\"rtl\">30 מעלות</span>",
-            "<span dir=\"rtl\">60 מעלות</span>"
-        ],
+        question_text: "בפירמידה מרובעת ישרה, גובה הפירמידה הוא 8 ואורך חצי מאלכסון הבסיס הוא 6.&rlm;<br>א. חשבו את אורך המקצוע הצדדי.&rlm;<br>ב. חשבו את הזווית בין המקצוע הצדדי לבסיס הפירמידה.&rlm;",
+        options: ["א. 10 | ב. 53.13°", "א. 10 | ב. 36.87°", "א. 14 | ב. 53.13°", "א. 14 | ב. 45°"],
         correctAnswer: 0,
-        hint: "סכום הזוויות במשולש הוא 180 מעלות. זווית אחת ישרה (90). נותרו 90 מעלות לחלוקה לשתים. מכיוון שהמשולש שווה שוקיים, שתי הזוויות שוות. כמה זה 90 חלקי 2?",
+        hint: "המשולש מורכב מהגובה (8), חצי אלכסון (6), והמקצוע. בסעיף א' השתמשו בפיתגורס. בסעיף ב', השתמשו בטנגנס או סינוס למציאת הזווית שמול הגובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "במשולש ישר זווית, זווית אחת שווה לתשעים מעלות.", 
-                math_expression: "<div dir='ltr'>&ang;A = 90&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "סכום הזוויות בכל משולש הוא תמיד 180. נחשב כמה נותר לשתי הזוויות הנותרות.", 
-                math_expression: "<div dir='ltr'>180 - 90 = 90&deg;</div>" 
-            },
-            { 
-                verbal_explanation: "המשולש שווה שוקיים ולכן זוויות הבסיס שוות זו לזו. נחלק לשתיים.", 
-                math_expression: "<div dir='ltr'>90 / 2</div>" 
-            },
-            { 
-                verbal_explanation: "המסקנה היא שכל זווית בסיס (זווית הנטייה של הפאה או המקצוע) היא 45 מעלות.", 
-                math_expression: "<div dir='ltr'>&ang;B = 45&deg;</div>" 
-            }
+            { verbal_explanation: "שלב 1: מציאת יתר המשולש (מקצוע צדדי) בעזרת משפט פיתגורס על הנתונים (תשובה לא').", math_expression: "d = \\sqrt{8^{2} + 6^{2}} = \\sqrt{64 + 36} = \\sqrt{100} = 10" },
+            { verbal_explanation: "שלב 2: הגדרת הפונקציה למציאת הזווית הכלואה עם המישור (מול חלקי סמוך).", math_expression: "\\tan(\\alpha) = \\dfrac{8}{6}" },
+            { verbal_explanation: "שלב 3: ביצוע החלוקה לשבר עשרוני.", math_expression: "\\tan(\\alpha) \\approx 1.333" },
+            { verbal_explanation: "שלב 4: חילוץ הזווית (תשובה לב').", math_expression: "\\alpha = \\tan^{-1}(1.333) \\approx 53.13^{\\circ}" }
         ],
-        final_answer: "<span dir=\"rtl\">45 מעלות</span>"
+        final_answer: "א. 10 | ב. 53.13°"
     },
 
-    // שאלה 29
+    // שאלה מספר 28
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>השפעת שינוי ממדים על נפח הפירמידה:</strong><br>
-        לפירמידה מסוימת יש שטח בסיס וגובה נתונים.<br>
-        אם נכפיל את גובה הפירמידה <strong>פי 2</strong>, מבלי לשנות כלל את שטח הבסיס שלה, מה יקרה לנפח הפירמידה?`,
-        options: [
-            "<span dir=\"rtl\">הנפח יוכפל פי 2</span>",
-            "<span dir=\"rtl\">הנפח יגדל פי 4</span>",
-            "<span dir=\"rtl\">הנפח לא ישתנה</span>",
-            "<span dir=\"rtl\">הנפח יגדל פי 8</span>"
-        ],
+        question_text: "שתי פירמידות שונות ניצבות על בסיסים זהים בשטחם. גובה פירמידה א' הוא 10. גובה פירמידה ב' הוא 5. מהו היחס בין נפח פירמידה א' לנפח פירמידה ב'?&rlm;",
+        options: ["2", "4", "0.5", "1"],
         correctAnswer: 0,
-        hint: "הביטו בנוסחת הנפח: (שטח בסיס כפול גובה) חלקי 3. הגובה (h) אינו מועלה בשום חזקה. לכן, כל שינוי בו גורר שינוי זהה וישיר בתוצאה כולה.",
+        hint: "מאחר ושטח הבסיס זהה בשתיהן והנוסחה מחלקת ב-3 בשתיהן, היחס בין הנפחים שווה בדיוק ליחס שבין הגבהים שלהן.",
         solution_steps: [
-            { 
-                verbal_explanation: "נוסחת הנפח הרגילה של פירמידה משתמשת בגובה ללא חזקות.", 
-                math_expression: "<div dir='ltr'>V = (S &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "גובה הפירמידה גדל פי 2. נחליף את הגובה במשוואה בפעמיים h.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = (S &times; (2 &times; h)) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא את ה-2 מחוץ לסוגריים כמקדם.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 2 &times; ((S &times; h) / 3)</div>" 
-            },
-            { 
-                verbal_explanation: "מכיוון שהביטוי בסוגריים הוא הנפח המקורי, הגענו למסקנה שהנפח החדש כפול מהישן.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 2 &times; V</div>" 
-            }
+            { verbal_explanation: "שלב 1: ניסוח משוואת היחס בין הנפחים תוך הצגת חלקי הנוסחה הזהים.", math_expression: "Ratio = \\dfrac{\\dfrac{S \\times 10}{3}}{\\dfrac{S \\times 5}{3}}" },
+            { verbal_explanation: "שלב 2: צמצום הגורמים המשותפים במונה ובמכנה של השבר המורכב.", math_expression: "Ratio = \\dfrac{10}{5}" },
+            { verbal_explanation: "שלב 3: פתרון.", math_expression: "Ratio = 2" },
+            { verbal_explanation: "שלב 4: בחירת החלופה התואמת.", math_expression: "2" }
         ],
-        final_answer: "<span dir=\"rtl\">הנפח יוכפל פי 2</span>"
+        final_answer: "2"
     },
 
-    // שאלה 30
+    // שאלה מספר 29 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "פירמידה",
-        question_text: `<strong>היחס הקבוע בין תיבה לפירמידה (שאלת הבנה):</strong><br>
-        נתונות תיבה ופירמידה. לשתיהן יש <strong>בדיוק את אותו שטח בסיס ובדיוק את אותו גובה</strong>.<br>
-        אם נמלא את הפירמידה במים, ונשפוך את המים לתוך התיבה - כמה פעמים נצטרך לעשות זאת כדי למלא את התיבה עד הסוף?`,
-        options: [
-            "<span dir=\"rtl\">3 פעמים בדיוק</span>",
-            "<span dir=\"rtl\">2 פעמים</span>",
-            "<span dir=\"rtl\">4 פעמים</span>",
-            "<span dir=\"rtl\">פעם אחת (אותו נפח)</span>"
-        ],
+        question_text: "קובייה שצלעה a ופירמידה בעלת בסיס ריבועי של a על a בנויות כך שיש להן אותו הנפח בדיוק.&rlm;<br>א. כמה פעמים גדול גובה הפירמידה מגובה הקובייה?&rlm;<br>ב. אם אורך המקצוע a הוא 2 ס''מ, מהו גובה הפירמידה?&rlm;",
+        options: ["א. 3 | ב. 6", "א. 1 | ב. 2", "א. 3 | ב. 8", "א. 2 | ב. 4"],
         correctAnswer: 0,
-        hint: "זוכרים את נוסחאות הנפח? נוסחת התיבה היא S כפול h. נוסחת הפירמידה היא S כפול h, חלקי 3. המשמעות היא שנפח פירמידה קטן פי 3 מנפח תיבה בעלת אותם ממדים.",
+        hint: "בנוסחת הפירמידה מחלקים ב-3. לכן, כדי שהנפחים יהיו שווים כאשר הבסיסים זהים, גובה הפירמידה חייב להיות פי 3.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את נוסחת הנפח של התיבה.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = S &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נרשום את נוסחת הנפח של הפירמידה, שיש לה נתונים זהים.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = (S &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "מכאן ניתן לראות בבירור שהפירמידה שווה בדיוק לשליש מהתיבה.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = V<sub>1</sub> / 3</div>" 
-            },
-            { 
-                verbal_explanation: "ולכן, צריך להכפיל את הפירמידה 3 פעמים כדי להגיע לנפח התיבה השלם.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 3 &times; V<sub>2</sub></div>" 
-            }
+            { verbal_explanation: "שלב 1: השוואת נוסחת הנפח של קובייה מול פירמידה בעלת בסיס זהה.", math_expression: "a^{3} = \\dfrac{a^{2} \\times h}{3}" },
+            { verbal_explanation: "שלב 2: הכפלת המשוואה בשלוש ובידוד הגובה.", math_expression: "3 \\times a^{3} = a^{2} \\times h" },
+            { verbal_explanation: "שלב 3: צמצום אגפים חושף שגובה הפירמידה חייב להיות פי שלוש מהמקצוע (תשובה לא').", math_expression: "h = 3 \\times a" },
+            { verbal_explanation: "שלב 4: יישום המסקנה על הנתון המספרי שסופק בסעיף השני (תשובה לב').", math_expression: "h = 3 \\times 2 = 6" },
+            { verbal_explanation: "שלב 5: התשובה במערכת.", math_expression: "3 \\quad , \\quad 6" }
         ],
-        final_answer: "<span dir=\"rtl\">3 פעמים בדיוק</span>"
+        final_answer: "א. 3 | ב. 6"
     },
 
-    // ---------------------------------------------------------
-    // תת נושא 4: גליל וחרוט (שאלות 31-40)
-    // ---------------------------------------------------------
-
-    // שאלה 31
+    // שאלה מספר 30
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
+        subTopic: "פירמידה",
+        question_text: "מעבירים חתך אנכי בתוך פירמידה מרובעת, שעובר דרך קודקוד הפירמידה ודרך אלכסון הבסיס הריבועי שלה. איזו צורה גיאומטרית יתאר החתך הזה?&rlm;",
+        options: ["משולש שווה שוקיים", "משולש ישר זווית", "מלבן", "ריבוע"],
+        correctAnswer: 0,
+        hint: "החתך עובר מקודקוד עליון ושני קודקודים נגדיים בבסיס. שתי הצלעות שעולות למעלה הן המקצועות הצדדיים, והם שווים זה לזה בפירמידה ישרה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הגדרת הצלע התחתונה של החתך, שהיא אלכסון הבסיס.", math_expression: "Base = d_{diagonal}" },
+            { verbal_explanation: "שלב 2: הגדרת שתי הצלעות המשופעות של החתך, שהן בעצם המקצועות הצדדיים של הפירמידה הישרה.", math_expression: "Side_{1} = Edge \\quad , \\quad Side_{2} = Edge" },
+            { verbal_explanation: "שלב 3: מכיוון ששני המקצועות שווים זה לזה באורכם, מתקבל משולש ששתיים מצלעותיו שוות.", math_expression: "Side_{1} = Side_{2}" },
+            { verbal_explanation: "שלב 4: הגדרה זו מתאימה בגיאומטריה למשולש שווה שוקיים.", math_expression: "Isosceles" },
+            { verbal_explanation: "שלב 5: בחירת התשובה התיאורטית המתאימה.", math_expression: "1" }
+        ],
+        final_answer: "משולש שווה שוקיים"
+    },
+    // ==========================================
+    // תת נושא 4: גליל (10 שאלות)
+    // ==========================================
+
+    // שאלה מספר 1 (רב שלבית)
+    {
+        topic: "solid_geometry_372",
         subTopic: "גליל",
-        question_text: `<strong>חישוב נפח גליל בסיסי:</strong><br>
-        נתון גליל שרדיוס הבסיס המעגלי שלו הוא 3 ס"מ (r = 3).<br>
-        גובה הגליל (h) הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 150" width="100%" height="150" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <ellipse cx="100" cy="120" rx="50" ry="15" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <ellipse cx="100" cy="30" rx="50" ry="15" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="50" y1="30" x2="50" y2="120" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="150" y1="30" x2="150" y2="120" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="100" y1="120" x2="150" y2="120" stroke="#0f172a" stroke-width="2" stroke-dasharray="3,3"/>
-            <text x="125" y="115" font-family="Arial" font-size="12" font-weight="bold">r=3</text>
-            <line x1="100" y1="30" x2="100" y2="120" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-            <text x="105" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">h=10</text>
-        </svg>
-        </div>
-        מהו <strong>נפח</strong> הגליל?`,
-        options: [
-            "<span dir=\"rtl\">90&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">30&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">60&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">100&pi; סמ\"ק</span>"
-        ],
+        question_text: "נתון גליל ישר שבו רדיוס הבסיס הוא 4 ס''מ, וגובה הגליל הוא 10 ס''מ.&rlm;<br>א. חשבו את נפח הגליל (השאירו את פאי בתשובה).&rlm;<br>ב. חשבו את שטח המעטפת של הגליל.&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><ellipse cx='100' cy='40' rx='50' ry='15' fill='#3b82f6' opacity='0.3' stroke='#3b82f6' stroke-width='2'/><ellipse cx='100' cy='160' rx='50' ry='15' fill='#3b82f6' opacity='0.3' stroke='#3b82f6' stroke-width='2'/><line x1='50' y1='40' x2='50' y2='160' stroke='#3b82f6' stroke-width='2'/><line x1='150' y1='40' x2='150' y2='160' stroke='#3b82f6' stroke-width='2'/><line x1='100' y1='160' x2='150' y2='160' stroke='#ef4444' stroke-width='2'/><text x='120' y='155' font-size='12'>4</text><text x='35' y='105' font-size='12'>10</text></svg></div>",
+        options: ["א. 160\\pi | ב. 80\\pi", "א. 80\\pi | ב. 160\\pi", "א. 40\\pi | ב. 80\\pi", "א. 160\\pi | ב. 112\\pi"],
         correctAnswer: 0,
-        hint: "נפח גליל הוא שטח הבסיס (עיגול) כפול הגובה. שטח עיגול הוא פאי כפול רדיוס בריבוע. לכן חוק הנפח הוא: פאי כפול 3 בריבוע, כפול 10.",
+        hint: "נפח גליל הוא שטח הבסיס כפול הגובה. שטח המעטפת הוא היקף הבסיס כפול הגובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "בסיס הגליל הוא עיגול. נחשב את שטחו בעזרת הנוסחה: פאי כפול הרדיוס בריבוע.", 
-                math_expression: "<div dir='ltr'>S = &pi; &times; r<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הרדיוס (3) ונעלה אותו בריבוע. נקבל תשע פאי.", 
-                math_expression: "<div dir='ltr'>S = &pi; &times; 3<sup>2</sup> = 9&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "נוסחת נפח הגליל מכפילה את שטח הבסיס המעגלי בגובה.", 
-                math_expression: "<div dir='ltr'>V = S &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את השטח שמצאנו ואת הגובה הנתון.", 
-                math_expression: "<div dir='ltr'>V = 9&pi; &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ונקבל את התשובה הסופית המשלבת את פאי.", 
-                math_expression: "<div dir='ltr'>V = 90&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב שטח בסיס הגליל (מעגל).", math_expression: "S = \\pi \\times 4^{2} = 16\\pi" },
+            { verbal_explanation: "שלב 2: הכפלת שטח הבסיס בגובה למציאת הנפח הכולל (תשובה לא').", math_expression: "V = 16\\pi \\times 10 = 160\\pi" },
+            { verbal_explanation: "שלב 3: חישוב היקף הבסיס המעגלי.", math_expression: "P = 2 \\times \\pi \\times 4 = 8\\pi" },
+            { verbal_explanation: "שלב 4: הכפלת היקף הבסיס בגובה למציאת שטח המעטפת העוטפת (תשובה לב').", math_expression: "M = 8\\pi \\times 10 = 80\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">90&pi; סמ\"ק</span>"
+        final_answer: "א. 160\\pi | ב. 80\\pi"
     },
 
-    // שאלה 32
+    // שאלה מספר 2
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "גליל",
-        question_text: `<strong>חישוב נפח כאשר נתון הקוטר השלם:</strong><br>
-        נתון גליל שבו <strong>קוטר הבסיס</strong> (הרוחב המלא) הוא 8 ס"מ.<br>
-        גובה הגליל הוא 5 ס"מ.<br>
-        מהו הנפח שלו?`,
-        options: [
-            "<span dir=\"rtl\">80&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">320&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">40&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">160&pi; סמ\"ק</span>"
-        ],
+        question_text: "נפחו של גליל הוא \\( 250\\pi \\) סמ''ק. רדיוס בסיס הגליל הוא 5 ס''מ. מהו גובהו של הגליל?&rlm;",
+        options: ["10", "25", "5", "50"],
         correctAnswer: 0,
-        hint: "זהירות! הנוסחה דורשת את הרדיוס (r), לא את הקוטר! הרדיוס הוא בדיוק חצי מהקוטר. קודם חלקו את 8 ב-2. אחרי שמצאתם רדיוס 4, הפעילו את הנוסחה: פאי כפול 4 בריבוע כפול 5.",
+        hint: "הציבו את הנתונים בנוסחת נפח הגליל, חלקו ב-פאי משני הצדדים, ובודדו את הגובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "הטעות הנפוצה ביותר היא להציב את הקוטר (d) בנוסחה. עלינו למצוא את הרדיוס, שהוא מחצית מהקוטר.", 
-                math_expression: "<div dir='ltr'>r = d / 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את הקוטר הנתון ב-2 לקבלת הרדיוס.", 
-                math_expression: "<div dir='ltr'>r = 8 / 2 = 4</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הרדיוס ואת הגובה בנוסחת הנפח המלאה של גליל.", 
-                math_expression: "<div dir='ltr'>V = &pi; &times; r<sup>2</sup> &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את המספרים לתוך המשוואה.", 
-                math_expression: "<div dir='ltr'>V = &pi; &times; 4<sup>2</sup> &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החזקה.", 
-                math_expression: "<div dir='ltr'>V = &pi; &times; 16 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את שש עשרה בחמש ונקבל שמונים פאי.", 
-                math_expression: "<div dir='ltr'>V = 80&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: בניית משוואת הנפח הכוללת את כל הפרמטרים הידועים.", math_expression: "250\\pi = \\pi \\times 5^{2} \\times h" },
+            { verbal_explanation: "שלב 2: העלאה בריבוע של הרדיוס.", math_expression: "250\\pi = 25\\pi \\times h" },
+            { verbal_explanation: "שלב 3: צמצום הפאי משני האגפים.", math_expression: "250 = 25 \\times h" },
+            { verbal_explanation: "שלב 4: חלוקה בעשרים וחמש לבידוד הגובה.", math_expression: "h = 250 : 25" },
+            { verbal_explanation: "שלב 5: התוצאה לאורך הגובה.", math_expression: "h = 10" }
         ],
-        final_answer: "<span dir=\"rtl\">80&pi; סמ\"ק</span>"
+        final_answer: "10"
     },
 
-    // שאלה 33
+    // שאלה מספר 3 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "גליל",
-        question_text: `<strong>מציאת גובה חסר מתוך נפח של גליל:</strong><br>
-        הנפח של גליל הוא 200&pi; סמ"ק.<br>
-        רדיוס הבסיס שלו הוא 5 ס"מ.<br>
-        מהו <strong>גובה</strong> הגליל (h)?`,
-        options: [
-            "<span dir=\"rtl\">8 ס\"מ</span>",
-            "<span dir=\"rtl\">10 ס\"מ</span>",
-            "<span dir=\"rtl\">40 ס\"מ</span>",
-            "<span dir=\"rtl\">5 ס\"מ</span>"
-        ],
+        question_text: "בגליל ישר, שטח הפנים הכולל (מעטפת + שני בסיסים) הוא \\( 132\\pi \\) סמ''ר. גובה הגליל הוא 5 ס''מ.&rlm;<br>א. מצאו את רדיוס בסיס הגליל.&rlm;<br>ב. מצאו את שטח המעטפת בלבד.&rlm;",
+        options: ["א. 6 | ב. 60\\pi", "א. 6 | ב. 72\\pi", "א. 5 | ב. 50\\pi", "א. 4 | ב. 40\\pi"],
         correctAnswer: 0,
-        hint: "בנו משוואה. מצד אחד הנפח (200 פאי). מצד שני הנוסחה (פאי כפול 5 בריבוע כפול h). אפשר לבטל את סימן הפאי משני הצדדים! תקבלו 200 = 25h. פתרו זאת.",
+        hint: "בנו משוואה: 2 פאי R בריבוע (שני בסיסים) פלוס 2 פאי R כפול 5 (מעטפת) שווה ל-132 פאי. חלקו ב-2 פאי, ופתרו משוואה ריבועית למציאת R.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את משוואת הנפח עם התוצאה הסופית שניתנה לנו.", 
-                math_expression: "<div dir='ltr'>200&pi; = &pi; &times; 5<sup>2</sup> &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נצמצם את סימן הפאי משני צידי המשוואה.", 
-                math_expression: "<div dir='ltr'>200 = 5<sup>2</sup> &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את החזקה של הרדיוס.", 
-                math_expression: "<div dir='ltr'>200 = 25 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את הנפח ב-25 כדי לבודד את הגובה.", 
-                math_expression: "<div dir='ltr'>h = 200 / 25</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק ונקבל את התשובה הסופית.", 
-                math_expression: "<div dir='ltr'>h = 8</div>" 
-            }
+            { verbal_explanation: "שלב 1: כתיבת משוואת שטח הפנים הכללי.", math_expression: "2\\pi \\times R^{2} + 2\\pi \\times R \\times 5 = 132\\pi" },
+            { verbal_explanation: "שלב 2: חלוקת כל המשוואה בשני פאי כדי לפשט אותה.", math_expression: "R^{2} + 5R = 66" },
+            { verbal_explanation: "שלב 3: העברת מספרים לאגף אחד ליצירת משוואה ריבועית.", math_expression: "R^{2} + 5R - 66 = 0" },
+            { verbal_explanation: "שלב 4: פירוק לטרינום או שימוש בנוסחת שורשים למציאת הרדיוס החיובי (תשובה לא').", math_expression: "(R + 11)(R - 6) = 0 \\Rightarrow R = 6" },
+            { verbal_explanation: "שלב 5: הצבת הרדיוס והגובה בנוסחת שטח המעטפת (תשובה לב').", math_expression: "M = 2\\pi \\times 6 \\times 5 = 60\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">8 ס\"מ</span>"
+        final_answer: "א. 6 | ב. 60\\pi"
     },
 
-    // שאלה 34
+    // שאלה מספר 4
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "גליל",
-        question_text: `<strong>חישוב שטח המעטפת של הגליל:</strong><br>
-        התבקשתם להדביק מדבקה שמקיפה בדיוק את כל <strong>דופן הצד</strong> של פחית גלילית.<br>
-        רדיוס הפחית הוא 2 ס"מ, וגובה הפחית הוא 10 ס"מ.<br>
-        מהו שטח המעטפת הנדרש?`,
-        options: [
-            "<span dir=\"rtl\">40&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">20&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">10&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">100&pi; סמ\"ר</span>"
-        ],
+        question_text: "חותכים גליל ישר לשניים לאורך ציר הסימטריה שלו. חתך הציר שנוצר הוא ריבוע ששטחו 36 סמ''ר. מהו נפח הגליל?&rlm;",
+        options: ["54\\pi", "36\\pi", "108\\pi", "72\\pi"],
         correctAnswer: 0,
-        hint: "שטח מעטפת גליל מחושב על ידי הכפלת היקף המעגל בגובה הגליל. היקף מעגל הוא שתי פאי כפול רדיוס. לכן הנוסחה למעטפת היא: 2 כפול פאי כפול r כפול h.",
+        hint: "בחתך ציר ריבועי, גובה הגליל שווה לקוטר הבסיס. שטח הריבוע נותן את אורך הצלע, שממנה אפשר לחלץ את הגובה ואת הקוטר (וממנו את הרדיוס).",
         solution_steps: [
-            { 
-                verbal_explanation: "שטח המעטפת הוא למעשה מלבן שמגולגל לצורת צינור. רוחבו הוא הגובה, ואורכו הוא היקף המעגל.", 
-                math_expression: "<div dir='ltr'>S = C &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נוסחת היקף מעגל (C) היא שתיים כפול פאי כפול רדיוס.", 
-                math_expression: "<div dir='ltr'>C = 2 &times; &pi; &times; r</div>" 
-            },
-            { 
-                verbal_explanation: "לכן, הנוסחה השלמה לשטח המעטפת היא שתיים כפול פאי כפול רדיוס כפול גובה.", 
-                math_expression: "<div dir='ltr'>S = 2 &times; &pi; &times; r &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים שלנו: רדיוס שווה 2, גובה שווה 10.", 
-                math_expression: "<div dir='ltr'>S = 2 &times; &pi; &times; 2 &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "נכפיל את המספרים (2 כפול 2 כפול 10) ונשאיר את הפאי.", 
-                math_expression: "<div dir='ltr'>S = 40&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: מציאת צלע הריבוע מתוך נתון השטח.", math_expression: "h = \\sqrt{36} = 6" },
+            { verbal_explanation: "שלב 2: הבנה שרוחב החתך שווה לקוטר הבסיס.", math_expression: "D = 6" },
+            { verbal_explanation: "שלב 3: חלוקת הקוטר בשתיים למציאת הרדיוס.", math_expression: "R = 6 : 2 = 3" },
+            { verbal_explanation: "שלב 4: כתיבת משוואת הנפח עם הרדיוס והגובה.", math_expression: "V = \\pi \\times 3^{2} \\times 6" },
+            { verbal_explanation: "שלב 5: ביצוע פעולות חזקה וכפל להשלמת התרגיל.", math_expression: "V = 9\\pi \\times 6 = 54\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">40&pi; סמ\"ר</span>"
+        final_answer: "54\\pi"
     },
 
-    // שאלה 35
+    // שאלה מספר 5 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
+        subTopic: "גליל",
+        question_text: "נתונים שני גלילים. גליל א' בעל רדיוס R וגובה h. גליל ב' בעל רדיוס 2R וגובה h.&rlm;<br>א. פי כמה גדול שטח הבסיס של גליל ב' משטח הבסיס של גליל א'?&rlm;<br>ב. פי כמה גדול נפח גליל ב' מנפח גליל א'?&rlm;",
+        options: ["א. 4 | ב. 4", "א. 2 | ב. 2", "א. 2 | ב. 4", "א. 4 | ב. 8"],
+        correctAnswer: 0,
+        hint: "הכפלת הרדיוס פי 2 משפיעה על השטח ועל הנפח בריבוע (כלומר פי 4).",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הצבת הרדיוס הכפול בנוסחת שטח בסיס מול שטח בסיס רגיל.", math_expression: "k_{1} = \\dfrac{\\pi \\times (2R)^{2}}{\\pi \\times R^{2}}" },
+            { verbal_explanation: "שלב 2: פתיחת סוגריים וצמצום איברים זהים (תשובה לא').", math_expression: "k_{1} = \\dfrac{4\\pi \\times R^{2}}{\\pi \\times R^{2}} = 4" },
+            { verbal_explanation: "שלב 3: הצבת הנתונים בנוסחת יחס נפחים כשהגובה זהה.", math_expression: "k_{2} = \\dfrac{\\pi \\times (2R)^{2} \\times h}{\\pi \\times R^{2} \\times h}" },
+            { verbal_explanation: "שלב 4: צמצום הגובה ופאי חושף שיחס הנפחים זהה ליחס השטחים במקרה זה (תשובה לב').", math_expression: "k_{2} = 4" }
+        ],
+        final_answer: "א. 4 | ב. 4"
+    },
+
+    // שאלה מספר 6
+    {
+        topic: "solid_geometry_372",
+        subTopic: "גליל",
+        question_text: "מיכל גלילי מלא במים. רדיוס המיכל הוא 5 ס''מ וגובהו 8 ס''מ. מכניסים למיכל אבן ששוקעת לחלוטין, וגובה פני המים עולה ל-10 ס''מ. מהו נפח האבן?&rlm;",
+        options: ["50\\pi", "100\\pi", "25\\pi", "250\\pi"],
+        correctAnswer: 0,
+        hint: "נפח האבן שווה לנפח תוספת המים. תוספת הגובה היא 2 ס''מ (מ-8 ל-10). חוק ארכימדס קובע שנפח החפץ השוקע שווה לנפח המים שנדחקו.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב הפרש הגבהים של פני המים המייצג את נפח העצם.", math_expression: "h = 10 - 8 = 2" },
+            { verbal_explanation: "שלב 2: הצבת הגובה החדש בנוסחת הנפח הגלילי לחישוב התוספת בלבד.", math_expression: "V = \\pi \\times 5^{2} \\times 2" },
+            { verbal_explanation: "שלב 3: חזקה.", math_expression: "V = 25\\pi \\times 2" },
+            { verbal_explanation: "שלב 4: כפל.", math_expression: "V = 50\\pi" },
+            { verbal_explanation: "שלב 5: בחירת התשובה המתאימה לנפח האבן.", math_expression: "50\\pi" }
+        ],
+        final_answer: "50\\pi"
+    },
+
+    // שאלה מספר 7
+    {
+        topic: "solid_geometry_372",
+        subTopic: "גליל",
+        question_text: "קשתות מלבניות נגזרות מתוך דף נייר. למלבן יש אורך של \\( 10\\pi \\) ורוחב של 10. מקפלים את הדף לצורת מעטפת של גליל כך שהרוחב מהווה את גובה הגליל. מהו רדיוס בסיס הגליל שנוצר?&rlm;",
+        options: ["5", "10", "10\\pi", "2.5"],
+        correctAnswer: 0,
+        hint: "אורך המלבן הופך להיות היקף הבסיס של הגליל. השוו את הנוסחה של היקף מעגל לאורך המלבן וחלצו את הרדיוס.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הבנה גיאומטרית שאורך הפריסה הופך להיקף הבסיס. השוואה לנוסחת ההיקף.", math_expression: "2\\pi \\times R = 10\\pi" },
+            { verbal_explanation: "שלב 2: צמצום שני האגפים בערך פאי.", math_expression: "2 \\times R = 10" },
+            { verbal_explanation: "שלב 3: חלוקה בשתיים לבידוד הרדיוס.", math_expression: "R = 10 : 2" },
+            { verbal_explanation: "שלב 4: קבלת התשובה הנקייה.", math_expression: "R = 5" }
+        ],
+        final_answer: "5"
+    },
+
+    // שאלה מספר 8 (רב שלבית)
+    {
+        topic: "solid_geometry_372",
+        subTopic: "גליל",
+        question_text: "צינור גלילי פתוח משני צדדיו (ללא בסיסים) נצבע מבחוץ. רדיוס הצינור הוא 3 ס''מ וגובהו 20 ס''מ. עלות הצבע היא 2 שקלים לכל סמ''ר.&rlm;<br>א. מהו שטח המשטח שנצבע?&rlm;<br>ב. מהי העלות הכוללת של הצביעה?&rlm;",
+        options: ["א. 120\\pi | ב. 240\\pi", "א. 60\\pi | ב. 120\\pi", "א. 120\\pi | ב. 120\\pi", "א. 180\\pi | ב. 360\\pi"],
+        correctAnswer: 0,
+        hint: "מכיוון שהצינור פתוח משני צדדיו, המשטח הנצבע הוא רק מעטפת הגליל. העלות היא השטח כפול התעריף.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: חישוב שטח מעטפת בלבד (ללא בסיסים).", math_expression: "M = 2\\pi \\times 3 \\times 20" },
+            { verbal_explanation: "שלב 2: ביצוע הכפלות (תשובה לא').", math_expression: "M = 120\\pi" },
+            { verbal_explanation: "שלב 3: בניית פונקציית עלות המכפילה שטח במחיר ליחידה.", math_expression: "C = 120\\pi \\times 2" },
+            { verbal_explanation: "שלב 4: התוצאה לעלות הכוללת (תשובה לב').", math_expression: "C = 240\\pi" }
+        ],
+        final_answer: "א. 120\\pi | ב. 240\\pi"
+    },
+
+    // שאלה מספר 9
+    {
+        topic: "solid_geometry_372",
+        subTopic: "גליל",
+        question_text: "בגליל ישר, אורך אלכסון החתך הצירי הוא 13. קוטר בסיס הגליל הוא 5. מהו נפח הגליל?&rlm;",
+        options: ["75\\pi", "300\\pi", "37.5\\pi", "150\\pi"],
+        correctAnswer: 0,
+        hint: "בחתך הצירי נוצר משולש ישר זווית שהניצבים שלו הם קוטר הבסיס וגובה הגליל, והיתר הוא אלכסון החתך. השתמשו בפיתגורס למציאת הגובה. הרדיוס הוא חצי מהקוטר.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: שימוש בפיתגורס במלבן החתך כדי לחלץ את גובה הגליל.", math_expression: "h^{2} + 5^{2} = 13^{2}" },
+            { verbal_explanation: "שלב 2: העברת אגף וחיסור לבידוד הגובה.", math_expression: "h^{2} = 169 - 25 = 144 \\Rightarrow h = 12" },
+            { verbal_explanation: "שלב 3: מציאת הרדיוס ממדד הקוטר.", math_expression: "R = 5 : 2 = 2.5" },
+            { verbal_explanation: "שלב 4: הצבה בנוסחת נפח הגליל.", math_expression: "V = \\pi \\times (2.5)^{2} \\times 12" },
+            { verbal_explanation: "שלב 5: חישוב חזקה וכפל סופי.", math_expression: "V = \\pi \\times 6.25 \\times 12 = 75\\pi" }
+        ],
+        final_answer: "75\\pi"
+    },
+
+    // שאלה מספר 10 (רב שלבית)
+    {
+        topic: "solid_geometry_372",
+        subTopic: "גליל",
+        question_text: "גליל ישר שגובהו 10 ס''מ חסום במנסרה ריבועית (תיבה בעלת בסיס ריבוע), כך שמעגלי הבסיס של הגליל חסומים בריבועי הבסיס של המנסרה. רדיוס הגליל הוא 3 ס''מ.&rlm;<br>א. מהי אורך צלע הבסיס הריבועי של המנסרה?&rlm;<br>ב. מהו נפח המנסרה כולה?&rlm;",
+        options: ["א. 6 | ב. 360", "א. 3 | ב. 90", "א. 6 | ב. 180", "א. 12 | ב. 1440"],
+        correctAnswer: 0,
+        hint: "כאשר מעגל חסום בריבוע, קוטר המעגל שווה בדיוק לאורך צלע הריבוע. נפח המנסרה שווה לשטח הריבוע כפול הגובה.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הבנה גיאומטרית שצלע הריבוע החוסם שווה לקוטר המעגל החסום (תשובה לא').", math_expression: "a = 2 \\times 3 = 6" },
+            { verbal_explanation: "שלב 2: חישוב שטח הבסיס הריבועי.", math_expression: "S_{base} = 6^{2} = 36" },
+            { verbal_explanation: "שלב 3: הצבה בנוסחת נפח המנסרה (שטח בסיס כפול גובה).", math_expression: "V = 36 \\times 10" },
+            { verbal_explanation: "שלב 4: ביצוע הכפלה בעשר (תשובה לב').", math_expression: "V = 360" }
+        ],
+        final_answer: "א. 6 | ב. 360"
+    },
+
+    // ==========================================
+    // תת נושא 5: חרוט (10 שאלות)
+    // ==========================================
+
+    // שאלה מספר 11 (רב שלבית)
+    {
+        topic: "solid_geometry_372",
         subTopic: "חרוט",
-        question_text: `<strong>חישוב נפח חרוט (קודקוד שפיצי):</strong><br>
-        נתון חרוט שרדיוס הבסיס שלו הוא 6 ס"מ.<br>
-        הגובה האנכי של החרוט הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 150" width="100%" height="150" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <ellipse cx="100" cy="120" rx="50" ry="15" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <path d="M 50,120 L 100,20 L 150,120" fill="none" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="100" y1="20" x2="100" y2="120" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"/>
-            <text x="110" y="80" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">10</text>
-            <line x1="100" y1="120" x2="150" y2="120" stroke="#0f172a" stroke-width="2" stroke-dasharray="3,3"/>
-            <text x="125" y="135" font-family="Arial" font-size="12" font-weight="bold">6</text>
-        </svg>
-        </div>
-        מהו הנפח של החרוט?`,
-        options: [
-            "<span dir=\"rtl\">120&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">360&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">60&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">40&pi; סמ\"ק</span>"
-        ],
+        question_text: "נתון חרוט ישר שבו רדיוס הבסיס הוא 3 ס''מ, וגובה החרוט הוא 4 ס''מ.&rlm;<br>א. חשבו את אורך הקו היוצר (המקצוע הצדדי) של החרוט.&rlm;<br>ב. חשבו את נפח החרוט (עם פאי).&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 200' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><ellipse cx='100' cy='150' rx='60' ry='15' fill='#f59e0b' opacity='0.3' stroke='#f59e0b' stroke-width='2'/><path d='M 40 150 L 100 20 L 160 150' fill='none' stroke='#f59e0b' stroke-width='2'/><line x1='100' y1='20' x2='100' y2='150' stroke='#64748b' stroke-dasharray='4,4' stroke-width='2'/><line x1='100' y1='150' x2='160' y2='150' stroke='#ef4444' stroke-width='2'/><text x='125' y='145' font-size='12'>3</text><text x='85' y='95' font-size='12'>4</text></svg></div>",
+        options: ["א. 5 | ב. 12\\pi", "א. 5 | ב. 36\\pi", "א. 7 | ב. 12\\pi", "א. 25 | ב. 36\\pi"],
         correctAnswer: 0,
-        hint: "בדומה לפירמידה, ברגע שלצורה יש קודקוד עליון (שפיץ), הנוסחה מתחלקת ב-3. חשבו כאילו זה גליל (פאי כפול 6 בריבוע כפול 10) וחלקו את התוצאה ב-3.",
+        hint: "הקו היוצר, הגובה והרדיוס יוצרים משולש ישר זווית. השתמשו בפיתגורס למציאת הקו היוצר. נפח החרוט הוא שליש מנפח גליל בעל אותם ממדים.",
         solution_steps: [
-            { 
-                verbal_explanation: "חרוט שייך למשפחת צורות ה'שפיץ'. נוסחת הנפח שלו דורשת חלוקה בשלוש.", 
-                math_expression: "<div dir='ltr'>V = (&pi; &times; r<sup>2</sup> &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים המוכרים לתוך הנוסחה.", 
-                math_expression: "<div dir='ltr'>V = (&pi; &times; 6<sup>2</sup> &times; 10) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את ריבוע הרדיוס.", 
-                math_expression: "<div dir='ltr'>V = (&pi; &times; 36 &times; 10) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים במונה ונקבל שלוש מאות ושישים פאי.", 
-                math_expression: "<div dir='ltr'>V = 360&pi; / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק בשלוש ונקבל את הנפח.", 
-                math_expression: "<div dir='ltr'>V = 120&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: הפעלת משפט פיתגורס למציאת הקו היוצר המהווה יתר (תשובה לא').", math_expression: "l = \\sqrt{3^{2} + 4^{2}} = \\sqrt{9 + 16} = \\sqrt{25} = 5" },
+            { verbal_explanation: "שלב 2: כתיבת נוסחת נפח החרוט.", math_expression: "V = \\dfrac{\\pi \\times 3^{2} \\times 4}{3}" },
+            { verbal_explanation: "שלב 3: צמצום שלוש מהמונה והמכנה.", math_expression: "V = \\pi \\times 3 \\times 4" },
+            { verbal_explanation: "שלב 4: תוצאת המכפלה הסופית לנפח (תשובה לב').", math_expression: "V = 12\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">120&pi; סמ\"ק</span>"
+        final_answer: "א. 5 | ב. 12\\pi"
     },
 
-    // שאלה 36
+    // שאלה מספר 12
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "חרוט",
-        question_text: `<strong>מציאת גובה החרוט מתוך הנפח:</strong><br>
-        נפחו של חרוט הוא 100&pi; סמ"ק.<br>
-        רדיוס הבסיס הוא 5 ס"מ.<br>
-        מהו <strong>גובה</strong> החרוט?`,
-        options: [
-            "<span dir=\"rtl\">12 ס\"מ</span>",
-            "<span dir=\"rtl\">4 ס\"מ</span>",
-            "<span dir=\"rtl\">15 ס\"מ</span>",
-            "<span dir=\"rtl\">20 ס\"מ</span>"
-        ],
+        question_text: "נפחו של חרוט ישר הוא \\( 100\\pi \\) סמ''ק. גובהו של החרוט הוא 12 ס''מ. מהו רדיוס הבסיס של החרוט?&rlm;",
+        options: ["5", "10", "25", "6"],
         correctAnswer: 0,
-        hint: "בנו משוואה: 100 פאי שווה (פאי כפול 5 בריבוע כפול h) חלקי 3. בטלו את הפאי. הכפילו הכל פי 3 וקבלו 300 = 25h. פתרו למציאת הגובה.",
+        hint: "הציבו את הנתונים בנוסחת הנפח, הכפילו ב-3 (כדי להיפטר מהמכנה), צמצמו את פאי, ובודדו את הרדיוס.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את משוואת נפח החרוט עם התוצאה הנתונה.", 
-                math_expression: "<div dir='ltr'>100&pi; = (&pi; &times; 5<sup>2</sup> &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נצמצם את הפאי משני הצדדים, ונחשב את החזקה.", 
-                math_expression: "<div dir='ltr'>100 = (25 &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "כדי להיפטר מהשבר, נכפול את שני האגפים בשלוש. המאה הופך לשלוש מאות.", 
-                math_expression: "<div dir='ltr'>300 = 25 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את המשוואה ב-25 כדי לבודד את הגובה.", 
-                math_expression: "<div dir='ltr'>h = 300 / 25</div>" 
-            },
-            { 
-                verbal_explanation: "נבצע את החילוק ונמצא את גובה החרוט.", 
-                math_expression: "<div dir='ltr'>h = 12</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחת הנפח של חרוט.", math_expression: "100\\pi = \\dfrac{\\pi \\times R^{2} \\times 12}{3}" },
+            { verbal_explanation: "שלב 2: ביצוע החלוקה בשלוש באגף ימין.", math_expression: "100\\pi = \\pi \\times R^{2} \\times 4" },
+            { verbal_explanation: "שלב 3: צמצום הפאי משני צידי המשוואה.", math_expression: "100 = 4 \\times R^{2}" },
+            { verbal_explanation: "שלב 4: חלוקת המשוואה בארבע.", math_expression: "R^{2} = 25" },
+            { verbal_explanation: "שלב 5: הוצאת שורש למציאת אורך הרדיוס החיובי.", math_expression: "R = 5" }
         ],
-        final_answer: "<span dir=\"rtl\">12 ס\"מ</span>"
+        final_answer: "5"
     },
 
-    // שאלה 37
+    // שאלה מספר 13
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "חרוט",
-        question_text: `<strong>חישוב אורך הקו היוצר (פיתגורס):</strong><br>
-        בחרוט ישר, גובה החרוט הוא 4 ס"מ, ורדיוס הבסיס הוא 3 ס"מ.<br>
-        הגובה, הרדיוס, והקו המשופע בצד יוצרים משולש ישר זווית פנימי.<br>
-        מהו אורך <strong>הקו היוצר</strong> (מסומן באות l)?`,
-        options: [
-            "<span dir=\"rtl\">5 ס\"מ</span>",
-            "<span dir=\"rtl\">7 ס\"מ</span>",
-            "<span dir=\"rtl\">25 ס\"מ</span>",
-            "<span dir=\"rtl\">12 ס\"מ</span>"
-        ],
+        question_text: "בחרוט ישר, אורך הקו היוצר הוא 13 ס''מ ורדיוס הבסיס הוא 5 ס''מ. מהו גובה החרוט?&rlm;",
+        options: ["12", "18", "8", "144"],
         correctAnswer: 0,
-        hint: "זהו משולש ישר זווית מוכר. הניצבים שלו הם הגובה (4) והרדיוס (3). הקו המלוכסן הוא היתר. הפעילו את פיתגורס על 3 ו-4.",
+        hint: "השתמשו במשפט פיתגורס, כאשר הקו היוצר הוא היתר והרדיוס הוא אחד הניצבים.",
         solution_steps: [
-            { 
-                verbal_explanation: "בחרוט, גובה האמצע נופל למרכז המעגל ויוצר זווית ישרה עם הרדיוס.", 
-                math_expression: "<div dir='ltr'>h = 4 , r = 3</div>" 
-            },
-            { 
-                verbal_explanation: "הצלע המשופעת היא היתר במשולש זה ומסומנת כ-l. נשתמש בפיתגורס.", 
-                math_expression: "<div dir='ltr'>l<sup>2</sup> = h<sup>2</sup> + r<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים במשוואה.", 
-                math_expression: "<div dir='ltr'>l<sup>2</sup> = 4<sup>2</sup> + 3<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את הריבועים ונחבר: שש עשרה ועוד תשע.", 
-                math_expression: "<div dir='ltr'>l<sup>2</sup> = 16 + 9 = 25</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש כדי למצוא את האורך.", 
-                math_expression: "<div dir='ltr'>l = &radic;25 = 5</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצבת המשתנים במשוואת פיתגורס הפנימית של החרוט.", math_expression: "h^{2} + 5^{2} = 13^{2}" },
+            { verbal_explanation: "שלב 2: פיתוח החזקות.", math_expression: "h^{2} + 25 = 169" },
+            { verbal_explanation: "שלב 3: בידוד הגובה בריבוע על ידי העברת אגף בחיסור.", math_expression: "h^{2} = 169 - 25 = 144" },
+            { verbal_explanation: "שלב 4: הוצאת שורש לקבלת ערך הגובה.", math_expression: "h = \\sqrt{144} = 12" },
+            { verbal_explanation: "שלב 5: הרישום של הפתרון.", math_expression: "12" }
         ],
-        final_answer: "<span dir=\"rtl\">5 ס\"מ</span>"
+        final_answer: "12"
     },
 
-    // שאלה 38
+    // שאלה מספר 14 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "חרוט",
-        question_text: `<strong>חישוב שטח מעטפת החרוט:</strong><br>
-        יצרנו חרוט שבו: רדיוס הבסיס (r) הוא 3, ואורך הקו היוצר (l) הוא 5.<br>
-        הנוסחה לשטח המעטפת (קירות הצד) של חרוט היא: <span dir="ltr"><strong>S = &pi; &times; r &times; l</strong></span>.<br>
-        מהו שטח המעטפת של חרוט זה?`,
-        options: [
-            "<span dir=\"rtl\">15&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">12&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">30&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">45&pi; סמ\"ר</span>"
-        ],
+        question_text: "שטח הבסיס של חרוט הוא \\( 64\\pi \\). גובה החרוט הוא 6.&rlm;<br>א. מהו רדיוס הבסיס?&rlm;<br>ב. מהו אורך הקו היוצר?&rlm;",
+        options: ["א. 8 | ב. 10", "א. 64 | ב. 10", "א. 8 | ב. 14", "א. 4 | ב. 10"],
         correctAnswer: 0,
-        hint: "כל מה שצריך זה להכפיל את הרדיוס (3) בקו היוצר (5) ובפאי. זכרו שלא משתמשים כאן בגובה הרגיל של החרוט!",
+        hint: "שטח בסיס מעגלי הוא פאי כפול רדיוס בריבוע. לאחר מציאת הרדיוס, השתמשו בפיתגורס עם הגובה.",
         solution_steps: [
-            { 
-                verbal_explanation: "נרשום את הנתונים הרלוונטיים. הגובה h אינו משתתף בנוסחה זו.", 
-                math_expression: "<div dir='ltr'>r = 3 , l = 5</div>" 
-            },
-            { 
-                verbal_explanation: "נרשום את הנוסחה הייעודית לשטח הצד.", 
-                math_expression: "<div dir='ltr'>S = &pi; &times; r &times; l</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הערכים.", 
-                math_expression: "<div dir='ltr'>S = &pi; &times; 3 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "נכפול את המספרים ונשאיר את הפאי.", 
-                math_expression: "<div dir='ltr'>S = 15&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: חילוץ הרדיוס מתוך שטח המעגל הנתון (תשובה לא').", math_expression: "\\pi \\times R^{2} = 64\\pi \\Rightarrow R^{2} = 64 \\Rightarrow R = 8" },
+            { verbal_explanation: "שלב 2: בניית פיתגורס למציאת הקו היוצר במעטפת.", math_expression: "l = \\sqrt{8^{2} + 6^{2}}" },
+            { verbal_explanation: "שלב 3: חזקות.", math_expression: "l = \\sqrt{64 + 36}" },
+            { verbal_explanation: "שלב 4: סכימה.", math_expression: "l = \\sqrt{100}" },
+            { verbal_explanation: "שלב 5: קבלת אורך הקו היוצר כיתר (תשובה לב').", math_expression: "l = 10" }
         ],
-        final_answer: "<span dir=\"rtl\">15&pi; סמ\"ר</span>"
+        final_answer: "א. 8 | ב. 10"
     },
 
-    // שאלה 39
+    // שאלה מספר 15
     {
-        topic: "bagrut_35372",
-        subTopic: "גליל",
-        question_text: `<strong>היחס התאורטי בין גליל לחרוט:</strong><br>
-        לתוך כוס בצורת גליל בעלת נפח 300 סמ"ק, מכניסים צורת חרוט מפלסטיק.<br>
-        לחרוט זה יש <strong>בדיוק את אותו מעגל בסיס ואותו הגובה</strong> כמו לכוס.<br>
-        מהו הנפח של החרוט שהוכנס פנימה?`,
-        options: [
-            "<span dir=\"rtl\">100 סמ\"ק</span>",
-            "<span dir=\"rtl\">150 סמ\"ק</span>",
-            "<span dir=\"rtl\">300 סמ\"ק</span>",
-            "<span dir=\"rtl\">50 סמ\"ק</span>"
-        ],
+        topic: "solid_geometry_372",
+        subTopic: "חרוט",
+        question_text: "בחרוט ישר, הזווית שבין הקו היוצר לבין מישור הבסיס היא 60 מעלות. רדיוס הבסיס הוא 4. מהו גובה החרוט?&rlm;",
+        options: ["6.93", "8", "4.62", "2"],
         correctAnswer: 0,
-        hint: "זהו כלל הזהב התלת-מימדי. חרוט מתייחס לגליל בדיוק כפי שפירמידה מתייחסת לתיבה. חרוט תמיד מהווה בדיוק שליש מהגליל שחוסם אותו. חלקו את הנפח ב-3.",
+        hint: "הניצב מול הזווית הוא הגובה, והניצב ליד הזווית הוא הרדיוס. השתמשו בטנגנס 60 מעלות כפול 4.",
         solution_steps: [
-            { 
-                verbal_explanation: "נוסחת הנפח של גליל היא בסיס כפול גובה.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = S &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נוסחת הנפח של חרוט היא בסיס כפול גובה, לחלק בשלוש.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = (S &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "לכן, חרוט קטן פי 3 מגליל בעל אותם ממדים.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = V<sub>1</sub> / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את נפח הגליל הנתון.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 300 / 3</div>" 
-            },
-            { 
-                verbal_explanation: "התוצאה היא הנפח של צורת החרוט הפנימית.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 100</div>" 
-            }
+            { verbal_explanation: "שלב 1: הצגת הקשר הטריגונומטרי בין גובה לרדיוס.", math_expression: "\\tan(60^{\\circ}) = \\dfrac{h}{4}" },
+            { verbal_explanation: "שלב 2: הכפלת המשוואה בארבע לבידוד הגובה.", math_expression: "h = 4 \\times \\tan(60^{\\circ})" },
+            { verbal_explanation: "שלב 3: החלפת הטנגנס בערכו המספרי (שורש שלוש).", math_expression: "h = 4 \\times 1.732" },
+            { verbal_explanation: "שלב 4: ביצוע פעולת הכפל.", math_expression: "h \\approx 6.928" },
+            { verbal_explanation: "שלב 5: בחירת התשובה בקירוב.", math_expression: "6.93" }
         ],
-        final_answer: "<span dir=\"rtl\">100 סמ\"ק</span>"
+        final_answer: "6.93"
     },
 
-    // שאלה 40
+    // שאלה מספר 16 (רב שלבית)
     {
-        topic: "bagrut_35372",
-        subTopic: "גליל",
-        question_text: `<strong>השפעת הרדיוס לעומת הגובה (שאלת אתגר והבנה):</strong><br>
-        היו שני גלילים זהים לחלוטין.<br>
-        בגליל הראשון, <strong>הכפילו את הגובה פי 2</strong>.<br>
-        בגליל השני, <strong>הכפילו את הרדיוס פי 2</strong> (והשאירו את הגובה זהה).<br>
-        באיזה גליל הנפח הסופי יהיה גדול יותר?`,
-        options: [
-            "<span dir=\"rtl\">בגליל השני (זה שהרדיוס שלו הוכפל)</span>",
-            "<span dir=\"rtl\">בגליל הראשון (זה שהגובה הוכפל)</span>",
-            "<span dir=\"rtl\">בשניהם הנפח יגדל באותה מידה בדיוק</span>",
-            "<span dir=\"rtl\">לא ניתן לדעת ללא המספרים המקוריים</span>"
-        ],
+        topic: "solid_geometry_372",
+        subTopic: "חרוט",
+        question_text: "חרוט ישר חסום בתוך גליל ישר בעל אותו בסיס ואותו גובה. נפח הגליל הוא \\( 150\\pi \\).&rlm;<br>א. מהו נפח החרוט?&rlm;<br>ב. מהו נפח החלל הריק שנשאר בין החרוט לבין מעטפת הגליל?&rlm;",
+        options: ["א. 50\\pi | ב. 100\\pi", "א. 75\\pi | ב. 75\\pi", "א. 100\\pi | ב. 50\\pi", "א. 50\\pi | ב. 50\\pi"],
         correctAnswer: 0,
-        hint: "בנוסחת הנפח, הרדיוס מועלה בריבוע, ואילו הגובה לא. לכן הכפלת הגובה מכפילה את הנפח פי 2, אבל הכפלת הרדיוס מכפילה את הנפח פי 4 (שתיים בריבוע).",
+        hint: "נפח חרוט תמיד שווה לשליש מנפח גליל בעל מידות זהות. החלל הריק הוא ההפרש ביניהם (שני שליש).",
         solution_steps: [
-            { 
-                verbal_explanation: "נבחן את נוסחת הנפח. הרדיוס נמצא תחת חזקה שתיים, והגובה הוא מספר רגיל.", 
-                math_expression: "<div dir='ltr'>V = &pi; &times; r<sup>2</sup> &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "בגליל הראשון מכפילים את הגובה פי 2, לכן כל הנפח גדל פי 2 בלבד.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 2 &times; V</div>" 
-            },
-            { 
-                verbal_explanation: "בגליל השני מכפילים את הרדיוס פי 2. מכיוון שהרדיוס מועלה בריבוע, ההכפלה מועלית בריבוע גם היא.", 
-                math_expression: "<div dir='ltr'>(2r)<sup>2</sup> = 4r<sup>2</sup></div>" 
-            },
-            { 
-                verbal_explanation: "שתיים בריבוע שווה לארבע, ולכן נפח הגליל השני גדל פי 4.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 4 &times; V</div>" 
-            },
-            { 
-                verbal_explanation: "המסקנה היא ששינוי בעובי (רדיוס) משפיע על הנפח הרבה יותר מאשר שינוי באורך (גובה).", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> > V<sub>1</sub></div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח החרוט כשליש מנפח הגליל החוסם אותו (תשובה לא').", math_expression: "V_{1} = 150\\pi : 3 = 50\\pi" },
+            { verbal_explanation: "שלב 2: הגדרת החלל הריק כהפרש הנפחים של שני הגופים.", math_expression: "V_{2} = V_{total} - V_{1}" },
+            { verbal_explanation: "שלב 3: ביצוע פעולת החיסור.", math_expression: "V_{2} = 150\\pi - 50\\pi" },
+            { verbal_explanation: "שלב 4: תוצאת החלל הנותר בגליל (תשובה לב').", math_expression: "V_{2} = 100\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">בגליל השני (זה שהרדיוס שלו הוכפל)</span>"
-    },// ---------------------------------------------------------
-    // תת נושא 5: שטח פנים ונפח - בעיות שילוב (שאלות 41-50)
-    // ---------------------------------------------------------
+        final_answer: "א. 50\\pi | ב. 100\\pi"
+    },
 
-    // שאלה 41
+    // שאלה מספר 17 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
+        subTopic: "חרוט",
+        question_text: "חתך ציר של חרוט (המקביל לציר הסימטריה ועובר דרכו) יוצר משולש שווה צלעות שאורך צלעו הוא 10 ס''מ.&rlm;<br>א. מהו רדיוס הבסיס של החרוט?&rlm;<br>ב. מהו גובה החרוט?&rlm;",
+        options: ["א. 5 | ב. 8.66", "א. 10 | ב. 5", "א. 5 | ב. 10", "א. 8.66 | ב. 5"],
+        correctAnswer: 0,
+        hint: "בחתך כזה, צלע המשולש התחתונה היא הקוטר. שתי הצלעות העולות הן הקווים היוצרים. הגובה חוצה את המשולש לשני משולשים ישרי זווית.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: זיהוי אורך הקוטר כצלע המשולש המונחת בבסיס.", math_expression: "D = 10" },
+            { verbal_explanation: "שלב 2: חלוקת הקוטר בשתיים למציאת הרדיוס (תשובה לא').", math_expression: "R = 10 : 2 = 5" },
+            { verbal_explanation: "שלב 3: הפעלת משפט פיתגורס במשולש הפנימי למציאת הגובה, כאשר היתר הוא הצלע העולה (עשר).", math_expression: "h^{2} + 5^{2} = 10^{2}" },
+            { verbal_explanation: "שלב 4: בידוד הגובה.", math_expression: "h^{2} = 100 - 25 = 75" },
+            { verbal_explanation: "שלב 5: הוצאת שורש למציאת הגובה הנקי (תשובה לב').", math_expression: "h = \\sqrt{75} \\approx 8.66" }
+        ],
+        final_answer: "א. 5 | ב. 8.66"
+    },
+
+    // שאלה מספר 18
+    {
+        topic: "solid_geometry_372",
+        subTopic: "חרוט",
+        question_text: "נתונים שני חרוטים בעלי אותו גובה בדיוק. לחרוט השני יש רדיוס שגדול פי 3 מהרדיוס של החרוט הראשון. פי כמה גדול נפח החרוט השני מנפח החרוט הראשון?&rlm;",
+        options: ["9", "3", "6", "27"],
+        correctAnswer: 0,
+        hint: "הנפח תלוי ברדיוס בריבוע. אם הרדיוס גדל פי 3, הנפח יגדל פי 3 בריבוע.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: כתיבת תבנית יחס הנפחים עם הצבת הרדיוס המוגדל במקביל למקורי.", math_expression: "k = \\dfrac{\\dfrac{\\pi \\times (3R)^{2} \\times h}{3}}{\\dfrac{\\pi \\times R^{2} \\times h}{3}}" },
+            { verbal_explanation: "שלב 2: פתיחת הסוגריים בחזקה והסרת כל הגורמים המשותפים בשבר המורכב.", math_expression: "k = \\dfrac{9R^{2}}{R^{2}}" },
+            { verbal_explanation: "שלב 3: צמצום משתנה הרדיוס מותיר אותנו עם מספר טהור.", math_expression: "k = 9" },
+            { verbal_explanation: "שלב 4: המסקנה היא שהגדלת הרדיוס פי שלוש מובילה להכפלת הנפח פי תשע.", math_expression: "9" }
+        ],
+        final_answer: "9"
+    },
+
+    // שאלה מספר 19
+    {
+        topic: "solid_geometry_372",
+        subTopic: "חרוט",
+        question_text: "נוסחת שטח המעטפת של חרוט (ללא הבסיס) היא \\( S = \\pi \\times R \\times l \\), כאשר l הוא הקו היוצר. מצאו את שטח הפנים הכולל (מעטפת + בסיס) של חרוט שבו הרדיוס הוא 6 והקו היוצר הוא 10.&rlm;",
+        options: ["96\\pi", "60\\pi", "36\\pi", "120\\pi"],
+        correctAnswer: 0,
+        hint: "חשבו את שטח המעטפת בעזרת הנוסחה, וחשבו את שטח הבסיס (פאי כפול רדיוס בריבוע). חברו את התוצאות.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: הצבת הנתונים בנוסחה שניתנה כדי למצוא את שטח המעטפת.", math_expression: "M = \\pi \\times 6 \\times 10 = 60\\pi" },
+            { verbal_explanation: "שלב 2: חישוב שטח הבסיס (עיגול יחיד) שאותו מוסיפים.", math_expression: "S_{base} = \\pi \\times 6^{2} = 36\\pi" },
+            { verbal_explanation: "שלב 3: סכימת המעטפת והבסיס לקבלת שטח הפנים השלם.", math_expression: "S = 60\\pi + 36\\pi" },
+            { verbal_explanation: "שלב 4: תוצאת החיבור.", math_expression: "S = 96\\pi" },
+            { verbal_explanation: "שלב 5: בחירת התשובה הנכונה מבין החלופות.", math_expression: "96\\pi" }
+        ],
+        final_answer: "96\\pi"
+    },
+
+    // שאלה מספר 20
+    {
+        topic: "solid_geometry_372",
+        subTopic: "חרוט",
+        question_text: "מיכל בצורת חרוט הפוך (קודקוד למטה) מתרוקן ממים. רדיוס הבסיס המלא למעלה הוא 6 וגובהו המלא הוא 8. כעת גובה פני המים הוא רק 4. מהו רדיוס פני המים כעת? (השתמשו בדמיון משולשים בחתך הציר).&rlm;",
+        options: ["3", "4", "2", "6"],
+        correctAnswer: 0,
+        hint: "בחתך הציר נוצרים משולשים דומים. יחס הגבהים שווה ליחס הרדיוסים. הגובה ירד לחצי, לכן גם הרדיוס יירד לחצי.",
+        solution_steps: [
+            { verbal_explanation: "שלב 1: כתיבת משוואת הפרופורציה המבוססת על דמיון משולשים.", math_expression: "\\dfrac{r}{R} = \\dfrac{h_{1}}{h_{2}}" },
+            { verbal_explanation: "שלב 2: הצבת הנתונים הידועים למשוואה לחילוץ הרדיוס הקטן.", math_expression: "\\dfrac{r}{6} = \\dfrac{4}{8}" },
+            { verbal_explanation: "שלב 3: צמצום השבר באגף ימין לחצי.", math_expression: "\\dfrac{r}{6} = 0.5" },
+            { verbal_explanation: "שלב 4: הכפלה בשש לבידוד המשתנה.", math_expression: "r = 6 \\times 0.5" },
+            { verbal_explanation: "שלב 5: התוצאה המדויקת לרדיוס מפלס המים.", math_expression: "r = 3" }
+        ],
+        final_answer: "3"
+    },
+
+    // ==========================================
+    // תת נושא 6: שטח פנים ונפח (10 שאלות)
+    // ==========================================
+
+    // שאלה מספר 21 (רב שלבית)
+    {
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>חישוב נפח של גוף מורכב (תיבה + פירמידה):</strong><br>
-        לפניכם מבנה בצורת מגדל. החלק התחתון הוא תיבה בעלת בסיס ריבועי של 10&times;10 ס"מ וגובה 5 ס"מ.<br>
-        החלק העליון הוא פירמידה ישרה המונחת בדיוק על בסיס התיבה, וגובהה 6 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 200" width="100%" height="200" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <polygon points="40,150 120,150 160,120 80,120" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
-            <polygon points="40,150 120,150 120,180 40,180" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
-            <polygon points="120,150 160,120 160,150 120,180" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="40" y1="150" x2="100" y2="40" stroke="#ca8a04" stroke-width="2"/>
-            <line x1="120" y1="150" x2="100" y2="40" stroke="#ca8a04" stroke-width="2"/>
-            <line x1="160" y1="120" x2="100" y2="40" stroke="#ca8a04" stroke-width="2"/>
-            <line x1="80" y1="120" x2="100" y2="40" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
-            <line x1="100" y1="40" x2="100" y2="135" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
-            <text x="105" y="90" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">6</text>
-            <text x="75" y="170" font-family="Arial" font-size="12" font-weight="bold">10</text>
-            <text x="30" y="170" font-family="Arial" font-size="12" font-weight="bold">5</text>
-        </svg>
-        </div>
-        מהו <strong>הנפח הכולל</strong> של המבנה?`,
-        options: [
-            "<span dir=\"rtl\">700 סמ\"ק</span>",
-            "<span dir=\"rtl\">1100 סמ\"ק</span>",
-            "<span dir=\"rtl\">500 סמ\"ק</span>",
-            "<span dir=\"rtl\">800 סמ\"ק</span>"
-        ],
+        question_text: "נתון גוף המורכב מגליל שרדיוסו 4 וגובהו 5, ועליו מורכב חרוט שרדיוסו זהה (4) וגובהו 3.&rlm;<br>א. מהו נפח הגליל?&rlm;<br>ב. מהו הנפח הכולל של הגוף המורכב?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 250' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><ellipse cx='100' cy='200' rx='50' ry='15' fill='#3b82f6' opacity='0.2' stroke='#3b82f6' stroke-width='2'/><ellipse cx='100' cy='120' rx='50' ry='15' fill='#3b82f6' opacity='0.3' stroke='#3b82f6' stroke-width='2'/><line x1='50' y1='120' x2='50' y2='200' stroke='#3b82f6' stroke-width='2'/><line x1='150' y1='120' x2='150' y2='200' stroke='#3b82f6' stroke-width='2'/><path d='M 50 120 L 100 40 L 150 120' fill='none' stroke='#f59e0b' stroke-width='2'/><line x1='100' y1='120' x2='100' y2='40' stroke='#64748b' stroke-dasharray='4,4' stroke-width='2'/><line x1='100' y1='120' x2='150' y2='120' stroke='#ef4444' stroke-width='2'/></svg></div>",
+        options: ["א. 80\\pi | ב. 96\\pi", "א. 80\\pi | ב. 128\\pi", "א. 40\\pi | ב. 56\\pi", "א. 100\\pi | ב. 116\\pi"],
         correctAnswer: 0,
-        hint: "נפח של גוף מורכב שווה לחיבור הנפחים של חלקיו. חשבו את נפח התיבה (10 כפול 10 כפול 5). לאחר מכן, חשבו את נפח הפירמידה (10 כפול 10 כפול 6, חלקי 3). חברו את התוצאות.",
+        hint: "חשבו את נפח הגליל בנפרד, ואז הוסיפו לו את נפח החרוט (שליש שטח בסיס כפול גובה).",
         solution_steps: [
-            { 
-                verbal_explanation: "נחשב תחילה את נפח התיבה התחתונה. הנוסחה היא אורך כפול רוחב כפול גובה.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 10 &times; 10 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "מאה כפול חמש שווה חמש מאות. זהו נפח החלק התחתון.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 500</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את נפח הפירמידה העליונה. הבסיס שלה זהה לבסיס התיבה (מאה). נכפיל בגובה הפירמידה (שש) ונחלק בשלוש.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = (100 &times; 6) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "שש מאות לחלק לשלוש נותן לנו מאתיים. זהו נפח החלק העליון.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 200</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את שני הנפחים כדי למצוא את הנפח הכולל של הגוף.", 
-                math_expression: "<div dir='ltr'>V = 500 + 200 = 700</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח החלק הגלילי התחתון (תשובה לא').", math_expression: "V_{1} = \\pi \\times 4^{2} \\times 5 = 16\\pi \\times 5 = 80\\pi" },
+            { verbal_explanation: "שלב 2: חישוב נפח החלק החרוטי העליון.", math_expression: "V_{2} = \\dfrac{\\pi \\times 4^{2} \\times 3}{3} = 16\\pi" },
+            { verbal_explanation: "שלב 3: סכימת שני הנפחים לקבלת נפח הגוף המורכב השלם.", math_expression: "V = V_{1} + V_{2}" },
+            { verbal_explanation: "שלב 4: חיבור המקדמים של פאי (תשובה לב').", math_expression: "V = 80\\pi + 16\\pi = 96\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">700 סמ\"ק</span>"
+        final_answer: "א. 80\\pi | ב. 96\\pi"
     },
 
-    // שאלה 42
+    // שאלה מספר 22
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>מציאת שטח פנים מתוך נפח (שאלה דו-שלבית):</strong><br>
-        נתונה קובייה שהנפח שלה הוא בדיוק 1,000 סמ"ק.<br>
-        מהו <strong>שטח הפנים</strong> הכולל של קובייה זו?`,
-        options: [
-            "<span dir=\"rtl\">600 סמ\"ר</span>",
-            "<span dir=\"rtl\">100 סמ\"ר</span>",
-            "<span dir=\"rtl\">10,000 סמ\"ר</span>",
-            "<span dir=\"rtl\">6,000 סמ\"ר</span>"
-        ],
+        question_text: "תיבה עשויה עץ שמידותיה הן 5 על 5 על 10 ס''מ. קדחו חור גלילי חלול לאורך התיבה כולה, מרצפה לתקרה (גובה 10). רדיוס החור הוא 2. מהו נפח העץ שנשאר בתיבה?&rlm;",
+        options: ["250 - 40\\pi", "250 - 20\\pi", "250 - 10\\pi", "125 - 40\\pi"],
         correctAnswer: 0,
-        hint: "שלב א': מצאו את אורך המקצוע. איזה מספר בחזקת 3 נותן 1000? (זה 10). שלב ב': חשבו את שטח הפנים. לקובייה יש 6 פאות, כל אחת מהן ריבוע של 10 כפול 10.",
+        hint: "חשבו את הנפח המקורי של התיבה השלמה, והחסירו ממנו את הנפח של הגליל שנקדח והוצא החוצה.",
         solution_steps: [
-            { 
-                verbal_explanation: "כדי למצוא את שטח הפנים, עלינו לדעת קודם את אורך הצלע של הקובייה. ניעזר בנפח הנתון.", 
-                math_expression: "<div dir='ltr'>V = a<sup>3</sup> = 1000</div>" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש שלישי מאלף כדי למצוא את הצלע.", 
-                math_expression: "<div dir='ltr'>a = <sup>3</sup>&radic;1000 = 10</div>" 
-            },
-            { 
-                verbal_explanation: "הצלע היא עשר. כעת נחשב את שטחה של פאה אחת ריבועית.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 10 &times; 10 = 100</div>" 
-            },
-            { 
-                verbal_explanation: "לקובייה יש שש פאות זהות. נכפיל את שטח הפאה בשש.", 
-                math_expression: "<div dir='ltr'>S = 6 &times; 100</div>" 
-            },
-            { 
-                verbal_explanation: "נקבל את שטח הפנים הכולל.", 
-                math_expression: "<div dir='ltr'>S = 600</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח התיבה המלאה לפני הקידוח.", math_expression: "V_{1} = 5 \\times 5 \\times 10 = 250" },
+            { verbal_explanation: "שלב 2: חישוב נפח הגליל הריק שיצרו הקידוח.", math_expression: "V_{2} = \\pi \\times 2^{2} \\times 10 = 40\\pi" },
+            { verbal_explanation: "שלב 3: כתיבת ביטוי להפרש המייצג את החומר שנותר.", math_expression: "V = V_{1} - V_{2}" },
+            { verbal_explanation: "שלב 4: הצבת הערכים במשוואת ההפרש.", math_expression: "V = 250 - 40\\pi" },
+            { verbal_explanation: "שלב 5: התשובה הישירה בחלופות מכיוון שלא ניתן לצמצם יותר מבלי להמיר לעשרוני.", math_expression: "250 - 40\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">600 סמ\"ר</span>"
+        final_answer: "250 - 40\\pi"
     },
 
-    // שאלה 43
+    // שאלה מספר 23 (רב שלבית)
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>התכת צורות (שמירה על נפח):</strong><br>
-        התיכו (המיסו) גוש מתכת בצורת תיבה שמידותיה הן 10 ס"מ &times; 4 ס"מ &times; 5 ס"מ.<br>
-        מהחומר הנוזלי יצקו תיבה חדשה, בעלת בסיס ריבועי של 10 ס"מ &times; 10 ס"מ.<br>
-        מה יהיה <strong>הגובה</strong> של התיבה החדשה שנוצרה?`,
-        options: [
-            "<span dir=\"rtl\">2 ס\"מ</span>",
-            "<span dir=\"rtl\">5 ס\"מ</span>",
-            "<span dir=\"rtl\">4 ס\"מ</span>",
-            "<span dir=\"rtl\">10 ס\"מ</span>"
-        ],
+        question_text: "מעל קובייה בעלת מקצוע 6 ס''מ, הוצבה פירמידה ישרה שבסיסה זהה לבסיס הקובייה וגובהה 4 ס''מ.&rlm;<br>א. מהו נפח הפירמידה העליונה בלבד?&rlm;<br>ב. מהו הנפח הכולל של הגוף המשולב?&rlm;",
+        options: ["א. 48 | ב. 264", "א. 144 | ב. 360", "א. 48 | ב. 216", "א. 72 | ב. 288"],
         correctAnswer: 0,
-        hint: "כאשר מתיכים גוף ויוצרים גוף חדש, הנפח של החומר נשאר בדיוק אותו הדבר! חשבו את נפח התיבה הישנה, והשוו אותו לנוסחת הנפח של התיבה החדשה כדי לחלץ את הגובה.",
+        hint: "נפח הקובייה הוא 6 בשלישית. נפח הפירמידה הוא (6 כפול 6 כפול 4) לחלק ל-3.",
         solution_steps: [
-            { 
-                verbal_explanation: "חוק שימור החומר: הנפח של התיבה הישנה חייב להיות שווה לנפח התיבה החדשה.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = V<sub>2</sub></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את נפח התיבה הישנה בעזרת הממדים הנתונים.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 10 &times; 4 &times; 5 = 200</div>" 
-            },
-            { 
-                verbal_explanation: "נרשום את משוואת הנפח עבור התיבה החדשה. הבסיס שלה הוא עשר על עשר, והגובה חסר.", 
-                math_expression: "<div dir='ltr'>200 = 10 &times; 10 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח הבסיס החדש.", 
-                math_expression: "<div dir='ltr'>200 = 100 &times; h</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק את הנפח בשטח הבסיס החדש כדי לגלות לאיזה גובה יגיע החומר.", 
-                math_expression: "<div dir='ltr'>h = 200 / 100 = 2</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח הפירמידה העליונה (תשובה לא').", math_expression: "V_{1} = \\dfrac{6^{2} \\times 4}{3} = \\dfrac{36 \\times 4}{3} = 12 \\times 4 = 48" },
+            { verbal_explanation: "שלב 2: חישוב נפח הקובייה התחתונה.", math_expression: "V_{2} = 6^{3} = 216" },
+            { verbal_explanation: "שלב 3: סכימת שני החלקים ליצירת הגוף המלא.", math_expression: "V = V_{1} + V_{2}" },
+            { verbal_explanation: "שלב 4: פעולת חיבור פשוטה.", math_expression: "V = 48 + 216" },
+            { verbal_explanation: "שלב 5: קבלת הנפח הכולל (תשובה לב').", math_expression: "V = 264" }
         ],
-        final_answer: "<span dir=\"rtl\">2 ס\"מ</span>"
+        final_answer: "א. 48 | ב. 264"
     },
 
-    // שאלה 44
+    // שאלה מספר 24
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>חישוב נפח של צינור חלול (גליל בתוך גליל):</strong><br>
-        לפניכם צינור בצורת גליל. רדיוסו החיצוני (כולל דופן הצינור) הוא 5 ס"מ.<br>
-        הצינור חלול מבפנים, והרדיוס הפנימי של החלל הוא 3 ס"מ.<br>
-        גובה הצינור הוא 10 ס"מ.<br>
-        <div style="text-align:center; margin-top:15px; margin-bottom:15px;">
-        <svg viewBox="0 0 200 150" width="100%" height="150" style="max-width:200px; background:#ffffff; border:1px solid #e2e8f0; border-radius:8px;">
-            <ellipse cx="100" cy="120" rx="60" ry="20" fill="rgba(148,163,184,0.5)" stroke="#64748b" stroke-width="2"/>
-            <ellipse cx="100" cy="30" rx="60" ry="20" fill="none" stroke="#64748b" stroke-width="2"/>
-            <line x1="40" y1="30" x2="40" y2="120" stroke="#64748b" stroke-width="2"/>
-            <line x1="160" y1="30" x2="160" y2="120" stroke="#64748b" stroke-width="2"/>
-            <ellipse cx="100" cy="30" rx="35" ry="10" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
-            <ellipse cx="100" cy="120" rx="35" ry="10" fill="#ffffff" stroke="#64748b" stroke-width="2" stroke-dasharray="2,2"/>
-            <line x1="100" y1="30" x2="160" y2="30" stroke="#ef4444" stroke-width="2"/>
-            <line x1="100" y1="30" x2="135" y2="30" stroke="#0f172a" stroke-width="2"/>
-            <text x="145" y="25" font-family="Arial" font-size="12" font-weight="bold" fill="#ef4444">5</text>
-            <text x="115" y="45" font-family="Arial" font-size="12" font-weight="bold">3</text>
-        </svg>
-        </div>
-        מהו <strong>נפח החומר (הדופן)</strong> ממנו עשוי הצינור?`,
-        options: [
-            "<span dir=\"rtl\">160&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">250&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">90&pi; סמ\"ק</span>",
-            "<span dir=\"rtl\">340&pi; סמ\"ק</span>"
-        ],
+        question_text: "נתונים שני גופים דומים תלת-ממדיים. יחס הצלעות (יחס הדמיון הקווי) ביניהם הוא 2. מה יהיה היחס בין שטחי הפנים שלהם, ומה יהיה היחס בין הנפחים שלהם?&rlm;",
+        options: ["שטח: 4, נפח: 8", "שטח: 2, נפח: 4", "שטח: 4, נפח: 6", "שטח: 8, נפח: 4"],
         correctAnswer: 0,
-        hint: "הדרך לחשב נפח של גוף חלול היא לחשב את הנפח של הגוף המלא (הגדול), ואז להחסיר (להפחית) ממנו את הנפח של החלל הפנימי (הגוף הקטן).",
+        hint: "יחס השטחים שווה לריבוע יחס הצלעות. יחס הנפחים שווה לחזקה שלישית של יחס הצלעות.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחשב תחילה את הנפח של הגליל החיצוני הגדול כאילו היה אטום לגמרי. הרדיוס הגדול הוא 5.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = &pi; &times; 5<sup>2</sup> &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "חמש בריבוע זה 25. כפול עשר שווה מאתיים וחמישים פאי.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 250&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "כעת נחשב את נפח האוויר בפנים (החלל). זהו גליל קטן יותר עם רדיוס 3 וגובה זהה.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = &pi; &times; 3<sup>2</sup> &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "שלוש בריבוע זה 9. כפול עשר שווה תשעים פאי.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 90&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "כדי למצוא את נפח דופן הצינור עצמו, נחסר את החלל מהגליל השלם.", 
-                math_expression: "<div dir='ltr'>V = 250&pi; - 90&pi; = 160&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: זיהוי הכלל לפיו יחס השטחים הוא ריבוע יחס הדמיון.", math_expression: "k_{S} = 2^{2}" },
+            { verbal_explanation: "שלב 2: חישוב יחס השטחים.", math_expression: "k_{S} = 4" },
+            { verbal_explanation: "שלב 3: זיהוי הכלל לפיו יחס הנפחים הוא חזקה שלישית של יחס הדמיון.", math_expression: "k_{V} = 2^{3}" },
+            { verbal_explanation: "שלב 4: חישוב יחס הנפחים.", math_expression: "k_{V} = 8" },
+            { verbal_explanation: "שלב 5: שילוב שתי התשובות.", math_expression: "4 \\quad , \\quad 8" }
         ],
-        final_answer: "<span dir=\"rtl\">160&pi; סמ\"ק</span>"
+        final_answer: "שטח: 4, נפח: 8"
     },
 
-    // שאלה 45
+    // שאלה מספר 25
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>שטח פנים של כוס גלילית (גליל ללא מכסה):</strong><br>
-        מייצרים כוסות שתייה בצורת גליל. לכוס יש תחתית (בסיס אחד) ודופן עגולה, אך <strong>אין לה מכסה עליון</strong>.<br>
-        רדיוס בסיס הכוס הוא 5 ס"מ, וגובהה הוא 10 ס"מ.<br>
-        כמה חומר (בסמ"ר) נדרש כדי לייצר כוס אחת?`,
-        options: [
-            "<span dir=\"rtl\">125&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">150&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">100&pi; סמ\"ר</span>",
-            "<span dir=\"rtl\">25&pi; סמ\"ר</span>"
-        ],
+        question_text: "אם מגדילים את כל ממדי התיבה (אורך, רוחב וגובה) פי 2, פי כמה יגדל הנפח הכולל שלה?&rlm;",
+        options: ["פי 8", "פי 2", "פי 4", "פי 6"],
         correctAnswer: 0,
-        hint: "החומר הנדרש שווה לשטח הבסיס התחתון בלבד (פאי כפול r בריבוע) פלוס שטח המעטפת (2 כפול פאי כפול r כפול h). אל תכפילו את הבסיס ב-2 כי אין מכסה עליון!",
+        hint: "מכיוון שהנפח מחושב על ידי הכפלת כל שלושת הממדים יחד (2 כפול 2 כפול 2).",
         solution_steps: [
-            { 
-                verbal_explanation: "הכוס בנויה משני חלקים: עיגול אחד שמשמש כרצפה (בסיס תחתון), ודופן מעוגלת שעוטפת את הצדדים. אין מכסה.", 
-                math_expression: "<div dir='ltr'>S = S<sub>base</sub> + S<sub>side</sub></div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח הרצפה העגולה. פאי כפול הרדיוס בריבוע.", 
-                math_expression: "<div dir='ltr'>S<sub>base</sub> = &pi; &times; 5<sup>2</sup> = 25&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח דופן הצד (המעטפת). הנוסחה היא שתיים כפול פאי כפול רדיוס כפול גובה.", 
-                math_expression: "<div dir='ltr'>S<sub>side</sub> = 2 &times; &pi; &times; 5 &times; 10</div>" 
-            },
-            { 
-                verbal_explanation: "שתיים כפול חמש כפול עשר נותן מאה.", 
-                math_expression: "<div dir='ltr'>S<sub>side</sub> = 100&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "נחבר את רצפת הכוס למעטפת הכוס כדי לקבל את כמות החומר הדרושה.", 
-                math_expression: "<div dir='ltr'>S = 25&pi; + 100&pi; = 125&pi;</div>" 
-            }
+            { verbal_explanation: "שלב 1: הגדרת הנפח המקורי עם ממדים אלגבריים.", math_expression: "V_{1} = x \\times y \\times z" },
+            { verbal_explanation: "שלב 2: הגדרת הנפח החדש שבו כל ממד הוכפל בשניים.", math_expression: "V_{2} = (2x) \\times (2y) \\times (2z)" },
+            { verbal_explanation: "שלב 3: סידור המכפלה והוצאת המקדמים החוצה.", math_expression: "V_{2} = 8 \\times (x \\times y \\times z)" },
+            { verbal_explanation: "שלב 4: השוואת הנפח החדש לישן מציגה הכפלה פי שמונה.", math_expression: "V_{2} = 8 \\times V_{1}" },
+            { verbal_explanation: "שלב 5: המסקנה.", math_expression: "8" }
         ],
-        final_answer: "<span dir=\"rtl\">125&pi; סמ\"ר</span>"
+        final_answer: "פי 8"
     },
 
-    // שאלה 46
+    // שאלה מספר 26
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>העברת נוזלים בין גופים שונים (גליל לכוסיות חרוט):</strong><br>
-        בתוך כלי גדול בצורת גליל נמצאים <strong>160&pi; סמ"ק</strong> של מיץ.<br>
-        מוזגים את המיץ לתוך כוסות קטנות בצורת <strong>חרוט</strong>.<br>
-        לכל כוסית חרוט יש רדיוס של 2 ס"מ וגובה של 3 ס"מ.<br>
-        כמה כוסות חרוט מלאות ניתן למזוג מהכלי הגדול?`,
-        options: [
-            "<span dir=\"rtl\">40 כוסות</span>",
-            "<span dir=\"rtl\">20 כוסות</span>",
-            "<span dir=\"rtl\">60 כוסות</span>",
-            "<span dir=\"rtl\">80 כוסות</span>"
-        ],
+        question_text: "במנסרה משולשת, הבסיס הוא משולש ישר זווית שניצביו הם 3 ו-4. גובה המנסרה הוא 10. מהו נפח המנסרה?&rlm;",
+        options: ["60", "120", "50", "30"],
         correctAnswer: 0,
-        hint: "קודם כל, חשבו את הנפח של כוסית חרוט אחת בעזרת הנוסחה: (פאי כפול r בריבוע כפול h) חלקי 3. לאחר שמצאתם את הנפח של כוסית אחת, חלקו את הנפח הגוללי של המיץ בנפח של כוסית אחת.",
+        hint: "נפח מנסרה הוא שטח הבסיס כפול הגובה. חשבו את שטח המשולש שמהווה את הבסיס (ניצב כפול ניצב חלקי 2) והכפילו ב-10.",
         solution_steps: [
-            { 
-                verbal_explanation: "כדי לדעת כמה כוסות נמלא, עלינו לדעת מה הקיבולת (נפח) של כוסית חרוט בודדת.", 
-                math_expression: "<div dir='ltr'>V<sub>cone</sub> = (&pi; &times; r<sup>2</sup> &times; h) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נציב את הנתונים של הכוסית הקטנה (רדיוס שתיים וגובה שלוש).", 
-                math_expression: "<div dir='ltr'>V<sub>cone</sub> = (&pi; &times; 2<sup>2</sup> &times; 3) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את המונה: ארבע כפול שלוש שווה שנים עשר. שנים עשר חלקי שלוש נותן ארבע.", 
-                math_expression: "<div dir='ltr'>V<sub>cone</sub> = 12&pi; / 3 = 4&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "כעת, נחלק את כל כמות המיץ שיש לנו בקיבולת של כוסית אחת.", 
-                math_expression: "<div dir='ltr'>n = 160&pi; / 4&pi;</div>" 
-            },
-            { 
-                verbal_explanation: "הפאי מצטמצם, ומאה שישים חלקי ארבע שווה ארבעים. לכן יתמלאו ארבעים כוסות.", 
-                math_expression: "<div dir='ltr'>n = 40</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב שטח בסיס המנסרה שהוא משולש ישר זווית.", math_expression: "S_{base} = \\dfrac{3 \\times 4}{2}" },
+            { verbal_explanation: "שלב 2: תוצאת שטח הבסיס.", math_expression: "S_{base} = 6" },
+            { verbal_explanation: "שלב 3: הכפלת שטח הבסיס בגובה המנסרה.", math_expression: "V = 6 \\times 10" },
+            { verbal_explanation: "שלב 4: תוצאת הכפל.", math_expression: "V = 60" },
+            { verbal_explanation: "שלב 5: בחירת התשובה הנכונה.", math_expression: "60" }
         ],
-        final_answer: "<span dir=\"rtl\">40 כוסות</span>"
+        final_answer: "60"
     },
 
-    // שאלה 47
+    // שאלה מספר 27
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>מציאת גובה חסר מתוך שטח פנים (אלגברה בתיבה):</strong><br>
-        שטח הפנים המלא של תיבה הוא 112 סמ"ר.<br>
-        הבסיס של התיבה הוא ריבוע שאורך צלעותיו הוא 4 ס"מ (אורך=4, רוחב=4).<br>
-        מהו <strong>הגובה</strong> של תיבה זו?`,
-        options: [
-            "<span dir=\"rtl\">5 ס\"מ</span>",
-            "<span dir=\"rtl\">4 ס\"מ</span>",
-            "<span dir=\"rtl\">8 ס\"מ</span>",
-            "<span dir=\"rtl\">10 ס\"מ</span>"
-        ],
+        question_text: "בריכת שחייה מלבנית שמידותיה 20 מטר על 10 מטר אינה עמוקה בצורה שווה: עומקה גדל בהדרגה מ-1 מטר בצד אחד ל-3 מטרים בצד הנגדי. מהו נפח המים בבריכה זו (במטר מעוקב)?&rlm;",
+        options: ["400", "600", "200", "300"],
         correctAnswer: 0,
-        hint: "בנו משוואת שטח פנים. יש לכם שני בסיסים ריבועיים (שטח כל אחד הוא 16), וארבע פאות צדדיות שהן מלבנים (שטח כל אחד הוא 4 כפול h). חברו הכל והשוו ל-112. פתרו את המשוואה לחילוץ הגובה.",
+        hint: "זהו גוף בצורת מנסרה שהבסיס שלה הוא טרפז. חשבו את שטח הטרפז (ממוצע הבסיסים 1 ו-3 כפול האורך 20), והכפילו ברוחב הבריכה (10). או פשוט חשבו נפח לפי ממוצע העומקים: (1+3)/2.",
         solution_steps: [
-            { 
-                verbal_explanation: "בתיבה עם בסיס ריבועי, שני הבסיסים (תקרה ורצפה) זהים בשטחם. שטח בסיס אחד הוא ארבע כפול ארבע.", 
-                math_expression: "<div dir='ltr'>2 &times; (4 &times; 4) = 32</div>" 
-            },
-            { 
-                verbal_explanation: "ארבעת קירות הצד (המעטפת) זהים לחלוטין. שטח של קיר אחד הוא רוחב הבסיס (4) כפול הגובה הלא ידוע (h).", 
-                math_expression: "<div dir='ltr'>4 &times; (4 &times; h) = 16h</div>" 
-            },
-            { 
-                verbal_explanation: "סך הכל שטח הפנים הוא חיבור של הבסיסים והמעטפת. נשווה את זה לנתון בשאלה (112).", 
-                math_expression: "<div dir='ltr'>32 + 16h = 112</div>" 
-            },
-            { 
-                verbal_explanation: "נעביר את 32 לאגף ימין ונחסר אותו.", 
-                math_expression: "<div dir='ltr'>16h = 112 - 32 = 80</div>" 
-            },
-            { 
-                verbal_explanation: "נחלק בשש עשרה כדי למצוא את הגובה.", 
-                math_expression: "<div dir='ltr'>h = 80 / 16 = 5</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב העומק הממוצע של הבריכה.", math_expression: "h = \\dfrac{1 + 3}{2} = 2" },
+            { verbal_explanation: "שלב 2: שילוב העומק הממוצע בנוסחת נפח רגילה של תיבה.", math_expression: "V = 20 \\times 10 \\times 2" },
+            { verbal_explanation: "שלב 3: ביצוע כפל של הרוחב באורך.", math_expression: "V = 200 \\times 2" },
+            { verbal_explanation: "שלב 4: הכפלה סופית למציאת הנפח הכולל.", math_expression: "V = 400" },
+            { verbal_explanation: "שלב 5: התשובה הדרושה.", math_expression: "400" }
         ],
-        final_answer: "<span dir=\"rtl\">5 ס\"מ</span>"
+        final_answer: "400"
     },
 
-    // שאלה 48
+    // שאלה מספר 28
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>ההשפעה של הכפלת כל הממדים על שטח פנים:</strong><br>
-        קובייה אחת גדולה פי 2 בכל ממדיה (אורך, רוחב וגובה) מקובייה שנייה קטנה יותר.<br>
-        בכמה גדול <strong>שטח הפנים</strong> של הקובייה הגדולה לעומת שטח הפנים של הקטנה?`,
-        options: [
-            "<span dir=\"rtl\">גדול פי 4</span>",
-            "<span dir=\"rtl\">גדול פי 2</span>",
-            "<span dir=\"rtl\">גדול פי 8</span>",
-            "<span dir=\"rtl\">גדול פי 6</span>"
-        ],
+        question_text: "גליל מתכת ברדיוס 2 וגובה 9 מותך (מומס) כולו ונוצק מחדש לצורת תיבה בעלת בסיס מלבני שמידותיו 3 על 4. מה יהיה גובה התיבה החדשה שנוצרה?&rlm;",
+        options: ["3\\pi", "6\\pi", "9\\pi", "12\\pi"],
         correctAnswer: 0,
-        hint: "שימו לב: שואלים על *שטח פנים*, לא על נפח! שטח הוא גודל דו-מימדי. מכיוון שמחשבים אותו על ידי הכפלת צלע בצלע, אם כל צלע הוכפלה ב-2, השטח מוכפל ב-2 כפול 2 (כלומר פי 4).",
+        hint: "נפח החומר נשמר בעת ההתכה. חשבו את נפח הגליל, והשוו אותו לנוסחת נפח התיבה (3 כפול 4 כפול הגובה) כדי לחלץ את הגובה החדש.",
         solution_steps: [
-            { 
-                verbal_explanation: "נמציא קובייה קטנה שאורך צלעה 1. שטח הפנים שלה מורכב משש פאות ששטח כל אחת מהן הוא 1 כפול 1.", 
-                math_expression: "<div dir='ltr'>S<sub>1</sub> = 6 &times; 1<sup>2</sup> = 6</div>" 
-            },
-            { 
-                verbal_explanation: "הקובייה הגדולה עברה הכפלה של כל הממדים, ולכן אורך צלעה הוא 2.", 
-                math_expression: "<div dir='ltr'>a = 2</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב את שטח הפנים של הקובייה הגדולה. יש לה 6 פאות ששטח כל אחת הוא 2 כפול 2 (שזה 4).", 
-                math_expression: "<div dir='ltr'>S<sub>2</sub> = 6 &times; 2<sup>2</sup> = 6 &times; 4 = 24</div>" 
-            },
-            { 
-                verbal_explanation: "השטח המקורי היה 6, והשטח החדש הוא 24. נבדוק פי כמה הוא גדל על ידי חלוקה.", 
-                math_expression: "<div dir='ltr'>24 / 6 = 4</div>" 
-            },
-            { 
-                verbal_explanation: "כלל מתמטי: כאשר מגדילים צורה פי X, שטח הפנים שלה יגדל פי X בריבוע.", 
-                math_expression: "<div dir='ltr'>2<sup>2</sup> = 4</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח הגליל ההתחלתי.", math_expression: "V = \\pi \\times 2^{2} \\times 9" },
+            { verbal_explanation: "שלב 2: קבלת הנפח תוך שמירה על פאי.", math_expression: "V = 36\\pi" },
+            { verbal_explanation: "שלב 3: בניית משוואת נפח לתיבה עם הנתון החדש.", math_expression: "3 \\times 4 \\times h = 36\\pi" },
+            { verbal_explanation: "שלב 4: פישוט המשוואה לחלוקה.", math_expression: "12 \\times h = 36\\pi" },
+            { verbal_explanation: "שלב 5: חלוקת שני האגפים בשתים עשרה לבידוד הגובה.", math_expression: "h = 3\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">גדול פי 4</span>"
+        final_answer: "3\\pi"
     },
 
-    // שאלה 49
+    // שאלה מספר 29
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>חישוב נפח של גוף חלול עם נקב מרובע:</strong><br>
-        לפניכם קובייה שאורך מקצועה הוא 5 ס"מ.<br>
-        קדחו בקובייה חור (תעלה חלולה) העובר מצידה העליון עד לצידה התחתון.<br>
-        צורת החור היא תיבה בעלת בסיס של 1&times;1 ס"מ, שגובהה שווה לגובה הקובייה.<br>
-        מהו הנפח של <strong>החומר הנותר</strong> בקובייה לאחר הקידוח?`,
-        options: [
-            "<span dir=\"rtl\">120 סמ\"ק</span>",
-            "<span dir=\"rtl\">124 סמ\"ק</span>",
-            "<span dir=\"rtl\">115 סמ\"ק</span>",
-            "<span dir=\"rtl\">100 סמ\"ק</span>"
-        ],
+        question_text: "צינור גלילי חלול פתוח משני קצותיו. רדיוסו הוא 5 וגובהו 20. רוצים לצבוע את מעטפת הצינור החיצונית. עלות הצבע היא 2 שקלים לכל יחידת שטח. מה תהיה העלות הכוללת?&rlm;",
+        options: ["400\\pi", "200\\pi", "100\\pi", "800\\pi"],
         correctAnswer: 0,
-        hint: "חשבו את הנפח של הקובייה השלמה (לפני הקידוח). לאחר מכן, חשבו את הנפח של ה'אוויר' שנמצא בתוך התעלה (זו למעשה תיבה קטנה שמידותיה הן 1 כפול 1 כפול 5). החסירו את החלל מהקובייה השלמה.",
+        hint: "משום שהצינור פתוח, מחשבים רק את שטח המעטפת (2 כפול פאי כפול רדיוס כפול גובה), ולאחר מכן מכפילים בתעריף הצבע.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחשב תחילה את הנפח של הקובייה השלמה והמלאה (5 בחזקת 3).", 
-                math_expression: "<div dir='ltr'>V<sub>cube</sub> = 5 &times; 5 &times; 5 = 125</div>" 
-            },
-            { 
-                verbal_explanation: "התעלה שנקדחה יוצרת חלל בצורת תיבה צרה וארוכה. נחשב את נפחה. מידותיה הן אורך ורוחב של 1, וגובה של 5 (שחוצה את כל הקובייה).", 
-                math_expression: "<div dir='ltr'>V<sub>hole</sub> = 1 &times; 1 &times; 5 = 5</div>" 
-            },
-            { 
-                verbal_explanation: "כדי לגלות כמה חומר נותר במבנה, נחסר את נפח האוויר (החור) מתוך נפח הקובייה הכולל.", 
-                math_expression: "<div dir='ltr'>V = 125 - 5</div>" 
-            },
-            { 
-                verbal_explanation: "התוצאה היא הנפח הפעיל של הגוף החדש.", 
-                math_expression: "<div dir='ltr'>V = 120</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב שטח המעטפת של הצינור החלול (ללא בסיסים).", math_expression: "M = 2\\pi \\times 5 \\times 20" },
+            { verbal_explanation: "שלב 2: ביצוע הכפלות של המספרים השלמים.", math_expression: "M = 200\\pi" },
+            { verbal_explanation: "שלב 3: בניית פונקציית עלות באמצעות הכפלת השטח במחיר לכל יחידה.", math_expression: "C = 200\\pi \\times 2" },
+            { verbal_explanation: "שלב 4: קבלת העלות הכוללת לצביעת המשטח.", math_expression: "C = 400\\pi" },
+            { verbal_explanation: "שלב 5: התשובה הישירה להזנה.", math_expression: "400\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">120 סמ\"ק</span>"
+        final_answer: "400\\pi"
     },
 
-    // שאלה 50
+    // שאלה מספר 30
     {
-        topic: "bagrut_35372",
+        topic: "solid_geometry_372",
         subTopic: "שטח פנים ונפח",
-        question_text: `<strong>יחס בין נפחים: פירמידה ותיבה עם שינויים:</strong><br>
-        נתונה פירמידה בעלת בסיס ריבועי של 6&times;6 ס"מ וגובה של 10 ס"מ.<br>
-        נתונה גם תיבה בעלת אותו בסיס ריבועי של 6&times;6 ס"מ, אך הגובה של התיבה הוא <strong>רק 5 ס"מ</strong> (חצי מגובה הפירמידה).<br>
-        מהו ההפרש (בסמ"ק) בין נפח התיבה לנפח הפירמידה?`,
-        options: [
-            "<span dir=\"rtl\">60 סמ\"ק (התיבה גדולה יותר)</span>",
-            "<span dir=\"rtl\">60 סמ\"ק (הפירמידה גדולה יותר)</span>",
-            "<span dir=\"rtl\">120 סמ\"ק (התיבה גדולה יותר)</span>",
-            "<span dir=\"rtl\">הנפחים שלהם שווים לגמרי</span>"
-        ],
+        question_text: "חברת אריזות בונה גוף המורכב מתיבה שעליה מונח גליל קטן. ממדי התיבה: 10 ס''מ, 10 ס''מ, וגובה 5 ס''מ. רדיוס הגליל 3 ס''מ וגובהו 4 ס''מ. מהו הנפח הכולל של המארז?&rlm;",
+        options: ["500 + 36\\pi", "500 + 12\\pi", "250 + 36\\pi", "200 + 36\\pi"],
         correctAnswer: 0,
-        hint: "אל תנחשו, פשוט חשבו כל אחד בנפרד! נפח התיבה: 6 כפול 6 כפול 5. נפח הפירמידה: (6 כפול 6 כפול 10) חלקי 3. לאחר שחישבתם, החסירו את הקטן מהגדול.",
+        hint: "חשבו את הנפח של שני הגופים בנפרד וחברו אותם יחד.",
         solution_steps: [
-            { 
-                verbal_explanation: "נחשב את הנפח של התיבה לפי הממדים הנתונים לה.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 6 &times; 6 &times; 5</div>" 
-            },
-            { 
-                verbal_explanation: "מאה ושמונים זהו הנפח של התיבה.", 
-                math_expression: "<div dir='ltr'>V<sub>1</sub> = 180</div>" 
-            },
-            { 
-                verbal_explanation: "נחשב כעת את נפח הפירמידה. הבסיס אותו בסיס, אך הגובה כפול ויש לחלק בשלוש.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = (6 &times; 6 &times; 10) / 3</div>" 
-            },
-            { 
-                verbal_explanation: "שלוש מאות ושישים לחלק לשלוש נותן מאה ועשרים. זהו נפח הפירמידה.", 
-                math_expression: "<div dir='ltr'>V<sub>2</sub> = 360 / 3 = 120</div>" 
-            },
-            { 
-                verbal_explanation: "התיבה בעלת הנפח הגדול יותר (למרות שהיא נמוכה, היא לא שפיצית ולכן מכילה יותר). ההפרש ביניהן הוא החיסור של הקטנה מהגדולה.", 
-                math_expression: "<div dir='ltr'>180 - 120 = 60</div>" 
-            }
+            { verbal_explanation: "שלב 1: חישוב נפח התיבה המשמשת כבסיס המארז.", math_expression: "V_{1} = 10 \\times 10 \\times 5 = 500" },
+            { verbal_explanation: "שלב 2: חישוב נפח הגליל המונח עליה.", math_expression: "V_{2} = \\pi \\times 3^{2} \\times 4" },
+            { verbal_explanation: "שלב 3: פתרון למציאת נפח החלק העליון.", math_expression: "V_{2} = 9\\pi \\times 4 = 36\\pi" },
+            { verbal_explanation: "שלב 4: הרכבת הנפח הכולל של הגוף על ידי חיבור הרכיבים.", math_expression: "V = 500 + 36\\pi" },
+            { verbal_explanation: "שלב 5: מאחר שאי אפשר לחבר מספר חופשי עם פאי, הביטוי נשאר כפי שהוא.", math_expression: "500 + 36\\pi" }
         ],
-        final_answer: "<span dir=\"rtl\">60 סמ\"ק (התיבה גדולה יותר)</span>"
+        final_answer: "500 + 36\\pi"
     }
 ];
