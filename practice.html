@@ -214,7 +214,6 @@
             line-height: 1.5; 
         }
 
-        /* אילוץ הגדלת MathJax ומיקוד אלגנטי */
         mjx-container {
             font-size: 105% !important; 
         }
@@ -699,7 +698,7 @@
     window.allOriginalQuestions = [];
     window.difficultyTiers = { easy: [], medium: [], hard: [] };
 
-    // מאגר החיפוש המדויק לכל הנושאים שקיימים בוודאות בלבד - ללא שגיאות וללא "חט"ב" כללי
+    // מאגר החיפוש המדויק לכל הנושאים שקיימים בוודאות בלבד - ללא שגיאות וללא חט"ב כללי! תואם לקריאה ב-script.src
     const detailedSearchDB = [
         // כיתות ה'-ו'
         { name: "שברים", link: "practice.html?grade=5_6&topic=fractions", grade: "מתמטיקה ה'-ו'" },
@@ -761,9 +760,51 @@
         { name: "אלגברה ושברים אלגבריים (471)", link: "practice.html?grade=35471&topic=alg_frac_471", grade: "מתמטיקה 471" },
         { name: "פונקציות לינאריות וריבועיות (471)", link: "practice.html?grade=35471&topic=func_lin_quad_471", grade: "מתמטיקה 471" },
         { name: "טריגונומטריה (471)", link: "practice.html?grade=35471&topic=trigo_471", grade: "מתמטיקה 471" },
+        { name: "אלגברה - משוואות ואי-שוויונים (471)", link: "practice.html?grade=35471&topic=alg_equations_471", grade: "מתמטיקה 471" },
+        { name: "בעיות מילוליות (471)", link: "practice.html?grade=35471&topic=word_problems_471", grade: "מתמטיקה 471" },
+        { name: "חדו\"א בסיסי (471)", link: "practice.html?grade=35471&topic=basic_calculus_471", grade: "מתמטיקה 471" },
+        { name: "חדו\"א - פולינומים (471)", link: "practice.html?grade=35471&topic=calculus_poly_471", grade: "מתמטיקה 471" },
+        { name: "חדו\"א - פונקציות רציונליות (471)", link: "practice.html?grade=35471&topic=calculus_rational_471", grade: "מתמטיקה 471" },
+        { name: "בעיות קיצון (471)", link: "practice.html?grade=35471&topic=extrema_probs_471", grade: "מתמטיקה 471" },
+        { name: "גאומטריה אוקלידית (471)", link: "practice.html?grade=35471&topic=geom_euclid_471", grade: "מתמטיקה 471" },
+        { name: "גאומטריה אנליטית (471)", link: "practice.html?grade=35471&topic=analytic_geom_471", grade: "מתמטיקה 471" },
+
+        // תיכון 472
+        { name: "פונקציות מתקדמות (472)", link: "practice.html?grade=35472&topic=adv_func_472", grade: "מתמטיקה 472" },
+        { name: "חקירת פונקציות (472)", link: "practice.html?grade=35472&topic=func_investigation_472", grade: "מתמטיקה 472" },
+        { name: "בעיות קיצון (472)", link: "practice.html?grade=35472&topic=extrema_probs_472", grade: "מתמטיקה 472" },
+        { name: "טריגונומטריה מתקדמת (472)", link: "practice.html?grade=35472&topic=adv_trigo_472", grade: "מתמטיקה 472" },
+        { name: "הסתברות (472)", link: "practice.html?grade=35472&topic=probability_472", grade: "מתמטיקה 472" },
+        { name: "סדרות (472)", link: "practice.html?grade=35472&topic=sequences_472", grade: "מתמטיקה 472" },
+        { name: "טריגונומטריה במישור (472)", link: "practice.html?grade=35472&topic=trigo_plane_472", grade: "מתמטיקה 472" },
+        { name: "טריגונומטריה במרחב (472)", link: "practice.html?grade=35472&topic=trigo_space_472", grade: "מתמטיקה 472" },
+        { name: "חדו\"א - פונקציות שורש (472)", link: "practice.html?grade=35472&topic=calculus_root_472", grade: "מתמטיקה 472" },
+        { name: "חדו\"א - פונקציות טריגונומטריות (472)", link: "practice.html?grade=35472&topic=calculus_trigo_472", grade: "מתמטיקה 472" },
+        { name: "חדו\"א - מעריכיות ולוגריתמיות (472)", link: "practice.html?grade=35472&topic=calculus_exp_log_472", grade: "מתמטיקה 472" },
+        { name: "חשבון אינטגרלי (472)", link: "practice.html?grade=35472&topic=integral_calculus_472", grade: "מתמטיקה 472" },
+
+        // תיכון 571
+        { name: "גאומטריה אוקלידית (571)", link: "practice.html?grade=35571&topic=geom_euclid_571", grade: "מתמטיקה 571" },
+        { name: "גאומטריה אנליטית (571)", link: "practice.html?grade=35571&topic=analytic_geom_571", grade: "מתמטיקה 571" },
+        { name: "פונקציות (571)", link: "practice.html?grade=35571&topic=functions_571", grade: "מתמטיקה 571" },
+        { name: "חדו\"א – נגזרות (571)", link: "practice.html?grade=35571&topic=calculus_deriv_571", grade: "מתמטיקה 571" },
+        { name: "חדו\"א – משיקים (571)", link: "practice.html?grade=35571&topic=calculus_tangents_571", grade: "מתמטיקה 571" },
+        { name: "טריגונומטריה מתקדמת (571)", link: "practice.html?grade=35571&topic=adv_trigo_571", grade: "מתמטיקה 571" },
+        { name: "סדרות (571)", link: "practice.html?grade=35571&topic=sequences_571", grade: "מתמטיקה 571" },
+        { name: "הסתברות (571)", link: "practice.html?grade=35571&topic=probability_571", grade: "מתמטיקה 571" },
+
+        // תיכון 572
+        { name: "חדו\"א – אינטגרלים (572)", link: "practice.html?grade=35572&topic=calculus_integrals_572", grade: "מתמטיקה 572" },
+        { name: "פונקציות טריגונומטריות (572)", link: "practice.html?grade=35572&topic=trigo_func_572", grade: "מתמטיקה 572" },
+        { name: "פונקציות (572)", link: "practice.html?grade=35572&topic=functions_572", grade: "מתמטיקה 572" },
+        { name: "חקירת פונקציות (572)", link: "practice.html?grade=35572&topic=func_investigation_572", grade: "מתמטיקה 572" },
+        { name: "סדרות (572)", link: "practice.html?grade=35572&topic=sequences_572", grade: "מתמטיקה 572" },
+        { name: "הסתברות (572)", link: "practice.html?grade=35572&topic=probability_572", grade: "מתמטיקה 572" },
+        { name: "גאומטריה אנליטית (572)", link: "practice.html?grade=35572&topic=analytic_geom_572", grade: "מתמטיקה 572" },
 
         // אנגלית
         { name: "אנגלית מהבסיס (ABC)", link: "practice.html?grade=english&topic=abc_basics", grade: "אנגלית" },
+        { name: "אנגלית ליסודי", link: "practice.html?grade=english&topic=Elementary", grade: "אנגלית" },
         { name: "דקדוק זמנים (Grammar Tenses)", link: "practice.html?grade=english&topic=Grammar_Tenses", grade: "אנגלית" },
         { name: "דקדוק מתקדם (Advanced Grammar)", link: "practice.html?grade=english&topic=Grammar_Advanced", grade: "אנגלית" },
         { name: "אוצר מילים והשלמות (Vocabulary & Cloze)", link: "practice.html?grade=english&topic=Vocabulary_Cloze", grade: "אנגלית" },
@@ -774,6 +815,7 @@
         { name: "יסודות הלשון (ד'-ו')", link: "practice.html?grade=hebrew&topic=יסודי_כללי", grade: "לשון והבעה" },
         { name: "תורת ההגה והצורות", link: "practice.html?grade=hebrew&topic=תורת_ההגה", grade: "לשון והבעה" },
         { name: "מערכת הפועל", link: "practice.html?grade=hebrew&topic=פועל", grade: "לשון והבעה" },
+        { name: "גזרות הפועל המורכבות", link: "practice.html?grade=hebrew&topic=גזרות_הפועל_מתקדם", grade: "לשון והבעה" },
         { name: "שם העצם ותצורתו", link: "practice.html?grade=hebrew&topic=שם_העצם", grade: "לשון והבעה" },
         { name: "תחביר בסיסי ומתקדם", link: "practice.html?grade=hebrew&topic=תחביר", grade: "לשון והבעה" },
         { name: "סוגי משפטים", link: "practice.html?grade=hebrew&topic=סוגי_משפטים", grade: "לשון והבעה" },
@@ -873,15 +915,19 @@
         window.speechSynthesis.cancel();
         
         const correctPhrases = [
-            "תשובה נכונה!",
-            "מצוין, תשובה נכונה.",
-            "כל הכבוד, צדקת."
+            "תשובה נכונה! כל הכבוד!",
+            "וואו! איזה מוח! גאון!",
+            "בדיוק! יצאת תותח!",
+            "יש! תשובה מושלמת!",
+            "פגז! המשך כך!"
         ];
         
         const wrongPhrases = [
-            "תשובה שגויה, נסה שוב.",
-            "טעות, אנא נסה שוב.",
-            "התשובה אינה נכונה."
+            "טעות, אבל מטעויות לומדים!",
+            "אופס! פספוס קטן, נסה שוב.",
+            "לא נורא! בפעם הבאה תצליח!",
+            "התשובה שגויה. כמעט צדקת!",
+            "היי! התבלבלת קצת, קרא שוב את השאלה."
         ];
         
         let textArray = isCorrect ? correctPhrases : wrongPhrases;
@@ -889,20 +935,26 @@
         
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'he-IL'; 
-        utterance.rate = 1.0; 
-        utterance.pitch = 1.0; 
         
+        // הגדרות מושלמות לקול דמות אנימציה חמודה (לא מהיר מדי, גבוה אבל ברור)
+        utterance.pitch = 1.7; 
+        utterance.rate = 1.15; 
+        utterance.volume = 1.0;
+
         const voices = window.speechSynthesis.getVoices();
-        const hebrewVoice = voices.find(v => v.lang === 'he-IL' && v.name.includes('Microsoft')) || 
-                            voices.find(v => v.lang === 'he-IL' && v.name.includes('Google')) ||
-                            voices.find(v => v.lang === 'he-IL' || v.name.includes('Hebrew') || v.name.includes('עברית'));
         
-        if (hebrewVoice) {
-            utterance.voice = hebrewVoice;
+        // התעקשות חכמה על קול נשי כדי שהפיץ' הגבוה יישמע כמו דמות מצוירת ולא כמו גבר משובש
+        const femaleVoice = voices.find(v => v.lang === 'he-IL' && (v.name.includes('Hila') || v.name.includes('Carmit') || v.name.includes('Google')));
+        const backupVoice = voices.find(v => v.lang === 'he-IL');
+        
+        if (femaleVoice) {
+            utterance.voice = femaleVoice;
+        } else if (backupVoice) {
+            utterance.voice = backupVoice;
         }
         
         window.speechSynthesis.speak(utterance);
-    }
+    } 
     
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(String(str)); }
 
