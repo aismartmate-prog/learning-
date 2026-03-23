@@ -2,813 +2,937 @@ const questionsDB = [
     // ==========================================
     // תת נושא 1: בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור) (10 שאלות)
     // ==========================================
-
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "מכונית נסעה מעיר א' לעיר ב' במהירות קבועה. בדרכה חזרה, נסעה המכונית במהירות הגדולה ב-20 קמ''ש ממהירותה הקודמת. זמן הנסיעה חזרה היה קצר בשעה אחת מזמן הנסיעה הלוך. המרחק בין שתי הערים הוא 120 ק''מ. מה הייתה מהירות המכונית בדרכה הלוך?&rlm;",
-        options: ["40", "60", "30", "50"],
-        correctAnswer: 0,
-        hint: "בנו משוואת זמנים: הזמן הלוך שווה לזמן חזור פלוס שעה אחת. זמן מחושב כמרחק לחלק למהירות.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת ביטוי לזמן הנסיעה הלוך.", math_expression: "t_{1} = \\dfrac{120}{v}" },
-            { verbal_explanation: "שלב 2: הגדרת ביטוי לזמן הנסיעה חזור.", math_expression: "t_{2} = \\dfrac{120}{v + 20}" },
-            { verbal_explanation: "שלב 3: בניית המשוואה המקשרת בין הזמנים.", math_expression: "\\dfrac{120}{v} = \\dfrac{120}{v + 20} + 1" },
-            { verbal_explanation: "שלב 4: הכפלה במכנה המשותף לשם ביטול שברים.", math_expression: "120(v + 20) = 120v + v(v + 20)" },
-            { verbal_explanation: "שלב 5: פתיחת סוגריים ויצירת משוואה ריבועית.", math_expression: "120v + 2400 = 120v + v^{2} + 20v \\Rightarrow v^{2} + 20v - 2400 = 0" },
-            { verbal_explanation: "שלב 6: מציאת הפתרון החיובי למשוואה המייצג את המהירות.", math_expression: "v = 40" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "שתי מכוניות יוצאות באותו הזמן משתי ערים שהמרחק ביניהן הוא 300 ק''מ, ונוסעות זו לקראת זו. מהירות מכונית א' היא 60 קמ''ש ומהירות מכונית ב' היא 90 קמ''ש. כעבור כמה שעות ייפגשו שתי המכוניות?&rlm;",
+        "options": ["2", "3", "2.5", "1.5"],
+        "correctAnswer": 0,
+        "hint": "המהירות המשותפת של ההתקרבות היא סכום המהירויות של שני כלי הרכב.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המהירויות של שתי המכוניות.", "math_expression": "v_1 = 60 \\quad , \\quad v_2 = 90" },
+            { "verbal_explanation": "נרשום את המרחק הכולל בין הערים.", "math_expression": "d = 300" },
+            { "verbal_explanation": "נחשב את המהירות המשותפת בה מתקרבים כלי הרכב.", "math_expression": "v = v_1 + v_2" },
+            { "verbal_explanation": "נציב את המהירויות במשוואה.", "math_expression": "v = 60 + 90" },
+            { "verbal_explanation": "נבצע את פעולת החיבור.", "math_expression": "v = 150" },
+            { "verbal_explanation": "נרשום את משוואת הזמן.", "math_expression": "t = \\dfrac{d}{v}" },
+            { "verbal_explanation": "נציב את הנתונים במשוואת הזמן.", "math_expression": "t = \\dfrac{300}{150}" },
+            { "verbal_explanation": "נחשב את החלוקה למציאת הזמן.", "math_expression": "t = 2" }
         ],
-        final_answer: "40"
+        "final_answer": "2"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "רוכב אופניים יצא מנקודה א' לנקודה ב' במהירות של 15 קמ''ש. שעתיים לאחר מכן, יצא רוכב אופנוע מנקודה א' לאותו כיוון במהירות של 45 קמ''ש. לאחר כמה שעות מרגע יציאת האופנוע, הוא ישיג את רוכב האופניים?&rlm;",
-        options: ["1", "2", "1.5", "3"],
-        correctAnswer: 0,
-        hint: "ברגע העקיפה, שני הרוכבים עברו בדיוק את אותו המרחק. רוכב האופניים נסע t שעות ועוד שעתיים.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת המרחק שעבר האופנוע עד הפגישה כפונקציה של הזמן שלו.", math_expression: "S = 45 \\times t" },
-            { verbal_explanation: "שלב 2: הגדרת המרחק שעבר האופניים (נסע שעתיים יותר מהאופנוע).", math_expression: "S = 15 \\times (t + 2)" },
-            { verbal_explanation: "שלב 3: השוואת המרחקים מאחר ושניהם יצאו מאותה נקודה.", math_expression: "45t = 15(t + 2)" },
-            { verbal_explanation: "שלב 4: פתיחת סוגריים וכינוס המשתנה.", math_expression: "45t = 15t + 30 \\Rightarrow 30t = 30" },
-            { verbal_explanation: "שלב 5: בידוד הזמן.", math_expression: "t = 1" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "משאית יוצאת מעיר א' לעיר ב' במהירות של 80 קמ''ש. שעה לאחר מכן, יוצאת מכונית מאותה העיר ולאותו כיוון במהירות של 100 קמ''ש. מהו המרחק מעיר א' שבו תשיג המכונית את המשאית?&rlm;",
+        "options": ["400", "300", "500", "450"],
+        "correctAnswer": 0,
+        "hint": "סמנו את זמן הנסיעה של המכונית כ-t. זמן הנסיעה של המשאית יהיה t+1. השוו את המרחקים.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את זמן הנסיעה של המכונית כמשתנה.", "math_expression": "t_2 = x" },
+            { "verbal_explanation": "המשאית יצאה שעה קודם, לכן זמנה גדול בשעה.", "math_expression": "t_1 = x + 1" },
+            { "verbal_explanation": "נרשום את המהירויות הנתונות.", "math_expression": "v_1 = 80 \\quad , \\quad v_2 = 100" },
+            { "verbal_explanation": "נרכיב משוואה המשווה בין מרחקי הנסיעה בנקודת המפגש.", "math_expression": "v_1 \\times t_1 = v_2 \\times t_2" },
+            { "verbal_explanation": "נציב את הנתונים למשוואה.", "math_expression": "80(x + 1) = 100x" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "80x + 80 = 100x" },
+            { "verbal_explanation": "נעביר אגפים ונבודד את המשתנה.", "math_expression": "20x = 80" },
+            { "verbal_explanation": "נחלק בעשרים למציאת הזמן.", "math_expression": "x = 4" },
+            { "verbal_explanation": "נחשב את המרחק באמצעות מהירות המכונית וזמנה.", "math_expression": "d = 100 \\times 4" },
+            { "verbal_explanation": "נבצע את המכפלה לקבלת המרחק המבוקש.", "math_expression": "d = 400" }
         ],
-        final_answer: "1"
+        "final_answer": "400"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "שתי רכבות יצאו באותו זמן משתי תחנות שהמרחק ביניהן 600 ק''מ, ונסעו זו לקראת זו. מהירות רכבת אחת גדולה ב-10 קמ''ש ממהירות הרכבת השנייה. הרכבות נפגשו לאחר 4 שעות. מהי מהירותה של הרכבת המהירה יותר?&rlm;",
-        options: ["80", "70", "85", "75"],
-        correctAnswer: 0,
-        hint: "סכום המרחקים שעברו שתי הרכבות יחד שווה למרחק הכולל בין התחנות (600).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: קביעת משתנה למהירות הרכבת האיטית.", math_expression: "v_{1} = v" },
-            { verbal_explanation: "שלב 2: קביעת משתנה למהירות הרכבת המהירה.", math_expression: "v_{2} = v + 10" },
-            { verbal_explanation: "שלב 3: משוואת סכום מרחקים.", math_expression: "4v + 4(v + 10) = 600" },
-            { verbal_explanation: "שלב 4: פתיחת סוגריים וכינוס המהירויות.", math_expression: "8v + 40 = 600 \\Rightarrow 8v = 560" },
-            { verbal_explanation: "שלב 5: חלוקה בשמונה למציאת המהירות האיטית.", math_expression: "v = 70" },
-            { verbal_explanation: "שלב 6: הוספת התוספת הקבועה למציאת המהירות של הרכבת המהירה.", math_expression: "v_{2} = 70 + 10 = 80" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "אופנוען רוכב הלוך וחזור למרחק של 120 ק''מ לכל כיוון. בדרכו הלוך נסע במהירות מסוימת, ובחזור הגדיל את מהירותו ב-20 קמ''ש. סך כל זמן הנסיעה היה 5 שעות. מה הייתה מהירותו בדרך הלוך?&rlm;",
+        "options": ["40", "60", "50", "30"],
+        "correctAnswer": 0,
+        "hint": "בנו משוואת סכום זמנים. הזמן שווה למרחק חלקי המהירות.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המהירות בהלוך כמשתנה.", "math_expression": "v_1 = x" },
+            { "verbal_explanation": "נגדיר את המהירות בחזור.", "math_expression": "v_2 = x + 20" },
+            { "verbal_explanation": "נרכיב משוואה לסכום הזמנים.", "math_expression": "\\dfrac{120}{x} + \\dfrac{120}{x + 20} = 5" },
+            { "verbal_explanation": "נכפול במכנה משותף.", "math_expression": "120(x + 20) + 120x = 5x(x + 20)" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "120x + 2400 + 120x = 5x^{2} + 100x" },
+            { "verbal_explanation": "נכנס איברים באגף שמאל.", "math_expression": "240x + 2400 = 5x^{2} + 100x" },
+            { "verbal_explanation": "נעביר הכל לאגף ימין למשוואה ריבועית.", "math_expression": "5x^{2} - 140x - 2400 = 0" },
+            { "verbal_explanation": "נחלק בחמש.", "math_expression": "x^{2} - 28x - 480 = 0" },
+            { "verbal_explanation": "נפרק לגורמים או נשתמש בנוסחת שורשים.", "math_expression": "(x - 40)(x + 12) = 0" },
+            { "verbal_explanation": "מהירות היא חיובית ולכן נבחר בפתרון החיובי.", "math_expression": "x = 40" }
         ],
-        final_answer: "80"
+        "final_answer": "40"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "הולך רגל יצא מיישוב א' ליישוב ב', מרחק של 24 ק''מ. לאחר שעתיים של הליכה, הוא נח למשך שעה, ולאחר מכן המשיך בדרכו במהירות הגדולה ב-1 קמ''ש ממהירותו ההתחלתית. הוא הגיע ליישוב ב' בדיוק בזמן שהיה מגיע אילו הלך את כל הדרך ללא מנוחה ובמהירותו ההתחלתית. מצאו את מהירותו ההתחלתית.&rlm;",
-        options: ["3", "4", "2", "5"],
-        correctAnswer: 0,
-        hint: "השוו את הזמן בפועל (שעתיים הליכה + שעה מנוחה + זמן הליכה נותר) לזמן המתוכנן (24 חלקי v). המרחק שנותר אחרי המנוחה הוא 24 פחות (2 כפול v).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת הזמן המתוכנן עבור כל המסלול.", math_expression: "t = \\dfrac{24}{v}" },
-            { verbal_explanation: "שלב 2: מציאת המרחק שנותר להולך הרגל לאחר המנוחה.", math_expression: "S_{2} = 24 - 2v" },
-            { verbal_explanation: "שלב 3: כתיבת ביטוי לזמן ההליכה בחלק השני.", math_expression: "t_{2} = \\dfrac{24 - 2v}{v + 1}" },
-            { verbal_explanation: "שלב 4: הרכבת משוואת הזמנים הכוללת את ההליכה והמנוחה.", math_expression: "\\dfrac{24}{v} = 2 + 1 + \\dfrac{24 - 2v}{v + 1}" },
-            { verbal_explanation: "שלב 5: הכפלה במכנה המשותף.", math_expression: "24(v + 1) = 3v(v + 1) + v(24 - 2v)" },
-            { verbal_explanation: "שלב 6: פתרון המשוואה הריבועית למציאת המהירות הראשונית.", math_expression: "v^{2} + v - 12 = 0 \\Rightarrow v = 3" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "הולך רגל א' יצא מנקודה X לנקודה Y. במקביל, יצא הולך רגל ב' מנקודה Y לנקודה X. הם נפגשו לאחר שעתיים. ידוע כי הולך רגל א' משלים את המסלול כולו ב-3 שעות. בכמה שעות ישלים הולך רגל ב' את המסלול?&rlm;",
+        "options": ["6", "4", "5", "3.5"],
+        "correctAnswer": 0,
+        "hint": "סמנו את המרחק הכולל ב-d. מהירות הולך רגל א' היא d/3. השוו את סכום המרחקים שעברו עד הפגישה למרחק הכולל.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המרחק הכולל.", "math_expression": "d" },
+            { "verbal_explanation": "נחשב את מהירותו של הולך רגל א'.", "math_expression": "v_1 = \\dfrac{d}{3}" },
+            { "verbal_explanation": "נגדיר את מהירותו של הולך רגל ב'.", "math_expression": "v_2 = x" },
+            { "verbal_explanation": "נרכיב משוואת מפגש לאחר שעתיים.", "math_expression": "2 \\times v_1 + 2 \\times v_2 = d" },
+            { "verbal_explanation": "נציב את מהירות הולך רגל א'.", "math_expression": "2 \\times (\\dfrac{d}{3}) + 2x = d" },
+            { "verbal_explanation": "נעביר אגפים ונבודד את המרכיב של הולך רגל ב'.", "math_expression": "2x = d - \\dfrac{2d}{3}" },
+            { "verbal_explanation": "נבצע חיסור באגף הימני.", "math_expression": "2x = \\dfrac{d}{3}" },
+            { "verbal_explanation": "נחלק בשתיים למציאת מהירות הולך רגל ב'.", "math_expression": "x = \\dfrac{d}{6}" },
+            { "verbal_explanation": "נחשב את הזמן הנדרש להולך רגל ב' להשלים את המרחק כולו.", "math_expression": "t = \\dfrac{d}{x} = \\dfrac{d}{\\dfrac{d}{6}}" },
+            { "verbal_explanation": "נבצע חילוק שברים לקבלת הזמן.", "math_expression": "t = 6" }
         ],
-        final_answer: "3"
+        "final_answer": "6"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "סירה שטה בנהר מנקודה א' לנקודה ב' נגד הזרם, ומיד חוזרת לנקודה א' עם הזרם. מהירות הסירה במים עומדים היא 12 קמ''ש ומהירות הזרם היא 3 קמ''ש. כל השיט (הלוך וחזור) ארך 8 שעות. מהו המרחק בין שתי הנקודות?&rlm;",
-        options: ["45", "60", "30", "50"],
-        correctAnswer: 0,
-        hint: "המהירות נגד הזרם היא 12 פחות 3. המהירות עם הזרם היא 12 פלוס 3. סכום הזמנים שווה ל-8.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב המהירות עם הזרם ונגד הזרם.", math_expression: "v_{1} = 12 + 3 = 15 \\quad , \\quad v_{2} = 12 - 3 = 9" },
-            { verbal_explanation: "שלב 2: בניית משוואת סכום הזמנים להלוך ושוב.", math_expression: "\\dfrac{x}{15} + \\dfrac{x}{9} = 8" },
-            { verbal_explanation: "שלב 3: מציאת מכנה משותף לשברים והכפלת המשוואה בו.", math_expression: "3x + 5x = 8 \\times 45" },
-            { verbal_explanation: "שלב 4: כינוס המשתנים.", math_expression: "8x = 360" },
-            { verbal_explanation: "שלב 5: בידוד המרחק המבוקש.", math_expression: "x = 45" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "סירה שטה 36 ק''מ נגד כיוון הזרם ו-36 ק''מ עם כיוון הזרם. מהירות זרם הנהר היא 3 קמ''ש. הזמן הכולל ארך 9 שעות. מהי מהירות הסירה במים עומדים?&rlm;",
+        "options": ["9", "12", "15", "10"],
+        "correctAnswer": 0,
+        "hint": "המהירות נגד הזרם היא המהירות העצמית פחות 3. המהירות עם הזרם היא המהירות העצמית פלוס 3.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המהירות העצמית של הסירה.", "math_expression": "x" },
+            { "verbal_explanation": "נגדיר את מהירות הסירה נגד הזרם ועם הזרם.", "math_expression": "v_1 = x - 3 \\quad , \\quad v_2 = x + 3" },
+            { "verbal_explanation": "נרכיב משוואה לסכום הזמנים.", "math_expression": "\\dfrac{36}{x - 3} + \\dfrac{36}{x + 3} = 9" },
+            { "verbal_explanation": "נחלק בתשע.", "math_expression": "\\dfrac{4}{x - 3} + \\dfrac{4}{x + 3} = 1" },
+            { "verbal_explanation": "נכפול במכנה המשותף.", "math_expression": "4(x + 3) + 4(x - 3) = (x - 3)(x + 3)" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "4x + 12 + 4x - 12 = x^{2} - 9" },
+            { "verbal_explanation": "נכנס איברים.", "math_expression": "8x = x^{2} - 9" },
+            { "verbal_explanation": "נסדר למשוואה ריבועית.", "math_expression": "x^{2} - 8x - 9 = 0" },
+            { "verbal_explanation": "נפרק לגורמים.", "math_expression": "(x - 9)(x + 1) = 0" },
+            { "verbal_explanation": "נבחר את הפתרון החיובי.", "math_expression": "x = 9" }
         ],
-        final_answer: "45"
+        "final_answer": "9"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "שני הולכי רגל יוצאים בו זמנית זה לקראת זה משני יישובים שהמרחק ביניהם 35 ק''מ. הם נפגשים לאחר 5 שעות. הולך הרגל הראשון עובר מרחק של 12 ק''מ בזמן שהולך הרגל השני עובר 9 ק''מ. מהי מהירותו של הולך הרגל הראשון?&rlm;",
-        options: ["4", "3", "5", "4.5"],
-        correctAnswer: 0,
-        hint: "יחס המהירויות שווה ליחס המרחקים באותו זמן (12 ל-9). סכום המהירויות שווה למהירות ההתקרבות הכוללת (35 חלקי 5).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: קביעת יחס המהירויות מתוך יחס המרחקים.", math_expression: "\\dfrac{v_{1}}{v_{2}} = \\dfrac{12}{9} = \\dfrac{4}{3} \\Rightarrow v_{1} = \\dfrac{4}{3}v_{2}" },
-            { verbal_explanation: "שלב 2: שימוש בנתון הפגישה למציאת סכום המהירויות.", math_expression: "v_{1} + v_{2} = \\dfrac{35}{5} = 7" },
-            { verbal_explanation: "שלב 3: הצבת היחס מתוך השלב הראשון לתוך משוואת הסכום.", math_expression: "\\dfrac{4}{3}v_{2} + v_{2} = 7" },
-            { verbal_explanation: "שלב 4: כינוס שברים ופתרון עבור המהירות השנייה.", math_expression: "\\dfrac{7}{3}v_{2} = 7 \\Rightarrow v_{2} = 3" },
-            { verbal_explanation: "שלב 5: הצבה חזרה למציאת המהירות של הולך הרגל הראשון.", math_expression: "v_{1} = 7 - 3 = 4" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "מכונית עברה מחצית מהדרך במהירות של 60 קמ''ש ואת המחצית השנייה במהירות של 90 קמ''ש. מהי המהירות הממוצעת לאורך כל המסלול?&rlm;",
+        "options": ["72", "75", "70", "80"],
+        "correctAnswer": 0,
+        "hint": "מהירות ממוצעת היא סך כל המרחק לחלק לסך כל הזמן.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר כל מחצית מהדרך כמשתנה.", "math_expression": "d" },
+            { "verbal_explanation": "המרחק הכולל הוא סכום שתי המחציות.", "math_expression": "D = 2d" },
+            { "verbal_explanation": "נחשב את הזמן בחלק הראשון.", "math_expression": "t_1 = \\dfrac{d}{60}" },
+            { "verbal_explanation": "נחשב את הזמן בחלק השני.", "math_expression": "t_2 = \\dfrac{d}{90}" },
+            { "verbal_explanation": "נחשב את הזמן הכולל.", "math_expression": "T = \\dfrac{d}{60} + \\dfrac{d}{90}" },
+            { "verbal_explanation": "נבצע מכנה משותף לחיבור הזמנים.", "math_expression": "T = \\dfrac{3d}{180} + \\dfrac{2d}{180} = \\dfrac{5d}{180} = \\dfrac{d}{36}" },
+            { "verbal_explanation": "נחשב מהירות ממוצעת על ידי חלוקת המרחק הכולל בזמן הכולל.", "math_expression": "v = \\dfrac{2d}{\\dfrac{d}{36}}" },
+            { "verbal_explanation": "נבצע חלוקת שברים.", "math_expression": "v = 2d \\times \\dfrac{36}{d}" },
+            { "verbal_explanation": "נצמצם את המרחק ונקבל את המהירות.", "math_expression": "v = 72" }
         ],
-        final_answer: "4"
+        "final_answer": "72"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "מכונית עוברת מרחק של 300 ק''מ בזמן מסוים. יום אחד הגבירה המכונית את מהירותה ב-25 קמ''ש, וכתוצאה מכך התקצר זמן נסיעתה ב-1 שעה. מהי מהירותה הרגילה של המכונית?&rlm;",
-        options: ["75", "100", "50", "60"],
-        correctAnswer: 0,
-        hint: "הזמן הרגיל פחות הזמן החדש שווה 1.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: כתיבת משוואת הפרש הזמנים.", math_expression: "\\dfrac{300}{v} - \\dfrac{300}{v + 25} = 1" },
-            { verbal_explanation: "שלב 2: הכפלת המשוואה במכנה המשותף.", math_expression: "300(v + 25) - 300v = v(v + 25)" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים וצמצום נעלמים באגף שמאל.", math_expression: "300v + 7500 - 300v = v^{2} + 25v" },
-            { verbal_explanation: "שלב 4: סידור משוואה ריבועית סטנדרטית.", math_expression: "v^{2} + 25v - 7500 = 0" },
-            { verbal_explanation: "שלב 5: מציאת השורש החיובי באמצעות נוסחת השורשים או טרינום.", math_expression: "(v - 75)(v + 100) = 0 \\Rightarrow v = 75" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "רכבת תכננה לעבור 400 ק''מ במהירות קבועה. לאחר שעתים התעכבה למשך שעה, ולכן הגדילה את מהירותה ב-20 קמ''ש והגיעה במועד המתוכנן. מה הייתה מהירותה ההתחלתית?&rlm;",
+        "options": ["80", "100", "60", "90"],
+        "correctAnswer": 0,
+        "hint": "הזמן המתוכנן שווה לזמן בפועל: שעתיים נסיעה ועוד שעה עיכוב ועוד הזמן הנדרש להשלמת שאר המרחק במהירות המוגדלת.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המהירות ההתחלתית.", "math_expression": "v" },
+            { "verbal_explanation": "נרשום את הזמן המתוכנן.", "math_expression": "t_1 = \\dfrac{400}{v}" },
+            { "verbal_explanation": "המרחק שנותר לאחר שעתיים של נסיעה.", "math_expression": "d_1 = 400 - 2v" },
+            { "verbal_explanation": "הזמן שנדרש למרחק שנותר במהירות החדשה.", "math_expression": "t_2 = \\dfrac{400 - 2v}{v + 20}" },
+            { "verbal_explanation": "נרכיב משוואה המשווה בין הזמן המתוכנן לזמן בפועל.", "math_expression": "\\dfrac{400}{v} = 2 + 1 + \\dfrac{400 - 2v}{v + 20}" },
+            { "verbal_explanation": "נסדר את המשוואה.", "math_expression": "\\dfrac{400}{v} - 3 = \\dfrac{400 - 2v}{v + 20}" },
+            { "verbal_explanation": "נבצע מכנה משותף באגף השמאלי.", "math_expression": "\\dfrac{400 - 3v}{v} = \\dfrac{400 - 2v}{v + 20}" },
+            { "verbal_explanation": "נכפול בהצלבה.", "math_expression": "(400 - 3v)(v + 20) = v(400 - 2v)" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "400v + 8000 - 3v^{2} - 60v = 400v - 2v^{2}" },
+            { "verbal_explanation": "נכנס איברים למשוואה ריבועית.", "math_expression": "v^{2} + 60v - 8000 = 0" },
+            { "verbal_explanation": "נפרק לגורמים ונמצא את המהירות החיובית.", "math_expression": "(v - 80)(v + 100) = 0 \\Rightarrow v = 80" }
         ],
-        final_answer: "75"
+        "final_answer": "80"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "רץ עבר מרחק של 40 ק''מ במהירות מסוימת. לאחר מכן עבר עוד 60 ק''מ במהירות הגדולה ב-2 קמ''ש ממהירותו הקודמת. סך כל זמן הריצה היה 11 שעות. מה הייתה מהירותו בחלק הראשון של הדרך?&rlm;",
-        options: ["8", "10", "12", "6"],
-        correctAnswer: 0,
-        hint: "סכום הזמנים שווה 11. הרכיבו משוואה בהתאם למרחקים והמהירויות השונות לכל קטע.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת סכום הזמנים לשני חלקי המסלול.", math_expression: "\\dfrac{40}{v} + \\dfrac{60}{v + 2} = 11" },
-            { verbal_explanation: "שלב 2: כפל במכנה המשותף למניעת שברים.", math_expression: "40(v + 2) + 60v = 11v(v + 2)" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים וסידור משוואה ריבועית.", math_expression: "40v + 80 + 60v = 11v^{2} + 22v" },
-            { verbal_explanation: "שלב 4: כינוס כל האיברים לאגף אחד.", math_expression: "11v^{2} - 78v - 80 = 0" },
-            { verbal_explanation: "שלב 5: שימוש בנוסחת השורשים לקבלת המהירות החיובית.", math_expression: "v = 8" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "המרחק בין שתי ערים הוא 90 ק''מ. רוכב אופניים נסע במהירות קבועה עיר אחת לשנייה. בדרכו חזרה, נסע 30 ק''מ, נח חצי שעה, והמשיך במהירות הגדולה ב-3 קמ''ש ממהירותו המקורית. הזמן הלוך שווה לזמן חזור. מצאו את מהירותו המקורית.&rlm;",
+        "options": ["15", "18", "12", "20"],
+        "correctAnswer": 0,
+        "hint": "הזמן בחזור מורכב משלושה חלקים: הנסיעה לפני המנוחה, זמן המנוחה, והנסיעה לאחר המנוחה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המהירות המקורית.", "math_expression": "v" },
+            { "verbal_explanation": "נרשום את הזמן הלוך.", "math_expression": "t_1 = \\dfrac{90}{v}" },
+            { "verbal_explanation": "נרכיב משוואה המשווה בין הזמן הלוך לזמן חזור.", "math_expression": "\\dfrac{90}{v} = \\dfrac{30}{v} + 0.5 + \\dfrac{60}{v + 3}" },
+            { "verbal_explanation": "נעביר את האיבר עם המכנה הזהה לאגף השמאלי ונחסר.", "math_expression": "\\dfrac{60}{v} = 0.5 + \\dfrac{60}{v + 3}" },
+            { "verbal_explanation": "נכפול בשתיים להסרת השבר העשרוני.", "math_expression": "\\dfrac{120}{v} = 1 + \\dfrac{120}{v + 3}" },
+            { "verbal_explanation": "נכפול במכנה המשותף.", "math_expression": "120(v + 3) = v(v + 3) + 120v" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "120v + 360 = v^{2} + 3v + 120v" },
+            { "verbal_explanation": "נכנס איברים.", "math_expression": "v^{2} + 3v - 360 = 0" },
+            { "verbal_explanation": "נפרק לגורמים ונמצא את המהירות.", "math_expression": "(v - 15)(v + 24) = 0 \\Rightarrow v = 15" }
         ],
-        final_answer: "8"
+        "final_answer": "15"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "שני שחיינים יצאו בו זמנית מאותה נקודה בבריכה אולימפית ושחו הלוך וחזור. שחיין א' מהיר ב-50% משחיין ב'. שחיין א' פגש את שחיין ב' בדרכו חזרה, בנקודה המרוחקת 10 מטרים מדופן הבריכה הנגדית. מהו אורך הבריכה?&rlm;",
-        options: ["50", "25", "100", "40"],
-        correctAnswer: 0,
-        hint: "סמנו את אורך הבריכה ב-x. עד הפגישה, השחיין האיטי עבר (x-10) והמהיר עבר (x+10). הזמנים שווים, והיחס בין המרחקים שווה ליחס המהירויות.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: קביעת יחס המהירויות מתוך האחוז שניתן.", math_expression: "\\dfrac{v_{1}}{v_{2}} = 1.5" },
-            { verbal_explanation: "שלב 2: יצירת משוואת יחס המרחקים כפועל יוצא משוויון הזמנים.", math_expression: "\\dfrac{x + 10}{x - 10} = 1.5" },
-            { verbal_explanation: "שלב 3: כפל במכנה ופתיחת סוגריים.", math_expression: "x + 10 = 1.5(x - 10) \\Rightarrow x + 10 = 1.5x - 15" },
-            { verbal_explanation: "שלב 4: בידוד המשתנה המייצג את אורך הבריכה.", math_expression: "25 = 0.5x" },
-            { verbal_explanation: "שלב 5: חלוקה בחצי לקבלת התוצאה הסופית.", math_expression: "x = 50" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "שני רצים יוצאים מאותה נקודה במסלול מעגלי שאורכו 400 מטר, ורצים באותו כיוון. מהירות רץ א' היא 5 מטרים לשנייה ומהירות רץ ב' היא 3 מטרים לשנייה. כעבור כמה שניות ישיג רץ א' את רץ ב' בפעם הראשונה?&rlm;",
+        "options": ["200", "100", "400", "150"],
+        "correctAnswer": 0,
+        "hint": "עקיפה במסלול מעגלי מתרחשת כאשר הרץ המהיר משלים הקפה אחת יותר מהרץ האיטי. השתמשו במהירות יחסית.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את מהירויות הרצים.", "math_expression": "v_1 = 5 \\quad , \\quad v_2 = 3" },
+            { "verbal_explanation": "נחשב את המהירות היחסית ביניהם.", "math_expression": "v = v_1 - v_2 = 5 - 3 = 2" },
+            { "verbal_explanation": "נגדיר את המרחק הדרוש לעקיפה, שהוא הקפה שלמה.", "math_expression": "d = 400" },
+            { "verbal_explanation": "נחשב את הזמן על ידי חלוקת המרחק במהירות היחסית.", "math_expression": "t = \\dfrac{d}{v}" },
+            { "verbal_explanation": "נציב את הנתונים.", "math_expression": "t = \\dfrac{400}{2}" },
+            { "verbal_explanation": "נחשב את החלוקה.", "math_expression": "t = 200" }
         ],
-        final_answer: "50"
+        "final_answer": "200"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
-        question_text: "משאית יצאה למסע. לאחר 3 שעות נסיעה, גילתה שהיא צריכה להגביר מהירות ב-10 קמ''ש כדי להגיע ליעד בזמן. המרחק הכולל הוא 450 ק''מ, והזמן המתוכנן היה 5 שעות. מה הייתה מהירותה ההתחלתית של המשאית?&rlm;",
-        options: ["80", "90", "75", "100"],
-        correctAnswer: 0,
-        hint: "בנו את המשוואה המייצגת את המרחקים בשני קטעי הדרך, שסכומם שווה ל-450.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: זיהוי הזמן הנותר לנסיעה בחלק השני.", math_expression: "t = 5 - 3 = 2" },
-            { verbal_explanation: "שלב 2: בניית משוואת המרחקים הכללית לסך הדרך.", math_expression: "3v + 2(v + 10) = 450" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים וכינוס המשתנה.", math_expression: "3v + 2v + 20 = 450 \\Rightarrow 5v = 430" },
-            { verbal_explanation: "שלב 4: חלוקה בחמש לחילוץ המהירות הבסיסית.", math_expression: "v = 86" },
-            { verbal_explanation: "שלב 5: יש שגיאה באופציות שלי כי החישוב מוביל ל-86. אבצע תיקון של התרגיל כדי שהתשובה תהיה 80. (3*80 + 2*90 = 240+180=420. סהכ הדרך 420). מניח פה 80 כתבנית חלופה מותאמת למערכת." }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תנועה (רב-שלביות, כולל פגישה, עקיפה והלוך-חזור)",
+        "question_text": "המרחק בין עיר א' לעיר ב' הוא 210 ק''מ. מכונית יוצאת מעיר א' לעיר ב' במהירות של 60 קמ''ש. שעה לאחר מכן, מכונית שנייה יוצאת מעיר ב' לעיר א' במהירות של 90 קמ''ש. כעבור כמה שעות מרגע יציאת המכונית הראשונה הן ייפגשו?&rlm;",
+        "options": ["2", "3", "2.5", "1.5"],
+        "correctAnswer": 0,
+        "hint": "סמנו את זמן הנסיעה של המכונית הראשונה כ-t. הזמן של המכונית השנייה הוא t-1. סכום המרחקים שלהן הוא המרחק הכולל.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את זמן הנסיעה של המכונית הראשונה.", "math_expression": "t_1 = t" },
+            { "verbal_explanation": "המכונית השנייה יצאה שעה מאוחר יותר, ולכן זמנה קצר בשעה.", "math_expression": "t_2 = t - 1" },
+            { "verbal_explanation": "נרכיב משוואה המבטאת את סכום המרחקים.", "math_expression": "v_1 \\times t_1 + v_2 \\times t_2 = 210" },
+            { "verbal_explanation": "נציב את המהירויות והזמנים.", "math_expression": "60t + 90(t - 1) = 210" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "60t + 90t - 90 = 210" },
+            { "verbal_explanation": "נכנס איברים דומים.", "math_expression": "150t - 90 = 210" },
+            { "verbal_explanation": "נעביר אגפים.", "math_expression": "150t = 300" },
+            { "verbal_explanation": "נחלק לקבלת הזמן.", "math_expression": "t = 2" }
         ],
-        final_answer: "80"
+        "final_answer": "2"
     },
 
     // ==========================================
     // תת נושא 2: בעיות הספק ועבודה (שני פועלים, עבודה בחלקים) (10 שאלות)
     // ==========================================
-
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "פועל א' יכול לסיים עבודה מסוימת לבדו ב-12 ימים. פועל ב' יכול לסיים את אותה העבודה לבדו ב-24 ימים. כמה ימים ייקח לשני הפועלים לסיים את העבודה אם יעבדו יחד?&rlm;",
-        options: ["8", "18", "6", "9"],
-        correctAnswer: 0,
-        hint: "סכום ההספקים כפול הזמן המשותף שווה ל-1 (עבודה שלמה).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת ההספקים היומיים של כל פועל בנפרד.", math_expression: "p_{1} = \\dfrac{1}{12} \\quad , \\quad p_{2} = \\dfrac{1}{24}" },
-            { verbal_explanation: "שלב 2: בניית משוואת העבודה המשותפת עבור פרויקט אחד שלם.", math_expression: "(\\dfrac{1}{12} + \\dfrac{1}{24}) \\times t = 1" },
-            { verbal_explanation: "שלב 3: מציאת מכנה משותף לחיבור ההספקים בתוך הסוגריים.", math_expression: "\\dfrac{3}{24} \\times t = 1" },
-            { verbal_explanation: "שלב 4: צמצום השבר לחילוץ הזמן.", math_expression: "\\dfrac{1}{8}t = 1" },
-            { verbal_explanation: "שלב 5: הפתרון הסופי למספר הימים המשותפים.", math_expression: "t = 8" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "פועל א' מסיים עבודה לבדו ב-10 ימים. פועל ב' מסיים את אותה עבודה ב-15 ימים. בכמה ימים הם יסיימו את העבודה אם יעבדו יחד?&rlm;",
+        "options": ["6", "5", "8", "7.5"],
+        "correctAnswer": 0,
+        "hint": "הספק הוא החלק מהעבודה שנעשה ביום אחד. חברו את ההספקים של שני הפועלים.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את ההספק של הפועל הראשון.", "math_expression": "p_1 = \\dfrac{1}{10}" },
+            { "verbal_explanation": "נגדיר את ההספק של הפועל השני.", "math_expression": "p_2 = \\dfrac{1}{15}" },
+            { "verbal_explanation": "נחשב את ההספק המשותף.", "math_expression": "p = p_1 + p_2 = \\dfrac{1}{10} + \\dfrac{1}{15}" },
+            { "verbal_explanation": "נבצע מכנה משותף לחיבור השברים.", "math_expression": "p = \\dfrac{3}{30} + \\dfrac{2}{30} = \\dfrac{5}{30}" },
+            { "verbal_explanation": "נצמצם את השבר.", "math_expression": "p = \\dfrac{1}{6}" },
+            { "verbal_explanation": "נחשב את הזמן הדרוש לסיום העבודה המשותפת.", "math_expression": "t = \\dfrac{1}{p}" },
+            { "verbal_explanation": "נציב את ההספק המשותף.", "math_expression": "t = \\dfrac{1}{\\dfrac{1}{6}}" },
+            { "verbal_explanation": "נחשב ונקבל את מספר הימים.", "math_expression": "t = 6" }
         ],
-        final_answer: "8"
+        "final_answer": "6"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "שני פועלים עובדים יחד ומסיימים עבודה ב-6 שעות. אילו עבד הפועל הראשון לבדו, היה מסיים את העבודה ב-5 שעות פחות מהזמן שהיה לוקח לפועל השני לבדו. בכמה שעות מסיים הפועל הראשון את העבודה לבדו?&rlm;",
-        options: ["10", "15", "12", "8"],
-        correctAnswer: 0,
-        hint: "הזמן של פועל א' הוא x. הזמן של פועל ב' הוא x+5. סכום ההספקים כפול הזמן שווה 1.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת ההספקים המשותפת עם הצבת הזמנים.", math_expression: "\\dfrac{1}{x} + \\dfrac{1}{x + 5} = \\dfrac{1}{6}" },
-            { verbal_explanation: "שלב 2: הכפלת כל המשוואה במכנה המשותף לשם פישוט.", math_expression: "6(x + 5) + 6x = x(x + 5)" },
-            { verbal_explanation: "שלב 3: פתיחת הסוגריים בכל האגפים.", math_expression: "6x + 30 + 6x = x^{2} + 5x" },
-            { verbal_explanation: "שלב 4: העברת איברים וסידור משוואה ריבועית.", math_expression: "x^{2} - 7x - 30 = 0" },
-            { verbal_explanation: "שלב 5: חילוץ התשובה החיובית המייצגת זמן ממשי.", math_expression: "(x - 10)(x + 3) = 0 \\Rightarrow x = 10" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "שני פועלים עובדים יחד ומסיימים עבודה ב-12 ימים. פועל א' לבדו מסיים את העבודה ב-20 ימים. בכמה ימים יסיים פועל ב' לבדו את העבודה?&rlm;",
+        "options": ["30", "24", "40", "25"],
+        "correctAnswer": 0,
+        "hint": "ההספק המשותף הוא סכום ההספקים של כל פועל בנפרד.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את ההספק המשותף.", "math_expression": "p = \\dfrac{1}{12}" },
+            { "verbal_explanation": "נגדיר את ההספק של הפועל הראשון.", "math_expression": "p_1 = \\dfrac{1}{20}" },
+            { "verbal_explanation": "נגדיר את ההספק של הפועל השני כנעלם.", "math_expression": "p_2 = \\dfrac{1}{x}" },
+            { "verbal_explanation": "נרכיב משוואה המחברת את ההספקים.", "math_expression": "p_1 + p_2 = p \\Rightarrow \\dfrac{1}{20} + \\dfrac{1}{x} = \\dfrac{1}{12}" },
+            { "verbal_explanation": "נבודד את הנעלם.", "math_expression": "\\dfrac{1}{x} = \\dfrac{1}{12} - \\dfrac{1}{20}" },
+            { "verbal_explanation": "נבצע מכנה משותף לחיסור השברים.", "math_expression": "\\dfrac{1}{x} = \\dfrac{5}{60} - \\dfrac{3}{60} = \\dfrac{2}{60}" },
+            { "verbal_explanation": "נצמצם את השבר.", "math_expression": "\\dfrac{1}{x} = \\dfrac{1}{30}" },
+            { "verbal_explanation": "נמצא את מספר הימים.", "math_expression": "x = 30" }
         ],
-        final_answer: "10"
+        "final_answer": "30"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "בריכה מתמלאת על ידי צינור א' וצינור ב' יחד ב-4 שעות. צינור א' החל למלא את הבריכה לבדו במשך שעתיים, ולאחר מכן הצטרף אליו צינור ב', והם סיימו למלא את הבריכה יחד ב-3 שעות נוספות. בכמה שעות יכול צינור א' למלא את הבריכה לבדו?&rlm;",
-        options: ["8", "6", "10", "12"],
-        correctAnswer: 0,
-        hint: "נסמן הספקים ב-p ו-q. נתון ש- 4(p+q)=1, ושגם 2p + 3(p+q) = 1. פתרו את המערכת.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: משוואה ראשונה המייצגת מילוי משותף מלא בארבע שעות.", math_expression: "4(p + q) = 1 \\Rightarrow p + q = \\dfrac{1}{4}" },
-            { verbal_explanation: "שלב 2: משוואה שנייה לפי התרחיש המפוצל.", math_expression: "2p + 3(p + q) = 1" },
-            { verbal_explanation: "שלב 3: הצבת סכום ההספקים מהמשוואה הראשונה לתוך המשוואה השנייה.", math_expression: "2p + 3 \\times \\dfrac{1}{4} = 1" },
-            { verbal_explanation: "שלב 4: בידוד ההספק של הצינור הראשון.", math_expression: "2p = 1 - \\dfrac{3}{4} = \\dfrac{1}{4} \\Rightarrow p = \\dfrac{1}{8}" },
-            { verbal_explanation: "שלב 5: הזמן הדרוש הוא ההופכי של ההספק שהתקבל.", math_expression: "t = 8" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "פועל א' ופועל ב' מסיימים עבודה יחד ב-6 ימים. פועל א' זקוק ל-5 ימים פחות מפועל ב' כדי לסיים את העבודה לבדו. בכמה ימים יסיים פועל א' את העבודה לבדו?&rlm;",
+        "options": ["10", "15", "12", "8"],
+        "correctAnswer": 0,
+        "hint": "סמנו את הזמן של א' ב-x, ואת הזמן של ב' ב-x+5. חברו את ההספקים והשוו להספק המשותף.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את זמן העבודה של הפועל הראשון.", "math_expression": "t_1 = x" },
+            { "verbal_explanation": "נגדיר את זמן העבודה של הפועל השני.", "math_expression": "t_2 = x + 5" },
+            { "verbal_explanation": "נרכיב משוואת הספקים.", "math_expression": "\\dfrac{1}{x} + \\dfrac{1}{x + 5} = \\dfrac{1}{6}" },
+            { "verbal_explanation": "נכפול במכנה המשותף.", "math_expression": "6(x + 5) + 6x = x(x + 5)" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "6x + 30 + 6x = x^{2} + 5x" },
+            { "verbal_explanation": "נכנס איברים ונכין משוואה ריבועית.", "math_expression": "12x + 30 = x^{2} + 5x \\Rightarrow x^{2} - 7x - 30 = 0" },
+            { "verbal_explanation": "נפרק לגורמים.", "math_expression": "(x - 10)(x + 3) = 0" },
+            { "verbal_explanation": "נבחר בפתרון החיובי.", "math_expression": "x = 10" }
         ],
-        final_answer: "8"
+        "final_answer": "10"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "שני מתכנתים צריכים לכתוב פרויקט תוכנה. מתכנת א' עובד מהר פי 1.5 ממתכנת ב'. אם שניהם עובדים יחד, הם מסיימים את הפרויקט ב-12 ימים. בכמה ימים מסיים מתכנת א' את הפרויקט לבדו?&rlm;",
-        options: ["20", "30", "18", "24"],
-        correctAnswer: 0,
-        hint: "הספק האיטי הוא 1/x. המהיר הוא 1.5 חלקי x. סכום ההספקים כפול 12 שווה 1.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: כתיבת משוואת ההספקים המשותפת עם יחס המהירויות הנתון.", math_expression: "12 \\times (\\dfrac{1.5}{x} + \\dfrac{1}{x}) = 1" },
-            { verbal_explanation: "שלב 2: סכימת המונים בתוך הסוגריים.", math_expression: "12 \\times \\dfrac{2.5}{x} = 1" },
-            { verbal_explanation: "שלב 3: הכפלת המונה החדש במקדם החיצוני.", math_expression: "\\dfrac{30}{x} = 1" },
-            { verbal_explanation: "שלב 4: חילוץ הנעלם המייצג את הזמן של המתכנת האיטי יותר.", math_expression: "x = 30" },
-            { verbal_explanation: "שלב 5: חישוב הזמן של המתכנת המהיר על בסיס היחס הנתון.", math_expression: "t = \\dfrac{30}{1.5} = 20" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "צינור א' ממלא בריכה ב-4 שעות, וצינור ב' מרוקן אותה ב-6 שעות. שני הצינורות נפתחים יחד. בכמה שעות תתמלא הבריכה?&rlm;",
+        "options": ["12", "10", "2.4", "8"],
+        "correctAnswer": 0,
+        "hint": "ההספק הכולל שווה להספק המילוי פחות ההספק של הריקון.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את הספק המילוי של הצינור הראשון.", "math_expression": "p_1 = \\dfrac{1}{4}" },
+            { "verbal_explanation": "נגדיר את הספק הריקון של הצינור השני.", "math_expression": "p_2 = \\dfrac{1}{6}" },
+            { "verbal_explanation": "נחשב את ההספק המשותף על ידי חיסור.", "math_expression": "p = \\dfrac{1}{4} - \\dfrac{1}{6}" },
+            { "verbal_explanation": "נבצע מכנה משותף לחיסור השברים.", "math_expression": "p = \\dfrac{3}{12} - \\dfrac{2}{12} = \\dfrac{1}{12}" },
+            { "verbal_explanation": "נחשב את הזמן על ידי חלוקת העבודה (1) בהספק המשותף.", "math_expression": "t = \\dfrac{1}{\\dfrac{1}{12}}" },
+            { "verbal_explanation": "נקבל את הזמן.", "math_expression": "t = 12" }
         ],
-        final_answer: "20"
+        "final_answer": "12"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "פועל א' יכול לסלול כביש ב-20 ימים. הוא עבד לבדו במשך 5 ימים, ואז הצטרף אליו פועל ב', שעובד באותו קצב בדיוק. תוך כמה ימים מיום תחילת העבודה יסתיים סלילת הכביש כולו?&rlm;",
-        options: ["12.5", "10", "15", "7.5"],
-        correctAnswer: 0,
-        hint: "מצאו את העבודה שנותרה אחרי 5 ימים. חלקו את השארית בהספק המשותף החדש של שני הפועלים.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב חלקיות העבודה שהושלמה בימים הראשונים.", math_expression: "W_{1} = 5 \\times \\dfrac{1}{20} = \\dfrac{1}{4}" },
-            { verbal_explanation: "שלב 2: חישוב העבודה שנותרה להשלמה.", math_expression: "W_{2} = 1 - \\dfrac{1}{4} = \\dfrac{3}{4}" },
-            { verbal_explanation: "שלב 3: הגדרת ההספק המשותף של שני הפועלים הזהים יחד.", math_expression: "p = \\dfrac{1}{20} + \\dfrac{1}{20} = \\dfrac{1}{10}" },
-            { verbal_explanation: "שלב 4: חישוב הזמן הנדרש להשלמת שארית העבודה עם ההספק החדש.", math_expression: "t_{2} = \\dfrac{3}{4} : \\dfrac{1}{10} = \\dfrac{30}{4} = 7.5" },
-            { verbal_explanation: "שלב 5: סכימת הימים הכוללת של הפרויקט מהיום הראשון.", math_expression: "t = 5 + 7.5 = 12.5" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "פועל א' מסיים עבודה ב-8 שעות, ופועל ב' ב-12 שעות. פועל א' עובד לבדו במשך שעתיים, ולאחר מכן מצטרף אליו פועל ב' והם עובדים יחד עד לסיום העבודה. כמה שעות בסך הכל נמשכה העבודה?&rlm;",
+        "options": ["5.6", "6.2", "4.8", "7.5"],
+        "correctAnswer": 0,
+        "hint": "חשבו איזה חלק מהעבודה נעשה בשעתיים הראשונות, ואיזה חלק נותר. חשבו את הזמן הנדרש לשניהם לסיים את החלק הנותר.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את החלק מהעבודה שביצע הפועל הראשון בשעתיים.", "math_expression": "w_1 = 2 \\times \\dfrac{1}{8} = \\dfrac{2}{8} = \\dfrac{1}{4}" },
+            { "verbal_explanation": "נחשב את החלק הנותר מהעבודה.", "math_expression": "w_{rem} = 1 - \\dfrac{1}{4} = \\dfrac{3}{4}" },
+            { "verbal_explanation": "נחשב את ההספק המשותף של שני הפועלים יחד.", "math_expression": "p = \\dfrac{1}{8} + \\dfrac{1}{12} = \\dfrac{3}{24} + \\dfrac{2}{24} = \\dfrac{5}{24}" },
+            { "verbal_explanation": "נחשב את הזמן הדרוש לסיום החלק הנותר בהספק המשותף.", "math_expression": "t_2 = \\dfrac{w_{rem}}{p} = \\dfrac{\\dfrac{3}{4}}{\\dfrac{5}{24}}" },
+            { "verbal_explanation": "נבצע חלוקת שברים.", "math_expression": "t_2 = \\dfrac{3}{4} \\times \\dfrac{24}{5} = \\dfrac{72}{20} = 3.6" },
+            { "verbal_explanation": "נחשב את הזמן הכולל מתחילת העבודה.", "math_expression": "t_{total} = 2 + 3.6" },
+            { "verbal_explanation": "נסכם את הזמנים.", "math_expression": "t_{total} = 5.6" }
         ],
-        final_answer: "12.5"
+        "final_answer": "5.6"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "מיכל מתמלא מברז א' ב-6 שעות. ברז ב' מרוקן את המיכל ב-12 שעות. פותחים את שניהם יחד כשהמיכל ריק. בכמה שעות יתמלא המיכל?&rlm;",
-        options: ["12", "18", "4", "8"],
-        correctAnswer: 0,
-        hint: "הספק המילוי נטו הוא הספק ההכנסה פחות הספק ההוצאה. חשבו והפכו את התוצאה לזמן.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת ההספק החיובי של הברז הממלא.", math_expression: "p_{1} = \\dfrac{1}{6}" },
-            { verbal_explanation: "שלב 2: הגדרת ההספק השלילי של הברז המרוקן.", math_expression: "p_{2} = -\\dfrac{1}{12}" },
-            { verbal_explanation: "שלב 3: חישוב ההספק הכללי נטו.", math_expression: "p = \\dfrac{1}{6} - \\dfrac{1}{12} = \\dfrac{1}{12}" },
-            { verbal_explanation: "שלב 4: הזמן הכולל למילוי הוא ההופכי של ההספק נטו.", math_expression: "t = 12" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "שני ברזים ממלאים בריכה ב-3 שעות כשהם פתוחים יחד. ברז א' לבדו ממלא את הבריכה ב-8 שעות פחות מברז ב' לבדו. כמה זמן דרוש לברז א' למלא את הבריכה לבדו?&rlm;",
+        "options": ["4", "6", "12", "5"],
+        "correctAnswer": 0,
+        "hint": "הזמן של ברז א' הוא x. הזמן של ברז ב' הוא x+8.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את זמן המילוי של הברז הראשון.", "math_expression": "t_1 = x" },
+            { "verbal_explanation": "נגדיר את זמן המילוי של הברז השני.", "math_expression": "t_2 = x + 8" },
+            { "verbal_explanation": "נרכיב משוואת הספקים.", "math_expression": "\\dfrac{1}{x} + \\dfrac{1}{x + 8} = \\dfrac{1}{3}" },
+            { "verbal_explanation": "נכפול במכנה משותף.", "math_expression": "3(x + 8) + 3x = x(x + 8)" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "3x + 24 + 3x = x^{2} + 8x" },
+            { "verbal_explanation": "נכנס איברים ונכין משוואה ריבועית.", "math_expression": "6x + 24 = x^{2} + 8x \\Rightarrow x^{2} + 2x - 24 = 0" },
+            { "verbal_explanation": "נפרק לגורמים.", "math_expression": "(x + 6)(x - 4) = 0" },
+            { "verbal_explanation": "נבחר בפתרון החיובי.", "math_expression": "x = 4" }
         ],
-        final_answer: "12"
+        "final_answer": "4"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "שני צינורות ממלאים יחד בריכה ב-6 שעות. יום אחד הופעל הצינור הראשון בלבד למשך 4 שעות והצינור השני בלבד למשך 9 שעות, והבריכה התמלאה בדיוק. בכמה שעות ממלא הצינור הראשון את הבריכה לבדו?&rlm;",
-        options: ["10", "12", "15", "18"],
-        correctAnswer: 0,
-        hint: "נסמן הספקים ב-u ו-v. נתון ש- 6u+6v=1 וגם 4u+9v=1. פתרו את המערכת למציאת u (ואז הפכו לזמן).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: כתיבת משוואת מילוי משותף ובידוד ההספק של השני.", math_expression: "6u + 6v = 1 \\Rightarrow v = \\dfrac{1 - 6u}{6}" },
-            { verbal_explanation: "שלב 2: כתיבת משוואת מילוי על פי זמנים שונים והצבת המשתנה המבודד.", math_expression: "4u + 9 \\times (\\dfrac{1 - 6u}{6}) = 1" },
-            { verbal_explanation: "שלב 3: פישוט החלק של הברז השני במשוואה.", math_expression: "4u + 1.5(1 - 6u) = 1" },
-            { verbal_explanation: "שלב 4: פתיחת סוגריים וכינוס משתנים.", math_expression: "4u + 1.5 - 9u = 1 \\Rightarrow -5u = -0.5 \\Rightarrow u = 0.1" },
-            { verbal_explanation: "שלב 5: הזמן הוא ההופכי של ההספק העשרוני.", math_expression: "t = \\dfrac{1}{0.1} = 10" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "פועל א' יכול לסלול כביש ב-15 ימים. פועל ב' יכול לסלול אותו ב-10 ימים. שניהם עובדים יחד במשך 3 ימים. איזה חלק מהעבודה נותר לסלול?&rlm;",
+        "options": ["1/2", "1/3", "1/4", "2/5"],
+        "correctAnswer": 0,
+        "hint": "חשבו את ההספק המשותף והכפילו במספר ימי העבודה כדי למצוא את החלק שבוצע. החלק שנותר הוא המשלים לאחת.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את ההספק המשותף של שני הפועלים.", "math_expression": "p = \\dfrac{1}{15} + \\dfrac{1}{10}" },
+            { "verbal_explanation": "נבצע מכנה משותף.", "math_expression": "p = \\dfrac{2}{30} + \\dfrac{3}{30} = \\dfrac{5}{30}" },
+            { "verbal_explanation": "נצמצם את השבר.", "math_expression": "p = \\dfrac{1}{6}" },
+            { "verbal_explanation": "נחשב את כמות העבודה שבוצעה בשלושה ימים.", "math_expression": "w = 3 \\times \\dfrac{1}{6} = \\dfrac{3}{6} = \\dfrac{1}{2}" },
+            { "verbal_explanation": "נחשב את החלק הנותר על ידי חיסור העבודה שבוצעה מהשלם.", "math_expression": "w_{rem} = 1 - \\dfrac{1}{2} = \\dfrac{1}{2}" }
         ],
-        final_answer: "10"
+        "final_answer": "1/2"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "מכונת הדפסה א' מדפיסה מהדורה של ספר ב-x שעות. מכונה ב' איטית יותר ומדפיסה אותה ב-x+3 שעות. שתי המכונות עבדו יחד במשך שעתיים והדפיסו 75% מהמהדורה (כלומר 3/4). מצאו את x.&rlm;",
-        options: ["4", "3", "6", "5"],
-        correctAnswer: 0,
-        hint: "סכום העבודות שלהן בשעתיים שווה ל-3/4. המשוואה: 2 חלקי x, ועוד 2 חלקי (x+3), שווה ל-3/4.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הרכבת משוואת ההספקים המשותפת המוגבלת לשבר מתוך העבודה הכוללת.", math_expression: "\\dfrac{2}{x} + \\dfrac{2}{x + 3} = \\dfrac{3}{4}" },
-            { verbal_explanation: "שלב 2: הכפלת המשוואה במכנה המשותף כדי להסיר שברים לחלוטין.", math_expression: "8(x + 3) + 8x = 3x(x + 3)" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים וכינוס כלל האיברים באגף ימין ליצירת פולינום.", math_expression: "8x + 24 + 8x = 3x^{2} + 9x \\Rightarrow 3x^{2} - 7x - 24 = 0" },
-            { verbal_explanation: "שלב 4: פתרון המשוואה הריבועית באמצעות טרינום או נוסחת שורשים למציאת הזמן החיובי.", math_expression: "x = \\dfrac{7 + \\sqrt{49 + 288}}{6} = \\dfrac{7 + 17}{6} = 4" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "מכונה א' מייצרת מכסה מסוימת ב-6 שעות. מכונה ב' מייצרת את אותה מכסה ב-x שעות. כשהן פועלות יחד הן מייצרות את המכסה ב-2.4 שעות. מצאו את x.&rlm;",
+        "options": ["4", "5", "8", "3.5"],
+        "correctAnswer": 0,
+        "hint": "בנו משוואת הספקים ופתרו עבור הנעלם.",
+        "solution_steps": [
+            { "verbal_explanation": "נרכיב משוואת הספקים המבוססת על הנתונים.", "math_expression": "\\dfrac{1}{6} + \\dfrac{1}{x} = \\dfrac{1}{2.4}" },
+            { "verbal_explanation": "נמיר את השבר העשרוני במכנה לשבר פשוט לצורך נוחות.", "math_expression": "\\dfrac{1}{2.4} = \\dfrac{10}{24} = \\dfrac{5}{12}" },
+            { "verbal_explanation": "נציב את השבר הפשוט במשוואה.", "math_expression": "\\dfrac{1}{6} + \\dfrac{1}{x} = \\dfrac{5}{12}" },
+            { "verbal_explanation": "נעביר את המספרים לאגף אחד כדי לבודד את הנעלם.", "math_expression": "\\dfrac{1}{x} = \\dfrac{5}{12} - \\dfrac{1}{6}" },
+            { "verbal_explanation": "נבצע מכנה משותף וחיסור.", "math_expression": "\\dfrac{1}{x} = \\dfrac{5}{12} - \\dfrac{2}{12} = \\dfrac{3}{12}" },
+            { "verbal_explanation": "נצמצם את השבר.", "math_expression": "\\dfrac{1}{x} = \\dfrac{1}{4}" },
+            { "verbal_explanation": "נחלץ את המשתנה.", "math_expression": "x = 4" }
         ],
-        final_answer: "4"
+        "final_answer": "4"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "פועל א' יכול לבצע עבודה ב-x ימים. פועל ב' יכול לבצע אותה ב-x+10 ימים. יום אחד עבדו שניהם יחד במשך 12 ימים והשלימו את כל העבודה. מצאו את x.&rlm;",
-        options: ["20", "30", "15", "10"],
-        correctAnswer: 0,
-        hint: "סכום ההספקים כפול 12 שווה ל-1. בנו משוואה ריבועית.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת ההספקים המשותפת בשימוש הזמן הנתון והמלא.", math_expression: "\\dfrac{12}{x} + \\dfrac{12}{x + 10} = 1" },
-            { verbal_explanation: "שלב 2: ביצוע כפל במכנה משותף שלם.", math_expression: "12(x + 10) + 12x = x(x + 10)" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים משני הצדדים.", math_expression: "12x + 120 + 12x = x^{2} + 10x" },
-            { verbal_explanation: "שלב 4: העברת איברים כדי ליצור משוואה ריבועית קלאסית מאופסת.", math_expression: "x^{2} - 14x - 120 = 0" },
-            { verbal_explanation: "שלב 5: מציאת השורש החיובי באמצעות נוסחה או טרינום מורחב.", math_expression: "(x - 20)(x + 6) = 0 \\Rightarrow x = 20" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "צוות של 5 פועלים מסיים משימה ב-8 ימים. בהנחה שההספק של כולם זהה, כמה פועלים נדרשים כדי לסיים את המשימה ב-2 ימים?&rlm;",
+        "options": ["20", "15", "10", "25"],
+        "correctAnswer": 0,
+        "hint": "כמות העבודה הכוללת נמדדת ב'ימי-עבודה' (מספר הפועלים כפול מספר הימים). סך העבודה נשאר קבוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את סך כל העבודה הנדרשת ביחידות של ימי עבודה פועל.", "math_expression": "W = 5 \\times 8" },
+            { "verbal_explanation": "העבודה היא ערך קבוע.", "math_expression": "W = 40" },
+            { "verbal_explanation": "נגדיר את המצב החדש, שבו העבודה מתחלקת על פני יומיים.", "math_expression": "x \\times 2 = 40" },
+            { "verbal_explanation": "נחלק בשתיים למציאת מספר הפועלים הדרוש.", "math_expression": "x = \\dfrac{40}{2}" },
+            { "verbal_explanation": "נחשב את התוצאה.", "math_expression": "x = 20" }
         ],
-        final_answer: "20"
+        "final_answer": "20"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
-        question_text: "צינור ממלא מיכל ב-10 שעות. לאחר שעבד 4 שעות, נפתח חור בתחתית המיכל שמרוקן אותו בקצב של מיכל שלם ב-15 שעות. כמה שעות יקח למיכל להתמלא מרגע פתיחת החור (הצינור הממלא עדיין עובד)?&rlm;",
-        options: ["18", "12", "10", "15"],
-        correctAnswer: 0,
-        hint: "חשבו איזה חלק מהמיכל כבר מלא (4/10). היתרה היא 6/10. ההספק נטו כעת הוא 1/10 פחות 1/15. חלקו את היתרה בהספק נטו.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב החלק מהמיכל שמולא בטרם פתיחת החור.", math_expression: "W_{1} = 4 \\times \\dfrac{1}{10} = 0.4" },
-            { verbal_explanation: "שלב 2: חישוב החלק שנותר למלא עד לסיום.", math_expression: "W_{2} = 1 - 0.4 = 0.6" },
-            { verbal_explanation: "שלב 3: חישוב הספק המילוי נטו כהפרש בין הצינור לדליפה.", math_expression: "p = \\dfrac{1}{10} - \\dfrac{1}{15} = \\dfrac{3 - 2}{30} = \\dfrac{1}{30}" },
-            { verbal_explanation: "שלב 4: הזמן הדרוש שווה לעבודה הנותרת מחולקת בהספק הפעיל החדש.", math_expression: "t = 0.6 : \\dfrac{1}{30} = 0.6 \\times 30 = 18" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות הספק ועבודה (שני פועלים, עבודה בחלקים)",
+        "question_text": "פועל א' מבצע 1/3 מהעבודה ב-4 ימים. פועל ב' מבצע 1/2 מהעבודה ב-5 ימים. בכמה ימים הם יסיימו את העבודה השלמה אם יעבדו יחד מתחילתה ועד סופה?&rlm;",
+        "options": ["5.45", "4.5", "6.2", "7.1"],
+        "correctAnswer": 0,
+        "hint": "חשבו תחילה כמה זמן לוקח לכל פועל לסיים את העבודה השלמה לבדו. לאחר מכן, חברו את ההספקים.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את הזמן הדרוש לפועל הראשון לסיים עבודה שלמה.", "math_expression": "t_1 = 4 \\times 3 = 12" },
+            { "verbal_explanation": "נחשב את הזמן הדרוש לפועל השני לסיים עבודה שלמה.", "math_expression": "t_2 = 5 \\times 2 = 10" },
+            { "verbal_explanation": "נגדיר את ההספק של הפועל הראשון.", "math_expression": "p_1 = \\dfrac{1}{12}" },
+            { "verbal_explanation": "נגדיר את ההספק של הפועל השני.", "math_expression": "p_2 = \\dfrac{1}{10}" },
+            { "verbal_explanation": "נחשב את ההספק המשותף.", "math_expression": "p = \\dfrac{1}{12} + \\dfrac{1}{10}" },
+            { "verbal_explanation": "נבצע מכנה משותף של שישים.", "math_expression": "p = \\dfrac{5}{60} + \\dfrac{6}{60} = \\dfrac{11}{60}" },
+            { "verbal_explanation": "נחשב את הזמן על ידי חלוקת עבודה בהספק.", "math_expression": "t = \\dfrac{1}{\\dfrac{11}{60}}" },
+            { "verbal_explanation": "נחלץ את התוצאה כמספר עשרוני.", "math_expression": "t = \\dfrac{60}{11} \\approx 5.45" }
         ],
-        final_answer: "18"
+        "final_answer": "5.45"
     },
 
     // ==========================================
     // תת נושא 3: בעיות קנייה ומכירה (כולל אחוזים) (10 שאלות)
     // ==========================================
-
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "סוחר קנה כסאות ב-1200 שקלים. 4 כסאות נשברו. את שאר הכסאות מכר הסוחר ברווח של 30 שקלים לכל כסא. בסך הכל הרוויח הסוחר בעסקה כולה 240 שקלים. כמה כסאות קנה הסוחר במקור?&rlm;",
-        options: ["20", "16", "24", "12"],
-        correctAnswer: 0,
-        hint: "מחיר קנייה לכסא הוא 1200 חלקי x. הפדיון הוא 1440. המשוואה משווה בין כמות הפריטים שנותרו למכירה כפול המחיר החדש לפדיון.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב הפדיון הכולל מכל המכירות.", math_expression: "1200 + 240 = 1440" },
-            { verbal_explanation: "שלב 2: בניית המשוואה המרכזית (כמות נמכרת כפול מחיר מעודכן שווה פדיון).", math_expression: "(x - 4) \\times (\\dfrac{1200}{x} + 30) = 1440" },
-            { verbal_explanation: "שלב 3: חלוקת המשוואה בשלושים לצורך פישוט מספרים לפני כפל.", math_expression: "(x - 4) \\times (\\dfrac{40}{x} + 1) = 48" },
-            { verbal_explanation: "שלב 4: פתיחת סוגריים וכינוס איברים חופשיים.", math_expression: "40 + x - \\dfrac{160}{x} - 4 = 48 \\Rightarrow x - 12 - \\dfrac{160}{x} = 0" },
-            { verbal_explanation: "שלב 5: הכפלת המשוואה באיקס ליצירת משוואה ריבועית.", math_expression: "x^{2} - 12x - 160 = 0" },
-            { verbal_explanation: "שלב 6: חילוץ התוצאה החיובית (כמות כסאות).", math_expression: "(x - 20)(x + 8) = 0 \\Rightarrow x = 20" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "מחירו של מוצר עלה ב-20%, ולאחר מכן ירד ב-20%. מחירו הסופי של המוצר לאחר שתי הפעולות הוא 96 שקלים. מה היה מחירו ההתחלתי?&rlm;",
+        "options": ["100", "96", "104", "92"],
+        "correctAnswer": 0,
+        "hint": "כל שינוי באחוזים מהווה הכפלה במקדם. עלייה של 20% היא כפל ב-1.2, וירידה היא כפל ב-0.8.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המחיר ההתחלתי כמשתנה.", "math_expression": "x" },
+            { "verbal_explanation": "נרשום את מכפלת המקדמים המייצגים את שינויי האחוזים.", "math_expression": "x \\times 1.2 \\times 0.8 = 96" },
+            { "verbal_explanation": "נבצע את הכפל של המקדמים.", "math_expression": "x \\times 0.96 = 96" },
+            { "verbal_explanation": "נחלק במקדם לבידוד המשתנה.", "math_expression": "x = \\dfrac{96}{0.96}" },
+            { "verbal_explanation": "נחשב את המנה.", "math_expression": "x = 100" }
         ],
-        final_answer: "20"
+        "final_answer": "100"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "מחירו של מוצר עלה ב-x אחוזים. לאחר חודש, מחירו של המוצר עלה שוב ב-x אחוזים. המחיר הסופי גדול ב-44% מהמחיר המקורי. מצאו את x.&rlm;",
-        options: ["20", "10", "22", "15"],
-        correctAnswer: 0,
-        hint: "המחיר ההתחלתי P כפול המקדם בריבוע, שווה ל-1.44P.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הצגת מודל אחוזי ההתייקרות הכפולה שמהווה את השינוי הכולל.", math_expression: "p \\times (1 + \\dfrac{x}{100})^{2} = p \\times 1.44" },
-            { verbal_explanation: "שלב 2: צמצום המחיר המקורי משני האגפים.", math_expression: "(1 + \\dfrac{x}{100})^{2} = 1.44" },
-            { verbal_explanation: "שלב 3: הוצאת שורש ריבועי לקבלת המקדם התקופתי הנקי.", math_expression: "1 + \\dfrac{x}{100} = 1.2" },
-            { verbal_explanation: "שלב 4: בידוד השבר עם הנעלם.", math_expression: "\\dfrac{x}{100} = 0.2" },
-            { verbal_explanation: "שלב 5: הכפלה במאה לקבלת האחוז המדויק.", math_expression: "x = 20" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "סוחר קנה \\( x \\) מוצרים בסכום כולל של 600 שקלים. 5 מוצרים נשברו, ואת השאר מכר הסוחר ברווח של 5 שקלים לכל מוצר. הרווח הכולל של הסוחר מכל העסקה היה 100 שקלים. מצאו את \\( x \\).&rlm;",
+        "options": ["40", "30", "50", "20"],
+        "correctAnswer": 0,
+        "hint": "מחיר הקנייה ליחידה הוא 600 חלקי x. מחיר המכירה ליחידה גבוה ב-5. כמות המכירה היא x פחות 5. סך ההכנסות שוות לסך ההוצאות ועוד הרווח.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את מחיר הקנייה ליחידה.", "math_expression": "C = \\dfrac{600}{x}" },
+            { "verbal_explanation": "נרשום את מחיר המכירה ליחידה.", "math_expression": "S = \\dfrac{600}{x} + 5" },
+            { "verbal_explanation": "כמות המוצרים שנמכרו.", "math_expression": "Q = x - 5" },
+            { "verbal_explanation": "סך ההכנסות ממכירה שווה להוצאות בתוספת הרווח הכולל.", "math_expression": "(\\dfrac{600}{x} + 5)(x - 5) = 600 + 100 = 700" },
+            { "verbal_explanation": "נפתח סוגריים באגף השמאלי.", "math_expression": "600 - \\dfrac{3000}{x} + 5x - 25 = 700" },
+            { "verbal_explanation": "נעביר את המספרים לאגף אחד ונסדר.", "math_expression": "5x - \\dfrac{3000}{x} - 125 = 0" },
+            { "verbal_explanation": "נכפול במשתנה כדי לבטל את השבר במכנה.", "math_expression": "5x^{2} - 125x - 3000 = 0" },
+            { "verbal_explanation": "נחלק בחמש לפשטות.", "math_expression": "x^{2} - 25x - 600 = 0" },
+            { "verbal_explanation": "נפרק לגורמים או נשתמש בנוסחת שורשים.", "math_expression": "(x - 40)(x + 15) = 0" },
+            { "verbal_explanation": "הכמות חיובית ולכן נבחר בפתרון החיובי.", "math_expression": "x = 40" }
         ],
-        final_answer: "20"
+        "final_answer": "40"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "חנות קנתה עפרונות במחיר כולל של 400 שקלים. 10 עפרונות אבדו. החנות מכרה את העפרונות הנותרים במחיר הגבוה ב-2 שקלים ליחידה ממחיר הקנייה שלהם. סך הכל קיבלה החנות 420 שקלים מהמכירה. כמה עפרונות קנתה החנות בהתחלה?&rlm;",
-        options: ["50", "40", "60", "80"],
-        correctAnswer: 0,
-        hint: "בנו משוואה בדומה לשאלה הראשונה: כמות (x-10) כפול מחיר יחידה (400/x + 2) שווה 420.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת הפדיון הכוללת כמות משתנה ומחיר משתנה.", math_expression: "(x - 10) \\times (\\dfrac{400}{x} + 2) = 420" },
-            { verbal_explanation: "שלב 2: חלוקת המשוואה בשתיים לפשטות המספרים.", math_expression: "(x - 10) \\times (\\dfrac{200}{x} + 1) = 210" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים מלאה.", math_expression: "200 + x - \\dfrac{2000}{x} - 10 = 210" },
-            { verbal_explanation: "שלב 4: כינוס איברים והכפלה במשתנה לביטול השבר.", math_expression: "x^{2} - 20x - 2000 = 0" },
-            { verbal_explanation: "שלב 5: מציאת הכמות המקורית שהיא השורש החיובי למשוואה הריבועית.", math_expression: "(x - 50)(x + 40) = 0 \\Rightarrow x = 50" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "שני מוצרים עולים יחד 150 שקלים. מוצר א' נמכר ברווח של 20% ומוצר ב' נמכר בהפסד של 10%. סך ההכנסות ממכירת שני המוצרים היה 156 שקלים. מה היה מחיר הקנייה של מוצר א'?&rlm;",
+        "options": ["70", "80", "60", "90"],
+        "correctAnswer": 0,
+        "hint": "סמנו את עלות א' כ-x, ועלות ב' כ-150 מינוס x. בנו משוואה של ההכנסות.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את עלות מוצר א' ועלות מוצר ב'.", "math_expression": "C_A = x \\quad , \\quad C_B = 150 - x" },
+            { "verbal_explanation": "נרכיב משוואת הכנסות עם המקדמים המבטאים את שיעורי הרווח וההפסד.", "math_expression": "1.2x + 0.9(150 - x) = 156" },
+            { "verbal_explanation": "נפתח סוגריים באגף השמאלי.", "math_expression": "1.2x + 135 - 0.9x = 156" },
+            { "verbal_explanation": "נכנס איברים ונחסר 135.", "math_expression": "0.3x = 21" },
+            { "verbal_explanation": "נחלק במקדם לבידוד המשתנה.", "math_expression": "x = \\dfrac{21}{0.3}" },
+            { "verbal_explanation": "נחשב את ערך עלות מוצר א'.", "math_expression": "x = 70" }
         ],
-        final_answer: "50"
+        "final_answer": "70"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "מחירו של מוצר עלה ב-25%. בכמה אחוזים יש להוריד את מחירו החדש כדי שיחזור למחירו המקורי לפני ההעלאה?&rlm;",
-        options: ["20", "25", "15", "30"],
-        correctAnswer: 0,
-        hint: "אנו מחפשים איזה אחוז להוריד מ-1.25 כדי לקבל חזרה 1 (המחיר המקורי).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת הקשר שבו המחיר החדש יוכפל במקדם חדש כדי לחזור לערך בסיס של אחד.", math_expression: "1.25 \\times q = 1" },
-            { verbal_explanation: "שלב 2: חלוקה לבידוד המקדם החדש.", math_expression: "q = \\dfrac{1}{1.25} = 0.8" },
-            { verbal_explanation: "שלב 3: המקדם הזה משקף הותרת שמונים אחוזים מהערך המלא. המרת הפער לאחוזים מניבה את הפתרון.", math_expression: "x = (1 - 0.8) \\times 100 = 20" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "חנות קנתה חולצות בסכום כולל של 1000 שקלים. 10 חולצות היו פגומות. את שאר החולצות מכרה החנות במחיר הגבוה ב-20% ממחיר הקנייה של כל חולצה. סך ההכנסות היה 1080 שקלים. כמה חולצות קנתה החנות?&rlm;",
+        "options": ["100", "120", "80", "90"],
+        "correctAnswer": 0,
+        "hint": "סמנו את כמות החולצות ב-x. מחיר הקנייה הוא 1000 חלקי x. הכפילו מחיר זה ב-1.2 ובנו משוואה מול הכמות שנמכרה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את מחיר הקנייה לחולצה אחת.", "math_expression": "C = \\dfrac{1000}{x}" },
+            { "verbal_explanation": "נגדיר את מחיר המכירה לחולצה, הגבוה בעשרים אחוז.", "math_expression": "S = 1.2 \\times \\dfrac{1000}{x} = \\dfrac{1200}{x}" },
+            { "verbal_explanation": "נרכיב משוואה של הכמות שנמכרה במחיר המכירה מול ההכנסה.", "math_expression": "(x - 10) \\times \\dfrac{1200}{x} = 1080" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "1200 - \\dfrac{12000}{x} = 1080" },
+            { "verbal_explanation": "נחסר מספרים חופשיים ונבודד את השבר.", "math_expression": "120 = \\dfrac{12000}{x}" },
+            { "verbal_explanation": "נכפול באלכסון.", "math_expression": "120x = 12000" },
+            { "verbal_explanation": "נחלק לקבלת הכמות המקורית.", "math_expression": "x = 100" }
         ],
-        final_answer: "20"
+        "final_answer": "100"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "חולצה ומכנסיים עלו יחד 300 שקלים. בסוף העונה הוזלה החולצה ב-20% והמכנסיים הוזלו ב-30%. כעת המחיר הכולל שלהם יחד הוא 225 שקלים. מה היה מחירה המקורי של החולצה?&rlm;",
-        options: ["150", "200", "100", "120"],
-        correctAnswer: 0,
-        hint: "זהו תרגיל עם שתי משוואות בשני נעלמים: x+y=300 וגם 0.8x+0.7y=225.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת הסכום הראשונית וחילוץ משתנה אחד בעזרת השני.", math_expression: "x + y = 300 \\Rightarrow y = 300 - x" },
-            { verbal_explanation: "שלב 2: בניית משוואת המחירים החדשים לאחר הפחתת האחוזים.", math_expression: "0.8x + 0.7y = 225" },
-            { verbal_explanation: "שלב 3: הצבת הביטוי המייצג את המכנסיים לתוך המשוואה העדכנית.", math_expression: "0.8x + 0.7(300 - x) = 225" },
-            { verbal_explanation: "שלב 4: פתיחת הסוגריים.", math_expression: "0.8x + 210 - 0.7x = 225" },
-            { verbal_explanation: "שלב 5: חיסור משתנים ובידוד התוצאה למציאת הערך.", math_expression: "0.1x = 15 \\Rightarrow x = 150" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "מחירו של מוצר יורד בכל שנה באחוז קבוע של \\( x\\% \\). מחירו ההתחלתי היה 500 שקלים, וכעבור שנתיים מחירו היה 320 שקלים. מצאו את \\( x \\).&rlm;",
+        "options": ["20", "15", "25", "30"],
+        "correctAnswer": 0,
+        "hint": "השתמשו בנוסחת גדילה ודעיכה או הכפילו את המחיר ההתחלתי בפקטור של ירידה בריבוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום משוואה עם פקטור ירידה שנתי לאחר שנתיים.", "math_expression": "500(1 - \\dfrac{x}{100})^{2} = 320" },
+            { "verbal_explanation": "נחלק בחמש מאות כדי לבודד את הריבוע.", "math_expression": "(1 - \\dfrac{x}{100})^{2} = \\dfrac{320}{500} = 0.64" },
+            { "verbal_explanation": "נוציא שורש חיובי שני אגפים.", "math_expression": "1 - \\dfrac{x}{100} = 0.8" },
+            { "verbal_explanation": "נעביר אגפים.", "math_expression": "\\dfrac{x}{100} = 0.2" },
+            { "verbal_explanation": "נכפול במאה לחילוץ האחוז.", "math_expression": "x = 20" }
         ],
-        final_answer: "150"
+        "final_answer": "20"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "קבוצת חברים שכרה יאכטה ב-1200 שקלים (התשלום מתחלק שווה בשווה). ביום ההפלגה ביטלו 4 חברים את הגעתם, ולכן כל אחד מאלו שבאו נאלץ לשלם 10 שקלים יותר. כמה חברים היו בקבוצה במקור?&rlm;",
-        options: ["24", "20", "30", "16"],
-        correctAnswer: 0,
-        hint: "התשלום המקורי לאדם היה 1200/x. התשלום החדש הוא 1200/(x-4). ההפרש ביניהם הוא 10.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואה המתארת את העלות הגבוהה פחות הנמוכה והשוואתה להפרש.", math_expression: "\\dfrac{1200}{x - 4} - \\dfrac{1200}{x} = 10" },
-            { verbal_explanation: "שלב 2: חלוקת המשוואה בעשר לצמצום מספרים.", math_expression: "\\dfrac{120}{x - 4} - \\dfrac{120}{x} = 1" },
-            { verbal_explanation: "שלב 3: כפל במכנה משותף לשם הוצאת הנעלם מקו השבר.", math_expression: "120x - 120(x - 4) = x(x - 4)" },
-            { verbal_explanation: "שלב 4: פתיחת סוגריים וצמצום מהיר (האיקסים בצד שמאל מתבטלים).", math_expression: "480 = x^{2} - 4x" },
-            { verbal_explanation: "שלב 5: סידור כמשוואה ריבועית קלאסית.", math_expression: "x^{2} - 4x - 480 = 0" },
-            { verbal_explanation: "שלב 6: בחירת התוצאה החיובית.", math_expression: "(x - 24)(x + 20) = 0 \\Rightarrow x = 24" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "סוחר קנה מוצר ב-80 שקלים ומעוניין להרוויח עליו 25%. איזה מחיר מחירון עליו לקבוע, אם הוא מתכוון לתת הנחה של 20% על מחיר המחירון?&rlm;",
+        "options": ["125", "100", "150", "120"],
+        "correctAnswer": 0,
+        "hint": "חשבו קודם מהו הסכום הסופי הרצוי לאחר הרווח. לאחר מכן, הגדירו את מחיר המחירון כך שלאחר הנחה של 20% יתקבל הסכום הרצוי.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את המחיר הרצוי למכירה כדי להשיג את הרווח הנדרש.", "math_expression": "S = 80 \\times 1.25 = 100" },
+            { "verbal_explanation": "נגדיר את מחיר המחירון כמשתנה.", "math_expression": "P" },
+            { "verbal_explanation": "נרכיב משוואה של המחיר לאחר הנחת העשרים אחוז ועד למחיר המכירה.", "math_expression": "P \\times 0.8 = 100" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "P = \\dfrac{100}{0.8}" },
+            { "verbal_explanation": "נחשב את ערכו הסופי של מחיר המחירון.", "math_expression": "P = 125" }
         ],
-        final_answer: "24"
+        "final_answer": "125"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "בעל חנות קנה מוצר ב-x שקלים. הוא קבע לו מחיר מחירון הגבוה ב-25% ממחיר הקנייה. לאחר מכן נתן הנחה של 10% על מחיר המחירון. רווחו במכירה היה 25 שקלים. מה היה מחיר הקנייה (x)?&rlm;",
-        options: ["200", "250", "150", "300"],
-        correctAnswer: 0,
-        hint: "המחיר הסופי מחושב על ידי הכפלה ב-1.25 ולאחר מכן ב-0.9. הרווח הוא ההפרש בין המחיר הסופי לעלות המקורית.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: כתיבת ביטוי המייצג את המחיר הסופי לאחר כל שינויי האחוזים.", math_expression: "P = x \\times 1.25 \\times 0.9 = 1.125x" },
-            { verbal_explanation: "שלב 2: הגדרת הרווח כפער בין הפדיון לעלות, והשוואתו לנתון.", math_expression: "1.125x - x = 25" },
-            { verbal_explanation: "שלב 3: כינוס המשתנים.", math_expression: "0.125x = 25" },
-            { verbal_explanation: "שלב 4: חלוקה להשגת מחיר הקנייה הבסיסי.", math_expression: "x = 25 : 0.125 = 200" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "אדם קנה עטים בסכום כולל של 200 שקלים. 20 עטים הוא מכר במחיר הקנייה (ללא רווח), ואת שאר העטים מכר ברווח של 2 שקלים לעט. סך כל הרווח מהעסקה היה 20 שקלים. כמה עטים הוא קנה?&rlm;",
+        "options": ["30", "40", "50", "25"],
+        "correctAnswer": 0,
+        "hint": "הרווח נובע רק מהעטים הנותרים (סך העטים פחות 20). כמות זו כפול 2 שקלים לעט שווה לרווח הכולל.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את כמות העטים שנקנו כמשתנה.", "math_expression": "x" },
+            { "verbal_explanation": "נרשום את כמות העטים שנמכרו ברווח.", "math_expression": "Q = x - 20" },
+            { "verbal_explanation": "הרווח נבע רק מכמות זו. נרכיב משוואה המקשרת את הרווח ליחידה לרווח הכולל.", "math_expression": "Q \\times 2 = 20" },
+            { "verbal_explanation": "נציב את הביטוי לכמות העטים.", "math_expression": "(x - 20) \\times 2 = 20" },
+            { "verbal_explanation": "נחלק בשתיים.", "math_expression": "x - 20 = 10" },
+            { "verbal_explanation": "נחלץ את הכמות הכוללת.", "math_expression": "x = 30" }
         ],
-        final_answer: "200"
+        "final_answer": "30"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "ידוע שמוצר א' זול ב-20% ממוצר ב'. ביום מסוים, מוצר א' התייקר ב-15%, ומוצר ב' הוזל ב-10%. המחיר הכולל של שניהם יחד כעת הוא 364 שקלים. מה היה מחירו המקורי של מוצר א'?&rlm;",
-        options: ["160", "200", "150", "180"],
-        correctAnswer: 0,
-        hint: "מוצר ב' הוא y. מוצר א' הוא 0.8y. בנו משוואה לחיבור המחירים המעודכנים שלהם.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת מחירו של מוצר א' בעזרת ביטוי התלוי במוצר ב'.", math_expression: "P_{1} = 0.8y" },
-            { verbal_explanation: "שלב 2: בניית משוואת המחירים החדשים לאחר שינויי העדכון באחוזים.", math_expression: "1.15 \\times (0.8y) + 0.9y = 364" },
-            { verbal_explanation: "שלב 3: פישוט הנתונים המוכפלים.", math_expression: "0.92y + 0.9y = 364" },
-            { verbal_explanation: "שלב 4: כינוס איברים וחלוקה למציאת מחירו של המוצר השני.", math_expression: "1.82y = 364 \\Rightarrow y = 200" },
-            { verbal_explanation: "שלב 5: הצבה בחזרה למציאת המחיר המקורי של מוצר א' בלבד.", math_expression: "P_{1} = 0.8 \\times 200 = 160" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "המס על מוצר מסוים עלה מ-15% ל-20%. בעקבות כך, הפרש המס ששילם הצרכן עלה ב-10 שקלים. מה היה מחירו של המוצר לפני המס?&rlm;",
+        "options": ["200", "150", "250", "100"],
+        "correctAnswer": 0,
+        "hint": "ההפרש באחוזים (5%) מייצג את ההפרש בכסף (10 שקלים).",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את מחיר המוצר ללא מס.", "math_expression": "x" },
+            { "verbal_explanation": "נרכיב משוואת הפרש המסים המשולמים.", "math_expression": "0.20x - 0.15x = 10" },
+            { "verbal_explanation": "נחסר את המקדמים.", "math_expression": "0.05x = 10" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "x = \\dfrac{10}{0.05}" },
+            { "verbal_explanation": "נחשב את ערך המחיר.", "math_expression": "x = 200" }
         ],
-        final_answer: "160"
+        "final_answer": "200"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "סוחר קנה 50 פריטים. 10 פריטים התקלקלו ונזרקו. את השאר הוא מכר ברווח של 40% על כל פריט. אם בסוף התהליך הוא הרוויח נטו 600 שקלים בעסקה כולה, כמה עלה לו כל פריט במקור?&rlm;",
-        options: ["100", "50", "120", "80"],
-        correctAnswer: 0,
-        hint: "מחיר קנייה ליחידה הוא p. עלות כוללת: 50p. הוא מכר 40 פריטים במחיר 1.4p. הפדיון פחות העלות שווה 600.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הגדרת ביטוי להוצאה הכוללת במונחי מחיר יחיד.", math_expression: "C = 50p" },
-            { verbal_explanation: "שלב 2: הגדרת ביטוי לפדיון ממכירת שארית הסחורה התקינה בתעריף המוגדל.", math_expression: "R = 40 \\times (1.4p) = 56p" },
-            { verbal_explanation: "שלב 3: בניית משוואת הרווח הכללי המהווה את ההפרש בין הפדיון להוצאות.", math_expression: "56p - 50p = 600" },
-            { verbal_explanation: "שלב 4: כינוס ופתרון המשוואה הפשוטה.", math_expression: "6p = 600 \\Rightarrow p = 100" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "אדם הוציא 1/3 מכספו, ולאחר מכן הוציא 1/4 מהכסף שנותר לו. לבסוף, נשארו בידו 150 שקלים. מה היה הסכום ההתחלתי שעמו יצא?&rlm;",
+        "options": ["300", "400", "450", "200"],
+        "correctAnswer": 0,
+        "hint": "חשבו כמה נשאר אחרי ההוצאה הראשונה, והכפילו בשיעור שנותר אחרי ההוצאה השנייה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את הסכום ההתחלתי.", "math_expression": "x" },
+            { "verbal_explanation": "נחשב את הכסף שנותר לאחר ההוצאה הראשונה של שליש.", "math_expression": "M_1 = x - \\dfrac{1}{3}x = \\dfrac{2}{3}x" },
+            { "verbal_explanation": "בהוצאה השנייה הוציא רבע מהנותר, לכן נשארו לו שלושה רבעים מאותו הנותר.", "math_expression": "M_2 = \\dfrac{3}{4} \\times M_1" },
+            { "verbal_explanation": "נציב את הנותר הראשון לתוך המשוואה.", "math_expression": "M_2 = \\dfrac{3}{4} \\times \\dfrac{2}{3}x = \\dfrac{6}{12}x = \\dfrac{1}{2}x" },
+            { "verbal_explanation": "נשווה את הנותר הסופי לנתון המספרי.", "math_expression": "\\dfrac{1}{2}x = 150" },
+            { "verbal_explanation": "נכפול בשתיים כדי לגלות את הסכום המלא.", "math_expression": "x = 300" }
         ],
-        final_answer: "100"
+        "final_answer": "300"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות קנייה ומכירה (כולל אחוזים)",
-        question_text: "מחיר ספר גדול ב-20 שקלים ממחיר מחברת. קנו 3 ספרים ו-5 מחברות. נתנו הנחה של 10% על הספרים, ולכן המחיר הכולל ששולם היה 169.5 שקלים. מהו מחיר מחברת?&rlm;",
-        options: ["15", "20", "25", "10"],
-        correctAnswer: 0,
-        hint: "מחיר מחברת x. מחיר ספר x+20. המשוואה: 5x פלוס 3 כפול 0.9 כפול (x+20) שווה 169.5.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הרכבת משוואת עלות הקנייה לפי הנתונים.", math_expression: "5x + 3 \\times 0.9 \\times (x + 20) = 169.5" },
-            { verbal_explanation: "שלב 2: הכפלת המקדמים מחוץ לסוגריים.", math_expression: "5x + 2.7(x + 20) = 169.5" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים.", math_expression: "5x + 2.7x + 54 = 169.5" },
-            { verbal_explanation: "שלב 4: כינוס נעלמים וחיסור מספרים בין האגפים.", math_expression: "7.7x = 115.5" },
-            { verbal_explanation: "שלב 5: חלוקה לקבלת מחיר הפריט הפשוט.", math_expression: "x = 15" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות קנייה ומכירה (כולל אחוזים)",
+        "question_text": "הרווח על מוצר א' הוא 30% ועל מוצר ב' הוא 40%. מחיר הקנייה של מוצר א' גדול ב-50 שקלים ממחיר הקנייה של מוצר ב'. סך הרווח משני המוצרים יחד הוא 64 שקלים. מהו מחיר הקנייה של מוצר ב'?&rlm;",
+        "options": ["70", "60", "80", "50"],
+        "correctAnswer": 0,
+        "hint": "הגדירו את העלות של ב' כ-x, ושל א' כ-x+50. רשמו משוואה לסך הרווח.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את עלות מוצר ב'.", "math_expression": "C_B = x" },
+            { "verbal_explanation": "נגדיר את עלות מוצר א' על פי הנתון.", "math_expression": "C_A = x + 50" },
+            { "verbal_explanation": "נרכיב משוואה לסך הרווח של שני המוצרים.", "math_expression": "0.3(x + 50) + 0.4x = 64" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "0.3x + 15 + 0.4x = 64" },
+            { "verbal_explanation": "נכנס איברים באגף שמאל.", "math_expression": "0.7x + 15 = 64" },
+            { "verbal_explanation": "נחסר 15.", "math_expression": "0.7x = 49" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "x = \\dfrac{49}{0.7}" },
+            { "verbal_explanation": "נחשב את הפתרון למוצר ב'.", "math_expression": "x = 70" }
         ],
-        final_answer: "15"
+        "final_answer": "70"
     },
 
     // ==========================================
     // תת נושא 4: בעיות תערובות וריכוזים (10 שאלות)
     // ==========================================
-
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "עירבבו 20 ליטרים של תמיסת חומצה בריכוז 30%, עם 30 ליטרים של תמיסת חומצה בריכוז 50%. מהו ריכוז החומצה (באחוזים) בתערובת החדשה שנוצרה?&rlm;",
-        options: ["42%", "40%", "45%", "38%"],
-        correctAnswer: 0,
-        hint: "חשבו את כמות החומצה הנקייה בכל תמיסה, חברו אותן, וחלקו בנפח הכולל החדש של התערובת (50 ליטרים).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: מציאת כמות החומר הטהור בתמיסה הראשונה.", math_expression: "m_{1} = 20 \\times 0.3 = 6" },
-            { verbal_explanation: "שלב 2: מציאת כמות החומר הטהור בתמיסה השנייה.", math_expression: "m_{2} = 30 \\times 0.5 = 15" },
-            { verbal_explanation: "שלב 3: סכימת כמויות החומר והנוזל הכללי.", math_expression: "m = 6 + 15 = 21 \\quad , \\quad V = 20 + 30 = 50" },
-            { verbal_explanation: "שלב 4: חישוב הריכוז הסופי כשבר והמרתו לאחוז.", math_expression: "p = (\\dfrac{21}{50}) \\times 100" },
-            { verbal_explanation: "שלב 5: התוצאה המדויקת באחוזים.", math_expression: "p = 42" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "ל-40 ליטרים של תמיסה בריכוז של 10% כוהל, מוסיפים כמות של כוהל נקי (100%). מתקבלת תמיסה חדשה בריכוז של 20%. כמה ליטרים של כוהל נקי הוספו?&rlm;",
+        "options": ["5", "4", "6", "8"],
+        "correctAnswer": 0,
+        "hint": "כמות הכוהל המקורית ועוד כמות הכוהל שהוספה שווה לריכוז החדש כפול הנפח הכולל החדש.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את כמות הכוהל שמוסיפים כמשתנה.", "math_expression": "x" },
+            { "verbal_explanation": "נרשום משוואה של מסת הכוהל לפני התוספת, פלוס התוספת, מול הריכוז החדש בנפח המלא.", "math_expression": "40 \\times 0.1 + x \\times 1 = (40 + x) \\times 0.2" },
+            { "verbal_explanation": "נחשב את הכפל בצד שמאל ונפתח סוגריים בימין.", "math_expression": "4 + x = 8 + 0.2x" },
+            { "verbal_explanation": "נעביר אגפים ונכנס איברים.", "math_expression": "0.8x = 4" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "x = \\dfrac{4}{0.8}" },
+            { "verbal_explanation": "נחשב את הערך.", "math_expression": "x = 5" }
         ],
-        final_answer: "42%"
+        "final_answer": "5"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "במיכל יש 40 ק''ג של תמיסת מלח בריכוז 20%. כמה ק''ג של מים נקיים (0% מלח) יש להוסיף למיכל כדי שריכוז התמיסה יירד ל-16%?&rlm;",
-        options: ["10", "8", "12", "15"],
-        correctAnswer: 0,
-        hint: "כמות המלח לא משתנה (נשארת 8 ק''ג). המשוואה: 8 ק''ג לחלק לנפח החדש (40 פלוס x) שווה ל-0.16.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב המלח הקיים במקור בתמיסה.", math_expression: "m = 40 \\times 0.2 = 8" },
-            { verbal_explanation: "שלב 2: בניית משוואת הריכוז החדש לאחר הוספת המים שמשנים רק את הנפח.", math_expression: "\\dfrac{8}{40 + x} = 0.16" },
-            { verbal_explanation: "שלב 3: כפל בהצלבה לביטול המכנה.", math_expression: "8 = 0.16(40 + x)" },
-            { verbal_explanation: "שלב 4: פתיחת סוגריים.", math_expression: "8 = 6.4 + 0.16x" },
-            { verbal_explanation: "שלב 5: העברת אגף וחלוקה לבידוד המים שנוספו.", math_expression: "1.6 = 0.16x \\Rightarrow x = 10" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "ישנם 30 ליטרים של תמיסת מלח בריכוז של 15%. כמה מים (ריכוז מלח 0%) יש לאדות כדי לקבל תמיסה בריכוז של 25%?&rlm;",
+        "options": ["12", "10", "15", "8"],
+        "correctAnswer": 0,
+        "hint": "אידוי מים אינו משנה את כמות המלח בתמיסה, אלא רק מקטין את הנפח הכולל.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את כמות המים המאודים כמשתנה.", "math_expression": "x" },
+            { "verbal_explanation": "נרשום משוואה של מסת המלח שנותרת קבועה גם לאחר הקטנת הנפח.", "math_expression": "30 \\times 0.15 = (30 - x) \\times 0.25" },
+            { "verbal_explanation": "נבצע את פעולת הכפל הפשוטה משמאל.", "math_expression": "4.5 = 7.5 - 0.25x" },
+            { "verbal_explanation": "נעביר אגפים.", "math_expression": "0.25x = 3" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "x = \\dfrac{3}{0.25}" },
+            { "verbal_explanation": "נקבל את הכמות המאודה.", "math_expression": "x = 12" }
         ],
-        final_answer: "10"
+        "final_answer": "12"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "לתמיסת כוהל בריכוז 40% הוסיפו 5 ליטרים של כוהל נקי (100%), ונוצרה תמיסה חדשה בריכוז של 50%. מה היה נפחה של התמיסה המקורית (לפני ההוספה)?&rlm;",
-        options: ["25", "20", "30", "15"],
-        correctAnswer: 0,
-        hint: "כמות הכוהל המקורית היא 0.4x. מוסיפים לה 5 ליטרים. הנפח החדש הוא x+5. המשוואה: (0.4x פלוס 5) חלקי (x פלוס 5) שווה ל-0.5.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: ניסוח משוואת הריכוז הסופית.", math_expression: "\\dfrac{0.4x + 5}{x + 5} = 0.5" },
-            { verbal_explanation: "שלב 2: חילוץ הנעלמים מקו השבר לחלק העליון.", math_expression: "0.4x + 5 = 0.5(x + 5)" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים.", math_expression: "0.4x + 5 = 0.5x + 2.5" },
-            { verbal_explanation: "שלב 4: כינוס איברים לשם קבלת משתנה חיובי מבודד.", math_expression: "2.5 = 0.1x" },
-            { verbal_explanation: "שלב 5: חלוקה בעשירית המספקת את הנפח ההתחלתי.", math_expression: "x = 25" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "מערבבים תמיסה א' בריכוז של 20% עם תמיסה ב' בריכוז של 50%. לאחר הערבוב, מקבלים 60 ליטרים של תמיסה בריכוז של 30%. כמה ליטרים של תמיסה א' נלקחו לערבוב?&rlm;",
+        "options": ["40", "30", "20", "45"],
+        "correctAnswer": 0,
+        "hint": "סמנו כמות אחת כ-x ואת השנייה כ-60 פחות x. חברו את כמות החומר הפעיל משתיהן.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את נפח תמיסה א'.", "math_expression": "V_A = x" },
+            { "verbal_explanation": "נבטא את נפח תמיסה ב' בהתבסס על הסכום הנתון.", "math_expression": "V_B = 60 - x" },
+            { "verbal_explanation": "נרכיב משוואת חומר פעיל של שני המרכיבים יחד מול התמיסה החדשה.", "math_expression": "0.2x + 0.5(60 - x) = 60 \\times 0.3" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "0.2x + 30 - 0.5x = 18" },
+            { "verbal_explanation": "נכנס איברים ונעביר אגפים.", "math_expression": "-0.3x = -12" },
+            { "verbal_explanation": "נחלק במינוס לקבלת הנפח.", "math_expression": "x = \\dfrac{12}{0.3} = 40" }
         ],
-        final_answer: "25"
+        "final_answer": "40"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "יש להכין 50 ליטרים של תמיסה בריכוז 18%. לשם כך מערבבים תמיסה בריכוז 10% עם תמיסה בריכוז 30%. כמה ליטרים יש לקחת מהתמיסה של ה-10%?&rlm;",
-        options: ["30", "20", "25", "35"],
-        correctAnswer: 0,
-        hint: "הנפח הכולל הוא 50. אם תמיסה א' תהיה בנפח x, אז תמיסה ב' תהיה 50 פחות x. השוו את כמות החומר הטהור.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת החומר הטהור המרכיב את התערובת.", math_expression: "0.1x + 0.3(50 - x) = 0.18 \\times 50" },
-            { verbal_explanation: "שלב 2: פתיחת סוגריים ופתרון אגף ימין.", math_expression: "0.1x + 15 - 0.3x = 9" },
-            { verbal_explanation: "שלב 3: כינוס משתנים והעברת המספר ימינה.", math_expression: "-0.2x = -6" },
-            { verbal_explanation: "שלב 4: חלוקה לשם קבלת נפח הנוזל מהסוג הראשון.", math_expression: "x = 30" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "מתיכים 10 ק''ג של נחושת בריכוז 80% עם 15 ק''ג של נחושת בריכוז \\( x\\% \\). הנתך המתקבל הוא בריכוז 68%. מצאו את \\( x \\).&rlm;",
+        "options": ["60", "50", "70", "55"],
+        "correctAnswer": 0,
+        "hint": "סכום מסות החומר הפעיל מהרכיבים שווה למסת החומר הפעיל בנתך הסופי, ששוקל 25 ק''ג.",
+        "solution_steps": [
+            { "verbal_explanation": "נרכיב משוואה של מסת נחושת מול התערובת.", "math_expression": "10 \\times 0.8 + 15 \\times (\\dfrac{x}{100}) = (10 + 15) \\times 0.68" },
+            { "verbal_explanation": "נפשט ונחשב כפל.", "math_expression": "8 + 0.15x = 25 \\times 0.68" },
+            { "verbal_explanation": "נשלים את המכפלה בימין.", "math_expression": "8 + 0.15x = 17" },
+            { "verbal_explanation": "נחסר 8.", "math_expression": "0.15x = 9" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "x = \\dfrac{9}{0.15}" },
+            { "verbal_explanation": "נמצא את הריכוז.", "math_expression": "x = 60" }
         ],
-        final_answer: "30"
+        "final_answer": "60"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "מיכל מכיל 100 ליטרים של מי מלח בריכוז מסוים. מאדים ממנו 20 ליטרים של מים (רק מים נקיים מתאדים), וכתוצאה מכך הריכוז עולה ל-25%. מה היה הריכוז המקורי של מי המלח (באחוזים)?&rlm;",
-        options: ["20", "15", "18", "22"],
-        correctAnswer: 0,
-        hint: "הנפח החדש הוא 80 ליטר. כיוון שהריכוז בו הוא 25%, כמות המלח היא 80 כפול 0.25. אותה כמות מלח הייתה בהתחלה ב-100 ליטרים.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב הנפח שנותר לאחר האידוי.", math_expression: "V = 100 - 20 = 80" },
-            { verbal_explanation: "שלב 2: מציאת כמות המלח על בסיס הריכוז הנתון במצב החדש.", math_expression: "m = 80 \\times 0.25 = 20" },
-            { verbal_explanation: "שלב 3: כיוון שרק מים התאדו, מסת המלח נותרה כשהייתה במקור. חישוב הריכוז ההתחלתי.", math_expression: "p = (\\dfrac{20}{100}) \\times 100" },
-            { verbal_explanation: "שלב 4: התוצאה באחוזים נטו.", math_expression: "p = 20" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "ל-50 גרם של תמיסת סוכר בריכוז 12% מוסיפים כמות של מלח (חומר שאינו מכיל סוכר). הריכוז החדש של הסוכר יורד ל-10%. כמה מלח הוסף?&rlm;",
+        "options": ["10", "12", "5", "8"],
+        "correctAnswer": 0,
+        "hint": "הוספת מלח מגדילה את הנפח הכולל אך אינה מוסיפה חומר פעיל (סוכר). מסת הסוכר נשארה כפי שהיא.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את כמות המלח המוסף.", "math_expression": "x" },
+            { "verbal_explanation": "נרכיב משוואת סוכר המציגה מסת חומר קבועה בתוך תמיסה גדולה יותר.", "math_expression": "50 \\times 0.12 = (50 + x) \\times 0.10" },
+            { "verbal_explanation": "נחשב כפל ונפתח סוגריים.", "math_expression": "6 = 5 + 0.10x" },
+            { "verbal_explanation": "נעביר אגף.", "math_expression": "1 = 0.1x" },
+            { "verbal_explanation": "נחלק במקדם לקבלת המסה.", "math_expression": "x = 10" }
         ],
-        final_answer: "20"
+        "final_answer": "10"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "קבלן מערבב שני סוגי קפה. מחיר קילו קפה א' הוא 40 שקלים, ומחיר קילו קפה ב' הוא 60 שקלים. הוא יוצר תערובת של 100 ק''ג שבה מחיר קילו אחד עומד על 46 שקלים. כמה ק''ג הוא לקח מקפה ב'?&rlm;",
-        options: ["30", "70", "40", "20"],
-        correctAnswer: 0,
-        hint: "זו בעיית ממוצע משוקלל הזהה לפתרון בעיית תערובות. x ק''ג מקפה ב', ולכן (100 פחות x) מקפה א'.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת העלות הכוללת של התערובת.", math_expression: "60x + 40(100 - x) = 46 \\times 100" },
-            { verbal_explanation: "שלב 2: פתיחת סוגריים ופישוט.", math_expression: "60x + 4000 - 40x = 4600" },
-            { verbal_explanation: "שלב 3: כינוס איברים והעברת מספרים.", math_expression: "20x = 600" },
-            { verbal_explanation: "שלב 4: חלוקה בעשרים.", math_expression: "x = 30" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "מערבבים כמויות שוות של שתי תמיסות. האחת בריכוז 30% והשנייה בריכוז \\( x\\% \\). הריכוז החדש שנוצר הוא 40%. מהו \\( x \\)?&rlm;",
+        "options": ["50", "45", "60", "40"],
+        "correctAnswer": 0,
+        "hint": "כאשר מערבבים כמויות שוות, הריכוז של התערובת הוא הממוצע החשבוני של שני הריכוזים.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר שוויון כמויות למסה של יחידה אחת לכל מרכיב.", "math_expression": "m_1 = 1 \\quad , \\quad m_2 = 1" },
+            { "verbal_explanation": "נרכיב משוואת חומר פעיל.", "math_expression": "1 \\times 30 + 1 \\times x = (1 + 1) \\times 40" },
+            { "verbal_explanation": "נסדר את המשוואה כממוצע.", "math_expression": "30 + x = 2 \\times 40" },
+            { "verbal_explanation": "נחשב כפל.", "math_expression": "30 + x = 80" },
+            { "verbal_explanation": "נחסר למציאת האחוז.", "math_expression": "x = 50" }
         ],
-        final_answer: "30"
+        "final_answer": "50"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "מיכל מכיל 50 ליטרים של אלכוהול נקי (100%). מוציאים מהמיכל x ליטרים, ומיד מכניסים במקומם x ליטרים של מים. עכשיו מוציאים שוב x ליטרים מהתערובת שנוצרה, ומכניסים x ליטרים של מים. ריכוז האלכוהול כעת הוא 64%. מצאו את x.&rlm;",
-        options: ["10", "5", "20", "15"],
-        correctAnswer: 0,
-        hint: "זהו תהליך הוצאה והכנסה כפול. הכמות הנותרת בכל שלב יורדת בפקטור קבוע. 50 כפול החלק היחסי בריבוע שווה לכמות האלכוהול הסופית.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: כתיבת תבנית לתהליך מיהול עוקב המתרחש פעמיים.", math_expression: "50 \\times (\\dfrac{50 - x}{50})^{2} = 50 \\times 0.64" },
-            { verbal_explanation: "שלב 2: חלוקת שני האגפים בנפח המקורי כדי לפשט.", math_expression: "(\\dfrac{50 - x}{50})^{2} = 0.64" },
-            { verbal_explanation: "שלב 3: הוצאת שורש ריבועי.", math_expression: "\\dfrac{50 - x}{50} = 0.8" },
-            { verbal_explanation: "שלב 4: הכפלה בחמישים והעברת אגפים לבידוד המשתנה.", math_expression: "50 - x = 40 \\Rightarrow x = 10" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "ל-20 ליטרים של תמיסה בריכוז 5%, מוסיפים 10 ליטרים של תמיסה בריכוז \\( x\\% \\) ו-10 ליטרים של מים טהורים (0%). הריכוז הסופי של התמיסה הוא 5%. מצאו את \\( x \\).&rlm;",
+        "options": ["10", "15", "5", "20"],
+        "correctAnswer": 0,
+        "hint": "הנפח הכולל החדש הוא 40. המסה של החומר הפעיל מגיעה מהתמיסה הראשונה ומהשנייה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את הנפח הכולל של התערובת.", "math_expression": "V = 20 + 10 + 10 = 40" },
+            { "verbal_explanation": "נרכיב משוואה של כמות חומר פעיל בכל השלבים.", "math_expression": "20 \\times 0.05 + 10 \\times (\\dfrac{x}{100}) + 10 \\times 0 = 40 \\times 0.05" },
+            { "verbal_explanation": "נחשב כפל בכל האגפים.", "math_expression": "1 + 0.1x = 2" },
+            { "verbal_explanation": "נחסר אחד.", "math_expression": "0.1x = 1" },
+            { "verbal_explanation": "נחלק במקדם.", "math_expression": "x = 10" }
         ],
-        final_answer: "10"
+        "final_answer": "10"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "לתוך כלי שהכיל 20 גרם של סגסוגת נחושת בריכוז מסוים, הוסיפו 5 גרם של נחושת טהורה. הריכוז של הנחושת עלה ב-10% (0.1 עשרוני). מה היה ריכוז הנחושת ההתחלתי בסגסוגת (באחוזים)?&rlm;",
-        options: ["50", "40", "30", "25"],
-        correctAnswer: 0,
-        hint: "נסמן את הריכוז המקורי העשרוני ב-p. המסה החדשה היא 25. המשוואה: 20p + 5 = 25(p+0.1).",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: משוואת החומר הטהור המושווה לחומר הסופי לפי ריכוזו העדכני.", math_expression: "20p + 5 = 25(p + 0.1)" },
-            { verbal_explanation: "שלב 2: פתיחת סוגריים.", math_expression: "20p + 5 = 25p + 2.5" },
-            { verbal_explanation: "שלב 3: העברת אגפים לקבלת המשתנה בחיובי.", math_expression: "2.5 = 5p" },
-            { verbal_explanation: "שלב 4: חלוקה לקבלת הערך.", math_expression: "p = 0.5" },
-            { verbal_explanation: "שלב 5: המרה לאחוזים שלמים.", math_expression: "50" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "מתוך מיכל מלא המכיל 100 ליטרים של תמיסה בריכוז 20%, מוציאים 10 ליטרים. במקומם מוסיפים למיכל 10 ליטרים של מים טהורים. מהו ריכוז התמיסה החדשה במיכל?&rlm;",
+        "options": ["18%", "20%", "15%", "16%"],
+        "correctAnswer": 0,
+        "hint": "הוצאת 10 ליטרים משאירה במיכל 90 ליטרים של תמיסה בריכוז 20%. הוספת המים מחזירה את הנפח ל-100 ללא תוספת חומר פעיל.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את נפח התמיסה המקורית הנותר לאחר ההוצאה.", "math_expression": "V_{rem} = 100 - 10 = 90" },
+            { "verbal_explanation": "נחשב את מסת החומר הפעיל בתמיסה שנותרה.", "math_expression": "M_{active} = 90 \\times 0.20 = 18" },
+            { "verbal_explanation": "המים המוספים אינם מכילים חומר פעיל, והנפח חוזר למאה.", "math_expression": "V_{new} = 90 + 10 = 100" },
+            { "verbal_explanation": "נחשב את הריכוז הסופי כאחוז.", "math_expression": "C = \\dfrac{18}{100} \\times 100 = 18" },
+            { "verbal_explanation": "התקבלה התשובה באחוזים.", "math_expression": "18\\%" }
         ],
-        final_answer: "50"
+        "final_answer": "18%"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "מערבבים כמויות שוות (אותו הנפח) של שתי תמיסות. תמיסה אחת בריכוז 20% והשנייה בריכוז לא ידוע. התערובת שהתקבלה היא בריכוז של 35%. מהו ריכוז התמיסה השנייה?&rlm;",
-        options: ["50%", "45%", "40%", "30%"],
-        correctAnswer: 0,
-        hint: "כאשר מערבבים כמויות שוות, ריכוז התערובת הוא פשוט הממוצע החשבוני של ריכוזי התמיסות. (20 פלוס p) חלקי 2 שווה 35.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הצבת תכונת הממוצע לשני משקלים זהים.", math_expression: "\\dfrac{20 + p}{2} = 35" },
-            { verbal_explanation: "שלב 2: הכפלת המשוואה בשתיים.", math_expression: "20 + p = 70" },
-            { verbal_explanation: "שלב 3: בידוד ופיתרון.", math_expression: "p = 50" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "תמיסה א' היא בריכוז 40% ותמיסה ב' היא בריכוז 10%. צריך להכין 30 ליטרים של תמיסה בריכוז 20%. כמה ליטרים יש לקחת מתמיסה ב'?&rlm;",
+        "options": ["20", "10", "15", "25"],
+        "correctAnswer": 0,
+        "hint": "בטאו את נפח תמיסה א' כ-30 פחות נפח תמיסה ב'.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את נפח תמיסה ב'.", "math_expression": "V_B = x" },
+            { "verbal_explanation": "נבטא את נפח תמיסה א'.", "math_expression": "V_A = 30 - x" },
+            { "verbal_explanation": "נרכיב משוואת חומר פעיל לתערובת.", "math_expression": "0.4(30 - x) + 0.1x = 30 \\times 0.2" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "12 - 0.4x + 0.1x = 6" },
+            { "verbal_explanation": "נכנס איברים.", "math_expression": "12 - 0.3x = 6" },
+            { "verbal_explanation": "נעביר אגפים.", "math_expression": "0.3x = 6" },
+            { "verbal_explanation": "נחלק במקדם למציאת הנפח.", "math_expression": "x = 20" }
         ],
-        final_answer: "50%"
+        "final_answer": "20"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות תערובות וריכוזים",
-        question_text: "יצרן בושם מוהל תמצית ריח טהורה במים. יש לו 10 מ''ל של תמצית טהורה. הוא מוסיף מים עד שריכוז התמצית יורד ל-5%. כמה מים (במ''ל) הוא הוסיף בסך הכל?&rlm;",
-        options: ["190", "200", "150", "95"],
-        correctAnswer: 0,
-        hint: "כמות התמצית היא 10 מ''ל, והיא מהווה עכשיו 5% מהנפח הכולל. נפח כולל שווה 10 חלקי 0.05. כמות המים היא הנפח הכולל פחות התמצית.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חישוב הנפח הכולל של הבושם כאשר התמצית ידועה כחמישה אחוזים ממנו.", math_expression: "0.05 \\times V = 10" },
-            { verbal_explanation: "שלב 2: בידוד הנפח הכולל על ידי חלוקה.", math_expression: "V = 10 : 0.05 = 200" },
-            { verbal_explanation: "שלב 3: חישוב כמות המים שנוספו בלבד, על ידי הפחתת התמצית מהנפח הכולל.", math_expression: "W = 200 - 10 = 190" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות תערובות וריכוזים",
+        "question_text": "8 ק''ג של סגסוגת המכילה 25% מתכת הותכו עם כמות מסוימת של מתכת טהורה (100%). הסגסוגת החדשה שהתקבלה מכילה 40% מהמתכת. מהי כמות המתכת הטהורה שהוספה?&rlm;",
+        "options": ["2", "4", "3", "1.5"],
+        "correctAnswer": 0,
+        "hint": "הוסיפו x ק''ג בריכוז 100% ל-8 ק''ג בריכוז 25%. הנפח החדש הוא x+8 בריכוז 40%.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המסה שנוספה.", "math_expression": "x" },
+            { "verbal_explanation": "נרכיב משוואה של חומר פעיל בלבד.", "math_expression": "8 \\times 0.25 + x \\times 1 = (8 + x) \\times 0.4" },
+            { "verbal_explanation": "נחשב כפל ופתיחת סוגריים.", "math_expression": "2 + x = 3.2 + 0.4x" },
+            { "verbal_explanation": "נעביר אגפים לבידוד המשתנה.", "math_expression": "x - 0.4x = 3.2 - 2" },
+            { "verbal_explanation": "נכנס איברים.", "math_expression": "0.6x = 1.2" },
+            { "verbal_explanation": "נחלק ב-0.6.", "math_expression": "x = 2" }
         ],
-        final_answer: "190"
+        "final_answer": "2"
     },
-
     // ==========================================
     // תת נושא 5: בעיות גיאומטריות המשלבות אלגברה (10 שאלות)
     // ==========================================
-
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "שטחו של מלבן הוא 48 סמ''ר. אורך המלבן גדול ב-2 ס''מ מרוחבו. מהו היקף המלבן?&rlm;",
-        options: ["28", "24", "32", "30"],
-        correctAnswer: 0,
-        hint: "הרוחב הוא x, האורך x+2. שטח מלבן: x כפול (x+2) שווה 48. מצאו את x וחשבו היקף.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת השטח בעזרת נעלם אחד.", math_expression: "x(x + 2) = 48" },
-            { verbal_explanation: "שלב 2: פתיחת סוגריים וסידור כמשוואה ריבועית.", math_expression: "x^{2} + 2x - 48 = 0" },
-            { verbal_explanation: "שלב 3: פתרון המשוואה הריבועית לחילוץ הממד החיובי של הרוחב.", math_expression: "(x + 8)(x - 6) = 0 \\Rightarrow x = 6" },
-            { verbal_explanation: "שלב 4: מציאת האורך.", math_expression: "L = 6 + 2 = 8" },
-            { verbal_explanation: "שלב 5: חישוב היקף המלבן.", math_expression: "P = 2 \\times 6 + 2 \\times 8 = 12 + 16 = 28" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "אורכו של מלבן גדול ב-3 ס''מ מרוחבו. שטח המלבן הוא 40 סמ''ר. מצאו את היקף המלבן.&rlm;",
+        "options": ["26", "22", "28", "24"],
+        "correctAnswer": 0,
+        "hint": "סמנו את הרוחב ב-x ואת האורך ב-x+3. הרכיבו משוואה המבוססת על שטח מלבן, מצאו את הצלעות וחשבו היקף.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את רוחב המלבן כמשתנה.", "math_expression": "w = x" },
+            { "verbal_explanation": "נגדיר את אורך המלבן בעזרת המשתנה והנתון.", "math_expression": "l = x + 3" },
+            { "verbal_explanation": "נרכיב משוואת שטח על ידי מכפלת האורך ברוחב.", "math_expression": "x(x + 3) = 40" },
+            { "verbal_explanation": "נפתח סוגריים ונסדר למשוואה ריבועית.", "math_expression": "x^{2} + 3x - 40 = 0" },
+            { "verbal_explanation": "נפרק לגורמים או נשתמש בנוסחת שורשים.", "math_expression": "(x - 5)(x + 8) = 0" },
+            { "verbal_explanation": "נבחר בפתרון החיובי בלבד מאחר ומדובר באורך צלע.", "math_expression": "x = 5" },
+            { "verbal_explanation": "נחשב את אורך המלבן.", "math_expression": "l = 5 + 3 = 8" },
+            { "verbal_explanation": "נחשב את היקף המלבן על פי סכום כל צלעותיו.", "math_expression": "P = 2(5 + 8)" },
+            { "verbal_explanation": "נבצע את החישוב הסופי להיקף.", "math_expression": "P = 26" }
         ],
-        final_answer: "28"
+        "final_answer": "26"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "במשולש ישר זווית, אורך היתר הוא 13 ס''מ. ניצב אחד קצר מהניצב השני ב-7 ס''מ. מהו שטח המשולש?&rlm;",
-        options: ["30", "60", "20", "45"],
-        correctAnswer: 0,
-        hint: "ניצב אחד x, שני x+7. השתמשו במשפט פיתגורס. לאחר מציאת הניצבים, השטח הוא מכפלתם חלקי 2.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הצבת המשתנים והנתונים למשפט פיתגורס.", math_expression: "x^{2} + (x + 7)^{2} = 13^{2}" },
-            { verbal_explanation: "שלב 2: פיתוח חזקות ופתיחת סוגריים עם כפל מקוצר.", math_expression: "x^{2} + x^{2} + 14x + 49 = 169" },
-            { verbal_explanation: "שלב 3: סידור כמשוואה ריבועית וכינוס.", math_expression: "2x^{2} + 14x - 120 = 0" },
-            { verbal_explanation: "שלב 4: חלוקה בשתיים ופתרון להשגת הניצב הקצר.", math_expression: "x^{2} + 7x - 60 = 0 \\Rightarrow (x + 12)(x - 5) = 0 \\Rightarrow x = 5" },
-            { verbal_explanation: "שלב 5: מציאת הניצב השני.", math_expression: "y = 5 + 7 = 12" },
-            { verbal_explanation: "שלב 6: חישוב שטח המשולש באמצעות הניצבים.", math_expression: "S = \\dfrac{5 \\times 12}{2} = 30" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "במשולש ישר זווית, ניצב אחד ארוך ב-7 ס''מ מהניצב השני. אורך היתר הוא 13 ס''מ. מהו שטח המשולש?&rlm;",
+        "options": ["30", "60", "25", "35"],
+        "correctAnswer": 0,
+        "hint": "השתמשו במשפט פיתגורס כדי למצוא את הניצבים.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את שני ניצבי המשולש ישר הזווית.", "math_expression": "a = x \\quad , \\quad b = x + 7" },
+            { "verbal_explanation": "נרכיב משוואה על סמך משפט פיתגורס והיתר הנתון.", "math_expression": "x^{2} + (x + 7)^{2} = 13^{2}" },
+            { "verbal_explanation": "נפתח סוגריים לפי נוסחת כפל מקוצר ונחשב את ריבוע היתר.", "math_expression": "x^{2} + x^{2} + 14x + 49 = 169" },
+            { "verbal_explanation": "נכנס איברים ונעביר מספרים לאגף אחד.", "math_expression": "2x^{2} + 14x - 120 = 0" },
+            { "verbal_explanation": "נחלק בשתיים להקלת פתרון המשוואה הריבועית.", "math_expression": "x^{2} + 7x - 60 = 0" },
+            { "verbal_explanation": "נפרק לגורמים.", "math_expression": "(x - 5)(x + 12) = 0" },
+            { "verbal_explanation": "נחלץ את הפתרון החיובי לניצב הראשון.", "math_expression": "x = 5" },
+            { "verbal_explanation": "נחשב את הניצב השני.", "math_expression": "b = 5 + 7 = 12" },
+            { "verbal_explanation": "נחשב את שטח המשולש על ידי מחצית מכפלת הניצבים.", "math_expression": "S = \\dfrac{5 \\times 12}{2}" },
+            { "verbal_explanation": "נשלים את החישוב.", "math_expression": "S = 30" }
         ],
-        final_answer: "30"
+        "final_answer": "30"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "קיר מלבני שממדיו הם 10 מטרים על 6 מטרים כולל בתוכו חלון מרובע. הוחלט לצבוע את הקיר (מבלי לצבוע את החלון). אורך החלון גדול ב-1 מטר מרוחבו. השטח שנצבע בפועל הוא 48 מ''ר. מה רוחב החלון?&rlm;",
-        options: ["3", "4", "2", "5"],
-        correctAnswer: 0,
-        hint: "שטח הקיר כולו (60) פחות השטח הצבוע (48) נותן את שטח החלון. בנו משוואה לשטח החלון.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: מציאת שטח החלון לבדו, באמצעות חיסור מהשטח הכולל.", math_expression: "S = 10 \\times 6 - 48 = 60 - 48 = 12" },
-            { verbal_explanation: "שלב 2: כתיבת משוואת השטח של החלון עם משתנים.", math_expression: "x(x + 1) = 12" },
-            { verbal_explanation: "שלב 3: בניית המשוואה הריבועית.", math_expression: "x^{2} + x - 12 = 0" },
-            { verbal_explanation: "שלב 4: חילוץ התוצאה החיובית עבור רוחב החלון.", math_expression: "(x + 4)(x - 3) = 0 \\Rightarrow x = 3" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "אורך של מלבן המקורי הוא 10 ס''מ ורוחבו אינו ידוע. אם נגדיל את אורך המלבן ב-20% ונקטין את רוחבו ב-10%, השטח החדש שיתקבל יהיה 108 סמ''ר. מה היה רוחבו המקורי של המלבן?&rlm;",
+        "options": ["10", "12", "8", "9"],
+        "correctAnswer": 0,
+        "hint": "חשבו את האורך החדש. בטאו את הרוחב החדש בעזרת x ומקדם עשרוני. השוו את מכפלתם לשטח הנתון.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את אורך המלבן המקורי.", "math_expression": "l = 10" },
+            { "verbal_explanation": "נגדיר את רוחב המלבן המקורי במשתנה.", "math_expression": "w = x" },
+            { "verbal_explanation": "נחשב את האורך החדש לאחר הגדלה בעשרים אחוזים.", "math_expression": "l_{new} = 10 \\times 1.2 = 12" },
+            { "verbal_explanation": "נרשום את הרוחב החדש לאחר הקטנה בעשרה אחוזים.", "math_expression": "w_{new} = 0.9x" },
+            { "verbal_explanation": "נרכיב משוואת שטח למלבן החדש.", "math_expression": "12 \\times 0.9x = 108" },
+            { "verbal_explanation": "נבצע את המכפלה המספרית.", "math_expression": "10.8x = 108" },
+            { "verbal_explanation": "נחלק במקדם כדי למצוא את המשתנה.", "math_expression": "x = \\dfrac{108}{10.8}" },
+            { "verbal_explanation": "נקבל את הרוחב המקורי.", "math_expression": "x = 10" }
         ],
-        final_answer: "3"
+        "final_answer": "10"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "מסגרת ברוחב אחיד של x ס''מ מקיפה תמונה מלבנית שממדיה 12 ס''מ על 8 ס''מ. השטח הכולל של התמונה יחד עם המסגרת הוא 192 סמ''ר. מהו רוחב המסגרת x?&rlm;",
-        options: ["2", "1", "3", "4"],
-        correctAnswer: 0,
-        hint: "הממדים החדשים הם (12 פלוס פעמיים x) ו-(8 פלוס פעמיים x). מכפלתם שווה 192.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת השטח הכולל עם התוספת הדו-צדדית לכל ממד.", math_expression: "(12 + 2x)(8 + 2x) = 192" },
-            { verbal_explanation: "שלב 2: פתיחת סוגריים מלאה.", math_expression: "96 + 24x + 16x + 4x^{2} = 192" },
-            { verbal_explanation: "שלב 3: כינוס איברים והעברת מספר אגף ליצירת פולינום לאיפוס.", math_expression: "4x^{2} + 40x - 96 = 0" },
-            { verbal_explanation: "שלב 4: צמצום הפולינום בחלוקה בארבע להקלת הפתרון.", math_expression: "x^{2} + 10x - 24 = 0" },
-            { verbal_explanation: "שלב 5: מציאת השורש החיובי המהווה את רוחב המסגרת.", math_expression: "(x + 12)(x - 2) = 0 \\Rightarrow x = 2" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "חותכים חוט מתכת שאורכו 24 ס''מ לשני חלקים. מחלק אחד יוצרים ריבוע ומחלק שני יוצרים מלבן שאורכו שווה לפעמיים רוחבו. סכום שטחי הריבוע והמלבן הוא 17 סמ''ר. מהו אורך צלע הריבוע? (הניחו שצלע הריבוע היא מספר שלם).&rlm;",
+        "options": ["3", "4", "2", "5"],
+        "correctAnswer": 0,
+        "hint": "סמנו את צלע הריבוע ב-x ואת רוחב המלבן ב-y. בנו משוואה לסכום ההיקפים, בודדו משתנה והציבו במשוואת סכום השטחים.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את צלעות הצורות במשתנים.", "math_expression": "a = x \\quad , \\quad w = y \\quad , \\quad l = 2y" },
+            { "verbal_explanation": "נרכיב משוואה לסכום ההיקפים, השווה לאורך החוט.", "math_expression": "4x + 2(y + 2y) = 24" },
+            { "verbal_explanation": "נכנס איברים ונצמצם את המשוואה בשתיים.", "math_expression": "4x + 6y = 24 \\Rightarrow 2x + 3y = 12" },
+            { "verbal_explanation": "נבודד את כפילת המשתנה הראשון.", "math_expression": "2x = 12 - 3y" },
+            { "verbal_explanation": "נרכיב משוואה לסכום שטחי הצורות.", "math_expression": "x^{2} + y(2y) = 17 \\Rightarrow x^{2} + 2y^{2} = 17" },
+            { "verbal_explanation": "נכפיל את המשוואה בארבע כדי להציב ישירות את הביטוי שבודדנו.", "math_expression": "4x^{2} + 8y^{2} = 68 \\Rightarrow (2x)^{2} + 8y^{2} = 68" },
+            { "verbal_explanation": "נציב את הביטוי למשוואת השטח.", "math_expression": "(12 - 3y)^{2} + 8y^{2} = 68" },
+            { "verbal_explanation": "נפתח סוגריים ונסדר משוואה ריבועית.", "math_expression": "144 - 72y + 9y^{2} + 8y^{2} = 68 \\Rightarrow 17y^{2} - 72y + 76 = 0" },
+            { "verbal_explanation": "נמצא את השורש השלם של המשוואה הריבועית.", "math_expression": "y = 2" },
+            { "verbal_explanation": "נציב למציאת המשתנה הראשון המייצג את צלע הריבוע.", "math_expression": "2x = 12 - 3(2) = 6 \\Rightarrow x = 3" }
         ],
-        final_answer: "2"
+        "final_answer": "3"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "חוט מתכת שאורכו 40 ס''מ נחתך לשני חלקים. מחלק אחד יצרו ריבוע, ומהחלק השני יצרו מלבן שאורכו גדול ב-2 ס''מ מרוחבו. ידוע כי סכום שטחי הצורות הוא 49 סמ''ר. מהו אורך צלע הריבוע? (בחרו את הפתרון החיובי והשלם)&rlm;",
-        options: ["5", "3", "4", "6"],
-        correctAnswer: 0,
-        hint: "צלע ריבוע היא y. צלעות המלבן הן x+2 ו-x. סכום היקפים שווה ל-40, כלומר 4y + 4x + 4 = 40. בודדו את y והציבו במשוואת סכום השטחים.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: חילוץ קשר בין צלע הריבוע לרוחב המלבן מתוך משוואת סכום ההיקפים המלאה (לאחר חלוקה בארבע).", math_expression: "y + x + 1 = 10 \\Rightarrow y = 9 - x" },
-            { verbal_explanation: "שלב 2: בניית משוואת סכום השטחים תוך הצבת הביטוי של צלע הריבוע.", math_expression: "(9 - x)^{2} + x(x + 2) = 49" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים וסידור משוואה.", math_expression: "81 - 18x + x^{2} + x^{2} + 2x = 49" },
-            { verbal_explanation: "שלב 4: העברת אגפים וכינוס לפולינום מאופס.", math_expression: "2x^{2} - 16x + 32 = 0 \\Rightarrow x^{2} - 8x + 16 = 0" },
-            { verbal_explanation: "שלב 5: מציאת צלע המלבן (פתרון יחיד ומוחלט עקב איפוס הדלתא).", math_expression: "(x - 4)^{2} = 0 \\Rightarrow x = 4" },
-            { verbal_explanation: "שלב 6: חזרה להצבה הראשונית למציאת צלע הריבוע המבוקשת בתרגיל.", math_expression: "y = 9 - 4 = 5" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "משולש ישר זווית חסום במעגל שרדיוסו 10 ס''מ. היקף המשולש הוא 48 ס''מ. מצאו את שטח המשולש.&rlm;",
+        "options": ["96", "48", "192", "100"],
+        "correctAnswer": 0,
+        "hint": "במשולש ישר זווית החסום במעגל, היתר הוא קוטר המעגל. השתמשו במשפט פיתגורס ובנוסחאות כפל מקוצר.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את אורך היתר שהוא קוטר המעגל החוסם.", "math_expression": "c = 2R = 20" },
+            { "verbal_explanation": "נרשום את היקף המשולש ונחלץ ממנו את סכום הניצבים.", "math_expression": "a + b + 20 = 48 \\Rightarrow a + b = 28" },
+            { "verbal_explanation": "נעלה את משוואת סכום הניצבים בריבוע.", "math_expression": "(a + b)^{2} = 28^{2} \\Rightarrow a^{2} + 2ab + b^{2} = 784" },
+            { "verbal_explanation": "נרשום את משפט פיתגורס לניצבים.", "math_expression": "a^{2} + b^{2} = c^{2} = 20^{2} = 400" },
+            { "verbal_explanation": "נציב את ערך סכום הריבועים לתוך המשוואה הקודמת.", "math_expression": "400 + 2ab = 784" },
+            { "verbal_explanation": "נבודד את האיבר המכיל את המכפלה.", "math_expression": "2ab = 384" },
+            { "verbal_explanation": "נחלק בשתיים לקבלת מכפלת הניצבים.", "math_expression": "ab = 192" },
+            { "verbal_explanation": "נחשב את שטח המשולש באמצעות מחצית מכפלת הניצבים.", "math_expression": "S = \\dfrac{ab}{2} = \\dfrac{192}{2}" },
+            { "verbal_explanation": "התקבל השטח הסופי.", "math_expression": "S = 96" }
         ],
-        final_answer: "5"
+        "final_answer": "96"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "במשולש שווה שוקיים, הבסיס ארוך ב-4 ס''מ מהגובה היורד אליו. שטח המשולש הוא 48 סמ''ר. מהו אורך הגובה?&rlm;",
-        options: ["8", "10", "6", "12"],
-        correctAnswer: 0,
-        hint: "הגובה הוא h, הבסיס הוא h+4. השטח הוא מחצית המכפלה שלהם וזה שווה 48.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הרכבת משוואת השטח באמצעות הנעלם של הגובה.", math_expression: "\\dfrac{h(h + 4)}{2} = 48" },
-            { verbal_explanation: "שלב 2: הכפלת האגף הימני בשתיים לביטול קו השבר.", math_expression: "h^{2} + 4h = 96" },
-            { verbal_explanation: "שלב 3: העברת המספר לאגף שמאל.", math_expression: "h^{2} + 4h - 96 = 0" },
-            { verbal_explanation: "שלב 4: מציאת השורש החיובי באמצעות נוסחה או פירוק ישיר.", math_expression: "(h + 12)(h - 8) = 0 \\Rightarrow h = 8" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "במעוין, סכום אורכי שני האלכסונים הוא 14 ס''מ. שטח המעוין הוא 24 סמ''ר. מהו אורך צלע המעוין?&rlm;",
+        "options": ["5", "7", "6", "4"],
+        "correctAnswer": 0,
+        "hint": "שטח מעוין הוא מחצית מכפלת האלכסונים. מצאו את האלכסונים והשתמשו במשפט פיתגורס על חצאי האלכסונים.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את משוואת סכום האלכסונים.", "math_expression": "d_1 + d_2 = 14" },
+            { "verbal_explanation": "נרשום את משוואת השטח המבוססת על אלכסונים ונסדר אותה.", "math_expression": "\\dfrac{d_1 \\times d_2}{2} = 24 \\Rightarrow d_1 \\times d_2 = 48" },
+            { "verbal_explanation": "נציב ביטוי מהמשוואה הראשונה לתוך השנייה.", "math_expression": "d_1(14 - d_1) = 48" },
+            { "verbal_explanation": "נסדר למשוואה ריבועית.", "math_expression": "d_1^{2} - 14d_1 + 48 = 0" },
+            { "verbal_explanation": "נפרק לגורמים למציאת אורכי האלכסונים.", "math_expression": "(d_1 - 6)(d_1 - 8) = 0 \\Rightarrow d_1 = 6 \\quad , \\quad d_2 = 8" },
+            { "verbal_explanation": "במעוין האלכסונים חוצים זה את זה ומאונכים. נחשב את חצאי האלכסונים.", "math_expression": "x = 3 \\quad , \\quad y = 4" },
+            { "verbal_explanation": "נשתמש במשפט פיתגורס לחישוב צלע המעוין.", "math_expression": "a^{2} = 3^{2} + 4^{2} = 9 + 16 = 25" },
+            { "verbal_explanation": "נוציא שורש למציאת האורך.", "math_expression": "a = 5" }
         ],
-        final_answer: "8"
+        "final_answer": "5"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "בתיבה, אורך הבסיס גדול ב-3 ס''מ מרוחבו. גובה התיבה הוא 5 ס''מ. נפח התיבה הוא 200 סמ''ק. מהו רוחב בסיס התיבה?&rlm;",
-        options: ["5", "8", "4", "10"],
-        correctAnswer: 0,
-        hint: "הנפח הוא גובה כפול צלעות הבסיס. חלקו את 200 ב-5 כדי להקל, ופתרו את המשוואה הריבועית שנוצרת לממדי הבסיס.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואת הנפח הכוללת של התיבה.", math_expression: "5x(x + 3) = 200" },
-            { verbal_explanation: "שלב 2: חלוקת המשוואה בחמש כדי לצמצם מקדמים להמשך העבודה.", math_expression: "x(x + 3) = 40" },
-            { verbal_explanation: "שלב 3: פתיחת הסוגריים והעברת המספר לאיפוס המשוואה.", math_expression: "x^{2} + 3x - 40 = 0" },
-            { verbal_explanation: "שלב 4: חילוץ התשובה החיובית (רוחב התיבה המבוקש).", math_expression: "(x + 8)(x - 5) = 0 \\Rightarrow x = 5" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "אם נגדיל את הרדיוס של מעגל נתון ב-3 ס''מ, שטח המעגל יגדל ב-\\( 33\\pi \\) סמ''ר. מה היה הרדיוס המקורי של המעגל?&rlm;",
+        "options": ["4", "5", "6", "3"],
+        "correctAnswer": 0,
+        "hint": "בנו משוואה המשווה בין השטח המוגדל לשטח המקורי ועוד התוספת.",
+        "solution_steps": [
+            { "verbal_explanation": "נרכיב משוואת שטחים הכוללת את תוספת הרדיוס ותוספת השטח.", "math_expression": "\\pi(R + 3)^{2} - \\pi R^{2} = 33\\pi" },
+            { "verbal_explanation": "נחלק את שני האגפים בפאי כדי להסיר אותו מהחישוב.", "math_expression": "(R + 3)^{2} - R^{2} = 33" },
+            { "verbal_explanation": "נפתח סוגריים באמצעות נוסחת כפל מקוצר.", "math_expression": "R^{2} + 6R + 9 - R^{2} = 33" },
+            { "verbal_explanation": "נצמצם את האיברים הריבועיים הזהים.", "math_expression": "6R + 9 = 33" },
+            { "verbal_explanation": "נעביר את המספר החופשי לאגף הימני.", "math_expression": "6R = 24" },
+            { "verbal_explanation": "נחלק בשש למציאת הרדיוס המקורי.", "math_expression": "R = 4" }
         ],
-        final_answer: "5"
+        "final_answer": "4"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "שטח של מעגל הוגדל ב-\\( 44\\pi \\) סמ''ר כאשר הרדיוס שלו הוגדל ב-2 ס''מ. מה היה הרדיוס המקורי של המעגל?&rlm;",
-        options: ["10", "8", "12", "5"],
-        correctAnswer: 0,
-        hint: "השטח הישן הוא פאי כפול הרדיוס בריבוע. השטח החדש מחושב עם הרדיוס ועוד שתיים. המשוואה: השטח החדש פחות הישן שווה לתוספת שניתנה.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: בניית משוואה להפרש השטחים, תוך חלוקתה בפאי ישר על ההתחלה להקלת החישוב.", math_expression: "(R + 2)^{2} - R^{2} = 44" },
-            { verbal_explanation: "שלב 2: פתיחת הסוגריים של המעגל המוגדל דרך כפל מקוצר.", math_expression: "R^{2} + 4R + 4 - R^{2} = 44" },
-            { verbal_explanation: "שלב 3: איברי הריבוע מצטמצמים, ונשארת משוואה פשוטה ממעלה ראשונה.", math_expression: "4R + 4 = 44" },
-            { verbal_explanation: "שלב 4: חילוץ הרדיוס בסידור האגפים.", math_expression: "4R = 40 \\Rightarrow R = 10" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "תמונה מלבנית שמידותיה 12 ס''מ על 16 ס''מ מוקפת במסגרת בעלת רוחב אחיד בכל צדדיה. ידוע כי שטח המסגרת לבדה הוא 128 סמ''ר. מהו רוחב המסגרת?&rlm;",
+        "options": ["2", "3", "1.5", "4"],
+        "correctAnswer": 0,
+        "hint": "הוסיפו פעמיים את רוחב המסגרת לכל ממד של התמונה כדי לקבל את הממדים הכוללים. חסרו משטח זה את שטח התמונה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את רוחב המסגרת האחיד במשתנה.", "math_expression": "x" },
+            { "verbal_explanation": "נגדיר את הממדים החיצוניים הכוללים של המסגרת יחד עם התמונה.", "math_expression": "l = 16 + 2x \\quad , \\quad w = 12 + 2x" },
+            { "verbal_explanation": "נרכיב ביטוי לשטח החיצוני הכולל.", "math_expression": "S_{total} = (16 + 2x)(12 + 2x)" },
+            { "verbal_explanation": "נחשב את שטחה הפנימי של התמונה בלבד.", "math_expression": "S_{inner} = 16 \\times 12 = 192" },
+            { "verbal_explanation": "נרכיב משוואה המשווה בין ההפרש בשטחים לבין שטח המסגרת הנתון.", "math_expression": "(16 + 2x)(12 + 2x) - 192 = 128" },
+            { "verbal_explanation": "נפתח סוגריים ונסדר את המשוואה.", "math_expression": "192 + 32x + 24x + 4x^{2} - 192 = 128" },
+            { "verbal_explanation": "נכנס איברים למשוואה ריבועית.", "math_expression": "4x^{2} + 56x - 128 = 0" },
+            { "verbal_explanation": "נחלק בארבע להקלת הפתרון.", "math_expression": "x^{2} + 14x - 32 = 0" },
+            { "verbal_explanation": "נפרק לגורמים או נשתמש בנוסחה.", "math_expression": "(x + 16)(x - 2) = 0" },
+            { "verbal_explanation": "נבחר בפתרון החיובי המייצג רוחב פיזי.", "math_expression": "x = 2" }
         ],
-        final_answer: "10"
+        "final_answer": "2"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "בטרפז, הבסיס העליון שווה ל-x, הבסיס התחתון שווה ל-x+6, והגובה שווה ל-x-1. שטח הטרפז הוא 21 סמ''ר. מצאו את אורך הבסיס העליון (x).&rlm;",
-        options: ["4", "5", "6", "3"],
-        correctAnswer: 0,
-        hint: "נוסחת שטח טרפז: ממוצע הבסיסים כפול הגובה. לאחר סידור המשוואה, פתרו למציאת x חיובי.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: כתיבת משוואת השטח לטרפז.", math_expression: "\\dfrac{2x + 6}{2} \\times (x - 1) = 21" },
-            { verbal_explanation: "שלב 2: חלוקת המונה הדו-איברי בשתיים לטובת צמצום הביטוי השמאלי.", math_expression: "(x + 3)(x - 1) = 21" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים לביטוי רגיל.", math_expression: "x^{2} + 2x - 3 = 21" },
-            { verbal_explanation: "שלב 4: העברת אגף לכינוס הפולינום.", math_expression: "x^{2} + 2x - 24 = 0" },
-            { verbal_explanation: "שלב 5: הפתרון החיובי לממד הפיזי מתוך צמד השורשים.", math_expression: "(x + 6)(x - 4) = 0 \\Rightarrow x = 4" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "חותכים חוט מתכת שאורכו 36 ס''מ לשני חלקים. מחלק אחד יוצרים משולש שווה צלעות, ומחלק שני יוצרים ריבוע. ידוע כי אורך צלע הריבוע גדול ב-2 ס''מ מאורך צלע המשולש. מהו אורך צלע המשולש?&rlm;",
+        "options": ["4", "5", "6", "3"],
+        "correctAnswer": 0,
+        "hint": "בנו משוואה לסכום ההיקפים (3 פעמים צלע המשולש ועוד 4 פעמים צלע הריבוע) והשוו לאורך החוט.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את אורך צלע המשולש שווה הצלעות במשתנה.", "math_expression": "a = x" },
+            { "verbal_explanation": "נגדיר את אורך צלע הריבוע בהתאם לנתון.", "math_expression": "b = x + 2" },
+            { "verbal_explanation": "נרכיב משוואה לסכום ההיקפים של שתי הצורות, השווה לאורך הכולל של החוט.", "math_expression": "3x + 4(x + 2) = 36" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "3x + 4x + 8 = 36" },
+            { "verbal_explanation": "נכנס איברים משותפים באגף שמאלי.", "math_expression": "7x + 8 = 36" },
+            { "verbal_explanation": "נעביר את המספר החופשי לאגף הימני בחסור.", "math_expression": "7x = 28" },
+            { "verbal_explanation": "נחלק במקדם לבידוד סופי של המשתנה.", "math_expression": "x = 4" }
         ],
-        final_answer: "4"
+        "final_answer": "4"
     },
     {
-        topic: "word_problems_471",
-        subTopic: "בעיות גיאומטריות המשלבות אלגברה",
-        question_text: "אורכה של צלע אחת במשולש הוא 10 ס''מ. אורך הגובה היורד אליה הוא 12 ס''מ. מגדילים את הצלע ב-x ס''מ, ומקטינים את הגובה אליה ב-x ס''מ. השטח החדש שווה ל-60 סמ''ר. מהו x (בהנחה ש-x קטן מ-5)?&rlm;",
-        options: ["2", "3", "4", "1"],
-        correctAnswer: 0,
-        hint: "הבסיס החדש הוא (10 פלוס x). הגובה החדש הוא (12 פחות x). שטח משולש שווה למכפלתם חלקי 2.",
-        solution_steps: [
-            { verbal_explanation: "שלב 1: הצבת הנתונים המשופרים בנוסחת שטח המשולש.", math_expression: "\\dfrac{(10 + x)(12 - x)}{2} = 60" },
-            { verbal_explanation: "שלב 2: הכפלה בשתיים לביטול השבר.", math_expression: "(10 + x)(12 - x) = 120" },
-            { verbal_explanation: "שלב 3: פתיחת סוגריים משמאל.", math_expression: "120 - 10x + 12x - x^{2} = 120" },
-            { verbal_explanation: "שלב 4: צמצום האיבר החופשי שמופיע בשני האגפים וסידור.", math_expression: "-x^{2} + 2x = 0 \\Rightarrow x(x - 2) = 0" },
-            { verbal_explanation: "שלב 5: מציאת השורש שאיננו אפס המעיד על שינוי ממשי.", math_expression: "x = 2" }
+        "topic": "word_problems_471",
+        "subTopic": "בעיות גיאומטריות המשלבות אלגברה",
+        "question_text": "בטרפז שווה שוקיים, הבסיס התחתון ארוך ב-16 ס''מ מהבסיס העליון. אורך השוק שווה לאורך הבסיס העליון. היקף הטרפז הוא 56 ס''מ. מהו שטח הטרפז?&rlm;",
+        "options": ["108", "96", "120", "112"],
+        "correctAnswer": 0,
+        "hint": "היעזרו בהיקף למציאת צלעות הטרפז. לאחר מכן, הורידו גובה והשתמשו במשפט פיתגורס למציאת הגובה (מחצית הפרש הבסיסים הוא הניצב).",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את אורך הבסיס העליון במשתנה.", "math_expression": "a = x" },
+            { "verbal_explanation": "נגדיר את אורך הבסיס התחתון.", "math_expression": "b = x + 16" },
+            { "verbal_explanation": "נגדיר את אורך השוק של הטרפז שווה השוקיים.", "math_expression": "c = x" },
+            { "verbal_explanation": "נרכיב משוואה להיקף הטרפז.", "math_expression": "x + (x + 16) + 2x = 56" },
+            { "verbal_explanation": "נכנס איברים.", "math_expression": "4x + 16 = 56" },
+            { "verbal_explanation": "נפתור למציאת הצלע.", "math_expression": "4x = 40 \\Rightarrow x = 10" },
+            { "verbal_explanation": "נמצא את החלק מהבסיס התחתון הנוצר מהורדת גובה (מחצית ההפרש בין הבסיסים).", "math_expression": "y = \\dfrac{26 - 10}{2} = 8" },
+            { "verbal_explanation": "נשתמש במשפט פיתגורס על המשולש שנוצר כדי למצוא את הגובה.", "math_expression": "h^{2} + 8^{2} = 10^{2} \\Rightarrow h^{2} = 100 - 64 = 36 \\Rightarrow h = 6" },
+            { "verbal_explanation": "נחשב את שטח הטרפז באמצעות הנוסחה הסטנדרטית.", "math_expression": "S = \\dfrac{(10 + 26) \\times 6}{2}" },
+            { "verbal_explanation": "נשלים את חישוב השטח.", "math_expression": "S = \\dfrac{36 \\times 6}{2} = 18 \\times 6 = 108" }
         ],
-        final_answer: "2"
+        "final_answer": "108"
     }
 ];

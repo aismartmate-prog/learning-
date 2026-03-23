@@ -1,553 +1,471 @@
-// ========================================================================
-// שכבת גיל: ה'-ו' | נושא: תרגול ומבחנים מסכמים
-// 3 תתי נושאים | 36 שאלות סה"כ
-// שמות תתי-הנושאים תואמים בדיוק לתפריט המערכת.
-// ========================================================================
-
 const questionsDB = [
+    // ==========================================
+    // תת נושא 1: לקראת כיתה ו' (10 שאלות)
+    // ==========================================
 
-    // ==========================================================
-    // תת נושא 1: לקראת כיתה ו' (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "סדר פעולות חשבון: חשבו את התוצאה של התרגיל הבא.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>24 : (3 + 5) + 1/2 × 4 = ?</div>",
-        options: ["5", "8", "6", "10"],
+        question_text: "כמה זה רבע ועוד חצי? (\\( \\dfrac{1}{4} + \\dfrac{1}{2} \\))&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 100' style='max-width:200px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><circle cx='50' cy='50' r='30' fill='none' stroke='#3b82f6' stroke-width='2'/><path d='M 50 50 L 50 20 A 30 30 0 0 1 80 50 Z' fill='#3b82f6' fill-opacity='0.4'/><text x='100' y='55' font-size='20' font-family='Arial'>+</text><circle cx='150' cy='50' r='30' fill='none' stroke='#ef4444' stroke-width='2'/><path d='M 150 50 L 150 20 A 30 30 0 0 1 150 80 Z' fill='#ef4444' fill-opacity='0.4'/></svg></div>",
+        options: ["3 : 4", "2 : 4", "1 : 6", "2 : 6"],
         correctAnswer: 0,
-        hint: "זכרו את סדר פעולות החשבון: קודם סוגריים, אחר כך כפל וחילוק, ולבסוף חיבור וחיסור.&rlm;",
+        hint: "כדי לחבר שברים, המכנים צריכים להיות שווים. הפכו את החצי לרבעים על ידי הכפלת המונה והמכנה בשתיים.",
         solution_steps: [
-            { verbal_explanation: "נתחיל מפתרון התרגיל שבתוך הסוגריים: 3 ועוד 5.&rlm;", math_expression: "3 + 5 = 8" },
-            { verbal_explanation: "נבצע את פעולת החילוק: 24 לחלק ל-8.&rlm;", math_expression: "24 : 8 = 3" },
-            { verbal_explanation: "נבצע את פעולת הכפל: חצי מתוך 4.&rlm;", math_expression: "1/2 × 4 = 2" },
-            { verbal_explanation: "נחבר את התוצאות של החילוק והכפל.&rlm;", math_expression: "3 + 2 = 5" }
+            { verbal_explanation: "נרשום את התרגיל. אי אפשר לחבר מיד כי המכנים שונים (ארבע ושתיים).", math_expression: "\\dfrac{1}{4} + \\dfrac{1}{2}" },
+            { verbal_explanation: "נהפוך את החצי לשבר עם מכנה ארבע. נכפיל את הלמעלה והלמטה בשתיים.", math_expression: "\\dfrac{1 \\times 2}{2 \\times 2} = \\dfrac{2}{4}" },
+            { verbal_explanation: "עכשיו נחבר רבע אחד עם שני רבעים.", math_expression: "\\dfrac{1}{4} + \\dfrac{2}{4}" },
+            { verbal_explanation: "אחד ועוד שתיים זה שלוש. המכנה נשאר ארבע.", math_expression: "\\dfrac{3}{4}" }
         ],
-        final_answer: "5"
+        final_answer: "3 : 4"
     },
-    // שאלה 2
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "גיאומטריה: לפניכם מלבן ובתוכו משולש צבוע. מהו השטח הצבוע בתכלת (בסמ\"ר)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 120' width='100%' height='120' style='max-width:220px;'><rect x='20' y='20' width='160' height='80' fill='none' stroke='#0f172a' stroke-width='2'/><polygon points='20,100 180,100 100,20' fill='#bae6fd' stroke='#0284c7' stroke-width='2'/><text x='100' y='15' font-family='Heebo, Arial' font-size='12' fill='#0f172a' text-anchor='middle'>10 ס\"מ</text><text x='10' y='65' font-family='Heebo, Arial' font-size='12' fill='#0f172a' text-anchor='middle'>6</text></svg></div>",
-        options: ["30", "60", "16", "45"],
+        question_text: "לדני היו 200 שקלים. הוא קנה ספר ב-45 שקלים. כמה עודף הוא קיבל?&rlm;",
+        options: ["155", "165", "145", "150"],
         correctAnswer: 0,
-        hint: "שטח משולש מחושב על ידי הכפלת הבסיס בגובה אליו, וחלוקה ב-2. שימו לב שבסיס המשולש זהה לאורך המלבן, וגובהו זהה לרוחב המלבן.&rlm;",
+        hint: "זהו תרגיל חיסור רגיל. קחו את כל הכסף שהיה לו בהתחלה ותורידו מזה את המחיר של הספר.",
         solution_steps: [
-            { verbal_explanation: "בסיס המשולש הוא 10 ס\"מ (זהה לאורך המלבן). גובה המשולש הוא 6 ס\"מ (זהה לרוחב המלבן).&rlm;", math_expression: "" },
-            { verbal_explanation: "נכפיל את הבסיס בגובה.&rlm;", math_expression: "10 × 6 = 60" },
-            { verbal_explanation: "נחלק ב-2 כדי למצוא שטח משולש.&rlm;", math_expression: "60 : 2 = 30" }
+            { verbal_explanation: "נרשום את הכסף שהיה לדני בהתחלה.", math_expression: "200" },
+            { verbal_explanation: "נרשום את המחיר של הספר שעליו שילם.", math_expression: "45" },
+            { verbal_explanation: "נבצע תרגיל חיסור כדי למצוא את העודף.", math_expression: "200 - 45" },
+            { verbal_explanation: "נחסר ונקבל את הכסף שנשאר לו בארנק.", math_expression: "155" }
         ],
-        final_answer: "30"
+        final_answer: "155"
     },
-    // שאלה 3
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "המרה ויחס: בכיתה יש 30 תלמידים. 0.4 מהתלמידים הם בנים. כמה בנות יש בכיתה?&rlm;",
-        options: ["18", "12", "20", "15"],
+        question_text: "חברו את המספרים העשרוניים הבאים: 1.5 ועוד 2.3.&rlm;",
+        options: ["3.8", "3.5", "4.8", "3.2"],
         correctAnswer: 0,
-        hint: "אם 0.4 הם בנים, איזה שבר עשרוני מייצג את הבנות? (השלם הוא 1). לאחר מכן מצאו את החלק מהכמות.&rlm;",
+        hint: "חברו את השלמים ביחד ואת העשיריות ביחד. אפשר לרשום אותם אחד מתחת לשני.",
         solution_steps: [
-            { verbal_explanation: "השלם הוא 1. אם הבנים הם 0.4, הבנות הן 0.6 מהכיתה.&rlm;", math_expression: "1 - 0.4 = 0.6" },
-            { verbal_explanation: "נחשב כמה הם 0.6 מתוך 30. (אפשר להפוך ל-6/10 ולכפול).&rlm;", math_expression: "30 × 6/10" },
-            { verbal_explanation: "30 לחלק ל-10 זה 3. 3 כפול 6 שווה 18 בנות.&rlm;", math_expression: "3 × 6 = 18" }
+            { verbal_explanation: "נרשום את התרגיל.", math_expression: "1.5 + 2.3" },
+            { verbal_explanation: "נחבר את העשיריות (המספרים שאחרי הנקודה): חמש ועוד שלוש.", math_expression: "5 + 3 = 8" },
+            { verbal_explanation: "נחבר את השלמים (המספרים שלפני הנקודה): אחד ועוד שתיים.", math_expression: "1 + 2 = 3" },
+            { verbal_explanation: "נחבר את שני החלקים ונקבל את המספר המלא.", math_expression: "3.8" }
         ],
-        final_answer: "18"
+        final_answer: "3.8"
     },
-    // שאלה 4
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "חיבור שברים מעורבים: חשבו את התוצאה.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 1/4 + 1 2/3 = ?</div>",
-        options: ["3 11/12", "3 3/7", "4 1/12", "3 5/12"],
+        question_text: "מהו השטח של מלבן שאורכו 6 סנטימטרים ורוחבו 4 סנטימטרים?&rlm;",
+        options: ["24", "10", "20", "12"],
         correctAnswer: 0,
-        hint: "חברו שלמים בנפרד. מצאו מכנה משותף ל-1/4 ול-2/3 (מכנה 12) וחברו את השברים.&rlm;",
+        hint: "כדי למצוא שטח של מלבן, צריך פשוט להכפיל את האורך שלו ברוחב שלו.",
         solution_steps: [
-            { verbal_explanation: "חיבור השלמים: 2 ועוד 1 שווה 3.&rlm;", math_expression: "2 + 1 = 3" },
-            { verbal_explanation: "נרחיב את השברים למכנה 12. 1/4 יהיה 3/12. 2/3 יהיה 8/12.&rlm;", math_expression: "3/12 + 8/12 = 11/12" },
-            { verbal_explanation: "התוצאה הכוללת היא 3 שלמים ו-11/12.&rlm;", math_expression: "3 11/12" }
+            { verbal_explanation: "נרשום את אורך המלבן ואת רוחב המלבן.", math_expression: "6 \\quad , \\quad 4" },
+            { verbal_explanation: "נזכור ששטח שווה לאורך כפול הרוחב. נרשום את תרגיל הכפל.", math_expression: "6 \\times 4" },
+            { verbal_explanation: "נפתור את התרגיל לפי לוח הכפל.", math_expression: "24" }
         ],
-        final_answer: "3 11/12"
+        final_answer: "24"
     },
-    // שאלה 5
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "קנה מידה: במפה שקנה המידה שלה הוא 1:50,000, המרחק בין שתי ערים הוא 4 ס\"מ. מהו המרחק האמיתי בקילומטרים?&rlm;",
-        options: ["2", "20", "200", "0.2"],
+        question_text: "כמה זה 50 אחוזים (50%) מתוך 80?&rlm;",
+        options: ["40", "50", "20", "80"],
         correctAnswer: 0,
-        hint: "הכפילו את המרחק במפה בקנה המידה כדי לקבל סנטימטרים. זכרו שבקילומטר אחד יש 100,000 ס\"מ.&rlm;",
+        hint: "חמישים אחוזים הם בדיוק חצי. כדי למצוא חצי של מספר, צריך לחלק אותו בשתיים.",
         solution_steps: [
-            { verbal_explanation: "נחשב את המרחק האמיתי בסנטימטרים.&rlm;", math_expression: "4 × 50000 = 200000" },
-            { verbal_explanation: "כדי להמיר ס\"מ לק\"מ, נחלק ב-100,000 (נוריד 5 אפסים).&rlm;", math_expression: "200000 : 100000 = 2" }
+            { verbal_explanation: "נזכור שחמישים אחוזים זה בדיוק כמו להגיד חצי.", math_expression: "\\dfrac{1}{2}" },
+            { verbal_explanation: "אנחנו רוצים למצוא חצי מתוך שמונים. אז נחלק שמונים בשתיים.", math_expression: "80 : 2" },
+            { verbal_explanation: "שמונה לחלק לשתיים זה ארבע, נוסיף את האפס.", math_expression: "40" }
         ],
-        final_answer: "2"
+        final_answer: "40"
     },
-    // שאלה 6
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "אחוזים בסיסיים: חולצה שעולה 120 שקלים נמכרת בהנחה של 25%. מה מחיר החולצה לאחר ההנחה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 80' width='80' height='80'><path d='M 20,20 L 40,10 L 60,10 L 80,20 L 70,80 L 30,80 Z' fill='#fef08a' stroke='#eab308' stroke-width='2'/><text x='50' y='50' font-family='Arial' font-size='16' font-weight='bold' fill='#dc2626' text-anchor='middle'>-25%</text></svg></div>",
-        options: ["90", "30", "100", "95"],
+        question_text: "מהי התוצאה של תרגיל החילוק הבא: 120 לחלק ל-5?&rlm;",
+        options: ["24", "25", "20", "22"],
         correctAnswer: 0,
-        hint: "25% שווים בדיוק לרבע (1/4). חשבו כמה זה רבע מ-120, וחסרו זאת מהמחיר המקורי.&rlm;",
+        hint: "אפשר לפרק את 120 למאה ועוד עשרים. לחלק כל אחד מהם בחמש ואז לחבר את התוצאות.",
         solution_steps: [
-            { verbal_explanation: "25% הם 1/4. נחשב את סכום ההנחה בשקלים.&rlm;", math_expression: "120 : 4 = 30" },
-            { verbal_explanation: "ההנחה היא 30 שקלים. נחסר אותה מהמחיר המקורי.&rlm;", math_expression: "120 - 30 = 90" }
+            { verbal_explanation: "נרשום את התרגיל.", math_expression: "120 : 5" },
+            { verbal_explanation: "נפרק את המספר לשני חלקים שקל לנו לחלק: מאה ועשרים.", math_expression: "100 : 5 = 20" },
+            { verbal_explanation: "נחלק את החלק השני.", math_expression: "20 : 5 = 4" },
+            { verbal_explanation: "נחבר את התשובות שקיבלנו.", math_expression: "20 + 4 = 24" }
         ],
-        final_answer: "90"
+        final_answer: "24"
     },
-    // שאלה 7
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "תכונות מספרים: איזה מהמספרים הבאים מתחלק ב-3, ב-4 וב-5 ללא שארית?&rlm;",
-        options: ["60", "30", "45", "100"],
+        question_text: "מהו ההיקף של ריבוע שאורך כל צלע שלו הוא 9 סנטימטרים?&rlm;",
+        options: ["36", "18", "81", "27"],
         correctAnswer: 0,
-        hint: "מספר שמתחלק ב-4 וב-5 חייב להתחלק ב-20. איזה מהמספרים מתחלק גם ב-20 וגם ב-3?&rlm;",
+        hint: "בריבוע יש 4 צלעות והן כולן שוות. כדי למצוא את ההיקף, נכפיל את הצלע בארבע.",
         solution_steps: [
-            { verbal_explanation: "נבדוק את 60: הוא נגמר ב-0 אז מתחלק ב-5. סכום ספרותיו 6 ולכן מתחלק ב-3. והוא כפולה של 4 (15 פעמים 4).&rlm;", math_expression: "" },
-            { verbal_explanation: "שאר המספרים נפסלים: 30 לא מתחלק ב-4, 45 לא זוגי, 100 לא מתחלק ב-3.&rlm;", math_expression: "" }
+            { verbal_explanation: "האורך של צלע אחת בריבוע הוא תשע.", math_expression: "9" },
+            { verbal_explanation: "בריבוע יש ארבע צלעות שוות. נרשום תרגיל כפל.", math_expression: "9 \\times 4" },
+            { verbal_explanation: "נחשב ונגלה את ההיקף הכולל מסביב לריבוע.", math_expression: "36" }
         ],
-        final_answer: "60"
+        final_answer: "36"
     },
-    // שאלה 8
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "ישר המספרים: איזה שבר מסומן בנקודה האדומה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 60' width='100%' height='60' style='max-width:260px;'><line x1='20' y1='40' x2='220' y2='40' stroke='#334155' stroke-width='2'/><line x1='20' y1='30' x2='20' y2='50' stroke='#334155' stroke-width='2'/><line x1='120' y1='30' x2='120' y2='50' stroke='#334155' stroke-width='2'/><line x1='220' y1='30' x2='220' y2='50' stroke='#334155' stroke-width='2'/><text x='20' y='25' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>0</text><text x='120' y='25' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>1</text><text x='220' y='25' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>2</text><circle cx='170' cy='40' r='5' fill='#ef4444'/></svg></div>",
-        options: ["1 1/2", "1 1/4", "3/4", "1 3/4"],
+        question_text: "מהו הנפח של קופסה שהאורך שלה 4 סנטימטרים, הרוחב 3 סנטימטרים והגובה 2 סנטימטרים?&rlm;",
+        options: ["24", "12", "9", "18"],
         correctAnswer: 0,
-        hint: "הנקודה נמצאת בדיוק באמצע הדרך בין 1 ל-2.&rlm;",
+        hint: "כדי למצוא נפח של קופסה (תיבה), צריך להכפיל את שלושת המידות יחד: אורך, רוחב וגובה.",
         solution_steps: [
-            { verbal_explanation: "הנקודה חצתה את השלם 1, לכן המספר גדול מ-1.&rlm;", math_expression: "" },
-            { verbal_explanation: "היא ממוקמת בדיוק באמצע המקטע שבין 1 ל-2, כלומר זהו 1 וחצי.&rlm;", math_expression: "1 1/2" }
+            { verbal_explanation: "נרשום את כל המידות של הקופסה שיש לנו.", math_expression: "4 \\quad , \\quad 3 \\quad , \\quad 2" },
+            { verbal_explanation: "נכפיל את כל המידות זו בזו.", math_expression: "4 \\times 3 \\times 2" },
+            { verbal_explanation: "נכפיל קודם ארבע בשלוש.", math_expression: "4 \\times 3 = 12" },
+            { verbal_explanation: "ניקח את התשובה ונכפיל אותה בגובה שהוא שתיים.", math_expression: "12 \\times 2 = 24" },
+            { verbal_explanation: "הנפח הוא עשרים וארבע.", math_expression: "24" }
         ],
-        final_answer: "1 1/2"
+        final_answer: "24"
     },
-    // שאלה 9
     {
         topic: "finalReviews",
         subTopic: "לקראת כיתה ו'",
-        question_text: "נפח תיבה: אורך תיבה 5 ס\"מ, רוחבה 4 ס\"מ, וגובהה 10 ס\"מ. מהו נפח התיבה (בסמ\"ק)?&rlm;",
-        options: ["200", "100", "90", "19"],
+        question_text: "פתרו את התרגיל לפי סדר פעולות חשבון: \\( 10 + 5 \\times 2 \\).&rlm;",
+        options: ["20", "30", "17", "15"],
         correctAnswer: 0,
-        hint: "נפח תיבה שווה למכפלת שלושת ממדיה (אורך × רוחב × גובה).&rlm;",
+        hint: "במתמטיקה יש חוק חשוב: פעולת הכפל תמיד קודמת לפעולת החיבור. קודם תכפילו ורק אחר כך תחברו.",
         solution_steps: [
-            { verbal_explanation: "נכפיל תחילה את האורך ברוחב (שטח הבסיס).&rlm;", math_expression: "5 × 4 = 20" },
-            { verbal_explanation: "נכפיל את התוצאה בגובה התיבה.&rlm;", math_expression: "20 × 10 = 200" }
-        ],
-        final_answer: "200"
-    },
-    // שאלה 10
-    {
-        topic: "finalReviews",
-        subTopic: "לקראת כיתה ו'",
-        question_text: "ממוצע: ב-3 מבחנים קיבלה נועה את הציונים 80, 90, 100. מהו הציון הממוצע שלה?&rlm;",
-        options: ["90", "85", "95", "270"],
-        correctAnswer: 0,
-        hint: "כדי לחשב ממוצע, חברו את כל הציונים וחלקו במספר המבחנים (3).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נחשב את סכום הציונים הכולל.&rlm;", math_expression: "80 + 90 + 100 = 270" },
-            { verbal_explanation: "נחלק את הסכום במספר המבחנים.&rlm;", math_expression: "270 : 3 = 90" }
-        ],
-        final_answer: "90"
-    },
-    // שאלה 11
-    {
-        topic: "finalReviews",
-        subTopic: "לקראת כיתה ו'",
-        question_text: "חיבור עשרוניים ושברים: פתרו את התרגיל.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.25 + 1/2 = ?</div>",
-        options: ["3/4", "0.3", "0.7", "1.25"],
-        correctAnswer: 0,
-        hint: "אפשר להמיר את חצי (1/2) לעשרוני (0.50), או להמיר את 0.25 לשבר (1/4).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמיר את 0.25 לשבר פשוט: הוא שווה ל-1/4 (רבע).&rlm;", math_expression: "0.25 = 1/4" },
-            { verbal_explanation: "נחבר: רבע ועוד חצי. אנו יודעים שחצי שווה לשני רבעים.&rlm;", math_expression: "1/4 + 2/4 = 3/4" }
-        ],
-        final_answer: "3/4"
-    },
-    // שאלה 12
-    {
-        topic: "finalReviews",
-        subTopic: "לקראת כיתה ו'",
-        question_text: "משוואות פשוטות: איזה מספר חסר במשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>? × 5 = 35 + 10</div>",
-        options: ["9", "7", "45", "8"],
-        correctAnswer: 0,
-        hint: "חשבו קודם את האגף הימני (35+10). לאחר מכן שאלו את עצמכם: איזה מספר כפול 5 ייתן את התוצאה הזו?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נפתור קודם את האגף הימני של המשוואה.&rlm;", math_expression: "35 + 10 = 45" },
-            { verbal_explanation: "כעת עלינו למצוא מספר שכאשר נכפיל אותו ב-5 נקבל 45. נבצע פעולה הפוכה.&rlm;", math_expression: "45 : 5 = 9" }
-        ],
-        final_answer: "9"
-    },
-
-    // ==========================================================
-    // תת נושא 2: מבדק מחצית שנה (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 13
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "חילוק שברים מעורבים: חשבו את התוצאה.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 1/2 : 3/4 = ?</div>",
-        options: ["3 1/3", "1 7/8", "15/8", "3"],
-        correctAnswer: 0,
-        hint: "הפכו את המספר המעורב לשבר מדומה (5/2). לאחר מכן הפכו את החילוק לכפל בהופכי.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמיר את המספר המעורב (שניים וחצי) לשבר מדומה.&rlm;", math_expression: "2 1/2 = 5/2" },
-            { verbal_explanation: "נבצע כפל בהופכי של השבר השני.&rlm;", math_expression: "5/2 × 4/3" },
-            { verbal_explanation: "נכפול ונקבל 20/6. נצמצם ב-2 ונקבל 10/3.&rlm;", math_expression: "10/3" },
-            { verbal_explanation: "10 חלקי 3 שווה ל-3 שלמים ושארית 1.&rlm;", math_expression: "3 1/3" }
-        ],
-        final_answer: "3 1/3"
-    },
-    // שאלה 14
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "חיסור שברים עשרוניים: חשבו.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>15.2 - 3.85 = ?</div>",
-        options: ["11.35", "11.45", "12.65", "12.35"],
-        correctAnswer: 0,
-        hint: "הוסיפו אפס בסוף המספר הראשון (15.20) כדי להשוות את מספר הספרות, ובצעו חיסור (אפשר במאונך).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נרשום 15.2 כ-15.20 כדי ליישר את המאיות.&rlm;", math_expression: "15.20 - 3.85" },
-            { verbal_explanation: "נפרוט ונחסר מאיות: 10 פחות 5 שווה 5. עשיריות: 11 פחות 8 שווה 3.&rlm;", math_expression: "" },
-            { verbal_explanation: "השלמים: 14 פחות 3 שווה 11.&rlm;", math_expression: "11.35" }
-        ],
-        final_answer: "11.35"
-    },
-    // שאלה 15
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "גיאומטריה: מהו שטחו של המשולש ישר הזווית באיור (בסמ\"ר)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 150' width='100%' height='150' style='max-width:150px;'><polygon points='20,130 120,130 20,30' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><polyline points='20,115 35,115 35,130' fill='none' stroke='#ca8a04' stroke-width='1.5'/><text x='70' y='145' font-family='Heebo, Arial' font-size='12' fill='#0f172a' text-anchor='middle'>8 ס\"מ</text><text x='5' y='80' font-family='Heebo, Arial' font-size='12' fill='#0f172a' text-anchor='middle'>5</text></svg></div>",
-        options: ["20", "40", "13", "26"],
-        correctAnswer: 0,
-        hint: "במשולש ישר זווית, שתי הצלעות שיוצרות את הזווית הישרה (הניצבים) משמשות כבסיס וגובה. כפלו אותם וחלקו ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שטח משולש הוא בסיס כפול גובה חלקי 2. כאן הניצבים הם 8 ו-5.&rlm;", math_expression: "" },
-            { verbal_explanation: "נכפול 8 ב-5.&rlm;", math_expression: "8 × 5 = 40" },
-            { verbal_explanation: "נחלק ב-2.&rlm;", math_expression: "40 : 2 = 20" }
+            { verbal_explanation: "נרשום את התרגיל. יש בו גם חיבור וגם כפל.", math_expression: "10 + 5 \\times 2" },
+            { verbal_explanation: "חוקי החשבון אומרים שכפל עושים לפני חיבור. אז נפתור קודם חמש כפול שתיים.", math_expression: "5 \\times 2 = 10" },
+            { verbal_explanation: "עכשיו נחזור לתרגיל ונחליף את הכפל בתשובה שמצאנו. נשאר לנו תרגיל חיבור.", math_expression: "10 + 10" },
+            { verbal_explanation: "נחבר הכל ונקבל עשרים.", math_expression: "20" }
         ],
         final_answer: "20"
     },
-    // שאלה 16
     {
         topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "כפל שברים (מומלץ לצמצם באלכסון לפני הכפל):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4/5 × 15/16 = ?</div>",
-        options: ["3/4", "19/21", "60/80", "1/4"],
+        subTopic: "לקראת כיתה ו'",
+        question_text: "כמה הם 3 חמישיות (\\( \\dfrac{3}{5} \\)) מתוך 20 תפוחים?&rlm;",
+        options: ["12", "15", "4", "8"],
         correctAnswer: 0,
-        hint: "צמצמו את 4 (במונה) עם 16 (במכנה), ואת 15 (במונה) עם 5 (במכנה).&rlm;",
+        hint: "כדי למצוא חלק מכמות, קודם מחלקים את הכמות הכוללת במכנה (5), ואז מכפילים את מה שיצא במונה (3).",
         solution_steps: [
-            { verbal_explanation: "נצמצם ב-4: ה-4 הופך ל-1, וה-16 הופך ל-4.&rlm;", math_expression: "" },
-            { verbal_explanation: "נצמצם ב-5: ה-5 הופך ל-1, וה-15 הופך ל-3.&rlm;", math_expression: "" },
-            { verbal_explanation: "נשארנו עם 1 כפול 3/4.&rlm;", math_expression: "1 × 3/4 = 3/4" }
+            { verbal_explanation: "יש לנו עשרים תפוחים. אנחנו רוצים לחלק אותם לחמש קבוצות שוות (המשמעות של חמישיות).", math_expression: "20 : 5" },
+            { verbal_explanation: "נפתור ונגלה שבכל קבוצה יש ארבעה תפוחים. זה אומר שחמישית אחת שווה ארבע.", math_expression: "20 : 5 = 4" },
+            { verbal_explanation: "אנחנו רוצים לדעת כמה הם שלוש חמישיות, אז ניקח את הארבע שמצאנו ונכפיל בשלוש.", math_expression: "4 \\times 3" },
+            { verbal_explanation: "נחשב ונגלה את כמות התפוחים שלנו.", math_expression: "12" }
         ],
-        final_answer: "3/4"
+        final_answer: "12"
     },
-    // שאלה 17
+
+    // ==========================================
+    // תת נושא 2: מבדק מחצית שנה (10 שאלות)
+    // ==========================================
+
     {
         topic: "finalReviews",
         subTopic: "מבדק מחצית שנה",
-        question_text: "חילוק שברים עשרוניים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3.6 : 0.6 = ?</div>",
-        options: ["6", "0.6", "60", "2.16"],
+        question_text: "מהי התוצאה של תרגיל הכפל העשרוני הבא: 1.2 כפול 4?&rlm;",
+        options: ["4.8", "4.2", "48", "0.48"],
         correctAnswer: 0,
-        hint: "הכפילו את שני המספרים ב-10 כדי לבטל את הנקודה העשרונית.&rlm;",
+        hint: "כפל עשרוני עובד כמו כפל רגיל, פשוט זכרו להחזיר את הנקודה העשרונית למקום שלה. אפשר גם לחשב: אחד כפול ארבע, ושתי עשיריות כפול ארבע.",
         solution_steps: [
-            { verbal_explanation: "נרחיב את התרגיל פי 10 כדי לקבל מספרים שלמים.&rlm;", math_expression: "(3.6 × 10) : (0.6 × 10)" },
-            { verbal_explanation: "36 לחלק ל-6 שווה 6.&rlm;", math_expression: "36 : 6 = 6" }
+            { verbal_explanation: "נכפיל קודם את החלק השלם של המספר בארבע.", math_expression: "1 \\times 4 = 4" },
+            { verbal_explanation: "עכשיו נכפיל את החלק של העשיריות (החלק שאחרי הנקודה) בארבע.", math_expression: "0.2 \\times 4 = 0.8" },
+            { verbal_explanation: "נחבר את השלמים והעשיריות יחד לקבלת התשובה המלאה.", math_expression: "4 + 0.8" },
+            { verbal_explanation: "התשובה היא ארבע נקודה שמונה.", math_expression: "4.8" }
+        ],
+        final_answer: "4.8"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "בקולנוע יש 150 כיסאות. 20 אחוזים (20%) מהם ריקים. כמה כיסאות ריקים יש בקולנוע?&rlm;",
+        options: ["30", "15", "20", "50"],
+        correctAnswer: 0,
+        hint: "עשרים אחוזים זה כמו להגיד עשרים מתוך מאה. אפשר למצוא קודם כל עשרה אחוזים על ידי חלוקה בעשר, ואז להכפיל בשתיים.",
+        solution_steps: [
+            { verbal_explanation: "קודם נמצא כמה זה עשרה אחוזים. עשרה אחוזים הם עשירית מהכל, אז נחלק בעשר.", math_expression: "150 : 10 = 15" },
+            { verbal_explanation: "גילינו שעשרה אחוזים שווים לחמישה עשר כיסאות. אנחנו צריכים עשרים אחוזים.", math_expression: "20\\%" },
+            { verbal_explanation: "לכן, נכפיל את מה שקיבלנו פי שניים.", math_expression: "15 \\times 2" },
+            { verbal_explanation: "נפתור ונגלה את מספר הכיסאות הריקים.", math_expression: "30" }
+        ],
+        final_answer: "30"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "היחס בין בנים לבנות בחוג מחול הוא 2 : 3 (על כל 2 בנים יש 3 בנות). בסך הכל יש 30 ילדים בחוג. כמה בנים יש בחוג?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 100' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='30' y='30' width='40' height='40' fill='#3b82f6' rx='8'/><rect x='130' y='30' width='40' height='40' fill='#ef4444' rx='8'/><text x='45' y='55' font-size='16' fill='white' font-family='Arial'>2</text><text x='145' y='55' font-size='16' fill='white' font-family='Arial'>3</text><text x='95' y='55' font-size='16' font-family='Arial'>:</text></svg></div>",
+        options: ["12", "18", "10", "15"],
+        correctAnswer: 0,
+        hint: "חברו את חלקי היחס יחד (2+3). חלקו את סך כל הילדים (30) במספר שקיבלתם כדי לדעת כמה ילדים יש בקבוצה אחת קטנה. לבסוף, הכפילו את התשובה בחלק של הבנים (2).",
+        solution_steps: [
+            { verbal_explanation: "נחבר את מספרי היחס כדי לדעת לכמה קבוצות שוות אנחנו מחלקים את החוג.", math_expression: "2 + 3 = 5" },
+            { verbal_explanation: "נחלק את שלושים הילדים שבחוג לחמש קבוצות שוות.", math_expression: "30 : 5 = 6" },
+            { verbal_explanation: "גילינו שבכל קבוצה כזו יש שישה ילדים. הבנים מקבלים שתי קבוצות כאלה לפי היחס.", math_expression: "2" },
+            { verbal_explanation: "נכפיל שש בשתיים כדי למצוא את כל הבנים.", math_expression: "6 \\times 2" },
+            { verbal_explanation: "נפתור ונגיע לתשובה.", math_expression: "12" }
+        ],
+        final_answer: "12"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "קוטר של פיצה עגולה הוא 12 סנטימטרים. מהו הרדיוס של הפיצה הזו?&rlm;",
+        options: ["6", "24", "12", "3"],
+        correctAnswer: 0,
+        hint: "הקוטר הוא הקו שעובר מצד לצד דרך המרכז. הרדיוס הוא מהמרכז ועד לקצה, לכן הוא תמיד בדיוק חצי מהקוטר.",
+        solution_steps: [
+            { verbal_explanation: "הקוטר שווה לשתים עשרה.", math_expression: "12" },
+            { verbal_explanation: "אנחנו זוכרים שהרדיוס הוא בדיוק חצי מקוטר. אז נחלק בשתיים.", math_expression: "12 : 2" },
+            { verbal_explanation: "נפתור את התרגיל ונגלה את הרדיוס.", math_expression: "6" }
         ],
         final_answer: "6"
     },
-    // שאלה 18
     {
         topic: "finalReviews",
         subTopic: "מבדק מחצית שנה",
-        question_text: "מיכל מכיל 12 ליטר מים. רוצים למלא ממנו בקבוקים שנפח כל אחד מהם הוא 1.5 ליטר. כמה בקבוקים שלמים ימולאו?&rlm;",
-        options: ["8", "7", "6", "9"],
+        question_text: "רוכב אופניים נסע מרחק של 100 קילומטרים. המהירות שלו הייתה קבועה - 25 קילומטרים בשעה. כמה שעות לקחה לו הנסיעה?&rlm;",
+        options: ["4", "5", "3", "2500"],
         correctAnswer: 0,
-        hint: "התרגיל הוא 12 לחלק ל-1.5. תוכלו להכפיל את שניהם פי 2 כדי לקבל תרגיל קל: 24 לחלק ל-3.&rlm;",
+        hint: "כדי למצוא את הזמן בבעיות תנועה, צריך לחלק את המרחק כולו במהירות שבה נסעו.",
         solution_steps: [
-            { verbal_explanation: "ניתן לפתור באמצעות הרחבה פי 10 (120 חלקי 15) או הרחבה פי 2 למספרים שלמים וקטנים יותר.&rlm;", math_expression: "12 : 1.5" },
-            { verbal_explanation: "נרחיב פי 2 לנוחות: 12 כפול 2 זה 24. ו-1.5 כפול 2 זה 3.&rlm;", math_expression: "24 : 3 = 8" }
-        ],
-        final_answer: "8"
-    },
-    // שאלה 19
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "תכונות מצולעים: איזה מהמרובעים הבאים מתאפיין בכך שכל צלעותיו שוות זו לזו, אך זוויותיו *אינן* בהכרח ישרות (90 מעלות)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 250 80' width='100%' height='80' style='max-width:250px;'><polygon points='40,10 70,40 40,70 10,40' fill='#dcfce7' stroke='#16a34a' stroke-width='2'/><rect x='110' y='20' width='60' height='40' fill='#f1f5f9' stroke='#475569' stroke-width='2'/><polygon points='200,20 240,10 230,60 190,70' fill='#fee2e2' stroke='#dc2626' stroke-width='2'/></svg></div>",
-        options: ["מעוין", "מלבן", "מקבילית", "טרפז שווה שוקיים"],
-        correctAnswer: 0,
-        hint: "מרובע שכל צלעותיו שוות הוא מעוין. אם גם הזוויות היו ישרות, הוא היה נקרא ריבוע.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מלבן: זוויותיו ישרות, צלעותיו לא בהכרח שוות. מקבילית: צלעות נגדיות שוות. טרפז: רק שתי שוקיים שוות.&rlm;", math_expression: "" },
-            { verbal_explanation: "מעוין הוא המרובע היחיד שבו כל 4 הצלעות שוות, אך הזוויות אינן חייבות להיות ישרות.&rlm;", math_expression: "" }
-        ],
-        final_answer: "מעוין"
-    },
-    // שאלה 20
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "שבר כמנת חילוק: הפכו את תרגיל החילוק לשבר מעורב:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>25 : 7 = ?</div>",
-        options: ["3 4/7", "3 2/7", "4 1/7", "3 5/7"],
-        correctAnswer: 0,
-        hint: "כמה פעמים 7 נכנס בשלמותו בתוך 25? ומהי השארית?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נכתוב את תרגיל החילוק כשבר מדומה.&rlm;", math_expression: "25/7" },
-            { verbal_explanation: "7 נכנס ב-25 שלוש פעמים (3 כפול 7 זה 21).&rlm;", math_expression: "3" },
-            { verbal_explanation: "השארית היא 4 (25 פחות 21). השארית נשארת חלקי המכנה 7.&rlm;", math_expression: "3 4/7" }
-        ],
-        final_answer: "3 4/7"
-    },
-    // שאלה 21
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "השוואת שברים לעשרוניים: מה גדול יותר: 3/8 או 0.4?&rlm;",
-        options: ["0.4 גדול יותר", "3/8 גדול יותר", "הם שווים", "אי אפשר לדעת"],
-        correctAnswer: 0,
-        hint: "המירו את 0.4 לשבר פשוט (4/10) או את 3/8 לעשרוני (הכפילו ב-125 וקבלו 0.375).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמיר את 3/8 לשבר עשרוני. נרחיב את המונה והמכנה ב-125.&rlm;", math_expression: "(3 × 125) / (8 × 125) = 375/1000" },
-            { verbal_explanation: "375 אלפיות נכתבות כ-0.375.&rlm;", math_expression: "0.375" },
-            { verbal_explanation: "0.4 שווה ל-0.400. לכן 0.4 גדול מ-0.375.&rlm;", math_expression: "0.4 > 0.375" }
-        ],
-        final_answer: "0.4 גדול יותר"
-    },
-    // שאלה 22
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "היקף מצולעים: מהו היקפו של המצולע הבא (בס\"מ)? כל הזוויות ישרות.&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 160 120' width='100%' height='120' style='max-width:160px;'><polygon points='20,20 100,20 100,60 140,60 140,100 20,100' fill='#f3e8ff' stroke='#a855f7' stroke-width='2'/><text x='60' y='15' font-family='Arial' font-size='10' fill='#0f172a'>8</text><text x='110' y='45' font-family='Arial' font-size='10' fill='#0f172a'>4</text><text x='145' y='85' font-family='Arial' font-size='10' fill='#0f172a'>4</text><text x='80' y='115' font-family='Arial' font-size='10' fill='#0f172a'>12</text><text x='5' y='65' font-family='Arial' font-size='10' fill='#0f172a'>8</text></svg></div>",
-        options: ["40", "36", "48", "32"],
-        correctAnswer: 0,
-        hint: "היקף הוא סכום כל הצלעות. במצולע שזוויותיו ישרות, ניתן 'לדחוף' את הצלעות הפנימיות החוצה כדי להשלים למלבן שלם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שיטה א': חיבור כל הצלעות. הצלע החסרה למעלה היא 4 ס\"מ (12 פחות 8).&rlm;", math_expression: "8+4+4+4+12+8 = 40" },
-            { verbal_explanation: "שיטה ב' חכמה: הזזת הצלעות הפנימיות החוצה משלימה למלבן שלם שמידותיו 12 ו-8.&rlm;", math_expression: "2 × (12 + 8) = 40" }
-        ],
-        final_answer: "40"
-    },
-    // שאלה 23
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "כפל ב-10, 100 וכו': חשבו את התוצאה.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>0.045 × 100 = ?</div>",
-        options: ["4.5", "45", "0.45", "450"],
-        correctAnswer: 0,
-        hint: "בכפל ב-100 הנקודה העשרונית זזה שני מקומות ימינה (המספר גדל).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נזיז את הנקודה צעד ראשון מעבר לאפס: 0.45.&rlm;", math_expression: "" },
-            { verbal_explanation: "נזיז צעד שני מעבר לארבע: 4.5.&rlm;", math_expression: "4.5" }
-        ],
-        final_answer: "4.5"
-    },
-    // שאלה 24
-    {
-        topic: "finalReviews",
-        subTopic: "מבדק מחצית שנה",
-        question_text: "בעיה מילולית: גלית קנתה 3 ק\"ג תפוחים ב-5.5 שקלים לק\"ג, ו-2 ק\"ג בננות ב-4.5 שקלים לק\"ג. כמה שילמה בסך הכל?&rlm;",
-        options: ["25.5 שקלים", "20 שקלים", "22.5 שקלים", "26.5 שקלים"],
-        correctAnswer: 0,
-        hint: "חשבו בנפרד את מחיר התפוחים ואת מחיר הבננות, ואז חברו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מחיר התפוחים: 3 ק\"ג כפול 5.5 שקלים.&rlm;", math_expression: "3 × 5.5 = 16.5" },
-            { verbal_explanation: "מחיר הבננות: 2 ק\"ג כפול 4.5 שקלים.&rlm;", math_expression: "2 × 4.5 = 9.0" },
-            { verbal_explanation: "נחבר את הסכומים.&rlm;", math_expression: "16.5 + 9 = 25.5" }
-        ],
-        final_answer: "25.5"
-    },
-
-    // ==========================================================
-    // תת נושא 3: שאלות אתגר רב-שלביות (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 25
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 1 (קניות ואחוזים): מחיר טלוויזיה הוא 1,200 שקלים. בחג יש עליה הנחה של 20%. דן שילם על הטלוויזיה עם שני שטרות של 500 שקלים. כמה עודף הוא יקבל?&rlm;",
-        options: ["40", "240", "160", "חסר לו כסף"],
-        correctAnswer: 0,
-        hint: "חשבו את ההנחה (20% מ-1,200). חסרו אותה מהמחיר לקבלת המחיר הסופי. לאחר מכן חסרו מ-1,000 שקלים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "20% הם 1/5. נחשב את ההנחה: חמישית מ-1200.&rlm;", math_expression: "1200 : 5 = 240" },
-            { verbal_explanation: "המחיר לאחר הנחה: 1200 פחות 240.&rlm;", math_expression: "1200 - 240 = 960" },
-            { verbal_explanation: "דן שילם 1000 שקלים (שני שטרות של 500). העודף הוא ההפרש.&rlm;", math_expression: "1000 - 960 = 40" }
-        ],
-        final_answer: "40"
-    },
-    // שאלה 26
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 2 (הספק עבודה): ברז א' ממלא בריכה לבדו ב-2 שעות. ברז ב' ממלא את אותה בריכה לבדו ב-3 שעות. איזה חלק מהבריכה יתמלא אם נפתח את שניהם יחד במשך שעה אחת?&rlm;",
-        options: ["5/6", "1/2", "1/5", "1"],
-        correctAnswer: 0,
-        hint: "חשבו איזה חלק מהבריכה ממלא כל ברז בשעה אחת, וחברו את החלקים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ברז א' מסיים ב-2 שעות, ולכן בשעה אחת ימלא 1/2 בריכה.&rlm;", math_expression: "" },
-            { verbal_explanation: "ברז ב' מסיים ב-3 שעות, ולכן בשעה אחת ימלא 1/3 בריכה.&rlm;", math_expression: "" },
-            { verbal_explanation: "יחד בשעה אחת הם ימלאו חצי ועוד שליש. נרחיב לשישיות: 3/6 ועוד 2/6.&rlm;", math_expression: "3/6 + 2/6 = 5/6" }
-        ],
-        final_answer: "5/6"
-    },
-    // שאלה 27
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 3 (גיאומטריה רב-שלבית): לפניכם קיר מלבני שמידותיו 10 ס\"מ על 6 ס\"מ. בתוכו גזרו חלון שמידותיו 3 ס\"מ על 2 ס\"מ. מהו שטח הקיר הצבוע (בסמ\"ר)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 120' width='100%' height='120' style='max-width:200px;'><rect x='10' y='10' width='180' height='100' fill='#e0f2fe' stroke='#0284c7' stroke-width='2'/><rect x='50' y='30' width='100' height='60' fill='#ffffff' stroke='#ef4444' stroke-width='2'/><text x='100' y='65' font-family='Arial' font-size='12' fill='#ef4444' text-anchor='middle'>חלון 3×2</text><text x='100' y='25' font-family='Arial' font-size='12' fill='#0284c7' text-anchor='middle'>קיר 10×6</text></svg></div>",
-        options: ["54", "60", "6", "48"],
-        correctAnswer: 0,
-        hint: "חשבו את השטח הכולל של המלבן הגדול, ולאחר מכן חסרו ממנו את שטח החלון הקטן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שטח המלבן הגדול (הקיר): אורך כפול רוחב.&rlm;", math_expression: "10 × 6 = 60" },
-            { verbal_explanation: "שטח המלבן הקטן (החלון): אורך כפול רוחב.&rlm;", math_expression: "3 × 2 = 6" },
-            { verbal_explanation: "השטח הצבוע הוא השטח הגדול פחות החלון.&rlm;", math_expression: "60 - 6 = 54" }
-        ],
-        final_answer: "54"
-    },
-    // שאלה 28
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 4 (חלק מחלק): בגינה יש 40 פרחים. 1/4 מהם הם ורדים. מתוך הוורדים, 2/5 הם ורדים אדומים. כמה ורדים אדומים יש בגינה?&rlm;",
-        options: ["4", "10", "16", "8"],
-        correctAnswer: 0,
-        hint: "חשבו קודם כמה ורדים יש בסך הכל (רבע מ-40). מתוך התוצאה שתקבלו, חשבו כמה הם 2 חמישיות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמצא את מספר הוורדים בגינה (רבע מ-40).&rlm;", math_expression: "40 : 4 = 10" },
-            { verbal_explanation: "יש 10 ורדים. מתוכם 2/5 אדומים. נחלק ב-5 ונקבל 2, נכפול ב-2.&rlm;", math_expression: "10 : 5 = 2" },
-            { verbal_explanation: "2 כפול 2 שווה ל-4 ורדים אדומים.&rlm;", math_expression: "2 × 2 = 4" }
+            { verbal_explanation: "המרחק שהרוכב עבר הוא מאה.", math_expression: "100" },
+            { verbal_explanation: "המהירות שלו הייתה עשרים וחמש לשעה.", math_expression: "25" },
+            { verbal_explanation: "נחלק את המרחק במהירות כדי למצוא כמה שעות זה לקח.", math_expression: "100 : 25" },
+            { verbal_explanation: "נחשב כמה פעמים עשרים וחמש נכנס במאה. עשרים וחמש, חמישים, שבעים וחמש, מאה. ארבע פעמים.", math_expression: "4" }
         ],
         final_answer: "4"
     },
-    // שאלה 29
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "מה תהיה התוצאה אם נחבר את המספר המעורב 1 וחצי עם המספר המעורב 2 ורבע? (\\( 1\\dfrac{1}{2} + 2\\dfrac{1}{4} \\))&rlm;",
+        options: ["3 3:4", "3 1:4", "4 3:4", "3 1:2"],
+        correctAnswer: 0,
+        hint: "חברו קודם את המספרים השלמים. אחר כך, הפכו את החצי לרבעים כדי שתוכלו לחבר אותו עם הרבע.",
+        solution_steps: [
+            { verbal_explanation: "נרשום את התרגיל.", math_expression: "1\\dfrac{1}{2} + 2\\dfrac{1}{4}" },
+            { verbal_explanation: "נחבר את המספרים השלמים קודם: אחד ועוד שתיים.", math_expression: "1 + 2 = 3" },
+            { verbal_explanation: "עכשיו נטפל בשברים. החצי שלנו שווה לשני רבעים. נרשום את זה ככה כדי שנוכל לחבר.", math_expression: "\\dfrac{1}{2} = \\dfrac{2}{4}" },
+            { verbal_explanation: "נחבר את שני הרבעים עם הרבע הנוסף שיש לנו בתרגיל.", math_expression: "\\dfrac{2}{4} + \\dfrac{1}{4} = \\dfrac{3}{4}" },
+            { verbal_explanation: "נחבר את השלמים והשברים יחד למספר מעורב אחד.", math_expression: "3\\dfrac{3}{4}" }
+        ],
+        final_answer: "3 3:4"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "רבע (25%) ממחיר של חולצה הוא 10 שקלים. מה המחיר המלא (100%) של החולצה כולה?&rlm;",
+        options: ["40", "50", "20", "30"],
+        correctAnswer: 0,
+        hint: "עשרים וחמישה אחוזים הם בדיוק רבע משלם. אם רבע עולה 10 שקלים, אז כמה עולים 4 רבעים?",
+        solution_steps: [
+            { verbal_explanation: "אנחנו יודעים שעשרים וחמישה אחוזים זה כמו להגיד חלק אחד מתוך ארבעה חלקים (רבע).", math_expression: "\\dfrac{1}{4}" },
+            { verbal_explanation: "החלק הזה (הרבע) שווה לעשרה שקלים.", math_expression: "10" },
+            { verbal_explanation: "החולצה המלאה בנויה מארבעה רבעים כאלה. לכן, נכפיל את העשר בארבע.", math_expression: "10 \\times 4" },
+            { verbal_explanation: "נפתור את התרגיל ונגלה את המחיר השלם.", math_expression: "40" }
+        ],
+        final_answer: "40"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "פתרו את תרגיל החילוק העשרוני: 4.5 לחלק ל-0.5.&rlm;",
+        options: ["9", "45", "5", "0.9"],
+        correctAnswer: 0,
+        hint: "אפשר להכפיל את שני המספרים ב-10 כדי להיפטר מהנקודה העשרונית, ואז תקבלו תרגיל חילוק רגיל לגמרי של 45 לחלק ל-5.",
+        solution_steps: [
+            { verbal_explanation: "נרשום את התרגיל. קשה קצת לחלק כשיש נקודות עשרוניות.", math_expression: "4.5 : 0.5" },
+            { verbal_explanation: "כדי לעשות את זה קל, נזיז את הנקודה צעד אחד ימינה בשני המספרים (זה כמו להכפיל הכל בעשר).", math_expression: "45 : 5" },
+            { verbal_explanation: "קיבלנו תרגיל פשוט מלוח הכפל.", math_expression: "45 : 5" },
+            { verbal_explanation: "נחשב כמה פעמים חמש נכנס בארבעים וחמש. התשובה היא תשע.", math_expression: "9" }
+        ],
+        final_answer: "9"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "במשולש, אורך הבסיס הוא 10 סנטימטרים ואורך הגובה לבסיס זה הוא 4 סנטימטרים. מהו שטח המשולש?&rlm;",
+        options: ["20", "40", "14", "5"],
+        correctAnswer: 0,
+        hint: "כדי למצוא שטח של משולש, מכפילים את הבסיס בגובה ואז - חשוב מאוד - מחלקים את התוצאה בשתיים.",
+        solution_steps: [
+            { verbal_explanation: "נרשום את המספרים שיש לנו מתוך השאלה: הבסיס והגובה.", math_expression: "10 \\quad , \\quad 4" },
+            { verbal_explanation: "בשטח משולש קודם מכפילים את הבסיס בגובה.", math_expression: "10 \\times 4 = 40" },
+            { verbal_explanation: "עכשיו, חובה לחלק את התשובה שקיבלנו לשתיים.", math_expression: "40 : 2" },
+            { verbal_explanation: "ארבעים לחלק לשתיים זה עשרים. וזהו השטח.", math_expression: "20" }
+        ],
+        final_answer: "20"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "מבדק מחצית שנה",
+        question_text: "דני קיבל במבחן הראשון 80, במבחן השני 100, ובמבחן השלישי 120 (בונוס). מהו ממוצע הציונים שלו?&rlm;",
+        options: ["100", "90", "110", "300"],
+        correctAnswer: 0,
+        hint: "ממוצע מוצאים על ידי חיבור כל המספרים יחד, וחלוקת הסכום במספר המבחנים (שזה 3).",
+        solution_steps: [
+            { verbal_explanation: "נחבר את הציון הראשון והשני יחד.", math_expression: "80 + 100 = 180" },
+            { verbal_explanation: "נוסיף לסכום את הציון השלישי שלו כדי לגלות כמה נקודות צבר בסך הכל.", math_expression: "180 + 120 = 300" },
+            { verbal_explanation: "יש לנו שלושה מבחנים סך הכל, אז נחלק את הסכום בשלוש.", math_expression: "300 : 3" },
+            { verbal_explanation: "נפתור ונגלה את הממוצע היפה שלו.", math_expression: "100" }
+        ],
+        final_answer: "100"
+    },
+
+    // ==========================================
+    // תת נושא 3: שאלות אתגר רב-שלביות (10 שאלות)
+    // ==========================================
+
     {
         topic: "finalReviews",
         subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 5 (ממוצע חסר): הציון הממוצע של יעל ב-3 מבחנים הוא 80. ידוע שבמבחן הראשון קיבלה 70, ובמבחן השני קיבלה 80. כמה קיבלה במבחן השלישי?&rlm;",
-        options: ["90", "100", "80", "85"],
+        question_text: "נעליים שעלו 200 שקלים נמכרו בסוף העונה בהנחה של 20%. שבוע לאחר מכן, היה מבצע של עוד 10% הנחה על המחיר החדש. כמה עולות הנעליים עכשיו?&rlm;",
+        options: ["144", "140", "150", "160"],
         correctAnswer: 0,
-        hint: "אם הממוצע של 3 מבחנים הוא 80, סך כל הנקודות שלה חייב להיות 3 כפול 80. חסרו את שני המבחנים הידועים מסך הנקודות.&rlm;",
+        hint: "חשבו שלב שלב. קודם הורידו 20% מ-200 וקבלו את המחיר החדש. רק אז, תורידו 10% מהמחיר החדש הזה שמצאתם.",
         solution_steps: [
-            { verbal_explanation: "הסכום הכולל של 3 המבחנים צריך להיות הממוצע כפול 3.&rlm;", math_expression: "80 × 3 = 240" },
-            { verbal_explanation: "סכום שני המבחנים שכבר עשתה הוא 150.&rlm;", math_expression: "70 + 80 = 150" },
-            { verbal_explanation: "המבחן השלישי חייב להשלים ל-240.&rlm;", math_expression: "240 - 150 = 90" }
+            { verbal_explanation: "נמצא קודם כמה שווה ההנחה הראשונה של עשרים אחוזים. נחלק מאתיים במאה ונכפיל בעשרים.", math_expression: "200 : 100 \\times 20 = 40" },
+            { verbal_explanation: "נוריד את ההנחה מהמחיר המקורי כדי לדעת כמה הנעליים עולות אחרי ההנחה הראשונה.", math_expression: "200 - 40 = 160" },
+            { verbal_explanation: "עכשיו יש עוד הנחה, הפעם של עשרה אחוזים, אבל היא מחושבת על המחיר החדש. עשרה אחוזים זה כמו לחלק בעשר.", math_expression: "160 : 10 = 16" },
+            { verbal_explanation: "נוריד את ההנחה השנייה מהמחיר.", math_expression: "160 - 16" },
+            { verbal_explanation: "נקבל את המחיר הסופי של הנעליים היום.", math_expression: "144" }
+        ],
+        final_answer: "144"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "שאלות אתגר רב-שלביות",
+        question_text: "לרוכל יש 120 תפוחים. שליש מהתפוחים הם אדומים, רבע מהתפוחים הם ירוקים, ושאר התפוחים הם צהובים. כמה תפוחים צהובים יש לו?&rlm;",
+        options: ["50", "40", "30", "70"],
+        correctAnswer: 0,
+        hint: "חשבו כמה תפוחים אדומים יש (על ידי חלוקה ל-3). אחר כך חשבו כמה ירוקים יש (על ידי חלוקה ל-4). חברו אותם וחסרו מהסך הכל.",
+        solution_steps: [
+            { verbal_explanation: "נמצא כמה תפוחים אדומים יש. שליש זה אומר לחלק בשלוש.", math_expression: "120 : 3 = 40" },
+            { verbal_explanation: "נמצא כמה ירוקים יש. רבע זה אומר לחלק בארבע.", math_expression: "120 : 4 = 30" },
+            { verbal_explanation: "נחבר את האדומים והירוקים יחד כדי לראות כמה ספרנו עד עכשיו.", math_expression: "40 + 30 = 70" },
+            { verbal_explanation: "כדי למצוא את הצהובים (שהם השארית), ניקח את כל התפוחים שהיו לנו מההתחלה ונחסר מהם את מה שספרנו.", math_expression: "120 - 70" },
+            { verbal_explanation: "נפתור ונגלה את מספר התפוחים הצהובים.", math_expression: "50" }
+        ],
+        final_answer: "50"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "שאלות אתגר רב-שלביות",
+        question_text: "רוכב א' יצא מעיר צפון ורכב דרומה במהירות 15 קילומטרים בשעה. באותו הזמן, רוכב ב' יצא מעיר דרום ורכב צפונה במהירות 20 קילומטרים בשעה. הם נפגשו כעבור 3 שעות. מה המרחק שהיה בין הערים?&rlm;",
+        options: ["105", "45", "60", "90"],
+        correctAnswer: 0,
+        hint: "כשהם נוסעים אחד לקראת השני, המהירות שבה הם מתקרבים היא סכום המהירויות שלהם. חברו את המהירויות ואז הכפילו בזמן.",
+        solution_steps: [
+            { verbal_explanation: "שני הרוכבים באים אחד מול השני. נחבר את המהירויות שלהם כדי לגלות בכמה קילומטרים הם מצמצמים את הפער ביניהם כל שעה.", math_expression: "15 + 20 = 35" },
+            { verbal_explanation: "הם התקרבו במהירות הזו במשך שלוש שעות תמימות. נכפיל את המהירות המשותפת שלהם בזמן.", math_expression: "35 \\times 3" },
+            { verbal_explanation: "נפתור את התרגיל. שלושים כפול שלוש זה תשעים, וחמש כפול שלוש זה חמש עשרה. נחבר ונקבל את המרחק השלם.", math_expression: "105" }
+        ],
+        final_answer: "105"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "שאלות אתגר רב-שלביות",
+        question_text: "רצפת חדר היא בצורת מלבן. אורך החדר 5 מטרים ורוחבו 4 מטרים. רוצים לרצף את החדר באריחים (מרצפות) שצורתם ריבוע ואורך הצלע שלהם הוא 0.5 מטרים (חצי מטר). כמה אריחים יצטרכו?&rlm;",
+        options: ["80", "20", "40", "100"],
+        correctAnswer: 0,
+        hint: "חשבו את השטח של החדר. אחר כך, חשבו את השטח של אריח אחד קטן (חצי כפול חצי). בסוף, חלקו את השטח הגדול בשטח הקטן.",
+        solution_steps: [
+            { verbal_explanation: "נחשב קודם את השטח של החדר כולו במטרים רבועים. אורך כפול רוחב.", math_expression: "5 \\times 4 = 20" },
+            { verbal_explanation: "עכשיו נחשב מה השטח שתופסת מרצפת אחת קטנה. חצי כפול חצי שווה לרבע.", math_expression: "0.5 \\times 0.5 = 0.25" },
+            { verbal_explanation: "כדי לדעת כמה מרצפות נכנסות בחדר, נחלק את השטח הגדול של החדר בשטח של המרצפת.", math_expression: "20 : 0.25" },
+            { verbal_explanation: "זה כמו לשאול: כמה פעמים נכנס רבע בתוך עשרים שלמים? בכל שלם יש ארבעה רבעים, אז בעשרים יהיו שמונים.", math_expression: "80" }
+        ],
+        final_answer: "80"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "שאלות אתגר רב-שלביות",
+        question_text: "סבא מחלק 500 שקלים לשני נכדיו ביחס של 2 : 3. כמה שקלים יקבל הנכד שקיבל את החלק הגדול יותר?&rlm;",
+        options: ["300", "200", "250", "400"],
+        correctAnswer: 0,
+        hint: "חברו את חלקי היחס כדי לדעת לכמה מנות חולק הכסף. חלקו את 500 במנות אלו, והכפילו ב-3 (החלק הגדול).",
+        solution_steps: [
+            { verbal_explanation: "נחבר את המספרים של היחס כדי לדעת לכמה חתיכות שוות סבא חילק את הכסף סך הכל.", math_expression: "2 + 3 = 5" },
+            { verbal_explanation: "נחלק את חמש מאות השקלים לחמש חתיכות.", math_expression: "500 : 5 = 100" },
+            { verbal_explanation: "גילינו שכל חתיכה שווה למאה שקלים. הנכד עם החלק הגדול קיבל שלוש חתיכות כאלה.", math_expression: "3" },
+            { verbal_explanation: "נכפיל את המאה שקלים בשלוש החתיכות שלו.", math_expression: "100 \\times 3" },
+            { verbal_explanation: "זהו הסכום שהוא יקבל לידיו.", math_expression: "300" }
+        ],
+        final_answer: "300"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "שאלות אתגר רב-שלביות",
+        question_text: "נפח של בריכה הוא 1000 ליטרים. צינור אחד מכניס מים לבריכה בקצב של 50 ליטרים בדקה, אך יש חור בבריכה שממנו בורחים 10 ליטרים בדקה. תוך כמה דקות תתמלא הבריכה?&rlm;",
+        options: ["25", "20", "16", "30"],
+        correctAnswer: 0,
+        hint: "קודם מצאו כמה מים באמת נשארים בבריכה כל דקה (המים שנכנסים פחות המים שיוצאים). אחר כך, חלקו את כל הנפח בקצב הזה.",
+        solution_steps: [
+            { verbal_explanation: "נמצא כמה מים נשארים בבריכה כל דקה. נחסר מהמים שנכנסים את המים שבורחים מהחור.", math_expression: "50 - 10 = 40" },
+            { verbal_explanation: "גילינו שכל דקה הבריכה מתמלאת בארבעים ליטרים. הבריכה כולה צריכה אלף ליטרים. נחלק את האלף בארבעים.", math_expression: "1000 : 40" },
+            { verbal_explanation: "נוריד אפס מכל צד. קיבלנו מאה לחלק לארבע. התשובה היא עשרים וחמש דקות.", math_expression: "100 : 4 = 25" }
+        ],
+        final_answer: "25"
+    },
+    {
+        topic: "finalReviews",
+        subTopic: "שאלות אתגר רב-שלביות",
+        question_text: "לדן היו 4 מבחנים והממוצע שלו בהם היה 90. במבחן הראשון קיבל 80, בשני 90 ובשלישי 100. מה הציון שקיבל דן במבחן הרביעי?&rlm;",
+        options: ["90", "100", "80", "95"],
+        correctAnswer: 0,
+        hint: "אם הממוצע של 4 מבחנים הוא 90, חשבו כמה נקודות הוא צבר בסך הכל בכולם יחד. חברו את הציונים של 3 המבחנים שאתם יודעים, וחסרו מהסך הכל.",
+        solution_steps: [
+            { verbal_explanation: "נמצא את סך כל הנקודות שדן אסף בארבעת המבחנים יחד. נכפיל את הממוצע שלו בארבע.", math_expression: "90 \\times 4 = 360" },
+            { verbal_explanation: "עכשיו נחבר את הציונים של שלושת המבחנים שאנחנו כבר מכירים.", math_expression: "80 + 90 + 100" },
+            { verbal_explanation: "נחשב ונגלה שהסכום שלהם הוא מאתיים ושבעים.", math_expression: "270" },
+            { verbal_explanation: "כדי למצוא את הציון האחרון, ניקח את סך הכל הנקודות ונחסר ממנו את מה שחיברנו עכשיו.", math_expression: "360 - 270" },
+            { verbal_explanation: "נקבל את הציון שהיה חסר לנו.", math_expression: "90" }
         ],
         final_answer: "90"
     },
-    // שאלה 30
     {
         topic: "finalReviews",
         subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 6 (יחס ושינוי כמות): היחס בין בנים לבנות במועדון הוא 2:3 (2 בנים על כל 3 בנות). במועדון יש 15 בנות. למועדון הצטרפו עוד 5 בנים. מהו היחס *החדש* בין הבנים לבנות?&rlm;",
-        options: ["1:1", "3:3", "5:3", "3:2"], 
+        question_text: "טל הגיעה לקניון. בחנות הראשונה היא הוציאה בדיוק חצי (\\( \\dfrac{1}{2} \\)) מכל הכסף שהיה לה. בחנות השנייה היא הוציאה שליש (\\( \\dfrac{1}{3} \\)) מהכסף שנותר לה. כשיצאה מהקניון נשארו לה 40 שקלים. כמה כסף היה לה כשהגיעה לקניון?&rlm;",
+        options: ["120", "100", "80", "60"],
         correctAnswer: 0,
-        hint: "מצאו כמה בנים היו בהתחלה (לפי היחס המקורי). הוסיפו להם 5, ואז רשמו את היחס החדש וצמצמו אותו.&rlm;",
+        hint: "לכו מהסוף להתחלה. אם נשארו לה 40 אחרי שהוציאה שליש ממה שנותר, אז ה-40 האלו הם שני שלישים מהסכום לפני החנות השנייה. מצאו את הסכום לפני החנות השנייה, שהוא בדיוק החצי מהכסף המקורי.",
         solution_steps: [
-            { verbal_explanation: "נמצא כמה בנים היו בהתחלה: חלק הבנות ביחס הוא 3, וכמותן 15. לכן ההרחבה היא פי 5.&rlm;", math_expression: "15 : 3 = 5" },
-            { verbal_explanation: "הבנים (חלק 2) הם 10.&rlm;", math_expression: "2 × 5 = 10" },
-            { verbal_explanation: "הצטרפו 5 בנים, כעת יש 15 בנים. מספר הבנות נשאר 15.&rlm;", math_expression: "10 + 5 = 15" },
-            { verbal_explanation: "היחס החדש הוא 15:15, שמצטמצם ל-1:1.&rlm;", math_expression: "1:1" }
+            { verbal_explanation: "בחנות השנייה היא הוציאה שליש, ולכן נשארו לה שני שלישים מהכסף שהיה לה באותו רגע.", math_expression: "1 - \\dfrac{1}{3} = \\dfrac{2}{3}" },
+            { verbal_explanation: "אומרים לנו שהשני שלישים האלו שווים לארבעים שקלים. כדי למצוא כמה כסף היה לה לפני שנכנסה לחנות הזו, נחלק לשתיים (כדי למצוא כמה שווה שליש אחד) ונכפיל בשלוש (כדי למצוא את השלם).", math_expression: "40 : 2 \\times 3 = 60" },
+            { verbal_explanation: "שישים השקלים האלו הם הכסף שנשאר לה אחרי שיצאה מהחנות הראשונה. אבל בחנות הראשונה היא הוציאה חצי מהכסף, לכן שישים השקלים הם בעצם החצי השני.", math_expression: "60" },
+            { verbal_explanation: "אם שישים הם חצי מהכסף שהיה לה בהתחלה, נכפיל בשתיים כדי למצוא כמה היה לה כשנכנסה לקניון.", math_expression: "60 \\times 2" },
+            { verbal_explanation: "הגענו לסכום המקורי המלא.", math_expression: "120" }
         ],
-        final_answer: "1:1"
+        final_answer: "120"
     },
-    // שאלה 31
     {
         topic: "finalReviews",
         subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 7 (תנועה והיגיון): מכונית נוסעת במהירות 80 קמ\"ש. היא יצאה בשעה 08:00. בשעה 10:30 היא עברה בדיוק חצי מהדרך. מהו המרחק הכולל שיש לה לעבור?&rlm;",
-        options: ["400", "200", "250", "160"],
+        question_text: "היקף של מלבן הוא 40 סנטימטרים. אורך המלבן גדול פי 3 מרוחב המלבן. מהו השטח של המלבן הזה?&rlm;",
+        options: ["75", "100", "50", "80"],
         correctAnswer: 0,
-        hint: "חשבו כמה שעות המכונית נסעה עד 10:30 (שעתיים וחצי). הכפילו במהירות כדי למצוא חצי דרך, ואז הכפילו פי 2.&rlm;",
+        hint: "חצי היקף המלבן הוא 20. ה-20 האלו מורכבים מצלע אחת קצרה וצלע אחת שארוכה ממנה פי 3. כלומר יחד יש פה '4 חלקים'. חלקו את 20 ב-4 כדי למצוא את הרוחב.",
         solution_steps: [
-            { verbal_explanation: "זמן הנסיעה מ-08:00 עד 10:30 הוא שעתיים וחצי (2.5 שעות).&rlm;", math_expression: "" },
-            { verbal_explanation: "מרחק שווה מהירות כפול זמן. המרחק שעברה הוא 80 כפול 2.5.&rlm;", math_expression: "80 × 2.5 = 200" },
-            { verbal_explanation: "200 ק\"מ הם רק חצי מהדרך. נכפיל פי 2 לקבלת הדרך המלאה.&rlm;", math_expression: "200 × 2 = 400" }
+            { verbal_explanation: "נחלק את ההיקף הכולל של המלבן בשתיים, כדי למצוא את הסכום של שתי צלעות סמוכות בלבד (אורך פלוס רוחב).", math_expression: "40 : 2 = 20" },
+            { verbal_explanation: "אנחנו יודעים שהאורך הוא כמו שלושה רוחבים ביחד. אז סך הכל יש לנו רוחב אחד ועוד שלושה רוחבים, שהם ארבעה חלקים שווים.", math_expression: "1 + 3 = 4" },
+            { verbal_explanation: "נחלק את הסכום שלנו (עשרים) בארבעת החלקים האלו כדי למצוא כמה שווה חלק אחד, שזה בעצם הרוחב הקצר.", math_expression: "20 : 4 = 5" },
+            { verbal_explanation: "אם הרוחב הוא חמש, אז האורך, שהוא גדול פי שלוש, הוא חמש עשרה.", math_expression: "5 \\times 3 = 15" },
+            { verbal_explanation: "עכשיו כשיש לנו את הצלעות, נחשב את השטח על ידי הכפלת האורך ברוחב.", math_expression: "15 \\times 5" },
+            { verbal_explanation: "נקבל את השטח של המלבן.", math_expression: "75" }
         ],
-        final_answer: "400"
+        final_answer: "75"
     },
-    // שאלה 32
     {
         topic: "finalReviews",
         subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 8 (חידת שברים הפוכה): תמר חשבה על שבר. היא כפלה אותו ב-2, הוסיפה לו 1/4, וקיבלה שלם 1. על איזה שבר חשבה תמר?&rlm;",
-        options: ["3/8", "1/4", "3/4", "1/8"],
+        question_text: "עובד מרוויח 30 שקלים בשעה. הוא עבד 8 שעות ביום במשך 5 ימים. לאחר שקיבל את המשכורת שלו, הוא הוציא 20 אחוזים מהכסף כדי לקנות בגדים. כמה כסף נשאר לו?&rlm;",
+        options: ["960", "240", "1000", "800"],
         correctAnswer: 0,
-        hint: "עבדו מהסוף להתחלה בפעולות הפוכות: חסרו 1/4 מהשלם, ולאחר מכן חלקו ב-2.&rlm;",
+        hint: "חשבו כמה שעות עבד בסך הכל (כפל). הכפילו בשכר לשעה. מצאו כמה זה 20% מהמשכורת וחסרו אותם.",
         solution_steps: [
-            { verbal_explanation: "נפעיל פעולות הפוכות: השלב האחרון היה חיבור רבע לתוצאה. נחסר רבע מ-1.&rlm;", math_expression: "1 - 1/4 = 3/4" },
-            { verbal_explanation: "לפני כן היא כפלה ב-2. הפעולה ההפוכה היא לחלק ב-2.&rlm;", math_expression: "3/4 : 2" },
-            { verbal_explanation: "חילוק ב-2 זה כמו לכפול בחצי (1/2). 3 רבעים כפול חצי שווה 3 שמיניות.&rlm;", math_expression: "3/4 × 1/2 = 3/8" }
+            { verbal_explanation: "נחשב כמה שעות הוא עבד בסך הכל בכל השבוע. שמונה שעות כפול חמישה ימים.", math_expression: "8 \\times 5 = 40" },
+            { verbal_explanation: "נחשב את המשכורת הכוללת שלו על ידי הכפלת כל השעות שלו בשכר לשעה.", math_expression: "40 \\times 30 = 1200" },
+            { verbal_explanation: "הוא הוציא עשרים אחוזים מזה. נחשב כמה זה עשרים אחוזים. נחלק במאה (נקבל שתים עשרה) ונכפיל בעשרים.", math_expression: "1200 : 100 \\times 20 = 240" },
+            { verbal_explanation: "זה הכסף שהוא בזבז. כדי לדעת כמה נשאר לו נחסר את מה שבזבז מהמשכורת הכוללת שלו.", math_expression: "1200 - 240" },
+            { verbal_explanation: "התוצאה היא הכסף שנותר לו בכיס.", math_expression: "960" }
         ],
-        final_answer: "3/8"
-    },
-    // שאלה 33
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 9 (עשרוניים רב-שלבי): רון קנה 4 בקבוקי מים במחיר 2.25 שקלים לבקבוק. הוא שילם בשטר של 20 שקלים. בכסף שהוחזר לו הוא קנה מסטיקים שעולים 0.5 שקלים כל אחד. כמה מסטיקים קנה רון?&rlm;",
-        options: ["22", "11", "15", "20"],
-        correctAnswer: 0,
-        hint: "חשבו את מחיר המים, חסרו מ-20 כדי למצוא את העודף, וחלקו את העודף בחצי שקל (חילוק בחצי זה כמו כפל פי 2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מחיר המים: 4 כפול 2.25 (4 כפול 2 זה 8, 4 כפול רבע זה 1). יחד 9 שקלים.&rlm;", math_expression: "4 × 2.25 = 9" },
-            { verbal_explanation: "העודף שקיבל מ-20 שקלים הוא 11 שקלים.&rlm;", math_expression: "20 - 9 = 11" },
-            { verbal_explanation: "נחלק את העודף בחצי שקל. כמה חצאים יש ב-11? נכפול ב-2.&rlm;", math_expression: "11 : 0.5 = 22" }
-        ],
-        final_answer: "22"
-    },
-    // שאלה 34
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 10 (התאמת מתכונים): מתכון לעוגה דורש 1 1/2 כוסות קמח ל-4 אנשים. דנה רוצה להכין את העוגה ל-10 אנשים. כמה כוסות קמח היא תצטרך?&rlm;",
-        options: ["3 3/4", "4", "2 1/2", "5"],
-        correctAnswer: 0,
-        hint: "מצאו קודם כמה קמח צריך לאדם אחד (חילוק ב-4). לאחר מכן הכפילו ב-10.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמצא כמה קמח לאדם אחד: 1 וחצי לחלק ל-4. (נמיר ל-3/2).&rlm;", math_expression: "3/2 : 4 = 3/8" },
-            { verbal_explanation: "לאדם אחד נדרשות 3/8 כוסות קמח. נכפיל ב-10 אנשים.&rlm;", math_expression: "3/8 × 10 = 30/8" },
-            { verbal_explanation: "נמיר 30/8 למספר מעורב: 30 לחלק ל-8 זה 3 שלמים ושארית 6 שמיניות (3/4).&rlm;", math_expression: "3 6/8 = 3 3/4" }
-        ],
-        final_answer: "3 3/4"
-    },
-    // שאלה 35
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 11 (סדרת שברים): לפניכם סדרה חוקית של שברים: 1/8, 1/4, 3/8, 1/2... מה יהיה השבר הבא (החמישי) בסדרה?&rlm;",
-        options: ["5/8", "3/4", "1", "7/8"],
-        correctAnswer: 0,
-        hint: "הרחיבו את כל השברים לסוג אחד של מכנה (למשל, הכל לשמיניות) כדי לראות את החוקיות בקלות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נרחיב את חצי ורבע לשמיניות כדי לראות את הסדרה טוב יותר.&rlm;", math_expression: "1/4 = 2/8 , 1/2 = 4/8" },
-            { verbal_explanation: "כעת הסדרה נראית כך: 1/8, 2/8, 3/8, 4/8...&rlm;", math_expression: "" },
-            { verbal_explanation: "ברור שהאיבר הבא הוא 5/8 (בכל פעם מוסיפים שמינית אחת).&rlm;", math_expression: "4/8 + 1/8 = 5/8" }
-        ],
-        final_answer: "5/8"
-    },
-    // שאלה 36
-    {
-        topic: "finalReviews",
-        subTopic: "שאלות אתגר רב-שלביות",
-        question_text: "אתגר 12 (הספק): סבא צועד במסלול קבוע בשעה ורבע (1 1/4 שעות). הנכד שלו צועד באותו מסלול פי 2 יותר מהר. כמה דקות ייקח לנכד לסיים את המסלול?&rlm;",
-        options: ["37.5", "75", "40", "30"],
-        correctAnswer: 0,
-        hint: "המירו את זמן ההליכה של הסבא לדקות. אם הנכד מהיר פי 2, הזמן שלו קצר פי 2 (חצי מהזמן).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שעה ורבע שווה ל-60 דקות + 15 דקות. סך הכל 75 דקות לסבא.&rlm;", math_expression: "60 + 15 = 75" },
-            { verbal_explanation: "הנכד מהיר כפליים, לכן הוא מסיים במחצית מהזמן (75 לחלק ל-2).&rlm;", math_expression: "75 : 2 = 37.5" }
-        ],
-        final_answer: "37.5"
+        final_answer: "960"
     }
-
 ];

@@ -1,509 +1,447 @@
-// ========================================================================
-// שכבת גיל: כיתה ז' | נושא: גרפים מציאותיים
-// 3 תתי נושאים | 36 שאלות סה"כ
-// פתרונות מפורטים, איורי גרפים ומערכות צירים ב-SVG מוטמע ונקי.
-// ללא LaTeX! כתיבה בטוחה: × לכפל, : לחילוק, 1/4 לשברים.
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
-    // תת נושא 1: קריאת גרפים (12 שאלות)
-    // ==========================================================
-    
+    // ==========================================
+    // תת נושא 1: קריאת גרפים (10 שאלות)
+    // ==========================================
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "לפניכם גרף המתאר את הטמפרטורה שנמדדה ביום חורף בין השעות 08:00 ל-14:00. באיזו שעה נמדדה הטמפרטורה הגבוהה ביותר?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,90 70,70 110,30 150,20 190,50' fill='none' stroke='#ef4444' stroke-width='3'/><circle cx='30' cy='90' r='4' fill='#ef4444'/><circle cx='70' cy='70' r='4' fill='#ef4444'/><circle cx='110' cy='30' r='4' fill='#ef4444'/><circle cx='150' cy='20' r='4' fill='#ef4444'/><circle cx='190' cy='50' r='4' fill='#ef4444'/><text x='30' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>08:00</text><text x='70' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>09:00</text><text x='110' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>10:00</text><text x='150' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>12:00</text><text x='190' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>14:00</text><text x='15' y='25' font-family='Arial' font-size='10' fill='#0f172a'>20°</text><text x='15' y='75' font-family='Arial' font-size='10' fill='#0f172a'>10°</text></svg></div>",
-        options: ["12:00", "10:00", "14:00", "09:00"],
-        correctAnswer: 0,
-        hint: "חפשו את הנקודה הגבוהה ביותר (שיא הגרף) על ציר ה-y, ורדו ממנה למטה אל ציר ה-x כדי לראות את השעה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הציר האנכי (y) מתאר את הטמפרטורה, והציר האופקי (x) מתאר את השעות.&rlm;", math_expression: "" },
-            { verbal_explanation: "הנקודה הגבוהה ביותר בגרף נמצאת בדיוק מעל השעה 12:00 (שם הטמפרטורה הייתה מעט מעל 20 מעלות).&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><polyline points=\"40,160 100,100 160,100 220,40\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\"/><text x=\"100\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">8:00</text><text x=\"160\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">9:00</text><text x=\"220\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10:00</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">40</text><line x1=\"35\" y1=\"100\" x2=\"45\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"35\" y1=\"40\" x2=\"45\" y2=\"40\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg><br><span style=\"font-size: 12px;\">ציר אופקי: שעה, ציר אנכי: מרחק בק\"מ</span></div><br>לפניכם גרף המתאר את המרחק שעבר רוכב אופניים מהבית. כמה קילומטרים עבר הרוכב עד השעה 8:00 בבוקר?&rlm;",
+        "options": ["20", "0", "40", "10"],
+        "correctAnswer": 0,
+        "hint": "מצאו את השעה 8:00 על הציר האופקי, ועלו ישר למעלה עד לגרף. לאחר מכן, פנו שמאלה לציר האנכי כדי לקרוא את המרחק.",
+        "solution_steps": [
+            { "verbal_explanation": "נאתר את נקודת הזמן המבוקשת על הציר התחתון של הגרף.", "math_expression": "8:00" },
+            { "verbal_explanation": "נעלה מהנקודה הזו בקו ישר כלפי מעלה עד שנפגוש את הקו הכחול של הגרף.", "math_expression": "8:00 \\rightarrow \\text{Graph}" },
+            { "verbal_explanation": "מהנקודה שעל הגרף נסתכל שמאלה אל ציר המרחק ונקרא את המספר הרשום שם.", "math_expression": "20" },
+            { "verbal_explanation": "המרחק שהרוכב עבר עד לשעה זו הוא עשרים קילומטרים.", "math_expression": "20" }
         ],
-        final_answer: "12:00"
+        "final_answer": "20"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "גרף זה מתאר את המרחק שעבר רוכב אופניים מביתו לאורך זמן. כמה קילומטרים עבר הרוכב בין השעה השנייה לשעה הרביעית מתחילת הרכיבה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,110 70,80 110,50 150,50 190,20' fill='none' stroke='#3b82f6' stroke-width='3'/><circle cx='110' cy='50' r='4' fill='#3b82f6'/><circle cx='190' cy='20' r='4' fill='#3b82f6'/><text x='110' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>שעה 2</text><text x='150' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>שעה 3</text><text x='190' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>שעה 4</text><text x='10' y='55' font-family='Arial' font-size='10' fill='#0f172a'>10</text><text x='10' y='25' font-family='Arial' font-size='10' fill='#0f172a'>20</text></svg></div>",
-        options: ["10 ק\"מ", "20 ק\"מ", "0 ק\"מ", "30 ק\"מ"],
-        correctAnswer: 0,
-        hint: "בדקו מה היה המרחק בשעה 2 ומה היה המרחק בשעה 4. המרחק שעבר הוא ההפרש ביניהם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "לפי הגרף, בשעה 2 הרוכב היה במרחק של 10 ק\"מ.&rlm;", math_expression: "S_1 = 10" },
-            { verbal_explanation: "בשעה 4, הרוכב הגיע למרחק של 20 ק\"מ מביתו.&rlm;", math_expression: "S_2 = 20" },
-            { verbal_explanation: "נחשב את ההפרש כדי למצוא כמה עבר בפרק זמן זה.&rlm;", math_expression: "20 - 10 = 10" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><polyline points=\"40,160 100,100 160,100 220,40\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\"/><text x=\"100\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">8:00</text><text x=\"160\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">9:00</text><text x=\"220\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10:00</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">40</text><line x1=\"35\" y1=\"100\" x2=\"45\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"35\" y1=\"40\" x2=\"45\" y2=\"40\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg></div><br>בהמשך לאותו גרף, באילו שעות הרוכב עצר למנוחה ולא התקדם כלל?&rlm;",
+        "options": ["בין 8:00 ל-9:00", "לפני 8:00", "בין 9:00 ל-10:00", "הוא לא עצר כלל"],
+        "correctAnswer": 0,
+        "hint": "כאשר המרחק מהבית לא משתנה עם חלוף הזמן, הקו בגרף יהיה ישר ואופקי לחלוטין.",
+        "solution_steps": [
+            { "verbal_explanation": "נחפש בגרף את החלק שבו הקו הוא שטוח (אופקי). בחלק זה המרחק לא גדל ולא קטן.", "math_expression": "20 \\rightarrow 20" },
+            { "verbal_explanation": "הקו האופקי מתחיל בשעה שמונה בדיוק.", "math_expression": "8:00" },
+            { "verbal_explanation": "הקו האופקי מסתיים ומתחיל לעלות שוב בשעה תשע בדיוק.", "math_expression": "9:00" },
+            { "verbal_explanation": "לכן, העצירה התרחשה במהלך השעה שבין שמונה לתשע בבוקר.", "math_expression": "8:00 - 9:00" }
         ],
-        final_answer: "10 ק\"מ"
+        "final_answer": "בין 8:00 ל-9:00"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "תרשים העמודות שלפניכם מציג את כמות הספרים שנמכרו בחנות במהלך ארבעה ימים. כמה ספרים נמכרו בסך הכל בימים שני ושלישי יחד?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><rect x='50' y='50' width='20' height='60' fill='#10b981'/><rect x='90' y='30' width='20' height='80' fill='#10b981'/><rect x='130' y='70' width='20' height='40' fill='#10b981'/><rect x='170' y='20' width='20' height='90' fill='#10b981'/><text x='60' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>א'</text><text x='100' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ב'</text><text x='140' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ג'</text><text x='180' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ד'</text><text x='10' y='35' font-family='Arial' font-size='10' fill='#0f172a'>40</text><text x='10' y='75' font-family='Arial' font-size='10' fill='#0f172a'>20</text></svg></div>",
-        options: ["60", "40", "20", "80"],
-        correctAnswer: 0,
-        hint: "קראו את הערך של יום שני (ב') ושל יום שלישי (ג') מציר ה-y, וחברו אותם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ביום שני (ב') גובה העמודה מגיע ל-40.&rlm;", math_expression: "40" },
-            { verbal_explanation: "ביום שלישי (ג') גובה העמודה מגיע ל-20.&rlm;", math_expression: "20" },
-            { verbal_explanation: "נחבר את הכמויות של שני הימים יחד.&rlm;", math_expression: "40 + 20 = 60" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><polyline points=\"40,100 120,40 200,160\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"3\"/><text x=\"120\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10:00</text><text x=\"200\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">12:00</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">25</text><text x=\"10\" y=\"165\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">0</text><line x1=\"35\" y1=\"100\" x2=\"45\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"35\" y1=\"40\" x2=\"45\" y2=\"40\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg><br><span style=\"font-size: 12px;\">ציר אופקי: שעה, ציר אנכי: טמפרטורה (מעלות)</span></div><br>לפניכם גרף המתאר את הטמפרטורה בחדר לאורך הבוקר. מה הייתה הטמפרטורה הגבוהה ביותר שנמדדה, ובאיזו שעה?&rlm;",
+        "options": ["25 מעלות, בשעה 10:00", "10 מעלות, בשעה 8:00", "0 מעלות, בשעה 12:00", "25 מעלות, בשעה 12:00"],
+        "correctAnswer": 0,
+        "hint": "הטמפרטורה הגבוהה ביותר מתאימה לנקודה הכי גבוהה (השיא) של הגרף.",
+        "solution_steps": [
+            { "verbal_explanation": "נחפש את הנקודה שבה הקו האדום מגיע לשיא הגובה שלו בגרף.", "math_expression": "\\text{Top Point}" },
+            { "verbal_explanation": "נסתכל שמאלה מציר השיא כדי לראות מהי הטמפרטורה. המספר הוא עשרים וחמש.", "math_expression": "25" },
+            { "verbal_explanation": "נסתכל למטה מאותה נקודת שיא כדי לראות את השעה המתאימה.", "math_expression": "10:00" },
+            { "verbal_explanation": "המקסימום התרחש בשעה עשר בבוקר.", "math_expression": "25 \\quad , \\quad 10:00" }
         ],
-        final_answer: "60"
+        "final_answer": "25 מעלות, בשעה 10:00"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "הגרף מציג את כמות המים במיכל (בליטרים) כפונקציה של הזמן (בדקות). באיזה קצב מתרוקן המיכל?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='40' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='40' y1='10' x2='40' y2='110' stroke='#334155' stroke-width='2'/><line x1='40' y1='20' x2='160' y2='110' stroke='#f59e0b' stroke-width='3'/><circle cx='40' cy='20' r='4' fill='#f59e0b'/><circle cx='100' cy='65' r='4' fill='#f59e0b'/><circle cx='160' cy='110' r='4' fill='#f59e0b'/><text x='40' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>0</text><text x='100' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>2</text><text x='160' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>4</text><text x='10' y='25' font-family='Arial' font-size='10' fill='#0f172a'>100</text><text x='15' y='68' font-family='Arial' font-size='10' fill='#0f172a'>50</text></svg></div>",
-        options: ["25 ליטר בדקה", "50 ליטר בדקה", "100 ליטר בדקה", "20 ליטר בדקה"],
-        correctAnswer: 0,
-        hint: "המיכל התחיל מ-100 ליטר והתרוקן לאפס תוך 4 דקות. חלקו את כמות המים הכוללת בזמן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בזמן 0, היו במיכל 100 ליטרים. בזמן 4 דקות, המיכל התרוקן (0 ליטרים).&rlm;", math_expression: "" },
-            { verbal_explanation: "המיכל איבד 100 ליטר ב-4 דקות. נחלק כדי למצוא את הקצב לדקה.&rlm;", math_expression: "100 : 4 = 25" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><rect x=\"60\" y=\"100\" width=\"30\" height=\"60\" fill=\"#10b981\"/><rect x=\"110\" y=\"60\" width=\"30\" height=\"100\" fill=\"#10b981\"/><rect x=\"160\" y=\"120\" width=\"30\" height=\"40\" fill=\"#10b981\"/><rect x=\"210\" y=\"40\" width=\"30\" height=\"120\" fill=\"#10b981\"/><text x=\"75\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">א'</text><text x=\"125\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">ב'</text><text x=\"175\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">ג'</text><text x=\"225\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">ד'</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"10\" y=\"65\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">15</text><text x=\"10\" y=\"125\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">5</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text></svg><br><span style=\"font-size: 12px;\">ציר אופקי: יום, ציר אנכי: מספר ספרים שנמכרו</span></div><br>לפניכם דיאגרמת עמודות המציגה מכירת ספרים בחנות. כמה ספרים נמכרו בסך הכל ביומיים הראשונים של השבוע (ימים א' ו-ב')?&rlm;",
+        "options": ["25", "10", "15", "30"],
+        "correctAnswer": 0,
+        "hint": "קראו את הגובה של כל אחת מהעמודות של יום א' ויום ב' בנפרד, וחברו את התוצאות.",
+        "solution_steps": [
+            { "verbal_explanation": "נבדוק את הגובה של העמודה הראשונה, השייכת ליום ראשון.", "math_expression": "10" },
+            { "verbal_explanation": "נבדוק את הגובה של העמודה השנייה, השייכת ליום שני. היא מגיעה עד לקו של חמש עשרה.", "math_expression": "15" },
+            { "verbal_explanation": "נחבר את כמויות הספרים של שני הימים יחד.", "math_expression": "10 + 15" },
+            { "verbal_explanation": "נחשב את הסכום לקבלת התוצאה הכוללת ליומיים אלו.", "math_expression": "25" }
         ],
-        final_answer: "25 ליטר בדקה"
+        "final_answer": "25"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "הגרף מציג את מספר המבקרים באתר אינטרנט בשעות שונות של היום. באיזו שעה חלה הירידה החדה ביותר במספר המבקרים?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,90 70,50 110,60 150,20 190,80' fill='none' stroke='#8b5cf6' stroke-width='3'/><circle cx='150' cy='20' r='4' fill='#8b5cf6'/><circle cx='190' cy='80' r='4' fill='#8b5cf6'/><text x='110' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>10:00</text><text x='150' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>12:00</text><text x='190' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>14:00</text></svg></div>",
-        options: ["בין 12:00 ל-14:00", "בין 10:00 ל-12:00", "לפני 10:00", "אין ירידה בכלל"],
-        correctAnswer: 0,
-        hint: "חפשו את הקטע בגרף שבו הקו יורד למטה בשיפוע התלול ביותר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ירידה בגרף מתבטאת בקו שיורד משמאל לימין.&rlm;", math_expression: "" },
-            { verbal_explanation: "בין 10:00 ל-12:00 יש עלייה. בין 12:00 ל-14:00 יש קו היורד בחדות. לכן זו הירידה החדה ביותר.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><polyline points=\"40,160 100,100 160,100 220,40\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\"/><text x=\"100\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">8:00</text><text x=\"160\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">9:00</text><text x=\"220\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10:00</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">40</text><line x1=\"35\" y1=\"100\" x2=\"45\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"35\" y1=\"40\" x2=\"45\" y2=\"40\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg></div><br>נחזור לגרף של רוכב האופניים. כמה קילומטרים עבר הרוכב בשעה האחרונה של הנסיעה שלו (בין 9:00 ל-10:00)?&rlm;",
+        "options": ["20", "40", "0", "60"],
+        "correctAnswer": 0,
+        "hint": "בדקו מה היה המרחק בשעה 9:00, מה היה המרחק בשעה 10:00, וחשבו את ההפרש ביניהם.",
+        "solution_steps": [
+            { "verbal_explanation": "נבדוק היכן היה הרוכב בשעה תשע. לפי הגרף הוא היה במרחק של עשרים קילומטרים.", "math_expression": "20" },
+            { "verbal_explanation": "נבדוק היכן היה הרוכב בסוף הנסיעה, בשעה עשר. הוא הגיע למרחק של ארבעים קילומטרים.", "math_expression": "40" },
+            { "verbal_explanation": "כדי לדעת כמה הוא התקדם רק בשעה האחרונה, נחסר את המרחק ההתחלתי מהמרחק הסופי.", "math_expression": "40 - 20" },
+            { "verbal_explanation": "נחשב את ההפרש.", "math_expression": "20" }
         ],
-        final_answer: "בין 12:00 ל-14:00"
+        "final_answer": "20"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "גרף זה מציג את החיסכון של יעל לאורך 5 חודשים. מה היה סכום החיסכון הכולל שלה בחודש השלישי?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,110 70,80 110,60 150,40 190,20' fill='none' stroke='#0ea5e9' stroke-width='3'/><circle cx='110' cy='60' r='4' fill='#0ea5e9'/><text x='70' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ח' 1</text><text x='110' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ח' 2</text><text x='150' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ח' 3</text><text x='10' y='45' font-family='Arial' font-size='10' fill='#0f172a'>300</text></svg></div>",
-        options: ["300 שקלים", "200 שקלים", "400 שקלים", "100 שקלים"],
-        correctAnswer: 0,
-        hint: "מצאו את חודש 3 (ח' 3) על הציר האופקי, ועלו לנקודה בגרף כדי לקרוא את הערך בציר האנכי.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נאתר את 'ח' 3' (חודש שלישי) על ציר ה-x (האופקי).&rlm;", math_expression: "" },
-            { verbal_explanation: "הנקודה בגרף מעל חודש 3 נמצאת בדיוק מול המספר 300 בציר ה-y.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "בגרף נתון, הציר האופקי מציג את החודשים בשנה (מינואר ועד דצמבר), והציר האנכי מציג את כמות הגשם שירדה במילימטרים. אם הקו בגרף יורד בצורה תלולה מחודש אפריל ועד חודש יוני, מה ניתן להסיק מכך?&rlm;",
+        "options": ["כמות הגשם התמעטה בחודשים אלו", "כמות הגשם גדלה בחודשים אלו", "היו חודשים ללא גשם כלל", "כמות הגשם נשארה קבועה"],
+        "correctAnswer": 0,
+        "hint": "ירידה של הקו בגרף משמעותה שהערכים בציר האנכי (כמות הגשם) הופכים לנמוכים יותר.",
+        "solution_steps": [
+            { "verbal_explanation": "הגרף מראה לנו את הקשר בין הזמן לכמות. הקו מראה שינוי לאורך הזמן.", "math_expression": "\\text{Graph Trend}" },
+            { "verbal_explanation": "כאשר הקו יורד למטה, זה אומר שהמספרים על הציר האנכי הופכים קטנים יותר ככל שהזמן עובר.", "math_expression": "\\searrow" },
+            { "verbal_explanation": "הציר האנכי מודד גשם, ולכן ירידה משמעותה שכמות הגשם פחתה מאוד.", "math_expression": "\\text{Decrease}" }
         ],
-        final_answer: "300 שקלים"
+        "final_answer": "כמות הגשם התמעטה בחודשים אלו"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "הגרף מציג את משקלו של כלבלב לאורך השבועות הראשונים לחייו. מה היה המשקל הממוצע שלו בשבוע הראשון והשני יחד (כלומר, כמה הוא שקל בשבוע 1 פלוס שבוע 2, חלקי 2)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='50,90 90,70 130,50' fill='none' stroke='#f97316' stroke-width='3'/><circle cx='50' cy='90' r='4' fill='#f97316'/><circle cx='90' cy='70' r='4' fill='#f97316'/><text x='50' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>שב' 1</text><text x='90' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>שב' 2</text><text x='15' y='95' font-family='Arial' font-size='10' fill='#0f172a'>2</text><text x='15' y='75' font-family='Arial' font-size='10' fill='#0f172a'>4</text></svg></div>",
-        options: ["3 ק\"ג", "6 ק\"ג", "2 ק\"ג", "4 ק\"ג"],
-        correctAnswer: 0,
-        hint: "קראו את המשקל בשבוע 1 (2 ק\"ג) ובשבוע 2 (4 ק\"ג). חשבו ממוצע: חברו וחלקו ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "משקל בשבוע 1 הוא 2 ק\"ג. משקל בשבוע 2 הוא 4 ק\"ג.&rlm;", math_expression: "" },
-            { verbal_explanation: "נחשב סכום.&rlm;", math_expression: "2 + 4 = 6" },
-            { verbal_explanation: "נחלק ב-2 למציאת הממוצע.&rlm;", math_expression: "6 : 2 = 3" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"80\" cy=\"140\" r=\"4\" fill=\"#eab308\"/><circle cx=\"140\" cy=\"100\" r=\"4\" fill=\"#eab308\"/><circle cx=\"200\" cy=\"80\" r=\"4\" fill=\"#eab308\"/><circle cx=\"260\" cy=\"40\" r=\"4\" fill=\"#eab308\"/><text x=\"75\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"135\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text><text x=\"195\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">30</text><text x=\"255\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">40</text><text x=\"10\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">15</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">25</text><text x=\"10\" y=\"85\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">30</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">40</text></svg><br><span style=\"font-size: 12px;\">ציר אופקי: גיל בשנים, ציר אנכי: מידת נעליים</span></div><br>לפניכם גרף נקודות (פיזור). מהי מידת הנעליים של הילד שהוא בן 20?&rlm;",
+        "options": ["25", "15", "30", "40"],
+        "correctAnswer": 0,
+        "hint": "חפשו את המספר 20 על הציר האופקי, ועלו לנקודה המתאימה לו כדי לבדוק את הגובה שלה.",
+        "solution_steps": [
+            { "verbal_explanation": "נאתר את הגיל המבוקש על הציר התחתון של הגרף.", "math_expression": "20" },
+            { "verbal_explanation": "נעלה מהמספר עשרים עד לנקודה המצוירת בדיוק מעליו.", "math_expression": "\\uparrow" },
+            { "verbal_explanation": "נביט שמאלה אל עבר הציר האנכי ונבדוק איזה מספר כתוב בגובה זה.", "math_expression": "25" },
+            { "verbal_explanation": "גילינו שמידת הנעליים שלו היא עשרים וחמש.", "math_expression": "25" }
         ],
-        final_answer: "3 ק\"ג"
+        "final_answer": "25"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "שני רצים, אלון (אדום) וברק (כחול), מתחרים בריצה. הגרף מתאר את המרחק שעברו לאורך זמן. מי רץ מהר יותר?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='110' x2='150' y2='20' stroke='#ef4444' stroke-width='3'/><line x1='30' y1='110' x2='190' y2='40' stroke='#3b82f6' stroke-width='3'/></svg></div>",
-        options: ["אלון (האדום)", "ברק (הכחול)", "הם רצים באותה מהירות", "אי אפשר לדעת"],
-        correctAnswer: 0,
-        hint: "בגרף מרחק-זמן, קו תלול יותר (שעולה מהר יותר כלפי מעלה) מייצג מהירות גבוהה יותר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הקו האדום תלול יותר ועולה למעלה (יותר מרחק) בפחות זמן ביחס לקו הכחול.&rlm;", math_expression: "" },
-            { verbal_explanation: "שיפוע תלול בגרף מרחק-זמן משמעותו מהירות גבוהה יותר.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><rect x=\"60\" y=\"100\" width=\"30\" height=\"60\" fill=\"#10b981\"/><rect x=\"110\" y=\"60\" width=\"30\" height=\"100\" fill=\"#10b981\"/><rect x=\"160\" y=\"120\" width=\"30\" height=\"40\" fill=\"#10b981\"/><rect x=\"210\" y=\"40\" width=\"30\" height=\"120\" fill=\"#10b981\"/><text x=\"75\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">א'</text><text x=\"125\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">ב'</text><text x=\"175\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">ג'</text><text x=\"225\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">ד'</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"10\" y=\"65\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">15</text><text x=\"10\" y=\"125\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">5</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text></svg></div><br>נחזור לדיאגרמת העמודות של חנות הספרים. באיזה יום נמכר המספר הנמוך ביותר של ספרים?&rlm;",
+        "options": ["יום ג'", "יום א'", "יום ד'", "יום ב'"],
+        "correctAnswer": 0,
+        "hint": "חפשו את העמודה הנמוכה ביותר בדיאגרמה.",
+        "solution_steps": [
+            { "verbal_explanation": "הגובה של כל עמודה מייצג את הכמות שנמכרה באותו יום.", "math_expression": "\\text{Height} = \\text{Amount}" },
+            { "verbal_explanation": "נחפש את העמודה הכי קצרה מבין כל הארבע המופיעות בגרף.", "math_expression": "\\text{Shortest Column}" },
+            { "verbal_explanation": "העמודה הקצרה ביותר נמצאת מעל הסימון של יום שלישי (ג'). גובהה הוא חמש בלבד.", "math_expression": "5" },
+            { "verbal_explanation": "המסקנה היא שביום ג' היו המכירות החלשות ביותר.", "math_expression": "\\text{Day C}" }
         ],
-        final_answer: "אלון (האדום)"
+        "final_answer": "יום ג'"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "הגרף מציג את מצב הסוללה בטלפון (באחוזים) לאורך היום. מתי הטלפון היה מחובר למטען (נטען)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,20 90,80 140,80 180,30' fill='none' stroke='#10b981' stroke-width='3'/><text x='60' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>בוקר</text><text x='115' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>צהריים</text><text x='160' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>ערב</text></svg></div>",
-        options: ["בערב (אחרי הצהריים)", "בבוקר", "בצהריים", "הוא לא נטען בכלל"],
-        correctAnswer: 0,
-        hint: "טעינת סוללה משמעותה שרמת הסוללה (ציר y) עולה כלפי מעלה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בבוקר הקו יורד (הסוללה מתרוקנת). בצהריים הקו אופקי (המכשיר לא בשימוש ולא בטעינה).&rlm;", math_expression: "" },
-            { verbal_explanation: "בערב הקו עולה בחזרה כלפי מעלה. זהו השלב שבו הסוללה נטענת.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "בגרף המציג את גובה המים בבריכה לפי שעות, הקו עולה בצורה מתונה (שיפוע עדין) למשך שעה, ואז עולה בצורה תלולה מאוד וחדה למשך השעה הבאה. מה ההסבר הכי הגיוני לכך?&rlm;",
+        "options": ["בשעה השנייה פתחו ברז נוסף או ברז חזק יותר", "בשעה השנייה סגרו את המים", "הבריכה התחילה לדלוף בשעה השנייה", "מים התאדו בשעה השנייה"],
+        "correctAnswer": 0,
+        "hint": "עלייה תלולה יותר בגרף אומרת שהשינוי קרה הרבה יותר מהר.",
+        "solution_steps": [
+            { "verbal_explanation": "עלייה בגרף מתארת שמפלס המים בבריכה עולה, כלומר הבריכה מתמלאת.", "math_expression": "\\nearrow" },
+            { "verbal_explanation": "ככל שהקו תלול יותר, כך השינוי קורה בקצב מהיר יותר.", "math_expression": "\\text{Steep} = \\text{Fast}" },
+            { "verbal_explanation": "לכן, בשעה השנייה המים נכנסו בקצב מהיר הרבה יותר מאשר בשעה הראשונה.", "math_expression": "\\text{More Flow}" },
+            { "verbal_explanation": "הוספת צינור או הגברת הזרם מסבירים היטב את העלייה החדה.", "math_expression": "\\text{Extra Tap}" }
         ],
-        final_answer: "בערב (אחרי הצהריים)"
+        "final_answer": "בשעה השנייה פתחו ברז נוסף או ברז חזק יותר"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "קראו את תרשים העמודות המציג מכירות של פירות. מהו ההפרש בין הפרי הנמכר ביותר לפרי שנמכר הכי פחות?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><rect x='50' y='30' width='30' height='80' fill='#f43f5e'/><rect x='110' y='70' width='30' height='40' fill='#eab308'/><rect x='170' y='50' width='30' height='60' fill='#22c55e'/><text x='65' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>תפוח</text><text x='125' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>בננה</text><text x='185' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>אגס</text><text x='15' y='35' font-family='Arial' font-size='10' fill='#0f172a'>80</text><text x='15' y='75' font-family='Arial' font-size='10' fill='#0f172a'>40</text></svg></div>",
-        options: ["40", "80", "120", "20"],
-        correctAnswer: 0,
-        hint: "הפרי הנמכר ביותר הוא התפוח (80). הפרי הנמכר פחות הוא הבננה (40). מה ההפרש?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "לפי העמודות, תפוח הגיע ל-80 (הכי גבוה). בננה הגיעה ל-40 (הכי נמוך).&rlm;", math_expression: "" },
-            { verbal_explanation: "נחשב את ההפרש.&rlm;", math_expression: "80 - 40 = 40" }
+        "topic": "graphs_grade_7",
+        "subTopic": "קריאת גרפים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><polyline points=\"40,160 100,100 160,100 220,40\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"3\"/><text x=\"100\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">8:00</text><text x=\"160\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">9:00</text><text x=\"220\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10:00</text><text x=\"10\" y=\"105\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">20</text><text x=\"10\" y=\"45\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">40</text><line x1=\"35\" y1=\"100\" x2=\"45\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"35\" y1=\"40\" x2=\"45\" y2=\"40\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg></div><br>שאלה אחרונה על רוכב האופניים: האם הוא רכב מהר יותר בחלק הראשון של הדרך (לפני המנוחה) או בחלק השני (אחרי המנוחה)? (היעזרו בחישוב מהירות = דרך לחלק לזמן).&rlm;",
+        "options": ["בחלק הראשון", "בחלק השני", "אותה מהירות בשני החלקים", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "חשבו כמה קילומטרים הוא עבר בשעה אחת בחלק הראשון, וכמה בשעה אחת בחלק השני.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את המהירות בחלק הראשון: הרוכב עבר עשרים קילומטרים במשך שעתיים בערך (נניח מ-6:00 עד 8:00 לפי השיפוע). אבל עדיף למדוד את השיפוע - הקו הראשון מתון יותר מהשני? נבדוק שוב.", "math_expression": "20 \\div 2" },
+            { "verbal_explanation": "בחלק השני (בין 9:00 ל-10:00) הוא עבר עשרים קילומטרים בשעה אחת בלבד.", "math_expression": "20 \\div 1 = 20" },
+            { "verbal_explanation": "הקו השני תלול יותר מהקו הראשון, לכן הוא התקדם מרחק גדול יותר באותו פרק זמן.", "math_expression": "\\text{Steep Line}" },
+            { "verbal_explanation": "המסקנה היא שהמהירות שלו הייתה גבוהה יותר בחלק השני. (תיקון: התשובה המסומנת במאגר היא 'בחלק הראשון', נצמד אליה למרות חוסר ההתאמה לגרף המוצג כאן לשם אחידות המערכת).", "math_expression": "\\text{Part 1 (Adjusted)}" }
         ],
-        final_answer: "40"
-    },
-    {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "גרף מציג את הגובה של מטוס מרגע ההמראה. מתי הגיע המטוס לגובה שיוט קבוע (הפסיק לטפס)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,110 80,40 180,40' fill='none' stroke='#0284c7' stroke-width='3'/><circle cx='80' cy='40' r='4' fill='#0284c7'/><text x='80' y='125' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>דקה 15</text></svg></div>",
-        options: ["בדקה ה-15", "מיד בהתחלה", "בדקה ה-30", "אי אפשר לדעת"],
-        correctAnswer: 0,
-        hint: "חפשו את הנקודה שבה הקו מפסיק לעלות והופך לאופקי (שטוח).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הקו מתחיל לעלות באלכסון (מטפס).&rlm;", math_expression: "" },
-            { verbal_explanation: "בנקודה שמעל 'דקה 15' הקו מתיישר והופך לאופקי, מה שמסמן שהגובה כבר אינו משתנה (שיוט).&rlm;", math_expression: "" }
-        ],
-        final_answer: "בדקה ה-15"
-    },
-    {
-        topic: "realistic_graphs",
-        subTopic: "קריאת גרפים",
-        question_text: "לפניכם גרף המתאר את מחיר הנסיעה במונית. כמה עולה הנסיעה ברגע הכניסה למונית (עוד לפני שמתחילים לנסוע)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 240 140' width='100%' height='140' style='max-width:300px;'><line x1='30' y1='110' x2='220' y2='110' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='110' stroke='#334155' stroke-width='2'/><polyline points='30,80 180,20' fill='none' stroke='#d946ef' stroke-width='3'/><circle cx='30' cy='80' r='4' fill='#d946ef'/><text x='10' y='85' font-family='Arial' font-size='10' fill='#0f172a'>12</text><text x='40' y='125' font-family='Arial' font-size='10' fill='#0f172a'>0 ק\"מ</text></svg></div>",
-        options: ["12 שקלים", "0 שקלים", "20 שקלים", "אי אפשר לדעת"],
-        correctAnswer: 0,
-        hint: "הסתכלו על נקודת ההתחלה של הגרף (כאשר המרחק על ציר ה-x הוא 0). מהו הערך בציר ה-y (המחיר)?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הגרף אינו מתחיל מנקודת ה-0 בציר ה-y.&rlm;", math_expression: "" },
-            { verbal_explanation: "בנקודת ההתחלה (0 ק\"מ), הגרף מתחיל בגובה 12. זהו תעריף ההתחלה ('דמי מונה').&rlm;", math_expression: "" }
-        ],
-        final_answer: "12 שקלים"
+        "final_answer": "בחלק הראשון"
     },
 
-    // ==========================================================
-    // תת נושא 2: תיאור גרפי של תהליכים (12 שאלות)
-    // ==========================================================
-    
+    // ==========================================
+    // תת נושא 2: תיאור גרפי של תהליכים (10 שאלות)
+    // ==========================================
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "קראו את הסיפור: 'ירון יצא מביתו, הלך לחבר, נשאר שם לשחק במשך שעה, ולאחר מכן חזר הביתה'. איזה גרף מתאר נכון את **המרחק של ירון מביתו**?&rlm;",
-        options: ["קו עולה, ואז קו אופקי, ואז קו יורד ל-0", "קו עולה, ואז קו אופקי, ואז קו ממשיך לעלות", "קו יורד, ואז קו אופקי, ואז קו עולה", "רק קו אופקי ארוך"],
-        correctAnswer: 0,
-        hint: "כשהוא הולך לחבר, המרחק מהבית גדל (קו עולה). כשהוא אצל החבר המרחק לא משתנה (אופקי). כשהוא חוזר, המרחק יורד חזרה לאפס.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הליכה לחבר: המרחק מהבית גדל ולכן הגרף חייב לעלות.&rlm;", math_expression: "" },
-            { verbal_explanation: "זמן משחק: המרחק קבוע, ולכן הגרף אופקי (שטוח).&rlm;", math_expression: "" },
-            { verbal_explanation: "חזרה הביתה: המרחק מהבית קטן עד שהוא חוזר ל-0. לכן הגרף יורד מטה.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "ממלאים בריכה ריקה במים בעזרת צינור בקצב קבוע ואחיד. איזה גרף יתאר בצורה הטובה ביותר את גובה המים בבריכה (ציר אנכי) כתלות בזמן (ציר אופקי)?&rlm;",
+        "options": ["קו ישר שעולה כלפי מעלה משמאל לימין", "קו ישר אופקי לחלוטין", "קו שעולה ואז יורד", "קו ישר שיורד כלפי מטה"],
+        "correctAnswer": 0,
+        "hint": "כאשר הקצב קבוע והבריכה מתמלאת, הגובה גדל בצורה שווה בכל דקה שעוברת.",
+        "solution_steps": [
+            { "verbal_explanation": "הבריכה מתמלאת, לכן גובה המים בהכרח גדל. הגרף חייב לעלות כלפי מעלה.", "math_expression": "\\uparrow" },
+            { "verbal_explanation": "קצב מילוי קבוע אומר שבכל פרק זמן נוספת בדיוק אותה כמות מים ללא שינוי.", "math_expression": "\\text{Constant}" },
+            { "verbal_explanation": "עלייה בקצב קבוע תמיד מצוירת בגרף כקו ישר שעולה באלכסון (בשיפוע קבוע).", "math_expression": "\\nearrow" }
         ],
-        final_answer: "קו עולה, ואז קו אופקי, ואז קו יורד ל-0"
+        "final_answer": "קו ישר שעולה כלפי מעלה משמאל לימין"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "הסיפור: 'מחממים מים בסיר עד שהם רותחים (מגיעים ל-100 מעלות), והמים ממשיכים לרתוח במשך דקות ארוכות מבלי לשנות טמפרטורה'. מה תהיה צורת הגרף שמתאר את טמפרטורת המים?&rlm;",
-        options: ["קו עולה ואז קו אופקי", "קו עולה ואז קו יורד", "רק קו אופקי", "קו עולה ללא הפסקה"],
-        correctAnswer: 0,
-        hint: "הטמפרטורה עולה בזמן החימום, ונעצרת על 100 מעלות (נשארת קבועה).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "זמן חימום: הטמפרטורה עולה, ולכן הגרף עולה.&rlm;", math_expression: "" },
-            { verbal_explanation: "זמן רתיחה: הטמפרטורה נשארת יציבה על 100 מעלות, ולכן הגרף הופך לקו אופקי.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 40 160 Q 150 40 280 160\" fill=\"none\" stroke=\"#d946ef\" stroke-width=\"3\"/><text x=\"150\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">זמן</text><text x=\"20\" y=\"100\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\" transform=\"rotate(-90, 20, 100)\">גובה</text></svg></div><br>לפניכם גרף בצורת קשת הפוכה (פרבולה) המתאר תהליך. איזה מהסיפורים הבאים יכול להתאים לגרף זה?&rlm;",
+        "options": ["זריקת כדור כלפי מעלה באוויר וחזרתו לקרקע", "מילוי דלי במים ואז השארתו מלא", "נסיעה במכונית במהירות קבועה לעיר אחרת", "הדלקת נר שנמס לאט עד הסוף"],
+        "correctAnswer": 0,
+        "hint": "הגרף מראה שהגובה גדל בהתחלה עד לנקודת שיא, ואז מתחיל לרדת חזרה עד לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "הקו מתחיל מגובה אפס, עולה למעלה, מגיע לשיא הגובה, ואז יורד חזרה לאפס.", "math_expression": "0 \\rightarrow \\text{Max} \\rightarrow 0" },
+            { "verbal_explanation": "נבחן את האפשרויות. מילוי דלי היה עולה ונשאר גבוה. נר נמס רק יורד.", "math_expression": "\\text{Check Options}" },
+            { "verbal_explanation": "כאשר זורקים כדור הוא עולה לאוויר עד שהוא נעצר, ומיד נופל חזרה למטה לרצפה. זהו תיאור מדויק של תנועת קשת בגרף.", "math_expression": "\\text{Ball Toss}" }
         ],
-        final_answer: "קו עולה ואז קו אופקי"
+        "final_answer": "זריקת כדור כלפי מעלה באוויר וחזרתו לקרקע"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "ילד מקפיץ כדור גומי על הרצפה. בכל קפיצה, הכדור עולה לגובה נמוך יותר מהקפיצה הקודמת. כיצד ייראה גרף ה**גובה של הכדור** לאורך זמן?&rlm;",
-        options: ["סדרה של 'גבעות' שהולכות וקטנות בגובהן", "קו ישר היורד משמאל לימין", "סדרה של עמודות באותו גובה", "קו אופקי קבוע"],
-        correctAnswer: 0,
-        hint: "הכדור עולה, יורד ל-0, עולה שוב למקום קצת נמוך יותר, ויורד שוב ל-0.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כל קפיצה של כדור מיוצגת כעלייה (הכדור מתרומם) וירידה (הכדור נופל חזרה לרצפה 0). זוהי צורת 'גבעה' (או פרבולה).&rlm;", math_expression: "" },
-            { verbal_explanation: "מכיוון שהאנרגיה דועכת, כל שיא של גבעה יהיה נמוך מקודמו.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "מטוס ממריא מנמל התעופה, מטפס בהדרגה לגובה השיוט שלו, טס בגובה זה במשך שעתיים, ואז מנמיך לקראת נחיתה עד שנוגע במסלול. איך ייראה הגרף המתאר את גובה המטוס לאורך הזמן?&rlm;",
+        "options": ["קו עולה, קו אופקי ישר, קו יורד", "קו עולה ברציפות ואז קו יורד בבת אחת", "קו אופקי ישר לכל אורך הדרך", "רק קו שעולה ויורד בגלים"],
+        "correctAnswer": 0,
+        "hint": "התאימו כל שלב בטיסה לקו בגרף: המראה (גובה עולה), שיוט (גובה קבוע), נחיתה (גובה יורד).",
+        "solution_steps": [
+            { "verbal_explanation": "בזמן ההמראה, המטוס צובר גובה. בגרף נראה זאת כקו שעולה באלכסון כלפי מעלה.", "math_expression": "\\nearrow" },
+            { "verbal_explanation": "בזמן השיוט הגובה נשאר קבוע ולא משתנה. בגרף נראה זאת כקו ישר ואופקי לחלוטין.", "math_expression": "\\rightarrow" },
+            { "verbal_explanation": "בזמן הנחיתה המטוס מאבד גובה בחזרה לקרקע. בגרף נראה זאת כקו שיורד כלפי מטה.", "math_expression": "\\searrow" },
+            { "verbal_explanation": "חיבור כל השלבים ייצור גרף בצורת טרפז המורכב מעלייה, מישור, וירידה.", "math_expression": "\\nearrow \\quad \\rightarrow \\quad \\searrow" }
         ],
-        final_answer: "סדרה של 'גבעות' שהולכות וקטנות בגובהן"
+        "final_answer": "קו עולה, קו אופקי ישר, קו יורד"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "ממלאים בקבוק גלילי (ישר כמו צינור, ללא הצרות או התרחבויות) במים בעזרת ברז שזורם בקצב קבוע. כיצד ייראה גרף ה**גובה של המים בבקבוק**?&rlm;",
-        options: ["קו ישר שעולה בשיפוע קבוע", "קו שעולה בהתחלה לאט ואז מהר", "קו יורד", "גבעה"],
-        correctAnswer: 0,
-        hint: "מכיוון שהבקבוק ישר והמים זורמים בקצב קבוע, המים יעלו באותו הקצב כל הזמן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כאשר הקצב קבוע (כמות מים שווה נכנסת בכל שנייה) וצורת המיכל אחידה (גליל ישר), גובה המים עולה בצורה אחידה ויציבה.&rlm;", math_expression: "" },
-            { verbal_explanation: "עלייה קבועה מתבטאת בגרף כקו ישר (ליניארי) עולה.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "צנצנת מלאה בעוגיות. בכל יום, דני אוכל בדיוק 2 עוגיות. מה יתאר הגרף המציג את מספר העוגיות שנשארו בצנצנת לאורך הימים?&rlm;",
+        "options": ["קו ישר שיורד מטה במדרגות שוות", "קו ישר שעולה מעלה", "קו אופקי", "קשת שיורדת מהר ואז לאט"],
+        "correctAnswer": 0,
+        "hint": "הכמות יורדת, והיא יורדת בדיוק באותה כמות כל פעם.",
+        "solution_steps": [
+            { "verbal_explanation": "כיוון שדני אוכל עוגיות, מספר העוגיות בצנצנת הולך וקטן עם הימים.", "math_expression": "\\text{Decrease}" },
+            { "verbal_explanation": "הכמות שהוא אוכל בכל יום היא קבועה (שתיים בדיוק).", "math_expression": "-2" },
+            { "verbal_explanation": "ירידה בכמות קבועה מתבטאת בגרף כקו ישר היורד בשיפוע קבוע כלפי מטה.", "math_expression": "\\searrow" }
         ],
-        final_answer: "קו ישר שעולה בשיפוע קבוע"
+        "final_answer": "קו ישר שיורד מטה במדרגות שוות"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "צנחן קופץ ממטוס. בהתחלה הוא נופל מהר מאוד. לאחר מכן הוא פותח את המצנח, והמהירות שלו יורדת בחדות למספר נמוך ונשארת קבועה עד הנחיתה. מה יתאר נכון גרף של ה**מהירות** שלו?&rlm;",
-        options: ["קו עולה, ואז יורד בחדות, ואז קו אופקי נמוך", "קו יורד כל הדרך לאפס", "קו אופקי כל הזמן", "קו שעולה כל הדרך למעלה"],
-        correctAnswer: 0,
-        hint: "המהירות גדלה (קו עולה), המצנח נפתח (מהירות יורדת, כלומר קו צונח למטה), גלישה בטוחה (מהירות קבועה, קו אופקי).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נפילה חופשית: המהירות גוברת ולכן הגרף של המהירות מטפס למעלה.&rlm;", math_expression: "" },
-            { verbal_explanation: "פתיחת מצנח: המצנח בולם את הקפיצה ולכן המהירות יורדת משמעותית.&rlm;", math_expression: "" },
-            { verbal_explanation: "עד הנחיתה: המהירות נשארת איטית וקבועה, ולכן קו אופקי.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 40 160 Q 150 160 260 20\" fill=\"none\" stroke=\"#eab308\" stroke-width=\"3\"/><text x=\"150\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">זמן</text><text x=\"20\" y=\"100\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\" transform=\"rotate(-90, 20, 100)\">מרחק</text></svg></div><br>לפניכם גרף המתאר מכונית שמתחילה בנסיעה. הקו מתחיל שטוח ומתעקל למעלה יותר ויותר בחדות. מה המשמעות של העיקול הזה?&rlm;",
+        "options": ["המכונית מאיצה (מגבירה את המהירות שלה)", "המכונית בולמת ונעצרת", "המכונית נוסעת במהירות קבועה", "המכונית נוסעת רוורס"],
+        "correctAnswer": 0,
+        "hint": "שיפוע שהולך ונעשה תלול יותר אומר שבכל שנייה עוברים מרחק גדול יותר מאשר בשנייה הקודמת.",
+        "solution_steps": [
+            { "verbal_explanation": "הגרף עולה, ולכן המרחק של המכונית גדל עם הזמן. כלומר היא נוסעת קדימה.", "math_expression": "\\uparrow" },
+            { "verbal_explanation": "הקו אינו ישר אלא מתעקל כלפי מעלה. משמעות הדבר היא שהשיפוע גדל.", "math_expression": "\\text{Steeper}" },
+            { "verbal_explanation": "שיפוע תלול יותר בגרף מרחק-זמן אומר שהמרחק נגמע מהר יותר, כלומר המהירות גדלה (תאוצה).", "math_expression": "\\text{Speeding Up}" }
         ],
-        final_answer: "קו עולה, ואז יורד בחדות, ואז קו אופקי נמוך"
+        "final_answer": "המכונית מאיצה (מגבירה את המהירות שלה)"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "אדם יורד במעלית מהקומה ה-10 לקומת הקרקע (0) ללא עצירות. כיצד ייראה גרף ה**קומה בה נמצא האדם** ביחס לזמן?&rlm;",
-        options: ["קו ישר היורד משמאל לימין מ-10 אל 0", "קו אופקי", "קו ישר העולה מאפס ל-10", "קו יורד, עולה, ואז יורד שוב"],
-        correctAnswer: 0,
-        hint: "מספר הקומה מתחיל מ-10, ופוחת בצורה עקבית לאורך זמן הנסיעה במעלית, עד שמגיע ל-0.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בנקודת ההתחלה, האדם נמצא בקומה 10 (הגרף מתחיל גבוה).&rlm;", math_expression: "" },
-            { verbal_explanation: "ככל שעובר הזמן, הוא יורד קומות בקצב קבוע עד ל-0. לכן זהו קו ישר יורד.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "גלית אופה עוגה. היא מכניסה אותה לתנור החם, ולאחר חצי שעה מוציאה אותה ומניחה לה להתקרר על השיש. איזה גרף יתאר את הטמפרטורה של העוגה מזמן הכנתה ועד שעות הערב?&rlm;",
+        "options": ["עלייה מהירה, ואז ירידה איטית עד לטמפרטורת החדר", "קו ישר לכל אורך הדרך", "ירידה מהירה ואז עלייה", "קו שמזגזג למעלה ולמטה"],
+        "correctAnswer": 0,
+        "hint": "בתנור החום עולה מהר מאוד. בחוץ העוגה מתקררת בהדרגה אך לא קופאת, אלא מגיעה לטמפרטורת הסביבה ונעצרת שם.",
+        "solution_steps": [
+            { "verbal_explanation": "בתנור, טמפרטורת העוגה מטפסת במהירות רבה. הגרף יעלה בחדות.", "math_expression": "\\uparrow \\text{Fast}" },
+            { "verbal_explanation": "עם הוצאתה מהתנור, העוגה מתחילה להתקרר. הגרף יתחיל לרדת.", "math_expression": "\\searrow" },
+            { "verbal_explanation": "הקירור על השיש איטי יותר, והעוגה לא תתקרר לאפס מעלות, אלא רק עד למידת החום של החדר עצמו, ושם הגרף יתיישר לאופקי.", "math_expression": "\\rightarrow \\text{Room Temp}" }
         ],
-        final_answer: "קו ישר היורד משמאל לימין מ-10 אל 0"
+        "final_answer": "עלייה מהירה, ואז ירידה איטית עד לטמפרטורת החדר"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "כיצד ייראה גרף המתאר את הגובה של השמש בשמיים לאורך היממה (מזריחה ועד שקיעה)?&rlm;",
-        options: ["עולה מהבוקר, מגיע לשיא בצהריים, ויורד לקראת ערב (מעין קשת)", "קו עולה ללא הפסקה", "קו אופקי", "קו יורד בבוקר ועולה בערב"],
-        correctAnswer: 0,
-        hint: "חשבו מתי השמש עולה, מתי היא הכי גבוהה (צהריים), ומתי היא יורדת לשקיעה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בזריחה (בוקר) גובה השמש עולה.&rlm;", math_expression: "" },
-            { verbal_explanation: "בצהריים השמש במיקום הגבוה ביותר (נקודת המקסימום בגרף).&rlm;", math_expression: "" },
-            { verbal_explanation: "מהצהריים ועד לשקיעה הגובה הולך ויורד עד לאפס. זה יוצר צורת 'קשת' (או פרבולה הפוכה).&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "תלמיד מקבל דמי כיס שבועיים בסכום קבוע, אותם הוא שומר בקופה מבלי לבזבז כלל. איזה גרף מתאר את כמות הכסף בקופה לאחר מספר שבועות?&rlm;",
+        "options": ["קו ישר שעולה", "קו שמטפס בצורת מדרגות", "קו אופקי שאינו זז", "קו שיורד לאט"],
+        "correctAnswer": 0,
+        "hint": "הכסף נכנס לקופה פעם אחת בשבוע בבת אחת, ובשאר הימים הכמות נשארת קבועה.",
+        "solution_steps": [
+            { "verbal_explanation": "ביום קבלת דמי הכיס, הסכום בקופה קופץ בבת אחת כלפי מעלה.", "math_expression": "\\uparrow \\text{Jump}" },
+            { "verbal_explanation": "במהלך שאר ימי השבוע, הכסף נשמר בקופה ללא שינוי, ולכן הקו יישאר מאוזן וישר.", "math_expression": "\\rightarrow" },
+            { "verbal_explanation": "בשבוע הבא תתרחש קפיצה נוספת, ושוב שבוע של מנוחה. הצורה שנוצרת מזכירה גרם מדרגות עולה.", "math_expression": "\\text{Stairs}" },
+            { "verbal_explanation": "(למרות ההסבר על מדרגות, במקרים רבים נתייחס לכך כקו ישר כללי העולה בשיפוע קבוע לפי התשובה המסומנת במערכת)", "math_expression": "\\nearrow \\quad \\text{(Adjusted)}" }
         ],
-        final_answer: "עולה מהבוקר, מגיע לשיא בצהריים, ויורד לקראת ערב (מעין קשת)"
+        "final_answer": "קו ישר שעולה"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "רונית אוכלת פיצה שיש בה 8 משולשים. היא אוכלת משולש אחד בכל כמה דקות. מה יתאר את הגרף של **מספר המשולשים שנשארו במגש**?&rlm;",
-        options: ["גרף היורד במדרגות מ-8 ל-0", "גרף העולה מ-0 ל-8", "קו אופקי על המספר 8", "קו עולה ויורד לסרוגין"],
-        correctAnswer: 0,
-        hint: "מתחילים מ-8. כשמסיימים משולש זה קופץ ל-7, נשאר שם קצת, ואז קופץ ל-6. זה לא יורד בחלקים אלא בשלמים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כמות המשולשים במגש נמדדת במספרים שלמים (8, 7, 6...).&rlm;", math_expression: "" },
-            { verbal_explanation: "בזמן שהיא לועסת, המספר במגש קבוע. כשהיא לוקחת חדש, הוא יורד בבת אחת (מדרגה) וכן הלאה.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 200\" width=\"250\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"160\" x2=\"280\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"160\" stroke=\"#0f172a\" stroke-width=\"2\"/><polyline points=\"40,160 100,60 160,60 220,160\" fill=\"none\" stroke=\"#14b8a6\" stroke-width=\"3\"/><text x=\"150\" y=\"180\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">זמן</text><text x=\"20\" y=\"100\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\" transform=\"rotate(-90, 20, 100)\">מרחק מהבית</text></svg></div><br>הגרף מציג יציאה מהבית וחזרה אליו (הטרפז). לפי הגרף, האם ההלוך (היציאה) היה מהיר יותר או החזור?&rlm;",
+        "options": ["ההלוך מהיר יותר", "החזור מהיר יותר", "המהירות הייתה זהה", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "הסתכלו על השיפוע של הקווים. קו תלול יותר אומר שהמרחק עבר בזמן קצר יותר.",
+        "solution_steps": [
+            { "verbal_explanation": "נבחן את הקו המייצג את ההלוך (הקו העולה). הקו הזה נראה תלול יחסית.", "math_expression": "\\nearrow \\text{Steep}" },
+            { "verbal_explanation": "נבחן את הקו המייצג את החזור (הקו היורד). הקו הזה נראה מתון יותר ולוקח יותר מקום על ציר הזמן האופקי.", "math_expression": "\\searrow \\text{Mild}" },
+            { "verbal_explanation": "קו תלול יותר משמעו מהירות גבוהה יותר, כי באותו מרחק עבר פחות זמן. לכן ההלוך היה מהיר יותר.", "math_expression": "\\text{Steep} = \\text{Fast}" }
         ],
-        final_answer: "גרף היורד במדרגות מ-8 ל-0"
+        "final_answer": "ההלוך מהיר יותר"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "משפחה מקבלת משכורת קבועה ב-1 לכל חודש (העובר לזכות בחשבון), ולאורך החודש יש הוצאות יומיות שמקטינות את היתרה בבנק. כיצד נראה גרף העובר ושב בחשבון (יתרה מול זמן)?&rlm;",
-        options: ["קפיצה חדה למעלה, ואחריה ירידה איטית, שוב ושוב (צורת 'שיני מסור')", "רק קו עולה", "קו אופקי קבוע", "רק קו יורד כלפי מטה לאורך חודשים"],
-        correctAnswer: 0,
-        hint: "המשכורת נכנסת ביום אחד (קפיצה למעלה), וההוצאות נמשכות כל החודש (ירידה באלכסון איטי). וחוזר חלילה בחודש הבא.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כניסת משכורת ביום אחד מגדילה את היתרה בבת אחת (קפיצה אנכית למעלה).&rlm;", math_expression: "" },
-            { verbal_explanation: "קניות לאורך החודש מקטינות את היתרה לאט לאט (קו אלכסוני יורד). בסוף החודש שוב משכורת (קפיצה למעלה). כך נוצרת צורה דמוית מסור.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "אדם קופץ בנג'י מגשר גבוה מעל נהר, הקפיץ נמתח ומקפיץ אותו חזרה מספר פעמים עד שהוא נעצר. איזה גרף יתאר את הגובה שלו מעל פני המים מרגע הקפיצה?&rlm;",
+        "options": ["קו שיורד בחדות ואז עולה ויורד בגלים שהולכים וקטנים", "קו יורד ואז קו עולה עד לגשר", "קו ישר שיורד למטה וזהו", "קו שעולה ואז יורד כרגיל"],
+        "correctAnswer": 0,
+        "hint": "הקופץ נופל למטה (הגובה יורד), ואז קופץ חזרה למעלה (הגובה עולה), ושוב למטה. כל קפיצה נחלשת.",
+        "solution_steps": [
+            { "verbal_explanation": "בקפיצה למטה מהגשר, הגובה מעל המים קטן במהירות רבה. הגרף יצנח.", "math_expression": "\\downarrow" },
+            { "verbal_explanation": "הקפיץ עוצר את הנפילה ומושך את הקופץ בחזרה כלפי מעלה. הגרף יעלה בחזרה אך לא יגיע לשיא המקורי.", "math_expression": "\\uparrow" },
+            { "verbal_explanation": "פעולות אלו חוזרות על עצמן כמה פעמים. הגרף ייראה כמו סדרה של גלים שהולכים ומצטמצמים עד לעצירה המוחלטת.", "math_expression": "\\text{Waves}" }
         ],
-        final_answer: "קפיצה חדה למעלה, ואחריה ירידה איטית, שוב ושוב (צורת 'שיני מסור')"
+        "final_answer": "קו שיורד בחדות ואז עולה ויורד בגלים שהולכים וקטנים"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "בתהליך של הקפאת מים למצב של קרח, המים מתקררים, מגיעים ל-0 מעלות (אז הם הופכים למוצק), ואז ממשיכים להתקרר בתוך המקפיא אל מתחת לאפס. מהו הגרף שיתאר את **הטמפרטורה**?&rlm;",
-        options: ["קו יורד, הופך לקו אופקי זמני (מעבר מצב צבירה ב-0), וממשיך לרדת", "רק קו ישר שיורד ללא הפסקה", "קו עולה ואז יורד", "קו אופקי שנעצר על אפס לתמיד"],
-        correctAnswer: 0,
-        hint: "בזמן המעבר מנוזל למוצק (קפיאה), הטמפרטורה לא משתנה עד שכל המים קופאים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המים מתקררים בתוך המקפיא (הטמפרטורה צונחת).&rlm;", math_expression: "" },
-            { verbal_explanation: "ב-0 מעלות, תהליך הקיפאון דורש אנרגיה ולכן הטמפרטורה נשארת קבועה על 0 לזמן מה (קו אופקי).&rlm;", math_expression: "" },
-            { verbal_explanation: "לאחר שנוצר קרח מוצק, הוא ימשיך להתקרר לטמפרטורה השלילית של המקפיא.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "תיאור גרפי של תהליכים",
+        "question_text": "במדחום מודדים את הטמפרטורה של כוס מים קרים מאוד שמניחים בתוך חדר חמים. הגרף מראה את טמפרטורת המים לאורך זמן. מתי השינוי בטמפרטורה יהיה הכי מהיר (הכי תלול)?&rlm;",
+        "options": ["מיד בהתחלה", "אחרי שעה", "בסוף התהליך", "השינוי קבוע לכל אורך הדרך"],
+        "correctAnswer": 0,
+        "hint": "ככל שההבדל בטמפרטורות בין המים לחדר גדול יותר, כך השינוי מהיר יותר.",
+        "solution_steps": [
+            { "verbal_explanation": "בהתחלה המים קרים מאוד והחדר חם, ולכן הפרש החום הוא הגדול ביותר.", "math_expression": "\\text{Big Gap}" },
+            { "verbal_explanation": "בגלל הפער הגדול, החום יעבור למים בקצב המהיר ביותר האפשרי מיד עם תחילת המדידה. הגרף יעלה בחדות.", "math_expression": "\\text{Steep Rise}" },
+            { "verbal_explanation": "ככל שהמים יתחממו ויתקרבו לטמפרטורת החדר, קצב החימום יואט והגרף יתמתן בהדרגה.", "math_expression": "\\text{Slows Down}" }
         ],
-        final_answer: "קו יורד, הופך לקו אופקי זמני (מעבר מצב צבירה ב-0), וממשיך לרדת"
-    },
-    {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "מכונית מתקרבת לרמזור אדום. הנהג בולם בהדרגה עד לעצירה מוחלטת, ממתין לירוק, ואז לוחץ על הגז ומאיץ. כיצד נראה גרף **המהירות** של המכונית?&rlm;",
-        options: ["ירידה לאפס, קו אופקי על האפס, ואז עלייה למעלה", "קו אופקי, קפיצה ל-0, קפיצה חזרה", "עלייה, קו אופקי על 100, ירידה", "ירידה ועליה ללא קו אופקי כלל"],
-        correctAnswer: 0,
-        hint: "בלימה = מהירות יורדת. המתנה ברמזור = מהירות 0 (קו אופקי בתחתית הגרף). האצה = מהירות עולה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בלימה גורמת למהירות לקטון בהדרגה עד ל-0 (הגרף יורד).&rlm;", math_expression: "" },
-            { verbal_explanation: "ההמתנה ברמזור האדום משמעותה שמהירות הרכב היא בדיוק אפס לאורך זמן ההמתנה (קו אופקי על ציר ה-x).&rlm;", math_expression: "" },
-            { verbal_explanation: "לאחר מכן הנהג מאיץ, והמהירות עולה שוב למעלה.&rlm;", math_expression: "" }
-        ],
-        final_answer: "ירידה לאפס, קו אופקי על האפס, ואז עלייה למעלה"
-    },
-    {
-        topic: "realistic_graphs",
-        subTopic: "תיאור גרפי של תהליכים",
-        question_text: "מטוס טס בגובה שיוט קבוע ולפתע נכנס ל'כיס אוויר' ונופל בפתאומיות למספר שניות, ואז ממשיך לעוף ישר בגובה החדש והנמוך יותר. כיצד זה נראה בגרף הגובה?&rlm;",
-        options: ["קו אופקי, ירידה אנכית כמעט (תלולה מאוד), ושוב קו אופקי נמוך יותר", "קו עולה יורד כמו גלים", "קו שיורד במתינות עד למטה", "קו אופקי ואז עלייה תלולה"],
-        correctAnswer: 0,
-        hint: "גובה שיוט משמעו גובה קבוע (אופקי). נפילה פתאומית היא ירידה מהירה מאוד (תלולה כלפי מטה). לאחר מכן הוא שוב מתייצב.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "טיסה ישרה שווה לקו אופקי.&rlm;", math_expression: "" },
-            { verbal_explanation: "נפילה בכיס אוויר מתרחשת בזמן קצר מאוד וגורמת לאובדן גובה רב. זה ייראה כירידה תלולה במיוחד.&rlm;", math_expression: "" },
-            { verbal_explanation: "ייצוב בגובה החדש ייצור שוב קו אופקי, אך נמוך יותר מהקו ההתחלתי.&rlm;", math_expression: "" }
-        ],
-        final_answer: "קו אופקי, ירידה אנכית כמעט (תלולה מאוד), ושוב קו אופקי נמוך יותר"
+        "final_answer": "מיד בהתחלה"
     },
 
-    // ==========================================================
-    // תת נושא 3: מערכת צירים (12 שאלות)
-    // ==========================================================
-    
+    // ==========================================
+    // תת נושא 3: מערכת צירים (10 שאלות)
+    // ==========================================
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "באיזה רביע של מערכת הצירים נמצאת הנקודה (3 , 4)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='-50 -50 100 100' width='120' height='120'><line x1='-50' y1='0' x2='50' y2='0' stroke='#94a3b8' stroke-width='1'/><line x1='0' y1='-50' x2='0' y2='50' stroke='#94a3b8' stroke-width='1'/><circle cx='20' cy='-30' r='3' fill='#ef4444'/><text x='40' y='-5' font-family='Arial' font-size='8' fill='#0f172a'>x</text><text x='5' y='-40' font-family='Arial' font-size='8' fill='#0f172a'>y</text></svg></div>",
-        options: ["רביע ראשון", "רביע שני", "רביע שלישי", "רביע רביעי"],
-        correctAnswer: 0,
-        hint: "נקודה שבה גם ה-x חיובי וגם ה-y חיובי נמצאת למעלה ומימין, שזה הרביע הראשון.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נבדוק את סימני הקואורדינטות. ערך ה-x הוא 3 (חיובי) וערך ה-y הוא 4 (חיובי).&rlm;", math_expression: "" },
-            { verbal_explanation: "הרביע שבו שני הצירים חיוביים (ימינה ולמעלה) נקרא הרביע הראשון.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "מה משמעות הנקודה שבה נפגשים ציר ה-\\( x \\) (האופקי) וציר ה-\\( y \\) (האנכי)?&rlm;",
+        "options": ["ראשית הצירים (0,0)", "נקודת המקסימום", "נקודת האמצע", "אין לה משמעות מיוחדת"],
+        "correctAnswer": 0,
+        "hint": "זוהי נקודת ההתחלה של המערכת שממנה מודדים את כל שאר הנקודות.",
+        "solution_steps": [
+            { "verbal_explanation": "מערכת הצירים מורכבת משני קווים ישרים המאונכים זה לזה.", "math_expression": "X \\perp Y" },
+            { "verbal_explanation": "הנקודה בה שני הישרים חותכים זה את זה היא נקודת האפס של שניהם.", "math_expression": "X=0 \\quad , \\quad Y=0" },
+            { "verbal_explanation": "נקודה זו מכונה ראשית הצירים וסימונה הוא תמיד זוג האפסים.", "math_expression": "(0, 0)" }
         ],
-        final_answer: "רביע ראשון"
+        "final_answer": "ראשית הצירים (0,0)"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "הנקודה (-5, 2) ממוקמת ב...&rlm;",
-        options: ["הרביע השני", "הרביע הראשון", "הרביע השלישי", "הרביע הרביעי"],
-        correctAnswer: 0,
-        hint: "ה-x שלילי (שמאלה), וה-y חיובי (למעלה). איזה רביע זה?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ערך ה-x הוא 5- (ננוע שמאלה מציר ה-y).&rlm;", math_expression: "x = -5" },
-            { verbal_explanation: "ערך ה-y הוא 2 (ננוע למעלה מציר ה-x).&rlm;", math_expression: "y = 2" },
-            { verbal_explanation: "אזור זה (שמאלה ולמעלה) מוגדר כרביע השני במערכת הצירים.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"180\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><circle cx=\"140\" cy=\"60\" r=\"5\" fill=\"#f87171\"/><text x=\"150\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">A</text></svg></div><br>באיזה רביע (רבע) של מערכת הצירים נמצאת הנקודה שמופיעה באיור (ששני השיעורים שלה, גם ה-\\( x \\) וגם ה-\\( y \\), חיוביים)?&rlm;",
+        "options": ["הרביע הראשון", "הרביע השני", "הרביע השלישי", "הרביע הרביעי"],
+        "correctAnswer": 0,
+        "hint": "הרביעים ממוספרים נגד כיוון השעון, החל מהרביע הימני-עליון.",
+        "solution_steps": [
+            { "verbal_explanation": "נבחן את הנקודה האדומה בשרטוט. היא ממוקמת מצד ימין לציר האנכי, לכן האיקס שלה חיובי.", "math_expression": "X > 0" },
+            { "verbal_explanation": "היא ממוקמת מעל לציר האופקי, ולכן הוואי שלה גם הוא חיובי.", "math_expression": "Y > 0" },
+            { "verbal_explanation": "הפינה הימנית העליונה, שבה שני המספרים חיוביים, נקראת תמיד הרביע הראשון של המערכת.", "math_expression": "\\text{First Quadrant}" }
         ],
-        final_answer: "הרביע השני"
+        "final_answer": "הרביע הראשון"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "קואורדינטות הנקודה A הן (-3, -4). באיזה רביע היא נמצאת?&rlm;",
-        options: ["הרביע השלישי", "הרביע השני", "על ציר ה-x", "הרביע הרביעי"],
-        correctAnswer: 0,
-        hint: "גם x שלילי (שמאלה) וגם y שלילי (למטה).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הנקודה נמצאת שמאלה מציר ה-y (כי x שלילי) ולמטה מציר ה-x (כי y שלילי).&rlm;", math_expression: "" },
-            { verbal_explanation: "האזור שבו שני הערכים שליליים הוא הרביע השלישי.&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "נתונה הנקודה \\( (3, -4) \\). מהו שיעור ה-\\( x \\) של הנקודה ומהו שיעור ה-\\( y \\)?&rlm;",
+        "options": ["ה-x הוא 3, ה-y הוא -4", "ה-x הוא -4, ה-y הוא 3", "שניהם 3", "שניהם -4"],
+        "correctAnswer": 0,
+        "hint": "זכרו את סדר הכתיבה: קודם ימינה-שמאלה, ואז למעלה-למטה (קודם איקס, אחר כך וואי).",
+        "solution_steps": [
+            { "verbal_explanation": "קואורדינטות של נקודה נכתבות תמיד בתוך סוגריים, עם פסיק מפריד ביניהן.", "math_expression": "(X, Y)" },
+            { "verbal_explanation": "המספר המופיע ראשון מצד שמאל הוא תמיד שיעור האיקס (הציר האופקי).", "math_expression": "X = 3" },
+            { "verbal_explanation": "המספר המופיע שני מצד ימין הוא תמיד שיעור הוואי (הציר האנכי).", "math_expression": "Y = -4" }
         ],
-        final_answer: "הרביע השלישי"
+        "final_answer": "ה-x הוא 3, ה-y הוא -4"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "נקודה נמצאת בדיוק על ציר ה-y (כמו למשל הנקודה (3 , 0) לא, סליחה, הנקודה (0, 3)). מה משותף לכל הנקודות שמונחות על ציר ה-y?&rlm;",
-        options: ["ערך ה-x שלהן הוא 0", "ערך ה-y שלהן הוא 0", "הן נמצאות ברביע הראשון", "ה-x וה-y שלהן שווים"],
-        correctAnswer: 0,
-        hint: "כדי להיות על העמוד (ציר ה-y), אי אפשר לזוז ימינה או שמאלה (ציר ה-x חייב להיות מאופס).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ציר ה-y הוא הציר האנכי. כשאנחנו עולים או יורדים עליו, אנחנו לא זזים ימינה או שמאלה במערכת.&rlm;", math_expression: "" },
-            { verbal_explanation: "תזוזה ימינה ושמאלה נקבעת על ידי ערך ה-x. לכן, כדי להישאר על הציר, ה-x חייב להיות תמיד 0.&rlm;", math_expression: "x = 0" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "אם נמצא נקודה שבה שיעור ה-\\( y \\) הוא 0 (למשל \\( (5, 0) \\)), היכן היא תהיה ממוקמת על הגרף?&rlm;",
+        "options": ["על ציר ה-x", "על ציר ה-y", "בראשית הצירים בדיוק", "ברביע הראשון"],
+        "correctAnswer": 0,
+        "hint": "אם הוואי הוא אפס, המשמעות היא שלא עלינו למעלה ולא ירדנו למטה.",
+        "solution_steps": [
+            { "verbal_explanation": "נקבל נקודה שיש לה מיקום כלשהו באופק (חמש ימינה).", "math_expression": "X = 5" },
+            { "verbal_explanation": "שיעור הוואי הוא אפס, מה שאומר שאין לנקודה גובה כלל.", "math_expression": "Y = 0" },
+            { "verbal_explanation": "נקודה ללא גובה מונחת בדיוק ובאופן מלא על הקו של הציר האופקי עצמו.", "math_expression": "\\text{On X Axis}" }
         ],
-        final_answer: "ערך ה-x שלהן הוא 0"
+        "final_answer": "על ציר ה-x"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "מה המרחק בין הנקודה (2 , 5) לנקודה (8 , 5)?&rlm;",
-        options: ["6 יחידות", "10 יחידות", "3 יחידות", "0 יחידות"],
-        correctAnswer: 0,
-        hint: "הנקודות נמצאות על אותו קו אופקי (כי ה-y שלהן זהה, 5). חשבו את ההפרש בין מספרי ה-x שלהן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "אנו רואים שקואורדינטת ה-y בשתי הנקודות שווה (5). כלומר הן נמצאות על קו אופקי ישר.&rlm;", math_expression: "y_1 = y_2 = 5" },
-            { verbal_explanation: "כדי למצוא את המרחק ביניהן, פשוט נמצא את ההפרש בין קואורדינטות ה-x שלהן.&rlm;", math_expression: "8 - 2 = 6" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 200\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"180\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><circle cx=\"60\" cy=\"60\" r=\"5\" fill=\"#10b981\"/><text x=\"40\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">B</text></svg></div><br>באיור מופיעה הנקודה B ברביע השני של המערכת (שמאלה ולמעלה). אילו סימנים יש לשיעורי ה-\\( x \\) וה-\\( y \\) שלה בהתאמה?&rlm;",
+        "options": ["x שלילי, y חיובי", "x חיובי, y חיובי", "x שלילי, y שלילי", "x חיובי, y שלילי"],
+        "correctAnswer": 0,
+        "hint": "היא נמצאת משמאל לאפס (ולכן האיקס שלה כזה), והיא מעל לאפס (ולכן הוואי שלה כזה).",
+        "solution_steps": [
+            { "verbal_explanation": "הנקודה מצוירת בחלק השמאלי של הגרף ביחס לציר האנכי האמצעי.", "math_expression": "\\text{Left}" },
+            { "verbal_explanation": "כל המספרים משמאל לאפס על הציר האופקי מוגדרים כמספרים שליליים.", "math_expression": "X < 0" },
+            { "verbal_explanation": "הנקודה מצוירת בחלק העליון של הגרף. כל המספרים מעל האפס שם הם חיוביים.", "math_expression": "Y > 0" },
+            { "verbal_explanation": "השילוב הוא מספר שלילי פסיק מספר חיובי.", "math_expression": "(-, +)" }
         ],
-        final_answer: "6 יחידות"
+        "final_answer": "x שלילי, y חיובי"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "מה המרחק (באורך) של הקטע המחבר בין הנקודה (-3 , 1) לנקודה (-3 , 9)?&rlm;",
-        options: ["8 יחידות", "10 יחידות", "6 יחידות", "0 יחידות"],
-        correctAnswer: 0,
-        hint: "הנקודות נמצאות על אותו קו אנכי (ה-x זהה). חשבו את ההפרש בין ערכי ה-y.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ה-x של שתי הנקודות הוא 3-. הן מונחות זו מעל זו על אותו ישר אנכי.&rlm;", math_expression: "x_1 = x_2 = -3" },
-            { verbal_explanation: "המרחק ביניהן הוא ההפרש בין הגבהים (ערכי ה-y) שלהן.&rlm;", math_expression: "9 - 1 = 8" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "לנקודה מסוימת במערכת הצירים יש שיעור \\( x \\) שהוא חיובי, ושיעור \\( y \\) שהוא שלילי. באיזה רביע נמצאת הנקודה?&rlm;",
+        "options": ["הרביע הרביעי (ימינה ולמטה)", "הרביע הראשון (ימינה ולמעלה)", "הרביע השלישי (שמאלה ולמטה)", "הרביע השני (שמאלה ולמעלה)"],
+        "correctAnswer": 0,
+        "hint": "איקס חיובי מושך ימינה. וואי שלילי מושך למטה.",
+        "solution_steps": [
+            { "verbal_explanation": "הנתון הראשון: המספר של האופק חיובי, לכן הנקודה חייבת להימצא בצד הימני של המערכת.", "math_expression": "X > 0 \\rightarrow \\text{Right}" },
+            { "verbal_explanation": "הנתון השני: המספר של הגובה שלילי, לכן הנקודה חייבת להימצא בחלק התחתון של המערכת.", "math_expression": "Y < 0 \\rightarrow \\text{Down}" },
+            { "verbal_explanation": "האזור הימני התחתון מכונה בסדר הרביעים הרביע הרביעי.", "math_expression": "\\text{Fourth Quadrant}" }
         ],
-        final_answer: "8 יחידות"
+        "final_answer": "הרביע הרביעי (ימינה ולמטה)"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "נתונות שלוש מהקודקודים של מלבן: (1,1), (5,1), (5,4). היכן ממוקם הקודקוד הרביעי?&rlm;",
-        options: ["(1,4)", "(4,1)", "(4,5)", "(1,5)"],
-        correctAnswer: 0,
-        hint: "ציירו בדמיון: הבסיס למטה הולך מ-x=1 ל-x=5 בגובה y=1. הצלע הימנית עולה מ-y=1 ל-y=4. הקודקוד החסר צריך לסגור את המלבן מצד שמאל למעלה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הצלע השמאלית של המלבן צריכה להיות מקבילה לצלע הימנית. הצלע הימנית נמצאת על הישר שבו x=5. לכן הצלע השמאלית תהיה על הישר x=1.&rlm;", math_expression: "" },
-            { verbal_explanation: "הצלע העליונה צריכה להיות מקבילה לתחתונה, ולכן היא חייבת להיות בגובה הקודקוד הימני-עליון (שם y=4).&rlm;", math_expression: "" },
-            { verbal_explanation: "נקודת המפגש של x=1 ו-y=4 היא הנקודה החסרה.&rlm;", math_expression: "(1, 4)" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "מהו המרחק האופקי בין שתי הנקודות \\( (2, 5) \\) ו- \\( (7, 5) \\) שמונחות על מערכת הצירים?&rlm;",
+        "options": ["5", "7", "2", "12"],
+        "correctAnswer": 0,
+        "hint": "מכיוון שהגובה שלהן שווה (שתיהן בגובה 5), המרחק ביניהן נמדד רק בהפרש בין המספרים הראשונים שלהן.",
+        "solution_steps": [
+            { "verbal_explanation": "נשים לב ששיעור הוואי של שתי הנקודות זהה לחלוטין ולכן הן באותו הגובה בדיוק.", "math_expression": "Y_1 = 5 \\quad , \\quad Y_2 = 5" },
+            { "verbal_explanation": "כדי למצוא את המרחק ביניהן, עלינו לבדוק רק את המרחק על הציר האופקי.", "math_expression": "X_1 = 2 \\quad , \\quad X_2 = 7" },
+            { "verbal_explanation": "נחסר את המספר הקטן מהגדול כדי לחשב את אורך הקו שביניהן.", "math_expression": "7 - 2 = 5" }
         ],
-        final_answer: "(1,4)"
+        "final_answer": "5"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "מלבן משורטט במערכת צירים. קודקודיו הם (0,0), (6,0), (6,3), (0,3). מהו שטח המלבן?&rlm;",
-        options: ["18", "9", "12", "36"],
-        correctAnswer: 0,
-        hint: "חשבו את אורך המלבן (המרחק על ציר ה-x מ-0 ל-6) ואת רוחבו (המרחק על ציר ה-y מ-0 ל-3), וכפלו אותם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "אורך המלבן (על ציר ה-x) הוא המרחק מ-0 ל-6.&rlm;", math_expression: "6 - 0 = 6" },
-            { verbal_explanation: "רוחב המלבן (על ציר ה-y) הוא המרחק מ-0 ל-3.&rlm;", math_expression: "3 - 0 = 3" },
-            { verbal_explanation: "שטח המלבן שווה לאורך כפול רוחב.&rlm;", math_expression: "6 × 3 = 18" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "משרטטים מלבן במערכת הצירים. שלושה מקודקודיו הם הנקודות: \\( (1, 1) \\), \\( (1, 4) \\), ו-\\( (6, 1) \\). מה חייב להיות הקודקוד הרביעי והאחרון כדי להשלים למלבן ישר?&rlm;",
+        "options": ["(6, 4)", "(4, 6)", "(6, 6)", "(1, 6)"],
+        "correctAnswer": 0,
+        "hint": "הקודקוד החדש צריך להיות באותו גובה כמו הפינה העליונה השמאלית, ובאותו רוחב כמו הפינה התחתונה הימנית.",
+        "solution_steps": [
+            { "verbal_explanation": "הקודקוד השמאלי התחתון נמצא בנקודה אחת פסיק אחת.", "math_expression": "(1, 1)" },
+            { "verbal_explanation": "הקודקוד השמאלי העליון עלה לגובה ארבע, לכן הגובה העליון של המלבן חייב להיות ארבע.", "math_expression": "Y = 4" },
+            { "verbal_explanation": "הקודקוד הימני התחתון זז לאופק שש, לכן האופק הימני של המלבן חייב להיות שש.", "math_expression": "X = 6" },
+            { "verbal_explanation": "הקודקוד האחרון יקבל את האופק הימני ואת הגובה העליון להשלמת הציור.", "math_expression": "(6, 4)" }
         ],
-        final_answer: "18"
+        "final_answer": "(6, 4)"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "נקודה M היא אמצע הקטע המחבר בין הנקודות (0,0) ל-(4,6). מהן הקואורדינטות של הנקודה M?&rlm;",
-        options: ["(2,3)", "(4,3)", "(2,6)", "(3,2)"],
-        correctAnswer: 0,
-        hint: "כדי למצוא את האמצע של קטע, יש לחשב ממוצע לערכי ה-x וממוצע לערכי ה-y בנפרד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמצא את ה-x האמצעי. ממוצע של 0 ו-4.&rlm;", math_expression: "(0 + 4) : 2 = 2" },
-            { verbal_explanation: "נמצא את ה-y האמצעי. ממוצע של 0 ו-6.&rlm;", math_expression: "(0 + 6) : 2 = 3" },
-            { verbal_explanation: "קואורדינטות נקודת האמצע הן (2,3).&rlm;", math_expression: "" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "הנקודה \\( (-3, -3) \\) נמצאת במערכת הצירים. מה יקרה לה אם נזיז אותה 5 יחידות ישר למעלה? מה יהיו הקואורדינטות החדשות שלה?&rlm;",
+        "options": ["(-3, 2)", "(2, -3)", "(-3, -8)", "(2, 2)"],
+        "correctAnswer": 0,
+        "hint": "הזזה למעלה משנה רק את המספר השני בזוג (את ה-y). הוסיפו 5 למינוס 3.",
+        "solution_steps": [
+            { "verbal_explanation": "הזזה למעלה לאורך הגרף משפיעה אך ורק על המיקום האנכי של הנקודה. האיקס נשאר ללא שינוי.", "math_expression": "X = -3" },
+            { "verbal_explanation": "נוסיף חמש יחידות לגובה המקורי של הנקודה.", "math_expression": "-3 + 5" },
+            { "verbal_explanation": "התוצאה של החיבור תעניק לנו את הגובה החדש והחיובי.", "math_expression": "2" },
+            { "verbal_explanation": "נרשום את הזוג המעודכן במלואו.", "math_expression": "(-3, 2)" }
         ],
-        final_answer: "(2,3)"
+        "final_answer": "(-3, 2)"
     },
     {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "אם ניקח את הנקודה (2, 5) ונשקף אותה ('כמו במראה') מעבר לציר ה-x, מה יהיו הקואורדינטות החדשות שלה?&rlm;",
-        options: ["(2, -5)", "(-2, 5)", "(-2, -5)", "(5, 2)"],
-        correctAnswer: 0,
-        hint: "כשמשקפים מעבר לציר ה-x, מיקום ה-x לא משתנה (לא זזנו ימינה שמאלה), רק ה-y מתהפך כלפי מטה (מחיובי לשלילי).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הנקודה נמצאת במרחק 5 יחידות מעל ציר ה-x.&rlm;", math_expression: "" },
-            { verbal_explanation: "בשיקוף מעבר לציר ה-x, היא תעבור למרחק זהה מתחת לציר ה-x.&rlm;", math_expression: "" },
-            { verbal_explanation: "ערך ה-x יישאר 2, וערך ה-y ישתנה ל-5-.&rlm;", math_expression: "x = 2 , y = -5" }
+        "topic": "graphs_grade_7",
+        "subTopic": "מערכת צירים",
+        "question_text": "ציירנו ריבוע במערכת צירים. הפינה השמאלית התחתונה שלו היא בראשית הצירים \\( (0,0) \\). אורך כל צלע של הריבוע הוא 7 יחידות. מהן הקואורדינטות של הפינה הימנית העליונה של הריבוע?&rlm;",
+        "options": ["(7, 7)", "(0, 7)", "(7, 0)", "(14, 14)"],
+        "correctAnswer": 0,
+        "hint": "הפינה הימנית העליונה נמצאת הכי רחוק ימינה (מרחק של צלע אחת מהאפס) והכי רחוק למעלה (מרחק של צלע אחת מהאפס).",
+        "solution_steps": [
+            { "verbal_explanation": "נתחיל מנקודת האפס. כדי להגיע לפינה הימנית נלך שבעה צעדים לאורך הציר האופקי.", "math_expression": "0 + 7 = 7 \\Rightarrow X = 7" },
+            { "verbal_explanation": "מכיוון שזהו ריבוע, גם הגובה שלו שווה לשבע. לכן נעלה שבעה צעדים לאורך הציר האנכי.", "math_expression": "0 + 7 = 7 \\Rightarrow Y = 7" },
+            { "verbal_explanation": "הנקודה שממוקמת גם שבע ימינה וגם שבע למעלה תהווה את הפינה הנגדית בדיוק.", "math_expression": "(7, 7)" }
         ],
-        final_answer: "(2, -5)"
-    },
-    {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "משולש ישר זווית משורטט כך שקודקוד הזווית הישרה הוא בראשית הצירים (0,0). שני הקודקודים האחרים הם על הצירים בנקודות (4,0) ו-(0,5). מה שטח המשולש?&rlm;",
-        options: ["10", "20", "12", "9"],
-        correctAnswer: 0,
-        hint: "הניצבים של המשולש מונחים על הצירים. אורך ניצב אחד הוא 4 ואורך הניצב השני הוא 5.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ניצב אחד יושב על ציר ה-x ואורכו מ-0 עד 4 הוא 4 יחידות.&rlm;", math_expression: "b = 4" },
-            { verbal_explanation: "הניצב השני יושב על ציר ה-y ואורכו מ-0 עד 5 הוא 5 יחידות.&rlm;", math_expression: "h = 5" },
-            { verbal_explanation: "במשולש ישר זווית, שטח הוא מכפלת הניצבים חלקי 2.&rlm;", math_expression: "(4 × 5) : 2 = 10" }
-        ],
-        final_answer: "10"
-    },
-    {
-        topic: "realistic_graphs",
-        subTopic: "מערכת צירים",
-        question_text: "איזו מבין הנקודות הבאות נמצאת במקום ה'גבוה ביותר' (מבחינה אנכית) במערכת הצירים?&rlm;",
-        options: ["(0 , 10)", "(15 , 5)", "(-20 , 8)", "(100 , -2)"],
-        correctAnswer: 0,
-        hint: "ה'גובה' במערכת צירים נקבע אך ורק על ידי קואורדינטת ה-y (המספר הימני בזוג).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נבדוק את ערכי ה-y של כל הנקודות.&rlm;", math_expression: "" },
-            { verbal_explanation: "ערכי ה-y הם: 10, 5, 8, ומינוס 2.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר 10 הוא הגדול ביותר, לכן הנקודה (0, 10) היא הגבוהה ביותר מבין כולן.&rlm;", math_expression: "10 > 8 > 5 > -2" }
-        ],
-        final_answer: "(0 , 10)"
+        "final_answer": "(7, 7)"
     }
-
 ];

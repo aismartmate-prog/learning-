@@ -1,738 +1,654 @@
-// ========================================================================
-// שכבת גיל: ה'-ו' | נושא: גיאומטריה
-// תתי נושאים: היקפים ושטחים, הכרת הגופים, חישובי נפחים, מעגל ועיגול (40 שאלות)
-// ========================================================================
-
 const questionsDB = [
-
     // ==========================================
     // תת נושא 1: היקפים ושטחים (10 שאלות)
     // ==========================================
+
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "נתון מלבן שאורכו 12 ס\"מ ורוחבו 5 ס\"מ.<br>מהו שטח המלבן?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 200 100\" width=\"100%\" height=\"100\" style=\"max-width:200px;\"><rect x=\"30\" y=\"20\" width=\"140\" height=\"60\" fill=\"#e0f2fe\" stroke=\"#0284c7\" stroke-width=\"2\"/><text x=\"100\" y=\"15\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\" text-anchor=\"middle\">12 ס\"מ</text><text x=\"15\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\" text-anchor=\"middle\">5 ס\"מ</text></svg></div>",
-        options: [
-            "60 סמ\"ר",
-            "34 סמ\"ר",
-            "17 סמ\"ר",
-            "120 סמ\"ר"
-        ],
+        question_text: "נתון מלבן שאורכו 8 סנטימטרים ורוחבו 5 סנטימטרים. מהו שטח המלבן?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 100' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='40' y='20' width='120' height='60' fill='#3b82f6' fill-opacity='0.2' stroke='#3b82f6' stroke-width='2'/><text x='100' y='15' font-size='14' font-family='Arial'>8</text><text x='25' y='55' font-size='14' font-family='Arial'>5</text></svg></div>",
+        options: ["40", "13", "26", "45"],
         correctAnswer: 0,
-        hint: "שטח מלבן שווה למכפלת האורך ברוחב (אורך כפול רוחב).&rlm;",
+        hint: "כדי למצוא שטח של מלבן, צריך פשוט להכפיל את האורך שלו ברוחב שלו.",
         solution_steps: [
-            { verbal_explanation: "הנוסחה לחישוב שטח מלבן היא: שטח = אורך &times; רוחב.&rlm;", math_expression: "S = a * b" },
-            { verbal_explanation: "נציב את הנתונים שלנו: אורך 12 ס\"מ, רוחב 5 ס\"מ.&rlm;", math_expression: "12 * 5 = 60" }
+            { verbal_explanation: "נבדוק מהו האורך של המלבן מתוך הנתונים בשאלה.", math_expression: "אורך = 8" },
+            { verbal_explanation: "נבדוק מהו הרוחב של המלבן מתוך הנתונים.", math_expression: "רוחב = 5" },
+            { verbal_explanation: "ניזכר בכלל החשוב: שטח של מלבן שווה לאורך כפול הרוחב.", math_expression: "שטח = אורך \\times רוחב" },
+            { verbal_explanation: "נציב את המספרים שלנו בתרגיל כפל פשוט.", math_expression: "8 \\times 5" },
+            { verbal_explanation: "נפתור את התרגיל כדי לקבל את השטח המלא.", math_expression: "40" }
         ],
-        final_answer: "60 סמ\"ר"
+        final_answer: "40"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "נתון מלבן שאורכו 12 ס\"מ ורוחבו 5 ס\"מ.<br>מהו היקף המלבן?&rlm;",
-        options: [
-            "34 ס\"מ",
-            "60 ס\"מ",
-            "17 ס\"מ",
-            "24 ס\"מ"
-        ],
+        question_text: "מהו ההיקף של מלבן שאורכו 10 סנטימטרים ורוחבו 4 סנטימטרים?&rlm;",
+        options: ["28", "40", "14", "24"],
         correctAnswer: 0,
-        hint: "היקף מלבן שווה לסכום כל ארבע צלעותיו (פעמיים האורך + פעמיים הרוחב).&rlm;",
+        hint: "היקף הוא המסגרת שמסביב למלבן. למלבן יש שתי צלעות ארוכות ושתי צלעות קצרות. חברו את כל ארבע הצלעות ביחד.",
         solution_steps: [
-            { verbal_explanation: "במלבן יש שתי צלעות שוות באורכן ושתי צלעות שוות ברוחבן. ההיקף הוא סכום כולן.&rlm;", math_expression: "12 + 12 + 5 + 5 = 34" },
-            { verbal_explanation: "דרך נוספת: לחבר אורך ורוחב ולהכפיל פי 2.&rlm;", math_expression: "(12 + 5) * 2 = 34" }
+            { verbal_explanation: "נרשום את האורך והרוחב הידועים לנו.", math_expression: "אורך = 10 \\quad , \\quad רוחב = 4" },
+            { verbal_explanation: "נזכור שלמלבן יש פעמיים את האורך ופעמיים את הרוחב.", math_expression: "היקף = אורך + אורך + רוחב + רוחב" },
+            { verbal_explanation: "נרשום את התרגיל עם המספרים שלנו.", math_expression: "10 + 10 + 4 + 4" },
+            { verbal_explanation: "נחבר קודם את שתי הצלעות הארוכות.", math_expression: "10 + 10 = 20" },
+            { verbal_explanation: "נחבר את שתי הצלעות הקצרות.", math_expression: "4 + 4 = 8" },
+            { verbal_explanation: "נחבר את הכל יחד כדי למצוא את ההיקף המלא.", math_expression: "20 + 8 = 28" }
         ],
-        final_answer: "34 ס\"מ"
+        final_answer: "28"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "היקפו של ריבוע הוא 36 ס\"מ.<br>מהו אורך צלע הריבוע?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 100 100\" width=\"100%\" height=\"100\" style=\"max-width:100px;\"><rect x=\"10\" y=\"10\" width=\"80\" height=\"80\" fill=\"#fef08a\" stroke=\"#ca8a04\" stroke-width=\"3\"/><text x=\"50\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#854d0e\" text-anchor=\"middle\">P = 36</text></svg></div>",
-        options: [
-            "9 ס\"מ",
-            "6 ס\"מ",
-            "12 ס\"מ",
-            "8 ס\"מ"
-        ],
+        question_text: "נתון ריבוע שאורך כל צלע שלו הוא 7 סנטימטרים. מהו שטח הריבוע?&rlm;",
+        options: ["49", "28", "14", "42"],
         correctAnswer: 0,
-        hint: "בריבוע כל ארבע הצלעות שוות באורכן. לכן, ההיקף שווה לאורך צלע אחת כפול 4.&rlm;",
+        hint: "בריבוע, כל הצלעות שוות. שטח של ריבוע מחושב על ידי הכפלת הצלע בעצמה.",
         solution_steps: [
-            { verbal_explanation: "היקף ריבוע מורכב מ-4 צלעות שוות. כדי למצוא צלע אחת, נחלק את ההיקף ב-4.&rlm;", math_expression: "36 / 4 = 9" }
+            { verbal_explanation: "נבדוק מהו אורך הצלע של הריבוע שלנו.", math_expression: "צלע = 7" },
+            { verbal_explanation: "ניזכר ששטח ריבוע הוא הצלע כפול עצמה.", math_expression: "שטח = צלע \\times צלע" },
+            { verbal_explanation: "נרשום את תרגיל הכפל לפי המספרים שלנו.", math_expression: "7 \\times 7" },
+            { verbal_explanation: "נפתור את התרגיל לפי לוח הכפל.", math_expression: "49" }
         ],
-        final_answer: "9 ס\"מ"
+        final_answer: "49"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "שטחו של ריבוע הוא 64 סמ\"ר.<br>מהו היקף הריבוע?&rlm;",
-        options: [
-            "32 ס\"מ",
-            "16 ס\"מ",
-            "24 ס\"מ",
-            "64 ס\"מ"
-        ],
+        question_text: "מהו ההיקף של ריבוע ששטחו הוא 36 סנטימטרים רבועים?&rlm;",
+        options: ["24", "12", "36", "18"],
         correctAnswer: 0,
-        hint: "מצאו קודם את אורך הצלע: איזה מספר כפול עצמו שווה ל-64? לאחר מכן, חשבו את ההיקף.&rlm;",
+        hint: "קודם צריך למצוא את הצלע של הריבוע. איזה מספר כפול עצמו שווה ל-36? אחרי שתמצאו את הצלע, חברו אותה 4 פעמים כדי למצוא את ההיקף.",
         solution_steps: [
-            { verbal_explanation: "שטח ריבוע הוא צלע כפול עצמה. המספר שכפול עצמו שווה 64 הוא 8.&rlm;", math_expression: "8 * 8 = 64" },
-            { verbal_explanation: "כעת כשאנו יודעים שצלע הריבוע היא 8 ס\"מ, נחשב את ההיקף (4 צלעות שוות).&rlm;", math_expression: "8 * 4 = 32" }
+            { verbal_explanation: "אנחנו יודעים שהשטח הוא שלושים ושש.", math_expression: "שטח = 36" },
+            { verbal_explanation: "נשאל את עצמנו: איזה מספר כפול עצמו שווה שלושים ושש?", math_expression: "6 \\times 6 = 36" },
+            { verbal_explanation: "מכאן הבנו שאורך כל צלע של הריבוע הוא שש.", math_expression: "צלע = 6" },
+            { verbal_explanation: "כדי למצוא את ההיקף, נחבר את כל ארבע הצלעות של הריבוע.", math_expression: "היקף = 6 + 6 + 6 + 6" },
+            { verbal_explanation: "אפשר גם לעשות תרגיל כפל פשוט.", math_expression: "4 \\times 6" },
+            { verbal_explanation: "נפתור ונגיע לתשובה הסופית.", math_expression: "24" }
         ],
-        final_answer: "32 ס\"מ"
+        final_answer: "24"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "שטחו של מלבן הוא 40 סמ\"ר. אורכו של המלבן הוא 8 ס\"מ.<br>מהו רוחבו של המלבן?&rlm;",
-        options: [
-            "5 ס\"מ",
-            "10 ס\"מ",
-            "32 ס\"מ",
-            "4 ס\"מ"
-        ],
+        question_text: "במשולש ישר זווית אורך ניצב אחד (הבסיס) הוא 6 סנטימטרים ואורך הניצב השני (הגובה) הוא 8 סנטימטרים. מהו שטח המשולש?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 120' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='40,100 160,100 40,20' fill='#10b981' fill-opacity='0.2' stroke='#10b981' stroke-width='2'/><polyline points='40,90 50,90 50,100' fill='none' stroke='#1e293b' stroke-width='1.5'/><text x='100' y='115' font-size='14' font-family='Arial'>8</text><text x='25' y='60' font-size='14' font-family='Arial'>6</text></svg></div>",
+        options: ["24", "48", "14", "20"],
         correctAnswer: 0,
-        hint: "שטח מלבן מחושב כ- אורך &times; רוחב. כלומר, 8 כפול מספר כלשהו שווה ל-40.&rlm;",
+        hint: "שטח משולש שווה לבסיס כפול הגובה, ואת התוצאה מחלקים בשתיים.",
         solution_steps: [
-            { verbal_explanation: "כדי למצוא צלע חסרה במלבן כאשר השטח נתון, נחלק את השטח בצלע הידועה.&rlm;", math_expression: "40 / 8 = 5" }
+            { verbal_explanation: "נרשום את אורך הבסיס של המשולש.", math_expression: "בסיס = 8" },
+            { verbal_explanation: "נרשום את אורך הגובה של המשולש.", math_expression: "גובה = 6" },
+            { verbal_explanation: "ניזכר בכלל לחישוב שטח משולש: מכפילים את הבסיס בגובה ואז מחלקים בשתיים.", math_expression: "שטח = (בסיס \\times גובה) \\div 2" },
+            { verbal_explanation: "נכפיל את הבסיס בגובה.", math_expression: "8 \\times 6 = 48" },
+            { verbal_explanation: "כעת נחלק את התוצאה שקיבלנו בשתיים.", math_expression: "48 \\div 2" },
+            { verbal_explanation: "נקבל את השטח המדויק.", math_expression: "24" }
         ],
-        final_answer: "5 ס\"מ"
+        final_answer: "24"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "במשולש ישר זווית, אורכי הניצבים (הצלעות המרכיבות את הזווית הישרה) הם 6 ס\"מ ו-8 ס\"מ.<br>מהו שטח המשולש?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 150 120\" width=\"100%\" height=\"120\" style=\"max-width:150px;\"><polygon points=\"20,100 120,100 20,20\" fill=\"#dcfce3\" stroke=\"#16a34a\" stroke-width=\"2\"/><rect x=\"20\" y=\"90\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"1\"/><text x=\"70\" y=\"115\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\" text-anchor=\"middle\">8 ס\"מ</text><text x=\"5\" y=\"60\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\" text-anchor=\"middle\">6</text></svg></div>",
-        options: [
-            "24 סמ\"ר",
-            "48 סמ\"ר",
-            "14 סמ\"ר",
-            "30 סמ\"ר"
-        ],
+        question_text: "מהו ההיקף של משולש שאורכי הצלעות שלו הם 5 סנטימטרים, 12 סנטימטרים ו-13 סנטימטרים?&rlm;",
+        options: ["30", "60", "20", "25"],
         correctAnswer: 0,
-        hint: "שטח משולש ישר זווית שווה למכפלת שני הניצבים (הצלעות הישרות) לחלק ל-2. זה בדיוק חצי משטח של מלבן!&rlm;",
+        hint: "היקף של כל צורה הוא פשוט החיבור של כל הצלעות שלה מסביב.",
         solution_steps: [
-            { verbal_explanation: "נכפיל את שני הניצבים (בסיס וגובה) זה בזה.&rlm;", math_expression: "6 * 8 = 48" },
-            { verbal_explanation: "שטח משולש הוא חצי משטח המלבן שנוצר מאותן צלעות, לכן נחלק ב-2.&rlm;", math_expression: "48 / 2 = 24" }
+            { verbal_explanation: "נקרא שוב את הנתונים ונסדר את אורכי שלוש הצלעות.", math_expression: "5 \\quad , \\quad 12 \\quad , \\quad 13" },
+            { verbal_explanation: "כדי למצוא את ההיקף, נרכיב תרגיל חיבור של כל הצלעות.", math_expression: "היקף = 5 + 12 + 13" },
+            { verbal_explanation: "נחבר קודם את שני המספרים הראשונים.", math_expression: "5 + 12 = 17" },
+            { verbal_explanation: "כעת נוסיף את הצלע השלישית לתוצאה.", math_expression: "17 + 13" },
+            { verbal_explanation: "נסיים את פעולת החיבור ונקבל את התשובה.", math_expression: "30" }
         ],
-        final_answer: "24 סמ\"ר"
+        final_answer: "30"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "גינה מלבנית היא באורך 15 מטרים וברוחב 10 מטרים. מעוניינים לרצף את הגינה במרצפות.<br>כמה מ\"ר של ריצוף צריך לקנות?&rlm;",
-        options: [
-            "150 מ\"ר",
-            "50 מ\"ר",
-            "100 מ\"ר",
-            "25 מ\"ר"
-        ],
+        question_text: "ההיקף של מלבן הוא 30 סנטימטרים. אורך צלע אחת שלו הוא 10 סנטימטרים. מהו אורך הצלע השנייה של המלבן?&rlm;",
+        options: ["5", "10", "20", "15"],
         correctAnswer: 0,
-        hint: "כאשר מדברים על ריצוף או כיסוי מלא של צורה, מדובר על מציאת השטח שלה (אורך כפול רוחב).&rlm;",
+        hint: "למלבן יש שתי צלעות ארוכות ושתי קצרות. אם צלע אחת היא 10, אז גם הצלע שממולה היא 10. חסרו אותן מההיקף הכולל וחלקו את השארית לשתיים.",
         solution_steps: [
-            { verbal_explanation: "כדי לדעת כמה ריצוף נדרש, עלינו לחשב את השטח הפנימי של הגינה.&rlm;", math_expression: "" },
-            { verbal_explanation: "נכפול את האורך ברוחב.&rlm;", math_expression: "15 * 10 = 150" }
+            { verbal_explanation: "ההיקף הכולל של המלבן ידוע לנו והוא שלושים.", math_expression: "היקף = 30" },
+            { verbal_explanation: "אנחנו יודעים שיש צלע שאורכה עשר. במלבן יש שתי צלעות כאלה (אחת מול השנייה). נחבר אותן.", math_expression: "10 + 10 = 20" },
+            { verbal_explanation: "נחסר את הסכום הזה מההיקף הכולל כדי לראות כמה נשאר לשתי הצלעות האחרות.", math_expression: "30 - 20 = 10" },
+            { verbal_explanation: "נשארו לנו עשרה סנטימטרים שאותם נחלק שווה בשווה בין שתי הצלעות הנותרות.", math_expression: "10 \\div 2" },
+            { verbal_explanation: "נקבל את אורך הצלע השנייה.", math_expression: "5" }
         ],
-        final_answer: "150 מ\"ר"
+        final_answer: "5"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "חיברו יחד שני ריבועים זהים שאורך צלעם הוא 4 ס\"מ, כך שנוצר מלבן חדש.<br>מהו שטח המלבן החדש?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 200 100\" width=\"100%\" height=\"100\" style=\"max-width:200px;\"><rect x=\"20\" y=\"20\" width=\"60\" height=\"60\" fill=\"#f3e8ff\" stroke=\"#7c3aed\" stroke-width=\"2\"/><rect x=\"80\" y=\"20\" width=\"60\" height=\"60\" fill=\"#f3e8ff\" stroke=\"#7c3aed\" stroke-width=\"2\"/><text x=\"50\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\" text-anchor=\"middle\">4</text><text x=\"110\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\" text-anchor=\"middle\">4</text></svg></div>",
-        options: [
-            "32 סמ\"ר",
-            "16 סמ\"ר",
-            "24 סמ\"ר",
-            "64 סמ\"ר"
-        ],
+        question_text: "השטח של מלבן הוא 50 סנטימטרים רבועים. רוחב המלבן הוא 5 סנטימטרים. מהו ההיקף של המלבן?&rlm;",
+        options: ["30", "20", "50", "25"],
         correctAnswer: 0,
-        hint: "חשבו את שטחו של ריבוע אחד בנפרד, ולאחר מכן הכפילו ב-2 (כי יש שני ריבועים זהים).&rlm;",
+        hint: "קודם צריך למצוא את האורך. כדי למצוא את האורך, חלקו את השטח ברוחב. אחרי שיש לכם אורך ורוחב, חשבו את ההיקף בקלות.",
         solution_steps: [
-            { verbal_explanation: "נחשב תחילה את השטח של ריבוע אחד (צלע כפול עצמה).&rlm;", math_expression: "4 * 4 = 16" },
-            { verbal_explanation: "המלבן החדש מורכב משני ריבועים כאלה, לכן השטח כפול.&rlm;", math_expression: "16 * 2 = 32" }
+            { verbal_explanation: "אנחנו יודעים שהשטח הוא חמישים והרוחב הוא חמש.", math_expression: "שטח = 50 \\quad , \\quad רוחב = 5" },
+            { verbal_explanation: "נחשב את האורך על ידי חלוקת השטח ברוחב.", math_expression: "אורך = 50 \\div 5" },
+            { verbal_explanation: "נפתור ונגלה שהאורך שווה לעשר.", math_expression: "אורך = 10" },
+            { verbal_explanation: "כעת נחשב את ההיקף שמורכב מפעמיים האורך ופעמיים הרוחב.", math_expression: "היקף = 10 + 10 + 5 + 5" },
+            { verbal_explanation: "נחבר את כל המספרים.", math_expression: "20 + 10" },
+            { verbal_explanation: "נקבל את ההיקף השלם.", math_expression: "30" }
         ],
-        final_answer: "32 סמ\"ר"
+        final_answer: "30"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "חופפים למלבן הקודם (משני ריבועים של 4 ס\"מ), נשאלת השאלה: מהו היקף המלבן החדש שנוצר?&rlm;",
-        options: [
-            "24 ס\"מ",
-            "32 ס\"מ",
-            "16 ס\"מ",
-            "20 ס\"מ"
-        ],
+        question_text: "במקבילית, אורך הבסיס הוא 12 סנטימטרים והגובה לבסיס הוא 4 סנטימטרים. מהו שטח המקבילית?&rlm;",
+        options: ["48", "24", "16", "32"],
         correctAnswer: 0,
-        hint: "ציירו לעצמכם את המלבן: הרוחב נשאר 4 ס\"מ, אבל האורך כעת מורכב משתי צלעות של 4 ס\"מ (כלומר אורך 8 ס\"מ). חשבו את ההיקף כעת.&rlm;",
+        hint: "שטח מקבילית שווה לאורך הבסיס כפול הגובה שלו (בדיוק כמו שמחשבים שטח מלבן).",
         solution_steps: [
-            { verbal_explanation: "מידות המלבן החדש הן: רוחב 4 ס\"מ, ואורך 8 ס\"מ (4+4).&rlm;", math_expression: "a = 8, b = 4" },
-            { verbal_explanation: "היקף מחשבים על ידי חיבור כל 4 הצלעות מסביב.&rlm;", math_expression: "8 + 8 + 4 + 4 = 24" }
+            { verbal_explanation: "נרשום את אורך הבסיס ואת הגובה שקיבלנו בשאלה.", math_expression: "בסיס = 12 \\quad , \\quad גובה = 4" },
+            { verbal_explanation: "הכלל לחישוב שטח מקבילית הוא להכפיל את הבסיס בגובה.", math_expression: "שטח = בסיס \\times גובה" },
+            { verbal_explanation: "נרכיב את התרגיל עם המספרים שלנו.", math_expression: "12 \\times 4" },
+            { verbal_explanation: "נפתור את תרגיל הכפל כדי להגיע לתשובה.", math_expression: "48" }
         ],
-        final_answer: "24 ס\"מ"
+        final_answer: "48"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "היקפים ושטחים",
-        question_text: "נתונה צורה המורכבת ממלבן גדול שמתוכו 'גזרו' ריבוע קטן. מידות המלבן הגדול היו 10 ס\"מ על 6 ס\"מ. הריבוע שנגזר היה בגודל 2 ס\"מ על 2 ס\"מ.<br>מהו השטח הנותר של הצורה?&rlm;",
-        options: [
-            "56 סמ\"ר",
-            "60 סמ\"ר",
-            "58 סמ\"ר",
-            "64 סמ\"ר"
-        ],
+        question_text: "צירו צורה מורכבת שבנויה ממלבן שהמידות שלו הן 10 על 4 סנטימטרים, וצמוד אליו ריבוע שאורך הצלע שלו הוא 3 סנטימטרים. מהו השטח הכולל של כל הצורה יחד?&rlm;",
+        options: ["49", "40", "19", "52"],
         correctAnswer: 0,
-        hint: "חשבו את השטח של המלבן הגדול כאילו הוא שלם, ולאחר מכן החסירו ממנו את השטח של הריבוע שנגזר.&rlm;",
+        hint: "חשבו את שטח המלבן בנפרד ואת שטח הריבוע בנפרד, ולאחר מכן חברו את שני השטחים למספר אחד.",
         solution_steps: [
-            { verbal_explanation: "נחשב את שטח המלבן המקורי.&rlm;", math_expression: "10 * 6 = 60" },
-            { verbal_explanation: "נחשב את שטח הריבוע שנגזר והוצא מהצורה.&rlm;", math_expression: "2 * 2 = 4" },
-            { verbal_explanation: "נחסר את השטח שנגזר מהשטח הכולל.&rlm;", math_expression: "60 - 4 = 56" }
+            { verbal_explanation: "נתחיל בחישוב השטח של המלבן לפי המידות שלו.", math_expression: "שטח מלבן = 10 \\times 4" },
+            { verbal_explanation: "נפתור ונשמור את התוצאה בצד.", math_expression: "40" },
+            { verbal_explanation: "כעת נחשב את השטח של הריבוע שמוצמד למלבן.", math_expression: "שטח ריבוע = 3 \\times 3" },
+            { verbal_explanation: "נפתור ונשמור גם את התוצאה הזו.", math_expression: "9" },
+            { verbal_explanation: "נחבר את שני השטחים כדי לגלות את השטח הכולל של הצורה השלמה.", math_expression: "40 + 9" },
+            { verbal_explanation: "נקבל את התשובה הסופית.", math_expression: "49" }
         ],
-        final_answer: "56 סמ\"ר"
+        final_answer: "49"
     },
 
     // ==========================================
     // תת נושא 2: הכרת הגופים (10 שאלות)
     // ==========================================
+
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "הכרת הגופים",
-        question_text: "כמה פאות (צדדים שטוחים) יש לקובייה?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 150 150\" width=\"100%\" height=\"120\" style=\"max-width:150px;\"><polygon points=\"40,60 90,60 90,110 40,110\" fill=\"#bae6fd\" stroke=\"#0284c7\" stroke-width=\"2\"/><polygon points=\"40,60 60,40 110,40 90,60\" fill=\"#e0f2fe\" stroke=\"#0284c7\" stroke-width=\"2\"/><polygon points=\"90,60 110,40 110,90 90,110\" fill=\"#7dd3fc\" stroke=\"#0284c7\" stroke-width=\"2\"/></svg></div>",
-        options: [
-            "6",
-            "8",
-            "12",
-            "4"
-        ],
+        question_text: "כמה פאות (הצדדים השטוחים) סך הכל יש בקובייה?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 150' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='60,110 120,110 160,80 100,80' fill='none' stroke='#3b82f6' stroke-width='2'/><polygon points='60,50 120,50 160,20 100,20' fill='#cbd5e1' fill-opacity='0.4' stroke='#3b82f6' stroke-width='2'/><line x1='60' y1='110' x2='60' y2='50' stroke='#3b82f6' stroke-width='2'/><line x1='120' y1='110' x2='120' y2='50' stroke='#3b82f6' stroke-width='2'/><line x1='160' y1='80' x2='160' y2='20' stroke='#3b82f6' stroke-width='2'/><line x1='100' y1='110' x2='160' y2='110' stroke='none'/><line x1='100' y1='110' x2='100' y2='80' stroke='#3b82f6' stroke-dasharray='4,4' stroke-width='2'/><line x1='60' y1='110' x2='100' y2='80' stroke='#3b82f6' stroke-dasharray='4,4' stroke-width='2'/><line x1='100' y1='80' x2='100' y2='20' stroke='#3b82f6' stroke-dasharray='4,4' stroke-width='2'/></svg></div>",
+        options: ["6", "4", "8", "12"],
         correctAnswer: 0,
-        hint: "חשבו על קוביית משחק רגילה. המספרים עליה הם מ-1 עד כמה?&rlm;",
+        hint: "חישבו על קוביית משחק רגילה (כמו שמטילים במשחקי קופסה). אילו מספרים מופיעים עליה מכל הצדדים?",
         solution_steps: [
-            { verbal_explanation: "קובייה היא גוף תלת-ממדי המורכב מריבועים. יש לה בסיס תחתון, בסיס עליון, ו-4 פאות צדדיות (מעטפת).&rlm;", math_expression: "" },
-            { verbal_explanation: "בסך הכל: 1 עליון + 1 תחתון + 4 בצדדים = 6 פאות.&rlm;", math_expression: "1 + 1 + 4 = 6" }
+            { verbal_explanation: "לקובייה יש צד אחד למעלה שהוא התקרה.", math_expression: "למעלה = 1" },
+            { verbal_explanation: "יש לה צד אחד למטה שהוא הרצפה או הבסיס.", math_expression: "למטה = 1" },
+            { verbal_explanation: "מסביב יש לקובייה עוד צדדים שמקיפים אותה.", math_expression: "מסביב = 4" },
+            { verbal_explanation: "נחבר את כל הצדדים (הפאות) יחד.", math_expression: "1 + 1 + 4" },
+            { verbal_explanation: "נקבל את המספר הכולל של הפאות.", math_expression: "6" }
         ],
         final_answer: "6"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "הכרת הגופים",
-        question_text: "כמה קודקודים (שפיצים) יש לתיבה?&rlm;",
-        options: [
-            "8",
-            "6",
-            "12",
-            "10"
-        ],
+        question_text: "כמה קודקודים (הפינות השפיציות) יש לתיבה?&rlm;",
+        options: ["8", "6", "12", "4"],
         correctAnswer: 0,
-        hint: "ספרו את הפינות בבסיס העליון, ולאחר מכן את הפינות בבסיס התחתון.&rlm;",
+        hint: "לתיבה יש שתי שכבות של פינות: הפינות בבסיס העליון והפינות בבסיס התחתון. ספרו כמה פינות יש למלבן ותכפילו בשתיים.",
         solution_steps: [
-            { verbal_explanation: "בתיבה (כמו קופסת נעליים), יש בסיס עליון מלבני שיש לו 4 פינות (קודקודים).&rlm;", math_expression: "" },
-            { verbal_explanation: "וגם לבסיס התחתון המלבני יש 4 פינות. יחד יש 8 קודקודים.&rlm;", math_expression: "4 + 4 = 8" }
+            { verbal_explanation: "תיבה היא כמו קופסת נעליים. יש לה בסיס למעלה (מלבן) ובסיס למטה (מלבן).", math_expression: "שני בסיסים" },
+            { verbal_explanation: "נספור כמה פינות שפיציות יש במלבן העליון.", math_expression: "למעלה = 4" },
+            { verbal_explanation: "נספור כמה פינות יש במלבן התחתון.", math_expression: "למטה = 4" },
+            { verbal_explanation: "נחבר את הפינות העליונות והתחתונות יחד.", math_expression: "4 + 4" },
+            { verbal_explanation: "התוצאה היא סך כל הקודקודים.", math_expression: "8" }
         ],
         final_answer: "8"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "הכרת הגופים",
-        question_text: "כמה מקצועות (הקווים המחברים בין הקודקודים) יש לקובייה?&rlm;",
-        options: [
-            "12",
-            "8",
-            "6",
-            "16"
-        ],
+        question_text: "כמה מקצועות (הקווים הישרים שמחברים את הפינות) יש למנסרה משולשת?&rlm;",
+        options: ["9", "6", "12", "5"],
         correctAnswer: 0,
-        hint: "ספרו את הקווים: 4 קווים למעלה, 4 קווים למטה, ועוד 4 קווים עומדים שמחברים ביניהם.&rlm;",
+        hint: "מנסרה משולשת מורכבת משני משולשים (למעלה ולמטה) ושלושה קווים שעומדים ומחברים ביניהם.",
         solution_steps: [
-            { verbal_explanation: "לריבוע העליון יש 4 צלעות (מקצועות). לריבוע התחתון יש 4 צלעות.&rlm;", math_expression: "4 + 4 = 8" },
-            { verbal_explanation: "וישנם עוד 4 מקצועות צדדיים ('עמודים') שמחברים את הבסיס העליון לתחתון.&rlm;", math_expression: "8 + 4 = 12" }
+            { verbal_explanation: "נתחיל לספור את הקווים שמציירים את המשולש העליון.", math_expression: "למעלה = 3" },
+            { verbal_explanation: "נספור את הקווים שמציירים את המשולש התחתון.", math_expression: "למטה = 3" },
+            { verbal_explanation: "נוסיף את הקווים שעומדים זקוף ומחברים את המשולש למעלה למשולש למטה.", math_expression: "עומדים = 3" },
+            { verbal_explanation: "נחבר את כל הקווים (המקצועות) ביחד.", math_expression: "3 + 3 + 3" },
+            { verbal_explanation: "נקבל את סך כל המקצועות בגוף הזה.", math_expression: "9" }
         ],
-        final_answer: "12"
+        final_answer: "9"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "הכרת הגופים",
-        question_text: "איזה מהגופים הבאים אינו מורכב מפאות ישרות (מצולעים)?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 150 150\" width=\"100%\" height=\"120\" style=\"max-width:150px;\"><ellipse cx=\"75\" cy=\"40\" rx=\"40\" ry=\"15\" fill=\"#fbcfe8\" stroke=\"#ec4899\" stroke-width=\"2\"/><path d=\"M 35,40 L 35,110 A 40,15 0 0,0 115,110 L 115,40\" fill=\"#fce7f3\" stroke=\"#ec4899\" stroke-width=\"2\"/></svg></div>",
-        options: [
-            "גליל",
-            "תיבה",
-            "פירמידה",
-            "קובייה"
-        ],
+        question_text: "כמה פאות (הצדדים השטוחים) יש בסך הכל לפירמידה מרובעת?&rlm;",
+        options: ["5", "4", "6", "8"],
         correctAnswer: 0,
-        hint: "חפשו גוף שיש לו משטח עגול, כלומר הוא יכול 'להתגלגל'. מצולעים הם צורות ישרות זווית.&rlm;",
+        hint: "פירמידה מרובעת מורכבת מבסיס אחד שהוא ריבוע או מלבן, ומסביבו עומדים משולשים שנפגשים למעלה בפינה אחת.",
         solution_steps: [
-            { verbal_explanation: "תיבה, קובייה ופירמידה מורכבות ממשטחים ישרים (מלבנים, משולשים). משטחים אלו נקראים פאות.&rlm;", math_expression: "" },
-            { verbal_explanation: "גליל מורכב משני בסיסים עגולים ומעטפת עקומה, לכן הוא לא מורכב ממצולעים.&rlm;", math_expression: "" }
+            { verbal_explanation: "לפירמידה יש רצפה שעליה היא עומדת, והיא מרובעת.", math_expression: "בסיס = 1" },
+            { verbal_explanation: "מכל צלע של הרצפה עולה משולש כלפי מעלה. מכיוון שיש ארבע צלעות ברצפה, יש ארבעה משולשים.", math_expression: "משולשים בצדדים = 4" },
+            { verbal_explanation: "נחבר את הבסיס יחד עם המשולשים שמרכיבים את הדפנות.", math_expression: "1 + 4" },
+            { verbal_explanation: "נגלה את המספר הכולל של הפאות של הפירמידה.", math_expression: "5" }
         ],
-        final_answer: "גליל"
+        final_answer: "5"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "הכרת הגופים",
-        question_text: "מהי הצורה של הבסיסים בגליל?&rlm;",
-        options: [
-            "עיגול",
-            "מלבן",
-            "משולש",
-            "ריבוע"
-        ],
+        question_text: "איזה גוף תלת-ממדי אפשר לקפל ולהרכיב מהפריסה המופיעה בציור?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 150' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='80' y='10' width='40' height='40' fill='none' stroke='#3b82f6' stroke-width='2'/><rect x='80' y='50' width='40' height='40' fill='#cbd5e1' fill-opacity='0.4' stroke='#3b82f6' stroke-width='2'/><rect x='80' y='90' width='40' height='40' fill='none' stroke='#3b82f6' stroke-width='2'/><rect x='40' y='50' width='40' height='40' fill='none' stroke='#3b82f6' stroke-width='2'/><rect x='120' y='50' width='40' height='40' fill='none' stroke='#3b82f6' stroke-width='2'/><rect x='160' y='50' width='40' height='40' fill='none' stroke='#3b82f6' stroke-width='2'/></svg></div>",
+        options: ["קובייה", "תיבה", "פירמידה", "מנסרה משולשת"],
         correctAnswer: 0,
-        hint: "חשבו על צורה של קופסת שימורים או פחית. על איזו צורה היא עומדת?&rlm;",
+        hint: "הביטו בציור. הפריסה מורכבת מ-6 ריבועים שווים לחלוטין. איזה גוף בנוי מ-6 ריבועים?",
         solution_steps: [
-            { verbal_explanation: "גליל מורכב משני בסיסים זהים ומקבילים המחוברים ביניהם במעטפת עקומה.&rlm;", math_expression: "" },
-            { verbal_explanation: "הבסיסים של הגליל הם תמיד בצורת עיגול.&rlm;", math_expression: "" }
-        ],
-        final_answer: "עיגול"
-    },
-    {
-        topic: "geometry",
-        subTopic: "הכרת הגופים",
-        question_text: "איזה גוף נוצר כאשר פורסים (פותחים לצורה שטוחה) 6 ריבועים זהים המחוברים זה לזה בצורת צלב?&rlm;",
-        options: [
-            "קובייה",
-            "תיבה",
-            "פירמידה מרובעת",
-            "חרוט"
-        ],
-        correctAnswer: 0,
-        hint: "לגוף הזה יש בדיוק 6 פאות, וכולן ריבועים זהים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תיבה מורכבת ממלבנים. פירמידה מורכבת ממשולשים.&rlm;", math_expression: "" },
-            { verbal_explanation: "הגוף היחיד שכל 6 הפאות שלו הן ריבועים שווים לחלוטין הוא הקובייה.&rlm;", math_expression: "" }
+            { verbal_explanation: "נסתכל על האיור ונראה שהוא מורכב מריבועים בלבד.", math_expression: "רק ריבועים" },
+            { verbal_explanation: "נספור את כמות הריבועים שיש בציור.", math_expression: "יש 6 ריבועים" },
+            { verbal_explanation: "נחשוב: איזה צורה תלת ממדית עשויה אך ורק משישה ריבועים שווים?", math_expression: "קובייה" },
+            { verbal_explanation: "לכן אם נקפל את הקווים, תצא לנו קובייה מושלמת.", math_expression: "קובייה" }
         ],
         final_answer: "קובייה"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "הכרת הגופים",
-        question_text: "כמה בסיסים יש לחרוט (קופה של ליצן)?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 150 150\" width=\"100%\" height=\"120\" style=\"max-width:150px;\"><ellipse cx=\"75\" cy=\"110\" rx=\"40\" ry=\"15\" fill=\"#d8b4fe\" stroke=\"#8b5cf6\" stroke-width=\"2\"/><path d=\"M 35,110 L 75,30 L 115,110\" fill=\"#f3e8ff\" stroke=\"#8b5cf6\" stroke-width=\"2\"/></svg></div>",
-        options: [
-            "1",
-            "2",
-            "0",
-            "3"
-        ],
+        question_text: "איזה גוף מתקבל כאשר מקפלים פריסה שמורכבת משני עיגולים שווים ומלבן אחד גדול?&rlm;",
+        options: ["גליל", "חרוט", "כדור", "מנסרה משולשת"],
         correctAnswer: 0,
-        hint: "לחרוט יש שפיץ (קודקוד) בצד אחד, ומשטח ישר בצד השני עליו הוא עומד.&rlm;",
+        hint: "חשבו על קופסת שימורים או פחית שתייה. יש להם מכסה עגול, תחתית עגולה, וגוף שאפשר לגלגל מתוך מלבן.",
         solution_steps: [
-            { verbal_explanation: "בניגוד לגליל שיש לו שני בסיסים זהים (למעלה ולמטה), לחרוט יש בסיס עגול אחד בלבד.&rlm;", math_expression: "" },
-            { verbal_explanation: "מצידו השני המעטפת שלו נסגרת לנקודה אחת הנקראת קודקוד החרוט.&rlm;", math_expression: "" }
-        ],
-        final_answer: "1"
-    },
-    {
-        topic: "geometry",
-        subTopic: "הכרת הגופים",
-        question_text: "פירמידה משולשת היא פירמידה שהבסיס שלה הוא משולש. ממה מורכבות הפאות הצדדיות של הפירמידה?&rlm;",
-        options: [
-            "משולשים",
-            "מלבנים",
-            "ריבועים",
-            "עיגולים"
-        ],
-        correctAnswer: 0,
-        hint: "בכל הפירמידות בעולם (לא משנה מה הבסיס שלהן), כל הפאות בצדדים עולות למעלה ונפגשות בקודקוד אחד. איזו צורה זו יוצרת?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הגדרה של פירמידה: גוף בעל בסיס כלשהו (מצולע), ומעטפת המורכבת ממשולשים.&rlm;", math_expression: "" },
-            { verbal_explanation: "המשולשים תמיד נפגשים למעלה בקודקוד משותף. לכן הפאות הצדדיות הן תמיד משולשים.&rlm;", math_expression: "" }
-        ],
-        final_answer: "משולשים"
-    },
-    {
-        topic: "geometry",
-        subTopic: "הכרת הגופים",
-        question_text: "במה שונה תיבה מקובייה?&rlm;",
-        options: [
-            "בתיבה הפאות יכולות להיות מלבנים שאינם ריבועים",
-            "לקובייה יש יותר קודקודים",
-            "בתיבה יש פחות מ-6 פאות",
-            "לתיבה יש בסיס עגול"
-        ],
-        correctAnswer: 0,
-        hint: "מבחינת מבנה (כמות פאות, קודקודים, מקצועות) הם זהים לחלוטין. ההבדל הוא בצורת הפאות עצמן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "קובייה היא למעשה סוג מיוחד של תיבה שבה *כל* הפאות הן ריבועים זהים.&rlm;", math_expression: "" },
-            { verbal_explanation: "בתיבה רגילה, הפאות הן מלבנים (חלקם יכולים להיות ריבועים, אבל לא כולם חייבים להיות זהים).&rlm;", math_expression: "" }
-        ],
-        final_answer: "בתיבה הפאות יכולות להיות מלבנים שאינם ריבועים"
-    },
-    {
-        topic: "geometry",
-        subTopic: "הכרת הגופים",
-        question_text: "איזה גוף ייווצר אם נערים הרבה עיגולים זהים אחד על גבי השני בגובה?&rlm;",
-        options: [
-            "גליל",
-            "כדור",
-            "חרוט",
-            "תיבה"
-        ],
-        correctAnswer: 0,
-        hint: "אם נשים הרבה מטבעות זהים (עיגולים) אחד על השני בערימה ישרה, איזו צורה תלת-ממדית נקבל?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ערימה של עיגולים שווים יוצרת גוף שהבסיסים שלו הם עיגולים והעובי שלו שווה לאורך כל הגובה.&rlm;", math_expression: "" },
-            { verbal_explanation: "גוף זה נקרא גליל (כמו עמוד עגול או צינור ישר).&rlm;", math_expression: "" }
+            { verbal_explanation: "נדמיין את המלבן מתגלגל ונסגר למעין צינור או קופסה.", math_expression: "צורת צינור" },
+            { verbal_explanation: "שני העיגולים משמשים בתור המכסה והרצפה שסוגרים את הצינור הזה מכל כיוון.", math_expression: "בסיסים עגולים" },
+            { verbal_explanation: "גוף שיש לו שני בסיסים עגולים ומעטפת עגולה שעוטפת אותם נקרא בשם מתמטי מסוים.", math_expression: "גליל" },
+            { verbal_explanation: "הגוף הוא גליל.", math_expression: "גליל" }
         ],
         final_answer: "גליל"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "הכרת הגופים",
+        question_text: "לאיזה מבין הגופים הבאים אין קודקודים (פינות) בכלל, ויש לו בדיוק שתי פאות (צדדים) שטוחות?&rlm;",
+        options: ["גליל", "כדור", "חרוט", "קובייה"],
+        correctAnswer: 0,
+        hint: "כדור אין לו פאות שטוחות בכלל. לחרוט יש פינה אחת למעלה. גליל עשוי ממעטפת עגולה ושני בסיסים שטוחים בלי פינות.",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את הכדור: אין לו פינות, אבל גם אין לו שום צד שטוח.", math_expression: "לא כדור" },
+            { verbal_explanation: "נבדוק את הקובייה: יש לה המון פינות שפיציות.", math_expression: "לא קובייה" },
+            { verbal_explanation: "נבדוק את החרוט: יש לו צד אחד שטוח למטה, ופינה אחת חדה למעלה (כמו כובע ליצן).", math_expression: "לא חרוט" },
+            { verbal_explanation: "נבדוק את הגליל: המכסה והרצפה הם עיגולים שטוחים, והגוף שלו עגול וחלק בלי שום פינה או שפיץ.", math_expression: "הגוף הוא גליל" },
+            { verbal_explanation: "לכן התשובה היא גליל.", math_expression: "גליל" }
+        ],
+        final_answer: "גליל"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "הכרת הגופים",
+        question_text: "מהו ההבדל העיקרי בין קובייה לבין תיבה רגילה?&rlm;",
+        options: ["בקובייה כל הפאות הן ריבועים שווים, ובתיבה יש גם מלבנים", "לתיבה יש יותר פינות מאשר לקובייה", "בקובייה אין מקצועות, ובתיבה יש", "קובייה היא שטוחה ותיבה היא גוף תלת-ממדי"],
+        correctAnswer: 0,
+        hint: "גם לקובייה וגם לתיבה יש אותו מספר בדיוק של פינות, צלעות ופאות. ההבדל הוא רק בצורת הפאות עצמן.",
+        solution_steps: [
+            { verbal_explanation: "נזכור שגם קובייה וגם תיבה הם גופים שדומים מאוד אחד לשני עם אותה כמות של חלקים.", math_expression: "אותה צורה כללית" },
+            { verbal_explanation: "בקובייה, כל הצדדים מוכרחים להיות בדיוק באותו גודל ובאותה צורה - ריבוע.", math_expression: "קובייה = רק ריבועים" },
+            { verbal_explanation: "בתיבה רגילה, הצדדים יכולים להיות ארוכים יותר או קצרים יותר, כמו למשל מלבנים.", math_expression: "תיבה = גם מלבנים" },
+            { verbal_explanation: "לכן ההבדל הוא שבקובייה הכל ריבועים שווים, ובתיבה לא.", math_expression: "הפאות שונות" }
+        ],
+        final_answer: "בקובייה כל הפאות הן ריבועים שווים, ובתיבה יש גם מלבנים"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "הכרת הגופים",
+        question_text: "כמה מקצועות (קווים המחברים את הפינות) יש במנסרה משושה (שהבסיס שלה הוא מצולע עם 6 צלעות)?&rlm;",
+        options: ["18", "12", "6", "24"],
+        correctAnswer: 0,
+        hint: "למנסרה משושה יש בסיס עליון עם 6 צלעות, בסיס תחתון עם 6 צלעות, ועוד 6 קווים עומדים שמחברים את הבסיסים.",
+        solution_steps: [
+            { verbal_explanation: "נתחיל לספור את הקווים שמרכיבים את הבסיס העליון. הבסיס הוא משושה, לכן יש לו שישה קווים.", math_expression: "למעלה = 6" },
+            { verbal_explanation: "נספור את הקווים שמרכיבים את הבסיס התחתון שעליו עומד הגוף.", math_expression: "למטה = 6" },
+            { verbal_explanation: "כדי לחבר את הבסיס העליון והתחתון יחד, יש קווים שעומדים לאורך. יש קו כזה לכל פינה.", math_expression: "עומדים = 6" },
+            { verbal_explanation: "נחבר את כל הקווים יחד כדי לגלות את סך הכל.", math_expression: "6 + 6 + 6" },
+            { verbal_explanation: "אפשר גם לעשות תרגיל כפל מהיר.", math_expression: "3 \\times 6" },
+            { verbal_explanation: "הגענו לתשובה.", math_expression: "18" }
+        ],
+        final_answer: "18"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "הכרת הגופים",
+        question_text: "לאיזה גוף תלת-ממדי יש בסיס אחד שטוח ופינה חדה אחת ויחידה בקצה העליון שלו (קודקוד אחד)?&rlm;",
+        options: ["חרוט", "גליל", "קובייה", "פירמידה משולשת"],
+        correctAnswer: 0,
+        hint: "חשבו על כובע של מסיבת יום הולדת, או על גביע של גלידה. הגוף הזה עגול למטה ויש לו שפיץ אחד למעלה.",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את הגליל: יש לו שני בסיסים שטוחים ואין לו בכלל פינות שפיציות.", math_expression: "לא גליל" },
+            { verbal_explanation: "נבדוק את הקובייה: יש לה המון פינות שפיציות.", math_expression: "לא קובייה" },
+            { verbal_explanation: "נבדוק את הפירמידה המשולשת: יש לה שפיץ למעלה, אבל גם בבסיס יש לה כמה פינות.", math_expression: "לא פירמידה" },
+            { verbal_explanation: "נבדוק את החרוט: הבסיס שלו הוא עיגול חלק לגמרי, ויש לו רק פינה אחת בשפיץ למעלה.", math_expression: "הגוף הוא חרוט" },
+            { verbal_explanation: "התשובה הנכונה היא חרוט.", math_expression: "חרוט" }
+        ],
+        final_answer: "חרוט"
     },
 
     // ==========================================
     // תת נושא 3: חישובי נפחים (10 שאלות)
     // ==========================================
+
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "נתונה תיבה שאורכה 5 ס\"מ, רוחבה 4 ס\"מ וגובהה 3 ס\"מ.<br>מהו נפח התיבה?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 200 150\" width=\"100%\" height=\"120\" style=\"max-width:200px;\"><polygon points=\"40,80 120,80 120,130 40,130\" fill=\"#dcfce3\" stroke=\"#16a34a\" stroke-width=\"2\"/><polygon points=\"40,80 70,50 150,50 120,80\" fill=\"#bbf7d0\" stroke=\"#16a34a\" stroke-width=\"2\"/><polygon points=\"120,80 150,50 150,100 120,130\" fill=\"#86efac\" stroke=\"#16a34a\" stroke-width=\"2\"/><text x=\"80\" y=\"145\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">אורך=5</text><text x=\"165\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">גובה=3</text></svg></div>",
-        options: [
-            "60 סמ\"ק",
-            "12 סמ\"ק",
-            "20 סמ\"ק",
-            "120 סמ\"ק"
-        ],
+        question_text: "מהו הנפח של קובייה שאורך כל צלע (מקצוע) שלה הוא 4 סנטימטרים?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 180' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='60,140 120,140 160,100 100,100' fill='none' stroke='#94a3b8' stroke-width='2'/><polygon points='60,80 120,80 160,40 100,40' fill='#3b82f6' fill-opacity='0.2' stroke='#3b82f6' stroke-width='2'/><line x1='60' y1='140' x2='60' y2='80' stroke='#3b82f6' stroke-width='2'/><line x1='120' y1='140' x2='120' y2='80' stroke='#3b82f6' stroke-width='2'/><line x1='160' y1='100' x2='160' y2='40' stroke='#3b82f6' stroke-width='2'/><line x1='100' y1='100' x2='100' y2='40' stroke='#94a3b8' stroke-dasharray='4,4' stroke-width='2'/><text x='85' y='160' font-size='14' font-family='Arial'>4</text><text x='40' y='115' font-size='14' font-family='Arial'>4</text></svg></div>",
+        options: ["64", "16", "12", "48"],
         correctAnswer: 0,
-        hint: "נפח תיבה מחשבים על ידי הכפלת כל שלושת הממדים שלה: אורך &times; רוחב &times; גובה.&rlm;",
+        hint: "כדי למצוא נפח של קובייה, מכפילים את האורך ברוחב ובגובה. בקובייה כל המידות שוות, אז מכפילים את הצלע בעצמה 3 פעמים.",
         solution_steps: [
-            { verbal_explanation: "הנוסחה לחישוב נפח תיבה (V) היא הכפלת אורך, רוחב וגובה.&rlm;", math_expression: "V = a * b * h" },
-            { verbal_explanation: "נציב את הנתונים במשוואה ונכפיל.&rlm;", math_expression: "5 * 4 * 3 = 60" }
+            { verbal_explanation: "בקובייה, כל הצלעות (אורך, רוחב וגובה) הן באותו האורך.", math_expression: "אורך = רוחב = גובה = 4" },
+            { verbal_explanation: "ניזכר בכלל לחישוב נפח: מכפילים את שלושת המידות אחת בשנייה.", math_expression: "נפח = אורך \\times רוחב \\times גובה" },
+            { verbal_explanation: "נרשום את התרגיל עם המספרים שלנו.", math_expression: "4 \\times 4 \\times 4" },
+            { verbal_explanation: "נכפיל קודם את שני המספרים הראשונים.", math_expression: "4 \\times 4 = 16" },
+            { verbal_explanation: "כעת נכפיל את התוצאה במספר האחרון.", math_expression: "16 \\times 4" },
+            { verbal_explanation: "נקבל את הנפח הסופי של הקובייה.", math_expression: "64" }
         ],
-        final_answer: "60 סמ\"ק"
+        final_answer: "64"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "קובייה היא תיבה שכל צלעותיה שוות. נתונה קובייה שאורך המקצוע שלה (הצלע) הוא 4 ס\"מ.<br>מהו נפח הקובייה?&rlm;",
-        options: [
-            "64 סמ\"ק",
-            "16 סמ\"ק",
-            "12 סמ\"ק",
-            "32 סמ\"ק"
-        ],
+        question_text: "נתונה תיבה שהאורך שלה הוא 5 סנטימטרים, הרוחב הוא 4 סנטימטרים והגובה הוא 10 סנטימטרים. מהו נפח התיבה?&rlm;",
+        options: ["200", "100", "40", "150"],
         correctAnswer: 0,
-        hint: "בקובייה, האורך, הרוחב והגובה כולם שווים ל-4. הכפילו את המספר 4 בעצמו 3 פעמים.&rlm;",
+        hint: "נפח של תיבה הוא תמיד המכפלה של שלוש המידות שלה יחד: אורך כפול רוחב כפול גובה.",
         solution_steps: [
-            { verbal_explanation: "הנפח שווה לאורך &times; רוחב &times; גובה. בקובייה כולם שווים.&rlm;", math_expression: "V = 4 * 4 * 4" },
-            { verbal_explanation: "נכפול קודם 4 ב-4, ולאחר מכן את התוצאה שוב ב-4.&rlm;", math_expression: "16 * 4 = 64" }
+            { verbal_explanation: "נרשום לעצמנו את כל המידות של התיבה מתוך השאלה.", math_expression: "אורך = 5 \\quad , \\quad רוחב = 4 \\quad , \\quad גובה = 10" },
+            { verbal_explanation: "הכלל לחישוב הנפח הוא להכפיל את כל שלוש המידות.", math_expression: "נפח = 5 \\times 4 \\times 10" },
+            { verbal_explanation: "נכפיל קודם את האורך ברוחב (ככה בעצם אנחנו מוצאים את שטח הבסיס של התיבה).", math_expression: "5 \\times 4 = 20" },
+            { verbal_explanation: "נכפיל את מה שקיבלנו בגובה של התיבה.", math_expression: "20 \\times 10" },
+            { verbal_explanation: "נקבל את הנפח המלא.", math_expression: "200" }
         ],
-        final_answer: "64 סמ\"ק"
+        final_answer: "200"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "נפחה של קובייה הוא 27 סמ\"ק.<br>האם אורך המקצוע (הצלע) שלה הוא 3 ס\"מ?&rlm;",
-        options: [
-            "כן",
-            "לא",
-            "אי אפשר לדעת",
-            "רק אם היא חלולה"
-        ],
+        question_text: "שטח הבסיס (הרצפה) של מנסרה הוא 15 סנטימטרים רבועים. הנפח הכולל של המנסרה הוא 60 סנטימטרים מעוקבים. מהו הגובה של המנסרה?&rlm;",
+        options: ["4", "5", "10", "3"],
         correctAnswer: 0,
-        hint: "כדי לבדוק, נסו לחשב את הנפח של קובייה שאורך הצלע שלה הוא 3 ס\"מ. האם יוצא 27?&rlm;",
+        hint: "נפח שווה לשטח הבסיס כפול הגובה. לכן, כדי למצוא את הגובה שחסר לנו, נחלק את הנפח בשטח הבסיס.",
         solution_steps: [
-            { verbal_explanation: "נפח קובייה מחושב כצלע &times; צלע &times; צלע. נבדוק את המספר 3.&rlm;", math_expression: "3 * 3 * 3" },
-            { verbal_explanation: "3 כפול 3 הם 9. ו-9 כפול 3 הם אכן 27. לכן התשובה היא כן.&rlm;", math_expression: "9 * 3 = 27" }
+            { verbal_explanation: "אנו יודעים שהנפח שווה לשטח הרצפה כפול הגובה.", math_expression: "נפח = שטח בסיס \\times גובה" },
+            { verbal_explanation: "נרשום את המספרים שאנחנו יודעים מתוך השאלה.", math_expression: "60 = 15 \\times גובה" },
+            { verbal_explanation: "כדי לגלות מהו הגובה החסר, נעשה פעולת חילוק הפוכה.", math_expression: "גובה = 60 \\div 15" },
+            { verbal_explanation: "נשאל את עצמנו: כמה פעמים חמש עשרה נכנס בשישים?", math_expression: "15 \\times 4 = 60" },
+            { verbal_explanation: "לכן הגובה חייב להיות שווה לארבע.", math_expression: "4" }
         ],
-        final_answer: "כן"
+        final_answer: "4"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "שטח הבסיס של תיבה הוא 20 סמ\"ר. גובה התיבה הוא 6 ס\"מ.<br>מהו נפח התיבה?&rlm;",
-        options: [
-            "120 סמ\"ק",
-            "26 סמ\"ק",
-            "120 סמ\"ר",
-            "200 סמ\"ק"
-        ],
+        question_text: "קובייה גדולה מורכבת מהמון קוביות קטנות שאורך כל אחת מהן הוא סנטימטר אחד. ידוע ששטח הבסיס של הקובייה הגדולה הוא 25 סנטימטרים רבועים. מהו הנפח שלה?&rlm;",
+        options: ["125", "100", "50", "25"],
         correctAnswer: 0,
-        hint: "הנוסחה המקוצרת לנפח היא: שטח הבסיס כפול הגובה.&rlm;",
+        hint: "בקובייה, כל המידות שוות. אם שטח הבסיס (אורך כפול רוחב) הוא 25, אז האורך והרוחב הם שניהם 5. זה אומר שגם הגובה הוא 5.",
         solution_steps: [
-            { verbal_explanation: "במקום להכפיל אורך ברוחב, כבר נתון לנו 'שטח הבסיס' (שהוא התוצאה של האורך כפול הרוחב).&rlm;", math_expression: "S = 20" },
-            { verbal_explanation: "לכן, פשוט נכפיל את שטח הבסיס (20) בגובה התיבה (6).&rlm;", math_expression: "20 * 6 = 120" }
+            { verbal_explanation: "הבסיס של הקובייה הוא ריבוע. ידוע לנו שהשטח שלו הוא עשרים וחמש.", math_expression: "שטח בסיס = 25" },
+            { verbal_explanation: "נמצא מה אורך הצלע של הבסיס הזה (איזה מספר כפול עצמו שווה עשרים וחמש?).", math_expression: "5 \\times 5 = 25" },
+            { verbal_explanation: "גילינו שהאורך והרוחב של הקובייה הם חמש. בקובייה, גם הגובה שווה לאותו מספר.", math_expression: "גובה = 5" },
+            { verbal_explanation: "כדי למצוא את הנפח, נכפיל את שטח הרצפה בגובה שלה.", math_expression: "נפח = 25 \\times 5" },
+            { verbal_explanation: "נפתור את תרגיל הכפל כדי להגיע לתשובה.", math_expression: "125" }
         ],
-        final_answer: "120 סמ\"ק"
+        final_answer: "125"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "נפחה של תיבה הוא 100 סמ\"ק. אורכה 5 ס\"מ ורוחבה 5 ס\"מ.<br>מהו גובה התיבה?&rlm;",
-        options: [
-            "4 ס\"מ",
-            "20 ס\"מ",
-            "5 ס\"מ",
-            "10 ס\"מ"
-        ],
+        question_text: "מהו הנפח של קופסת קורנפלקס (תיבה) שהאורך שלה הוא 2 סנטימטרים, הרוחב שלה הוא 3 סנטימטרים והגובה שלה הוא 6 סנטימטרים?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 150' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><polygon points='80,120 160,120 120,90 40,90' fill='none' stroke='#94a3b8' stroke-width='2'/><polygon points='80,40 160,40 120,10 40,10' fill='none' stroke='#94a3b8' stroke-width='2'/><line x1='80' y1='120' x2='80' y2='40' stroke='#3b82f6' stroke-width='2'/><line x1='160' y1='120' x2='160' y2='40' stroke='#3b82f6' stroke-width='2'/><line x1='120' y1='90' x2='120' y2='10' stroke='#3b82f6' stroke-dasharray='4,4' stroke-width='2'/><line x1='40' y1='90' x2='40' y2='10' stroke='#3b82f6' stroke-dasharray='4,4' stroke-width='2'/><text x='115' y='140' font-size='14' font-family='Arial'>2</text><text x='50' y='115' font-size='14' font-family='Arial'>3</text><text x='170' y='80' font-size='14' font-family='Arial'>6</text></svg></div>",
+        options: ["36", "30", "11", "24"],
         correctAnswer: 0,
-        hint: "חשבו קודם את שטח הבסיס (5 כפול 5). מצאו איזה מספר (הגובה) כפול שטח הבסיס ייתן לנו 100.&rlm;",
+        hint: "הנפח הוא פשוט הכפל של שלושת המספרים האלה אחד בשני.",
         solution_steps: [
-            { verbal_explanation: "נמצא את שטח הבסיס של התיבה על ידי הכפלת האורך ברוחב.&rlm;", math_expression: "5 * 5 = 25" },
-            { verbal_explanation: "כעת עלינו למצוא מספר שכאשר נכפיל אותו ב-25 נקבל 100 (הנפח). נבצע חילוק.&rlm;", math_expression: "100 / 25 = 4" }
+            { verbal_explanation: "נאסוף את המידות שקיבלנו עבור הקופסה.", math_expression: "2 \\quad , \\quad 3 \\quad , \\quad 6" },
+            { verbal_explanation: "נזכור שחוק הנפח לתיבות הוא להכפיל את המידות זו בזו.", math_expression: "נפח = 2 \\times 3 \\times 6" },
+            { verbal_explanation: "נכפיל את שני המספרים הראשונים.", math_expression: "2 \\times 3 = 6" },
+            { verbal_explanation: "את מה שיצא נכפיל במספר האחרון.", math_expression: "6 \\times 6" },
+            { verbal_explanation: "התשובה שנקבל היא הנפח של הקופסה.", math_expression: "36" }
         ],
-        final_answer: "4 ס\"מ"
+        final_answer: "36"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "ממלאים קופסת פלסטיק מלבנית (תיבה) במים.<br>הקופסה באורך 10 ס\"מ, רוחב 10 ס\"מ וגובה 10 ס\"מ.<br>כמה סמ\"ק של מים ייכנסו בקופסה המלאה?&rlm;",
-        options: [
-            "1000 סמ\"ק",
-            "300 סמ\"ק",
-            "100 סמ\"ק",
-            "10000 סמ\"ק"
-        ],
+        question_text: "דנה בנתה קופסה. אורך הקופסה הוא 2 סנטימטרים, הרוחב הוא 2 סנטימטרים והגובה הוא 2 סנטימטרים. כמה קוביות קטנות של 1 סנטימטר מעוקב ייכנסו לתוך הקופסה בדיוק?&rlm;",
+        options: ["8", "6", "4", "12"],
         correctAnswer: 0,
-        hint: "הקופסה היא בעצם קובייה. חשבו את הנפח שלה (10 כפול 10 כפול 10). נפח המים שווה בדיוק לנפח הפנימי של הקופסה.&rlm;",
+        hint: "השאלה בעצם שואלת מהו הנפח של הקופסה של דנה. הכפילו אורך, רוחב וגובה.",
         solution_steps: [
-            { verbal_explanation: "כדי לגלות כמה מים נכנסים לקופסה, עלינו לחשב את הנפח הפנימי שלה.&rlm;", math_expression: "V = 10 * 10 * 10" },
-            { verbal_explanation: "10 כפול 10 הם 100. 100 כפול 10 הם 1000.&rlm;", math_expression: "100 * 10 = 1000" }
+            { verbal_explanation: "מכיוון שכל המידות של הקופסה של דנה שוות, הרי שזו קובייה.", math_expression: "אורך = 2 \\quad , \\quad רוחב = 2 \\quad , \\quad גובה = 2" },
+            { verbal_explanation: "נחשב את הנפח, שזה בעצם בודק כמה קוביות קטנות נכנסות פנימה.", math_expression: "נפח = 2 \\times 2 \\times 2" },
+            { verbal_explanation: "נבצע את תרגיל הכפל שלב אחרי שלב.", math_expression: "2 \\times 2 = 4" },
+            { verbal_explanation: "נכפיל את התוצאה בגובה הקובייה.", math_expression: "4 \\times 2 = 8" },
+            { verbal_explanation: "לכן ייכנסו לקופסה בדיוק שמונה קוביות קטנות.", math_expression: "8" }
         ],
-        final_answer: "1000 סמ\"ק"
+        final_answer: "8"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "בנו מבנה שמורכב מ-8 קוביות קטנות זהות. נפח של כל קובייה קטנה הוא 2 סמ\"ק.<br>מהו הנפח הכולל של המבנה כולו?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 150 150\" width=\"100%\" height=\"120\" style=\"max-width:150px;\"><rect x=\"40\" y=\"80\" width=\"30\" height=\"30\" fill=\"#fcd34d\" stroke=\"#d97706\"/><rect x=\"70\" y=\"80\" width=\"30\" height=\"30\" fill=\"#fcd34d\" stroke=\"#d97706\"/><rect x=\"55\" y=\"50\" width=\"30\" height=\"30\" fill=\"#fcd34d\" stroke=\"#d97706\"/></svg></div>",
-        options: [
-            "16 סמ\"ק",
-            "10 סמ\"ק",
-            "64 סמ\"ק",
-            "8 סמ\"ק"
-        ],
+        question_text: "לתיבה מסוימת יש נפח של 100 סנטימטרים מעוקבים. אורך התיבה הוא 5 סנטימטרים והגובה שלה הוא 2 סנטימטרים. מהו הרוחב של התיבה?&rlm;",
+        options: ["10", "5", "20", "8"],
         correctAnswer: 0,
-        hint: "הנפח הכולל של צורה מורכבת שווה לסכום הנפחים של החלקים שלה. הכפילו את נפח הקובייה הקטנה בכמות הקוביות.&rlm;",
+        hint: "הכפילו קודם את האורך בגובה כדי לראות כמה זה יוצא. אחר כך, נסו לחשוב: איזה מספר צריך להכפיל בתוצאה כדי להגיע לנפח של 100?",
         solution_steps: [
-            { verbal_explanation: "מאחר שהמבנה מורכב מ-8 קוביות זהות, הנפח שלו הוא פשוט נפח קובייה אחת כפול 8.&rlm;", math_expression: "8 * 2 = 16" }
+            { verbal_explanation: "נרשום את חוק הנפח המלא עם הנתונים הידועים לנו.", math_expression: "100 = 5 \\times רוחב \\times 2" },
+            { verbal_explanation: "נכפיל קודם את שני המספרים שאנחנו כבר מכירים (האורך והגובה).", math_expression: "5 \\times 2 = 10" },
+            { verbal_explanation: "עכשיו נשנה את המשוואה כדי שתהיה פשוטה יותר.", math_expression: "100 = 10 \\times רוחב" },
+            { verbal_explanation: "נשאל את עצמנו: איזה מספר כפול עשר ייתן לנו מאה?", math_expression: "100 \\div 10 = 10" },
+            { verbal_explanation: "גילינו שהרוחב של התיבה חייב להיות עשר.", math_expression: "10" }
         ],
-        final_answer: "16 סמ\"ק"
+        final_answer: "10"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "תיבה א' היא בעלת נפח של 40 סמ\"ק. תיבה ב' רחבה פי 2, ארוכה פי 2, אבל הגובה שלה זהה לתיבה א'.<br>מה יקרה לנפח של תיבה ב' לעומת תיבה א'?&rlm;",
-        options: [
-            "יהיה גדול פי 4",
-            "יהיה גדול פי 2",
-            "יהיה גדול פי 8",
-            "יישאר אותו הדבר"
-        ],
+        question_text: "אקווריום ריק בצורת תיבה באורך 10 סנטימטרים, רוחב 5 סנטימטרים וגובה 4 סנטימטרים. ממלאים אותו במים עד לחצי מהגובה שלו בדיוק. מהו הנפח של המים באקווריום?&rlm;",
+        options: ["100", "200", "50", "40"],
         correctAnswer: 0,
-        hint: "אם מכפילים את האורך פי 2, הנפח מוכפל פי 2. אם בנוסף מכפילים גם את הרוחב פי 2, הנפח מוכפל שוב פי 2 (בסך הכל פי 4).&rlm;",
+        hint: "חשבו קודם את הנפח של כל האקווריום. מכיוון שהוא רק חצי מלא, חלקו את התוצאה שקיבלתם לשתיים.",
         solution_steps: [
-            { verbal_explanation: "נפח הוא מכפלה של 3 ממדים. הגדלת האורך פי 2 מכפילה את הנפח ב-2.&rlm;", math_expression: "V * 2" },
-            { verbal_explanation: "הגדלת הרוחב פי 2, מכפילה את הנפח שוב ב-2. 2 כפול 2 שווה 4, לכן הנפח גדל פי 4.&rlm;", math_expression: "2 * 2 = 4" }
+            { verbal_explanation: "קודם נבדוק מה הנפח של האקווריום כשהוא מלא לגמרי עד הסוף.", math_expression: "נפח מלא = 10 \\times 5 \\times 4" },
+            { verbal_explanation: "נכפיל את המספרים.", math_expression: "10 \\times 5 = 50" },
+            { verbal_explanation: "נכפיל את חמישים בארבע לקבלת הנפח הכולל.", math_expression: "50 \\times 4 = 200" },
+            { verbal_explanation: "האקווריום מלא רק עד החצי, לכן נחלק את הנפח הכולל בשתיים.", math_expression: "200 \\div 2" },
+            { verbal_explanation: "נקבל את נפח המים האמיתי שיש באקווריום עכשיו.", math_expression: "100" }
         ],
-        final_answer: "יהיה גדול פי 4"
+        final_answer: "100"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "בריכת שחייה בצורת תיבה התמלאה מים רק עד חצי הגובה שלה.<br>אם מידות הבריכה הן: אורך 10 מטרים, רוחב 4 מטרים וגובה 2 מטרים, כמה מים יש בה כעת? (במטר מעוקב - מ\"ק)&rlm;",
-        options: [
-            "40 מ\"ק",
-            "80 מ\"ק",
-            "20 מ\"ק",
-            "16 מ\"ק"
-        ],
+        question_text: "עומר בנה מגדל משתי קוביות שהדביק אחת על השנייה. אורך צלע של כל קובייה הוא 3 סנטימטרים. מהו הנפח הכולל של המגדל שעומר בנה?&rlm;",
+        options: ["54", "27", "18", "45"],
         correctAnswer: 0,
-        hint: "חשבו את הנפח של הבריכה כשהיא מלאה לחלוטין. לאחר מכן, מכיוון שהיא מלאה רק עד החצי, חלקו את התוצאה ב-2.&rlm;",
+        hint: "חשבו את הנפח של קובייה אחת בלבד. בגלל שהמגדל מורכב משתי קוביות כאלה, פשוט הכפילו את הנפח שיצא לכם בשתיים.",
         solution_steps: [
-            { verbal_explanation: "נחשב את הנפח הכולל של הבריכה כשהיא מלאה לגמרי.&rlm;", math_expression: "10 * 4 * 2 = 80" },
-            { verbal_explanation: "הבריכה מלאה רק עד החצי. חצי מ-80 הם 40.&rlm;", math_expression: "80 / 2 = 40" }
+            { verbal_explanation: "נתחיל בחישוב הנפח של קובייה אחת בלבד שעומר השתמש בה.", math_expression: "נפח קובייה = 3 \\times 3 \\times 3" },
+            { verbal_explanation: "נפתור את התרגיל. שלוש כפול שלוש זה תשע. ותשע כפול שלוש זה עשרים ושבע.", math_expression: "3 \\times 3 = 9 \\quad , \\quad 9 \\times 3 = 27" },
+            { verbal_explanation: "עכשיו אנחנו יודעים שכל קובייה תופסת נפח של עשרים ושבע.", math_expression: "קובייה אחת = 27" },
+            { verbal_explanation: "המגדל בנוי משתי קוביות זהות כאלה, אז נחבר אותן יחד או נכפיל בשתיים.", math_expression: "27 + 27" },
+            { verbal_explanation: "נקבל את הנפח המלא של המגדל השלם.", math_expression: "54" }
         ],
-        final_answer: "40 מ\"ק"
+        final_answer: "54"
     },
     {
-        topic: "geometry",
+        topic: "math_5_6",
         subTopic: "חישובי נפחים",
-        question_text: "אם ניקח קובייה של 2 ס\"מ, ונכפיל את *כל* הממדים שלה פי 2 (צלע של 4 ס\"מ).<br>האם הנפח שלה פשוט יוכפל פי 2?&rlm;",
-        options: [
-            "לא, הוא יגדל פי 8",
-            "כן, הוא יוכפל פי 2",
-            "לא, הוא יגדל פי 4",
-            "לא, הוא יגדל פי 6"
-        ],
+        question_text: "קופסה א' היא קובייה שאורך הצלע שלה הוא 2 סנטימטרים. קופסה ב' היא תיבה שאורכה 4, רוחבה 1 וגובהה 2 סנטימטרים. איזו קופסה גדולה יותר מבחינת הנפח שלה?&rlm;",
+        options: ["הן שוות בנפח שלהן", "קופסה א' גדולה יותר", "קופסה ב' גדולה יותר", "לא ניתן לדעת"],
         correctAnswer: 0,
-        hint: "חשבו את הנפח של קובייה 2x2x2, ואת הנפח של קובייה 4x4x4. בדקו פי כמה הנפח גדל.&rlm;",
+        hint: "חשבו את הנפח של קופסה א' (2 כפול 2 כפול 2). אחר כך חשבו את הנפח של קופסה ב' (4 כפול 1 כפול 2). השוו בין שתי התוצאות.",
         solution_steps: [
-            { verbal_explanation: "נפח הקובייה המקורית (צלע 2) הוא 8 סמ\"ק.&rlm;", math_expression: "2 * 2 * 2 = 8" },
-            { verbal_explanation: "נפח הקובייה המוגדלת (צלע 4) הוא 64 סמ\"ק.&rlm;", math_expression: "4 * 4 * 4 = 64" },
-            { verbal_explanation: "נבדוק פי כמה 64 גדול מ-8 על ידי חילוק. התשובה היא פי 8.&rlm;", math_expression: "64 / 8 = 8" }
+            { verbal_explanation: "נחשב קודם את הנפח של קופסה א', שהיא בצורת קובייה.", math_expression: "נפח א = 2 \\times 2 \\times 2" },
+            { verbal_explanation: "נפתור את התרגיל.", math_expression: "2 \\times 2 = 4 \\quad , \\quad 4 \\times 2 = 8" },
+            { verbal_explanation: "עכשיו נחשב את הנפח של קופסה ב', שהיא בצורת תיבה.", math_expression: "נפח ב = 4 \\times 1 \\times 2" },
+            { verbal_explanation: "נפתור גם את התרגיל הזה.", math_expression: "4 \\times 1 = 4 \\quad , \\quad 4 \\times 2 = 8" },
+            { verbal_explanation: "קיבלנו את המספר שמונה גם בקופסה הראשונה וגם בשנייה.", math_expression: "8 = 8" },
+            { verbal_explanation: "לכן המסקנה היא ששתי הקופסאות תופסות בדיוק את אותו המקום (אותו נפח).", math_expression: "שוות בנפח" }
         ],
-        final_answer: "לא, הוא יגדל פי 8"
+        final_answer: "הן שוות בנפח שלהן"
     },
 
     // ==========================================
     // תת נושא 4: מעגל ועיגול (10 שאלות)
     // ==========================================
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "קוטר המעגל הוא 10 ס\"מ.<br>מהו אורך הרדיוס (מחוג) של המעגל?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 100 100\" width=\"100%\" height=\"100\" style=\"max-width:100px;\"><circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"#fce7f3\" stroke=\"#db2777\" stroke-width=\"2\"/><line x1=\"5\" y1=\"50\" x2=\"95\" y2=\"50\" stroke=\"#db2777\" stroke-width=\"2\"/><circle cx=\"50\" cy=\"50\" r=\"3\" fill=\"#9d174d\"/></svg></div>",
-        options: [
-            "5 ס\"מ",
-            "20 ס\"מ",
-            "10 ס\"מ",
-            "31.4 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "הקוטר הוא הקו שחוצה את המעגל מצד לצד ועובר במרכז. הרדיוס הוא המרחק מהמרכז רק עד לקצה (חצי קוטר).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "רדיוס תמיד שווה למחצית מן הקוטר. לכן נחלק את אורך הקוטר ב-2.&rlm;", math_expression: "10 / 2 = 5" }
-        ],
-        final_answer: "5 ס\"מ"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "רדיוס המעגל הוא 6 ס\"מ.<br>מהו אורך הקוטר?&rlm;",
-        options: [
-            "12 ס\"מ",
-            "3 ס\"מ",
-            "6 ס\"מ",
-            "36 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "הקוטר מורכב משני רדיוסים המחוברים יחד ויוצרים קו ישר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "קוטר שווה לרדיוס כפול 2.&rlm;", math_expression: "6 * 2 = 12" }
-        ],
-        final_answer: "12 ס\"מ"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "הנוסחה לחישוב היקף מעגל היא הקוטר כפול פאי (בערך 3.14).<br>אם קוטר המעגל הוא 10 ס\"מ, מהו היקף המעגל (בקירוב)?&rlm;",
-        options: [
-            "31.4 ס\"מ",
-            "3.14 ס\"מ",
-            "314 ס\"מ",
-            "15.7 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "הכפילו את הקוטר (10) ב-3.14. כפל ב-10 פשוט מזיז את הנקודה העשרונית מקום אחד ימינה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "היקף מעגל שווה לקוטר כפול המספר פאי (Pi).&rlm;", math_expression: "P = 10 * 3.14" },
-            { verbal_explanation: "כאשר מכפילים ב-10, הנקודה העשרונית זזה צעד אחד ימינה.&rlm;", math_expression: "10 * 3.14 = 31.4" }
-        ],
-        final_answer: "31.4 ס\"מ"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "רדיוס של מעגל הוא 5 ס\"מ. חשבו את היקף המעגל (השתמשו בפאי = 3.14).&rlm;",
-        options: [
-            "31.4 ס\"מ",
-            "15.7 ס\"מ",
-            "78.5 ס\"מ",
-            "62.8 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "ראשית, מצאו את הקוטר (פעמיים הרדיוס). לאחר מכן הכפילו ב-3.14.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "היקף מחשבים בעזרת הקוטר. מכיוון שהרדיוס הוא 5, הקוטר כפול ממנו.&rlm;", math_expression: "5 * 2 = 10" },
-            { verbal_explanation: "נכפיל את הקוטר בפאי כדי לקבל את ההיקף.&rlm;", math_expression: "10 * 3.14 = 31.4" }
-        ],
-        final_answer: "31.4 ס\"מ"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "הנוסחה לחישוב שטח עיגול היא: רדיוס כפול רדיוס כפול פאי.<br>מהו שטח עיגול שרדיוסו 10 ס\"מ? (השתמשו בפאי = 3.14)&rlm;",
-        options: [
-            "314 סמ\"ר",
-            "31.4 סמ\"ר",
-            "62.8 סמ\"ר",
-            "100 סמ\"ר"
-        ],
-        correctAnswer: 0,
-        hint: "הכפילו את הרדיוס בעצמו (10 כפול 10). את התוצאה הכפילו ב-3.14.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תחילה נחשב את הרדיוס כפול עצמו (רדיוס בריבוע).&rlm;", math_expression: "10 * 10 = 100" },
-            { verbal_explanation: "כעת נכפיל את התוצאה בפאי. כפל ב-100 מזיז את הנקודה העשרונית שני צעדים ימינה.&rlm;", math_expression: "100 * 3.14 = 314" }
-        ],
-        final_answer: "314 סמ\"ר"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "אומרים שמסלול של גלגל אופניים בסיבוב אחד שלם, שווה בדיוק להיקף הגלגל.<br>אם היקף הגלגל הוא 2 מטרים, כמה מטרים יעברו האופניים לאחר 5 סיבובים שלמים של הגלגל?&rlm;<div style=\"text-align:center; margin:15px 0;\"><svg viewBox=\"0 0 100 100\" width=\"100%\" height=\"100\" style=\"max-width:100px;\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"#334155\" stroke-width=\"4\" stroke-dasharray=\"10,5\"/><circle cx=\"50\" cy=\"50\" r=\"4\" fill=\"#334155\"/></svg></div>",
-        options: [
-            "10 מטרים",
-            "5 מטרים",
-            "2 מטרים",
-            "7 מטרים"
-        ],
-        correctAnswer: 0,
-        hint: "סיבוב אחד = 2 מטרים. 5 סיבובים = 5 פעמים 2 מטרים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המרחק שהגלגל עובר בסיבוב אחד הוא ההיקף שלו. נכפיל את ההיקף במספר הסיבובים.&rlm;", math_expression: "2 * 5 = 10" }
-        ],
-        final_answer: "10 מטרים"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "קוטר מעגל א' הוא 4 ס\"מ. קוטר מעגל ב' הוא 8 ס\"מ (גדול פי 2).<br>האם היקף מעגל ב' יהיה בדיוק כפול מהיקף מעגל א'?&rlm;",
-        options: [
-            "כן",
-            "לא, הוא יהיה גדול פי 4",
-            "לא, הם יהיו שווים",
-            "אי אפשר לדעת"
-        ],
-        correctAnswer: 0,
-        hint: "היקף תלוי רק בקוטר (קוטר כפול פאי). אם מכפילים את הקוטר פי מספר מסוים, גם ההיקף יוכפל באותו המספר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הנוסחה להיקף היא קוטר כפול פאי. כלומר ההיקף גדל באותו יחס שבו גדל הקוטר.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, אם הקוטר גדל פי 2, גם ההיקף יגדל בדיוק פי 2. התשובה היא כן.&rlm;", math_expression: "" }
-        ],
-        final_answer: "כן"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "איזה קו במעגל אינו עובר דרך מרכז המעגל?&rlm;",
-        options: [
-            "מיתר (שאינו קוטר)",
-            "קוטר",
-            "רדיוס",
-            "כולם עוברים במרכז"
-        ],
-        correctAnswer: 0,
-        hint: "מיתר הוא קו שמחבר שתי נקודות כלשהן על המעגל. רק מיתר אחד מיוחד (הקוטר) חייב לעבור במרכז.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "רדיוס יוצא מהמרכז. קוטר חייב לעבור במרכז.&rlm;", math_expression: "" },
-            { verbal_explanation: "מיתר רגיל יכול לחבר כל שתי נקודות על ההיקף ואינו חייב לעבור דרך המרכז.&rlm;", math_expression: "" }
-        ],
-        final_answer: "מיתר (שאינו קוטר)"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "חתכו פיצה עגולה בדיוק לשניים דרך המרכז. הקו שחתך את הפיצה הוא הוקטור הארוך ביותר שאפשר לצייר בתוך העיגול.<br>איך נקרא הקו הזה בגיאומטריה?&rlm;",
-        options: [
-            "קוטר",
-            "רדיוס",
-            "היקף",
-            "קשת"
-        ],
-        correctAnswer: 0,
-        hint: "זהו הקו שמחבר שתי נקודות על המעגל ועובר בדיוק דרך נקודת האמצע (המרכז).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "קו שמחצה מעגל לשני חצאים שווים ועובר דרך המרכז מוגדר כקוטר.&rlm;", math_expression: "" }
-        ],
-        final_answer: "קוטר"
-    },
-    {
-        topic: "geometry",
-        subTopic: "מעגל ועיגול",
-        question_text: "היקף של מעגל שלם הוא 20 ס\"מ. חתכו את המעגל בדיוק לחצי, כך שקיבלנו 'חצי קשת' (ללא הקו הישר של הקוטר).<br>מהו אורך 'חצי הקשת' הזו?&rlm;",
-        options: [
-            "10 ס\"מ",
-            "5 ס\"מ",
-            "20 ס\"מ",
-            "40 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "אם ההיקף השלם הוא 20 ס\"מ, חצי מההיקף המעוגל יהיה פשוט חצי מהמספר הזה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "אורך של קשת המהווה חצי מעגל הוא בדיוק מחצית מההיקף השלם.&rlm;", math_expression: "20 / 2 = 10" }
-        ],
-        final_answer: "10 ס\"מ"
-    }
 
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "הרדיוס של מעגל הוא 5 סנטימטרים. מהו אורך הקוטר של המעגל הזה?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 100 100' style='max-width:150px; width:100%; border-radius:12px; background:#f8fafc; border:1px solid #e2e8f0;'><circle cx='50' cy='50' r='40' fill='none' stroke='#3b82f6' stroke-width='2'/><circle cx='50' cy='50' r='2' fill='#1e293b'/><line x1='50' y1='50' x2='90' y2='50' stroke='#ef4444' stroke-width='2'/><text x='65' y='45' font-size='12' font-family='Arial'>5</text></svg></div>",
+        options: ["10", "2.5", "15", "25"],
+        correctAnswer: 0,
+        hint: "הקוטר הוא הקו שעובר מצד אחד של המעגל לצד השני דרך המרכז. הוא בדיוק כפול מהרדיוס.",
+        solution_steps: [
+            { verbal_explanation: "אנו יודעים שהרדיוס הוא המרחק מהמרכז ועד הקצה של המעגל.", math_expression: "רדיוס = 5" },
+            { verbal_explanation: "הקוטר בנוי משני רדיוסים שמחוברים יחד בקו ישר.", math_expression: "קוטר = פעמיים הרדיוס" },
+            { verbal_explanation: "כדי למצוא את הקוטר, ניקח את הרדיוס ונכפיל אותו בשתיים.", math_expression: "קוטר = 5 \\times 2" },
+            { verbal_explanation: "נפתור את התרגיל הקטן.", math_expression: "10" }
+        ],
+        final_answer: "10"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "אורך הקוטר של מעגל הוא 14 סנטימטרים. מהו הרדיוס של המעגל?&rlm;",
+        options: ["7", "28", "3.5", "21"],
+        correctAnswer: 0,
+        hint: "הרדיוס הוא בדיוק חצי מהקוטר. לכן, צריך פשוט לחלק את הקוטר בשתיים.",
+        solution_steps: [
+            { verbal_explanation: "אנחנו יודעים שהקוטר הוא הקו הארוך ביותר במעגל והוא שווה לארבע עשרה.", math_expression: "קוטר = 14" },
+            { verbal_explanation: "הרדיוס הוא רק חצי מהקוטר הזה, כי הוא מגיע רק מהמרכז ועד הקצה.", math_expression: "רדיוס = קוטר \\div 2" },
+            { verbal_explanation: "נרשום את תרגיל החילוק.", math_expression: "14 \\div 2" },
+            { verbal_explanation: "התוצאה שנקבל היא אורך הרדיוס.", math_expression: "7" }
+        ],
+        final_answer: "7"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "קוטר של מעגל הוא 10 סנטימטרים. מהו בערך ההיקף של המעגל? (זכרו שהמספר 'פאי' שווה בערך ל-3.14).&rlm;",
+        options: ["31.4", "15.7", "314", "3.14"],
+        correctAnswer: 0,
+        hint: "היקף מעגל מחושב על ידי הכפלת הקוטר שלו במספר פאי (3.14).",
+        solution_steps: [
+            { verbal_explanation: "נסתכל על הנתון שלנו, אנחנו יודעים מהו הקוטר.", math_expression: "קוטר = 10" },
+            { verbal_explanation: "חוק החישוב של היקף מעגל הוא קוטר כפול המספר המיוחד פאי.", math_expression: "היקף = קוטר \\times פאי" },
+            { verbal_explanation: "נציב את המספרים שאנחנו מכירים.", math_expression: "10 \\times 3.14" },
+            { verbal_explanation: "כשאנחנו מכפילים מספר עשרוני בעשר, הנקודה קופצת מקום אחד ימינה.", math_expression: "31.4" }
+        ],
+        final_answer: "31.4"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "רדיוס של עיגול הוא 10 סנטימטרים. מהו השטח המשוער של העיגול? (השתמשו בפאי שווה 3.14 בערך).&rlm;",
+        options: ["314", "31.4", "62.8", "628"],
+        correctAnswer: 0,
+        hint: "שטח עיגול שווה לרדיוס כפול עצמו, ואת התוצאה מכפילים בפאי (3.14).",
+        solution_steps: [
+            { verbal_explanation: "השטח של עיגול תלוי ברדיוס שלו.", math_expression: "רדיוס = 10" },
+            { verbal_explanation: "קודם נכפיל את הרדיוס בעצמו כמו ריבוע.", math_expression: "10 \\times 10 = 100" },
+            { verbal_explanation: "עכשיו נכפיל את התוצאה הזו במספר פאי (3.14) כדי לקבל את השטח המלא.", math_expression: "שטח = 100 \\times 3.14" },
+            { verbal_explanation: "הכפלה במאה מזיזה את הנקודה העשרונית שני צעדים ימינה.", math_expression: "314" }
+        ],
+        final_answer: "314"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "מה הקשר הנכון בין הרדיוס לבין הקוטר בכל מעגל?&rlm;",
+        options: ["הקוטר כפול מהרדיוס", "הרדיוס כפול מהקוטר", "הקוטר שווה לרדיוס כפול פאי", "הם שווים באורכם תמיד"],
+        correctAnswer: 0,
+        hint: "חשבו על גלגל של אופניים. המרכז הוא האמצע. הרדיוס הולך מהאמצע לקצה. הקוטר הולך מקצה לקצה ועובר דרך האמצע.",
+        solution_steps: [
+            { verbal_explanation: "הרדיוס נמדד ממרכז המעגל ועד הקו שמקיף אותו.", math_expression: "רדיוס הוא חצי קו" },
+            { verbal_explanation: "הקוטר נמדד מקצה אחד של המעגל אל הקצה השני וחוצה את המרכז.", math_expression: "קוטר הוא קו שלם" },
+            { verbal_explanation: "משמעות הדבר היא שבתוך כל קוטר נכנסים בדיוק שני רדיוסים מחוברים.", math_expression: "קוטר = רדיוס + רדיוס" },
+            { verbal_explanation: "ולכן, הקוטר גדול פי שתיים מהרדיוס.", math_expression: "הקוטר כפול מהרדיוס" }
+        ],
+        final_answer: "הקוטר כפול מהרדיוס"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "רדיוס של מעגל הוא 5 סנטימטרים. מהו בערך ההיקף שלו? (השתמשו בפאי שווה 3.14).&rlm;",
+        options: ["31.4", "15.7", "78.5", "10"],
+        correctAnswer: 0,
+        hint: "כדי למצוא היקף, צריך קודם את הקוטר. הכפילו את הרדיוס בשתיים כדי לקבל את הקוטר, ואז הכפילו ב-3.14.",
+        solution_steps: [
+            { verbal_explanation: "נמצא קודם את הקוטר בעזרת הרדיוס שניתן לנו.", math_expression: "קוטר = 5 \\times 2 = 10" },
+            { verbal_explanation: "עכשיו כשיש לנו את הקוטר, נוכל להשתמש בנוסחת ההיקף.", math_expression: "היקף = קוטר \\times פאי" },
+            { verbal_explanation: "נציב את המספרים שאנחנו יודעים לתוך התרגיל.", math_expression: "10 \\times 3.14" },
+            { verbal_explanation: "נפתור ונגיע לתשובה.", math_expression: "31.4" }
+        ],
+        final_answer: "31.4"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "איך נקרא הקו הישר שמחבר שתי נקודות על המעגל, אבל לא בהכרח עובר דרך המרכז?&rlm;",
+        options: ["מיתר", "קוטר", "רדיוס", "היקף"],
+        correctAnswer: 0,
+        hint: "זהו מושג חשוב בגיאומטריה של מעגל. קו שפשוט חותך את המעגל משתי קצוות נקרא בשם קצר.",
+        solution_steps: [
+            { verbal_explanation: "רדיוס הוא קו מהמרכז אל הקצה, לכן זה לא מתאים לתיאור.", math_expression: "לא רדיוס" },
+            { verbal_explanation: "היקף הוא המסגרת העגולה של המעגל עצמו מבחוץ, ולא קו ישר בפנים.", math_expression: "לא היקף" },
+            { verbal_explanation: "קוטר הוא אכן קו שמחבר שתי נקודות, אבל הוא תמיד חייב לעבור במרכז המעגל.", math_expression: "לא קוטר בהכרח" },
+            { verbal_explanation: "השם הכללי לקו שמחבר שתי נקודות על שפת המעגל הוא מיתר.", math_expression: "מיתר" }
+        ],
+        final_answer: "מיתר"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "איזה משפט נכון לגבי הקוטר של המעגל?&rlm;",
+        options: ["הקוטר הוא המיתר הכי ארוך במעגל", "הקוטר שווה לפאי", "הקוטר נוגע רק בנקודה אחת במעגל", "הקוטר הוא תמיד חצי מהרדיוס"],
+        correctAnswer: 0,
+        hint: "חשבו על כל הקווים שאפשר לצייר מצד לצד בתוך מעגל. איזה מהם יהיה הארוך ביותר?",
+        solution_steps: [
+            { verbal_explanation: "קוטר הוא קו שמחבר שתי נקודות, לכן הוא סוג של מיתר.", math_expression: "קוטר הוא מיתר" },
+            { verbal_explanation: "ככל שקו קרוב יותר למרכז המעגל, כך הוא רחב וארוך יותר.", math_expression: "במרכז יותר רחב" },
+            { verbal_explanation: "מכיוון שהקוטר עובר בדיוק במרכז, במקום הכי רחב שיש, הוא הכי ארוך שאפשר.", math_expression: "הכי ארוך שיש" },
+            { verbal_explanation: "לכן, הקוטר הוא המיתר הארוך ביותר שאפשר לצייר במעגל.", math_expression: "המיתר הכי ארוך במעגל" }
+        ],
+        final_answer: "הקוטר הוא המיתר הכי ארוך במעגל"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "רדיוס של עיגול שלם הוא 10 סנטימטרים. חותכים את העיגול לחצי בדיוק. מה השטח של חצי העיגול הזה בערך? (פאי שווה 3.14).&rlm;",
+        options: ["157", "314", "31.4", "62.8"],
+        correctAnswer: 0,
+        hint: "חשבו את השטח של כל העיגול כאילו הוא שלם. אחר כך פשוט חלקו את מה שקיבלתם לשתיים.",
+        solution_steps: [
+            { verbal_explanation: "נחשב את השטח של עיגול שלם שיש לו רדיוס של עשר.", math_expression: "שטח שלם = 10 \\times 10 \\times 3.14" },
+            { verbal_explanation: "עשר כפול עשר שווה למאה.", math_expression: "10 \\times 10 = 100" },
+            { verbal_explanation: "מאה כפול פאי נותן לנו את השטח המלא.", math_expression: "100 \\times 3.14 = 314" },
+            { verbal_explanation: "עכשיו נחשב את השטח של חצי מהעיגול על ידי חלוקה בשתיים.", math_expression: "314 \\div 2" },
+            { verbal_explanation: "נפתור ונגיע לתשובה הסופית.", math_expression: "157" }
+        ],
+        final_answer: "157"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "מעגל ועיגול",
+        question_text: "מה ההבדל בין מעגל לעיגול בשפה של מתמטיקה?&rlm;",
+        options: ["המעגל הוא רק הקו שמסביב, והעיגול כולל גם את השטח שבפנים", "עיגול הוא רק הקו שמסביב, והמעגל כולל גם את השטח שבפנים", "אין שום הבדל, אלו שתי מילים לאותו דבר בדיוק", "למעגל יש רדיוס ולעיגול אין רדיוס"],
+        correctAnswer: 0,
+        hint: "חשבו על טבעת ועל צלחת. טבעת היא חלולה באמצע, צלחת היא מלאה. איך קוראים לכל אחד מהם?",
+        solution_steps: [
+            { verbal_explanation: "מעגל מתאר את החישוק או את הטבעת. זה רק הקו הדק שמקיף את הכל מבחוץ.", math_expression: "מעגל = קו" },
+            { verbal_explanation: "עיגול מתאר את כל מה שנמצא גם בפנים, כמו צלחת או מטבע. יש לו שטח אמיתי.", math_expression: "עיגול = קו + תוכן" },
+            { verbal_explanation: "לכן אפשר לחשב שטח של עיגול, ואפשר לחשב אורך (היקף) של מעגל.", math_expression: "שטח לעיגול, היקף למעגל" },
+            { verbal_explanation: "המסקנה היא שמעגל הוא רק הקו, ועיגול כולל את השטח.", math_expression: "המעגל הוא רק הקו שמסביב, והעיגול כולל גם את השטח שבפנים" }
+        ],
+        final_answer: "המעגל הוא רק הקו שמסביב, והעיגול כולל גם את השטח שבפנים"
+    }
 ];

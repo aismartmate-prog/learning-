@@ -1,551 +1,433 @@
-// ========================================================================
-// שכבת גיל: כיתה ז' | נושא: זוויות
-// 3 תתי נושאים | 36 שאלות סה"כ 
-// איורים גיאומטריים צבעוניים מוטמעים, פתרונות אלגבריים בשלבים מלאים.
-// כתיבה נקייה ובטוחה: שימוש ב- × לכפל, ב- : לחילוק. ללא LaTeX!
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
-    // תת נושא 1: זוויות צמודות (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
+    // ==========================================
+    // תת נושא 1: זוויות צמודות (10 שאלות)
+    // ==========================================
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "בשרטוט שלפניכם נתונות שתי זוויות צמודות. גודלה של זווית אחת הוא 50 מעלות. מהו גודלה של הזווית השנייה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><line x1='10' y1='80' x2='190' y2='80' stroke='#0f172a' stroke-width='2'/><line x1='100' y1='80' x2='150' y2='20' stroke='#0f172a' stroke-width='2'/><path d='M 120 80 A 20 20 0 0 0 115 60' fill='none' stroke='#ef4444' stroke-width='2'/><text x='135' y='70' font-family='Arial' font-size='12' fill='#ef4444'>50°</text><path d='M 80 80 A 20 20 0 0 1 115 60' fill='none' stroke='#3b82f6' stroke-width='2'/><text x='70' y='65' font-family='Arial' font-size='14' fill='#3b82f6'>x</text></svg></div>",
-        options: ["130 מעלות", "40 מעלות", "140 מעלות", "50 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות צמודות משלימות יחד לזווית שטוחה (קו ישר), כלומר סכומן הוא 180 מעלות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': שתי الزوויות נמצאות על אותו קו ישר, ולכן הן זוויות צמודות שסכומן 180 מעלות.&rlm;", math_expression: "x + 50 = 180" },
-            { verbal_explanation: "שלב ב': נחסר 50 מ-180 כדי למצוא את הזווית החסרה.&rlm;", math_expression: "180 - 50 = 130" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 120\" width=\"180\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"100\" y1=\"100\" x2=\"150\" y2=\"30\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 120 100 A 20 20 0 0 0 115 78\" fill=\"none\" stroke=\"#f87171\" stroke-width=\"2\"/><path d=\"M 80 100 A 20 20 0 0 1 115 78\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\"/><text x=\"130\" y=\"90\" font-family=\"Arial\" font-size=\"14\" fill=\"#f87171\">50°</text><text x=\"70\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#3b82f6\">?</text></svg></div><br>שתי זוויות מונחות על קו ישר אחד ולכן הן זוויות צמודות. גודלה של זווית אחת הוא 50 מעלות. מהו גודלה של הזווית השנייה הצמודה לה?&rlm;",
+        "options": ["130", "150", "40", "140"],
+        "correctAnswer": 0,
+        "hint": "סכום של שתי זוויות צמודות על קו ישר הוא תמיד מאה ושמונים מעלות. חסרו את הזווית הידועה מהסכום הכולל.",
+        "solution_steps": [
+            { "verbal_explanation": "זוויות צמודות משלימות זו את זו לזווית שטוחה שגודלה קבוע.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר מתוך הסכום הכולל את גודל הזווית שכבר נתון לנו.", "math_expression": "180 - 50" },
+            { "verbal_explanation": "נחשב את ההפרש כדי לגלות את הזווית החסרה.", "math_expression": "130" }
         ],
-        final_answer: "130 מעלות"
+        "final_answer": "130"
     },
-    // שאלה 2
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "שתי זוויות צמודות שוות זו לזו. מהו גודלה של כל אחת מהן?&rlm;",
-        options: ["90 מעלות", "180 מעלות", "45 מעלות", "60 מעלות"],
-        correctAnswer: 0,
-        hint: "אם סכומן 180 מעלות והן שוות, חלקו את 180 ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן את הזווית ב-x. מכיוון שהן שוות וצמודות, סכומן הוא 180.&rlm;", math_expression: "x + x = 180" },
-            { verbal_explanation: "שלב ב': 2 פעמים x שווה 180.&rlm;", math_expression: "2x = 180" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "180 : 2 = 90" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "זווית אחת שווה ל-110 מעלות. מהו הגודל של הזווית הצמודה לה?&rlm;",
+        "options": ["70", "80", "90", "60"],
+        "correctAnswer": 0,
+        "hint": "השלימו את המספר מאה ועשר למאה ושמונים.",
+        "solution_steps": [
+            { "verbal_explanation": "הכלל קובע שחיבור של שתי זוויות צמודות נותן תמיד מאה ושמונים מעלות.", "math_expression": "180" },
+            { "verbal_explanation": "נוריד מסכום זה את הזווית שאנו מכירים.", "math_expression": "180 - 110" },
+            { "verbal_explanation": "תוצאת החיסור היא גודלה של הזווית הצמודה.", "math_expression": "70" }
         ],
-        final_answer: "90 מעלות"
+        "final_answer": "70"
     },
-    // שאלה 3
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "היחס בין שתי זוויות צמודות הוא 1:2. מהו גודלה של הזווית הקטנה מביניהן?&rlm;",
-        options: ["60 מעלות", "90 מעלות", "120 מעלות", "30 מעלות"],
-        correctAnswer: 0,
-        hint: "סך החלקים ביחס הוא 3. חלקו 180 ב-3 כדי למצוא חלק אחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן זווית אחת ב-1x והשנייה ב-2x. סכומן 180.&rlm;", math_expression: "1x + 2x = 180" },
-            { verbal_explanation: "שלב ב': נכנס איברים (סך הכל 3x).&rlm;", math_expression: "3x = 180" },
-            { verbal_explanation: "שלב ג': נחלק 180 ב-3 למציאת הזווית הקטנה (x).&rlm;", math_expression: "x = 60" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "שתי זוויות צמודות שוות זו לזו בדיוק בגודלן. מהו הגודל של כל אחת מהן?&rlm;",
+        "options": ["90", "45", "180", "60"],
+        "correctAnswer": 0,
+        "hint": "אם שתיהן יחד מרכיבות מאה ושמונים מעלות והן שוות, חלקו את הסכום בשתיים.",
+        "solution_steps": [
+            { "verbal_explanation": "הסכום של שתי הזוויות יחד הוא זווית שטוחה שלמה.", "math_expression": "180" },
+            { "verbal_explanation": "מכיוון ששתיהן שוות בדיוק, נחלק את הסכום לשני חלקים שווים.", "math_expression": "180 \\div 2" },
+            { "verbal_explanation": "כל זווית כזו היא זווית ישרה בת תשעים מעלות.", "math_expression": "90" }
         ],
-        final_answer: "60 מעלות"
+        "final_answer": "90"
     },
-    // שאלה 4
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "זווית אחת גדולה ב-40 מעלות מהזווית הצמודה לה. מהו גודלה של הזווית הקטנה יותר?&rlm;",
-        options: ["70 מעלות", "110 מעלות", "80 מעלות", "60 מעלות"],
-        correctAnswer: 0,
-        hint: "נסמן זווית קטנה ב-x, ואת הגדולה ב-x+40. בנו משוואה שהסכום שווה 180.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נגדיר משוואה לפי סכום זוויות צמודות.&rlm;", math_expression: "x + (x + 40) = 180" },
-            { verbal_explanation: "שלב ב': נכנס איברים ונעביר מספרים אגף.&rlm;", math_expression: "2x + 40 = 180  =>  2x = 140" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "140 : 2 = 70" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "זווית אחת קטנה וגודלה 15 מעלות בלבד. מה גודל הזווית הצמודה אליה על אותו הקו?&rlm;",
+        "options": ["165", "175", "155", "75"],
+        "correctAnswer": 0,
+        "hint": "בצעו פעולת חיסור פשוטה של חמש עשרה מתוך מאה ושמונים.",
+        "solution_steps": [
+            { "verbal_explanation": "הסכום המלא של הקו הישר הוא מאה ושמונים.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר מהסכום את הזווית הקטנה שנתונה לנו.", "math_expression": "180 - 15" },
+            { "verbal_explanation": "נקבל זווית קהה גדולה שמשלימה אותה.", "math_expression": "165" }
         ],
-        final_answer: "70 מעלות"
+        "final_answer": "165"
     },
-    // שאלה 5
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "שתי זוויות מונחות על ישר אחד. הזווית הגדולה מיוצגת על ידי הביטוי 3x, והזווית הקטנה על ידי הביטוי 2x. מצאו את ערכו של x.&rlm;",
-        options: ["36", "72", "108", "30"],
-        correctAnswer: 0,
-        hint: "סכום שתי הזוויות יחד (5x) שווה ל-180 מעלות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום הזוויות הצמודות הוא 180.&rlm;", math_expression: "3x + 2x = 180" },
-            { verbal_explanation: "שלב ב': נחבר את האיברים בעלי ה-x.&rlm;", math_expression: "5x = 180" },
-            { verbal_explanation: "שלב ג': נחלק 180 ב-5.&rlm;", math_expression: "180 : 5 = 36" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "האם ייתכן ששתי זוויות צמודות תהיינה שתיהן זוויות קהות (גדולות מ-90 מעלות)?&rlm;",
+        "options": ["לא, כי סכומן יעבור את ה-180 מעלות", "כן, זה מצב רגיל", "כן, אם הקו אלכסוני", "לא, כי שתיהן חייבות להיות חדות"],
+        "correctAnswer": 0,
+        "hint": "נסו לחבר שני מספרים שכל אחד מהם גדול מ-90, וראו האם התוצאה יכולה להיות 180.",
+        "solution_steps": [
+            { "verbal_explanation": "סכום שתי הזוויות חייב להיות מוגבל בדיוק למאה ושמונים.", "math_expression": "180" },
+            { "verbal_explanation": "אם ניקח למשל שתי זוויות שמעט גדולות מתשעים, הסכום שלהן יהיה גדול ממאה ושמונים.", "math_expression": "91 + 91 = 182" },
+            { "verbal_explanation": "הגענו לסתירה לכלל הבסיסי, ולכן מצב כזה הוא בלתי אפשרי בגאומטריה.", "math_expression": "182 > 180" }
         ],
-        final_answer: "36"
+        "final_answer": "לא, כי סכומן יעבור את ה-180 מעלות"
     },
-    // שאלה 6
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "זווית קהה גדולה פי 4 מהזווית החדה הצמודה לה. מה גודלה של הזווית הקהה?&rlm;",
-        options: ["144 מעלות", "36 מעלות", "150 מעלות", "120 מעלות"],
-        correctAnswer: 0,
-        hint: "נסמן זווית חדה ב-x, והקהה היא 4x. סכומן יחד 180. מצאו קודם את ה-x ואז הכפילו ב-4.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן את הזווית החדה ב-x ואת הקהה ב-4x. הסכום הוא 180.&rlm;", math_expression: "x + 4x = 180" },
-            { verbal_explanation: "שלב ב': 5x שווה ל-180. נמצא את הזווית הקטנה.&rlm;", math_expression: "5x = 180  =>  x = 36" },
-            { verbal_explanation: "שלב ג': נבקש את הזווית הקהה (4x). נכפיל 36 ב-4.&rlm;", math_expression: "36 × 4 = 144" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "הזווית הצמודה לזווית של 135 מעלות שווה ל-?&rlm;",
+        "options": ["45", "55", "35", "180"],
+        "correctAnswer": 0,
+        "hint": "איזה מספר צריך להוסיף למאה שלושים וחמש כדי להגיע למאה ושמונים?",
+        "solution_steps": [
+            { "verbal_explanation": "סכום זוויות צמודות הוא קבוע וידוע.", "math_expression": "180" },
+            { "verbal_explanation": "נבצע חיסור של הזווית הקהה שניתנה לנו.", "math_expression": "180 - 135" },
+            { "verbal_explanation": "התוצאה היא הזווית החדה המשלימה.", "math_expression": "45" }
         ],
-        final_answer: "144 מעלות"
+        "final_answer": "45"
     },
-    // שאלה 7
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "שלוש זוויות מונחות כולן יחד על צד אחד של קו ישר. זווית אחת היא בת 40 מעלות, השנייה בת 60 מעלות. מה גודלה של הזווית השלישית?&rlm;",
-        options: ["80 מעלות", "90 מעלות", "100 מעלות", "120 מעלות"],
-        correctAnswer: 0,
-        hint: "סכום כל הזוויות המונחות על קו ישר אחד הוא 180 מעלות (זווית שטוחה). חברו את הנתונות וחסרו מ-180.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את סכום שתי הזוויות הידועות.&rlm;", math_expression: "40 + 60 = 100" },
-            { verbal_explanation: "שלב ב': נחסר את הסכום מ-180 מעלות (גודל הזווית השטוחה).&rlm;", math_expression: "180 - 100 = 80" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "זווית אחת גדולה פי 5 מהזווית הצמודה לה. מהו גודלה של הזווית הקטנה מבין השתיים?&rlm;",
+        "options": ["30", "150", "36", "60"],
+        "correctAnswer": 0,
+        "hint": "אם זווית אחת שווה לחלק אחד והשנייה שווה לחמישה חלקים, יש בסך הכל שישה חלקים שווים המרכיבים את ה-180 מעלות.",
+        "solution_steps": [
+            { "verbal_explanation": "הזווית הקטנה היא חלק אחד. הזווית הגדולה מורכבת מחמישה חלקים כאלו. ביחד יש שישה חלקים.", "math_expression": "1 + 5 = 6" },
+            { "verbal_explanation": "נחלק את הסכום הכולל בששת החלקים כדי למצוא כמה שווה חלק אחד בודד.", "math_expression": "180 \\div 6" },
+            { "verbal_explanation": "נחשב את החילוק ונגלה שהחלק האחד (הזווית הקטנה) שווה לשלושים מעלות.", "math_expression": "30" },
+            { "verbal_explanation": "לצורך בדיקה: הזווית הגדולה תהיה מאה וחמישים, וסכומן אכן מאה ושמונים.", "math_expression": "30 \\times 5 = 150" }
         ],
-        final_answer: "80 מעלות"
+        "final_answer": "30"
     },
-    // שאלה 8
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "האם ייתכן מצב בו שתי זוויות צמודות הן שתיהן זוויות קהות (מעל 90 מעלות)?&rlm;",
-        options: ["לא, זה בלתי אפשרי", "כן, זה תמיד כך", "כן, אבל רק אם הן שוות", "רק במקבילית"],
-        correctAnswer: 0,
-        hint: "אם שתי הזוויות גדולות מ-90, מה יקרה לסכום שלהן?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "זווית קהה גדולה מ-90 מעלות.&rlm;", math_expression: "" },
-            { verbal_explanation: "אם נחבר שני מספרים שכל אחד מהם גדול מ-90, נקבל בהכרח סכום שגדול מ-180.&rlm;", math_expression: "" },
-            { verbal_explanation: "סכום זוויות צמודות חייב להיות בדיוק 180, ולכן מצב זה בלתי אפשרי.&rlm;", math_expression: "" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "גודל זווית אחת הוא 90 מעלות. מה ניתן לומר על הזווית הצמודה אליה?&rlm;",
+        "options": ["היא גם זווית ישרה (90)", "היא זווית חדה", "היא זווית קהה", "היא שווה ל-0"],
+        "correctAnswer": 0,
+        "hint": "מאה ושמונים פחות תשעים.",
+        "solution_steps": [
+            { "verbal_explanation": "סכום הזוויות מונח על קו ישר אחד.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר מהסכום את זווית התשעים שניתנה.", "math_expression": "180 - 90" },
+            { "verbal_explanation": "ההפרש הוא בדיוק תשעים, מה שאומר ששתי הזוויות ישרות.", "math_expression": "90" }
         ],
-        final_answer: "לא, זה בלתי אפשרי"
+        "final_answer": "היא גם זווית ישרה (90)"
     },
-    // שאלה 9
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "שתי זוויות צמודות נתונות על ידי הביטויים (2x - 10) ו- (x + 10). מה גודלה של הזווית הגדולה יותר?&rlm;",
-        options: ["110 מעלות", "70 מעלות", "120 מעלות", "60 מעלות"],
-        correctAnswer: 0,
-        hint: "בנו משוואה: סכום שני הביטויים שווה ל-180. מצאו את x והציבו אותו כדי למצוא את גודל הזוויות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרכיב משוואת סכום.&rlm;", math_expression: "(2x - 10) + (x + 10) = 180" },
-            { verbal_explanation: "שלב ב': מינוס 10 ופלוס 10 מתבטלים. נשארנו עם 3x.&rlm;", math_expression: "3x = 180  =>  x = 60" },
-            { verbal_explanation: "שלב ג': נציב x=60 בביטוי של הזווית הראשונה.&rlm;", math_expression: "2 × 60 - 10 = 120 - 10 = 110" },
-            { verbal_explanation: "שלב ד': נציב x=60 בזווית השנייה (60+10=70). הזווית הגדולה היא 110°.&rlm;", math_expression: "110 > 70" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "זווית אחת גדולה ב-20 מעלות מהזווית הצמודה אליה. מה גודל הזווית הקטנה?&rlm;",
+        "options": ["80", "100", "70", "90"],
+        "correctAnswer": 0,
+        "hint": "אם שתיהן היו שוות הן היו בנות 90 כל אחת. מכיוון שאחת גדולה ב-20, נוריד מהסכום 20, נחלק לשתיים, ואז נוסיף לאחת מהן את ה-20.",
+        "solution_steps": [
+            { "verbal_explanation": "נחסר מהסכום הכולל את ההפרש כדי שנוכל לחלק את השארית לשני חלקים שווים.", "math_expression": "180 - 20 = 160" },
+            { "verbal_explanation": "נחלק את מאה ושישים לשתיים. התוצאה תהיה הזווית הקטנה.", "math_expression": "160 \\div 2" },
+            { "verbal_explanation": "הזווית הקטנה היא שמונים מעלות. הזווית השנייה תהיה מאה, וסכומן מאה ושמונים.", "math_expression": "80" }
         ],
-        final_answer: "110 מעלות"
+        "final_answer": "80"
     },
-    // שאלה 10
     {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "היחס בין שתי זוויות צמודות הוא 4:5. מה גודלה של הזווית הקטנה?&rlm;",
-        options: ["80 מעלות", "100 מעלות", "40 מעלות", "90 מעלות"],
-        correctAnswer: 0,
-        hint: "סך החלקים ביחס הוא 9. חלקו את 180 ב-9 כדי למצוא את הערך של יחידת יחס אחת.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את סך כל החלקים ביחס.&rlm;", math_expression: "4 + 5 = 9" },
-            { verbal_explanation: "שלב ב': נחלק 180 (סכום הזוויות) ב-9 כדי למצוא כמה שווה חלק אחד.&rlm;", math_expression: "180 : 9 = 20" },
-            { verbal_explanation: "שלב ג': הזווית הקטנה היא 4 חלקים. נכפיל 4 ב-20.&rlm;", math_expression: "4 × 20 = 80" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות צמודות",
+        "question_text": "גודל זווית אחת הוא 123 מעלות. מה הגודל של הזווית הצמודה לה?&rlm;",
+        "options": ["57", "67", "63", "53"],
+        "correctAnswer": 0,
+        "hint": "עשו חיסור במאונך של מאה עשרים ושלוש מתוך מאה ושמונים.",
+        "solution_steps": [
+            { "verbal_explanation": "הסכום המלא נשאר ללא שינוי.", "math_expression": "180" },
+            { "verbal_explanation": "נבצע את פעולת החיסור כדי להשלים לקו הישר.", "math_expression": "180 - 123" },
+            { "verbal_explanation": "נחשב ונגיע לתוצאה המדויקת.", "math_expression": "57" }
         ],
-        final_answer: "80 מעלות"
-    },
-    // שאלה 11
-    {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "נתונות שתי זוויות צמודות. מעבירים חוצה זווית לכל אחת משתי הזוויות (חוצה זווית הוא קו המחלק זווית בדיוק לחצי). מהי הזווית שנוצרת בין שני חוצי הזוויות?&rlm;",
-        options: ["90 מעלות", "180 מעלות", "45 מעלות", "תלוי בגודל הזוויות"],
-        correctAnswer: 0,
-        hint: "נסו לחשוב על חצי מהזווית הראשונה ועוד חצי מהזווית השנייה. יחד זה חצי מהסכום הכולל שלהן!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום שתי הזוויות הצמודות המלאות הוא 180°.&rlm;", math_expression: "a + b = 180" },
-            { verbal_explanation: "שלב ב': הזווית שבין חוצי הזוויות מורכבת מחצי מזווית אחת ועוד חצי מזווית שנייה.&rlm;", math_expression: "1/2a + 1/2b = 1/2(a + b)" },
-            { verbal_explanation: "שלב ג': מאחר ש- (a+b) הוא 180, החצי שלו תמיד יהיה 90 מעלות.&rlm;", math_expression: "180 : 2 = 90" }
-        ],
-        final_answer: "90 מעלות"
-    },
-    // שאלה 12
-    {
-        topic: "angles",
-        subTopic: "זוויות צמודות",
-        question_text: "זווית אחת גדולה ב-30 מעלות מפעמיים (פי 2) הזווית הצמודה לה. מהו גודלה של הזווית הקטנה?&rlm;",
-        options: ["50 מעלות", "130 מעלות", "60 מעלות", "40 מעלות"],
-        correctAnswer: 0,
-        hint: "נסמן זווית אחת ב-x. הזווית השנייה היא 2x + 30. סכומן שווה 180.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן את הזווית הקטנה ב-x. הגדולה היא פעמיים x ועוד 30. נבנה משוואה.&rlm;", math_expression: "x + (2x + 30) = 180" },
-            { verbal_explanation: "שלב ב': נכנס איברים (3x) ונעביר את ה-30 לאגף ימין בחיסור.&rlm;", math_expression: "3x = 150" },
-            { verbal_explanation: "שלב ג': נחלק ב-3 למציאת x (שהוא הזווית הקטנה).&rlm;", math_expression: "x = 150 : 3 = 50" }
-        ],
-        final_answer: "50 מעלות"
+        "final_answer": "57"
     },
 
-    // ==========================================================
-    // תת נושא 2: זוויות קודקודיות (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 13
+    // ==========================================
+    // תת נושא 2: זוויות קודקודיות (10 שאלות)
+    // ==========================================
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שני קווים ישרים נחתכים ויוצרים 4 זוויות. זווית אחת היא בת 45 מעלות. מה גודלה של הזווית הקודקודית לה (הזווית שממולה)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><line x1='30' y1='20' x2='170' y2='80' stroke='#0f172a' stroke-width='2'/><line x1='30' y1='80' x2='170' y2='20' stroke='#0f172a' stroke-width='2'/><path d='M 120 59 A 15 15 0 0 1 118 42' fill='none' stroke='#ef4444' stroke-width='2'/><text x='130' y='55' font-family='Arial' font-size='12' fill='#ef4444'>45°</text><path d='M 80 41 A 15 15 0 0 1 82 58' fill='none' stroke='#3b82f6' stroke-width='2'/><text x='60' y='55' font-family='Arial' font-size='14' fill='#3b82f6'>x</text></svg></div>",
-        options: ["45 מעלות", "135 מעלות", "90 מעלות", "180 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות קודקודיות נוצרות מחיתוך של שני ישרים, והן נמצאות זו מול זו. כלל ברזל: זוויות קודקודיות שוות זו לזו!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המשפט הגיאומטרי קובע שזוויות קודקודיות שוות בגודלן.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': מכיוון שהזווית הנתונה היא 45 מעלות, גם הזווית מולה שווה ל-45 מעלות.&rlm;", math_expression: "x = 45" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"30\" x2=\"160\" y2=\"120\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"40\" y1=\"120\" x2=\"160\" y2=\"30\" stroke=\"#0f172a\" stroke-width=\"2\"/><path d=\"M 115 65 A 25 25 0 0 0 85 65\" fill=\"none\" stroke=\"#f87171\" stroke-width=\"2\"/><path d=\"M 85 85 A 25 25 0 0 0 115 85\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\"/><text x=\"90\" y=\"55\" font-family=\"Arial\" font-size=\"14\" fill=\"#f87171\">110°</text><text x=\"95\" y=\"110\" font-family=\"Arial\" font-size=\"14\" fill=\"#3b82f6\">?</text></svg></div><br>שני קווים ישרים נחתכים ויוצרים צורת X. הזווית העליונה היא בת 110 מעלות. מהו הגודל של הזווית התחתונה המצוירת מולה (זווית קודקודית לה)?&rlm;",
+        "options": ["110", "70", "180", "55"],
+        "correctAnswer": 0,
+        "hint": "זוויות קודקודיות הן זוויות שנמצאות אחת מול השנייה בצומת בין שני קווים. הכלל אומר שהן תמיד שוות זו לזו.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה שמדובר בשני קווים ישרים שחותכים זה את זה ויוצרים זוויות נגדיות.", "math_expression": "X" },
+            { "verbal_explanation": "הכלל הגאומטרי קובע שזוויות קודקודיות הנמצאות אחת מול השנייה שוות זו לזו בדיוק.", "math_expression": "110 = 110" },
+            { "verbal_explanation": "לכן, הזווית התחתונה שווה לזווית העליונה.", "math_expression": "110" }
         ],
-        final_answer: "45 מעלות"
+        "final_answer": "110"
     },
-    // שאלה 14
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שני ישרים נחתכים יוצרים זווית של 120 מעלות. מה גודלה של הזווית הצמודה לה?&rlm;",
-        options: ["60 מעלות", "120 מעלות", "90 מעלות", "30 מעלות"],
-        correctAnswer: 0,
-        hint: "שימו לב: השאלה שואלת על הזווית **הצמודה** (לידה) ולא על הזווית הקודקודית (ממולה). זכרו שזוויות צמודות משלימות ל-180.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': שני ישרים נחתכים יוצרים ארבע זוויות: שתי זוגות של זוויות קודקודיות (שוות) וארבע זוגות של זוויות צמודות.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': זווית צמודה משלימה את הזווית הנתונה ל-180 מעלות (כי שתיהן על אותו ישר).&rlm;", math_expression: "180 - 120 = 60" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "שני קווים נחתכים. זווית אחת היא בת 45 מעלות. מה גודלה של הזווית הקודקודית לה?&rlm;",
+        "options": ["45", "135", "90", "180"],
+        "correctAnswer": 0,
+        "hint": "העתיקו את הכלל מהשאלה הקודמת: זוויות קודקודיות הן זהות לחלוטין.",
+        "solution_steps": [
+            { "verbal_explanation": "זוויות קודקודיות מונחות על קודקוד משותף בכיוונים הפוכים.", "math_expression": "\\text{Opposite}" },
+            { "verbal_explanation": "הן משלימות את אותן זוויות צמודות, ולכן חייבות להיות שוות בגודלן.", "math_expression": "45 = 45" },
+            { "verbal_explanation": "התשובה היא זהה לנתון המקורי.", "math_expression": "45" }
         ],
-        final_answer: "60 מעלות"
+        "final_answer": "45"
     },
-    // שאלה 15
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "סכומן של שתי זוויות קודקודיות הוא 100 מעלות. מהו גודלה של אחת מהזוויות האלו?&rlm;",
-        options: ["50 מעלות", "100 מעלות", "80 מעלות", "40 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות קודקודיות שוות זו לזו. אם הסכום של שתיהן יחד הוא 100, כמה שווה כל אחת?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן את הזווית ב-x. הזווית הקודקודית לה גם היא x.&rlm;", math_expression: "x + x = 100" },
-            { verbal_explanation: "שלב ב': נחלק את הסכום ב-2.&rlm;", math_expression: "100 : 2 = 50" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "סכום של שתי זוויות קודקודיות (שנמצאות אחת מול השנייה) הוא 100 מעלות. מהו הגודל של כל אחת מהן בנפרד?&rlm;",
+        "options": ["50", "100", "80", "180"],
+        "correctAnswer": 0,
+        "hint": "אם שתיהן יחד מרכיבות 100 והן שוות זו לזו, פשוט חלקו את הסכום לשתיים.",
+        "solution_steps": [
+            { "verbal_explanation": "נתון שסכום שתי הזוויות יחד הוא מאה.", "math_expression": "100" },
+            { "verbal_explanation": "מכיוון שהן זוויות קודקודיות, אנו יודעים בוודאות שהן שוות זו לזו. נחלק את הסכום לשניים.", "math_expression": "100 \\div 2" },
+            { "verbal_explanation": "כל זווית כזו שווה לחמישים מעלות.", "math_expression": "50" }
         ],
-        final_answer: "50 מעלות"
+        "final_answer": "50"
     },
-    // שאלה 16
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שתי זוויות קודקודיות נתונות על ידי הביטויים: (2x + 10) ו- (3x - 20). מהו גודלן של הזוויות (במעלות)?&rlm;",
-        options: ["70", "30", "110", "60"],
-        correctAnswer: 0,
-        hint: "זוויות קודקודיות שוות. לכן, השוו בין שני הביטויים (2x+10 = 3x-20), מצאו את x, ואז הציבו אותו באחד הביטויים כדי למצוא את גודל הזווית.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נשווה בין הביטויים מכיוון שזוויות קודקודיות שוות.&rlm;", math_expression: "2x + 10 = 3x - 20" },
-            { verbal_explanation: "שלב ב': נעביר את 2x ימינה (נקבל x) ואת מינוס 20 שמאלה (יעבור לפלוס 20).&rlm;", math_expression: "10 + 20 = 3x - 2x  =>  x = 30" },
-            { verbal_explanation: "שלב ג': נציב x=30 באחד הביטויים למציאת הזווית.&rlm;", math_expression: "2 × 30 + 10 = 60 + 10 = 70" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "שני ישרים נחתכים. זווית אחת שווה ל-60 מעלות. מהו הגודל של הזווית שנמצאת צמוד אליה (לא מולה)?&rlm;",
+        "options": ["120", "60", "30", "90"],
+        "correctAnswer": 0,
+        "hint": "שימו לב: לא שאלו על הזווית שמולה (הקודקודית), אלא על הזווית שצמודה לה על אותו הקו. סכומן הוא 180.",
+        "solution_steps": [
+            { "verbal_explanation": "הזווית שמבקשים לא נמצאת מול הזווית הידועה, אלא חולקת איתה קו ישר אחד, כלומר היא זווית צמודה.", "math_expression": "\\text{Adjacent}" },
+            { "verbal_explanation": "סכום זוויות צמודות הוא מאה ושמונים מעלות.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר את הזווית הידועה מהסכום הכולל.", "math_expression": "180 - 60" },
+            { "verbal_explanation": "הזווית הצמודה היא בת מאה ועשרים מעלות.", "math_expression": "120" }
         ],
-        final_answer: "70"
+        "final_answer": "120"
     },
-    // שאלה 17
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "באילו תנאים זוג זוויות קודקודיות משלימות יחד ל-180 מעלות?&rlm;",
-        options: ["כאשר הישרים מאונכים זה לזה (כלומר זוויות של 90 מעלות)", "תמיד", "אף פעם", "רק אם הזוויות שוות ל-45 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות קודקודיות תמיד שוות זו לזו. כדי שהסכום שלהן יהיה 180, כל אחת מהן צריכה להיות שווה למחצית מ-180.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות קודקודיות שוות (x = x). הסכום הנדרש הוא 180.&rlm;", math_expression: "2x = 180" },
-            { verbal_explanation: "שלב ב': נחלק ב-2 ונקבל 90. שתי זוויות בנות 90 מעלות אומרות שהקווים מאונכים (יוצרים צלב ישר).&rlm;", math_expression: "x = 90" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "שני ישרים נחתכים. סכום של שתי זוויות קודקודיות הוא 260 מעלות. מה גודלה של כל אחת משתי הזוויות האחרות בצומת (אלה שגם הן קודקודיות זו לזו)?&rlm;",
+        "options": ["50", "130", "100", "80"],
+        "correctAnswer": 0,
+        "hint": "מצאו קודם את הגודל של אחת הזוויות הקהות (260 חלקי 2). לאחר מכן, מצאו את הזווית הצמודה אליה.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא את הגודל של זווית אחת מתוך הזוג הנתון על ידי חלוקה בשתיים.", "math_expression": "260 \\div 2 = 130" },
+            { "verbal_explanation": "הזווית שמבקשים למצוא נמצאת צמוד לזווית של מאה ושלושים מעלות על אותו קו ישר. לכן נחסר ממאה ושמונים.", "math_expression": "180 - 130" },
+            { "verbal_explanation": "זווית זו תהיה שווה לחמישים מעלות (וגם הזווית שמולה תהיה חמישים).", "math_expression": "50" }
         ],
-        final_answer: "כאשר הישרים מאונכים זה לזה (כלומר זוויות של 90 מעלות)"
+        "final_answer": "50"
     },
-    // שאלה 18
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שלושה ישרים נחתכים בנקודה אחת. נתונות שתי זוויות מתוך ה-6 שנוצרו מסביב לנקודה: אחת בת 40° והשנייה בת 60°. מה גודלה של הזווית השלישית (הצמודה אליהן ומשלימה לחצי מעגל)?&rlm;",
-        options: ["80 מעלות", "100 מעלות", "60 מעלות", "40 מעלות"],
-        correctAnswer: 0,
-        hint: "חצי מעגל (קו ישר אחד) מכיל 180 מעלות. חסרו מה-180 את שתי הזוויות הנתונות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סך כל הזוויות על צד אחד של ישר הוא 180 מעלות (זווית שטוחה).&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': נחבר את שתי הזוויות הידועות.&rlm;", math_expression: "40 + 60 = 100" },
-            { verbal_explanation: "שלב ג': נחסר את הסכום מ-180.&rlm;", math_expression: "180 - 100 = 80" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "שני קווים ישרים נחתכים ויוצרים 4 זוויות סביב נקודת האמצע. סכום של 3 מתוך 4 הזוויות הללו הוא 300 מעלות. מה גודלה של הזווית הרביעית?&rlm;",
+        "options": ["60", "30", "120", "100"],
+        "correctAnswer": 0,
+        "hint": "כל ארבע הזוויות יחד יוצרות מעגל שלם סביב הנקודה.",
+        "solution_steps": [
+            { "verbal_explanation": "סיבוב שלם סביב נקודה מכיל תמיד שלוש מאות ושישים מעלות בדיוק.", "math_expression": "360" },
+            { "verbal_explanation": "ידוע לנו שהסכום של שלוש מתוך הזוויות הוא שלוש מאות.", "math_expression": "300" },
+            { "verbal_explanation": "נחסר את הסכום החלקי מהסכום המלא של הסיבוב השלם כדי לגלות מה חסר.", "math_expression": "360 - 300" },
+            { "verbal_explanation": "הזווית שנותרה היא בת שישים מעלות.", "math_expression": "60" }
         ],
-        final_answer: "80 מעלות"
+        "final_answer": "60"
     },
-    // שאלה 19
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שני ישרים נחתכים. זווית אחת היא 5x והזווית הקודקודית לה היא x + 80. מהו גודלה של הזווית?&rlm;",
-        options: ["100 מעלות", "20 מעלות", "80 מעלות", "120 מעלות"],
-        correctAnswer: 0,
-        hint: "השוו בין שתי הזוויות (5x = x + 80). מצאו את x והציבו כדי למצוא את הזווית עצמה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות קודקודיות שוות. נרכיב משוואה.&rlm;", math_expression: "5x = x + 80" },
-            { verbal_explanation: "שלב ב': נעביר את x שמאלה (במינוס).&rlm;", math_expression: "4x = 80" },
-            { verbal_explanation: "שלב ג': נחלק ב-4 למציאת x.&rlm;", math_expression: "x = 20" },
-            { verbal_explanation: "שלב ד': נציב x=20 בביטוי של הזווית (5 כפול 20).&rlm;", math_expression: "5 × 20 = 100" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "שני קווים ישרים נחתכים כך שזווית אחת בצומת היא זווית ישרה (90 מעלות). מה ניתן לומר על כל שאר שלוש הזוויות בצומת?&rlm;",
+        "options": ["כולן שוות ל-90 מעלות", "רק הקודקודית לה שווה 90", "שתיים מהן 45 מעלות", "הן חדות"],
+        "correctAnswer": 0,
+        "hint": "אם אחת שווה לתשעים, הקודקודית לה שווה לתשעים. והצמודה אליה היא מאה ושמונים פחות תשעים.",
+        "solution_steps": [
+            { "verbal_explanation": "הזווית מול הזווית הישרה (הקודקודית לה) שווה לה ולכן גם היא תשעים.", "math_expression": "90" },
+            { "verbal_explanation": "הזווית הצמודה לה משלימה למאה ושמונים.", "math_expression": "180 - 90 = 90" },
+            { "verbal_explanation": "יוצא שכל ארבע הזוויות סביב נקודת המפגש הזו הן זוויות ישרות של תשעים מעלות.", "math_expression": "90" }
         ],
-        final_answer: "100 מעלות"
+        "final_answer": "כולן שוות ל-90 מעלות"
     },
-    // שאלה 20
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שני ישרים נחתכים ויוצרים ארבע זוויות סביב נקודת המפגש. סכומן של 3 מהזוויות הללו הוא 300 מעלות. מה גודלה של הזווית הרביעית?&rlm;",
-        options: ["60 מעלות", "120 מעלות", "90 מעלות", "100 מעלות"],
-        correctAnswer: 0,
-        hint: "סכום כל הזוויות סביב נקודה אחת (מעגל שלם) הוא 360 מעלות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': מעגל שלם סביב נקודה מכיל 360 מעלות.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': נחסר מ-360 את סכום שלוש הזוויות הידוע.&rlm;", math_expression: "360 - 300 = 60" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "זווית קודקודית אחת גדולה מזווית קודקודית שנייה ב-20 מעלות. האם המשפט הזה אפשרי?&rlm;",
+        "options": ["לא, כי הן תמיד שוות", "כן, אם הקו לא לגמרי ישר", "כן, זה תמיד ככה", "לא, כי סכומן חייב להיות 180"],
+        "correctAnswer": 0,
+        "hint": "חזרו על הגדרת הזווית הקודקודית.",
+        "solution_steps": [
+            { "verbal_explanation": "החוק החשוב ביותר של זוויות קודקודיות שנוצרות מחיתוך של שני קווים ישרים הוא שהן שוות בדיוק זו לזו תמיד.", "math_expression": "=" },
+            { "verbal_explanation": "לכן, לא ייתכן שקיים הפרש של עשרים מעלות ביניהן.", "math_expression": "20 \\neq 0" },
+            { "verbal_explanation": "המשפט בשאלה שגוי לחלוטין גאומטרית.", "math_expression": "0" }
         ],
-        final_answer: "60 מעלות"
+        "final_answer": "לא, כי הן תמיד שוות"
     },
-    // שאלה 21
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שני ישרים נחתכים יוצרים שתי זוויות קודקודיות שוות. מעבירים חוצה זווית לאחת מהן. אם גודל הזווית שבין חוצה הזווית לשוק שלו הוא 35°, מה גודלה של הזווית הקודקודית (השלמה)?&rlm;",
-        options: ["70°", "35°", "110°", "145°"],
-        correctAnswer: 0,
-        hint: "חוצה זווית חצה את הזווית המקורית לחצי (35). הכפילו ב-2 כדי למצוא את הזווית השלמה, וזכרו שהקודקודית שווה לה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': חצי מהזווית שווה ל-35°. לכן הזווית המלאה כפולה מכך.&rlm;", math_expression: "35 × 2 = 70" },
-            { verbal_explanation: "שלב ב': הזווית הקודקודית שווה בדיוק לזווית זו, ולכן גם היא 70°.&rlm;", math_expression: "" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "בצומת של שני ישרים נחתכים, סכום של שתי זוויות צמודות הוא 180 מעלות. מהו סכום שתי הזוויות הצמודות האחרות שנמצאות בצד השני של הצומת?&rlm;",
+        "options": ["180 מעלות", "360 מעלות", "90 מעלות", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "קו ישר תמיד מכיל עליו מאה ושמונים מעלות, מכל צד שתסתכלו עליו.",
+        "solution_steps": [
+            { "verbal_explanation": "שני קווים ישרים יוצרים מעגל שלם סביב נקודת המפגש בסך של שלוש מאות ושישים מעלות.", "math_expression": "360" },
+            { "verbal_explanation": "אם חצי מהמעגל (שתי זוויות צמודות) שווה למאה ושמונים, נחסר זאת מהשלם.", "math_expression": "360 - 180" },
+            { "verbal_explanation": "החצי השני חייב להיות גם הוא שווה למאה ושמונים בדיוק.", "math_expression": "180" }
         ],
-        final_answer: "70°"
+        "final_answer": "180 מעלות"
     },
-    // שאלה 22
     {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "סכום של שתי זוויות קודקודיות הוא 150 מעלות. מה גודלה של זווית הצמודה לאחת מהן?&rlm;",
-        options: ["105 מעלות", "75 מעלות", "30 מעלות", "150 מעלות"],
-        correctAnswer: 0,
-        hint: "תחילה מצאו את גודל הזווית הקודקודית (חילוק ב-2). לאחר מכן, מצאו את הזווית המשלימה לה ל-180 (הצמודה).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נמצא את גודל הזווית האחת (חצי מהסכום כי הן שוות).&rlm;", math_expression: "150 : 2 = 75" },
-            { verbal_explanation: "שלב ב': זווית צמודה משלימה את ה-75 מעלות ל-180.&rlm;", math_expression: "180 - 75 = 105" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות קודקודיות",
+        "question_text": "אם נחסר זווית אחת מתוך הזווית הקודקודית שלה, מה תהיה התוצאה תמיד?&rlm;",
+        "options": ["0", "180", "90", "תלוי בגודל הזווית"],
+        "correctAnswer": 0,
+        "hint": "חיסור של שני מספרים שווים לחלוטין.",
+        "solution_steps": [
+            { "verbal_explanation": "שתי זוויות קודקודיות זהות במידתן לחלוטין.", "math_expression": "1 = 1" },
+            { "verbal_explanation": "כאשר אנו לוקחים מספר ומחסרים ממנו את עצמו, לא נשאר כלום.", "math_expression": "1 - 1 = 0" },
+            { "verbal_explanation": "התוצאה של החיסור תהיה תמיד אפס מעלות.", "math_expression": "0" }
         ],
-        final_answer: "105 מעלות"
-    },
-    // שאלה 23
-    {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "שתי זוויות קודקודיות מיוצגות על ידי (4x - 15) ו- (2x + 45). מהו גודלה של כל זווית?&rlm;",
-        options: ["105 מעלות", "30 מעלות", "75 מעלות", "120 מעלות"],
-        correctAnswer: 0,
-        hint: "השוו את המשוואות. העבירו את ה-2x שמאלה (במינוס) ואת ה-15 ימינה (בפלוס).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות קודקודיות שוות.&rlm;", math_expression: "4x - 15 = 2x + 45" },
-            { verbal_explanation: "שלב ב': נסדר אגפים. (4x - 2x) = (45 + 15).&rlm;", math_expression: "2x = 60" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "x = 30" },
-            { verbal_explanation: "שלב ד': נציב x בביטוי הראשון כדי למצוא את הזווית.&rlm;", math_expression: "4 × 30 - 15 = 120 - 15 = 105" }
-        ],
-        final_answer: "105 מעלות"
-    },
-    // שאלה 24
-    {
-        topic: "angles",
-        subTopic: "זוויות קודקודיות",
-        question_text: "כאשר שני ישרים נחתכים, זווית אחת גדולה ב-60 מעלות מהזווית הצמודה לה. מהו גודלה של הזווית הקודקודית לזווית *הקטנה* מביניהן?&rlm;",
-        options: ["60 מעלות", "120 מעלות", "30 מעלות", "90 מעלות"],
-        correctAnswer: 0,
-        hint: "קודם פתרו את בעיית הזוויות הצמודות (x ו- x+60 שמשלימות ל-180). אחרי שמצאתם את הזווית הקטנה (x), זכרו שהקודקודית לה שווה לה בדיוק!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן זווית צמודה קטנה ב-x, גדולה ב-x+60. סכומן 180.&rlm;", math_expression: "x + (x + 60) = 180" },
-            { verbal_explanation: "שלב ב': 2x + 60 = 180. נעביר 60 אגף.&rlm;", math_expression: "2x = 120  =>  x = 60" },
-            { verbal_explanation: "שלב ג': הזווית הקטנה היא 60°. הזווית הקודקודית אליה שווה לה, ולכן גם היא 60°.&rlm;", math_expression: "" }
-        ],
-        final_answer: "60 מעלות"
+        "final_answer": "0"
     },
 
-    // ==========================================================
-    // תת נושא 3: זוויות בין מקבילים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 25
+    // ==========================================
+    // תת נושא 3: זוויות בין מקבילים (10 שאלות)
+    // ==========================================
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "שני ישרים מקבילים נחתכים על ידי ישר שלישי. זווית אחת היא בת 70 מעלות. מה גודלה של הזווית המתחלפת (פנימית) לה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 100' width='100%' height='100' style='max-width:200px;'><line x1='20' y1='30' x2='180' y2='30' stroke='#0f172a' stroke-width='2'/><line x1='20' y1='70' x2='180' y2='70' stroke='#0f172a' stroke-width='2'/><line x1='60' y1='90' x2='140' y2='10' stroke='#ef4444' stroke-width='2'/><path d='M 125 25 A 15 15 0 0 0 105 30' fill='none' stroke='#3b82f6' stroke-width='2'/><text x='110' y='20' font-family='Arial' font-size='10' fill='#3b82f6'>70°</text><path d='M 95 70 A 15 15 0 0 0 75 75' fill='none' stroke='#10b981' stroke-width='2'/><text x='85' y='85' font-family='Arial' font-size='12' fill='#10b981'>x</text></svg></div>",
-        options: ["70 מעלות", "110 מעלות", "20 מעלות", "180 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות מתחלפות (פנימיות או חיצוניות) בין שני ישרים מקבילים תמיד שוות זו לזו. צורתן מזכירה את האות Z.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המשפט קובע שבין ישרים מקבילים, זוויות מתחלפות (בצורת Z) שוות בגודלן.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': מכיוון שהזווית הנתונה היא 70 מעלות, הזווית החסרה שווה לה.&rlm;", math_expression: "x = 70" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"50\" x2=\"180\" y2=\"50\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"20\" y1=\"110\" x2=\"180\" y2=\"110\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"60\" y1=\"20\" x2=\"140\" y2=\"140\" stroke=\"#f87171\" stroke-width=\"2\"/><path d=\"M 85 50 A 15 15 0 0 0 75 60\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\"/><path d=\"M 125 110 A 15 15 0 0 0 115 120\" fill=\"none\" stroke=\"#3b82f6\" stroke-width=\"2\"/><text x=\"55\" y=\"45\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">130°</text><text x=\"130\" y=\"135\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">?</text></svg></div><br>שני קווים מקבילים נחתכים על ידי קו ישר שלישי (חותך). נוצרת זווית קהה בגודל 130 מעלות. מהו הגודל של הזווית המתחלפת הפנימית לה (זו שבצד השני של החותך ובין המקבילים)?&rlm;",
+        "options": ["130", "50", "260", "180"],
+        "correctAnswer": 0,
+        "hint": "זוויות מתחלפות בין ישרים מקבילים שוות תמיד זו לזו. חשבו על צורת האות Z.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה שמדובר בקווים מקבילים שנחצים, ולכן חלים כללי הזוויות המיוחדות.", "math_expression": "\\parallel" },
+            { "verbal_explanation": "הכלל קובע שזוויות מתחלפות שוות זו לזו בדיוק. ניתן לזהות אותן בפינות של צורת זיג-זג (Z).", "math_expression": "130 = 130" },
+            { "verbal_explanation": "הזווית המבוקשת שווה לזווית הנתונה.", "math_expression": "130" }
         ],
-        final_answer: "70 מעלות"
+        "final_answer": "130"
     },
-    // שאלה 26
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "בין שני ישרים מקבילים נחתך ישר. זווית אחת היא בת 110 מעלות. מה גודלה של הזווית המתאימה לה (זו שבאותו מיקום ביחס לישר השני)?&rlm;",
-        options: ["110 מעלות", "70 מעלות", "180 מעלות", "20 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות מתאימות יושבות בדיוק באותו מיקום (למשל, שתיהן למעלה ומצד ימין). בין מקבילים הן שוות (צורת האות F).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות מתאימות בין ישרים מקבילים שוות בגודלן תמיד.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': לכן, הזווית המתאימה שווה בדיוק לזווית הנתונה.&rlm;", math_expression: "x = 110" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "בין שני קווים מקבילים יש קו חותך. זווית אחת שווה ל-70 מעלות. מה גודלה של הזווית המתאימה לה (זו שנמצאת באותו מיקום ביחס לקו השני)?&rlm;",
+        "options": ["70", "110", "140", "180"],
+        "correctAnswer": 0,
+        "hint": "זוויות מתאימות, הנמצאות באותו צד של החותך ובאותו צד של המקבילים, הן שוות.",
+        "solution_steps": [
+            { "verbal_explanation": "זוויות מתאימות יושבות בדיוק באותה פינה בשני הצמתים השונים שיוצר הקו החותך עם המקבילים.", "math_expression": "\\text{Corresponding}" },
+            { "verbal_explanation": "כלל גאומטרי קובע שבין מקבילים, זוויות מתאימות שוות זו לזו.", "math_expression": "70 = 70" },
+            { "verbal_explanation": "התשובה תהיה זהה לנתון.", "math_expression": "70" }
         ],
-        final_answer: "110 מעלות"
+        "final_answer": "70"
     },
-    // שאלה 27
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "זווית אחת בין שני מקבילים היא 80 מעלות. מה גודלה של הזווית החד-צדדית לה (הזווית הפנימית שנמצאת באותו צד של הישר החותך)?&rlm;",
-        options: ["100 מעלות", "80 מעלות", "10 מעלות", "180 מעלות"],
-        correctAnswer: 0,
-        hint: "זוויות חד-צדדיות (צורת U) אינן שוות! סכומן יחד הוא 180 מעלות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום שתי זוויות חד צדדיות בין מקבילים הוא 180°.&rlm;", math_expression: "x + 80 = 180" },
-            { verbal_explanation: "שלב ב': נחסר 80 מ-180.&rlm;", math_expression: "180 - 80 = 100" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "שני קווים מקבילים נחתכים. זווית פנימית אחת שווה ל-100 מעלות. מה גודלה של הזווית החד-צדדית (פנימית באותו צד של החותך) שמעליה או מתחתיה?&rlm;",
+        "options": ["80", "100", "260", "90"],
+        "correctAnswer": 0,
+        "hint": "סכום של שתי זוויות חד-צדדיות פנימיות בין ישרים מקבילים הוא תמיד 180 מעלות (הן משלימות זו את זו כמו צורת ח).",
+        "solution_steps": [
+            { "verbal_explanation": "זוויות פנימיות שנמצאות באותו צד של הקו החותך משלימות יחד למאה ושמונים מעלות.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר מהסכום הכולל את הזווית שכבר יש לנו.", "math_expression": "180 - 100" },
+            { "verbal_explanation": "נחשב ונקבל את הזווית השנייה שמשלימה אותה.", "math_expression": "80" }
         ],
-        final_answer: "100 מעלות"
+        "final_answer": "80"
     },
-    // שאלה 28
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "שתי זוויות מתחלפות מיוצגות על ידי הביטויים 3x ו- (x + 60). מהו ערכו של x?&rlm;",
-        options: ["30", "60", "45", "20"],
-        correctAnswer: 0,
-        hint: "השוו את שני הביטויים זה לזה (כי זוויות מתחלפות שוות). העבירו את ה-x לאגף שמאל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות מתחלפות בין מקבילים שוות זו לזו. נבנה משוואה.&rlm;", math_expression: "3x = x + 60" },
-            { verbal_explanation: "שלב ב': נחסר x משני האגפים.&rlm;", math_expression: "2x = 60" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "x = 30" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "זווית חיצונית מתחלפת (נמצאת בצד השני של החותך ומחוץ למקבילים) לזווית של 65 מעלות. מהו הגודל של הזווית המתחלפת החיצונית הזו?&rlm;",
+        "options": ["65", "115", "180", "25"],
+        "correctAnswer": 0,
+        "hint": "כמו זוויות מתחלפות פנימיות, גם זוויות מתחלפות חיצוניות שוות זו לזו.",
+        "solution_steps": [
+            { "verbal_explanation": "התכונה של שוויון בין זוויות מתחלפות חלה גם על הזוויות שנמצאות בחלק החיצוני של הקווים המקבילים.", "math_expression": "\\text{Alternate Exterior}" },
+            { "verbal_explanation": "לכן, גם הן שוות זו לזו במידתן ללא שום חישוב נוסף.", "math_expression": "65 = 65" },
+            { "verbal_explanation": "התשובה נשארת כפי שהייתה.", "math_expression": "65" }
         ],
-        final_answer: "30"
+        "final_answer": "65"
     },
-    // שאלה 29
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "שתי זוויות חד-צדדיות בין מקבילים נתונות כ-2x ו-4x. מה גודלה של הזווית הגדולה מביניהן?&rlm;",
-        options: ["120 מעלות", "60 מעלות", "30 מעלות", "90 מעלות"],
-        correctAnswer: 0,
-        hint: "סכום זוויות חד-צדדיות הוא 180. חברו אותן (6x = 180). מצאו את x והכפילו ב-4 למציאת הזווית הגדולה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום זוויות חד צדדיות הוא 180.&rlm;", math_expression: "2x + 4x = 180" },
-            { verbal_explanation: "שלב ב': 6 פעמים x שווה 180.&rlm;", math_expression: "6x = 180  =>  x = 30" },
-            { verbal_explanation: "שלב ג': הזווית הגדולה היא 4x. נכפיל 30 ב-4.&rlm;", math_expression: "30 × 4 = 120" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "זווית אחת בין מקבילים היא 120 מעלות. מה גודל הזווית החד-צדדית לה?&rlm;",
+        "options": ["60", "120", "180", "90"],
+        "correctAnswer": 0,
+        "hint": "חברו שני מספרים שייתנו יחד מאה ושמונים.",
+        "solution_steps": [
+            { "verbal_explanation": "זכרו שהמילה 'חד-צדדיות' מרמזת על השלמה למאה ושמונים, בניגוד ל'מתחלפות' או 'מתאימות' שהן שוות.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר את הזווית הקהה שנתונה מהסכום השלם.", "math_expression": "180 - 120" },
+            { "verbal_explanation": "נקבל זווית חדה שמשלימה אותה בצד הפנימי.", "math_expression": "60" }
         ],
-        final_answer: "120 מעלות"
+        "final_answer": "60"
     },
-    // שאלה 30
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "איזה מהמשפטים הבאים נכון לגבי 'זוויות מתחלפות חיצוניות' (הנמצאות מחוץ לשני המקבילים, משני צידי הישר החותך)?&rlm;",
-        options: ["הן שוות זו לזו", "סכומן הוא 180 מעלות", "הן שוות ל-90 מעלות", "אין ביניהן קשר מוגדר"],
-        correctAnswer: 0,
-        hint: "בדיוק כמו זוויות מתחלפות פנימיות (הרגילות), גם זוויות מתחלפות חיצוניות שוות ביניהן בגלל המקבילות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כל זוג של זוויות מתחלפות (בין אם פנימיות ובין אם חיצוניות) תמיד שוות זו לזו כשהישרים מקבילים.&rlm;", math_expression: "" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "אם זווית מתאימה לזווית אחרת, והשנייה שווה ל-45 מעלות. כמה שווה הראשונה?&rlm;",
+        "options": ["45", "135", "90", "180"],
+        "correctAnswer": 0,
+        "hint": "מתאימות תמיד שוות ביניהן.",
+        "solution_steps": [
+            { "verbal_explanation": "זוויות מתאימות בין ישרים מקבילים זהות תמיד.", "math_expression": "45 = 45" },
+            { "verbal_explanation": "נעתיק את המספר הנתון ישירות לפתרון.", "math_expression": "45" }
         ],
-        final_answer: "הן שוות זו לזו"
+        "final_answer": "45"
     },
-    // שאלה 31
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "היחס בין שתי זוויות חד-צדדיות (המשלימות ל-180) בין מקבילים הוא 2:7. מה גודלה של הזווית הקטנה?&rlm;",
-        options: ["40 מעלות", "20 מעלות", "140 מעלות", "80 מעלות"],
-        correctAnswer: 0,
-        hint: "סך החלקים הוא 9. חלקו 180 ב-9 כדי לגלות שווי של חלק אחד, והכפילו ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום הזוויות החד-צדדיות הוא 180. סך החלקים ביחס הוא 9.&rlm;", math_expression: "2 + 7 = 9" },
-            { verbal_explanation: "שלב ב': נחלק למציאת חלק יחיד.&rlm;", math_expression: "180 : 9 = 20" },
-            { verbal_explanation: "שלב ג': הזווית הקטנה מקבלת 2 חלקים.&rlm;", math_expression: "2 × 20 = 40" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "בין ישרים מקבילים, יש זווית קהה בגודל 135 מעלות. כמה תהיה שווה הזווית שמתחלפת איתה?&rlm;",
+        "options": ["135", "45", "180", "90"],
+        "correctAnswer": 0,
+        "hint": "מתחלפות שוות.",
+        "solution_steps": [
+            { "verbal_explanation": "זוויות מתחלפות (בצורת זיג-זג) שומרות על השוויון ביניהן בתוך המערכת המקבילה.", "math_expression": "135 = 135" },
+            { "verbal_explanation": "המספר נשאר זהה.", "math_expression": "135" }
         ],
-        final_answer: "40 מעלות"
+        "final_answer": "135"
     },
-    // שאלה 32
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "ישר חותך שני מקבילים. זווית אחת היא 50°. כמה זוויות נוספות בשרטוט (מתוך 8 הזוויות הכוללות) שוות גם הן ל-50°?&rlm;",
-        options: ["3 זוויות", "1 זווית", "4 זוויות", "7 זוויות"],
-        correctAnswer: 0,
-        hint: "יש זווית קודקודית אחת (שווה 50). יש זווית מתחלפת (שווה 50). ויש קודקודית למתחלפת (או מתאימה) ששווה 50. סה\"כ 3 נופסות!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': מתוך 8 הזוויות, 4 תהיינה שוות ל-50 (חדות) ו-4 תהיינה שוות ל-130 (קהות).&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': מכיוון שאחת כבר נתונה (50), נשארו בדיוק עוד 3 זוויות השוות ל-50°.&rlm;", math_expression: "4 - 1 = 3" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "שתי זוויות חד-צדדיות פנימיות. האחת שווה ל-90 מעלות. למה שווה השנייה?&rlm;",
+        "options": ["90", "180", "45", "0"],
+        "correctAnswer": 0,
+        "hint": "מה צריך להוסיף לתשעים כדי להגיע למאה ושמונים?",
+        "solution_steps": [
+            { "verbal_explanation": "חד-צדדיות משלימות זו את זו לסכום קבוע.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר את זווית התשעים שקיימת כבר.", "math_expression": "180 - 90" },
+            { "verbal_explanation": "הזווית השנייה היא גם זווית ישרה של תשעים מעלות. (זה קורה כשהחותך מאונך למקבילים).", "math_expression": "90" }
         ],
-        final_answer: "3 זוויות"
+        "final_answer": "90"
     },
-    // שאלה 33
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "לפניכם צורת Z המורכבת משני ישרים מקבילים וקו חותך. הזווית העליונה הפנימית בתוך ה-Z היא 35°. מה גודל הזווית התחתונה בתוך ה-Z?&rlm;",
-        options: ["35 מעלות", "145 מעלות", "55 מעלות", "70 מעלות"],
-        correctAnswer: 0,
-        hint: "הזוויות הכלואות בתוך 'ברכי' האות Z הן בדיוק ההגדרה של זוויות מתחלפות פנימיות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות הכלואות בצורת Z המורכבת ממקבילים הן זוויות מתחלפות.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': זוויות מתחלפות שוות זו לזו, ולכן הזווית השנייה שווה גם היא ל-35°.&rlm;", math_expression: "" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "נתונה זווית בגודל 45 מעלות. מה תהיה הזווית המתאימה לה בחיתוך המקבילים התחתון?&rlm;",
+        "options": ["45", "135", "90", "180"],
+        "correctAnswer": 0,
+        "hint": "מתאימה - שווה.",
+        "solution_steps": [
+            { "verbal_explanation": "הכלל של זוויות מתאימות מציין שוויון פשוט.", "math_expression": "45 = 45" },
+            { "verbal_explanation": "הערך הוא ארבעים וחמש.", "math_expression": "45" }
         ],
-        final_answer: "35 מעלות"
+        "final_answer": "45"
     },
-    // שאלה 34
     {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "שתי זוויות מתאימות נתונות על ידי (5x - 20) ו- (3x + 40). מהו גודלן המשותף במעלות?&rlm;",
-        options: ["130", "30", "150", "80"],
-        correctAnswer: 0,
-        hint: "השוו את המשוואות: 5x - 20 = 3x + 40. מצאו את x (30), והציבו בחזרה לאחת המשוואות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': זוויות מתאימות שוות. נשווה את הביטויים.&rlm;", math_expression: "5x - 20 = 3x + 40" },
-            { verbal_explanation: "שלב ב': נעביר אגפים. 3x שמאלה (מינוס) ו-20 ימינה (פלוס).&rlm;", math_expression: "2x = 60  =>  x = 30" },
-            { verbal_explanation: "שלב ג': נציב x=30 כדי למצוא את גודל הזווית.&rlm;", math_expression: "5 × 30 - 20 = 150 - 20 = 130" }
+        "topic": "geometry_angles_grade_7",
+        "subTopic": "זוויות בין מקבילים",
+        "question_text": "ישנן שתי זוויות חד-צדדיות. אחת מהן בגודל 65 מעלות. מצאו את הזווית השנייה.&rlm;",
+        "options": ["115", "65", "25", "180"],
+        "correctAnswer": 0,
+        "hint": "השלימו למאה ושמונים.",
+        "solution_steps": [
+            { "verbal_explanation": "הסכום הדרוש לזוויות חד-צדדיות במערכת זו הוא מאה ושמונים.", "math_expression": "180" },
+            { "verbal_explanation": "נחסר שישים וחמש מתוך הסכום השלם במאונך.", "math_expression": "180 - 65" },
+            { "verbal_explanation": "נחשב את ההפרש לקבלת הזווית השנייה.", "math_expression": "115" }
         ],
-        final_answer: "130"
-    },
-    // שאלה 35
-    {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "קלאסיקה (צורת M): שני ישרים מקבילים. ביניהם נמתחו שני קטעים שנפגשים ויוצרים צורת משולש הפוך (כמו האות M שוכבת). הזווית העליונה עם המקביל העליון היא 30°. הזווית התחתונה עם המקביל התחתון היא 40°. מה גודלה של זווית הקודקוד האמצעית (השפיץ של ה-M הפונה ימינה)?&rlm;",
-        options: ["70 מעלות", "10 מעלות", "110 מעלות", "180 מעלות"],
-        correctAnswer: 0,
-        hint: "העבירו קו מקביל דמיוני דרך השפיץ האמצעי. השפיץ יתחלק לשתי זוויות מתחלפות קטנות: אחת שווה לעליונה (30) ואחת לתחתונה (40).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': מציירים ישר מקביל עזר העובר בדיוק בקודקוד האמצעי (קודקוד ה-'שפיץ').&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': הישר הדמיוני מחלק את הזווית האמצעית ל-2 חלקים.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ג': החלק העליון מתחלף ושווה לזווית העליונה (30). החלק התחתון מתחלף ושווה לתחתונה (40). סכומן הוא הזווית כולה.&rlm;", math_expression: "30 + 40 = 70" }
-        ],
-        final_answer: "70 מעלות"
-    },
-    // שאלה 36
-    {
-        topic: "angles",
-        subTopic: "זוויות בין מקבילים",
-        question_text: "חותך חותך שני ישרים (לא ידוע אם הם מקבילים). זווית פנימית אחת היא 80 מעלות, והזווית החד-צדדית לה היא 100 מעלות. האם שני הישרים מקבילים?&rlm;",
-        options: ["כן, בוודאות", "לא, הם ייפגשו בצד ימין", "לא, הם ייפגשו בצד שמאל", "אי אפשר לדעת"],
-        correctAnswer: 0,
-        hint: "המשפט ההפוך: אם סכום זוויות חד-צדדיות הוא בדיוק 180 מעלות, אזי הישרים מקבילים בהכרח!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נבדוק מה סכום הזוויות החד-צדדיות הנתונות.&rlm;", math_expression: "80 + 100 = 180" },
-            { verbal_explanation: "שלב ב': המשפט ההפוך למקבילים קובע שאם סכום זוויות חד-צדדיות הוא בדיוק 180, הישרים הם בהכרח מקבילים.&rlm;", math_expression: "" }
-        ],
-        final_answer: "כן, בוודאות"
+        "final_answer": "115"
     }
-
 ];

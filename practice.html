@@ -868,12 +868,10 @@
         } catch(e) { console.log("Audio not supported"); }
     }
 
-    // פונקציית הקראה קולית בעברית למשוב - קול מערכתי רשמי ומדרבן בלבד, בחירת קול מדויקת
     function playFeedbackVoice(isCorrect) {
         if (!window.speechSynthesis) return;
         window.speechSynthesis.cancel();
         
-        // משפטים מערכתיים וברורים (לא "עצובים" בטעות, מדרבנים בלבד)
         const correctPhrases = [
             "תשובה נכונה!",
             "מצוין, תשובה נכונה.",
@@ -895,7 +893,6 @@
         utterance.pitch = 1.0; 
         
         const voices = window.speechSynthesis.getVoices();
-        // בחירה מוכוונת לקולות המערכת הרשמיים בעברית כדי להישמע מקצועי ובלי מבטא אמריקאי
         const hebrewVoice = voices.find(v => v.lang === 'he-IL' && v.name.includes('Microsoft')) || 
                             voices.find(v => v.lang === 'he-IL' && v.name.includes('Google')) ||
                             voices.find(v => v.lang === 'he-IL' || v.name.includes('Hebrew') || v.name.includes('עברית'));
@@ -916,13 +913,11 @@
         const mathBlocks = [];
         html = html.replace(/\\\([\s\S]*?\\\)/g, m => { 
             let inner = m.substring(2, m.length - 2);
-            // אילוץ פקודת displaystyle כדי שיוצג בגודל מלא
             mathBlocks.push(`\\( \\displaystyle ${inner} \\)`); 
             return `___MATH___`; 
         });
         html = html.replace(/\$\$[\s\S]*?\$\$/g, m => { mathBlocks.push(m); return `___MATH___`; });
 
-        // זיהוי מדויק של מילה בין x מכל צד, העלמת ה-x לחלוטין, והדגשת המילה בצורה בטוחה
         html = html.replace(/(?:x|X|×|\*){2,}\s*([^xX×*<>]+?)\s*(?:x|X|×|\*){2,}/gi, ' <strong style="background: rgba(197, 160, 89, 0.15); border-bottom: 2px solid var(--accent-gold); padding: 0 5px; border-radius: 4px; color: var(--primary-header);">$1</strong> ');
 
         const svgs = []; html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `___SVG___`; });
@@ -966,6 +961,72 @@
         res = res.replace(/\bפחות\b/g, ' - ');
         res = res.replace(/\bגדול מ\b/g, ' > ');
         res = res.replace(/\bקטן מ\b/g, ' < ');
+
+        const safeReplace = (word, translation) => {
+            let regex = new RegExp(`([^a-zA-Z\\\\\\\\]|^)\\\\b${word}\\\\b`, 'gi');
+            res = res.replace(regex, `$1${translation}`);
+        };
+
+        res = res.replace(/Vertical\s*Line/gi, 'ישר אנכי');
+        res = res.replace(/Vertical\s*\(Right\)/gi, 'אנכית (מימין)');
+        res = res.replace(/Unique\s*Representation/gi, 'הצגה יחידה');
+        res = res.replace(/Line\s*\\in\s*Plane/gi, 'ישר במישור');
+        res = res.replace(/Plane\s*Equation/gi, 'משוואת מישור');
+        res = res.replace(/Roots\s*spacing/gi, 'מרווח שורשים');
+        res = res.replace(/Roots\s*form\s*Regular\s*Polygon/gi, 'שורשים יוצרים מצולע משוכלל');
+        res = res.replace(/Acute\s*\\triangle/gi, 'משולש חד זווית');
+        res = res.replace(/Concave\s*Up/gi, 'קעורה כלפי מעלה');
+        res = res.replace(/Concave\s*Down/gi, 'קעורה כלפי מטה');
+
+        safeReplace('Center', 'מרכז');
+        safeReplace('Vertical', 'אנכי');
+        safeReplace('Dependent', 'תלויים');
+        safeReplace('Independent', 'בלתי תלויים');
+        safeReplace('Unique', 'יחיד');
+        safeReplace('Representation', 'הצגה');
+        safeReplace('Line', 'ישר');
+        safeReplace('Plane', 'מישור');
+        safeReplace('Equation', 'משוואה');
+        safeReplace('Roots', 'שורשים');
+        safeReplace('Spacing', 'מרווח');
+        safeReplace('Product', 'מכפלה');
+        safeReplace('Sum', 'סכום');
+        safeReplace('Acute', 'חד זווית');
+        safeReplace('Regular', 'משוכלל');
+        safeReplace('Polygon', 'מצולע');
+        safeReplace('form', 'יוצרים');
+        safeReplace('Concave', 'קעירות');
+        safeReplace('Up', 'מעלה');
+        safeReplace('Down', 'מטה');
+        safeReplace('Maximize', 'מקסימום');
+        safeReplace('Max', 'מקסימום');
+        safeReplace('Minimize', 'מינימום');
+        safeReplace('Min', 'מינימום');
+        safeReplace('Rate', 'קצב');
+        safeReplace('Never', 'לעולם לא');
+        safeReplace('Yes', 'כן');
+        safeReplace('No', 'לא');
+        safeReplace('Sign', 'סימן');
+        safeReplace('Inflection', 'פיתול');
+        safeReplace('Intersection', 'חיתוך');
+        safeReplace('Point', 'נקודה');
+        safeReplace('Ray', 'קרן');
+        safeReplace('Circle', 'מעגל');
+        safeReplace('diameter', 'קוטר');
+        safeReplace('Radius', 'רדיוס');
+        safeReplace('distance', 'מרחק');
+        safeReplace('gap', 'פער');
+        safeReplace('diff', 'הפרש');
+        safeReplace('total', 'סה"כ');
+        safeReplace('in', 'נכנס');
+        safeReplace('out', 'יוצא');
+        safeReplace('back', 'חזור');
+        safeReplace('go', 'הלוך');
+        safeReplace('rem', 'שארית');
+        safeReplace('Proj', 'היטל');
+        safeReplace('Limit', 'גבול');
+        safeReplace('Num', 'מונה');
+        safeReplace('Den', 'מכנה');
 
         return res.trim();
     }
@@ -1013,7 +1074,7 @@
             let hard = scored.slice(2*third).map(item => item.q);
             
             if(scored.length % 3 !== 0) {
-               hard = scored.slice(2*third).map(item => item.q);
+                hard = scored.slice(2*third).map(item => item.q);
             }
             
             return { easy: easy, medium: medium, hard: hard };

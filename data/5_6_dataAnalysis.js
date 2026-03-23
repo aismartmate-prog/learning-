@@ -1,458 +1,305 @@
-// ========================================================================
-// שכבת גיל: ה'-ו' | נושא: חקר נתונים וסיכויים
-// תתי נושאים: חקר נתונים, ניתוח סיכויים (24 שאלות סה"כ)
-// ========================================================================
-
 const questionsDB = [
-
     // ==========================================
-    // תת נושא 1: חקר נתונים (12 שאלות)
-    // ==========================================
-    
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "ציוניו של דני בשלושה מבחנים בחשבון הם: 80, 90, 100.<br>מהו הציון הממוצע של דני?&rlm;",
-        options: [
-            "90",
-            "85",
-            "95",
-            "80"
-        ],
-        correctAnswer: 0,
-        hint: "כדי לחשב ממוצע, יש לחבר את כל הציונים יחד, ולאחר מכן לחלק את הסכום במספר המבחנים (3).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תחילה, נחשב את סכום כל הציונים של דני.&rlm;", math_expression: "80 + 90 + 100 = 270" },
-            { verbal_explanation: "כעת, נחלק את הסכום שהתקבל במספר המבחנים (3) כדי למצוא את הממוצע.&rlm;", math_expression: "270 / 3 = 90" }
-        ],
-        final_answer: "90"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "התרשים שלפניכם מציג את מספר הספרים שקראו ילדים בחופש הגדול.<br>איזו עמודה מייצגת את הכמות הגדולה ביותר (השכיח)?&rlm;<div style=\"text-align:center; margin:20px 0;\"><svg viewBox=\"0 0 200 120\" width=\"100%\" height=\"120\" style=\"max-width:200px;\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#94a3b8\" stroke-width=\"2\"/><line x1=\"20\" y1=\"10\" x2=\"20\" y2=\"100\" stroke=\"#94a3b8\" stroke-width=\"2\"/><rect x=\"40\" y=\"50\" width=\"20\" height=\"50\" fill=\"#3b82f6\"/><rect x=\"80\" y=\"20\" width=\"20\" height=\"80\" fill=\"#10b981\"/><rect x=\"120\" y=\"60\" width=\"20\" height=\"40\" fill=\"#f59e0b\"/><text x=\"50\" y=\"115\" font-family=\"Arial\" font-size=\"10\" fill=\"#64748b\" text-anchor=\"middle\">א'</text><text x=\"90\" y=\"115\" font-family=\"Arial\" font-size=\"10\" fill=\"#64748b\" text-anchor=\"middle\">ב'</text><text x=\"130\" y=\"115\" font-family=\"Arial\" font-size=\"10\" fill=\"#64748b\" text-anchor=\"middle\">ג'</text></svg></div>",
-        options: [
-            "עמודה ב'",
-            "עמודה א'",
-            "עמודה ג'",
-            "כולן שוות"
-        ],
-        correctAnswer: 0,
-        hint: "השכיח הוא הנתון שמופיע הכי הרבה פעמים, ולכן העמודה שלו בתרשים תהיה הגבוהה ביותר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נתבונן בתרשים: גובה העמודה מייצג את הכמות. ככל שהעמודה גבוהה יותר, הכמות גדולה יותר.&rlm;", math_expression: "" },
-            { verbal_explanation: "עמודה ב' (הירוקה) היא הגבוהה ביותר, ולכן היא מייצגת את הערך השכיח.&rlm;", math_expression: "" }
-        ],
-        final_answer: "עמודה ב'"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "בקבוצת כדורסל נמדד גובהם של חמישה שחקנים (בס\"מ): 180, 185, 190, 195, 200.<br>מהו חציון הגבהים בקבוצה?&rlm;",
-        options: [
-            "190 ס\"מ",
-            "185 ס\"מ",
-            "195 ס\"מ",
-            "192 ס\"מ"
-        ],
-        correctAnswer: 0,
-        hint: "החציון הוא המספר שנמצא בדיוק באמצע הרשימה לאחר שמסדרים את הנתונים מהקטן לגדול.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הנתונים כבר מסודרים בסדר עולה: 180, 185, 190, 195, 200.&rlm;", math_expression: "" },
-            { verbal_explanation: "מכיוון שישנם 5 נתונים (מספר אי-זוגי), החציון הוא הנתון השלישי, שנמצא בדיוק באמצע.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר האמצעי הוא 190.&rlm;", math_expression: "" }
-        ],
-        final_answer: "190 ס\"מ"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "טמפרטורות המקסימום שנמדדו במהלך שבוע אחד בירושלים היו: 24, 26, 22, 28, 25, 24, 30.<br>מהו 'טווח הנתונים' של הטמפרטורות?&rlm;",
-        options: [
-            "8 מעלות",
-            "30 מעלות",
-            "22 מעלות",
-            "6 מעלות"
-        ],
-        correctAnswer: 0,
-        hint: "טווח הנתונים הוא ההפרש שבין הנתון הגדול ביותר לנתון הקטן ביותר בסדרה. מצאו אותם והחסירו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נמצא את הנתון הגדול ביותר (הטמפרטורה הגבוהה ביותר): 30.&rlm;", math_expression: "" },
-            { verbal_explanation: "נמצא את הנתון הקטן ביותר (הטמפרטורה הנמוכה ביותר): 22.&rlm;", math_expression: "" },
-            { verbal_explanation: "נחשב את ההפרש ביניהם כדי למצוא את הטווח.&rlm;", math_expression: "30 - 22 = 8" }
-        ],
-        final_answer: "8 מעלות"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "דיאגרמת העוגה מציגה את התפלגות החוגים של תלמידי הכיתה. חצי (1/2) מהתלמידים בחוג כדורגל, ורבע (1/4) בחוג שחייה.<br>איזה חלק מייצג את התלמידים שנמצאים בחוג ציור (החלק הנותר)?&rlm;<div style=\"text-align:center; margin:20px 0;\"><svg viewBox=\"0 0 100 100\" width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"#e2e8f0\"/><path d=\"M 50,50 L 50,5 A 45,45 0 0,1 95,50 Z\" fill=\"#3b82f6\"/><path d=\"M 50,50 L 95,50 A 45,45 0 0,1 50,95 Z\" fill=\"#ef4444\"/><path d=\"M 50,50 L 50,95 A 45,45 0 0,1 5,50 Z\" fill=\"#ef4444\"/><line x1=\"50\" y1=\"5\" x2=\"50\" y2=\"95\" stroke=\"#ffffff\" stroke-width=\"2\"/><line x1=\"50\" y1=\"50\" x2=\"95\" y2=\"50\" stroke=\"#ffffff\" stroke-width=\"2\"/></svg></div>",
-        options: [
-            "1/4",
-            "1/2",
-            "1/3",
-            "1/8"
-        ],
-        correctAnswer: 0,
-        hint: "העוגה השלמה מייצגת 1 (שלם). חברו את חצי ורבע, ובדקו כמה חסר כדי להגיע לשלם אחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נחבר את החלקים הידועים: כדורגל (חצי) ושחייה (רבע).&rlm;", math_expression: "1/2 + 1/4 = 3/4" },
-            { verbal_explanation: "סך הכל הם תופסים שלושה רבעים מהעוגה. החוג לציור הוא השארית שמשלימה לשלם.&rlm;", math_expression: "1 - 3/4 = 1/4" }
-        ],
-        final_answer: "1/4"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "רמי רוצה שהממוצע שלו בשני מבחנים יהיה בדיוק 90.<br>במבחן הראשון הוא קיבל 85. כמה עליו לקבל במבחן השני?&rlm;",
-        options: [
-            "95",
-            "90",
-            "100",
-            "85"
-        ],
-        correctAnswer: 0,
-        hint: "אם הממוצע של שני מבחנים הוא 90, הסכום הכולל שלהם חייב להיות 180 (90 כפול 2). איזה מספר נוסיף ל-85 כדי לקבל 180?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ממוצע של 90 ב-2 מבחנים אומר שסכום הציונים הכולל צריך להיות 180.&rlm;", math_expression: "90 * 2 = 180" },
-            { verbal_explanation: "נחסר מהסכום הכולל את הציון שכבר קיבל במבחן הראשון.&rlm;", math_expression: "180 - 85 = 95" },
-            { verbal_explanation: "לכן עליו לקבל 95 במבחן השני.&rlm;", math_expression: "" }
-        ],
-        final_answer: "95"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "לפניכם רשימה של מספר ילדים במשפחות שונות בבניין: 2, 3, 1, 2, 4, 2, 5.<br>מהו השכיח (המספר שמופיע הכי הרבה) של מספר הילדים?&rlm;",
-        options: [
-            "2",
-            "3",
-            "1",
-            "4"
-        ],
-        correctAnswer: 0,
-        hint: "השכיח הוא הנתון בעל התדירות הגבוהה ביותר (זה שחוזר על עצמו הכי הרבה פעמים ברשימה). ספרו כל מספר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נספור כמה פעמים מופיע כל מספר ברשימה: 1 מופיע פעם אחת. 2 מופיע 3 פעמים. 3, 4, 5 מופיעים כל אחד פעם אחת.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר 2 מופיע הכי הרבה פעמים, לכן הוא השכיח.&rlm;", math_expression: "" }
-        ],
-        final_answer: "2"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "משקלי ארבעה אבטיחים הם: 3 ק\"ג, 4 ק\"ג, 6 ק\"ג ו-7 ק\"ג.<br>מהו המשקל הממוצע של אבטיח אחד?&rlm;",
-        options: [
-            "5 ק\"ג",
-            "4.5 ק\"ג",
-            "6 ק\"ג",
-            "4 ק\"ג"
-        ],
-        correctAnswer: 0,
-        hint: "חשבו את סכום כל המשקלים יחד, ואת התוצאה חלקו במספר האבטיחים (4).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תחילה נחשב את המשקל הכולל של כל ארבעת האבטיחים.&rlm;", math_expression: "3 + 4 + 6 + 7 = 20" },
-            { verbal_explanation: "כעת, נחלק את הסכום הכולל במספר האבטיחים (4) כדי לקבל את הממוצע.&rlm;", math_expression: "20 / 4 = 5" }
-        ],
-        final_answer: "5 ק\"ג"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "קבוצה של 4 חברים נבחנו באנגלית. הציונים שלהם הם: 70, 80, 90, 100.<br>מהו חציון הציונים של הקבוצה?&rlm;",
-        options: [
-            "85",
-            "80",
-            "90",
-            "85.5"
-        ],
-        correctAnswer: 0,
-        hint: "כאשר יש מספר זוגי של נתונים (4), אין מספר אחד באמצע. לכן, לוקחים את שני המספרים האמצעיים ומחשבים את הממוצע שלהם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הציונים מסודרים בסדר עולה: 70, 80, 90, 100. יש 4 נתונים.&rlm;", math_expression: "" },
-            { verbal_explanation: "שני המספרים האמצעיים הם 80 ו-90. כדי למצוא את החציון נחשב את הממוצע שלהם.&rlm;", math_expression: "(80 + 90) / 2 = 170 / 2" },
-            { verbal_explanation: "170 לחלק ל-2 שווה 85.&rlm;", math_expression: "170 / 2 = 85" }
-        ],
-        final_answer: "85"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "בטבלת שכיחויות נרשמו מספר התפוחים שאכלו ילדים בשבוע: <br>2 ילדים אכלו תפוח אחד, 3 ילדים אכלו 2 תפוחים, וילד אחד אכל 3 תפוחים.<br>כמה ילדים השתתפו בסקר בסך הכל?&rlm;",
-        options: [
-            "6 ילדים",
-            "3 ילדים",
-            "10 ילדים",
-            "5 ילדים"
-        ],
-        correctAnswer: 0,
-        hint: "שימו לב: השאלה שואלת כמה ילדים היו בסך הכל, ולא כמה תפוחים נאכלו. חברו את מספר הילדים מכל קבוצה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כדי למצוא את מספר המשתתפים הכולל (גודל המדגם), נחבר את השכיחויות (את כמות הילדים בכל קבוצה).&rlm;", math_expression: "" },
-            { verbal_explanation: "קבוצה ראשונה: 2 ילדים. קבוצה שנייה: 3 ילדים. קבוצה שלישית: ילד 1.&rlm;", math_expression: "2 + 3 + 1 = 6" }
-        ],
-        final_answer: "6 ילדים"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "הגובה הממוצע של 4 עצים בגינה הוא 150 ס\"מ.<br>שתלו עץ נוסף (חמישי) שגובהו גם הוא 150 ס\"מ.<br>מה יקרה לממוצע הגבהים בגינה כעת?&rlm;",
-        options: [
-            "הוא יישאר בדיוק 150 ס\"מ",
-            "הוא יגדל",
-            "הוא יקטן",
-            "אי אפשר לדעת"
-        ],
-        correctAnswer: 0,
-        hint: "כאשר מוסיפים לקבוצה נתון ששווה בדיוק לממוצע הנוכחי של הקבוצה, הוא אינו 'מושך' את הממוצע למעלה או למטה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הממוצע הוא נקודת שיווי המשקל. כאשר מוסיפים איבר שגודלו בדיוק כגודל הממוצע הקיים, הוא אינו משפיע עליו.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, הממוצע יישאר בדיוק כפי שהיה - 150 ס\"מ.&rlm;", math_expression: "" }
-        ],
-        final_answer: "הוא יישאר בדיוק 150 ס\"מ"
-    },
-    {
-        topic: "dataAnalysis",
-        subTopic: "חקר נתונים",
-        question_text: "שלושה אחים חסכו כסף. רון חסך 20 ₪, גיל חסך 40 ₪, ואיתי לא חסך כלום (0 ₪).<br>מהו החיסכון הממוצע לאח?&rlm;",
-        options: [
-            "20 ₪",
-            "30 ₪",
-            "60 ₪",
-            "0 ₪"
-        ],
-        correctAnswer: 0,
-        hint: "גם אם איתי לא חסך כלום (0), הוא עדיין נספר כחלק ממספר האחים שמחלקים בהם את הסכום הכולל (כלומר, מחלקים ב-3 ולא ב-2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נחשב את הסכום הכולל של החסכונות של כל האחים, כולל ה-0 של איתי.&rlm;", math_expression: "20 + 40 + 0 = 60" },
-            { verbal_explanation: "ישנם 3 אחים, לכן נחלק את הסכום הכולל ב-3 כדי למצוא את הממוצע לכל אחד.&rlm;", math_expression: "60 / 3 = 20" }
-        ],
-        final_answer: "20 ₪"
-    },
-
-    // ==========================================
-    // תת נושא 2: ניתוח סיכויים (12 שאלות)
+    // תת נושא 1: חקר נתונים (10 שאלות)
     // ==========================================
 
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "זורקים קוביית משחק הוגנת (שעליה המספרים 1 עד 6).<br>מהו הסיכוי (ההסתברות) לקבל מספר זוגי?&rlm;<div style=\"text-align:center; margin:20px 0;\"><svg viewBox=\"0 0 100 100\" width=\"80\" height=\"80\"><rect x=\"20\" y=\"20\" width=\"60\" height=\"60\" fill=\"#fef08a\" stroke=\"#ca8a04\" stroke-width=\"4\" rx=\"8\"/><circle cx=\"40\" cy=\"40\" r=\"5\" fill=\"#854d0e\"/><circle cx=\"60\" cy=\"60\" r=\"5\" fill=\"#854d0e\"/></svg></div>",
-        options: [
-            "1/2",
-            "1/6",
-            "1/3",
-            "4/6"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "לדני יש 4 מדבקות, לרוני יש 6 מדבקות, וליעל יש 8 מדבקות. כמה מדבקות יש לכל ילד בממוצע?&rlm;",
+        options: ["6", "5", "7", "18"],
         correctAnswer: 0,
-        hint: "בדקו כמה מספרים זוגיים יש בקובייה מתוך סך כל האפשרויות. המספרים הזוגיים הם 2, 4, 6.&rlm;",
+        hint: "כדי למצוא ממוצע, קודם מחברים את כל המספרים יחד. אחר כך, מחלקים את הסכום במספר הילדים (שהם 3 ילדים).",
         solution_steps: [
-            { verbal_explanation: "לקובייה יש 6 פאות, כלומר 6 תוצאות אפשריות סך הכל.&rlm;", math_expression: "" },
-            { verbal_explanation: "התוצאות הרצויות (מספרים זוגיים) הן: 2, 4, ו-6. כלומר 3 תוצאות אפשריות.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן ההסתברות היא 3 מתוך 6, שאפשר לצמצם לשבר חצי.&rlm;", math_expression: "3 / 6 = 1 / 2" }
+            { verbal_explanation: "קודם נחבר את כמות המדבקות של כל שלושת הילדים יחד כדי למצוא את הסכום הכולל.", math_expression: "4 + 6 + 8 = 18" },
+            { verbal_explanation: "יש לנו סך הכל שלושה ילדים. נחלק את הסכום שקיבלנו במספר הילדים.", math_expression: "18 \\div 3" },
+            { verbal_explanation: "נפתור את תרגיל החילוק ונקבל את הממוצע.", math_expression: "6" }
         ],
-        final_answer: "1/2"
+        final_answer: "6"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "בשק אטום ישנם 4 כדורים אדומים ו-6 כדורים כחולים.<br>מוציאים כדור אחד באקראי מבלי להסתכל. מהו הסיכוי להוציא כדור אדום?&rlm;<div style=\"text-align:center; margin:20px 0;\"><svg viewBox=\"0 0 100 120\" width=\"80\" height=\"100\"><path d=\"M 20,30 Q 10,100 50,110 Q 90,100 80,30 Q 50,40 20,30\" fill=\"#f1f5f9\" stroke=\"#94a3b8\" stroke-width=\"3\"/><circle cx=\"40\" cy=\"80\" r=\"8\" fill=\"#ef4444\"/><circle cx=\"60\" cy=\"90\" r=\"8\" fill=\"#3b82f6\"/><circle cx=\"45\" cy=\"95\" r=\"8\" fill=\"#3b82f6\"/><circle cx=\"65\" cy=\"75\" r=\"8\" fill=\"#ef4444\"/><circle cx=\"50\" cy=\"65\" r=\"8\" fill=\"#ef4444\"/></svg></div>",
-        options: [
-            "4/10",
-            "6/10",
-            "4/6",
-            "1/4"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "התרשים שלפניכם מראה כמה ספרים קראו תלמידים בשלושה חודשים. בחודש הראשון קראו 10 ספרים, בחודש השני 20 ספרים, ובחודש השלישי 15 ספרים. כמה ספרים קראו בסך הכל בכל שלושת החודשים יחד?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 200 150' style='max-width:200px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><line x1='30' y1='120' x2='180' y2='120' stroke='#1e293b' stroke-width='2'/><line x1='30' y1='120' x2='30' y2='20' stroke='#1e293b' stroke-width='2'/><rect x='50' y='70' width='20' height='50' fill='#3b82f6'/><rect x='100' y='20' width='20' height='100' fill='#ef4444'/><rect x='150' y='45' width='20' height='75' fill='#10b981'/><text x='55' y='135' font-size='12' font-family='Arial'>1</text><text x='105' y='135' font-size='12' font-family='Arial'>2</text><text x='155' y='135' font-size='12' font-family='Arial'>3</text><text x='10' y='75' font-size='10' font-family='Arial'>10</text><text x='10' y='25' font-size='10' font-family='Arial'>20</text><text x='10' y='50' font-size='10' font-family='Arial'>15</text></svg></div>",
+        options: ["45", "35", "50", "40"],
         correctAnswer: 0,
-        hint: "הסיכוי שווה למספר הכדורים הרצויים (אדומים) לחלק למספר הכדורים הכולל שבתוך השק.&rlm;",
+        hint: "כדי למצוא את הסך הכל, עליכם לחבר את כל הכמויות המופיעות בנתונים.",
         solution_steps: [
-            { verbal_explanation: "נחשב תחילה את המספר הכולל של הכדורים בשק.&rlm;", math_expression: "4 + 6 = 10" },
-            { verbal_explanation: "מתוכם, יש 4 כדורים אדומים. לכן הסיכוי לבחור כדור אדום הוא 4 מתוך 10.&rlm;", math_expression: "4 / 10" }
+            { verbal_explanation: "נסתכל על הנתונים: בחודש הראשון קראו עשרה ספרים, בשני עשרים, ובשלישי חמישה עשר.", math_expression: "10 \\quad , \\quad 20 \\quad , \\quad 15" },
+            { verbal_explanation: "נחבר את הכמויות של החודש הראשון והחודש השני יחד.", math_expression: "10 + 20 = 30" },
+            { verbal_explanation: "נוסיף לתוצאה שקיבלנו את הכמות של החודש השלישי.", math_expression: "30 + 15" },
+            { verbal_explanation: "נפתור ונגלה את סך כל הספרים שנקראו.", math_expression: "45" }
         ],
-        final_answer: "4/10"
+        final_answer: "45"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "מסובבים רולטה המחולקת ל-4 חלקים שווים בגודלם: אדום, כחול, ירוק וצהוב.<br>מהו הסיכוי שהחץ יעצור על הצבע הירוק?&rlm;<div style=\"text-align:center; margin:20px 0;\"><svg viewBox=\"0 0 100 100\" width=\"80\" height=\"80\"><circle cx=\"50\" cy=\"50\" r=\"45\" fill=\"#e2e8f0\" stroke=\"#64748b\" stroke-width=\"2\"/><path d=\"M 50,50 L 50,5 A 45,45 0 0,1 95,50 Z\" fill=\"#ef4444\"/><path d=\"M 50,50 L 95,50 A 45,45 0 0,1 50,95 Z\" fill=\"#3b82f6\"/><path d=\"M 50,50 L 50,95 A 45,45 0 0,1 5,50 Z\" fill=\"#10b981\"/><path d=\"M 50,50 L 5,50 A 45,45 0 0,1 50,5 Z\" fill=\"#facc15\"/><circle cx=\"50\" cy=\"50\" r=\"4\" fill=\"#1e293b\"/><polygon points=\"50,50 55,20 45,20\" fill=\"#1e293b\"/></svg></div>",
-        options: [
-            "1/4",
-            "1/2",
-            "1/3",
-            "4/4"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "קבוצה של 5 חברים אספה בקבוקים למיחזור. הממוצע של הבקבוקים שאסף כל ילד הוא 10. כמה בקבוקים בסך הכל אספו כל חמשת החברים יחד?&rlm;",
+        options: ["50", "15", "5", "20"],
         correctAnswer: 0,
-        hint: "ברולטה יש 4 חלקים שווים, והירוק הוא רק אחד מהם.&rlm;",
+        hint: "ממוצע אומר שאם נחלק את כל הבקבוקים שווה בשווה, כל ילד יקבל 10. לכן, כדי למצוא את הסך הכל, נכפיל את הממוצע במספר הילדים.",
         solution_steps: [
-            { verbal_explanation: "סך הכל יש ברולטה 4 אפשרויות שוות (אדום, כחול, ירוק, צהוב).&rlm;", math_expression: "" },
-            { verbal_explanation: "הצבע הירוק מופיע בדיוק פעם אחת. לכן הסיכוי הוא 1 מתוך 4.&rlm;", math_expression: "1 / 4" }
+            { verbal_explanation: "אנחנו יודעים שהממוצע הוא עשר ושמספר הילדים הוא חמש.", math_expression: "10 \\quad , \\quad 5" },
+            { verbal_explanation: "כדי למצוא את הסכום הכולל שממנו התחלנו, צריך להכפיל את הממוצע בכמות הילדים.", math_expression: "10 \\times 5" },
+            { verbal_explanation: "נפתור את תרגיל הכפל הפשוט.", math_expression: "50" }
         ],
-        final_answer: "1/4"
+        final_answer: "50"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "זורקים קוביית משחק הוגנת (1 עד 6).<br>מהו הסיכוי לקבל את המספר 7?&rlm;",
-        options: [
-            "0",
-            "1/6",
-            "1/7",
-            "6/6"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "בשבוע מסוים, הטמפרטורה הגבוהה ביותר שנמדדה הייתה 32 מעלות, והטמפרטורה הנמוכה ביותר הייתה 20 מעלות. מהו ההפרש בין הטמפרטורה הגבוהה ביותר לנמוכה ביותר (טווח הנתונים)?&rlm;",
+        options: ["12", "10", "14", "52"],
         correctAnswer: 0,
-        hint: "האם יש מספר 7 על קוביית משחק רגילה? אם לא, אי אפשר לקבל אותו לעולם.&rlm;",
+        hint: "הפרש במתמטיקה אומר שצריך לעשות תרגיל חיסור: לקחת את המספר הגדול ביותר ולחסר ממנו את המספר הקטן ביותר.",
         solution_steps: [
-            { verbal_explanation: "המספרים המופיעים על קוביית משחק רגילה הם 1, 2, 3, 4, 5, 6 בלבד.&rlm;", math_expression: "" },
-            { verbal_explanation: "מכיוון שהמספר 7 כלל אינו קיים על הקובייה, זהו אירוע שלא יכול לקרות לעולם. הסתברות של אירוע בלתי אפשרי היא תמיד 0.&rlm;", math_expression: "0 / 6 = 0" }
+            { verbal_explanation: "נזהה את המספר הגדול ביותר שמופיע בנתונים.", math_expression: "32" },
+            { verbal_explanation: "נזהה את המספר הקטן ביותר שמופיע בנתונים.", math_expression: "20" },
+            { verbal_explanation: "נבנה תרגיל חיסור כדי למצוא את ההבדל (ההפרש) ביניהם.", math_expression: "32 - 20" },
+            { verbal_explanation: "נחסר ונקבל את התשובה הסופית.", math_expression: "12" }
         ],
-        final_answer: "0"
+        final_answer: "12"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "בשק ישנם 10 כדורים כחולים בלבד, ואין כדורים בצבעים אחרים.<br>מוציאים כדור אחד מבלי להסתכל. מהו הסיכוי שהכדור יהיה כחול?&rlm;",
-        options: [
-            "1",
-            "1/10",
-            "10/100",
-            "0"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "רמי שיחק באולינג וקיבל את התוצאות הבאות בשלושה משחקים: 80, 100, ו-120. מהו ממוצע הנקודות שלו למשחק?&rlm;",
+        options: ["100", "90", "110", "300"],
         correctAnswer: 0,
-        hint: "אם כל הכדורים בשק הם כחולים, ברור לחלוטין שכל כדור שתוציאו יהיה כחול.&rlm;",
+        hint: "חברו את כל התוצאות משלושת המשחקים יחד, ולאחר מכן חלקו את התוצאה ב-3 (כי היו 3 משחקים).",
         solution_steps: [
-            { verbal_explanation: "מספר התוצאות הרצויות (כדורים כחולים) הוא 10. גם מספר התוצאות הכולל הוא 10.&rlm;", math_expression: "" },
-            { verbal_explanation: "זהו אירוע ודאי שבטוח יקרה במאה אחוז. ההסתברות לאירוע ודאי היא תמיד 1 שלם.&rlm;", math_expression: "10 / 10 = 1" }
+            { verbal_explanation: "נחבר את הנקודות מהמשחק הראשון והשני.", math_expression: "80 + 100 = 180" },
+            { verbal_explanation: "נוסיף לסכום הזה את הנקודות מהמשחק השלישי כדי לדעת כמה נקודות הוא צבר בסך הכל.", math_expression: "180 + 120 = 300" },
+            { verbal_explanation: "נחלק את הסכום הכולל במספר המשחקים שרמי שיחק (שלוש).", math_expression: "300 \\div 3" },
+            { verbal_explanation: "נפתור ונגלה את הממוצע למשחק אחד.", math_expression: "100" }
         ],
-        final_answer: "1"
+        final_answer: "100"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "מסובבים רולטה שמחולקת ל-8 חלקים שווים. 2 מהחלקים צבועים בצהוב, ו-6 צבועים באדום.<br>האם הסיכוי לעצור על אדום שווה לסיכוי לעצור על צהוב?&rlm;",
-        options: [
-            "לא, לאדום סיכוי גדול יותר",
-            "כן, הם שווים",
-            "לא, לצהוב סיכוי גדול יותר",
-            "אי אפשר לדעת מבלי לסובב"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "בחנות צעצועים בדקו אילו צבעים של מכוניות הכי נמכרים. נמכרו 5 מכוניות אדומות, 8 מכוניות כחולות ו-3 מכוניות לבנות. איזה צבע הוא הצבע השכיח ביותר (זה שהופיע הכי הרבה פעמים)?&rlm;",
+        options: ["כחול", "אדום", "לבן", "שחור"],
         correctAnswer: 0,
-        hint: "בדקו איזה צבע תופס יותר מקום ברולטה (מיוצג על ידי יותר חלקים). ככל שיש יותר חלקים, הסיכוי גדול יותר.&rlm;",
+        hint: "הצבע השכיח הוא זה שיש לו את המספר הכי גדול בנתונים.",
         solution_steps: [
-            { verbal_explanation: "הסיכוי לעצור על צבע מסוים תלוי בכמות החלקים שלו מתוך הסך הכל.&rlm;", math_expression: "" },
-            { verbal_explanation: "מכיוון שיש 6 חלקים אדומים ורק 2 חלקים צהובים, השטח האדום גדול משמעותית. לכן, הרבה יותר סביר שהחץ יעצור על אדום.&rlm;", math_expression: "6/8 > 2/8" }
+            { verbal_explanation: "נסתכל על כל הכמויות שרשומות לנו לגבי צבעי המכוניות.", math_expression: "5 \\quad , \\quad 8 \\quad , \\quad 3" },
+            { verbal_explanation: "נחפש את המספר שהוא הגדול ביותר מבין כל הנתונים הללו.", math_expression: "8 > 5 \\quad , \\quad 8 > 3" },
+            { verbal_explanation: "המספר שמונה הוא הגדול ביותר, והוא שייך למכוניות הכחולות. לכן זה הצבע השכיח.", math_expression: "8" }
         ],
-        final_answer: "לא, לאדום סיכוי גדול יותר"
+        final_answer: "כחול"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "מטילים מטבע הוגן. על צד אחד יש ציור של עץ, ועל הצד השני פלי.<br>מהו הסיכוי שהמטבע ייפול על עץ?&rlm;",
-        options: [
-            "1/2",
-            "1/1",
-            "0",
-            "1/3"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "בכיתה יש 30 תלמידים. חצי מהתלמידים אוהבים כדורגל, 10 תלמידים אוהבים כדורסל, והשאר אוהבים טניס. כמה תלמידים אוהבים טניס?&rlm;",
+        options: ["5", "10", "15", "20"],
         correctAnswer: 0,
-        hint: "למטבע יש בדיוק 2 צדדים, ו'עץ' הוא צד אחד מהם. לכן הסיכוי הוא 1 מתוך 2.&rlm;",
+        hint: "חשבו קודם כמה זה חצי מ-30. חברו אותם עם אלו שאוהבים כדורסל (10), ואז חסרו את התוצאה מהכמות הכוללת בכיתה.",
         solution_steps: [
-            { verbal_explanation: "למטבע יש שני צדדים אפשריים: עץ או פלי.&rlm;", math_expression: "" },
-            { verbal_explanation: "התוצאה הרצויה (עץ) היא צד אחד בלבד. לכן ההסתברות היא אחת מתוך שתיים.&rlm;", math_expression: "1 / 2" }
+            { verbal_explanation: "נמצא כמה תלמידים אוהבים כדורגל. חצי משלושים זה אומר לחלק בשתיים.", math_expression: "30 \\div 2 = 15" },
+            { verbal_explanation: "נחבר את הילדים שאוהבים כדורגל עם הילדים שאוהבים כדורסל.", math_expression: "15 + 10 = 25" },
+            { verbal_explanation: "כדי למצוא את אלו שאוהבים טניס, ניקח את כל תלמידי הכיתה ונחסר מהם את הילדים שכבר ספרנו.", math_expression: "30 - 25" },
+            { verbal_explanation: "התוצאה היא מספר הילדים שאוהבים טניס.", math_expression: "5" }
         ],
-        final_answer: "1/2"
+        final_answer: "5"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "יש לנו חפיסת כרטיסים ועליהם המספרים מ-1 עד 10. שולפים כרטיס אחד באקראי.<br>מהו הסיכוי לשלוף כרטיס שעליו מספר שגדול מ-7?&rlm;",
-        options: [
-            "3/10",
-            "2/10",
-            "7/10",
-            "4/10"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "שירה קנתה 3 חטיפים במחיר של 4 שקלים כל אחד, ועוד 2 חטיפים במחיר של 9 שקלים כל אחד. מה המחיר הממוצע ששילמה שירה לחטיף אחד?&rlm;",
+        options: ["6", "5", "7", "8"],
         correctAnswer: 0,
-        hint: "תחילה מנו את המספרים שגדולים מ-7: הם 8, 9, ו-10. כמה מספרים אלו בסך הכל?&rlm;",
+        hint: "חשבו את כל הכסף ששירה שילמה בסך הכל (על ידי תרגילי כפל וחיבור). אחר כך, חלקו את הסכום הזה בכל כמות החטיפים שהיא קנתה (5 חטיפים).",
         solution_steps: [
-            { verbal_explanation: "סך כל הכרטיסים האפשריים בחפיסה הוא 10.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספרים שגדולים ממש מ-7 הם: 8, 9, ו-10. ישנם בדיוק 3 כרטיסים כאלו.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, הסיכוי לשלוף אחד מהם הוא 3 מתוך 10.&rlm;", math_expression: "3 / 10" }
+            { verbal_explanation: "נחשב כמה עלו החטיפים הראשונים (שלושה חטיפים שעולים ארבעה שקלים).", math_expression: "3 \\times 4 = 12" },
+            { verbal_explanation: "נחשב כמה עלו החטיפים הנוספים (שני חטיפים שעולים תשעה שקלים).", math_expression: "2 \\times 9 = 18" },
+            { verbal_explanation: "נחבר את המחירים כדי למצוא את הסכום הכולל ששילמה שירה בקופה.", math_expression: "12 + 18 = 30" },
+            { verbal_explanation: "נבדוק כמה חטיפים בסך הכל היא קנתה.", math_expression: "3 + 2 = 5" },
+            { verbal_explanation: "כדי למצוא ממוצע, נחלק את כל הכסף בסך כל החטיפים.", math_expression: "30 \\div 5" },
+            { verbal_explanation: "נקבל את המחיר הממוצע לחטיף אחד.", math_expression: "6" }
         ],
-        final_answer: "3/10"
+        final_answer: "6"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "בקערה יש 5 סוכריות בטעם תות ו-3 סוכריות בטעם לימון.<br>ילד מוציא סוכרייה אחת מבלי להסתכל. מהו הסיכוי שהסוכרייה לא תהיה בטעם לימון?&rlm;",
-        options: [
-            "5/8",
-            "3/8",
-            "5/5",
-            "3/5"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "נועה חסכה כסף במשך 4 שבועות. הממוצע של החיסכון שלה בכל שבוע היה 15 שקלים. ידוע שבשלושת השבועות הראשונים היא חסכה 10 שקלים, 20 שקלים ו-15 שקלים. כמה כסף חסכה נועה בשבוע הרביעי?&rlm;",
+        options: ["15", "10", "20", "5"],
         correctAnswer: 0,
-        hint: "אם הסוכרייה היא לא לימון, משמעות הדבר שהיא חייבת להיות תות. מהו הסיכוי להוציא תות מתוך סך הכל הסוכריות?&rlm;",
+        hint: "אם הממוצע ל-4 שבועות הוא 15, חשבו את הסכום הכולל (4 כפול 15). חברו את מה שחסכה ב-3 השבועות הראשונים וחסרו מהסכום הכולל.",
         solution_steps: [
-            { verbal_explanation: "נמצא את המספר הכולל של הסוכריות בקערה.&rlm;", math_expression: "5 + 3 = 8" },
-            { verbal_explanation: "הסיכוי לא להוציא לימון, שווה לסיכוי להוציא את הטעם השני - תות. ישנן 5 סוכריות תות. לכן הסיכוי הוא 5 מתוך 8.&rlm;", math_expression: "5 / 8" }
+            { verbal_explanation: "נמצא את הסכום הכולל שנועה חסכה בכל ארבעת השבועות על ידי הכפלת הממוצע במספר השבועות.", math_expression: "15 \\times 4 = 60" },
+            { verbal_explanation: "נחבר את הכסף שהיא חסכה בשבוע הראשון, השני והשלישי כדי לדעת כמה כבר יש לה.", math_expression: "10 + 20 + 15" },
+            { verbal_explanation: "נחשב את החיבור הזה.", math_expression: "30 + 15 = 45" },
+            { verbal_explanation: "כדי לגלות כמה חסכה בשבוע הרביעי, נחסר מהסכום הכולל את מה שכבר ספרנו.", math_expression: "60 - 45" },
+            { verbal_explanation: "נפתור ונקבל את הכסף של השבוע האחרון.", math_expression: "15" }
         ],
-        final_answer: "5/8"
+        final_answer: "15"
     },
     {
-        topic: "dataAnalysis",
-        subTopic: "ניתוח סיכויים",
-        question_text: "זורקים קוביית משחק הוגנת (1 עד 6).<br>מהו הסיכוי לקבל מספר שהוא כפולה של 3 (מספר שמתחלק ב-3 ללא שארית)?&rlm;",
-        options: [
-            "2/6",
-            "3/6",
-            "1/6",
-            "6/6"
-        ],
+        topic: "math_5_6",
+        subTopic: "חקר נתונים",
+        question_text: "שלושה פועלים עבדו בבניין. פועל א' עבד 8 שעות. פועל ב' עבד 6 שעות. אנחנו לא יודעים כמה זמן עבד פועל ג', אבל הממוצע של שלושתם יחד הוא 7 שעות. כמה שעות עבד פועל ג'?&rlm;",
+        options: ["7", "6", "8", "5"],
         correctAnswer: 0,
-        hint: "המספרים על הקובייה הם 1,2,3,4,5,6. אלו מהם מתחלקים ב-3 ללא שארית? (רמז: זה 3 ו-6).&rlm;",
+        hint: "אם הממוצע של שלושה אנשים הוא 7, הסך הכל של כולם ביחד הוא 21. כמה שעות חסרות כדי להגיע ל-21?",
         solution_steps: [
-            { verbal_explanation: "על הקובייה יש 6 תוצאות אפשריות.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספרים על הקובייה שמהווים כפולה של 3 הם 3 ו-6 בלבד. כלומר, 2 תוצאות רצויות.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן ההסתברות היא 2 מתוך 6.&rlm;", math_expression: "2 / 6" }
+            { verbal_explanation: "נחשב את סך כל שעות העבודה של כל השלושה יחד על ידי הכפלת הממוצע בכמות האנשים.", math_expression: "7 \\times 3 = 21" },
+            { verbal_explanation: "נחבר את השעות של הפועל הראשון ושל הפועל השני שאנחנו כבר מכירים.", math_expression: "8 + 6 = 14" },
+            { verbal_explanation: "כדי לגלות את השעות של הפועל השלישי, ניקח את הסכום הכולל ונחסר ממנו את מה שחישבנו.", math_expression: "21 - 14" },
+            { verbal_explanation: "נקבל את שעות העבודה החסרות.", math_expression: "7" }
         ],
-        final_answer: "2/6"
+        final_answer: "7"
+    },
+
+    // ==========================================
+    // תת נושא 2: ניתוח סיכויים (10 שאלות)
+    // ==========================================
+
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "כשמטילים קוביית משחק רגילה (שיש בה מספרים מ-1 עד 6), מה הסיכוי שהקובייה תיפול בדיוק על המספר 4?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 100 100' style='max-width:150px; width:100%; border-radius:8px; background:#f8fafc; border:1px solid #e2e8f0;'><rect x='25' y='25' width='50' height='50' fill='#ffffff' stroke='#3b82f6' stroke-width='3' rx='8'/><circle cx='40' cy='40' r='4' fill='#ef4444'/><circle cx='60' cy='40' r='4' fill='#ef4444'/><circle cx='40' cy='60' r='4' fill='#ef4444'/><circle cx='60' cy='60' r='4' fill='#ef4444'/></svg></div>",
+        options: ["1 : 6", "4 : 6", "1 : 4", "1 : 2"],
+        correctAnswer: 0,
+        hint: "בקובייה יש 6 צדדים שווים. המספר 4 מופיע רק על צד אחד מתוכם. הסיכוי נרשם כמו שבר: הכמות שאנחנו רוצים, לחלק בסך הכל.",
+        solution_steps: [
+            { verbal_explanation: "לקובייה רגילה יש בסך הכל שישה צדדים אפשריים.", math_expression: "6" },
+            { verbal_explanation: "המספר ארבע מופיע על הקובייה בדיוק פעם אחת בלבד.", math_expression: "1" },
+            { verbal_explanation: "לכן, הסיכוי שנצליח לקבל את המספר הזה הוא אחד מתוך כל השישה אפשרויות.", math_expression: "\\dfrac{1}{6}" },
+            { verbal_explanation: "זה אומר שהסיכוי הוא אחד לשש.", math_expression: "1 : 6" }
+        ],
+        final_answer: "1 : 6"
     },
     {
-        topic: "dataAnalysis",
+        topic: "math_5_6",
         subTopic: "ניתוח סיכויים",
-        question_text: "בקופסה ישנם 5 כדורים צהובים, 5 כדורים ירוקים ו-5 כדורים שחורים.<br>מוציאים כדור אחד. מהו הסיכוי שהכדור שנוציא יהיה צהוב?&rlm;",
-        options: [
-            "1/3",
-            "1/2",
-            "1/5",
-            "5/10"
-        ],
+        question_text: "כשמטילים קוביית משחק רגילה (מ-1 עד 6), מה הסיכוי לקבל מספר זוגי (כמו 2, 4 או 6)?&rlm;",
+        options: ["1 : 2", "1 : 6", "3 : 4", "2 : 6"],
         correctAnswer: 0,
-        hint: "חשבו את הכמות הכוללת של הכדורים בקופסה (15), ולאחר מכן בדקו מהו החלק היחסי של הצהובים וצמצמו את השבר.&rlm;",
+        hint: "ספרו כמה מספרים זוגיים יש בקובייה (יש שלושה כאלה). רשמו שבר של 3 מתוך 6, וחשבו איך אפשר לצמצם אותו.",
         solution_steps: [
-            { verbal_explanation: "נחשב את סך כל הכדורים בקופסה.&rlm;", math_expression: "5 + 5 + 5 = 15" },
-            { verbal_explanation: "מתוכם, יש 5 כדורים צהובים. הסיכוי הוא 5 מתוך 15.&rlm;", math_expression: "5 / 15" },
-            { verbal_explanation: "אפשר לצמצם שבר זה (לחלק מונה ומכנה ב-5) ולקבל שליש.&rlm;", math_expression: "5 / 15 = 1 / 3" }
+            { verbal_explanation: "נספור כמה מספרים זוגיים יש בקובייה: המספר שתיים, המספר ארבע והמספר שש.", math_expression: "3" },
+            { verbal_explanation: "סך כל המספרים האפשריים בקובייה הוא שישה.", math_expression: "6" },
+            { verbal_explanation: "הסיכוי שלנו לקבל אחד מהם הוא שלושה מספרים מתוך שישה אפשריים.", math_expression: "\\dfrac{3}{6}" },
+            { verbal_explanation: "נצמצם את השבר על ידי חלוקה בשלוש. נראה שזה בדיוק חצי מהמספרים.", math_expression: "\\dfrac{1}{2}" }
         ],
-        final_answer: "1/3"
+        final_answer: "1 : 2"
     },
     {
-        topic: "dataAnalysis",
+        topic: "math_5_6",
         subTopic: "ניתוח סיכויים",
-        question_text: "קבוצת תלמידים החליטה להגריל פרס. בכובע שמו 2 פתקים עם השם יעל, ו-3 פתקים עם השם נדב.<br>הם מוציאים פתק אחד בעיניים עצומות.<br>למי יש סיכוי גדול יותר לזכות בפרס?&rlm;",
-        options: [
-            "לנדב",
-            "ליעל",
-            "הסיכויים שווים",
-            "אי אפשר לדעת עד שמגרילים"
-        ],
+        question_text: "כשמטילים מטבע רגיל באוויר, יש לו שני צדדים: עץ או פלי. מה הסיכוי שהמטבע ייפול על הצד של פלי?&rlm;",
+        options: ["1 : 2", "1 : 4", "1 : 1", "0"],
         correctAnswer: 0,
-        hint: "ככל שיש יותר פתקים עם שם מסוים בתוך הכובע, כך עולה הסיכוי שהיד תוציא את הפתק הזה במקרה.&rlm;",
+        hint: "למטבע יש רק שתי תוצאות אפשריות שוות. פלי הוא צד אחד מתוך השניים האלה.",
         solution_steps: [
-            { verbal_explanation: "הסתברות תלויה במספר האפשרויות הרצויות מתוך הסך הכל. לנדב יש 3 פתקים וליעל יש רק 2 פתקים.&rlm;", math_expression: "" },
-            { verbal_explanation: "מכיוון שיש יותר פתקים עם השם נדב בכובע (3 לעומת 2), הסיכוי שלו להיבחר גדול יותר.&rlm;", math_expression: "" }
+            { verbal_explanation: "למטבע יש בסך הכל שני צדדים אפשריים.", math_expression: "2" },
+            { verbal_explanation: "אנחנו רוצים שהמטבע ייפול על צד ספציפי אחד (הפלי).", math_expression: "1" },
+            { verbal_explanation: "הסיכוי שזה יקרה הוא צד אחד מתוך שניים.", math_expression: "\\dfrac{1}{2}" }
         ],
-        final_answer: "לנדב"
+        final_answer: "1 : 2"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "דני מסובב סביבון שיש לו 4 פאות שוות. פאה אחת אדומה, אחת כחולה, אחת ירוקה ואחת צהובה. מה הסיכוי שהסביבון ייפול על הפאה האדומה?&rlm;\n<div dir='ltr' style='display:flex; justify-content:center; margin:20px 0;'><svg viewBox='0 0 100 100' style='max-width:150px; width:100%; border-radius:50%; background:#f8fafc; border:2px solid #e2e8f0;'><path d='M 50 50 L 50 0 A 50 50 0 0 1 100 50 Z' fill='#ef4444'/><path d='M 50 50 L 100 50 A 50 50 0 0 1 50 100 Z' fill='#3b82f6'/><path d='M 50 50 L 50 100 A 50 50 0 0 1 0 50 Z' fill='#10b981'/><path d='M 50 50 L 0 50 A 50 50 0 0 1 50 0 Z' fill='#eab308'/></svg></div>",
+        options: ["1 : 4", "1 : 3", "1 : 2", "1 : 5"],
+        correctAnswer: 0,
+        hint: "לסביבון יש 4 צדדים שווים לגמרי. הצבע האדום נמצא רק על צד אחד.",
+        solution_steps: [
+            { verbal_explanation: "נספור כמה צדדים (פאות) יש לסביבון בסך הכל.", math_expression: "4" },
+            { verbal_explanation: "נספור על כמה פאות מופיע הצבע האדום שאנחנו רוצים.", math_expression: "1" },
+            { verbal_explanation: "לכן, הסיכוי שהסביבון ייפול על אדום הוא פאה אחת מתוך ארבע פאות.", math_expression: "\\dfrac{1}{4}" }
+        ],
+        final_answer: "1 : 4"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "בתוך שקית אטומה מונחים 3 כדורים אדומים ו-2 כדורים כחולים. מוציאים מהשקית כדור אחד מבלי להסתכל. מה הסיכוי שנוציא כדור אדום?&rlm;",
+        options: ["3 : 5", "2 : 5", "3 : 2", "1 : 5"],
+        correctAnswer: 0,
+        hint: "קודם צריך לחשב כמה כדורים יש בסך הכל בתוך השקית (חברו את כולם). אחר כך בידקו כמה מתוכם הם אדומים ורשמו את זה כשבר.",
+        solution_steps: [
+            { verbal_explanation: "נחבר את מספר הכדורים האדומים עם הכחולים כדי לדעת כמה יש בסך הכל בשקית.", math_expression: "3 + 2 = 5" },
+            { verbal_explanation: "אנחנו רוצים להוציא כדור אדום, ויש לנו שלושה כדורים כאלה מתוך כל החמישה.", math_expression: "3" },
+            { verbal_explanation: "הסיכוי נרשם בצורת שבר: שלוש (שזה מה שאנחנו רוצים) מתוך חמש (שזה הסך הכל).", math_expression: "\\dfrac{3}{5}" }
+        ],
+        final_answer: "3 : 5"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "מטילים קוביית משחק רגילה (שיש בה מספרים מ-1 עד 6). איזה סיכוי מתאר את האפשרות שהקובייה תיפול על מספר שקטן מ-10?&rlm;",
+        options: ["1 (אירוע בטוח)", "0 (אירוע בלתי אפשרי)", "1 : 2", "6 : 10"],
+        correctAnswer: 0,
+        hint: "תחשבו על המספרים שיש על קובייה: 1, 2, 3, 4, 5, 6. האם יש ביניהם מספר שהוא לא קטן מ-10? אם כל התוצאות תמיד נכונות, קוראים לזה 'אירוע בטוח' והסיכוי שלו הוא 1 שלם.",
+        solution_steps: [
+            { verbal_explanation: "נבדוק אילו מספרים יכולים לצאת בהטלת קובייה רגילה.", math_expression: "1, 2, 3, 4, 5, 6" },
+            { verbal_explanation: "נשאל את עצמנו: האם כל המספרים האלה באמת קטנים מעשר? התשובה היא כן.", math_expression: "6 < 10" },
+            { verbal_explanation: "מכיוון שלא משנה מה יצא לנו, זה תמיד יהיה מספר קטן מעשר, זהו אירוע שחייב לקרות בטוח.", math_expression: "1" }
+        ],
+        final_answer: "1 (אירוע בטוח)"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "מטילים קוביית משחק רגילה. מה הסיכוי לקבל את המספר 7?&rlm;",
+        options: ["0 (אירוע בלתי אפשרי)", "1 : 6", "1 : 7", "1"],
+        correctAnswer: 0,
+        hint: "האם יש בכלל את המספר 7 על קובייה רגילה? אם משהו לא יכול לקרות לעולם, הסיכוי שלו הוא אפס.",
+        solution_steps: [
+            { verbal_explanation: "ניזכר שקובייה רגילה מגיעה רק עד המספר שש.", math_expression: "1, 2, 3, 4, 5, 6" },
+            { verbal_explanation: "המספר שבע לא קיים בכלל על הקובייה הזו.", math_expression: "0" },
+            { verbal_explanation: "אירוע שלא יכול לקרות לעולם נקרא 'בלתי אפשרי' והסיכוי שלו מיוצג על ידי אפס.", math_expression: "0" }
+        ],
+        final_answer: "0 (אירוע בלתי אפשרי)"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "מערבבים חפיסת קלפים שיש בה 10 קלפים, הממוספרים מהמספר 1 ועד המספר 10. מה הסיכוי לשלוף קלף שהמספר שעליו גדול מ-8?&rlm;",
+        options: ["1 : 5", "2 : 5", "1 : 10", "8 : 10"],
+        correctAnswer: 0,
+        hint: "בדקו אילו מספרים מהחפיסה הם גדולים מ-8 (המספרים 9 ו-10). כלומר, יש 2 קלפים טובים מתוך 10. צמצמו את השבר הזה.",
+        solution_steps: [
+            { verbal_explanation: "נמצא כמה קלפים בחפיסה עונים על התנאי שלנו, כלומר מספרים שיותר גדולים משמונה (המספר תשע והמספר עשר).", math_expression: "2" },
+            { verbal_explanation: "אנחנו יודעים שבחפיסה יש בסך הכל עשרה קלפים.", math_expression: "10" },
+            { verbal_explanation: "נרשום את הסיכוי בתור שבר: שני קלפים מתוך עשרה.", math_expression: "\\dfrac{2}{10}" },
+            { verbal_explanation: "נצמצם את השבר על ידי חלוקת שני המספרים בשתיים, כדי לקבל צורה פשוטה יותר.", math_expression: "\\dfrac{1}{5}" }
+        ],
+        final_answer: "1 : 5"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "לפניכם סביבון מיוחד. חצי ממנו צבוע בצבע אדום, רבע צבוע בכחול, ורבע צבוע בצהוב. מה הסיכוי שהסביבון ייפול על הצבע הכחול?&rlm;",
+        options: ["1 : 4", "1 : 2", "3 : 4", "1 : 3"],
+        correctAnswer: 0,
+        hint: "שימו לב לגודל השטח שיש לכל צבע. בשאלה כבר כתוב איזה חלק מהסביבון הוא הצבע הכחול.",
+        solution_steps: [
+            { verbal_explanation: "השאלה מספרת לנו בדיוק איזה שטח לוקח כל צבע בסביבון.", math_expression: "חצי , רבע , רבע" },
+            { verbal_explanation: "אנחנו מחפשים רק את הצבע הכחול. השטח שלו הוא בדיוק רבע מהסביבון כולו.", math_expression: "רבע" },
+            { verbal_explanation: "לכן, הסיכוי ליפול על הצבע הזה הוא בדיוק רבע (אחד מתוך ארבעה חלקים שווים).", math_expression: "\\dfrac{1}{4}" }
+        ],
+        final_answer: "1 : 4"
+    },
+    {
+        topic: "math_5_6",
+        subTopic: "ניתוח סיכויים",
+        question_text: "יש לנו שתי שקיות עם כדורים. בשקית א' יש כדור אחד אדום וכדור אחד לבן (סה''כ 2 כדורים). בשקית ב' יש 2 כדורים אדומים ו-8 כדורים לבנים (סה''כ 10 כדורים). באיזו שקית יש סיכוי גדול יותר להוציא כדור אדום בעיניים עצומות?&rlm;",
+        options: ["שקית א'", "שקית ב'", "אותו סיכוי בשתיהן", "לא ניתן לדעת"],
+        correctAnswer: 0,
+        hint: "חשבו את הסיכוי לכל שקית בנפרד (בשקית א' חצי מהכדורים אדומים, בשקית ב' 2 מתוך 10 הם אדומים). איזה שבר גדול יותר?",
+        solution_steps: [
+            { verbal_explanation: "נבדוק את שקית א'. יש שם כדור אדום אחד מתוך שני כדורים בסך הכל. הסיכוי הוא חצי.", math_expression: "\\dfrac{1}{2}" },
+            { verbal_explanation: "נבדוק את שקית ב'. יש שם שני כדורים אדומים מתוך עשרה. נצמצם את השבר ונראה שזה שווה לחמישית.", math_expression: "\\dfrac{2}{10} = \\dfrac{1}{5}" },
+            { verbal_explanation: "עכשיו נשווה בין הסיכויים. איזה שבר גדול יותר, חצי או חמישית?", math_expression: "\\dfrac{1}{2} > \\dfrac{1}{5}" },
+            { verbal_explanation: "חצי זה יותר מחמישית, ולכן הסיכוי בשקית הראשונה גבוה הרבה יותר.", math_expression: "שקית א" }
+        ],
+        final_answer: "שקית א'"
     }
-
 ];

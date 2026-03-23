@@ -1,495 +1,397 @@
 const questionsDB = [
-    // ========================================================================
-    // שאלון 35581 (5 יח"ל) | הכנה לבגרות - רמת פרימיום (חלק 1)
-    // ========================================================================
-
-    // שאלה 1 - הסתברות מורכבת (מבוסס על בגרות חורף 2024)
     {
-        topic: "bagrut_5_units",
-        subTopic: "הסתברות",
-        question_text: `<strong>מתוך בגרות חורף 2024 (הסתברות מותנית וברנולי):</strong><br>
-        במדינה מסוימת נערך מבחן ממשלתי. 60% מהנבחנים הם תלמידי תיכון והשאר הם נבחנים אקסטרניים.<br>
-        ההסתברות שתלמיד תיכון יעבור את המבחן גדולה פי 1.5 מההסתברות שנבחן אקסטרני יעבור אותו.<br>
-        ידוע כי ההסתברות שמי שעבר את המבחן הוא תלמיד תיכון היא 0.75.<br><br>
-        
-        א. מצאו את ההסתברות שנבחן אקסטרני יעבור את המבחן (נסמנו ב-p).<br>
-        ב. מהי ההסתברות שנבחן שנבחר באקראי עבר את המבחן?`,
-        options: [
-            "א. 0.4 | ב. 0.52",
-            "א. 0.5 | ב. 0.65",
-            "א. 0.4 | ב. 0.48",
-            "א. 0.3 | ב. 0.45"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2023, מועד קיץ א'<br>משאית יצאה מעיר א' לעיר ב' במהירות קבועה. לאחר שעתיים של נסיעה, התעכבה המשאית עקב תקלה, ולכן הקטינה את מהירותה ב-20 קמ''ש. המשאית הגיעה לעיר ב' שעה מאוחר יותר מן המתוכנן. המרחק בין הערים הוא 400 ק''מ.<br>א. מצאו את מהירותה המקורית של המשאית.<br>ב. מהו הזמן הכולל של הנסיעה בפועל?&rlm;",
+        "options": ["א. 80 קמ''ש ב. 6 שעות", "א. 100 קמ''ש ב. 5 שעות", "א. 60 קמ''ש ב. 7.6 שעות", "א. 80 קמ''ש ב. 5 שעות"],
+        "correctAnswer": 0,
+        "hint": "בנו משוואה המשווה בין הזמן המתוכנן לבין הזמן בפועל. הזמן המתוכנן שווה לזמן עד התקלה, פלוס זמן העיכוב היחסי, פלוס הזמן הנותר.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את המהירות ההתחלתית במשתנה.", "math_expression": "v" },
+            { "verbal_explanation": "נביע את זמן הנסיעה המתוכנן כולו.", "math_expression": "t_1 = \\dfrac{400}{v}" },
+            { "verbal_explanation": "נחשב את המרחק שעברה המשאית בשעתיים הראשונות.", "math_expression": "d_1 = 2v" },
+            { "verbal_explanation": "נביע את המרחק שנותר להשלמת המסלול.", "math_expression": "d_2 = 400 - 2v" },
+            { "verbal_explanation": "נביע את הזמן הנדרש להשלמת המסלול במהירות החדשה והנמוכה.", "math_expression": "t_2 = \\dfrac{400 - 2v}{v - 20}" },
+            { "verbal_explanation": "נרכיב משוואת זמנים המשווה את התכנון לפועל בתוספת שעת האיחור.", "math_expression": "\\dfrac{400}{v} + 1 = 2 + \\dfrac{400 - 2v}{v - 20}" },
+            { "verbal_explanation": "נחסר שתיים משני האגפים ונסדר את המשוואה.", "math_expression": "\\dfrac{400 - v}{v} = \\dfrac{400 - 2v}{v - 20}" },
+            { "verbal_explanation": "נכפול בהצלבה.", "math_expression": "(400 - v)(v - 20) = v(400 - 2v)" },
+            { "verbal_explanation": "נפתח סוגריים.", "math_expression": "400v - 8000 - v^{2} + 20v = 400v - 2v^{2}" },
+            { "verbal_explanation": "נכנס איברים למשוואה ריבועית.", "math_expression": "v^{2} + 20v - 8000 = 0" },
+            { "verbal_explanation": "נפרק לגורמים ונמצא את המהירות.", "math_expression": "(v - 80)(v + 100) = 0 \\Rightarrow v = 80" },
+            { "verbal_explanation": "נחשב את הזמן בפועל (התכנון היה 5 שעות, האיחור הוא שעה).", "math_expression": "t = 5 + 1 = 6" }
         ],
-        correctAnswer: 0,
-        hint: "סעיף א': סמנו את ההסתברות של אקסטרני לעבור ב-p, ואת של תלמיד תיכון ב-1.5p. השתמשו בנוסחת ההסתברות המותנית הנתונה (0.75) כדי לבנות משוואה ולמצוא את p.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': נגדיר את ההסתברויות לעבור. אקסטרני מסומן באות p, ותלמיד תיכון פי 1.5 ממנו.", 
-                math_expression: "P = p , P = 1.5p" 
-            },
-            { 
-                verbal_explanation: "נשתמש בנתון של ההסתברות המותנית (0.75). במונה נציב 'תיכון ועבר' ובמכנה את סך כל העוברים.", 
-                math_expression: "0.75 = (0.60 × 1.5p) / (0.60 × 1.5p + 0.40 × p)" 
-            },
-            { 
-                verbal_explanation: "נפשט את המונה ואת המכנה של השבר.", 
-                math_expression: "0.75 = 0.9p / (0.9p + 0.4p) = 0.9p / 1.3p" 
-            },
-            { 
-                verbal_explanation: "נצמצם את p ונפתור את המשוואה כדי למצוא את ערכו המקורי (לפי נתוני הבגרות המעודכנים).", 
-                math_expression: "p = 0.4" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נחשב את סך כל העוברים במדינה על ידי הצבת ה-p שמצאנו.", 
-                math_expression: "P = 0.60 × (1.5 × 0.4) + 0.40 × 0.4" 
-            },
-            { 
-                verbal_explanation: "נחשב את הערכים הסופיים.", 
-                math_expression: "P = 0.60 × 0.6 + 0.16 = 0.36 + 0.16 = 0.52" 
-            }
-        ],
-        final_answer: "א. 0.4 | ב. 0.52"
+        "final_answer": "א. 80 קמ''ש ב. 6 שעות"
     },
-
-    // שאלה 2 - גיאומטריה אוקלידית (מבוסס על קיץ 2023, מועד ב', שאלה 5)
     {
-        topic: "bagrut_5_units",
-        subTopic: "גיאומטריה",
-        question_text: `<strong>מתוך בגרות קיץ 2023, מועד ב', שאלה 5 (מעגלים ודמיון):</strong><br>
-        במעגל שמרכזו O, המיתר AB מאונך לרדיוס OC בנקודה D (ראו שרטוט).<br>
-        נתון: אורך הקטע CD הוא 4 ס"מ, ואורך המיתר AB הוא 16 ס"מ.<br>
-        <svg viewBox="0 0 200 200" width="100%" height="180" style="display:block; margin:15px auto; max-width:200px; background:#fff;">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="#0f172a" stroke-width="2"/>
-            <line x1="36" y1="60" x2="164" y2="60" stroke="#3b82f6" stroke-width="2"/> <line x1="100" y1="20" x2="100" y2="180" stroke="#ef4444" stroke-width="1.5"/> <polyline points="90,60 90,70 100,70" fill="none" stroke="#0f172a" stroke-width="1"/>
-            <text x="20" y="65" font-family="Arial" font-weight="bold">A</text>
-            <text x="170" y="65" font-family="Arial" font-weight="bold">B</text>
-            <text x="105" y="15" font-family="Arial" font-weight="bold">C</text>
-            <text x="105" y="55" font-family="Arial" font-weight="bold">D</text>
-            <text x="105" y="190" font-family="Arial" font-weight="bold">O</text>
-        </svg>
-        א. מצאו את אורך הרדיוס של המעגל (R).<br>
-        ב. חשבו את אורך המיתר AC.`,
-        options: [
-            "א. 10 | ב. 8.94",
-            "א. 12 | ב. 10",
-            "א. 10 | ב. 10.44",
-            "א. 8 | ב. 9.22"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2022, מועד מיוחד<br>נתונה סדרה הנדסית אינסופית מתכנסת שסכומה 24. סכום איברי הסדרה הנמצאים במקומות הזוגיים הוא 6.<br>א. מצאו את מנת הסדרה.<br>ב. מצאו את האיבר הראשון.&rlm;",
+        "options": ["א. 1/3 ב. 16", "א. 1/4 ב. 18", "א. 1/2 ב. 12", "א. 1/5 ב. 19.2"],
+        "correctAnswer": 0,
+        "hint": "הסדרה של המקומות הזוגיים היא סדרה הנדסית שבה האיבר הראשון הוא האיבר השני של הסדרה המקורית, והמנה היא ריבוע המנה המקורית.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את משוואת הסכום של הסדרה המקורית כולה.", "math_expression": "\\dfrac{a_1}{1 - q} = 24" },
+            { "verbal_explanation": "נרשום את משוואת הסכום עבור סדרת המקומות הזוגיים.", "math_expression": "\\dfrac{a_1 q}{1 - q^{2}} = 6" },
+            { "verbal_explanation": "נפרק את המכנה במשוואה השנייה לפי הפרש ריבועים.", "math_expression": "\\dfrac{a_1 q}{(1 - q)(1 + q)} = 6" },
+            { "verbal_explanation": "נציב את הביטוי מהמשוואה הראשונה לתוך המשוואה השנייה.", "math_expression": "24 \\times \\dfrac{q}{1 + q} = 6" },
+            { "verbal_explanation": "נחלק בשש.", "math_expression": "\\dfrac{4q}{1 + q} = 1" },
+            { "verbal_explanation": "נכפול במכנה.", "math_expression": "4q = 1 + q" },
+            { "verbal_explanation": "נבודד את המנה.", "math_expression": "3q = 1 \\Rightarrow q = \\dfrac{1}{3}" },
+            { "verbal_explanation": "נציב את המנה שמצאנו למשוואת הסכום הראשונה לחילוץ האיבר הראשון.", "math_expression": "\\dfrac{a_1}{1 - \\dfrac{1}{3}} = 24" },
+            { "verbal_explanation": "נכפול בשני שלישים.", "math_expression": "a_1 = 24 \\times \\dfrac{2}{3} = 16" }
         ],
-        correctAnswer: 0,
-        hint: "סעיף א': רדיוס המאונך למיתר חוצה אותו. לכן AD=8. נסמן רדיוס ב-R. הקטע OD יהיה R פחות 4. השתמשו בפיתגורס במשולש ADO. סעיף ב': פיתגורס במשולש ADC.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': רדיוס המאונך למיתר חוצה אותו, לכן אורך חצי המיתר הוא שמונה.", 
-                math_expression: "AD = 0.5 × 16 = 8" 
-            },
-            { 
-                verbal_explanation: "נסמן את הרדיוס באות R. הקטע OD הוא הרדיוס פחות החלק הנתון CD.", 
-                math_expression: "OD = R - 4" 
-            },
-            { 
-                verbal_explanation: "נפעיל את משפט פיתגורס במשולש ישר הזווית ADO שבו היתר הוא הרדיוס.", 
-                math_expression: "8<sup>2</sup> + (R - 4)<sup>2</sup> = R<sup>2</sup>" 
-            },
-            { 
-                verbal_explanation: "נפתח את הסוגריים לפי נוסחאות הכפל המקוצר.", 
-                math_expression: "64 + R<sup>2</sup> - 8R + 16 = R<sup>2</sup>" 
-            },
-            { 
-                verbal_explanation: "נצמצם את הריבועים ונחלץ את ערכו של הרדיוס.", 
-                math_expression: "80 = 8R ➔ R = 10" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נתבונן במשולש ישר הזווית הקטן ADC ונחשב את היתר AC.", 
-                math_expression: "AC<sup>2</sup> = 8<sup>2</sup> + 4<sup>2</sup> = 64 + 16 = 80" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש לקבלת אורך הצלע.", 
-                math_expression: "AC = √80 ≈ 8.94" 
-            }
-        ],
-        final_answer: "א. 10 | ב. 8.94"
+        "final_answer": "א. 1/3 ב. 16"
     },
-
-    // שאלה 3 - חקירת פונקציה רציונלית מורכבת (מבוסס חורף 2023)
     {
-        topic: "bagrut_5_units",
-        subTopic: "חדו\"א",
-        question_text: `<strong>מתוך בגרות חורף 2023, שאלה 7 (חקירת פונקציה):</strong><br>
-        נתונה הפונקציה: <div dir="ltr" style="display:inline-block; font-weight:bold;">f(x) = (x<sup>2</sup> - 4) / (x<sup>2</sup> - 1)</div><br>
-        א. מצאו את תחום ההגדרה של הפונקציה ואת האסימפטוטות המקבילות לצירים.<br>
-        ב. מצאו את נקודות הקיצון של הפונקציה וקבעו את סוגן.<br>
-        ג. מהן נקודות החיתוך של הפונקציה עם ציר ה-x?`,
-        options: [
-            "א. x≠±1 , x=±1, y=1 | ב. (0, 4) מינימום | ג. (2,0), (-2,0)",
-            "א. x≠±1 , x=±1, y=1 | ב. (0, 4) מקסימום | ג. (2,0), (-2,0)",
-            "א. x≠1 , x=1, y=0 | ב. (0, -4) מינימום | ג. (4,0)",
-            "א. כל x | ב. אין קיצון | ג. (2,0)"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2021, מועד חורף<br>בכד יש כדורים כחולים ולבנים. ההסתברות להוציא כדור כחול היא \\( p \\). מוציאים עם החזרה 3 כדורים. ההסתברות שכולם כחולים שווה ל-0.027.<br>א. מצאו את \\( p \\).<br>ב. מה ההסתברות להוציא בדיוק 2 כדורים כחולים?&rlm;",
+        "options": ["א. 0.3 ב. 0.189", "א. 0.27 ב. 0.15", "א. 0.3 ב. 0.09", "א. 0.4 ב. 0.288"],
+        "correctAnswer": 0,
+        "hint": "כיוון שההוצאה היא עם החזרה, האירועים בלתי תלויים. השתמשו בנוסחת ברנולי (בינום) עבור הסעיף השני.",
+        "solution_steps": [
+            { "verbal_explanation": "נרכיב משוואה על סמך ההסתברות לשלוש הוצאות רצופות של כדור כחול.", "math_expression": "p^{3} = 0.027" },
+            { "verbal_explanation": "נוציא שורש שלישי למציאת ההסתברות הבודדת.", "math_expression": "p = \\sqrt[3]{0.027}" },
+            { "verbal_explanation": "נחשב את הערך.", "math_expression": "p = 0.3" },
+            { "verbal_explanation": "נחשב את ההסתברות המשלימה (הוצאת כדור לבן).", "math_expression": "1 - p = 1 - 0.3 = 0.7" },
+            { "verbal_explanation": "נרשום את נוסחת ברנולי לחישוב שני כחולים מתוך שלושה.", "math_expression": "P_2 = \\binom{3}{2} p^{2} (1 - p)^{1}" },
+            { "verbal_explanation": "נחשב את המקדם הבינומי.", "math_expression": "\\binom{3}{2} = 3" },
+            { "verbal_explanation": "נציב את הערכים לנוסחה.", "math_expression": "P_2 = 3 \\times (0.3)^{2} \\times 0.7" },
+            { "verbal_explanation": "נבצע את המכפלה.", "math_expression": "P_2 = 3 \\times 0.09 \\times 0.7" },
+            { "verbal_explanation": "התוצאה הסופית חושבה.", "math_expression": "P_2 = 0.189" }
         ],
-        correctAnswer: 1,
-        hint: "לחיתוך x השוו מונה לאפס. לאסימפטוטה אופקית בדקו יחס מקדמים (1 חלקי 1). לקיצון גזרו לפי כלל המנה והשוו את מונה הנגזרת לאפס.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': תחום ההגדרה נקבע לפי איפוס המכנה.", 
-                math_expression: "x<sup>2</sup> - 1 ≠ 0 ➔ x ≠ 1 , x ≠ -1" 
-            },
-            { 
-                verbal_explanation: "אסימפטוטות אנכיות הן הערכים המאפסים מכנה. אופקית נקבעת לפי חזקות שוות.", 
-                math_expression: "Vertical: x = 1 , x = -1 <br><br> Horizontal: y = 1 / 1 = 1" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נגזור את הפונקציה לפי כלל המנה.", 
-                math_expression: "f'(x) = (2x(x<sup>2</sup> - 1) - 2x(x<sup>2</sup> - 4)) / (x<sup>2</sup> - 1)<sup>2</sup>" 
-            },
-            { 
-                verbal_explanation: "נפשט את המונה ונשווה לאפס.", 
-                math_expression: "2x<sup>3</sup> - 2x - 2x<sup>3</sup> + 8x = 0 ➔ 6x = 0 ➔ x = 0" 
-            },
-            { 
-                verbal_explanation: "נציב בפונקציה למציאת הגובה. הצבה בנגזרת שנייה או טבלה תראה שזו נקודת מקסימום.", 
-                math_expression: "f(0) = (0 - 4) / (0 - 1) = 4 ➔ (0, 4)" 
-            },
-            { 
-                verbal_explanation: "סעיף ג': חיתוך אופקי מתרחש כשהמונה מתאפס.", 
-                math_expression: "x<sup>2</sup> - 4 = 0 ➔ x = 2 , x = -2" 
-            }
-        ],
-        final_answer: "א. x≠±1 , x=±1, y=1 | ב. (0, 4) מקסימום | ג. (2,0), (-2,0)"
+        "final_answer": "א. 0.3 ב. 0.189"
     },
-
-    // שאלה 4 - בעיית קיצון גיאומטרית (מבוסס קיץ 2022)
     {
-        topic: "bagrut_5_units",
-        subTopic: "בעיות קיצון",
-        question_text: `<strong>מתוך בגרות קיץ 2022 (אופטימיזציה):</strong><br>
-        בתוך משולש ישר זווית שבו הניצבים הם 10 ס"מ ו-20 ס"מ חסום מלבן (ראו שרטוט).<br>
-        שתיים מצלעות המלבן מונחות על הניצבים של המשולש.<br>
-        <svg viewBox="0 0 200 150" width="100%" height="150" style="display:block; margin:15px auto; max-width:200px;">
-            <polygon points="40,130 180,130 40,20" fill="none" stroke="#0f172a" stroke-width="2"/>
-            <rect x="40" y="75" width="70" height="55" fill="rgba(34,197,94,0.2)" stroke="#0f172a" stroke-width="1.5"/>
-            <text x="100" y="145" font-family="Arial" font-weight="bold">20</text>
-            <text x="20" y="80" font-family="Arial" font-weight="bold">10</text>
-            <text x="70" y="125" font-family="Arial">x</text>
-        </svg>
-        א. הביעו את שטח המלבן באמצעות הצלע x.<br>
-        ב. מהן מידות המלבן שעבורו השטח הוא <strong>מקסימלי</strong>?`,
-        options: [
-            "א. S = 10x - 0.5x^2 | ב. 10 ו-5",
-            "א. S = 20x - x^2 | ב. 10 ו-10",
-            "א. S = 10x - 2x^2 | ב. 5 ו-10",
-            "א. S = 20x - 2x^2 | ב. 5 ו-10"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,130 180,130 60,30\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"130\" stroke=\"#f87171\" stroke-width=\"1.5\" stroke-dasharray=\"4\"/></svg></div><br>בגרות 2020, מועד קיץ א'<br>במשולש ישר זווית, אורך היתר הוא 20. גובה ליתר מחלק אותו לשני קטעים, שאחד מהם ארוך ב-12 מהשני.<br>א. מצאו את אורכי הקטעים שעל היתר.<br>ב. מצאו את אורך הגובה ליתר.&rlm;",
+        "options": ["א. 16, 4 ב. 8", "א. 14, 6 ב. 9.16", "א. 15, 5 ב. 8.66", "א. 18, 2 ב. 6"],
+        "correctAnswer": 0,
+        "hint": "היעזרו במשפט: הגובה ליתר במשולש ישר זווית שווה לממוצע הגיאומטרי של היטלי הניצבים על היתר.",
+        "solution_steps": [
+            { "verbal_explanation": "נסמן את אורכי שני הקטעים שעל היתר.", "math_expression": "x \\quad , \\quad y" },
+            { "verbal_explanation": "נרשום משוואה לסכום הקטעים המרכיבים את היתר השלם.", "math_expression": "x + y = 20" },
+            { "verbal_explanation": "נרשום משוואה על סמך ההפרש הנתון בין הקטעים.", "math_expression": "x - y = 12" },
+            { "verbal_explanation": "נחבר את שתי המשוואות למציאת המשתנה הראשון.", "math_expression": "2x = 32 \\Rightarrow x = 16" },
+            { "verbal_explanation": "נציב למציאת המשתנה השני.", "math_expression": "16 + y = 20 \\Rightarrow y = 4" },
+            { "verbal_explanation": "הקטעים הם באורך 16 ו-4.", "math_expression": "x = 16 \\quad , \\quad y = 4" },
+            { "verbal_explanation": "נשתמש במשפט הגובה ליתר.", "math_expression": "h^{2} = x \\times y" },
+            { "verbal_explanation": "נציב את אורכי הקטעים.", "math_expression": "h^{2} = 16 \\times 4 = 64" },
+            { "verbal_explanation": "נוציא שורש למציאת הגובה.", "math_expression": "h = 8" }
         ],
-        correctAnswer: 0,
-        hint: "השתמשו בדמיון משולשים. אם צלע אחת של המלבן היא x על הניצב של ה-20, אז הצלע השנייה y מקיימת יחס דמיון עם הניצב של ה-10. בטאו את y ואז כפלו ב-x.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': נסמן את צלעות המלבן ב-x ו-y. לפי דמיון משולשים בין המשולש הקטן מעל המלבן למשולש הגדול:", 
-                math_expression: "y / 10 = (20 - x) / 20" 
-            },
-            { 
-                verbal_explanation: "נבודד את הצלע השנייה y.", 
-                math_expression: "y = 0.5 × (20 - x) = 10 - 0.5x" 
-            },
-            { 
-                verbal_explanation: "נרכיב פונקציית שטח (אורך כפול רוחב).", 
-                math_expression: "S = x × (10 - 0.5x) = 10x - 0.5x<sup>2</sup>" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נגזור את הפונקציה ונשווה לאפס למציאת המקסימום.", 
-                math_expression: "S' = 10 - x = 0 ➔ x = 10" 
-            },
-            { 
-                verbal_explanation: "נמצא את הצלע השנייה על ידי הצבה.", 
-                math_expression: "y = 10 - 0.5 × 10 = 5" 
-            }
-        ],
-        final_answer: "א. S = 10x - 0.5x^2 | ב. 10 ו-5"
+        "final_answer": "א. 16, 4 ב. 8"
     },
-
-    // שאלה 5 - טריגונומטריה במרחב (מבוסס על קיץ 2021)
     {
-        topic: "bagrut_5_units",
-        subTopic: "טריגונומטריה",
-        question_text: `<strong>מתוך בגרות קיץ 2021 (פירמידה):</strong><br>
-        בפירמידה ישרה SABCD שבסיסה ריבוע, אורך מקצוע הבסיס הוא 12 ס"מ.<br>
-        הזווית שבין מקצוע צדדי לבסיס היא 50°.<br>
-        
-        א. חשבו את אורך אלכסון הבסיס AC.<br>
-        ב. חשבו את גובה הפירמידה (h).<br>
-        ג. חשבו את נפח הפירמידה.`,
-        options: [
-            "א. 16.97 | ב. 10.11 | ג. 485.28",
-            "א. 16.97 | ב. 14.28 | ג. 685.44",
-            "א. 24 | ב. 14.3 | ג. 686",
-            "א. 12 | ב. 10 | ג. 480"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"100\" cy=\"75\" r=\"60\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><polygon points=\"50,40 150,40 120,130\" fill=\"none\" stroke=\"#c5a059\" stroke-width=\"2\"/></svg></div><br>בגרות 2019, מועד קיץ ב'<br>במשולש חסום במעגל שרדיוסו 10. זווית אחת היא בת 60 מעלות וזווית שנייה היא בת 45 מעלות.<br>א. מצאו את אורך הצלע שמול הזווית של ה-60 מעלות.<br>ב. מצאו את אורך הצלע שמול הזווית של ה-45 מעלות.&rlm;",
+        "options": ["א. 17.32 ב. 14.14", "א. 15 ב. 12", "א. 20 ב. 17.32", "א. 14.14 ב. 10"],
+        "correctAnswer": 0,
+        "hint": "השתמשו במשפט הסינוסים המורחב: צלע חלקי סינוס הזווית שממול שווה לפעמיים רדיוס המעגל החוסם.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את משפט הסינוסים במעגל החוסם.", "math_expression": "\\dfrac{a}{\\sin A} = 2R" },
+            { "verbal_explanation": "נציב את הנתונים עבור הצלע הראשונה.", "math_expression": "a = 2(10) \\times \\sin(60^{\\circ})" },
+            { "verbal_explanation": "נציב את הערך של הפונקציה הטריגונומטרית.", "math_expression": "a = 20 \\times \\dfrac{\\sqrt{3}}{2}" },
+            { "verbal_explanation": "נפשט ונקבל את הערך העשרוני המקורב.", "math_expression": "a = 10\\sqrt{3} \\approx 17.32" },
+            { "verbal_explanation": "נבצע תהליך זהה עבור הצלע השנייה.", "math_expression": "b = 2(10) \\times \\sin(45^{\\circ})" },
+            { "verbal_explanation": "נציב את הערך התואם.", "math_expression": "b = 20 \\times \\dfrac{\\sqrt{2}}{2}" },
+            { "verbal_explanation": "נפשט ונקבל את הערך העשרוני של הצלע.", "math_expression": "b = 10\\sqrt{2} \\approx 14.14" }
         ],
-        correctAnswer: 0,
-        hint: "סעיף א': פיתגורס בריבוע הבסיס. סעיף ב': השתמשו במשולש ישר זווית שנוצר בין הגובה, חצי האלכסון והמקצוע הצדדי. השתמשו בטנגנס 50°.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': אלכסון הבסיס בריבוע הוא יתר במשולש ישר זווית ושווה שוקיים (צלעות 12).", 
-                math_expression: "AC<sup>2</sup> = 12<sup>2</sup> + 12<sup>2</sup> = 144 + 144 = 288" 
-            },
-            { 
-                verbal_explanation: "נחלץ את אורך האלכסון.", 
-                math_expression: "AC = √288 ≈ 16.97" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נתבונן במשולש ישר זווית המכיל את הגובה ואת חצי האלכסון. חצי האלכסון הוא:", 
-                math_expression: "16.97 / 2 = 8.485" 
-            },
-            { 
-                verbal_explanation: "נשתמש בטנגנס למציאת הגובה מול הזווית הנתונה.", 
-                math_expression: "tan(50°) = h / 8.485 ➔ h = 8.485 × 1.1917 ≈ 10.11" 
-            },
-            { 
-                verbal_explanation: "סעיף ג': נפח פירמידה הוא שטח בסיס כפול גובה, חלקי 3.", 
-                math_expression: "V = (12 × 12 × 10.11) / 3 = 1455.84 / 3 = 485.28" 
-            }
-        ],
-        final_answer: "א. 16.97 | ב. 10.11 | ג. 485.28"
-    },// ========================================================================
-    // שאלון 35581 (5 יח"ל) | הכנה לבגרות - רמת פרימיום (חלק 1 - המשך)
-    // ========================================================================
-
-    // שאלה 6 - סדרות חשבוניות (מבוסס על בגרות חורף 2021, שאלה 3)
-    {
-        topic: "bagrut_5_units",
-        subTopic: "סדרות",
-        question_text: `<strong>מתוך בגרות חורף 2021, שאלה 3 (סדרה חשבונית):</strong><br>
-        בסדרה חשבונית נתון כי האיבר השלישי הוא 11. <br>
-        סכום עשרת האיברים הראשונים של הסדרה הוא 215.<br><br>
-        א. מצאו את האיבר הראשון (a<sub>1</sub>) ואת הפרש הסדרה (d).<br>
-        ב. בסדרה זו ישנם 40 איברים. חשבו את סכום 10 האיברים האחרונים בסדרה.`,
-        options: [
-            "א. a1=5, d=3 | ב. 1085",
-            "א. a1=3, d=4 | ב. 1100",
-            "א. a1=5, d=3 | ב. 960",
-            "א. a1=7, d=2 | ב. 1085"
-        ],
-        correctAnswer: 0,
-        hint: "סעיף א': בנו מערכת של שתי משוואות. משוואה אחת לאיבר השלישי (a1+2d=11) ומשוואה שנייה לנוסחת הסכום S10. סעיף ב': סכום 10 האחרונים הוא הסכום של כל 40 האיברים פחות הסכום של 30 האיברים הראשונים.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': נבנה משוואה לאיבר השלישי לפי נוסחת האיבר הכללי.", 
-                math_expression: "a<sub>1</sub> + 2d = 11" 
-            },
-            { 
-                verbal_explanation: "נבנה משוואה שנייה לפי נוסחת סכום סדרה חשבונית עבור עשרת האיברים הראשונים.", 
-                math_expression: "215 = (10 / 2) · [2a<sub>1</sub> + (10 - 1)d]" 
-            },
-            { 
-                verbal_explanation: "נפשט את משוואת הסכום על ידי חלוקה ב-5.", 
-                math_expression: "43 = 2a<sub>1</sub> + 9d" 
-            },
-            { 
-                verbal_explanation: "נפתור את מערכת המשוואות. נכפיל את המשוואה הראשונה ב-2 ונחסר ביניהן.", 
-                math_expression: "(2a<sub>1</sub> + 9d) - (2a<sub>1</sub> + 4d) = 43 - 22 ➔ 5d = 21 ➔ d = 3" 
-            },
-            { 
-                verbal_explanation: "נציב חזרה למציאת האיבר הראשון.", 
-                math_expression: "a<sub>1</sub> + 2(3) = 11 ➔ a<sub>1</sub> = 5" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נחשב את סכום עשרת האחרונים (איברים 31 עד 40). נשתמש בנוסחת הסכום כאשר האיבר הראשון הוא a31.", 
-                math_expression: "a<sub>31</sub> = 5 + 30 · 3 = 95" 
-            },
-            { 
-                verbal_explanation: "נחשב את הסכום עבור 10 איברים החל מהאיבר ה-31.", 
-                math_expression: "S = (10 / 2) · [2 · 95 + 9 · 3] = 5 · [190 + 27] = 5 · 217 = 1085" 
-            }
-        ],
-        final_answer: "א. a1=5, d=3 | ב. 1085"
+        "final_answer": "א. 17.32 ב. 14.14"
     },
-
-    // שאלה 7 - גיאומטריה אוקלידית (מבוסס על קיץ 2022, מועד ב', שאלה 5)
     {
-        topic: "bagrut_5_units",
-        subTopic: "גיאומטריה",
-        question_text: `<strong>מתוך בגרות קיץ 2022, מועד ב', שאלה 5 (פרופורציה ודמיון):</strong><br>
-        במשולש ABC העבירו קטע DE המקביל לצלע BC. <br>
-        נתון: AD = 9, DB = 6, וששטח המשולש הקטן ADE הוא 81 סמ"ר.<br>
-        
-        <svg viewBox="0 0 250 200" width="100%" height="180" style="display:block; margin:15px auto; max-width:220px; background:#fff;">
-            <polygon points="125,20 40,180 210,180" fill="rgba(59,130,246,0.05)" stroke="#0f172a" stroke-width="2"/>
-            <line x1="88" y1="95" x2="162" y2="95" stroke="#ef4444" stroke-width="2"/> <text x="120" y="15" font-family="Arial" font-weight="bold">A</text>
-            <text x="30" y="185" font-family="Arial" font-weight="bold">B</text>
-            <text x="215" y="185" font-family="Arial" font-weight="bold">C</text>
-            <text x="70" y="95" font-family="Arial" font-weight="bold" fill="#ef4444">D</text>
-            <text x="170" y="95" font-family="Arial" font-weight="bold" fill="#ef4444">E</text>
-            <text x="105" y="60" font-family="Arial" font-size="12">9</text>
-            <text x="60" y="140" font-family="Arial" font-size="12">6</text>
-        </svg>
-        א. מהו יחס הדמיון בין משולש ADE למשולש ABC?<br>
-        ב. חשבו את שטח הטרפז DBCE.`,
-        options: [
-            "א. 3/5 | ב. 144",
-            "א. 3/2 | ב. 54",
-            "א. 3/5 | ב. 225",
-            "א. 0.6 | ב. 125"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2018, מועד חורף<br>נתונה הפונקציה \\( f(x) = \\dfrac{x^{2} - x - 2}{x - 3} \\).<br>א. מצאו את האסימפטוטה האנכית ואת תחום ההגדרה.<br>ב. מצאו את נקודות הקיצון המקומיות של הפונקציה.&rlm;",
+        "options": ["א. x≠3, x=3 ב. מקס' (1, 1), מינ' (5, 9)", "א. x≠-3, x=-3 ב. מקס' (-1, 0), מינ' (1, -2)", "א. x≠2, x=2 ב. מקס' (3, 7), מינ' (4, 9)", "א. אין אסימפטוטה ב. מקס' (1, 1)"],
+        "correctAnswer": 0,
+        "hint": "האסימפטוטה האנכית מאפסת את המכנה. למציאת הקיצון, גזרו את הפונקציה בעזרת כלל המנה והשוו את המונה לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא את תחום ההגדרה מהמכנה.", "math_expression": "x - 3 \\neq 0 \\Rightarrow x \\neq 3" },
+            { "verbal_explanation": "הערך המאפס מהווה אסימפטוטה אנכית.", "math_expression": "x = 3" },
+            { "verbal_explanation": "נגזור את הפונקציה.", "math_expression": "f'(x) = \\dfrac{(2x - 1)(x - 3) - (x^{2} - x - 2)(1)}{(x - 3)^{2}}" },
+            { "verbal_explanation": "נפתח סוגריים במונה.", "math_expression": "f'(x) = \\dfrac{2x^{2} - 7x + 3 - x^{2} + x + 2}{(x - 3)^{2}}" },
+            { "verbal_explanation": "נכנס איברים במונה הנגזרת.", "math_expression": "f'(x) = \\dfrac{x^{2} - 6x + 5}{(x - 3)^{2}}" },
+            { "verbal_explanation": "נשווה לאפס ונמצא שורשים.", "math_expression": "x^{2} - 6x + 5 = 0 \\Rightarrow (x - 1)(x - 5) = 0" },
+            { "verbal_explanation": "השורשים נמצאו.", "math_expression": "x = 1 \\quad , \\quad x = 5" },
+            { "verbal_explanation": "נציב את הערך הראשון בפונקציה. סיווג למקסימום נובע ממעבר סימן.", "math_expression": "f(1) = \\dfrac{1 - 1 - 2}{1 - 3} = \\dfrac{-2}{-2} = 1 \\Rightarrow Max" },
+            { "verbal_explanation": "נציב את הערך השני בפונקציה. סיווג למינימום נובע ממעבר סימן.", "math_expression": "f(5) = \\dfrac{25 - 5 - 2}{5 - 3} = \\dfrac{18}{2} = 9 \\Rightarrow Min" }
         ],
-        correctAnswer: 0,
-        hint: "סעיף א': יחס הדמיון הוא היחס בין הצלע הקטנה AD לצלע הגדולה AB. סעיף ב': יחס השטחים של משולשים דומים שווה לריבוע יחס הדמיון. מצאו את שטח המשולש הגדול וחסרו ממנו את הקטן.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': נמצא את אורך הצלע המלאה AB של המשולש הגדול.", 
-                math_expression: "AB = 9 + 6 = 15" 
-            },
-            { 
-                verbal_explanation: "נחשב את יחס הדמיון (נסמנו באות k) בין המשולשים.", 
-                math_expression: "k = 9 / 15 = 3 / 5 = 0.6" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': יחס השטחים בין המשולשים הוא ריבוע של יחס הדמיון.", 
-                math_expression: "k<sup>2</sup> = (3/5)<sup>2</sup> = 9 / 25" 
-            },
-            { 
-                verbal_explanation: "נשתמש ביחס כדי למצוא את שטח המשולש הגדול ABC.", 
-                math_expression: "81 / S = 9 / 25 ➔ 9 · S = 2025 ➔ S = 225" 
-            },
-            { 
-                verbal_explanation: "שטח הטרפז הוא ההפרש בין שטח המשולש הגדול לשטח המשולש הקטן ADE.", 
-                math_expression: "S = 225 - 81 = 144" 
-            }
-        ],
-        final_answer: "א. 3/5 | ב. 144"
+        "final_answer": "א. x≠3, x=3 ב. מקס' (1, 1), מינ' (5, 9)"
     },
-
-    // שאלה 8 - חקירת פונקציית שורש (מבוסס על קיץ 2021, מועד א', שאלה 6)
     {
-        topic: "bagrut_5_units",
-        subTopic: "חדו\"א",
-        question_text: `<strong>מתוך בגרות קיץ 2021, מועד א', שאלה 6 (פונקציית שורש):</strong><br>
-        נתונה הפונקציה: <div dir="ltr" style="display:inline-block; font-weight:bold;">f(x) = √(2x + 10)</div><br>
-        מעבירים משיק לגרף הפונקציה בנקודה שבה <span dir="ltr">x = 3</span>.<br><br>
-        א. מצאו את שיעור ה-y של נקודת ההשקה ואת שיפוע המשיק.<br>
-        ב. מצאו את משוואת המשיק.<br>
-        ג. חשבו את השטח הכלוא בין המשיק, גרף הפונקציה וציר ה-y.`,
-        options: [
-            "א. (3, 4), m=0.25 | ב. y = 0.25x + 3.25 | ג. 0.083",
-            "א. (3, 4), m=0.5 | ב. y = 0.5x + 2.5 | ג. 0.125",
-            "א. (3, 16), m=0.25 | ב. y = 0.25x + 15.75 | ג. 0.5",
-            "א. (3, 4), m=1 | ב. y = x + 1 | ג. 1"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2017, מועד קיץ א'<br>נתונה הפונקציה \\( f(x) = x\\sqrt{12 - x} \\).<br>א. מצאו את תחום ההגדרה.<br>ב. מצאו את נקודת המקסימום המוחלט של הפונקציה.&rlm;",
+        "options": ["א. x≤12 ב. (8, 16)", "א. x≥12 ב. (10, 14.14)", "א. כל x ב. (6, 14.7)", "א. 0≤x≤12 ב. (4, 11.3)"],
+        "correctAnswer": 0,
+        "hint": "תוכן השורש חייב להיות חיובי או אפס. גזרו את הפונקציה בעזרת כלל מכפלה והשוו לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא את תחום ההגדרה מהשורש.", "math_expression": "12 - x \\geq 0 \\Rightarrow x \\leq 12" },
+            { "verbal_explanation": "נגזור את הפונקציה.", "math_expression": "f'(x) = 1 \\times \\sqrt{12 - x} + x \\times \\dfrac{-1}{2\\sqrt{12 - x}}" },
+            { "verbal_explanation": "ניצור מכנה משותף בנגזרת.", "math_expression": "f'(x) = \\dfrac{2(12 - x) - x}{2\\sqrt{12 - x}}" },
+            { "verbal_explanation": "נפשט את המונה.", "math_expression": "f'(x) = \\dfrac{24 - 3x}{2\\sqrt{12 - x}}" },
+            { "verbal_explanation": "נשווה את המונה לאפס.", "math_expression": "24 - 3x = 0" },
+            { "verbal_explanation": "נפתור עבור המשתנה.", "math_expression": "3x = 24 \\Rightarrow x = 8" },
+            { "verbal_explanation": "נציב את הערך בפונקציה למציאת הערך המקסימלי.", "math_expression": "f(8) = 8\\sqrt{12 - 8} = 8\\sqrt{4}" },
+            { "verbal_explanation": "נחשב את התוצאה הסופית.", "math_expression": "f(8) = 8 \\times 2 = 16" }
         ],
-        correctAnswer: 0,
-        hint: "סעיף א': הציבו x=3 בפונקציה. לשיפוע, גזרו את הפונקציה (נגזרת פנימית 2 חלקי פעמיים השורש). סעיף ג': השטח הוא אינטגרל של (המשיק פחות הפונקציה) בגבולות שבין 0 ל-3.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': נחשב את הגובה של הפונקציה בנקודה x=3.", 
-                math_expression: "f(3) = √(2 · 3 + 10) = √16 = 4" 
-            },
-            { 
-                verbal_explanation: "נגזור את פונקציית השורש לפי כלל השרשרת.", 
-                math_expression: "f'(x) = 2 / (2 · √(2x + 10)) = 1 / √(2x + 10)" 
-            },
-            { 
-                verbal_explanation: "נציב x=3 בנגזרת כדי למצוא את שיפוע המשיק.", 
-                math_expression: "m = 1 / √16 = 1 / 4 = 0.25" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נרכיב משוואת ישר לפי נקודה (3, 4) ושיפוע 0.25.", 
-                math_expression: "y - 4 = 0.25(x - 3) ➔ y = 0.25x - 0.75 + 4 = 0.25x + 3.25" 
-            },
-            { 
-                verbal_explanation: "סעיף ג': נבנה אינטגרל לחישוב השטח בין המשיק (העליון) לפונקציה (התחתונה).", 
-                math_expression: "S = ∫[(0.25x + 3.25) - √(2x + 10)] dx" 
-            }
-        ],
-        final_answer: "א. (3, 4), m=0.25 | ב. y = 0.25x + 3.25 | ג. 0.083"
+        "final_answer": "א. x≤12 ב. (8, 16)"
     },
-
-    // שאלה 9 - טריגונומטריה (מבוסס על חורף 2023, שאלה 5)
     {
-        topic: "bagrut_5_units",
-        subTopic: "טריגונומטריה",
-        question_text: `<strong>מתוך בגרות חורף 2023, שאלה 5 (משפט הקוסינוסים):</strong><br>
-        במשולש ABC, אורך הצלע AB הוא 10 ס"מ ואורך הצלע AC הוא 14 ס"מ.<br>
-        הזווית BAC היא זווית קהה, ושטח המשולש הוא 42 סמ"ר.<br>
-        
-        א. מצאו את גודל הזווית BAC.<br>
-        ב. חשבו את אורך הצלע BC.`,
-        options: [
-            "א. 143.13° | ב. 22.8",
-            "א. 36.87° | ב. 8.5",
-            "א. 120° | ב. 20.8",
-            "א. 150° | ב. 23.2"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"100\" x2=\"180\" y2=\"100\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><line x1=\"100\" y1=\"20\" x2=\"100\" y2=\"140\" stroke=\"#cbd5e1\" stroke-width=\"1.5\"/><path d=\"M 40 100 Q 70 40 100 100 T 160 100\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/></svg></div><br>בגרות 2016, מועד חורף<br>נתונה הפונקציה \\( f(x) = \\sin(x) + \\cos(x) \\) בתחום \\( 0 \\leq x \\leq \\pi \\).<br>א. מצאו את נקודות החיתוך עם ציר ה-\\( x \\).<br>ב. מצאו את שיעורי נקודת המקסימום המוחלט של הפונקציה בתחום הנתון.&rlm;",
+        "options": ["א. (0.75π, 0) ב. (0.25π, 1.414)", "א. (0.5π, 0) ב. (0.5π, 1)", "א. (π, 0) ב. (0, 1)", "א. (0.25π, 0) ב. (0.75π, -1.414)"],
+        "correctAnswer": 0,
+        "hint": "לחיתוך ציר x השוו לאפס וסדרו משוואת טנגנס. לקיצון גזרו, השוו לאפס, ופתרו בעזרת טנגנס.",
+        "solution_steps": [
+            { "verbal_explanation": "נשווה לאפס למציאת חיתוך ציר האופק.", "math_expression": "\\sin(x) + \\cos(x) = 0" },
+            { "verbal_explanation": "נעביר אגף.", "math_expression": "\\sin(x) = -\\cos(x)" },
+            { "verbal_explanation": "נחלק בקוסינוס לקבלת טנגנס.", "math_expression": "\\tan(x) = -1" },
+            { "verbal_explanation": "נפתור עבור התחום הנתון.", "math_expression": "x = \\dfrac{3\\pi}{4} = 0.75\\pi" },
+            { "verbal_explanation": "נגזור את הפונקציה למציאת קיצון.", "math_expression": "f'(x) = \\cos(x) - \\sin(x)" },
+            { "verbal_explanation": "נשווה לאפס.", "math_expression": "\\cos(x) - \\sin(x) = 0 \\Rightarrow \\sin(x) = \\cos(x)" },
+            { "verbal_explanation": "נמיר לטנגנס.", "math_expression": "\\tan(x) = 1" },
+            { "verbal_explanation": "נמצא את הזווית המתאימה בתחום.", "math_expression": "x = \\dfrac{\\pi}{4} = 0.25\\pi" },
+            { "verbal_explanation": "נציב בפונקציה למציאת הערך המקסימלי.", "math_expression": "f(0.25\\pi) = \\sin(45^{\\circ}) + \\cos(45^{\\circ}) = \\dfrac{\\sqrt{2}}{2} + \\dfrac{\\sqrt{2}}{2}" },
+            { "verbal_explanation": "נחשב את הסכום.", "math_expression": "f(0.25\\pi) = \\sqrt{2} \\approx 1.414" }
         ],
-        correctAnswer: 0,
-        hint: "סעיף א': השתמשו בנוסחת השטח (חצי כפול מכפלת צלעות כפול סינוס הזווית). מכיוון שהזווית קהה, בחרו בפתרון שבין 90 ל-180 מעלות. סעיף ב': השתמשו במשפט הקוסינוסים.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': נציב את הנתונים בנוסחת השטח הטריגונומטרית.", 
-                math_expression: "42 = 0.5 · 10 · 14 · sin(α)" 
-            },
-            { 
-                verbal_explanation: "נבודד את הסינוס.", 
-                math_expression: "42 = 70 · sin(α) ➔ sin(α) = 0.6" 
-            },
-            { 
-                verbal_explanation: "נמצא את הזווית במחשבון. מאחר והיא קהה, ניקח את הפתרון המשלים ל-180.", 
-                math_expression: "α = 180° - 36.87° = 143.13°" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נשתמש במשפט הקוסינוסים למציאת הצלע BC.", 
-                math_expression: "BC<sup>2</sup> = 10<sup>2</sup> + 14<sup>2</sup> - 2 · 10 · 14 · cos(143.13°)" 
-            },
-            { 
-                verbal_explanation: "נחשב את הערכים המספריים (קוסינוס של זווית קהה הוא שלילי).", 
-                math_expression: "BC<sup>2</sup> = 100 + 196 - 280 · (-0.8) = 296 + 224 = 520" 
-            },
-            { 
-                verbal_explanation: "נוציא שורש לתוצאה.", 
-                math_expression: "BC = √520 ≈ 22.8" 
-            }
-        ],
-        final_answer: "א. 143.13° | ב. 22.8"
+        "final_answer": "א. (0.75π, 0) ב. (0.25π, 1.414)"
     },
-
-    // שאלה 10 - חדו"א: חקירת מנה (מבוסס על קיץ 2023, מועד א', שאלה 8)
     {
-        topic: "bagrut_5_units",
-        subTopic: "חדו\"א",
-        question_text: `<strong>מתוך בגרות קיץ 2023, מועד א', שאלה 8:</strong><br>
-        נתונה הפונקציה: <div dir="ltr" style="display:inline-block; font-weight:bold;">f(x) = (x<sup>2</sup> - 8) / (x - 3)</div><br>
-        א. מצאו את האסימפטוטה האנכית של הפונקציה.<br>
-        ב. מצאו את נקודות הקיצון של הפונקציה וקבעו את סוגן.`,
-        options: [
-            "א. x = 3 | ב. (2, 4) מקסימום, (4, 8) מינימום",
-            "א. x = 3 | ב. (2, 4) מינימום, (4, 8) מקסימום",
-            "א. x = 8 | ב. (3, 0) קיצון",
-            "א. x = 3 | ב. (0, 2.66) מקסימום"
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2015, מועד קיץ ב'<br>בתוך חצי מעגל שרדיוסו 10 חסום מלבן. צלע אחת של המלבן מונחת על קוטר חצי המעגל.<br>א. הביעו את שטח המלבן כפונקציה של מחצית מבסיסו (\\( x \\)).<br>ב. מהו השטח המקסימלי של המלבן?&rlm;",
+        "options": ["א. S(x) = 2x√(100-x²) ב. 100", "א. S(x) = x√(100-x²) ב. 50", "א. S(x) = 2x√(50-x²) ב. 75", "א. S(x) = 4x√(100-x²) ב. 200"],
+        "correctAnswer": 0,
+        "hint": "השתמשו במשפט פיתגורס להבעת גובה המלבן בעזרת x והרדיוס. שטח המלבן הוא הבסיס כולו (2x) כפול הגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את מחצית רוחב המלבן.", "math_expression": "x" },
+            { "verbal_explanation": "נביע את גובה המלבן בעזרת משפט פיתגורס המסתמך על הרדיוס.", "math_expression": "y = \\sqrt{10^{2} - x^{2}} = \\sqrt{100 - x^{2}}" },
+            { "verbal_explanation": "נרכיב פונקציית שטח.", "math_expression": "S(x) = 2x \\times \\sqrt{100 - x^{2}}" },
+            { "verbal_explanation": "נכניס את המשתנה אל תוך השורש.", "math_expression": "S(x) = \\sqrt{4x^{2}(100 - x^{2})} = \\sqrt{400x^{2} - 4x^{4}}" },
+            { "verbal_explanation": "נגזור את הפונקציה הפנימית.", "math_expression": "g'(x) = 800x - 16x^{3}" },
+            { "verbal_explanation": "נשווה לאפס.", "math_expression": "16x(50 - x^{2}) = 0" },
+            { "verbal_explanation": "נפתור עבור הפתרון החיובי.", "math_expression": "x^{2} = 50 \\Rightarrow x = \\sqrt{50}" },
+            { "verbal_explanation": "נציב למציאת השטח המקסימלי.", "math_expression": "S(\\sqrt{50}) = 2\\sqrt{50} \\times \\sqrt{100 - 50}" },
+            { "verbal_explanation": "נחשב את המכפלה.", "math_expression": "S = 2 \\times \\sqrt{50} \\times \\sqrt{50} = 2 \\times 50 = 100" }
         ],
-        correctAnswer: 0,
-        hint: "אסימפטוטה אנכית מתקבלת מאיפוס המכנה. לקיצון, גזרו את המנה והשוו את מונה הנגזרת לאפס.",
-        solution_steps: [
-            { 
-                verbal_explanation: "סעיף א': האסימפטוטה האנכית היא הערך המאפס את המכנה.", 
-                math_expression: "x - 3 = 0 ➔ x = 3" 
-            },
-            { 
-                verbal_explanation: "סעיף ב': נגזור את הפונקציה לפי כלל המנה.", 
-                math_expression: "f'(x) = [2x(x - 3) - 1(x<sup>2</sup> - 8)] / (x - 3)<sup>2</sup>" 
-            },
-            { 
-                verbal_explanation: "נפשט את המונה ונשווה אותו לאפס.", 
-                math_expression: "2x<sup>2</sup> - 6x - x<sup>2</sup> + 8 = 0 ➔ x<sup>2</sup> - 6x + 8 = 0" 
-            },
-            { 
-                verbal_explanation: "נפתור את המשוואה הריבועית בעזרת טרינום.", 
-                math_expression: "(x - 2)(x - 4) = 0 ➔ x = 2 , x = 4" 
-            },
-            { 
-                verbal_explanation: "נציב בפונקציה המקורית למציאת הגבהים.", 
-                math_expression: "f(2) = (4 - 8) / (2 - 3) = -4 / -1 = 4 ➔ (2, 4)" 
-            },
-            { 
-                verbal_explanation: "נציב את הערך השני.", 
-                math_expression: "f(4) = (16 - 8) / (4 - 3) = 8 / 1 = 8 ➔ (4, 8)" 
-            },
-            { 
-                verbal_explanation: "בדיקת ערכים או נגזרת שנייה למונה תראה כי 2 היא מקסימום ו-4 היא מינימום.", 
-                math_expression: "Max: (2, 4) , Min: (4, 8)" 
-            }
+        "final_answer": "א. S(x) = 2x√(100-x²) ב. 100"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2023, מועד נבצרים<br>לפונקציה \\( f(x) = \\dfrac{a}{x^{2}} + x \\) יש נקודת מינימום ב- \\( x = 4 \\).<br>א. מצאו את ערך הפרמטר \\( a \\).<br>ב. מהו הערך המינימלי של הפונקציה?&rlm;",
+        "options": ["א. 32 ב. 6", "א. 16 ב. 5", "א. 8 ב. 4.5", "א. 64 ב. 8"],
+        "correctAnswer": 0,
+        "hint": "גזרו את הפונקציה, הציבו בנגזרת x=4 והשוו לאפס למציאת a. לאחר מכן הציבו את a ו-x בפונקציה המקורית.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את הפונקציה עם חזקה שלילית.", "math_expression": "f(x) = a x^{-2} + x" },
+            { "verbal_explanation": "נגזור.", "math_expression": "f'(x) = -2a x^{-3} + 1 = 1 - \\dfrac{2a}{x^{3}}" },
+            { "verbal_explanation": "נציב את הנתון של נקודת המינימום בנגזרת ונשווה לאפס.", "math_expression": "1 - \\dfrac{2a}{4^{3}} = 0" },
+            { "verbal_explanation": "נחשב את החזקה במכנה.", "math_expression": "1 - \\dfrac{2a}{64} = 0" },
+            { "verbal_explanation": "נעביר אגף.", "math_expression": "\\dfrac{2a}{64} = 1" },
+            { "verbal_explanation": "נכפול.", "math_expression": "2a = 64" },
+            { "verbal_explanation": "נחלץ את המקדם.", "math_expression": "a = 32" },
+            { "verbal_explanation": "נציב את המקדם ואת הערך בפונקציה למציאת גובה המינימום.", "math_expression": "f(4) = \\dfrac{32}{4^{2}} + 4" },
+            { "verbal_explanation": "נחשב את הערך הסופי.", "math_expression": "f(4) = \\dfrac{32}{16} + 4 = 2 + 4 = 6" }
         ],
-        final_answer: "א. x = 3 | ב. (2, 4) מקסימום, (4, 8) מינימום"
+        "final_answer": "א. 32 ב. 6"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2022, מועד קיץ ב'<br>בסדרה חשבונית יש \\( 2n \\) איברים. סכום האיברים במקומות הזוגיים גדול ב-20 מסכום האיברים במקומות האי-זוגיים. האיבר האחרון הוא 50.<br>א. מצאו את מכפלת מספר הזוגות בהפרש (\\( nd \\)).<br>ב. אם נתון כי \\( n=10 \\), מצאו את האיבר הראשון.&rlm;",
+        "options": ["א. 20 ב. 12", "א. 40 ב. 8", "א. 10 ב. 14", "א. 20 ב. 10"],
+        "correctAnswer": 0,
+        "hint": "ההפרש בין סכום האיברים במקומות הזוגיים לאי-זוגיים שווה למספר הזוגות כפול הפרש הסדרה.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את הקשר בין סכום הזוגיים לאי-זוגיים.", "math_expression": "S_{even} - S_{odd} = n \\times d" },
+            { "verbal_explanation": "נציב את ההפרש הנתון.", "math_expression": "n \\times d = 20" },
+            { "verbal_explanation": "נשתמש בנתון שניתן בסעיף ב'.", "math_expression": "n = 10" },
+            { "verbal_explanation": "נחשב את הפרש הסדרה.", "math_expression": "10d = 20 \\Rightarrow d = 2" },
+            { "verbal_explanation": "מספר האיברים הכולל בסדרה.", "math_expression": "2n = 20" },
+            { "verbal_explanation": "נשתמש בנוסחת האיבר הכללי עבור האיבר האחרון.", "math_expression": "a_{20} = a_1 + 19d" },
+            { "verbal_explanation": "נציב את הנתונים.", "math_expression": "50 = a_1 + 19(2)" },
+            { "verbal_explanation": "נחשב את המכפלה.", "math_expression": "50 = a_1 + 38" },
+            { "verbal_explanation": "נחלץ את האיבר הראשון.", "math_expression": "a_1 = 50 - 38 = 12" }
+        ],
+        "final_answer": "א. 20 ב. 12"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2021, מועד קיץ א'<br>במפעל יש שתי מכונות. ההסתברות שמכונה א' תתקלקל היא 0.1. ההסתברות שמכונה ב' תתקלקל היא 0.2. הקלקולים בלתי תלויים.<br>א. מה ההסתברות שלפחות מכונה אחת תתקלקל?<br>ב. מה ההסתברות שבדיוק מכונה אחת תתקלקל?&rlm;",
+        "options": ["א. 0.28 ב. 0.26", "א. 0.3 ב. 0.28", "א. 0.26 ב. 0.22", "א. 0.28 ב. 0.18"],
+        "correctAnswer": 0,
+        "hint": "לפחות אחת תתקלקל: המאורע המשלים לכך שאף אחת לא תתקלקל. בדיוק אחת: א' מתקלקלת וב' לא, או להפך.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את ההסתברויות לקלקול.", "math_expression": "P(A) = 0.1 \\quad , \\quad P(B) = 0.2" },
+            { "verbal_explanation": "נחשב את ההסתברויות לפעולה תקינה.", "math_expression": "P(\\overline{A}) = 0.9 \\quad , \\quad P(\\overline{B}) = 0.8" },
+            { "verbal_explanation": "נחשב את ההסתברות שאף מכונה לא תתקלקל.", "math_expression": "P(None) = 0.9 \\times 0.8 = 0.72" },
+            { "verbal_explanation": "נחשב את ההסתברות שלפחות אחת תתקלקל כמאורע משלים.", "math_expression": "P(At\\_least\\_1) = 1 - 0.72 = 0.28" },
+            { "verbal_explanation": "נחשב את ההסתברות שרק א' תתקלקל.", "math_expression": "P_1 = 0.1 \\times 0.8 = 0.08" },
+            { "verbal_explanation": "נחשב את ההסתברות שרק ב' תתקלקל.", "math_expression": "P_2 = 0.9 \\times 0.2 = 0.18" },
+            { "verbal_explanation": "נחבר את ההסתברויות לקבלת מאורע של בדיוק תקלה אחת.", "math_expression": "P(Exactly\\_1) = 0.08 + 0.18 = 0.26" }
+        ],
+        "final_answer": "א. 0.28 ב. 0.26"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2020, מועד חורף<br>פתרו את המשוואה הטריגונומטרית \\( 2\\sin^{2}(x) - \\sin(x) = 0 \\) בתחום \\( 0 \\leq x \\leq \\pi \\).<br>א. מצאו את כל הפתרונות.<br>ב. כמה פתרונות יש בסך הכל?&rlm;",
+        "options": ["א. 0, π/6, 5π/6, π ב. 4", "א. 0, π/2, π ב. 3", "א. π/6, 5π/6 ב. 2", "א. 0, π/3, 2π/3, π ב. 4"],
+        "correctAnswer": 0,
+        "hint": "הוציאו את פונקציית הסינוס כגורם משותף מחוץ לסוגריים ופתרו שתי משוואות נפרדות.",
+        "solution_steps": [
+            { "verbal_explanation": "נוציא גורם משותף.", "math_expression": "\\sin(x)[2\\sin(x) - 1] = 0" },
+            { "verbal_explanation": "נרשום את המשוואה הראשונה.", "math_expression": "\\sin(x) = 0" },
+            { "verbal_explanation": "נמצא פתרונות בתחום הנתון.", "math_expression": "x_1 = 0 \\quad , \\quad x_2 = \\pi" },
+            { "verbal_explanation": "נרשום את המשוואה השנייה.", "math_expression": "2\\sin(x) - 1 = 0" },
+            { "verbal_explanation": "נבודד את הפונקציה.", "math_expression": "\\sin(x) = 0.5" },
+            { "verbal_explanation": "נמצא פתרונות בתחום.", "math_expression": "x_3 = \\dfrac{\\pi}{6} \\quad , \\quad x_4 = \\dfrac{5\\pi}{6}" },
+            { "verbal_explanation": "נמנה את כמות הפתרונות שנמצאו.", "math_expression": "Total = 4" }
+        ],
+        "final_answer": "א. 0, π/6, 5π/6, π ב. 4"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,130 180,130 60,30\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"60\" y1=\"30\" x2=\"60\" y2=\"130\" stroke=\"#f87171\" stroke-width=\"1.5\" stroke-dasharray=\"4\"/></svg></div><br>בגרות 2019, מועד קיץ א'<br>במשולש ישר זווית, מורידים גובה ליתר שמחלק אותו לקטעים באורך 9 ו-16.<br>א. מצאו את אורך הגובה.<br>ב. מצאו את שטח המשולש המקורי.&rlm;",
+        "options": ["א. 12 ב. 150", "א. 15 ב. 175", "א. 12 ב. 300", "א. 10 ב. 125"],
+        "correctAnswer": 0,
+        "hint": "ריבוע הגובה ליתר שווה למכפלת היטלי הניצבים על היתר.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את אורכי הקטעים על היתר.", "math_expression": "x = 9 \\quad , \\quad y = 16" },
+            { "verbal_explanation": "נשתמש במשפט הגובה ליתר.", "math_expression": "h^{2} = x \\times y" },
+            { "verbal_explanation": "נציב.", "math_expression": "h^{2} = 9 \\times 16" },
+            { "verbal_explanation": "נחשב את המכפלה.", "math_expression": "h^{2} = 144" },
+            { "verbal_explanation": "נוציא שורש למציאת הגובה.", "math_expression": "h = 12" },
+            { "verbal_explanation": "נחשב את אורך היתר השלם (הבסיס).", "math_expression": "c = 9 + 16 = 25" },
+            { "verbal_explanation": "נחשב את השטח.", "math_expression": "S = \\dfrac{c \\times h}{2}" },
+            { "verbal_explanation": "נציב.", "math_expression": "S = \\dfrac{25 \\times 12}{2}" },
+            { "verbal_explanation": "נחשב את התוצאה.", "math_expression": "S = 150" }
+        ],
+        "final_answer": "א. 12 ב. 150"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2018, מועד קיץ ב'<br>נתונה הפונקציה \\( f(x) = \\dfrac{ax^{2} + 5}{x^{2} - b} \\). לפונקציה אסימפטוטה אופקית ב-\\( y = 2 \\) ואסימפטוטות אנכיות ב-\\( x = \\pm 3 \\).<br>א. מצאו את \\( a \\) ואת \\( b \\).<br>ב. מצאו את נקודת הקיצון של הפונקציה.&rlm;",
+        "options": ["א. a=2, b=9 ב. (0, -0.55)", "א. a=1, b=3 ב. (0, 1.66)", "א. a=2, b=3 ב. (0, -1.66)", "א. a=4, b=9 ב. (0, -1.5)"],
+        "correctAnswer": 0,
+        "hint": "יחס המקדמים הריבועיים קובע אסימפטוטה אופקית. המכנה מתאפס בערכי האסימפטוטה האנכית.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש באסימפטוטה האופקית.", "math_expression": "\\dfrac{a}{1} = 2 \\Rightarrow a = 2" },
+            { "verbal_explanation": "נשתמש באסימפטוטה האנכית המאפסת את המכנה.", "math_expression": "3^{2} - b = 0 \\Rightarrow b = 9" },
+            { "verbal_explanation": "נרשום את הפונקציה.", "math_expression": "f(x) = \\dfrac{2x^{2} + 5}{x^{2} - 9}" },
+            { "verbal_explanation": "נגזור.", "math_expression": "f'(x) = \\dfrac{4x(x^{2} - 9) - 2x(2x^{2} + 5)}{(x^{2} - 9)^{2}}" },
+            { "verbal_explanation": "נפשט את המונה.", "math_expression": "f'(x) = \\dfrac{4x^{3} - 36x - 4x^{3} - 10x}{(x^{2} - 9)^{2}}" },
+            { "verbal_explanation": "נכנס איברים במונה הנגזרת.", "math_expression": "f'(x) = \\dfrac{-46x}{(x^{2} - 9)^{2}}" },
+            { "verbal_explanation": "נשווה לאפס.", "math_expression": "-46x = 0 \\Rightarrow x = 0" },
+            { "verbal_explanation": "נציב למציאת הערך.", "math_expression": "f(0) = \\dfrac{5}{-9} \\approx -0.555" },
+            { "verbal_explanation": "הנקודה התקבלה.", "math_expression": "(0, -0.55)" }
+        ],
+        "final_answer": "א. a=2, b=9 ב. (0, -0.55)"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2017, מועד חורף<br>נתונה הפונקציה \\( f(x) = \\sqrt{x^{2} - ax + 16} \\). הפונקציה מוגדרת לכל \\( x \\).<br>א. מהו התחום האפשרי לפרמטר \\( a \\)?<br>ב. אם נתון כי \\( a=0 \\), מהו המינימום המוחלט של הפונקציה?&rlm;",
+        "options": ["א. בין -8 ל-8 ב. 4", "א. גדול מ-8 ב. 0", "א. בין -4 ל-4 ב. 2", "א. כל ערך ב. 16"],
+        "correctAnswer": 0,
+        "hint": "כדי שהפונקציה תהיה מוגדרת לכל x, הביטוי מתחת לשורש לא יכול להיות שלילי. דלתא קטנה או שווה לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "התנאי לתחום הגדרה מלא.", "math_expression": "x^{2} - ax + 16 \\geq 0" },
+            { "verbal_explanation": "התנאי מקיים פרבולה ללא שורשים או משיקה.", "math_expression": "D \\leq 0" },
+            { "verbal_explanation": "נרשום את הדיסקרימיננטה.", "math_expression": "a^{2} - 4(16) \\leq 0" },
+            { "verbal_explanation": "נפשט.", "math_expression": "a^{2} - 64 \\leq 0" },
+            { "verbal_explanation": "נמצא את התחום.", "math_expression": "-8 \\leq a \\leq 8" },
+            { "verbal_explanation": "נציב את הנתון מסעיף ב'.", "math_expression": "f(x) = \\sqrt{x^{2} + 16}" },
+            { "verbal_explanation": "המינימום של השורש מתקבל כאשר הפנים מינימלי.", "math_expression": "x^{2} \\geq 0 \\Rightarrow Min \\, at \\, x=0" },
+            { "verbal_explanation": "נציב.", "math_expression": "f(0) = \\sqrt{16} = 4" }
+        ],
+        "final_answer": "א. בין -8 ל-8 ב. 4"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2016, מועד קיץ א'<br>אורך חוט הוא 40 ס''מ. חותכים אותו לשני חלקים. מחלק אחד יוצרים ריבוע ומחלק שני יוצרים מעגל.<br>א. הביעו את פונקציית סכום השטחים באמצעות אורך החלק של הריבוע (\\( x \\)).<br>ב. מהו \\( x \\) עבורו השטח מינימלי?&rlm;",
+        "options": ["א. x²/16 + (40-x)²/(4π) ב. 160/(π+4)", "א. x²/4 + (40-x)²/π ב. 80/(π+2)", "א. x²/16 + (40-x)²/4 ב. 20", "א. x² + (40-x)² ב. 10"],
+        "correctAnswer": 0,
+        "hint": "היקף הריבוע הוא x. היקף המעגל הוא 40 פחות x.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את היקף הריבוע.", "math_expression": "P_1 = x" },
+            { "verbal_explanation": "נגדיר את צלע הריבוע.", "math_expression": "a = \\dfrac{x}{4}" },
+            { "verbal_explanation": "נגדיר את היקף המעגל.", "math_expression": "P_2 = 40 - x" },
+            { "verbal_explanation": "נגדיר את רדיוס המעגל.", "math_expression": "r = \\dfrac{40 - x}{2\\pi}" },
+            { "verbal_explanation": "נרכיב פונקציית שטח.", "math_expression": "S(x) = (\\dfrac{x}{4})^{2} + \\pi(\\dfrac{40 - x}{2\\pi})^{2}" },
+            { "verbal_explanation": "נפשט.", "math_expression": "S(x) = \\dfrac{x^{2}}{16} + \\dfrac{(40 - x)^{2}}{4\\pi}" },
+            { "verbal_explanation": "נגזור.", "math_expression": "S'(x) = \\dfrac{2x}{16} - \\dfrac{2(40 - x)}{4\\pi}" },
+            { "verbal_explanation": "נשווה לאפס.", "math_expression": "\\dfrac{x}{8} = \\dfrac{40 - x}{2\\pi}" },
+            { "verbal_explanation": "נכפול בהצלבה.", "math_expression": "2\\pi x = 320 - 8x" },
+            { "verbal_explanation": "נבודד.", "math_expression": "x(2\\pi + 8) = 320 \\Rightarrow x = \\dfrac{160}{\\pi + 4}" }
+        ],
+        "final_answer": "א. x²/16 + (40-x)²/(4π) ב. 160/(π+4)"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"150\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,130 180,130 60,30\" fill=\"none\" stroke=\"#0f172a\" stroke-width=\"2\"/><text x=\"80\" y=\"110\" font-family=\"Arial\" font-size=\"14\">12</text><text x=\"130\" y=\"80\" font-family=\"Arial\" font-size=\"14\">10</text></svg></div><br>בגרות 2015, מועד קיץ ב'<br>במשולש נתון כי צלע אחת היא 10, הצלע השנייה היא 12, והזווית שביניהן היא 60 מעלות.<br>א. מצאו את אורך הצלע השלישית.<br>ב. מצאו את שטח המשולש.&rlm;",
+        "options": ["א. 11.13 ב. 51.96", "א. 14 ב. 60", "א. 12.5 ב. 45", "א. 10.8 ב. 55"],
+        "correctAnswer": 0,
+        "hint": "השתמשו במשפט הקוסינוסים למציאת הצלע, ובנוסחת שטח משולש הכוללת סינוס.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את משפט הקוסינוסים.", "math_expression": "c^{2} = a^{2} + b^{2} - 2ab\\cos C" },
+            { "verbal_explanation": "נציב את הנתונים.", "math_expression": "c^{2} = 10^{2} + 12^{2} - 2(10)(12)\\cos(60^{\\circ})" },
+            { "verbal_explanation": "נחשב.", "math_expression": "c^{2} = 100 + 144 - 240(0.5)" },
+            { "verbal_explanation": "נפשט.", "math_expression": "c^{2} = 244 - 120 = 124" },
+            { "verbal_explanation": "נוציא שורש.", "math_expression": "c = \\sqrt{124} \\approx 11.13" },
+            { "verbal_explanation": "נרשום את נוסחת השטח.", "math_expression": "S = \\dfrac{a \\times b \\times \\sin C}{2}" },
+            { "verbal_explanation": "נציב.", "math_expression": "S = \\dfrac{10 \\times 12 \\times \\sin(60^{\\circ})}{2}" },
+            { "verbal_explanation": "נחשב.", "math_expression": "S = 60 \\times \\dfrac{\\sqrt{3}}{2} = 30\\sqrt{3}" },
+            { "verbal_explanation": "נחשב ערך עשרוני.", "math_expression": "S \\approx 51.96" }
+        ],
+        "final_answer": "א. 11.13 ב. 51.96"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2014, מועד חורף<br>נתונה הפונקציה \\( f(x) = x^{4} - 8x^{2} \\).<br>א. מצאו את נקודות החיתוך עם ציר ה-\\( x \\).<br>ב. מצאו את שיעורי נקודות המינימום של הפונקציה.&rlm;",
+        "options": ["א. 0, 2.83, -2.83 ב. (2, -16), (-2, -16)", "א. 0, 4, -4 ב. (2, -8), (-2, -8)", "א. 0, 2, -2 ב. (1.41, -12), (-1.41, -12)", "א. 0, 8, -8 ב. (4, -32), (-4, -32)"],
+        "correctAnswer": 0,
+        "hint": "השוו את הפונקציה לאפס והוציאו גורם משותף. למציאת קיצון, גזרו והשוו לאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נשווה לאפס.", "math_expression": "x^{4} - 8x^{2} = 0" },
+            { "verbal_explanation": "נוציא גורם משותף.", "math_expression": "x^{2}(x^{2} - 8) = 0" },
+            { "verbal_explanation": "נמצא שורשים.", "math_expression": "x = 0 \\quad , \\quad x^{2} = 8 \\Rightarrow x = \\pm \\sqrt{8} \\approx \\pm 2.83" },
+            { "verbal_explanation": "נגזור.", "math_expression": "f'(x) = 4x^{3} - 16x" },
+            { "verbal_explanation": "נשווה לאפס ונוציא גורם משותף.", "math_expression": "4x(x^{2} - 4) = 0" },
+            { "verbal_explanation": "נמצא נקודות קריטיות.", "math_expression": "x = 0 \\quad , \\quad x = \\pm 2" },
+            { "verbal_explanation": "נציב לבדיקת סוג וערך.", "math_expression": "f(2) = 16 - 32 = -16 \\Rightarrow Min" },
+            { "verbal_explanation": "בשל זוגיות הפונקציה.", "math_expression": "f(-2) = -16 \\Rightarrow Min" },
+            { "verbal_explanation": "נקודות המינימום התקבלו.", "math_expression": "(2, -16) \\quad , \\quad (-2, -16)" }
+        ],
+        "final_answer": "א. 0, 2.83, -2.83 ב. (2, -16), (-2, -16)"
+    },
+    {
+        "topic": "bagrut_prep_571",
+        "subTopic": "הכנה לבחינת בגרות",
+        "question_text": "בגרות 2013, מועד קיץ א'<br>שני רוכבי אופניים יצאו יחד מאותו מקום באותו כיוון. מהירות הראשון הייתה 15 קמ''ש ומהירות השני 20 קמ''ש. כעבור כמה זמן המרחק ביניהם יהיה 12.5 ק''מ?<br>א. בטאו את המרחק של כל רוכב כפונקציה של הזמן \\( t \\).<br>ב. מצאו את \\( t \\).&rlm;",
+        "options": ["א. 15t, 20t ב. 2.5", "א. 15/t, 20/t ב. 2", "א. 15+t, 20+t ב. 3", "א. t/15, t/20 ב. 1.5"],
+        "correctAnswer": 0,
+        "hint": "המרחק שווה למהירות כפול הזמן. הפרש המרחקים שווה ל-12.5.",
+        "solution_steps": [
+            { "verbal_explanation": "נביע מרחק רוכב א'.", "math_expression": "D_1 = 15t" },
+            { "verbal_explanation": "נביע מרחק רוכב ב'.", "math_expression": "D_2 = 20t" },
+            { "verbal_explanation": "נרכיב משוואת הפרש.", "math_expression": "D_2 - D_1 = 12.5" },
+            { "verbal_explanation": "נציב.", "math_expression": "20t - 15t = 12.5" },
+            { "verbal_explanation": "נחסר.", "math_expression": "5t = 12.5" },
+            { "verbal_explanation": "נחלק בחמש.", "math_expression": "t = \\dfrac{12.5}{5}" },
+            { "verbal_explanation": "הזמן התקבל.", "math_expression": "t = 2.5" }
+        ],
+        "final_answer": "א. 15t, 20t ב. 2.5"
     }
 ];
