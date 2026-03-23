@@ -1,924 +1,944 @@
-// ========================================================================
-// שכבת גיל: חטיבת ביניים (ח'-ט') | נושא: גיאומטריה מתקדמת ומדידות
-// 6 תתי נושאים | 60 שאלות סה"כ
-// איורים מתקדמים (תלת מימד, מעגלים, מצולעים). פתרונות מפורטים מאוד.
-// כתיבה נקייה: ללא LaTeX. שימוש ב: × , : , ² , ³ , √ , π
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
+    // ==========================================
     // תת נושא 1: משפט פיתגורס (10 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
+    // ==========================================
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "במשולש ישר זווית, אורכי הניצבים הם 3 ס\"מ ו-4 ס\"מ. מהו אורך היתר (הצלע הארוכה)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 120' width='100%' height='120' style='max-width:150px;'><polygon points='20,100 100,100 20,20' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><polyline points='20,85 35,85 35,100' fill='none' stroke='#ca8a04' stroke-width='1.5'/><text x='60' y='115' font-family='Arial' font-size='12' fill='#0f172a'>3 ס\"מ</text><text x='5' y='60' font-family='Arial' font-size='12' fill='#0f172a'>4</text><text x='70' y='50' font-family='Arial' font-size='14' font-weight='bold' fill='#ef4444'>c</text></svg></div>",
-        options: ["5 ס\"מ", "7 ס\"מ", "25 ס\"מ", "1 ס\"מ"],
-        correctAnswer: 0,
-        hint: "משפט פיתגורס קובע שסכום ריבועי הניצבים שווה לריבוע היתר: a² + b² = c².&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את משפט פיתגורס. a ו-b הם הניצבים (3 ו-4), ו-c הוא היתר שאנו מחפשים.&rlm;", math_expression: "3² + 4² = c²" },
-            { verbal_explanation: "שלב ב': נחשב את החזקות. 3 בריבוע זה 9, ו-4 בריבוע זה 16.&rlm;", math_expression: "9 + 16 = c²" },
-            { verbal_explanation: "שלב ג': נחבר את התוצאות.&rlm;", math_expression: "25 = c²" },
-            { verbal_explanation: "שלב ד': נוציא שורש ריבועי כדי למצוא את אורך היתר c.&rlm;", math_expression: "c = √25 = 5" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 150 150\" width=\"120\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"20,130 130,130 20,20\" fill=\"#e2e8f0\" stroke=\"#0f172a\" stroke-width=\"2\"/><rect x=\"20\" y=\"110\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\"/><text x=\"70\" y=\"145\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">4</text><text x=\"5\" y=\"80\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">3</text><text x=\"80\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"#ef4444\">c</text></svg></div><br>במשולש ישר זווית, אורכי הניצבים הם 3 ס''מ ו-4 ס''מ. מהו אורך היתר (c)?&rlm;",
+        "options": ["5", "7", "25", "12"],
+        "correctAnswer": 0,
+        "hint": "השתמשו במשפט פיתגורס: סכום ריבועי הניצבים שווה לריבוע היתר.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש במשפט פיתגורס המגדיר את הקשר בין צלעות משולש ישר זווית.", "math_expression": "a^2 + b^2 = c^2" },
+            { "verbal_explanation": "נציב את אורכי הניצבים הידועים לנו לתוך המשוואה.", "math_expression": "3^2 + 4^2 = c^2" },
+            { "verbal_explanation": "נחשב את החזקה השנייה של כל אחד מהניצבים.", "math_expression": "9 + 16 = c^2" },
+            { "verbal_explanation": "נחבר את התוצאות באגף השמאלי.", "math_expression": "25 = c^2" },
+            { "verbal_explanation": "נוציא שורש ריבועי כדי למצוא את אורך היתר עצמו.", "math_expression": "\\sqrt{25} = 5" },
+            { "verbal_explanation": "אורך היתר הוא חמישה סנטימטרים.", "math_expression": "c = 5" }
         ],
-        final_answer: "5 ס\"מ"
+        "final_answer": "5"
     },
-    // שאלה 2
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "במשולש ישר זווית, אורך היתר הוא 13 ס\"מ ואורך אחד הניצבים הוא 5 ס\"מ. מהו אורכו של הניצב השני?&rlm;",
-        options: ["12 ס\"מ", "18 ס\"מ", "8 ס\"מ", "144 ס\"מ"],
-        correctAnswer: 0,
-        hint: "כאשר מחפשים ניצב, מחסרים את ריבוע הניצב הידוע מריבוע היתר: b² = c² - a².&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את המשפט עם הנתונים הידועים לנו.&rlm;", math_expression: "5² + b² = 13²" },
-            { verbal_explanation: "שלב ב': נחשב את החזקות (5 בריבוע זה 25, 13 בריבוע זה 169).&rlm;", math_expression: "25 + b² = 169" },
-            { verbal_explanation: "שלב ג': נחסר 25 משני האגפים כדי לבודד את b².&rlm;", math_expression: "b² = 169 - 25 = 144" },
-            { verbal_explanation: "שלב ד': נוציא שורש ריבועי. המספר שכפול עצמו שווה 144 הוא 12.&rlm;", math_expression: "b = √144 = 12" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "במשולש ישר זווית, אורכי הניצבים הם 6 ס''מ ו-8 ס''מ. חשבו את אורך היתר.&rlm;",
+        "options": ["10", "14", "100", "48"],
+        "correctAnswer": 0,
+        "hint": "העלו את 6 בריבוע ואת 8 בריבוע, חברו אותם והוציאו שורש.",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את נוסחת משפט פיתגורס.", "math_expression": "a^2 + b^2 = c^2" },
+            { "verbal_explanation": "נציב את אורכי הניצבים שש ושמונה.", "math_expression": "6^2 + 8^2 = c^2" },
+            { "verbal_explanation": "נחשב את ריבועי המספרים.", "math_expression": "36 + 64 = c^2" },
+            { "verbal_explanation": "נחבר את התוצאות לקבלת ריבוע היתר.", "math_expression": "100 = c^2" },
+            { "verbal_explanation": "נבצע פעולת שורש ריבועי למציאת היתר.", "math_expression": "\\sqrt{100} = 10" },
+            { "verbal_explanation": "אורך היתר הוא עשרה סנטימטרים.", "math_expression": "c = 10" }
         ],
-        final_answer: "12 ס\"מ"
+        "final_answer": "10"
     },
-    // שאלה 3
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "סולם באורך 10 מטרים נשען על קיר אנכי. רגלי הסולם רחוקות 6 מטרים מתחתית הקיר. לאיזה גובה על הקיר מגיע הסולם?&rlm;",
-        options: ["8 מטרים", "4 מטרים", "16 מטרים", "64 מטרים"],
-        correctAnswer: 0,
-        hint: "הסולם הוא היתר (10). המרחק מהקיר הוא ניצב (6). אנו מחפשים את הניצב השני (הגובה).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הסולם (10), הקיר והרצפה (6) יוצרים משולש ישר זווית.&rlm;", math_expression: "6² + h² = 10²" },
-            { verbal_explanation: "שלב ב': חישוב החזקות.&rlm;", math_expression: "36 + h² = 100" },
-            { verbal_explanation: "שלב ג': נחסר 36 כדי למצוא את h².&rlm;", math_expression: "h² = 100 - 36 = 64" },
-            { verbal_explanation: "שלב ד': נוציא שורש ריבועי.&rlm;", math_expression: "h = √64 = 8" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "במשולש ישר זווית, אורך היתר הוא 13 ס''מ ואורך אחד הניצבים הוא 5 ס''מ. מהו אורך הניצב השני?&rlm;",
+        "options": ["12", "144", "18", "8"],
+        "correctAnswer": 0,
+        "hint": "הפעם היתר נתון. עליכם להחסיר את ריבוע הניצב מריבוע היתר.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את הנתונים בנוסחת פיתגורס. הפעם היתר ידוע לנו.", "math_expression": "5^2 + b^2 = 13^2" },
+            { "verbal_explanation": "נחשב את החזקות של המספרים הנתונים.", "math_expression": "25 + b^2 = 169" },
+            { "verbal_explanation": "נחסר עשרים וחמש משני האגפים כדי לבודד את ריבוע הניצב החסר.", "math_expression": "b^2 = 169 - 25" },
+            { "verbal_explanation": "נחשב את ההפרש.", "math_expression": "b^2 = 144" },
+            { "verbal_explanation": "נוציא שורש ריבועי למציאת אורך הניצב.", "math_expression": "\\sqrt{144} = 12" },
+            { "verbal_explanation": "אורך הניצב השני הוא שנים עשר סנטימטרים.", "math_expression": "b = 12" }
         ],
-        final_answer: "8 מטרים"
+        "final_answer": "12"
     },
-    // שאלה 4
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "במלבן, אורך צלע אחת הוא 15 ס\"מ ואורך הצלע השנייה הוא 8 ס\"מ. מהו אורך האלכסון של המלבן?&rlm;",
-        options: ["17 ס\"מ", "23 ס\"מ", "289 ס\"מ", "120 ס\"מ"],
-        correctAnswer: 0,
-        hint: "האלכסון מחלק את המלבן לשני משולשים ישרי זווית. הצלעות 8 ו-15 הן הניצבים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': צלעות המלבן יוצרות זווית ישרה, והאלכסון הוא היתר של המשולש שנוצר.&rlm;", math_expression: "8² + 15² = c²" },
-            { verbal_explanation: "שלב ב': נחשב חזקות.&rlm;", math_expression: "64 + 225 = c²" },
-            { verbal_explanation: "שלב ג': נחבר את התוצאות.&rlm;", math_expression: "289 = c²" },
-            { verbal_explanation: "שלב ד': נוציא שורש ריבועי ל-289.&rlm;", math_expression: "c = √289 = 17" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "אורך יתר במשולש ישר זווית הוא 10 ס''מ. אורך ניצב אחד הוא 8 ס''מ. מצאו את אורך הניצב השני.&rlm;",
+        "options": ["6", "36", "2", "18"],
+        "correctAnswer": 0,
+        "hint": "העלו את 10 בריבוע (100) וחסרו את 8 בריבוע (64).",
+        "solution_steps": [
+            { "verbal_explanation": "נבנה משוואה לפי פיתגורס עם הניצב החסר.", "math_expression": "a^2 + 8^2 = 10^2" },
+            { "verbal_explanation": "נחשב את ערכי החזקות.", "math_expression": "a^2 + 64 = 100" },
+            { "verbal_explanation": "נחסר שישים וארבע משני הצדדים.", "math_expression": "a^2 = 100 - 64" },
+            { "verbal_explanation": "ריבוע הניצב שווה לשלושים ושש.", "math_expression": "a^2 = 36" },
+            { "verbal_explanation": "השורש הריבועי ייתן לנו את אורך הניצב.", "math_expression": "\\sqrt{36} = 6" }
         ],
-        final_answer: "17 ס\"מ"
+        "final_answer": "6"
     },
-    // שאלה 5
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "האם משולש שצלעותיו הן 6 ס\"מ, 8 ס\"מ ו-10 ס\"מ הוא משולש ישר זווית?&rlm;",
-        options: ["כן", "לא", "אי אפשר לדעת", "רק אם הוא שווה שוקיים"],
-        correctAnswer: 0,
-        hint: "בדקו האם המשפט מתקיים: האם סכום הריבועים של שתי הצלעות הקצרות שווה לריבוע של הצלע הארוכה?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נבדוק את המשוואה a² + b² = c² עם המספרים הנתונים (הארוך ביותר הוא c).&rlm;", math_expression: "6² + 8² = ? 10²" },
-            { verbal_explanation: "שלב ב': נחשב את הריבועים.&rlm;", math_expression: "36 + 64 = ? 100" },
-            { verbal_explanation: "שלב ג': 36 ועוד 64 אכן שווים ל-100. מכיוון שהמשפט מתקיים, המשולש חייב להיות ישר זווית.&rlm;", math_expression: "100 = 100" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "סולם באורך 5 מטרים נשען על קיר ישר. תחתית הסולם רחוקה 3 מטרים מבסיס הקיר. לאיזה גובה מגיע הסולם על הקיר?&rlm;",
+        "options": ["4", "2", "8", "16"],
+        "correctAnswer": 0,
+        "hint": "הסולם הוא היתר. המרחק מהקיר והגובה על הקיר הם הניצבים.",
+        "solution_steps": [
+            { "verbal_explanation": "הסולם, הקיר והקרקע יוצרים משולש ישר זווית. אורך הסולם הוא היתר.", "math_expression": "a^2 + 3^2 = 5^2" },
+            { "verbal_explanation": "נחשב את הריבועים של הניצב והיתר.", "math_expression": "a^2 + 9 = 25" },
+            { "verbal_explanation": "נחסר תשע משני האגפים.", "math_expression": "a^2 = 25 - 9 = 16" },
+            { "verbal_explanation": "נוציא שורש ריבועי.", "math_expression": "\\sqrt{16} = 4" },
+            { "verbal_explanation": "הסולם מגיע לגובה של ארבעה מטרים.", "math_expression": "a = 4" }
         ],
-        final_answer: "כן"
+        "final_answer": "4"
     },
-    // שאלה 6
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "במעוין, אורך אלכסון אחד הוא 12 ס\"מ ואורך האלכסון השני הוא 16 ס\"מ. מהו אורך צלע המעוין?&rlm;",
-        options: ["10 ס\"מ", "20 ס\"מ", "14 ס\"מ", "100 ס\"מ"],
-        correctAnswer: 0,
-        hint: "במעוין, האלכסונים מאונכים זה לזה וחוצים זה את זה. לכן נוצרים 4 משולשים ישרי זווית. הניצבים שלהם הם חצאי האלכסונים (6 ו-8). צלע המעוין היא היתר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': האלכסונים חוצים זה את זה, לכן הניצבים של משולש אחד הם חצי מ-12 (שזה 6) וחצי מ-16 (שזה 8).&rlm;", math_expression: "a = 6 , b = 8" },
-            { verbal_explanation: "שלב ב': הזווית ביניהם היא 90°. נפעיל את משפט פיתגורס למציאת צלע המעוין (היתר).&rlm;", math_expression: "6² + 8² = c²" },
-            { verbal_explanation: "שלב ג': חישוב: 36 ועוד 64 שווה 100.&rlm;", math_expression: "36 + 64 = 100 = c²" },
-            { verbal_explanation: "שלב ד': נוציא שורש ריבועי מ-100.&rlm;", math_expression: "c = √100 = 10" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "האם משולש שצלעותיו הן באורכים 5, 6, 7 ס''מ הוא משולש ישר זווית?&rlm;",
+        "options": ["לא", "כן", "רק אם 7 הוא היתר", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "בדקו האם סכום הריבועים של שתי הצלעות הקצרות שווה לריבוע של הצלע הארוכה ביותר.",
+        "solution_steps": [
+            { "verbal_explanation": "במשולש ישר זווית, ריבוע הצלע הארוכה חייב להיות שווה לסכום ריבועי שתי האחרות.", "math_expression": "5^2 + 6^2 = 7^2" },
+            { "verbal_explanation": "נחשב את אגף שמאל.", "math_expression": "25 + 36 = 61" },
+            { "verbal_explanation": "נחשב את אגף ימין (הצלע הארוכה בריבוע).", "math_expression": "7^2 = 49" },
+            { "verbal_explanation": "נשווה בין התוצאות.", "math_expression": "61 \\neq 49" },
+            { "verbal_explanation": "מכיוון שהתוצאות אינן שוות, המשולש אינו ישר זווית.", "math_expression": "\\times" }
         ],
-        final_answer: "10 ס\"מ"
+        "final_answer": "לא"
     },
-    // שאלה 7
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "משולש ישר זווית הוא גם שווה שוקיים. אורך כל ניצב הוא 5 ס\"מ. מהו אורך היתר (שורש לא מדויק)?&rlm;",
-        options: ["√50 ס\"מ", "√25 ס\"מ", "10 ס\"מ", "√10 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הציבו את שני הניצבים (5 ו-5) במשפט פיתגורס. התוצאה תישאר מתחת לסימן השורש.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את המשוואה. שני הניצבים שווים ל-5.&rlm;", math_expression: "5² + 5² = c²" },
-            { verbal_explanation: "שלב ב': נחשב.&rlm;", math_expression: "25 + 25 = c²" },
-            { verbal_explanation: "שלב ג': נסכם.&rlm;", math_expression: "50 = c²" },
-            { verbal_explanation: "שלב ד': נוציא שורש. מכיוון של-50 אין שורש שלם, התשובה נשארת כשורש 50.&rlm;", math_expression: "c = √50" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "אורכי הניצבים במשולש ישר זווית הם 9 ס''מ ו-12 ס''מ. מהו אורך היתר?&rlm;",
+        "options": ["15", "21", "225", "108"],
+        "correctAnswer": 0,
+        "hint": "זהו שילוש פיתגורי המבוסס על 3,4,5 שהורחב פי 3.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את הניצבים הנתונים במשוואת פיתגורס.", "math_expression": "9^2 + 12^2 = c^2" },
+            { "verbal_explanation": "נחשב את החזקות.", "math_expression": "81 + 144 = c^2" },
+            { "verbal_explanation": "נחבר את הערכים באגף שמאל.", "math_expression": "225 = c^2" },
+            { "verbal_explanation": "השורש הריבועי של מאתיים עשרים וחמש הוא חמש עשרה.", "math_expression": "\\sqrt{225} = 15" },
+            { "verbal_explanation": "לכן, אורך היתר הוא חמישה עשר.", "math_expression": "c = 15" }
         ],
-        final_answer: "√50 ס\"מ"
+        "final_answer": "15"
     },
-    // שאלה 8
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "במשולש שווה שוקיים, אורך הבסיס הוא 10 ס\"מ ואורך כל שוק הוא 13 ס\"מ. מהו גובה המשולש היורד לבסיס?&rlm;",
-        options: ["12 ס\"מ", "144 ס\"מ", "11 ס\"מ", "10 ס\"מ"],
-        correctAnswer: 0,
-        hint: "הגובה במשולש שווה שוקיים חוצה את הבסיס (לשני חצאים של 5). נוצר משולש ישר זווית שבו הניצב הוא 5, היתר הוא 13, ומחפשים את הגובה (הניצב השני).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הגובה מחלק את המשולש לשני משולשים ישרי זווית. הבסיס של אחד מהם הוא חצי מ-10 (שזה 5). היתר הוא השוק (13).&rlm;", math_expression: "5² + h² = 13²" },
-            { verbal_explanation: "שלב ב': נחשב חזקות.&rlm;", math_expression: "25 + h² = 169" },
-            { verbal_explanation: "שלב ג': נחסר 25.&rlm;", math_expression: "h² = 144" },
-            { verbal_explanation: "שלב ד': שורש 144 הוא 12.&rlm;", math_expression: "h = 12" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "האם משולש בעל צלעות באורכים 8, 15, 17 הוא משולש ישר זווית?&rlm;",
+        "options": ["כן", "לא", "רק אם 8 הוא היתר", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "בדקו את השוויון: 8 בריבוע ועוד 15 בריבוע שווה ל-17 בריבוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נבדוק האם המשפט מתקיים עבור אורכי הצלעות הללו.", "math_expression": "8^2 + 15^2 = 17^2" },
+            { "verbal_explanation": "נחשב את סכום הריבועים של שתי הצלעות הקצרות.", "math_expression": "64 + 225 = 289" },
+            { "verbal_explanation": "נחשב את הריבוע של הצלע הארוכה ביותר.", "math_expression": "17^2 = 289" },
+            { "verbal_explanation": "שני האגפים שווים לחלוטין. זהו אכן שילוש פיתגורי תקני.", "math_expression": "289 = 289" },
+            { "verbal_explanation": "המסקנה היא שהמשולש ישר זווית.", "math_expression": "\\surd" }
         ],
-        final_answer: "12 ס\"מ"
+        "final_answer": "כן"
     },
-    // שאלה 9
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "דן הלך מביתו 9 ק\"מ צפונה, ולאחר מכן פנה מזרחה והלך 12 ק\"מ. מהו המרחק בקו אווירי ישר בין מיקומו הנוכחי לביתו?&rlm;",
-        options: ["15 ק\"מ", "21 ק\"מ", "14 ק\"מ", "225 ק\"מ"],
-        correctAnswer: 0,
-        hint: "הליכה צפונה ואז מזרחה יוצרת זווית ישרה (90 מעלות). המסלול יוצר משולש ישר זווית, והמרחק בקו אווירי הוא היתר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המסלול יצר משולש ישר זווית שהניצבים שלו הם 9 ו-12.&rlm;", math_expression: "9² + 12² = c²" },
-            { verbal_explanation: "שלב ב': נחשב חזקות.&rlm;", math_expression: "81 + 144 = c²" },
-            { verbal_explanation: "שלב ג': חיבור הניצבים בריבוע.&rlm;", math_expression: "225 = c²" },
-            { verbal_explanation: "שלב ד': נוציא שורש ריבועי.&rlm;", math_expression: "c = √225 = 15" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "במלבן, אורך צלע אחת הוא 12 ס''מ ואורך הצלע השנייה הוא 5 ס''מ. מהו אורך האלכסון של המלבן?&rlm;",
+        "options": ["13", "17", "60", "169"],
+        "correctAnswer": 0,
+        "hint": "אלכסון המלבן יוצר משולש ישר זווית יחד עם שתי צלעות המלבן.",
+        "solution_steps": [
+            { "verbal_explanation": "האלכסון ושתי צלעות סמוכות במלבן יוצרים משולש ישר זווית. האלכסון הוא היתר.", "math_expression": "5^2 + 12^2 = c^2" },
+            { "verbal_explanation": "נחשב את הריבועים של אורכי הצלעות.", "math_expression": "25 + 144 = c^2" },
+            { "verbal_explanation": "נחבר את התוצאות.", "math_expression": "169 = c^2" },
+            { "verbal_explanation": "נוציא שורש ריבועי.", "math_expression": "\\sqrt{169} = 13" },
+            { "verbal_explanation": "אורך אלכסון המלבן הוא שלושה עשר סנטימטרים.", "math_expression": "c = 13" }
         ],
-        final_answer: "15 ק\"מ"
+        "final_answer": "13"
     },
-    // שאלה 10
     {
-        topic: "geometry_advanced",
-        subTopic: "משפט פיתגורס",
-        question_text: "היקפו של משולש ישר זווית הוא 40 ס\"מ. ידוע שאורך יתר המשולש הוא 17 ס\"מ ואחד הניצבים הוא 8 ס\"מ. מהו אורך הניצב השני (ללא פיתגורס, רק לפי היקף!)?&rlm;",
-        options: ["15 ס\"מ", "12 ס\"מ", "10 ס\"מ", "25 ס\"מ"],
-        correctAnswer: 0,
-        hint: "היקף הוא סכום 3 הצלעות. חסרו מההיקף את שתי הצלעות הידועות לכם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': היקף המשולש מורכב מחיבור היתר ושני הניצבים.&rlm;", math_expression: "8 + 17 + x = 40" },
-            { verbal_explanation: "שלב ב': נחבר את הצלעות הידועות.&rlm;", math_expression: "25 + x = 40" },
-            { verbal_explanation: "שלב ג': נחסר 25 מההיקף.&rlm;", math_expression: "x = 40 - 25 = 15" },
-            { verbal_explanation: "(הערה: ניתן היה לוודא גם בעזרת פיתגורס ש- 8² + 15² אכן שווה ל- 17²).&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "משפט פיתגורס",
+        "question_text": "ספינה שטה 6 קילומטרים מזרחה ולאחר מכן 8 קילומטרים צפונה. מהו המרחק בקו אווירי ישר מנקודת המוצא שלה?&rlm;",
+        "options": ["10", "14", "48", "100"],
+        "correctAnswer": 0,
+        "hint": "התנועה למזרח ולצפון יוצרת זווית ישרה. המרחק האווירי הוא היתר.",
+        "solution_steps": [
+            { "verbal_explanation": "הכיוונים מזרח וצפון מאונכים זה לזה ויוצרים זווית של תשעים מעלות.", "math_expression": "90^{\\circ}" },
+            { "verbal_explanation": "נשתמש במשפט פיתגורס למציאת המרחק הישיר המהווה יתר.", "math_expression": "6^2 + 8^2 = c^2" },
+            { "verbal_explanation": "נחשב ונחבר את הריבועים.", "math_expression": "36 + 64 = 100" },
+            { "verbal_explanation": "נוציא שורש ריבועי ממאה.", "math_expression": "\\sqrt{100} = 10" },
+            { "verbal_explanation": "המרחק האווירי הוא עשרה קילומטרים.", "math_expression": "c = 10" }
         ],
-        final_answer: "15 ס\"מ"
+        "final_answer": "10"
     },
 
-    // ==========================================================
+    // ==========================================
     // תת נושא 2: מנסרה ישרה (שטח ונפח) (10 שאלות)
-    // ==========================================================
-    
-    // שאלה 11
+    // ==========================================
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "במנסרה משולשת ישרה, שטח הבסיס (המשולש) הוא 20 סמ\"ר. גובה המנסרה הוא 10 ס\"מ. מהו נפח המנסרה?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 150' width='100%' height='150' style='max-width:150px;'><polygon points='40,40 100,20 100,100 40,120' fill='#e2e8f0' stroke='#334155' stroke-width='2'/><polygon points='100,20 140,50 140,130 100,100' fill='#cbd5e1' stroke='#334155' stroke-width='2'/><polygon points='40,40 100,20 140,50' fill='#bae6fd' stroke='#0284c7' stroke-width='2'/><text x='90' y='45' font-family='Arial' font-size='10' fill='#0f172a'>S=20</text><text x='20' y='80' font-family='Arial' font-size='12' fill='#0f172a'>h=10</text></svg></div>",
-        options: ["200 סמ\"ק", "100 סמ\"ק", "30 סמ\"ק", "400 סמ\"ק"],
-        correctAnswer: 0,
-        hint: "נפח של כל מנסרה ישרה מחושב על ידי הכפלת שטח הבסיס שלה בגובה שלה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הנוסחה לנפח מנסרה היא שטח הבסיס כפול גובה המנסרה.&rlm;", math_expression: "V = S_{base} × h" },
-            { verbal_explanation: "שלב ב': שטח הבסיס נתון לנו כ-20, והגובה הוא 10. נכפיל אותם.&rlm;", math_expression: "20 × 10 = 200" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "מנסרה מרובעת (תיבה) היא בעלת ממדים: אורך 3 ס''מ, רוחב 4 ס''מ, וגובה 5 ס''מ. מהו הנפח של התיבה?&rlm;",
+        "options": ["60", "12", "47", "94"],
+        "correctAnswer": 0,
+        "hint": "נפח של תיבה הוא מכפלת שלושת הממדים שלה.",
+        "solution_steps": [
+            { "verbal_explanation": "נוסחת הנפח של מנסרה היא שטח הבסיס כפול גובה המנסרה.", "math_expression": "V = S \\times h" },
+            { "verbal_explanation": "נחשב את שטח הבסיס המלבני על ידי כפל האורך ברוחב.", "math_expression": "3 \\times 4 = 12" },
+            { "verbal_explanation": "נכפול את שטח הבסיס בגובה התיבה.", "math_expression": "12 \\times 5" },
+            { "verbal_explanation": "תוצאת ההכפלה היא שישים.", "math_expression": "60" },
+            { "verbal_explanation": "נפח התיבה הוא שישים סמ''ק.", "math_expression": "V = 60" }
         ],
-        final_answer: "200 סמ\"ק"
+        "final_answer": "60"
     },
-    // שאלה 12
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "קובייה היא סוג של מנסרה ישרה (מרובעת). אורך מקצוע הקובייה (צלע) הוא 4 ס\"מ. מהו שטח הפנים הכולל של הקובייה (כל שש הפאות שלה)?&rlm;",
-        options: ["96 סמ\"ר", "64 סמ\"ר", "16 סמ\"ר", "24 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "לקובייה יש 6 פאות בצורת ריבוע שוות בשטחן. חשבו שטח של פאה אחת (צלע כפול צלע) והכפילו ב-6.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את השטח של פאה אחת (שהיא ריבוע).&rlm;", math_expression: "S_{face} = 4 × 4 = 16" },
-            { verbal_explanation: "שלב ב': בקובייה יש 6 פאות זהות. נכפיל את שטח הפאה ב-6.&rlm;", math_expression: "16 × 6 = 96" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 200 150\" width=\"120\" height=\"90\" xmlns=\"http://www.w3.org/2000/svg\"><polygon points=\"50,120 150,120 100,50\" fill=\"#e2e8f0\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"100\" y1=\"50\" x2=\"100\" y2=\"120\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"4\"/><text x=\"105\" y=\"90\" font-family=\"Arial\" font-size=\"12\" fill=\"#ef4444\">4</text><text x=\"100\" y=\"135\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">6</text></svg></div><br>למנסרה משולשת ישרה יש בסיס בצורת משולש. אורך צלע הבסיס במשולש הוא 6 וגובה המשולש הוא 4. גובה המנסרה כולה הוא 10. מהו הנפח?&rlm;",
+        "options": ["120", "240", "60", "200"],
+        "correctAnswer": 0,
+        "hint": "חשבו קודם את שטח משולש הבסיס (בסיס כפול גובה חלקי 2). לאחר מכן כפלו בגובה המנסרה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב תחילה את שטח הבסיס, שהוא משולש. הנוסחה היא בסיס כפול גובה חלקי שתיים.", "math_expression": "\\frac{6 \\times 4}{2}" },
+            { "verbal_explanation": "עשרים וארבע חלקי שתיים שווה לשנים עשר.", "math_expression": "12" },
+            { "verbal_explanation": "נפח מנסרה מתקבל מהכפלת שטח הבסיס בגובה המנסרה.", "math_expression": "12 \\times 10" },
+            { "verbal_explanation": "הנפח הכולל הוא מאה ועשרים.", "math_expression": "V = 120" }
         ],
-        final_answer: "96 סמ\"ר"
+        "final_answer": "120"
     },
-    // שאלה 13
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "תיבה היא מנסרה ישרה. אורך התיבה 5 ס\"מ, רוחבה 3 ס\"מ וגובהה 6 ס\"מ. מהו הנפח שלה?&rlm;",
-        options: ["90 סמ\"ק", "30 סמ\"ק", "14 סמ\"ק", "180 סמ\"ק"],
-        correctAnswer: 0,
-        hint: "נפח תיבה מחושב על ידי הכפלת שלושת הממדים יחד: אורך × רוחב × גובה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את הנוסחה לנפח התיבה.&rlm;", math_expression: "V = a × b × h" },
-            { verbal_explanation: "שלב ב': נציב את המספרים.&rlm;", math_expression: "V = 5 × 3 × 6" },
-            { verbal_explanation: "שלב ג': נחשב. 5 כפול 3 זה 15. 15 כפול 6 זה 90.&rlm;", math_expression: "15 × 6 = 90" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "נפח של תיבה הוא 100 סמ''ק. שטח הבסיס שלה הוא 25 סמ''ר. מהו הגובה של התיבה?&rlm;",
+        "options": ["4", "75", "2500", "5"],
+        "correctAnswer": 0,
+        "hint": "הנפח שווה לשטח הבסיס כפול הגובה. חלקו את הנפח בשטח הבסיס.",
+        "solution_steps": [
+            { "verbal_explanation": "הנוסחה המקשרת בין הנתונים היא נפח שווה לשטח הבסיס כפול הגובה.", "math_expression": "V = S \\times h" },
+            { "verbal_explanation": "נציב את המספרים הידועים למשוואה.", "math_expression": "100 = 25 \\times h" },
+            { "verbal_explanation": "כדי למצוא את הגובה, נבצע את הפעולה ההפוכה ונחלק מאה בעשרים וחמש.", "math_expression": "100 \\div 25" },
+            { "verbal_explanation": "התוצאה היא ארבע.", "math_expression": "h = 4" }
         ],
-        final_answer: "90 סמ\"ק"
+        "final_answer": "4"
     },
-    // שאלה 14
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "במנסרה משולשת ישרה, הבסיס הוא משולש ישר זווית שניצביו הם 6 ס\"מ ו-8 ס\"מ. גובה המנסרה הוא 10 ס\"מ. מהו נפח המנסרה?&rlm;",
-        options: ["240 סמ\"ק", "480 סמ\"ק", "24 סמ\"ק", "100 סמ\"ק"],
-        correctAnswer: 0,
-        hint: "קודם כל חשבו את שטח הבסיס (שהוא משולש: בסיס כפול גובה חלקי 2). לאחר מכן, הכפילו את השטח שקיבלתם בגובה המנסרה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את שטח משולש הבסיס. הניצבים משמשים כבסיס וגובה למשולש.&rlm;", math_expression: "S_{base} = (6 × 8) : 2 = 48 : 2 = 24" },
-            { verbal_explanation: "שלב ב': נחשב את נפח המנסרה על ידי הכפלת שטח הבסיס בגובה המנסרה.&rlm;", math_expression: "V = 24 × 10 = 240" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "קובייה היא סוג של מנסרה שכל מקצועותיה שווים. אורך מקצוע של קובייה הוא 4 ס''מ. מהו שטח הפנים שלה (השטח הכולל של כל הפאות)?&rlm;",
+        "options": ["96", "64", "16", "24"],
+        "correctAnswer": 0,
+        "hint": "לקובייה יש 6 פאות ריבועיות שוות. חשבו שטח של פאה אחת והכפילו ב-6.",
+        "solution_steps": [
+            { "verbal_explanation": "שטח הפנים כולל את השטח של כל מעטפת הצורה החיצונית. בקובייה יש שש פאות ריבועיות זהות.", "math_expression": "6" },
+            { "verbal_explanation": "נחשב את השטח של פאה אחת בודדת (ריבוע שאורך צלעו ארבע).", "math_expression": "4 \\times 4 = 16" },
+            { "verbal_explanation": "כעת נכפול את שטח הפאה במספר הפאות הכולל.", "math_expression": "16 \\times 6" },
+            { "verbal_explanation": "השטח הכולל הוא תשעים ושישה סנטימטרים רבועים.", "math_expression": "96" }
         ],
-        final_answer: "240 סמ\"ק"
+        "final_answer": "96"
     },
-    // שאלה 15
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "נפח של מנסרה כלשהי הוא 120 סמ\"ק. גובה המנסרה הוא 8 ס\"מ. מהו שטח הבסיס שלה?&rlm;",
-        options: ["15 סמ\"ר", "120 סמ\"ר", "960 סמ\"ר", "20 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "מכיוון שנפח שווה לשטח בסיס כפול גובה, הפעולה ההפוכה היא לחלק את הנפח בגובה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכתוב את המשוואה לפי נוסחת הנפח.&rlm;", math_expression: "S_{base} × 8 = 120" },
-            { verbal_explanation: "שלב ב': נחלק את הנפח בגובה כדי לבודד את שטח הבסיס.&rlm;", math_expression: "S_{base} = 120 : 8 = 15" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "אורך מקצוע קובייה הוא 3 ס''מ. מהו הנפח שלה?&rlm;",
+        "options": ["27", "9", "54", "18"],
+        "correctAnswer": 0,
+        "hint": "העלו את אורך המקצוע בחזקת שלוש.",
+        "solution_steps": [
+            { "verbal_explanation": "נפח קובייה מתקבל מהכפלת אורך, רוחב וגובה. בקובייה כולם שווים.", "math_expression": "V = a^3" },
+            { "verbal_explanation": "נציב את אורך המקצוע הנתון.", "math_expression": "3 \\times 3 \\times 3" },
+            { "verbal_explanation": "נחשב את המכפלה הראשונה.", "math_expression": "9 \\times 3" },
+            { "verbal_explanation": "נשלים את המכפלה לקבלת הנפח הכולל.", "math_expression": "27" }
         ],
-        final_answer: "15 סמ\"ר"
+        "final_answer": "27"
     },
-    // שאלה 16
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "מהו 'שטח מעטפת' של מנסרה?&rlm;",
-        options: ["סכום השטחים של הפאות הצדדיות בלבד (ללא שני הבסיסים).", "הנפח הפנימי של המנסרה.", "שטח כל הפאות כולל הבסיסים.", "היקף הבסיס של המנסרה."],
-        correctAnswer: 0,
-        hint: "המעטפת היא מה ש'עוטף' את הצדדים. בסיסים נחשבים לתקרה ורצפה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מעטפת של גוף הנדסי היא השטח של הדפנות הצדדיות שלו.&rlm;", math_expression: "" },
-            { verbal_explanation: "שטח פנים כולל = שטח מעטפת + פעמיים שטח הבסיס.&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "תיבה שמידות בסיסה הן 2 ס''מ ו-5 ס''מ. גובה התיבה הוא 10 ס''מ. מהו שטח המעטפת שלה (ללא שטחי שני הבסיסים העליון והתחתון)?&rlm;",
+        "options": ["140", "100", "160", "20"],
+        "correctAnswer": 0,
+        "hint": "שטח המעטפת של מנסרה שווה להיקף הבסיס כפול גובה המנסרה.",
+        "solution_steps": [
+            { "verbal_explanation": "שטח המעטפת מחושב על ידי הכפלת היקף הבסיס בגובה הצורה.", "math_expression": "P \\times h" },
+            { "verbal_explanation": "נחשב את היקף הבסיס המלבני. פעמיים אורך ופעמיים רוחב.", "math_expression": "2 \\times 2 + 2 \\times 5 = 4 + 10 = 14" },
+            { "verbal_explanation": "כעת נכפול את ההיקף שמצאנו בגובה התיבה.", "math_expression": "14 \\times 10" },
+            { "verbal_explanation": "שטח המעטפת בלבד הוא מאה וארבעים סמ''ר.", "math_expression": "140" }
         ],
-        final_answer: "סכום השטחים של הפאות הצדדיות בלבד (ללא שני הבסיסים)."
+        "final_answer": "140"
     },
-    // שאלה 17
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "נתונה מנסרה שבסיסה הוא ריבוע שאורך צלעו 3 ס\"מ. גובה המנסרה הוא 10 ס\"מ. מהו שטח המעטפת (הצדדים) של המנסרה?&rlm;",
-        options: ["120 סמ\"ר", "90 סמ\"ר", "138 סמ\"ר", "30 סמ\"ר"],
-        correctAnswer: 0,
-        hint: "המעטפת מורכבת מ-4 פאות צדדיות (כי הבסיס הוא ריבוע). כל פאה צדדית היא מלבן שרוחבו 3 וגובהו 10. דרך נוספת: היקף הבסיס כפול הגובה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך א': כל פאה צדדית היא מלבן בשטח של 3 כפול 10 = 30. יש 4 פאות כאלו (כי הבסיס מרובע).&rlm;", math_expression: "4 × 30 = 120" },
-            { verbal_explanation: "דרך ב' (נוסחה כללית): שטח מעטפת שווה להיקף הבסיס כפול גובה המנסרה. היקף הריבוע הוא 12.&rlm;", math_expression: "12 × 10 = 120" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "מנסרה משולשת ישרה. שטח משולש הבסיס הוא 15 סמ''ר. נפח המנסרה הוא 120 סמ''ק. מהו גובה המנסרה?&rlm;",
+        "options": ["8", "4", "105", "1800"],
+        "correctAnswer": 0,
+        "hint": "חילוק של הנפח בשטח הבסיס ייתן לכם את הגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת הנפח הכללית לכל מנסרה.", "math_expression": "V = S \\times h" },
+            { "verbal_explanation": "נציב את הנתונים הידועים: הנפח ושטח הבסיס.", "math_expression": "120 = 15 \\times h" },
+            { "verbal_explanation": "נחלק את הנפח בשטח הבסיס כדי לחלץ את הגובה החסר.", "math_expression": "120 \\div 15" },
+            { "verbal_explanation": "התוצאה של פעולת החילוק היא שמונה.", "math_expression": "h = 8" }
         ],
-        final_answer: "120 סמ\"ר"
+        "final_answer": "8"
     },
-    // שאלה 18
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "אם מגדילים את הגובה של מנסרה ישרה פי 2, ומאשאירים את הבסיס שלה ללא שינוי, פי כמה יגדל הנפח שלה?&rlm;",
-        options: ["פי 2", "פי 4", "פי 8", "הנפח לא ישתנה"],
-        correctAnswer: 0,
-        hint: "הנפח תלוי בגובה ביחס ישר (בלי חזקות). אם הגובה מוכפל, הנפח מוכפל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נוסחת הנפח היא S × h. &rlm;", math_expression: "V_1 = S × h" },
-            { verbal_explanation: "אם מחליפים את h ב- 2h, התוצאה כולה מוכפלת ב-2.&rlm;", math_expression: "V_2 = S × (2h) = 2 × (S × h)" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "תיבה מידותיה: 1 ס''מ, 2 ס''מ, 3 ס''מ. מהו שטח הפנים הכולל של התיבה?&rlm;",
+        "options": ["22", "6", "11", "12"],
+        "correctAnswer": 0,
+        "hint": "לתיבה יש 3 זוגות של פאות מלבניות שוות. מצאו את השטח של שלושת המלבנים (1x2, 1x3, 2x3) והכפילו כל תוצאה ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את השטח של כל אחד משלושת סוגי הפאות המרכיבים את התיבה.", "math_expression": "1 \\times 2 = 2 \\quad , \\quad 1 \\times 3 = 3 \\quad , \\quad 2 \\times 3 = 6" },
+            { "verbal_explanation": "כל פאה כזו מופיעה פעמיים בתיבה (אחת מול השנייה). לכן נחבר את שלושת השטחים ונכפול בשתיים.", "math_expression": "2 \\times (2 + 3 + 6)" },
+            { "verbal_explanation": "נחבר את המספרים שבתוך הסוגריים.", "math_expression": "2 + 3 + 6 = 11" },
+            { "verbal_explanation": "נכפול באחת עשרה ונקבל את שטח הפנים המלא.", "math_expression": "2 \\times 11 = 22" }
         ],
-        final_answer: "פי 2"
+        "final_answer": "22"
     },
-    // שאלה 19
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "מנסרה מתומנת (הבסיס הוא מצולע בעל 8 צלעות) נפתחת לפריסה שלמה (רשת). מכמה מלבנים צדדיים ומכמה בסיסים תורכב הפריסה?&rlm;",
-        options: ["8 מלבנים ו-2 בסיסים מתומנים", "10 מלבנים בלבד", "8 מלבנים ובסיס מתומן אחד", "2 מלבנים ו-8 בסיסים"],
-        correctAnswer: 0,
-        hint: "מספר הפאות הצדדיות של מנסרה תמיד שווה למספר הצלעות של הבסיס שלה. וכמובן, לכל מנסרה יש מכסה ורצפה (2 בסיסים).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "למנסרה יש תמיד שני בסיסים זהים המקבילים זה לזה (למעלה ולמטה). במקרה זה, שני מתומנים.&rlm;", math_expression: "" },
-            { verbal_explanation: "כל צלע של המתומן בבסיס מחוברת לפאה צדדית שהיא מלבן. מכיוון שיש 8 צלעות, ישנם 8 מלבנים צדדיים.&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "מנסרה ישרה שבסיסה הוא מחומש (מצולע בעל 5 צלעות). כמה פאות יש למנסרה זו בסך הכל (כולל הבסיסים)?&rlm;",
+        "options": ["7", "5", "10", "15"],
+        "correctAnswer": 0,
+        "hint": "יש פאה צדדית אחת עבור כל צלע של הבסיס. בנוסף, יש את הבסיס העליון והבסיס התחתון.",
+        "solution_steps": [
+            { "verbal_explanation": "מספר הפאות הצדדיות (המעטפת) במנסרה ישרה תמיד שווה למספר הצלעות של צורת הבסיס.", "math_expression": "5" },
+            { "verbal_explanation": "למנסרה יש תמיד שני בסיסים מקבילים (עליון ותחתון).", "math_expression": "2" },
+            { "verbal_explanation": "נחבר את מספר פאות המעטפת עם שני הבסיסים כדי לקבל את מספר הפאות הכולל.", "math_expression": "5 + 2 = 7" },
+            { "verbal_explanation": "בסך הכל ישנן שבע פאות.", "math_expression": "7" }
         ],
-        final_answer: "8 מלבנים ו-2 בסיסים מתומנים"
+        "final_answer": "7"
     },
-    // שאלה 20
     {
-        topic: "geometry_advanced",
-        subTopic: "מנסרה ישרה (שטח ונפח)",
-        question_text: "תיבה א' ותיבה ב' הן בעלות אותו הנפח. שטח הבסיס של תיבה א' הוא 40 סמ\"ר, וגובהה הוא 5 ס\"מ. שטח הבסיס של תיבה ב' הוא 20 סמ\"ר. מהו גובהה של תיבה ב'?&rlm;",
-        options: ["10 ס\"מ", "5 ס\"מ", "2.5 ס\"מ", "20 ס\"מ"],
-        correctAnswer: 0,
-        hint: "שטח הבסיס של ב' קטן פי 2, לכן כדי לשמור על אותו נפח, הגובה שלה חייב להיות גדול פי 2. או שפשוט חשבו את הנפח של א', וחלקו בשטח של ב'.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את נפח תיבה א'.&rlm;", math_expression: "40 × 5 = 200" },
-            { verbal_explanation: "שלב ב': נפח תיבה ב' הוא גם 200. שטח בסיסה הוא 20. נחלק את הנפח בשטח למציאת הגובה.&rlm;", math_expression: "200 : 20 = 10" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מנסרה ישרה (שטח ונפח)",
+        "question_text": "נפח של תיבה הוא 40 סמ''ק. אם נגדיל רק את הגובה של התיבה פי 2 (ונשאיר את שאר הממדים זהים), מה יהיה הנפח החדש?&rlm;",
+        "options": ["80", "40", "160", "20"],
+        "correctAnswer": 0,
+        "hint": "הנפח תלוי ישירות בגובה. אם מכפילים ממד אחד פי 2, גם התוצאה כולה תוכפל פי 2.",
+        "solution_steps": [
+            { "verbal_explanation": "נוסחת הנפח היא מכפלה של שטח הבסיס בגובה. אנו שומרים את שטח הבסיס קבוע.", "math_expression": "V = S \\times h" },
+            { "verbal_explanation": "הגובה החדש גדול פי שניים מהגובה הישן.", "math_expression": "h_{new} = 2h" },
+            { "verbal_explanation": "לכן, גם התוצאה הסופית של המכפלה (הנפח) תוכפל בדיוק פי שניים.", "math_expression": "V_{new} = 40 \\times 2" },
+            { "verbal_explanation": "הנפח החדש יעמוד על שמונים סמ''ק.", "math_expression": "80" }
         ],
-        final_answer: "10 ס\"מ"
+        "final_answer": "80"
     },
 
-    // ==========================================================
+    // ==========================================
     // תת נושא 3: גליל ישר (שטח ונפח) (10 שאלות)
-    // ==========================================================
-    
-    // שאלה 21
+    // ==========================================
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "מהי הנוסחה הנכונה לחישוב נפח של גליל ישר (כאשר r הוא רדיוס הבסיס, ו-h הוא גובה הגליל)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 150' width='80' height='120'><ellipse cx='50' cy='20' rx='40' ry='15' fill='#e2e8f0' stroke='#334155' stroke-width='2'/><path d='M 10 20 L 10 120 A 40 15 0 0 0 90 120 L 90 20' fill='#f1f5f9' stroke='#334155' stroke-width='2'/><line x1='50' y1='20' x2='90' y2='20' stroke='#ef4444' stroke-width='2'/><text x='65' y='15' font-family='Arial' font-size='12' fill='#ef4444'>r</text><line x1='10' y1='20' x2='10' y2='120' stroke='#3b82f6' stroke-width='2'/><text x='20' y='70' font-family='Arial' font-size='12' fill='#3b82f6'>h</text></svg></div>",
-        options: ["V = π × r² × h", "V = 2 × π × r × h", "V = π × r × h", "V = π × d × h"],
-        correctAnswer: 0,
-        hint: "כמו במנסרה, נפח שווה לשטח הבסיס כפול הגובה. שטח הבסיס (שהוא עיגול) הוא פאי כפול הרדיוס בריבוע.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שטח הבסיס של הגליל (עיגול) הוא π × r².&rlm;", math_expression: "S_{base} = π × r²" },
-            { verbal_explanation: "נפח הוא שטח הבסיס כפול גובה הגליל.&rlm;", math_expression: "V = π × r² × h" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 150 200\" width=\"90\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><ellipse cx=\"75\" cy=\"30\" rx=\"50\" ry=\"15\" fill=\"#e2e8f0\" stroke=\"#0f172a\" stroke-width=\"2\"/><ellipse cx=\"75\" cy=\"170\" rx=\"50\" ry=\"15\" fill=\"#e2e8f0\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"25\" y1=\"30\" x2=\"25\" y2=\"170\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"125\" y1=\"30\" x2=\"125\" y2=\"170\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"75\" y1=\"170\" x2=\"125\" y2=\"170\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-dasharray=\"4\"/><text x=\"95\" y=\"165\" font-family=\"Arial\" font-size=\"14\" fill=\"#ef4444\">2</text><text x=\"5\" y=\"105\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">10</text></svg></div><br>גליל ישר בעל רדיוס בסיס 2 ס''מ וגובה 10 ס''מ. מהו נפח הגליל? (השאירו את פאי בתשובה)&rlm;",
+        "options": ["40π", "20π", "40", "10π"],
+        "correctAnswer": 0,
+        "hint": "נפח גליל הוא שטח הבסיס העגול (רדיוס בריבוע כפול פאי) מוכפל בגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נוסחת הנפח לגליל ישר מבוססת על שטח העיגול בבסיס כפול הגובה.", "math_expression": "V = \\pi \\times r^2 \\times h" },
+            { "verbal_explanation": "נציב את הנתונים שלנו: הרדיוס הוא שתיים והגובה עשר.", "math_expression": "V = \\pi \\times 2^2 \\times 10" },
+            { "verbal_explanation": "נחשב את חזקת הרדיוס.", "math_expression": "2^2 = 4" },
+            { "verbal_explanation": "נכפול את התוצאה בגובה.", "math_expression": "4 \\times 10 = 40" },
+            { "verbal_explanation": "נוסיף את סמל הפאי לתשובה הסופית.", "math_expression": "40\\pi" }
         ],
-        final_answer: "V = π × r² × h"
+        "final_answer": "40π"
     },
-    // שאלה 22
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "רדיוס הבסיס של גליל הוא 3 ס\"מ וגובהו הוא 10 ס\"מ. מהו נפח הגליל (השאירו את π בתשובה)?&rlm;",
-        options: ["90π סמ\"ק", "30π סמ\"ק", "60π סמ\"ק", "180π סמ\"ק"],
-        correctAnswer: 0,
-        hint: "העלו את הרדיוס (3) בריבוע. הכפילו בגובה (10). והוסיפו π.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את שטח הבסיס. רדיוס בריבוע כפול פאי.&rlm;", math_expression: "3² × π = 9π" },
-            { verbal_explanation: "שלב ב': נכפול את שטח הבסיס בגובה הגליל.&rlm;", math_expression: "9π × 10 = 90π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "נפח של גליל הוא 100π. רדיוס הבסיס שלו הוא 5. מהו גובה הגליל?&rlm;",
+        "options": ["4", "10", "20", "50"],
+        "correctAnswer": 0,
+        "hint": "שטח הבסיס הוא 25 פאי. חלקו את הנפח בשטח הבסיס.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב תחילה את שטח הבסיס המעגלי של הגליל.", "math_expression": "\\pi \\times 5^2 = 25\\pi" },
+            { "verbal_explanation": "הנפח הוא תוצאה של שטח הבסיס כפול הגובה.", "math_expression": "100\\pi = 25\\pi \\times h" },
+            { "verbal_explanation": "כדי למצוא את הגובה, נחלק את הנפח הכללי בשטח הבסיס שחישבנו.", "math_expression": "100\\pi \\div 25\\pi" },
+            { "verbal_explanation": "סמלי הפאי מצטמצמים, ומאה חלקי עשרים וחמש שווה ארבע.", "math_expression": "h = 4" }
         ],
-        final_answer: "90π סמ\"ק"
+        "final_answer": "4"
     },
-    // שאלה 23
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "נפח של גליל הוא 100π סמ\"ק. גובה הגליל הוא 4 ס\"מ. מהו רדיוס הבסיס של הגליל?&rlm;",
-        options: ["5 ס\"מ", "25 ס\"מ", "10 ס\"מ", "12.5 ס\"מ"],
-        correctAnswer: 0,
-        hint: "חלקו את הנפח בגובה לקבלת שטח הבסיס (25π). איזה רדיוס בריבוע ייתן 25?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרכיב את משוואת הנפח.&rlm;", math_expression: "π × r² × 4 = 100π" },
-            { verbal_explanation: "שלב ב': נחלק את שני האגפים ב- 4π כדי לבודד את הרדיוס בריבוע.&rlm;", math_expression: "r² = 100π : 4π = 25" },
-            { verbal_explanation: "שלב ג': המספר החיובי שריבועו 25 הוא 5.&rlm;", math_expression: "r = √25 = 5" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "גליל ישר שרדיוס הבסיס שלו 3 ס''מ וגובהו 5 ס''מ. מהו שטח המעטפת שלו (ללא הבסיסים)?&rlm;",
+        "options": ["30π", "15π", "45π", "90π"],
+        "correctAnswer": 0,
+        "hint": "שטח מעטפת גליל הוא היקף הבסיס העגול (שתיים כפול פאי כפול רדיוס) כפול הגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נוסחת שטח מעטפת הגליל מסתמכת על היקף העיגול בבסיס מוכפל בגובה.", "math_expression": "2 \\times \\pi \\times r \\times h" },
+            { "verbal_explanation": "נחשב תחילה את היקף הבסיס בעזרת הרדיוס הנתון.", "math_expression": "2 \\times \\pi \\times 3 = 6\\pi" },
+            { "verbal_explanation": "כעת נכפול את ההיקף בגובה הגליל.", "math_expression": "6\\pi \\times 5" },
+            { "verbal_explanation": "שש כפול חמש שווה שלושים. נוסיף את הפאי ונקבל את התוצאה.", "math_expression": "30\\pi" }
         ],
-        final_answer: "5 ס\"מ"
+        "final_answer": "30π"
     },
-    // שאלה 24
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "מהי הנוסחה לשטח המעטפת (הצד העגול בלבד, ללא בסיסים) של גליל?&rlm;",
-        options: ["S = 2 × π × r × h", "S = π × r² × h", "S = 2 × π × r²", "S = π × r × h"],
-        correctAnswer: 0,
-        hint: "אם נגזור את הגליל לאורכו ונפרוס אותו, נקבל מלבן. אורך המלבן הוא היקף העיגול (2πr), והגובה שלו הוא גובה הגליל (h).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "פריסה של מעטפת גליל יוצרת מלבן.&rlm;", math_expression: "" },
-            { verbal_explanation: "אורך המלבן הזה הוא בדיוק היקף בסיס הגליל (2 × π × r).&rlm;", math_expression: "" },
-            { verbal_explanation: "רוחב המלבן הוא גובה הגליל (h). לכן השטח הוא מכפלתם.&rlm;", math_expression: "2 × π × r × h" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "מהי הנוסחה לשטח פנים מלא של גליל (כולל המעטפת ושני הבסיסים)?&rlm;",
+        "options": ["2πr² + 2πrh", "πr²h", "2πrh", "πr² + 2πrh"],
+        "correctAnswer": 0,
+        "hint": "הוסיפו לשטח המעטפת את השטח של שני העיגולים (העליון והתחתון).",
+        "solution_steps": [
+            { "verbal_explanation": "שטח הפנים המלא מורכב משלושה חלקים: מעטפת צדדית, בסיס תחתון ובסיס עליון.", "math_expression": "S_{\\text{total}} = S_{\\text{lateral}} + 2 \\times S_{\\text{base}}" },
+            { "verbal_explanation": "שטח המעטפת מחושב על ידי היקף כפול גובה.", "math_expression": "2\\pi rh" },
+            { "verbal_explanation": "שטח של בסיס אחד הוא שטח עיגול רגיל.", "math_expression": "\\pi r^2" },
+            { "verbal_explanation": "מכיוון שיש שני בסיסים, נכפול את השטח שלהם בשתיים ונחבר הכל יחד.", "math_expression": "2\\pi r^2 + 2\\pi rh" }
         ],
-        final_answer: "S = 2 × π × r × h"
+        "final_answer": "2πr² + 2πrh"
     },
-    // שאלה 25
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "רדיוס גליל הוא 4 ס\"מ וגובהו הוא 10 ס\"מ. מהו שטח המעטפת של הגליל?&rlm;",
-        options: ["80π סמ\"ר", "40π סמ\"ר", "160π סמ\"ר", "16π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "היקף הבסיס הוא 2 כפול 4 כפול π (כלומר 8π). הכפילו זאת בגובה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את היקף הבסיס (מעגל).&rlm;", math_expression: "P = 2 × π × 4 = 8π" },
-            { verbal_explanation: "שלב ב': נכפול את היקף הבסיס בגובה לקבלת שטח המעטפת.&rlm;", math_expression: "S_{lateral} = 8π × 10 = 80π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "גליל שבו קוטר הבסיס הוא 10 ס''מ (כלומר הרדיוס הוא 5) והגובה הוא 2 ס''מ. מהו הנפח?&rlm;",
+        "options": ["50π", "100π", "200π", "25π"],
+        "correctAnswer": 0,
+        "hint": "רדיוס שווה לחצי מהקוטר. חלצו את הרדיוס, העלו בריבוע והכפילו בגובה ובפאי.",
+        "solution_steps": [
+            { "verbal_explanation": "הקוטר נתון כעשר, ולכן הרדיוס הוא בדיוק החצי שלו, חמש.", "math_expression": "r = 10 \\div 2 = 5" },
+            { "verbal_explanation": "נחשב את שטח הבסיס המעגלי עם הרדיוס החדש.", "math_expression": "\\pi \\times 5^2 = 25\\pi" },
+            { "verbal_explanation": "נכפול את שטח הבסיס בגובה הנתון כדי למצוא את הנפח.", "math_expression": "25\\pi \\times 2" },
+            { "verbal_explanation": "התוצאה הסופית של המכפלה היא חמישים פאי.", "math_expression": "50\\pi" }
         ],
-        final_answer: "80π סמ\"ר"
+        "final_answer": "50π"
     },
-    // שאלה 26
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "רוצים לחשב את שטח הפנים הכולל (מעטפת + שני בסיסים) של קופסת שימורים גלילית סגורה. הרדיוס הוא 2 ס\"מ, והגובה הוא 5 ס\"מ. מהו שטח הפנים הכולל?&rlm;",
-        options: ["28π סמ\"ר", "20π סמ\"ר", "8π סמ\"ר", "40π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "חשבו מעטפת: 2π * 2 * 5. (20π). חשבו שטח בסיס אחד: π * 2² (4π). יש שני בסיסים (8π). חברו הכל יחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': חישוב שטח המעטפת.&rlm;", math_expression: "2 × π × 2 × 5 = 20π" },
-            { verbal_explanation: "שלב ב': חישוב שטח בסיס יחיד (עיגול).&rlm;", math_expression: "π × 2² = 4π" },
-            { verbal_explanation: "שלב ג': חיבור המעטפת ופעמיים שטח הבסיס (עליון ותחתון).&rlm;", math_expression: "20π + (2 × 4π) = 20π + 8π = 28π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "נפח של גליל הוא 90π. הרדיוס הוא 3. מהו גובה הגליל?&rlm;",
+        "options": ["10", "30", "9", "15"],
+        "correctAnswer": 0,
+        "hint": "שטח הבסיס הוא פאי כפול שלוש בריבוע (9 פאי). חלקו את 90 פאי ב-9 פאי.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את שטח עיגול הבסיס באמצעות הרדיוס הנתון.", "math_expression": "\\pi \\times 3^2 = 9\\pi" },
+            { "verbal_explanation": "הנפח הכולל מורכב משטח הבסיס מוכפל בגובה שאנו מחפשים.", "math_expression": "90\\pi = 9\\pi \\times h" },
+            { "verbal_explanation": "נחלק את הנפח בשטח הבסיס.", "math_expression": "90\\pi \\div 9\\pi" },
+            { "verbal_explanation": "התשובה המתקבלת היא עשר.", "math_expression": "10" }
         ],
-        final_answer: "28π סמ\"ר"
+        "final_answer": "10"
     },
-    // שאלה 27
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "קוטר הבסיס של גליל (d) הוא 10 ס\"מ, וגובהו הוא 8 ס\"מ. מהו נפח הגליל? (שימו לב שמדובר בקוטר, לא ברדיוס!)&rlm;",
-        options: ["200π סמ\"ק", "800π סמ\"ק", "400π סמ\"ק", "100π סמ\"ק"],
-        correctAnswer: 0,
-        hint: "קוטר הוא פעמיים רדיוס. לכן הרדיוס הוא חצי מ-10. חשבו את הרדיוס קודם והציבו בנוסחת הנפח.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נמצא את הרדיוס. הרדיוס שווה למחצית הקוטר.&rlm;", math_expression: "r = 10 : 2 = 5" },
-            { verbal_explanation: "שלב ב': נחשב את שטח הבסיס בעזרת הרדיוס.&rlm;", math_expression: "S_{base} = π × 5² = 25π" },
-            { verbal_explanation: "שלב ג': נכפול שטח בסיס בגובה למציאת נפח.&rlm;", math_expression: "V = 25π × 8 = 200π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "גליל שבו הרדיוס הוא 1 מטר והגובה הוא 10 מטר. מהו נפח הגליל?&rlm;",
+        "options": ["10π", "20π", "100π", "π"],
+        "correctAnswer": 0,
+        "hint": "1 בריבוע נשאר 1. כפלו ב-10.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת הנפח ונציב את הנתונים הפשוטים.", "math_expression": "V = \\pi \\times 1^2 \\times 10" },
+            { "verbal_explanation": "אחד בריבוע הוא פשוט אחד.", "math_expression": "1^2 = 1" },
+            { "verbal_explanation": "נכפול את התוצאה בעשר ובפאי.", "math_expression": "1 \\times 10 \\times \\pi" },
+            { "verbal_explanation": "הנפח הוא עשרה פאי.", "math_expression": "10\\pi" }
         ],
-        final_answer: "200π סמ\"ק"
+        "final_answer": "10π"
     },
-    // שאלה 28
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "אם נכפיל פי 2 את הרדיוס של גליל (ונשאיר את הגובה ללא שינוי), פי כמה יגדל הנפח שלו?&rlm;",
-        options: ["פי 4", "פי 2", "פי 8", "הנפח לא ישתנה"],
-        correctAnswer: 0,
-        hint: "הרדיוס נמצא בנוסחה בחזקת 2 (r²). אם תשימו 2r בתוך החזקה, ה-2 יעלה בריבוע ויהפוך ל-4.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נוסחת הנפח המקורית.&rlm;", math_expression: "V_1 = π × r² × h" },
-            { verbal_explanation: "נציב רדיוס כפול (2r) לתוך הנוסחה.&rlm;", math_expression: "V_2 = π × (2r)² × h" },
-            { verbal_explanation: "הביטוי (2r)² שווה ל- 4r². לכן המקדם 4 יוצא החוצה, והנפח גדל פי 4.&rlm;", math_expression: "V_2 = 4 × (π × r² × h) = 4 × V_1" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "גליל בעל גובה של 1 ס''מ ורדיוס של 10 ס''מ. מהו נפחו?&rlm;",
+        "options": ["100π", "10π", "20π", "200π"],
+        "correctAnswer": 0,
+        "hint": "כאן הרדיוס גדול. 10 בריבוע זה 100.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את הנתונים החדשים בנוסחת הנפח. שימו לב שהפעם הרדיוס גדול והגובה קטן.", "math_expression": "V = \\pi \\times 10^2 \\times 1" },
+            { "verbal_explanation": "נחשב את ריבוע הרדיוס.", "math_expression": "10^2 = 100" },
+            { "verbal_explanation": "נכפול את המאה בגובה שאורכו רק אחד.", "math_expression": "100 \\times 1 = 100" },
+            { "verbal_explanation": "הנפח הסופי הוא מאה פאי.", "math_expression": "100\\pi" }
         ],
-        final_answer: "פי 4"
+        "final_answer": "100π"
     },
-    // שאלה 29
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "חצי גליל מלא מים. נפח הגליל השלם הוא 80π. מהי כמות המים בחצי הגליל?&rlm;",
-        options: ["40π", "160π", "20π", "80π"],
-        correctAnswer: 0,
-        hint: "חצי מצורה תלת מימדית מכיל בדיוק חצי מהנפח.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "אם הגליל השלם יכול להכיל 80π, אז חצי ממנו מכיל בדיוק מחצית מהנפח.&rlm;", math_expression: "" },
-            { verbal_explanation: "נחלק ב-2.&rlm;", math_expression: "80π : 2 = 40π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "מהו שטח המעטפת של גליל שבו הקוטר הוא 4 ס''מ (רדיוס 2) והגובה הוא 5 ס''מ?&rlm;",
+        "options": ["20π", "10π", "40π", "16π"],
+        "correctAnswer": 0,
+        "hint": "היקף הבסיס הוא פאי כפול הקוטר. כפלו את ההיקף בגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את היקף הבסיס בעזרת נתון הקוטר (שתי פאי אר או פאי כפול קוטר).", "math_expression": "\\pi \\times 4 = 4\\pi" },
+            { "verbal_explanation": "כדי למצוא את שטח המעטפת, נכפול את ההיקף בגובה הגליל.", "math_expression": "4\\pi \\times 5" },
+            { "verbal_explanation": "ארבע כפול חמש שווה עשרים.", "math_expression": "20" },
+            { "verbal_explanation": "שטח המעטפת הוא עשרים פאי.", "math_expression": "20\\pi" }
         ],
-        final_answer: "40π"
+        "final_answer": "20π"
     },
-    // שאלה 30
     {
-        topic: "geometry_advanced",
-        subTopic: "גליל ישר (שטח ונפח)",
-        question_text: "מכל גלילי גדול מלא במים מרוקן לקנקנים קטנים צרי גזרה. לשני הגלילים (הגדול והקנקן) יש אותו גובה בדיוק, אבל הרדיוס של המכל הגדול גדול פי 3 מהרדיוס של הקנקן. כמה קנקנים אפשר למלא ממכל אחד?&rlm;",
-        options: ["9 קנקנים", "3 קנקנים", "6 קנקנים", "27 קנקנים"],
-        correctAnswer: 0,
-        hint: "כבר למדנו שהרדיוס מועלה בריבוע בנוסחת הנפח. יחס של פי 3 ברדיוס שווה ליחס של פי כמה בנפח?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הגובה זהה, ולכן יחס הנפחים תלוי רק ביחס הרדיוסים בריבוע.&rlm;", math_expression: "" },
-            { verbal_explanation: "מכיוון שהרדיוס גדול פי 3, הנפח יהיה גדול פי 3 בריבוע.&rlm;", math_expression: "3² = 9" },
-            { verbal_explanation: "לכן המכל הגדול מכיל פי 9 מים מאשר קנקן אחד, וניתן למלא ממנו 9 קנקנים.&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "גליל ישר (שטח ונפח)",
+        "question_text": "יש לכם שני גלילים. בגליל הראשון, הרדיוס הוא 2 והגובה 4. בגליל השני, הרדיוס הוא 4 והגובה 2. איזה גליל בעל נפח גדול יותר?&rlm;",
+        "options": ["הגליל השני גדול יותר", "הגליל הראשון גדול יותר", "הם שווים בדיוק בנפחם", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "חשבו את הנפח של שניהם. שימו לב שהרדיוס מועלה בריבוע, ולכן השפעתו על התוצאה גדולה יותר מזו של הגובה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את נפח הגליל הראשון.", "math_expression": "V_1 = \\pi \\times 2^2 \\times 4 = 16\\pi" },
+            { "verbal_explanation": "נחשב את נפח הגליל השני.", "math_expression": "V_2 = \\pi \\times 4^2 \\times 2 = 32\\pi" },
+            { "verbal_explanation": "נשווה בין שני הנפחים שחישבנו.", "math_expression": "32\\pi > 16\\pi" },
+            { "verbal_explanation": "אנו רואים שהגליל השני, בעל הרדיוס הגדול יותר, מכיל נפח כפול מהראשון.", "math_expression": "V_2 > V_1" }
         ],
-        final_answer: "9 קנקנים"
+        "final_answer": "הגליל השני גדול יותר"
     },
 
-    // ==========================================================
+    // ==========================================
     // תת נושא 4: זוויות במצולע וסכום זוויות (10 שאלות)
-    // ==========================================================
-    
-    // שאלה 31
+    // ==========================================
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "מהו סכום הזוויות הפנימיות במחומש (מצולע בעל 5 צלעות)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><polygon points='50,10 90,40 75,90 25,90 10,40' fill='#f3e8ff' stroke='#9333ea' stroke-width='2'/></svg></div>",
-        options: ["540 מעלות", "360 מעלות", "720 מעלות", "180 מעלות"],
-        correctAnswer: 0,
-        hint: "הנוסחה לסכום זוויות במצולע היא: 180 כפול (מספר הצלעות פחות 2). במחומש אפשר לצייר 3 משולשים פנימיים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הנוסחה לסכום זוויות פנימיות היא S = 180 × (n - 2) כאשר n הוא מספר הצלעות.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': נציב n = 5.&rlm;", math_expression: "180 × (5 - 2)" },
-            { verbal_explanation: "שלב ג': נחשב 180 כפול 3.&rlm;", math_expression: "180 × 3 = 540" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו סכום הזוויות הפנימיות במחומש (מצולע בעל 5 צלעות)?&rlm;",
+        "options": ["540", "360", "720", "900"],
+        "correctAnswer": 0,
+        "hint": "הנוסחה לסכום זוויות היא: 180 כפול (מספר הצלעות פחות 2).",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחה הכללית למציאת סכום הזוויות הפנימיות במצולע.", "math_expression": "180 \\times (n - 2)" },
+            { "verbal_explanation": "במחומש יש חמש צלעות, לכן נציב חמש במקום האות.", "math_expression": "180 \\times (5 - 2)" },
+            { "verbal_explanation": "נחשב את ערך הסוגריים.", "math_expression": "5 - 2 = 3" },
+            { "verbal_explanation": "נכפול מאה ושמונים בשלוש.", "math_expression": "180 \\times 3 = 540" },
+            { "verbal_explanation": "הסכום הוא חמש מאות וארבעים מעלות.", "math_expression": "540" }
         ],
-        final_answer: "540 מעלות"
+        "final_answer": "540"
     },
-    // שאלה 32
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "מהו סכום הזוויות הפנימיות במשושה (6 צלעות)?&rlm;",
-        options: ["720 מעלות", "540 מעלות", "900 מעלות", "360 מעלות"],
-        correctAnswer: 0,
-        hint: "השתמשו בנוסחה: (6-2)*180.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נציב את מספר הצלעות (6) בנוסחה 180 × (n-2).&rlm;", math_expression: "180 × (6 - 2)" },
-            { verbal_explanation: "שלב ב': נחשב 180 כפול 4.&rlm;", math_expression: "180 × 4 = 720" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו סכום הזוויות במשושה (מצולע בעל 6 צלעות)?&rlm;",
+        "options": ["720", "540", "900", "1080"],
+        "correctAnswer": 0,
+        "hint": "הפעילו את אותה נוסחה: 180 כפול (6 פחות 2).",
+        "solution_steps": [
+            { "verbal_explanation": "במשושה יש שש צלעות. נחסר שתיים כדי לגלות כמה משולשים הוא מכיל.", "math_expression": "6 - 2 = 4" },
+            { "verbal_explanation": "כל משולש תורם מאה ושמונים מעלות לסכום הכולל. נכפול בארבע.", "math_expression": "180 \\times 4" },
+            { "verbal_explanation": "נחשב את המכפלה למציאת הסכום המלא.", "math_expression": "720" },
+            { "verbal_explanation": "סכום הזוויות הוא שבע מאות ועשרים מעלות.", "math_expression": "720" }
         ],
-        final_answer: "720 מעלות"
+        "final_answer": "720"
     },
-    // שאלה 33
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "במצולע משוכלל, כל הזוויות שוות זו לזו. מהו גודלה של זווית פנימית אחת במתומן משוכלל (8 צלעות)?&rlm;",
-        options: ["135 מעלות", "120 מעלות", "1080 מעלות", "144 מעלות"],
-        correctAnswer: 0,
-        hint: "חשבו קודם את הסכום הכולל של הזוויות (180 כפול 6). לאחר מכן, חלקו את הסכום ל-8 זוויות שוות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את סכום כל הזוויות במתומן.&rlm;", math_expression: "180 × (8 - 2) = 180 × 6 = 1080" },
-            { verbal_explanation: "שלב ב': מכיוון שהמתומן משוכלל, 8 הזוויות שלו שוות. נחלק את הסכום ב-8.&rlm;", math_expression: "1080 : 8 = 135" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו סכום הזוויות במתומן (מצולע בעל 8 צלעות)?&rlm;",
+        "options": ["1080", "1440", "720", "900"],
+        "correctAnswer": 0,
+        "hint": "חשבו 180 כפול (8 פחות 2).",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את מספר הצלעות, שמונה, לתוך הנוסחה שלנו.", "math_expression": "180 \\times (8 - 2)" },
+            { "verbal_explanation": "נפתור את הסוגריים. ישנם שישה משולשים פנימיים במתומן.", "math_expression": "180 \\times 6" },
+            { "verbal_explanation": "נבצע את הכפל כדי למצוא את כמות המעלות הכללית.", "math_expression": "1080" },
+            { "verbal_explanation": "הסכום הוא אלף ושמונים מעלות.", "math_expression": "1080" }
         ],
-        final_answer: "135 מעלות"
+        "final_answer": "1080"
     },
-    // שאלה 34
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "מהו גודלה של זווית *חיצונית* אחת במשושה משוכלל (6 צלעות)?&rlm;",
-        options: ["60 מעלות", "120 מעלות", "72 מעלות", "30 מעלות"],
-        correctAnswer: 0,
-        hint: "סכום כל הזוויות החיצוניות של *כל* מצולע קמור הוא תמיד 360 מעלות. חלקו 360 למספר הצלעות (6).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': תכונה גיאומטרית חשובה - סכום הזוויות החיצוניות בכל מצולע הוא 360°.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': במשושה משוכלל יש 6 זוויות חיצוניות שוות. נחלק את הסכום ב-6.&rlm;", math_expression: "360 : 6 = 60" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "במחומש משוכלל, כל הזוויות שוות זו לזו. מהו הגודל של כל זווית פנימית אחת במחומש כזה?&rlm;",
+        "options": ["108", "120", "90", "72"],
+        "correctAnswer": 0,
+        "hint": "סכום הזוויות במחומש הוא 540 (כמו שחישבנו קודם). חלקו את הסכום הזה ל-5 זוויות שוות.",
+        "solution_steps": [
+            { "verbal_explanation": "במחומש משוכלל כל חמש הזוויות חולקות את הסכום הכולל באופן שווה.", "math_expression": "\\text{Equal Angles}" },
+            { "verbal_explanation": "ידוע לנו שהסכום הכולל במחומש הוא חמש מאות וארבעים מעלות.", "math_expression": "540" },
+            { "verbal_explanation": "נחלק את הסכום הזה בחמש למציאת זווית בודדת.", "math_expression": "540 \\div 5" },
+            { "verbal_explanation": "תוצאת החילוק היא מאה ושמונה.", "math_expression": "108" },
+            { "verbal_explanation": "גודל כל זווית הוא מאה ושמונה מעלות.", "math_expression": "108" }
         ],
-        final_answer: "60 מעלות"
+        "final_answer": "108"
     },
-    // שאלה 35
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "סכום הזוויות הפנימיות של מצולע הוא 1,080 מעלות. כמה צלעות יש למצולע זה?&rlm;",
-        options: ["8", "6", "10", "12"],
-        correctAnswer: 0,
-        hint: "המשוואה היא: 180(n-2) = 1080. חלקו את 1080 ב-180, והוסיפו 2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נציב את הנתון בנוסחת סכום הזוויות.&rlm;", math_expression: "180 × (n - 2) = 1080" },
-            { verbal_explanation: "שלב ב': נחלק את שני האגפים ב-180.&rlm;", math_expression: "n - 2 = 1080 : 180 = 6" },
-            { verbal_explanation: "שלב ג': נוסיף 2 כדי למצוא את n.&rlm;", math_expression: "n = 6 + 2 = 8" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו הגודל של זווית פנימית אחת במשושה משוכלל (שכל צלעותיו וזוויותיו שוות)?&rlm;",
+        "options": ["120", "108", "135", "150"],
+        "correctAnswer": 0,
+        "hint": "סכום הזוויות במשושה הוא 720. חלקו את זה ב-6.",
+        "solution_steps": [
+            { "verbal_explanation": "סכום כלל הזוויות במשושה מחושב והוא שבע מאות ועשרים.", "math_expression": "720" },
+            { "verbal_explanation": "כדי למצוא זווית בודדת במשושה משוכלל, נחלק את הסכום במספר הפינות, שהוא שש.", "math_expression": "720 \\div 6" },
+            { "verbal_explanation": "נבצע את פעולת החילוק.", "math_expression": "120" },
+            { "verbal_explanation": "כל זווית במשושה משוכלל היא בת מאה ועשרים מעלות.", "math_expression": "120" }
         ],
-        final_answer: "8"
+        "final_answer": "120"
     },
-    // שאלה 36
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "במרובע כלשהו (4 צלעות), שלוש מתוך הזוויות הן: 50°, 100°, 120°. מה גודלה של הזווית הרביעית?&rlm;",
-        options: ["90°", "110°", "80°", "100°"],
-        correctAnswer: 0,
-        hint: "סכום הזוויות במרובע (מצולע עם 4 צלעות) הוא 360 מעלות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום זוויות במרובע הוא 360 מעלות (כי ניתן לחלקו ל-2 משולשים).&rlm;", math_expression: "180 × (4 - 2) = 360" },
-            { verbal_explanation: "שלב ב': נחבר את 3 הזוויות הנתונות.&rlm;", math_expression: "50 + 100 + 120 = 270" },
-            { verbal_explanation: "שלב ג': נחסר מ-360 למציאת הזווית הרביעית.&rlm;", math_expression: "360 - 270 = 90" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "חשבו את הגודל של זווית פנימית אחת במתומן משוכלל.&rlm;",
+        "options": ["135", "120", "150", "144"],
+        "correctAnswer": 0,
+        "hint": "סכום הזוויות במתומן הוא 1080. חלקו ב-8.",
+        "solution_steps": [
+            { "verbal_explanation": "הסכום המלא במתומן הוא אלף ושמונים מעלות.", "math_expression": "1080" },
+            { "verbal_explanation": "נחלק את הסכום לשמונה זוויות שוות בגודלן.", "math_expression": "1080 \\div 8" },
+            { "verbal_explanation": "נבצע את החישוב ונגלה את הפתרון.", "math_expression": "135" },
+            { "verbal_explanation": "גודלה של כל זווית הוא מאה שלושים וחמש מעלות.", "math_expression": "135" }
         ],
-        final_answer: "90°"
+        "final_answer": "135"
     },
-    // שאלה 37
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "ארבע הזוויות של מרובע מתייחסות זו לזו ביחס של 1:2:3:4. נסמן את הזוויות ב-x, 2x, 3x, 4x. מה גודלה של הזווית הקטנה ביותר (x)?&rlm;",
-        options: ["36 מעלות", "45 מעלות", "30 מעלות", "72 מעלות"],
-        correctAnswer: 0,
-        hint: "חברו את כל איברי היחס ל-10x, והשוו לסכום הזוויות במרובע (360).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום הזוויות במרובע הוא 360. נבנה משוואה.&rlm;", math_expression: "x + 2x + 3x + 4x = 360" },
-            { verbal_explanation: "שלב ב': נכנס איברים (10x).&rlm;", math_expression: "10x = 360" },
-            { verbal_explanation: "שלב ג': נחלק ב-10.&rlm;", math_expression: "x = 36" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "סכום הזוויות הפנימיות של מצולע מסוים הוא 900 מעלות. כמה צלעות יש למצולע הזה?&rlm;",
+        "options": ["7", "8", "6", "9"],
+        "correctAnswer": 0,
+        "hint": "הפעם עובדים לאחור עם המשוואה: חלוקה ב-180 תיתן לכם (n-2). הוסיפו 2 לתוצאה.",
+        "solution_steps": [
+            { "verbal_explanation": "נרכיב משוואה שבה סכום הזוויות הידוע שווה לנוסחה הכללית.", "math_expression": "180(n - 2) = 900" },
+            { "verbal_explanation": "נחלק את שני האגפים במאה ושמונים.", "math_expression": "n - 2 = 900 \\div 180" },
+            { "verbal_explanation": "תוצאת החילוק היא חמש.", "math_expression": "n - 2 = 5" },
+            { "verbal_explanation": "נוסיף שתיים לשני הצדדים כדי למצוא את כמות הצלעות.", "math_expression": "n = 5 + 2 = 7" },
+            { "verbal_explanation": "למצולע יש שבע צלעות. זהו משובע.", "math_expression": "n = 7" }
         ],
-        final_answer: "36 מעלות"
+        "final_answer": "7"
     },
-    // שאלה 38
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "במחומש קמור (לא משוכלל), נתונות ארבע זוויות: 100°, 120°, 90°, 110°. מה גודלה של הזווית החמישית?&rlm;",
-        options: ["120°", "140°", "100°", "130°"],
-        correctAnswer: 0,
-        hint: "סכום זוויות במחומש הוא 540 מעלות. חסרו את כל הידועות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום הזוויות במחומש הוא 540 מעלות.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': נחבר את 4 הזוויות הנתונות.&rlm;", math_expression: "100 + 120 + 90 + 110 = 420" },
-            { verbal_explanation: "שלב ג': נחסר את הסכום מ-540 למציאת הזווית הנותרת.&rlm;", math_expression: "540 - 420 = 120" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו סכום כל הזוויות החיצוניות של מחומש? (זווית חיצונית נוצרת מהארכת אחת הצלעות).&rlm;",
+        "options": ["360", "540", "180", "720"],
+        "correctAnswer": 0,
+        "hint": "כלל יסוד בגאומטריה: סכום הזוויות החיצוניות של *כל מצולע קמור* תמיד נשאר קבוע ואינו תלוי במספר הצלעות.",
+        "solution_steps": [
+            { "verbal_explanation": "זווית חיצונית היא הזווית שמשלימה את הזווית הפנימית למאה ושמונים מעלות.", "math_expression": "180 - \\text{Internal}" },
+            { "verbal_explanation": "יש משפט גאומטרי שמוכיח שעבור כל סוג של מצולע, הסכום של כלל הזוויות החיצוניות יחד הוא קבוע.", "math_expression": "\\text{Constant Sum}" },
+            { "verbal_explanation": "סכום זה שווה תמיד לסיבוב שלם, כלומר שלוש מאות ושישים מעלות.", "math_expression": "360" },
+            { "verbal_explanation": "לכן, למרות שזהו מחומש, התשובה נשארת שלוש מאות ושישים.", "math_expression": "360" }
         ],
-        final_answer: "120°"
+        "final_answer": "360"
     },
-    // שאלה 39
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "סכום הזוויות *החיצוניות* של מחומש משוכלל ושל מתומן משוכלל:&rlm;",
-        options: ["תמיד שווה (בשניהם הוא 360 מעלות)", "במתומן גדול יותר כי יש לו יותר צלעות", "במחומש קטן יותר כי יש לו פחות זוויות", "סכום הזוויות החיצוניות תלוי באורכי הצלעות"],
-        correctAnswer: 0,
-        hint: "זכרו את הכלל החשוב: סכום זוויות חיצוניות אינו תלוי במספר הצלעות!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "אחד מחוקי הגיאומטריה המרכזיים קובע שסכום הזוויות החיצוניות של כל מצולע קמור (יהיו בו 3 צלעות או 100 צלעות) הוא תמיד קבוע.&rlm;", math_expression: "" },
-            { verbal_explanation: "הסכום הוא תמיד 360 מעלות. (כמו להשלים סיבוב מלא סביב המצולע).&rlm;", math_expression: "360°" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו הגודל של זווית חיצונית אחת במשושה משוכלל?&rlm;",
+        "options": ["60", "120", "90", "72"],
+        "correctAnswer": 0,
+        "hint": "הזווית הפנימית במשושה היא 120. החיצונית משלימה אותה ל-180. או פשוט חלקו את הסכום הקבוע (360) ב-6.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בדרך המהירה. אנו יודעים שסכום כל הזוויות החיצוניות הוא שלוש מאות ושישים.", "math_expression": "360" },
+            { "verbal_explanation": "מכיוון שהמשושה משוכלל, כל שש הזוויות החיצוניות שלו שוות זו לזו.", "math_expression": "\\text{Equal Angles}" },
+            { "verbal_explanation": "נחלק את הסכום הקבוע במספר הפינות.", "math_expression": "360 \\div 6" },
+            { "verbal_explanation": "התוצאה היא שישים מעלות.", "math_expression": "60" }
         ],
-        final_answer: "תמיד שווה (בשניהם הוא 360 מעלות)"
+        "final_answer": "60"
     },
-    // שאלה 40
     {
-        topic: "geometry_advanced",
-        subTopic: "זוויות במצולע וסכום זוויות",
-        question_text: "זווית חיצונית במצולע משוכלל מסוים היא 36 מעלות. כמה צלעות יש למצולע זה?&rlm;",
-        options: ["10 צלעות", "36 צלעות", "12 צלעות", "5 צלעות"],
-        correctAnswer: 0,
-        hint: "סך הזוויות החיצוניות הוא 360. חלקו את הסכום הכולל בגודלה של זווית אחת כדי לגלות כמה זוויות כאלו יש (שזה שווה למספר הצלעות).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום כל הזוויות החיצוניות הוא 360.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': במצולע משוכלל, כל הזוויות החיצוניות שוות. לכן נחלק את הסכום (360) בזווית אחת (36).&rlm;", math_expression: "360 : 36 = 10" },
-            { verbal_explanation: "יש 10 זוויות, ולכן למצולע יש 10 צלעות (עשורון).&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "זוויות במצולע וסכום זוויות",
+        "question_text": "מהו סכום הזוויות הפנימיות במצולע בעל 10 צלעות (מעושר)?&rlm;",
+        "options": ["1440", "1800", "1080", "360"],
+        "correctAnswer": 0,
+        "hint": "הציבו את המספר 10 בנוסחה: 180 כפול (10 פחות 2).",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחה לחישוב סכום זוויות פנימיות.", "math_expression": "180(n - 2)" },
+            { "verbal_explanation": "נציב עשר במקום מספר הצלעות ונחסר שתיים.", "math_expression": "10 - 2 = 8" },
+            { "verbal_explanation": "נכפול מאה ושמונים במספר המשולשים שמצאנו.", "math_expression": "180 \\times 8" },
+            { "verbal_explanation": "נבצע את הכפל ונגיע לתוצאה.", "math_expression": "1440" },
+            { "verbal_explanation": "הסכום הוא אלף ארבע מאות וארבעים מעלות.", "math_expression": "1440" }
         ],
-        final_answer: "10 צלעות"
+        "final_answer": "1440"
     },
 
-    // ==========================================================
+    // ==========================================
     // תת נושא 5: אלכסונים במצולע (10 שאלות)
-    // ==========================================================
-    
-    // שאלה 41
+    // ==========================================
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "כמה אלכסונים ניתן להעביר מקודקוד אחד (בלבד!) בתוך מחומש?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><polygon points='50,10 90,40 75,90 25,90 10,40' fill='#f1f5f9' stroke='#334155' stroke-width='2'/><circle cx='50' cy='10' r='4' fill='#ef4444'/><line x1='50' y1='10' x2='75' y2='90' stroke='#ef4444' stroke-width='2' stroke-dasharray='4,4'/><line x1='50' y1='10' x2='25' y2='90' stroke='#ef4444' stroke-width='2' stroke-dasharray='4,4'/></svg></div>",
-        options: ["2", "5", "3", "4"],
-        correctAnswer: 0,
-        hint: "אלכסון מחבר שני קודקודים שאינם סמוכים (שכנים). מתוך 5 קודקודים, אי אפשר למתוח אלכסון לעצמו ולשני השכנים מימין ומשמאל (n-3).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הנוסחה למספר האלכסונים היוצאים מקודקוד אחד היא n - 3 (כי לא מחברים לקודקוד עצמו ולשני שכניו).&rlm;", math_expression: "n - 3" },
-            { verbal_explanation: "שלב ב': נציב n=5 (מחומש).&rlm;", math_expression: "5 - 3 = 2" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים ניתן להעביר מקודקוד אחד (פינה אחת) בתוך מחומש?&rlm;",
+        "options": ["2", "5", "3", "4"],
+        "correctAnswer": 0,
+        "hint": "מקודקוד אחד אי אפשר להעביר אלכסון לעצמו ולשני הקודקודים שלידו. לכן מחסרים 3 ממספר הצלעות.",
+        "solution_steps": [
+            { "verbal_explanation": "אלכסון הוא קו המחבר קודקוד לקודקוד אחר שאינו סמוך אליו.", "math_expression": "\\text{Diagonal}" },
+            { "verbal_explanation": "הנוסחה למספר האלכסונים היוצאים מקודקוד יחיד היא מספר הצלעות פחות שלוש.", "math_expression": "n - 3" },
+            { "verbal_explanation": "במחומש יש חמש צלעות, נציב זאת בנוסחה.", "math_expression": "5 - 3" },
+            { "verbal_explanation": "נחשב את ההפרש. מצאנו שאפשר למתוח שני אלכסונים מאותה פינה.", "math_expression": "2" }
         ],
-        final_answer: "2"
+        "final_answer": "2"
     },
-    // שאלה 42
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "מהו סך כל האלכסונים (בכל הצורה) שניתן למתוח בתוך מרובע?&rlm;",
-        options: ["2", "4", "1", "6"],
-        correctAnswer: 0,
-        hint: "חשבו על מלבן או ריבוע (שהם מרובעים). כמה קווים אלכסוניים יש בתוכם?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מרובע בנוי מ-4 קודקודים. אלכסון מחבר שני קודקודים נגדיים. במרובע יש רק שני זוגות של קודקודים נגדיים.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, בכל מרובע יש בדיוק 2 אלכסונים.&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים בסך הכל (מכל הקודקודים יחד) יש במחומש?&rlm;",
+        "options": ["5", "10", "2", "6"],
+        "correctAnswer": 0,
+        "hint": "הנוסחה לסך כל האלכסונים היא כמות הקודקודים (n) כפול האלכסונים היוצאים מכל אחד (n-3), וכל זה לחלק ל-2.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחה לחישוב המספר הכולל של אלכסונים במצולע.", "math_expression": "\\frac{n(n - 3)}{2}" },
+            { "verbal_explanation": "נציב את המספר חמש במקום המשתנה המתאר את צלעות המחומש.", "math_expression": "\\frac{5(5 - 3)}{2}" },
+            { "verbal_explanation": "נפתור את החיסור שבסוגריים.", "math_expression": "\\frac{5 \\times 2}{2}" },
+            { "verbal_explanation": "שתיים יצטמצם עם שתיים. התוצאה היא חמישה אלכסונים בסך הכל.", "math_expression": "5" }
         ],
-        final_answer: "2"
+        "final_answer": "5"
     },
-    // שאלה 43
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "מהו מספר האלכסונים הכולל בתוך מחומש (5 צלעות)?&rlm;",
-        options: ["5", "10", "2", "15"],
-        correctAnswer: 0,
-        hint: "הנוסחה למספר האלכסונים הכולל היא: n כפול (n-3) לחלק ל-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נשתמש בנוסחה לסך כל האלכסונים.&rlm;", math_expression: "(n × (n - 3)) : 2" },
-            { verbal_explanation: "שלב ב': נציב n=5.&rlm;", math_expression: "(5 × (5 - 3)) : 2" },
-            { verbal_explanation: "שלב ג': נחשב: 5 כפול 2 שווה 10. נחלק ב-2 ונקבל 5.&rlm;", math_expression: "10 : 2 = 5" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים ניתן להעביר מקודקוד אחד במשושה (מצולע בעל 6 צלעות)?&rlm;",
+        "options": ["3", "4", "2", "6"],
+        "correctAnswer": 0,
+        "hint": "חסרו 3 ממספר הצלעות.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחה הפשוטה עבור אלכסונים מקודקוד אחד.", "math_expression": "n - 3" },
+            { "verbal_explanation": "מספר הצלעות במשושה הוא שש. נציב בנוסחה.", "math_expression": "6 - 3" },
+            { "verbal_explanation": "נחשב את ההפרש ונקבל שלוש.", "math_expression": "3" },
+            { "verbal_explanation": "מכל קודקוד יוצאים שלושה אלכסונים.", "math_expression": "3" }
         ],
-        final_answer: "5"
+        "final_answer": "3"
     },
-    // שאלה 44
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "כמה אלכסונים בסך הכל יש במשושה (6 צלעות)?&rlm;",
-        options: ["9", "12", "6", "18"],
-        correctAnswer: 0,
-        hint: "הציבו n=6 בנוסחה n*(n-3)/2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נציב את הנתון בנוסחה.&rlm;", math_expression: "(6 × (6 - 3)) : 2" },
-            { verbal_explanation: "שלב ב': נפתור את הסוגריים: 6 פחות 3 זה 3.&rlm;", math_expression: "(6 × 3) : 2" },
-            { verbal_explanation: "שלב ג': 18 לחלק ל-2.&rlm;", math_expression: "18 : 2 = 9" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים בסך הכל יש במשושה?&rlm;",
+        "options": ["9", "18", "6", "12"],
+        "correctAnswer": 0,
+        "hint": "הציבו את המספר 6 בנוסחה n(n-3)/2.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחה הכללית לאלכסונים.", "math_expression": "\\frac{n(n - 3)}{2}" },
+            { "verbal_explanation": "נציב את הנתון שש במקום המשתנה.", "math_expression": "\\frac{6(6 - 3)}{2}" },
+            { "verbal_explanation": "נחשב את הסוגריים.", "math_expression": "\\frac{6 \\times 3}{2}" },
+            { "verbal_explanation": "נכפול במונה ונקבל שמונה עשרה.", "math_expression": "\\frac{18}{2}" },
+            { "verbal_explanation": "נחלק בשתיים לקבלת הפתרון הסופי.", "math_expression": "9" }
         ],
-        final_answer: "9"
+        "final_answer": "9"
     },
-    // שאלה 45
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "במצולע כלשהו, הועברו אלכסונים מקודקוד אחד (רק מקודקוד אחד), והם חילקו את המצולע ל-4 משולשים. כמה צלעות יש למצולע זה?&rlm;",
-        options: ["6 (משושה)", "4 (מרובע)", "5 (מחומש)", "7 (משובע)"],
-        correctAnswer: 0,
-        hint: "מספר המשולשים שנוצרים מהעברת אלכסונים מקודקוד אחד שווה תמיד למספר הצלעות פחות 2 (n-2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הנוסחה למספר המשולשים שנוצרים היא n - 2.&rlm;", math_expression: "n - 2 = 4" },
-            { verbal_explanation: "שלב ב': נוסיף 2 לשני האגפים כדי למצוא את מספר הצלעות (n).&rlm;", math_expression: "n = 6" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים בסך הכל יש במתומן (8 צלעות)?&rlm;",
+        "options": ["20", "24", "40", "16"],
+        "correctAnswer": 0,
+        "hint": "שמונה כפול (שמונה פחות שלוש) לחלק לשתיים.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב שמונה בנוסחת האלכסונים הכוללת.", "math_expression": "\\frac{8(8 - 3)}{2}" },
+            { "verbal_explanation": "נפתור את הסוגריים המראים את מספר האלכסונים היוצאים מקודקוד אחד (חמש).", "math_expression": "\\frac{8 \\times 5}{2}" },
+            { "verbal_explanation": "נכפול את המספרים במונה לקבלת ארבעים.", "math_expression": "\\frac{40}{2}" },
+            { "verbal_explanation": "נחלק בשתיים ונקבל עשרים.", "math_expression": "20" },
+            { "verbal_explanation": "במתומן יש עשרים אלכסונים.", "math_expression": "20" }
         ],
-        final_answer: "6 (משושה)"
+        "final_answer": "20"
     },
-    // שאלה 46
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "איזה מצולע הוא המצולע היחיד ש**אין בו אף אלכסון**?&rlm;",
-        options: ["משולש", "מרובע", "מעגל", "זווית"],
-        correctAnswer: 0,
-        hint: "אלכסון צריך לחבר בין שני קודקודים שאינם סמוכים. בצורה הזו, כל הקודקודים הם שכנים (סמוכים) אחד של השני.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "במשולש יש 3 קודקודים. כל קודקוד סמוך (מחובר בצלע) לשני הקודקודים האחרים.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, לא נשארו קודקודים 'רחוקים' לחבר אליהם אלכסון. בנוסחה: (3-3)=0.&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כאשר מעבירים את כל האלכסונים מקודקוד אחד בתוך משובע (7 צלעות), המצולע מתחלק למספר משולשים. לכמה משולשים הוא מתחלק?&rlm;",
+        "options": ["5", "7", "4", "6"],
+        "correctAnswer": 0,
+        "hint": "מספר המשולשים שנוצרים שווה למספר הצלעות פחות 2.",
+        "solution_steps": [
+            { "verbal_explanation": "יש נוסחה לחישוב מספר המשולשים שנוצרים כתוצאה ממתיחת אלכסונים מקודקוד יחיד.", "math_expression": "n - 2" },
+            { "verbal_explanation": "נציב את מספר הצלעות של המשובע, שהוא שבע.", "math_expression": "7 - 2" },
+            { "verbal_explanation": "נבצע את החיסור הפשוט.", "math_expression": "5" },
+            { "verbal_explanation": "המשובע יחולק לחמישה משולשים פנימיים.", "math_expression": "5" }
         ],
-        final_answer: "משולש"
+        "final_answer": "5"
     },
-    // שאלה 47
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "במצולע מסוים, מספר האלכסונים הכולל שיש בו שווה למספר הצלעות שלו. איזה מצולע זה?&rlm;",
-        options: ["מחומש (5 צלעות)", "מרובע (4 צלעות)", "משושה (6 צלעות)", "משולש (3 צלעות)"],
-        correctAnswer: 0,
-        hint: "במרובע יש 4 צלעות ו-2 אלכסונים. במשושה יש 6 צלעות ו-9 אלכסונים. נסו במחומש.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ראינו בחישובים קודמים שבמחומש יש 5 צלעות, וכמות האלכסונים הכוללת בו היא גם כן 5.&rlm;", math_expression: "n = 5 , Diagonals = 5" },
-            { verbal_explanation: "(הערה למתקדמים: המשוואה היא n*(n-3)/2 = n, לאחר חלוקה ב-n נקבל (n-3)/2 = 1, כלומר n-3=2 ומכאן n=5).&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים בסך הכל יש בריבוע (או כל מרובע אחר)?&rlm;",
+        "options": ["2", "4", "1", "0"],
+        "correctAnswer": 0,
+        "hint": "הציבו 4 בנוסחה, או פשוט דמיינו ריבוע ותחשבו כמה קווים חוצים אותו בפנים.",
+        "solution_steps": [
+            { "verbal_explanation": "בריבוע יש ארבע צלעות.", "math_expression": "n = 4" },
+            { "verbal_explanation": "נוכל להציב בנוסחת האלכסונים.", "math_expression": "\\frac{4(4 - 3)}{2}" },
+            { "verbal_explanation": "נחשב את הסוגריים. מקודקוד אחד יוצא רק אלכסון אחד.", "math_expression": "\\frac{4 \\times 1}{2}" },
+            { "verbal_explanation": "נפתור ונגלה שבכל המרובע ישנם שני אלכסונים.", "math_expression": "2" }
         ],
-        final_answer: "מחומש (5 צלעות)"
+        "final_answer": "2"
     },
-    // שאלה 48
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "סך כל האלכסונים במצולע הוא 35. כמה צלעות יש למצולע? (אתגר - נסו להציב מספרים בנוסחה)&rlm;",
-        options: ["10 (עשורון)", "12", "8 (מתומן)", "9"],
-        correctAnswer: 0,
-        hint: "הנוסחה: n*(n-3)/2 = 35. הכפילו ב-2 וקבלו n*(n-3) = 70. איזה מספר כפול (המספר פחות 3) שווה 70? (10 כפול 7).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את משוואת האלכסונים ונכפול ב-2.&rlm;", math_expression: "n × (n - 3) = 35 × 2 = 70" },
-            { verbal_explanation: "שלב ב': אנו מחפשים שני מספרים שההפרש ביניהם הוא 3, ומכפלתם היא 70.&rlm;", math_expression: "10 × 7 = 70" },
-            { verbal_explanation: "שלב ג': המספר הגדול יותר הוא ה-n (מספר הצלעות), לכן התשובה היא 10.&rlm;", math_expression: "n = 10" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "כמה אלכסונים יש במצולע בעל 10 צלעות (מעושר)?&rlm;",
+        "options": ["35", "70", "40", "20"],
+        "correctAnswer": 0,
+        "hint": "חשבו: 10 כפול 7, ואז חלקו בשתיים.",
+        "solution_steps": [
+            { "verbal_explanation": "נציב עשר בנוסחה למציאת כלל האלכסונים במצולע.", "math_expression": "\\frac{10(10 - 3)}{2}" },
+            { "verbal_explanation": "נפתור את הסוגריים: עשר פחות שלוש שווה שבע.", "math_expression": "\\frac{10 \\times 7}{2}" },
+            { "verbal_explanation": "נכפול עשר בשבע לקבלת שבעים.", "math_expression": "\\frac{70}{2}" },
+            { "verbal_explanation": "נחלק בשתיים. המספר הוא שלושים וחמש.", "math_expression": "35" }
         ],
-        final_answer: "10 (עשורון)"
+        "final_answer": "35"
     },
-    // שאלה 49
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "מקודקוד אחד של מצולע יוצאים בדיוק 5 אלכסונים (לשאר הקודקודים). כמה צלעות יש למצולע?&rlm;",
-        options: ["8", "5", "7", "6"],
-        correctAnswer: 0,
-        hint: "מספר האלכסונים מקודקוד אחד הוא n - 3. המשוואה: n - 3 = 5.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נוסחת אלכסונים מקודקוד בודד היא הצלעות פחות 3.&rlm;", math_expression: "n - 3 = 5" },
-            { verbal_explanation: "נוסיף 3 כדי למצוא את מספר הצלעות.&rlm;", math_expression: "n = 5 + 3 = 8" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "ידוע שבמצולע מסוים יש בסך הכל 14 אלכסונים. כמה צלעות יש למצולע הזה?&rlm;",
+        "options": ["7", "6", "8", "14"],
+        "correctAnswer": 0,
+        "hint": "אפשר לבנות משוואה n(n-3)/2 = 14, או פשוט לנסות להציב את התשובות בנוסחה ולראות מי נותנת 14.",
+        "solution_steps": [
+            { "verbal_explanation": "נבנה משוואה על פי הנוסחה ונשווה אותה לארבע עשרה.", "math_expression": "\\frac{n(n - 3)}{2} = 14" },
+            { "verbal_explanation": "נכפול בשתיים כדי להעלים את השבר.", "math_expression": "n(n - 3) = 28" },
+            { "verbal_explanation": "נחפש מספר שלם שכשנכפול אותו במספר שקטן ממנו בשלוש, נקבל עשרים ושמונה. אפשר לבדוק אפשרויות.", "math_expression": "7 \\times 4 = 28" },
+            { "verbal_explanation": "מכיוון ששבע וארבע מקיימים את התנאי, נסיק שמספר הצלעות הוא שבע.", "math_expression": "n = 7" }
         ],
-        final_answer: "8"
+        "final_answer": "7"
     },
-    // שאלה 50
     {
-        topic: "geometry_advanced",
-        subTopic: "אלכסונים במצולע",
-        question_text: "מדוע בנוסחת סך האלכסונים (n*(n-3)/2) אנו מחלקים ב-2 בסוף?&rlm;",
-        options: ["כדי לא לספור כל אלכסון פעמיים (פעם מכל קצה שלו).", "כדי לקבל את מספר המשולשים שנוצרים.", "זהו תיקון טעות גיאומטרית בסיסית.", "כי לכל מצולע יש שתי זוויות."],
-        correctAnswer: 0,
-        hint: "כשאתם מותחים אלכסון מקודקוד A לקודקוד B, זהו אותו אלכסון שנמתח מקודקוד B לקודקוד A.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כאשר אנו כופלים את מספר הקודקודים (n) במספר האלכסונים שיוצאים מכל אחד (n-3), אנו סופרים כל קו פעמיים - פעם אחת מההתחלה ופעם נוספת מהסוף.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן חייבים לחלק ב-2 כדי לקבל את המספר האמיתי של הקווים היחודיים.&rlm;", math_expression: "" }
+        "topic": "geometry_grade_8",
+        "subTopic": "אלכסונים במצולע",
+        "question_text": "באיזה מצולע אי אפשר להעביר אפילו אלכסון אחד? (מספר האלכסונים הוא 0).&rlm;",
+        "options": ["משולש", "מרובע", "מחומש", "עיגול"],
+        "correctAnswer": 0,
+        "hint": "אלכסון מחבר שני קודקודים שאינם סמוכים. בצורה זו, כל הקודקודים סמוכים זה לזה.",
+        "solution_steps": [
+            { "verbal_explanation": "נבדוק מתי נוסחת האלכסונים שווה לאפס.", "math_expression": "\\frac{n(n - 3)}{2} = 0" },
+            { "verbal_explanation": "כדי שהשבר יתאפס, המונה צריך להיות אפס.", "math_expression": "n - 3 = 0" },
+            { "verbal_explanation": "נפתור ונגלה שמספר הצלעות חייב להיות שלוש.", "math_expression": "n = 3" },
+            { "verbal_explanation": "מצולע בעל שלוש צלעות הוא משולש. אין בו קודקודים נגדיים אלא רק סמוכים, לכן אין לו אלכסונים כלל.", "math_expression": "\\text{Triangle}" }
         ],
-        final_answer: "כדי לא לספור כל אלכסון פעמיים (פעם מכל קצה שלו)."
+        "final_answer": "משולש"
     },
 
-    // ==========================================================
+    // ==========================================
     // תת נושא 6: מעגל ועיגול (היקף ושטח) (10 שאלות)
-    // ==========================================================
-    
-    // שאלה 51
+    // ==========================================
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "מהו שטח העיגול (S) אם רדיוסו הוא 5 ס\"מ? (השאירו את π בתשובה)&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><circle cx='50' cy='50' r='40' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><line x1='50' y1='50' x2='90' y2='50' stroke='#ef4444' stroke-width='2'/><circle cx='50' cy='50' r='3' fill='#0f172a'/><text x='70' y='45' font-family='Arial' font-size='12' fill='#ef4444'>r=5</text></svg></div>",
-        options: ["25π סמ\"ר", "10π סמ\"ר", "5π סמ\"ר", "100π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "נוסחת השטח היא פאי כפול הרדיוס בריבוע. 5 בריבוע הוא...&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוסחת שטח עיגול.&rlm;", math_expression: "S = π × r²" },
-            { verbal_explanation: "שלב ב': נציב את הרדיוס 5 במקום r, ונעלה בריבוע.&rlm;", math_expression: "S = π × 5²" },
-            { verbal_explanation: "שלב ג': 5 בריבוע שווה 25.&rlm;", math_expression: "S = 25π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "מעגל בעל רדיוס של 5 סנטימטרים. מהו שטח העיגול החסום בו? (כתבו את התשובה עם האות פאי π).&rlm;",
+        "options": ["25π", "10π", "5π", "100π"],
+        "correctAnswer": 0,
+        "hint": "נוסחת שטח עיגול היא פאי כפול הרדיוס בריבוע.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת שטח העיגול המקובלת.", "math_expression": "S = \\pi \\times r^2" },
+            { "verbal_explanation": "נציב את הרדיוס הנתון, שהוא חמש, לתוך הנוסחה.", "math_expression": "S = \\pi \\times 5^2" },
+            { "verbal_explanation": "נחשב את ריבוע המספר חמש.", "math_expression": "5 \\times 5 = 25" },
+            { "verbal_explanation": "נצרף את המספר שקיבלנו לסמל הפאי לקבלת התשובה המדויקת.", "math_expression": "25\\pi" }
         ],
-        final_answer: "25π סמ\"ר"
+        "final_answer": "25π"
     },
-    // שאלה 52
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "מהו היקף המעגל (P) אם הרדיוס שלו הוא 4 ס\"מ?&rlm;",
-        options: ["8π ס\"מ", "16π ס\"מ", "4π ס\"מ", "2π ס\"מ"],
-        correctAnswer: 0,
-        hint: "היקף מעגל הוא פאי כפול פעמיים הרדיוס (כלומר הקוטר).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוסחת היקף מעגל.&rlm;", math_expression: "P = 2 × π × r" },
-            { verbal_explanation: "שלב ב': נציב רדיוס 4 ונכפול ב-2.&rlm;", math_expression: "P = 2 × π × 4" },
-            { verbal_explanation: "שלב ג': נסדר את המספרים.&rlm;", math_expression: "P = 8π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "קוטרו של מעגל (המרחק מצד לצד דרך המרכז) הוא 12 סנטימטרים. מהו השטח שלו?&rlm;",
+        "options": ["36π", "144π", "12π", "24π"],
+        "correctAnswer": 0,
+        "hint": "הרדיוס הוא תמיד חצי מהקוטר. מצאו את הרדיוס קודם, ורק אז חשבו שטח לפי הנוסחה.",
+        "solution_steps": [
+            { "verbal_explanation": "הקוטר נתון כשנים עשר. הרדיוס שווה בדיוק לחצי מהקוטר.", "math_expression": "r = 12 \\div 2 = 6" },
+            { "verbal_explanation": "נשתמש ברדיוס שמצאנו ונציב אותו בנוסחת השטח.", "math_expression": "S = \\pi \\times 6^2" },
+            { "verbal_explanation": "נחשב את המכפלה של שש בעצמו.", "math_expression": "6 \\times 6 = 36" },
+            { "verbal_explanation": "השטח הוא שלושים ושישה פאי.", "math_expression": "36\\pi" }
         ],
-        final_answer: "8π ס\"מ"
+        "final_answer": "36π"
     },
-    // שאלה 53
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "קוטר של עיגול (הקו מקצה לקצה דרך המרכז) הוא 12 ס\"מ. מהו שטח העיגול?&rlm;",
-        options: ["36π סמ\"ר", "144π סמ\"ר", "12π סמ\"ר", "24π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "בנוסחת השטח משתמשים תמיד ברדיוס. הרדיוס הוא חצי מהקוטר (לכן הוא 6). העלו את 6 בריבוע.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נמצא את הרדיוס. קוטר חלקי 2.&rlm;", math_expression: "r = 12 : 2 = 6" },
-            { verbal_explanation: "שלב ב': נציב את הרדיוס 6 בנוסחת השטח (פאי כפול רדיוס בריבוע).&rlm;", math_expression: "S = π × 6²" },
-            { verbal_explanation: "שלב ג': 6 בריבוע הם 36.&rlm;", math_expression: "S = 36π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "מהו היקף המעגל (אורך הקו החיצוני בלבד) אם הרדיוס שלו הוא 4 סנטימטרים?&rlm;",
+        "options": ["8π", "16π", "4π", "2π"],
+        "correctAnswer": 0,
+        "hint": "נוסחת היקף מעגל היא 2 כפול פאי כפול הרדיוס.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת היקף מעגל המקובלת.", "math_expression": "P = 2 \\times \\pi \\times r" },
+            { "verbal_explanation": "נציב את הרדיוס הידוע למשוואה.", "math_expression": "P = 2 \\times \\pi \\times 4" },
+            { "verbal_explanation": "נכפול את המספרים בלבד (שתיים כפול ארבע).", "math_expression": "2 \\times 4 = 8" },
+            { "verbal_explanation": "נקבל שההיקף הוא שמונה פאי.", "math_expression": "8\\pi" }
         ],
-        final_answer: "36π סמ\"ר"
+        "final_answer": "8π"
     },
-    // שאלה 54
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "היקף של מעגל הוא 20π ס\"מ. מהו רדיוס המעגל?&rlm;",
-        options: ["10 ס\"מ", "5 ס\"מ", "20 ס\"מ", "100 ס\"מ"],
-        correctAnswer: 0,
-        hint: "היקף המעגל הוא מכפלת הקוטר ב-π. לכן הקוטר הוא 20. הרדיוס הוא חצי מזה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את משוואת ההיקף ונוכל לצמצם את ה-π משני הצדדים.&rlm;", math_expression: "2 × π × r = 20π" },
-            { verbal_explanation: "שלב ב': אחרי צמצום ה-π, נשארנו עם פעמיים הרדיוס שווה 20.&rlm;", math_expression: "2r = 20" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "r = 10" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "קוטרו של מעגל הוא 10 סנטימטרים. מהו היקף המעגל?&rlm;",
+        "options": ["10π", "20π", "25π", "5π"],
+        "correctAnswer": 0,
+        "hint": "אפשר למצוא את הרדיוס (5) ולהכפיל ב-2, או פשוט להשתמש בנוסחה הקצרה יותר: היקף שווה לפאי כפול הקוטר.",
+        "solution_steps": [
+            { "verbal_explanation": "היקף מעגל ניתן לחישוב ישיר באמצעות הקוטר. הנוסחה היא קוטר כפול פאי.", "math_expression": "P = d \\times \\pi" },
+            { "verbal_explanation": "הקוטר נתון לנו והוא עשר.", "math_expression": "d = 10" },
+            { "verbal_explanation": "נציב את הערך במקום האות המייצגת את הקוטר.", "math_expression": "P = 10 \\times \\pi" },
+            { "verbal_explanation": "היקף המעגל הוא עשרה פאי.", "math_expression": "10\\pi" }
         ],
-        final_answer: "10 ס\"מ"
+        "final_answer": "10π"
     },
-    // שאלה 55
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "שטחו של עיגול הוא 49π סמ\"ר. מהו קוטר העיגול (d)?&rlm;",
-        options: ["14 ס\"מ", "7 ס\"מ", "49 ס\"מ", "98 ס\"מ"],
-        correctAnswer: 0,
-        hint: "השטח הוא π*r². לכן r²=49. הרדיוס הוא שורש של 49 (7). הקוטר הוא פעמיים הרדיוס!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': ממשוואת השטח נבודד את הרדיוס בריבוע.&rlm;", math_expression: "π × r² = 49π  =>  r² = 49" },
-            { verbal_explanation: "שלב ב': נוציא שורש כדי למצוא את הרדיוס.&rlm;", math_expression: "r = √49 = 7" },
-            { verbal_explanation: "שלב ג': הקוטר (d) כפול מהרדיוס.&rlm;", math_expression: "d = 7 × 2 = 14" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "שטחו של מעגל הוא \\( 49\\pi \\) סמ''ר. מהו אורך הרדיוס שלו?&rlm;",
+        "options": ["7", "49", "98", "24.5"],
+        "correctAnswer": 0,
+        "hint": "השטח הוא הרדיוס בריבוע (כפול פאי). איזה מספר כפול עצמו שווה ל-49?",
+        "solution_steps": [
+            { "verbal_explanation": "נרשום את נוסחת השטח ונשווה לנתון שבשאלה.", "math_expression": "\\pi \\times r^2 = 49\\pi" },
+            { "verbal_explanation": "סמל הפאי מופיע בשני הצדדים, לכן נוכל לצמצם אותו מן המשוואה.", "math_expression": "r^2 = 49" },
+            { "verbal_explanation": "נחפש מספר חיובי שכשנכפול אותו בעצמו, ייתן לנו ארבעים ותשע.", "math_expression": "7 \\times 7 = 49" },
+            { "verbal_explanation": "לכן, אורך הרדיוס הוא שבעה סנטימטרים.", "math_expression": "r = 7" }
         ],
-        final_answer: "14 ס\"מ"
+        "final_answer": "7"
     },
-    // שאלה 56
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "צורה מורכבת מ- 'חצי עיגול'. הרדיוס של חצי העיגול הוא 6 ס\"מ. מהו שטח הצורה (בלי לחשב את π)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 60' width='80' height='48'><path d='M 10 50 A 40 40 0 0 1 90 50 Z' fill='#bae6fd' stroke='#0284c7' stroke-width='2'/><circle cx='50' cy='50' r='3' fill='#0f172a'/><line x1='50' y1='50' x2='90' y2='50' stroke='#ef4444' stroke-width='2'/><text x='70' y='45' font-family='Arial' font-size='12' fill='#ef4444'>6</text></svg></div>",
-        options: ["18π סמ\"ר", "36π סמ\"ר", "12π סמ\"ר", "9π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "חשבו את השטח של עיגול שלם בעל אותו רדיוס, ואז חלקו את התוצאה ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': שטח עיגול שלם עם רדיוס 6.&rlm;", math_expression: "S_{full} = π × 6² = 36π" },
-            { verbal_explanation: "שלב ב': מכיוון שזהו חצי עיגול, נחלק את השטח ב-2.&rlm;", math_expression: "S_{half} = 36π : 2 = 18π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "היקף של מעגל הוא \\( 20\\pi \\) סנטימטרים. מהו קוטר המעגל?&rlm;",
+        "options": ["20", "10", "40", "100"],
+        "correctAnswer": 0,
+        "hint": "ההיקף שווה תמיד לקוטר כפול פאי. לכן המספר המופיע לפני הפאי הוא בדיוק הקוטר.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת ההיקף המבוססת על הקוטר במקום על הרדיוס.", "math_expression": "P = d \\times \\pi" },
+            { "verbal_explanation": "נציב את ההיקף שניתן לנו אל תוך המשוואה.", "math_expression": "20\\pi = d \\times \\pi" },
+            { "verbal_explanation": "נצמצם את הפאי משני הצדדים של המשוואה להשאיר את המשתנה לבדו.", "math_expression": "d = 20" },
+            { "verbal_explanation": "גילינו שהקוטר שווה לעשרים סנטימטרים.", "math_expression": "20" }
         ],
-        final_answer: "18π סמ\"ר"
+        "final_answer": "20"
     },
-    // שאלה 57
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "חזרה לשאלה הקודמת: מהו **ההיקף הכולל** של צורת 'חצי העיגול' שהרדיוס שלה 6 ס\"מ? (שימו לב: ההיקף כולל גם את הקשת וגם את הקו הישר של הבסיס התחתון!)&rlm;",
-        options: ["6π + 12", "6π", "12π", "18π + 12"],
-        correctAnswer: 0,
-        hint: "הקשת העגולה היא חצי מהיקף מעגל שלם (חצי מ-12π). הבסיס התחתון הוא הקוטר (פעמיים 6). חברו את הקשת והקוטר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': אורך הקשת המעוגלת הוא חצי מהיקף מעגל שלם.&rlm;", math_expression: "P_{arc} = (2 × π × 6) : 2 = 12π : 2 = 6π" },
-            { verbal_explanation: "שלב ב': אל תשכחו את קו הבסיס שסוגר את הצורה (הקוטר). הקוטר הוא פעמיים 6.&rlm;", math_expression: "d = 6 × 2 = 12" },
-            { verbal_explanation: "שלב ג': ההיקף הכולל הוא החיבור של הקשת והקוטר (הם אינם מתחברים למספר יחיד כי אחד מכיל פאי והשני לא).&rlm;", math_expression: "6π + 12" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "לפניכם חצי עיגול. רדיוסו הוא 4 סנטימטרים. מהו שטח חצי העיגול הזה?&rlm;",
+        "options": ["8π", "16π", "4π", "32π"],
+        "correctAnswer": 0,
+        "hint": "חשבו קודם את שטח העיגול המלא (עם רדיוס 4), ולאחר מכן חלקו את התוצאה בשתיים.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב קודם את השטח של עיגול שלם בעל אותו רדיוס בדיוק.", "math_expression": "S = \\pi \\times 4^2" },
+            { "verbal_explanation": "ארבע בריבוע שווה לשש עשרה. שטח העיגול המלא הוא שש עשרה פאי.", "math_expression": "16\\pi" },
+            { "verbal_explanation": "מכיוון שביקשו רק חצי עיגול, נחלק את השטח המלא שמצאנו בשתיים.", "math_expression": "16\\pi \\div 2" },
+            { "verbal_explanation": "השטח של החצי הוא שמונה פאי.", "math_expression": "8\\pi" }
         ],
-        final_answer: "6π + 12"
+        "final_answer": "8π"
     },
-    // שאלה 58
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "טבעת נוצרת על ידי שני מעגלים שיש להם את אותו מרכז. רדיוס המעגל הגדול הוא 5 ס\"מ, ורדיוס המעגל הפנימי הקטן (החור) הוא 3 ס\"מ. מהו שטח הטבעת?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><circle cx='50' cy='50' r='40' fill='#dcfce7' stroke='#16a34a' stroke-width='2'/><circle cx='50' cy='50' r='24' fill='#ffffff' stroke='#16a34a' stroke-width='2'/><circle cx='50' cy='50' r='2' fill='#0f172a'/><line x1='50' y1='50' x2='90' y2='50' stroke='#16a34a'/><text x='70' y='45' font-family='Arial' font-size='10' fill='#0f172a'>5</text><line x1='50' y1='50' x2='50' y2='26' stroke='#ef4444'/><text x='40' y='35' font-family='Arial' font-size='10' fill='#ef4444'>3</text></svg></div>",
-        options: ["16π סמ\"ר", "25π סמ\"ר", "9π סמ\"ר", "4π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "חשבו את השטח של המעגל הגדול כולו (25π). חסרו ממנו את השטח של המעגל הקטן הלבן שהוא ה'חור' (9π).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': שטח המעגל הגדול (עם רדיוס 5).&rlm;", math_expression: "S_{large} = π × 5² = 25π" },
-            { verbal_explanation: "שלב ב': שטח המעגל הקטן (החור, עם רדיוס 3).&rlm;", math_expression: "S_{small} = π × 3² = 9π" },
-            { verbal_explanation: "שלב ג': שטח הטבעת הוא השטח הגדול פחות השטח הקטן.&rlm;", math_expression: "25π - 9π = 16π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "ציירנו חצי מעגל שהרדיוס שלו 3 סנטימטרים. מהו היקף הצורה כולה (הכולל גם את הקשת החצי-מעגלית וגם את הקו הישר הסוגר אותה למטה)?&rlm;",
+        "options": ["3π + 6", "3π", "6π + 6", "1.5π + 3"],
+        "correctAnswer": 0,
+        "hint": "ההיקף מורכב משני חלקים. החלק הראשון הוא חצי מהיקף מעגל מלא. החלק השני הוא הקוטר (שני רדיוסים) שסוגר את הצורה מלמטה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב תחילה את היקף המעגל השלם שרדיוסו שלוש.", "math_expression": "2 \\times \\pi \\times 3 = 6\\pi" },
+            { "verbal_explanation": "הקשת שלנו היא רק חצי מעגל, לכן נחלק את ההיקף השלם בשתיים.", "math_expression": "6\\pi \\div 2 = 3\\pi" },
+            { "verbal_explanation": "זהו רק אורך הקשת. נותר להוסיף את הבסיס הישר שסוגר את הצורה. הוא מורכב משני רדיוסים, כלומר קוטר שלם.", "math_expression": "3 + 3 = 6" },
+            { "verbal_explanation": "נחבר את שני החלקים ליצירת הביטוי המייצג את ההיקף הכולל.", "math_expression": "3\\pi + 6" }
         ],
-        final_answer: "16π סמ\"ר"
+        "final_answer": "3π + 6"
     },
-    // שאלה 59
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "עיגול חסום בתוך ריבוע בצורה מושלמת כך שהוא נוגע בצלעות. אורך צלע הריבוע הוא 10 ס\"מ. מהו שטח העיגול החסום?&rlm;",
-        options: ["25π סמ\"ר", "100π סמ\"ר", "10π סמ\"ר", "50π סמ\"ר"],
-        correctAnswer: 0,
-        hint: "כאשר עיגול חסום בריבוע, הקוטר שלו (d) שווה לאורך צלע הריבוע (10). מהו הרדיוס? (חצי, 5).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': קוטר העיגול החסום זהה לרוחב הריבוע (10 ס\"מ).&rlm;", math_expression: "d = 10" },
-            { verbal_explanation: "שלב ב': הרדיוס הוא חצי מהקוטר.&rlm;", math_expression: "r = 10 : 2 = 5" },
-            { verbal_explanation: "שלב ג': שטח העיגול הוא הרדיוס בריבוע כפול פאי.&rlm;", math_expression: "S = π × 5² = 25π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "למעגל ענק יש רדיוס של 10 מטרים. מה יהיה שטחו?&rlm;",
+        "options": ["100π", "20π", "50π", "1000π"],
+        "correctAnswer": 0,
+        "hint": "העלו את עשר בריבוע והכפילו בפאי.",
+        "solution_steps": [
+            { "verbal_explanation": "כמו תמיד, שטח מחושב על ידי הכפלת הפאי בריבוע הרדיוס.", "math_expression": "S = \\pi \\times 10^2" },
+            { "verbal_explanation": "עשר בריבוע שווה למאה.", "math_expression": "10 \\times 10 = 100" },
+            { "verbal_explanation": "נחבר את המספר לסמל המתמטי לקבלת התשובה.", "math_expression": "100\\pi" }
         ],
-        final_answer: "25π סמ\"ר"
+        "final_answer": "100π"
     },
-    // שאלה 60
     {
-        topic: "geometry_advanced",
-        subTopic: "מעגל ועיגול (היקף ושטח)",
-        question_text: "גלגל אופניים מתגלגל על הכביש. הקוטר של הגלגל הוא 1 מטר. כמה מטרים יעבור הגלגל אם הוא יעשה בדיוק 10 סיבובים שלמים?&rlm;",
-        options: ["10π מטרים", "5π מטרים", "10 מטרים", "100π מטרים"],
-        correctAnswer: 0,
-        hint: "בכל סיבוב שלם, הגלגל עובר מרחק ששווה בדיוק ל'היקף' שלו. היקף של קוטר 1 הוא 1π. הכפילו במספר הסיבובים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סיבוב אחד של הגלגל על הכביש מכסה מרחק השווה להיקף המעגל.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': ההיקף הוא הקוטר כפול π. במקרה זה, 1 כפול π שווה ל-π אחד.&rlm;", math_expression: "P = 1 × π = 1π" },
-            { verbal_explanation: "שלב ג': הגלגל עשה 10 סיבובים. נכפיל את ההיקף (1π) ב-10.&rlm;", math_expression: "10 × 1π = 10π" }
+        "topic": "geometry_grade_8",
+        "subTopic": "מעגל ועיגול (היקף ושטח)",
+        "question_text": "מעגל קטן מאוד בעל רדיוס של סנטימטר אחד (1 ס''מ). מהו ההיקף שלו?&rlm;",
+        "options": ["2π", "1π", "0.5π", "4π"],
+        "correctAnswer": 0,
+        "hint": "הציבו 1 בנוסחת ההיקף.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת ההיקף, ונציב בה את המספר אחד במקום המשתנה אר.", "math_expression": "P = 2 \\times \\pi \\times 1" },
+            { "verbal_explanation": "נכפול שתיים באחד, והתוצאה כמובן נשארת שתיים.", "math_expression": "2 \\times 1 = 2" },
+            { "verbal_explanation": "ההיקף הוא שני פאי.", "math_expression": "2\\pi" }
         ],
-        final_answer: "10π מטרים"
+        "final_answer": "2π"
     }
-
 ];

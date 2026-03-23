@@ -1,756 +1,636 @@
-// ========================================================================
-// שכבת גיל: כיתה ח'-ט' | נושא: טכניקה אלגברית
-// 4 תתי נושאים | 48 שאלות סה"כ
-// פתרונות מפורטים מאוד: פירוק לגורמים, צמצום, מכנה משותף, ותחום הצבה.
-// כתיבה נוקשה: חילוק ושברים מוצגים אך ורק בעזרת (:) ! ללא לוכסנים.
-// שימוש ב- × לכפל, ≠ לשונה מ... ללא LaTeX.
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
-    // תת נושא 1: צמצום שברים אלגבריים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
+    // ==========================================
+    // תת נושא 1: צמצום שברים אלגבריים (10 שאלות)
+    // ==========================================
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "צמצמו את השבר האלגברי הבא (הוציאו גורם משותף במונה במידת הצורך):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(4x + 8) : 4 = ?</div>",
-        options: ["x + 2", "x + 8", "4x + 2", "x"],
-        correctAnswer: 0,
-        hint: "אסור לצמצם חלק מסכום! קודם הוציאו את המספר 4 כגורם משותף במונה (מחוץ לסוגריים), ורק אז צמצמו אותו עם ה-4 שבמכנה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': אי אפשר לצמצם את ה-4 ישר, כי יש במונה פעולת חיבור. עלינו להפוך את המונה למכפלה (כפל).&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': נוציא גורם משותף במונה. גם 4 וגם 8 מתחלקים ב-4.&rlm;", math_expression: "4x + 8 = 4(x + 2)" },
-            { verbal_explanation: "שלב ג': נרשום את השבר החדש. כעת יש כפל בין 4 לסוגריים.&rlm;", math_expression: "4(x + 2) : 4" },
-            { verbal_explanation: "שלב ד': נצמצם את ה-4 שבמונה עם ה-4 שבמכנה.&rlm;", math_expression: "x + 2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר האלגברי הבא: \\( \\frac{12x^2}{4x} \\)&rlm;",
+        "options": ["3x", "8x", "3x^2", "3"],
+        "correctAnswer": 0,
+        "hint": "צמצמו את המספרים בנפרד ואת המשתנים בנפרד. שנים עשר לחלק לארבע שווה שלוש.",
+        "solution_steps": [
+            { "verbal_explanation": "נפצל את השבר לשני חלקים כדי להקל על הפתרון: חלק למספרים וחלק למשתנים.", "math_expression": "\\frac{12}{4} \\times \\frac{x^2}{x}" },
+            { "verbal_explanation": "נחשב את החלק המספרי על ידי חילוק רגיל.", "math_expression": "12 \\div 4 = 3" },
+            { "verbal_explanation": "נצמצם את החלק המשתנה. איקס בריבוע חלקי איקס שווה לאיקס בודד אחד.", "math_expression": "x^2 \\div x = x" },
+            { "verbal_explanation": "נחבר את התוצאות לביטוי אחד שלם.", "math_expression": "3x" }
         ],
-        final_answer: "x + 2"
+        "final_answer": "3x"
     },
-    // שאלה 2
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "פשטו את השבר על ידי הוצאת משתנה משותף:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x² + 5x) : x = ?</div>",
-        options: ["x + 5", "x² + 5", "6x", "5x"],
-        correctAnswer: 0,
-        hint: "הוציאו x כגורם משותף במונה. מה נשאר בסוגריים?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוציא גורם משותף במונה. האות x מופיעה בשני האיברים.&rlm;", math_expression: "x² + 5x = x(x + 5)" },
-            { verbal_explanation: "שלב ב': נציב חזרה בשבר.&rlm;", math_expression: "x(x + 5) : x" },
-            { verbal_explanation: "שלב ג': נצמצם את ה-x שבמונה (שנמצא מחוץ לסוגריים) עם ה-x שבמכנה.&rlm;", math_expression: "x + 5" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר האלגברי הבא: \\( \\frac{5x + 15}{5} \\)&rlm;",
+        "options": ["x + 3", "x + 15", "5x + 3", "x + 5"],
+        "correctAnswer": 0,
+        "hint": "הוציאו תחילה גורם משותף מתוך המונה. לאחר מכן תוכלו לצמצם אותו עם המכנה.",
+        "solution_steps": [
+            { "verbal_explanation": "נסתכל על המונה בלבד ונחפש גורם משותף. המספר חמש משותף לשני האיברים.", "math_expression": "5(x + 3)" },
+            { "verbal_explanation": "נרשום את השבר מחדש עם המונה המפורק.", "math_expression": "\\frac{5(x + 3)}{5}" },
+            { "verbal_explanation": "מכיוון שהמספר חמש מופיע ככופל גם במונה וגם במכנה, ניתן לצמצמו (למחוק אותו).", "math_expression": "5 \\div 5 = 1" },
+            { "verbal_explanation": "נשארנו רק עם הביטוי שהיה בתוך הסוגריים.", "math_expression": "x + 3" }
         ],
-        final_answer: "x + 5"
+        "final_answer": "x + 3"
     },
-    // שאלה 3
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "צמצמו את השבר האלגברי (הוציאו גורם משותף במונה):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(3x - 12) : (x - 4) = ?</div>",
-        options: ["3", "x - 3", "3x", "4"],
-        correctAnswer: 0,
-        hint: "הוציאו את המספר 3 מחוץ לסוגריים במונה. האם הסוגריים שיישארו שווים למכנה?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוציא את המספר 3 כגורם משותף במונה.&rlm;", math_expression: "3x - 12 = 3(x - 4)" },
-            { verbal_explanation: "שלב ב': נרשום את השבר המעודכן.&rlm;", math_expression: "3(x - 4) : (x - 4)" },
-            { verbal_explanation: "שלב ג': הביטוי (x - 4) מופיע בשלמותו גם במונה וגם במכנה. נצמצם אותו כגוש אחד.&rlm;", math_expression: "3" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר: \\( \\frac{x^2 - 4x}{x} \\)&rlm;",
+        "options": ["x - 4", "x^2 - 4", "x - 4x", "1 - 4x"],
+        "correctAnswer": 0,
+        "hint": "הוציאו את איקס כגורם משותף מחוץ לסוגריים במונה, ואז בצעו צמצום.",
+        "solution_steps": [
+            { "verbal_explanation": "המונה מורכב משני איברים המכילים את המשתנה איקס. נוציא איקס מחוץ לסוגריים.", "math_expression": "x(x - 4)" },
+            { "verbal_explanation": "נכתוב את השבר מחדש עם הפירוק שביצענו.", "math_expression": "\\frac{x(x - 4)}{x}" },
+            { "verbal_explanation": "ניתן לצמצם את האיקס שנמצא מחוץ לסוגריים במונה יחד עם האיקס שבמכנה.", "math_expression": "x \\div x = 1" },
+            { "verbal_explanation": "הביטוי הנותר הוא מה שהיה בתוך הסוגריים.", "math_expression": "x - 4" }
         ],
-        final_answer: "3"
+        "final_answer": "x - 4"
     },
-    // שאלה 4
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "שימוש בנוסחאות כפל מקוצר! צמצמו את השבר:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x² - 16) : (x - 4) = ?</div>",
-        options: ["x + 4", "x - 4", "4x", "x + 16"],
-        correctAnswer: 0,
-        hint: "המונה הוא 'הפרש ריבועים'. פרקו אותו ל- (x-4) כפול (x+4).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נזהה שהמונה הוא נוסחת הכפל המקוצר 'הפרש ריבועים', כיוון ש-16 הוא 4 בריבוע.&rlm;", math_expression: "x² - 16 = (x - 4)(x + 4)" },
-            { verbal_explanation: "שלב ב': נציב את הפירוק בחזרה במונה השבר.&rlm;", math_expression: "(x - 4)(x + 4) : (x - 4)" },
-            { verbal_explanation: "שלב ג': נצמצם את הסוגריים המשותפים (x - 4) במונה ובמכנה.&rlm;", math_expression: "x + 4" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר הבא בעזרת נוסחת הפרש ריבועים: \\( \\frac{x^2 - 25}{x - 5} \\)&rlm;",
+        "options": ["x + 5", "x - 5", "x^2 - 5", "x - 20"],
+        "correctAnswer": 0,
+        "hint": "מונה השבר הוא הפרש ריבועים. לפי הנוסחה, הוא שווה ל- (x-5) כפול (x+5).",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה שהמונה הוא הפרש בין שני ריבועים (איקס בריבוע וחמש בריבוע).", "math_expression": "x^2 - 5^2" },
+            { "verbal_explanation": "נפרק את המונה לפי הנוסחה להפרש ריבועים לשני סוגריים.", "math_expression": "(x - 5)(x + 5)" },
+            { "verbal_explanation": "נרשום את השבר מחדש עם המונה המפורק.", "math_expression": "\\frac{(x - 5)(x + 5)}{x - 5}" },
+            { "verbal_explanation": "הביטוי איקס פחות חמש מופיע במלואו גם במונה וגם במכנה. נצמצם אותו.", "math_expression": "1" },
+            { "verbal_explanation": "התוצאה הסופית שנותרה היא הסוגריים השניים.", "math_expression": "x + 5" }
         ],
-        final_answer: "x + 4"
+        "final_answer": "x + 5"
     },
-    // שאלה 5
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "צמצום עם מקדמים זהים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(10x + 15) : 5 = ?</div>",
-        options: ["2x + 3", "2x + 15", "10x + 3", "5x + 3"],
-        correctAnswer: 0,
-        hint: "הוציאו את המספר 5 כגורם משותף מהמונה. 10x לחלק ל-5 נותן 2x. ו-15 לחלק ל-5 נותן 3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוציא את המספר 5 כגורם משותף במונה.&rlm;", math_expression: "10x + 15 = 5(2x + 3)" },
-            { verbal_explanation: "שלב ב': נכתוב את השבר מחדש.&rlm;", math_expression: "5(2x + 3) : 5" },
-            { verbal_explanation: "שלב ג': נצמצם את ה-5 שבמונה עם ה-5 שבמכנה.&rlm;", math_expression: "2x + 3" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר האלגברי: \\( \\frac{6a^2b}{3ab} \\)&rlm;",
+        "options": ["2a", "2ab", "3a", "2a^2"],
+        "correctAnswer": 0,
+        "hint": "צמצמו את המספרים בנפרד, את האות a בנפרד ואת האות b בנפרד.",
+        "solution_steps": [
+            { "verbal_explanation": "נפריד את השבר לשלושה חלקים לחישוב קל יותר: חלק מספרי, משתנה ראשון ומשתנה שני.", "math_expression": "\\frac{6}{3} \\times \\frac{a^2}{a} \\times \\frac{b}{b}" },
+            { "verbal_explanation": "נחלק את המספר שש בשלוש לקבלת שתיים.", "math_expression": "6 \\div 3 = 2" },
+            { "verbal_explanation": "נחלק איי בריבוע באיי ונקבל איי יחיד.", "math_expression": "a^2 \\div a = a" },
+            { "verbal_explanation": "חלוקת בי בבי מצטמצמת לאחד ונעלמת.", "math_expression": "b \\div b = 1" },
+            { "verbal_explanation": "נרכיב את התשובה הסופית מהחלקים שנשארו.", "math_expression": "2a" }
         ],
-        final_answer: "2x + 3"
+        "final_answer": "2a"
     },
-    // שאלה 6
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "טריק של סימנים הפוכים! צמצמו את השבר:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x - 7) : (7 - x) = ?</div>",
-        options: ["-1", "1", "0", "x - 7"],
-        correctAnswer: 0,
-        hint: "הביטוי במונה והביטוי במכנה הם נגדיים זה לזה. הוציאו מינוס 1 (1-) כגורם משותף מתוך המכנה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הביטויים דומים, אבל הסימנים שלהם הפוכים (ל-x יש פלוס במונה ומינוס במכנה, ול-7 להפך).&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': נוציא מינוס 1 מחוץ לסוגריים במכנה. זה יהפוך את הסימנים בפנים.&rlm;", math_expression: "7 - x = -1(-7 + x) = -1(x - 7)" },
-            { verbal_explanation: "שלב ג': נציב את המכנה החדש.&rlm;", math_expression: "(x - 7) : -1(x - 7)" },
-            { verbal_explanation: "שלב ד': הסוגריים מצטמצמים, ונשארנו עם 1 לחלק ל-מינוס 1.&rlm;", math_expression: "-1" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "מהי התוצאה לאחר צמצום השבר: \\( \\frac{2x + 8}{3x + 12} \\)?&rlm;",
+        "options": ["2/3", "2x/3x", "8/12", "x + 4"],
+        "correctAnswer": 0,
+        "hint": "הוציאו גורם משותף גם מהמונה (2) וגם מהמכנה (3). תראו שיש סוגריים זהים שאפשר למחוק.",
+        "solution_steps": [
+            { "verbal_explanation": "נפרק את המונה לגורמים על ידי הוצאת המספר שתיים מחוץ לסוגריים.", "math_expression": "2(x + 4)" },
+            { "verbal_explanation": "נפרק את המכנה לגורמים על ידי הוצאת המספר שלוש מחוץ לסוגריים.", "math_expression": "3(x + 4)" },
+            { "verbal_explanation": "נכתוב את השבר מחדש לאחר שני הפירוקים.", "math_expression": "\\frac{2(x + 4)}{3(x + 4)}" },
+            { "verbal_explanation": "הסוגריים איקס ועוד ארבע זהים במונה ובמכנה ולכן מצטמצמים כליל.", "math_expression": "1" },
+            { "verbal_explanation": "השבר הפשוט שנותר הוא שני שלישים.", "math_expression": "\\frac{2}{3}" }
         ],
-        final_answer: "-1"
+        "final_answer": "2/3"
     },
-    // שאלה 7
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "שילוב של גורם משותף והפרש ריבועים. פשטו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(2x² - 18) : (x + 3) = ?</div>",
-        options: ["2(x - 3)", "2x - 18", "x - 3", "2(x + 3)"],
-        correctAnswer: 0,
-        hint: "קודם הוציאו 2 כגורם משותף מהמונה. יישאר לכם 2 כפול (x² - 9). פרקו את הסוגריים לפי כפל מקוצר, ואז צמצמו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוציא את המספר 2 כגורם משותף במונה.&rlm;", math_expression: "2x² - 18 = 2(x² - 9)" },
-            { verbal_explanation: "שלב ב': נפרק את הביטוי (x² - 9) לפי נוסחת הפרש ריבועים.&rlm;", math_expression: "2(x - 3)(x + 3)" },
-            { verbal_explanation: "שלב ג': נציב בשבר.&rlm;", math_expression: "2(x - 3)(x + 3) : (x + 3)" },
-            { verbal_explanation: "שלב ד': נצמצם את הסוגריים המשותפים. התשובה נשארת עם המקדם 2!&rlm;", math_expression: "2(x - 3)" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר על ידי הוצאת גורם משותף שלילי: \\( \\frac{5 - x}{x - 5} \\)&rlm;",
+        "options": ["-1", "1", "0", "5/x"],
+        "correctAnswer": 0,
+        "hint": "המונה והמכנה דומים מאוד, אך סדר החיסור שלהם הפוך. הוציאו מינוס אחד מהמונה והשוו אותם.",
+        "solution_steps": [
+            { "verbal_explanation": "הביטוי במונה הפוך בסימניו לביטוי שבמכנה.", "math_expression": "(5 - x) \\quad , \\quad (x - 5)" },
+            { "verbal_explanation": "כדי להשוות ביניהם, נוציא מינוס אחד כגורם משותף מהמונה. הדבר הופך את כל הסימנים בפנים.", "math_expression": "-1(-5 + x) = -1(x - 5)" },
+            { "verbal_explanation": "נרשום את השבר מחדש עם המונה המותאם.", "math_expression": "\\frac{-1(x - 5)}{x - 5}" },
+            { "verbal_explanation": "כעת נוכל לצמצם את הסוגריים בשלמותם.", "math_expression": "1" },
+            { "verbal_explanation": "התוצאה הסופית והמפתיעה היא מינוס אחד.", "math_expression": "-1" }
         ],
-        final_answer: "2(x - 3)"
+        "final_answer": "-1"
     },
-    // שאלה 8
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "צמצום שבר שבו המכנה הוא גורם יחיד (חד איבר):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(5x² - 10x) : (5x) = ?</div>",
-        options: ["x - 2", "x² - 2", "5x - 2", "x - 10"],
-        correctAnswer: 0,
-        hint: "הוציאו 5x כגורם משותף מהמונה. 5x² לחלק ל-5x שווה x. ו-מינוס 10x לחלק ל-5x שווה ל-2-.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוציא את הגורם המשותף הגדול ביותר במונה, שהוא 5x.&rlm;", math_expression: "5x² - 10x = 5x(x - 2)" },
-            { verbal_explanation: "שלב ב': נכתוב את השבר מחדש.&rlm;", math_expression: "5x(x - 2) : 5x" },
-            { verbal_explanation: "שלב ג': נצמצם את ה-5x במלואו מהמונה והמכנה.&rlm;", math_expression: "x - 2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר הבא (היעזרו בנוסחת כפל מקוצר במונה): \\( \\frac{x^2 + 6x + 9}{x + 3} \\)&rlm;",
+        "options": ["x + 3", "x^2 + 3", "x + 9", "2x + 3"],
+        "correctAnswer": 0,
+        "hint": "המונה הוא למעשה תוצאה של סוגריים שעלו בריבוע. חשבו אילו סוגריים.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה שהמונה מתאים בצורתו לנוסחת ריבוע סכום של כפל מקוצר.", "math_expression": "x^2 + 2ax + a^2" },
+            { "verbal_explanation": "המספר האחרון הוא תשע, שהוא השורש של שלוש בריבוע. לכן המונה שווה לאיקס ועוד שלוש, הכל בריבוע.", "math_expression": "(x + 3)^2" },
+            { "verbal_explanation": "נכתוב את השבר מחדש עם המונה כפול עצמו.", "math_expression": "\\frac{(x + 3)(x + 3)}{x + 3}" },
+            { "verbal_explanation": "נצמצם זוג אחד של סוגריים מהמונה עם המכנה השלם.", "math_expression": "1" },
+            { "verbal_explanation": "נשארנו רק עם זוג סוגריים אחד כתוצאה סופית.", "math_expression": "x + 3" }
         ],
-        final_answer: "x - 2"
+        "final_answer": "x + 3"
     },
-    // שאלה 9
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "פירוק גם במונה וגם במכנה. פשטו את הביטוי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x² - 25) : (5x - 25) = ?</div>",
-        options: ["(x + 5) : 5", "(x - 5) : 5", "x", "x : 5"],
-        correctAnswer: 0,
-        hint: "המונה הוא הפרש ריבועים. המכנה דורש הוצאת גורם משותף 5.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפרק את המונה לפי הפרש ריבועים.&rlm;", math_expression: "x² - 25 = (x - 5)(x + 5)" },
-            { verbal_explanation: "שלב ב': נפרק את המכנה על ידי הוצאת גורם משותף 5.&rlm;", math_expression: "5x - 25 = 5(x - 5)" },
-            { verbal_explanation: "שלב ג': נרכיב את השבר מחדש ונצמצם את הסוגריים المשותפים (x - 5).&rlm;", math_expression: "[(x - 5)(x + 5)] : [5(x - 5)]" },
-            { verbal_explanation: "התוצאה:&rlm;", math_expression: "(x + 5) : 5" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר: \\( \\frac{4x^3 - 8x^2}{2x^2} \\)&rlm;",
+        "options": ["2x - 4", "2x - 2", "4x - 8", "2x^2 - 4"],
+        "correctAnswer": 0,
+        "hint": "הוציאו גורם משותף מירבי מתוך המונה (גם מספר וגם אות עם חזקה).",
+        "solution_steps": [
+            { "verbal_explanation": "נחפש את הגורם המשותף הגדול ביותר במונה. זהו המספר שתיים ואיקס בריבוע.", "math_expression": "2x^2" },
+            { "verbal_explanation": "נוציא גורם זה אל מחוץ לסוגריים. בתוך הסוגריים ייוותר שני איקס פחות ארבע.", "math_expression": "2x^2(2x - 4)" },
+            { "verbal_explanation": "נרשום את השבר המעודכן לצורך הצמצום.", "math_expression": "\\frac{2x^2(2x - 4)}{2x^2}" },
+            { "verbal_explanation": "הגורם המשותף החיצוני מצטמצם לחלוטין עם המכנה שזהה לו.", "math_expression": "1" },
+            { "verbal_explanation": "תוכן הסוגריים מהווה את התשובה הסופית.", "math_expression": "2x - 4" }
         ],
-        final_answer: "(x + 5) : 5"
+        "final_answer": "2x - 4"
     },
-    // שאלה 10
     {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "צמצום עם כמה משתנים שונים (חוקי חזקות). חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(6x²y) : (2xy) = ?</div>",
-        options: ["3x", "3xy", "4x", "3y"],
-        correctAnswer: 0,
-        hint: "כשיש רק כפל במונה ובמכנה, אפשר לצמצם ישירות. צמצמו 6 עם 2. צמצמו x² עם x. צמצמו y עם y.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כיוון שגם המונה וגם המכנה מכילים רק פעולות כפל, אפשר לצמצם כל גורם בנפרד.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב א': צמצום המספרים (6 לחלק ל-2).&rlm;", math_expression: "6 : 2 = 3" },
-            { verbal_explanation: "שלב ב': צמצום ה-x (x² לחלק ל-x נותן x אחד).&rlm;", math_expression: "x² : x = x" },
-            { verbal_explanation: "שלב ג': צמצום ה-y (y לחלק ל-y נותן 1, מתבטל).&rlm;", math_expression: "y : y = 1" },
-            { verbal_explanation: "נחבר את כל התוצאות בכפל.&rlm;", math_expression: "3x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "צמצום שברים אלגבריים",
+        "question_text": "צמצמו את השבר הבא (היעזרו בפירוק לקבוצות במונה): \\( \\frac{ax + bx + ay + by}{a + b} \\)&rlm;",
+        "options": ["x + y", "a + b", "ax + by", "xy"],
+        "correctAnswer": 0,
+        "hint": "פרקו את המונה לשני זוגות: (ax+bx) ו-(ay+by). הוציאו מכל זוג גורם משותף.",
+        "solution_steps": [
+            { "verbal_explanation": "המונה מורכב מארבעה איברים הדורשים פירוק לקבוצות. נחלק לשני צמדים.", "math_expression": "(ax + bx) + (ay + by)" },
+            { "verbal_explanation": "מהצמד הראשון נוציא את המשתנה איקס החוצה כגורם משותף.", "math_expression": "x(a + b)" },
+            { "verbal_explanation": "מהצמד השני נוציא את המשתנה וואי החוצה כגורם משותף.", "math_expression": "y(a + b)" },
+            { "verbal_explanation": "המונה כולו נכתב מחדש כמכפלה של שני זוגות סוגריים.", "math_expression": "(a + b)(x + y)" },
+            { "verbal_explanation": "נציב בשבר. הסוגריים המשותפים מצטמצמים עם המכנה.", "math_expression": "\\frac{(a + b)(x + y)}{a + b}" },
+            { "verbal_explanation": "נותרנו עם התשובה המפושטת בלבד.", "math_expression": "x + y" }
         ],
-        final_answer: "3x"
-    },
-    // שאלה 11
-    {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "צמצמו את השבר האלגברי הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x² - 100) : (x + 10) = ?</div>",
-        options: ["x - 10", "x + 10", "x - 100", "10"],
-        correctAnswer: 0,
-        hint: "100 הוא הריבוע של 10. פרקו את המונה ל- (x-10) כפול (x+10).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המונה הוא תבנית של הפרש ריבועים. נפרק אותו.&rlm;", math_expression: "x² - 100 = (x - 10)(x + 10)" },
-            { verbal_explanation: "שלב ב': נכתוב את השבר מחדש.&rlm;", math_expression: "(x - 10)(x + 10) : (x + 10)" },
-            { verbal_explanation: "שלב ג': נצמצם את הגורם המשותף למונה ולמכנה.&rlm;", math_expression: "x - 10" }
-        ],
-        final_answer: "x - 10"
-    },
-    // שאלה 12
-    {
-        topic: "algebraic_fractions",
-        subTopic: "צמצום שברים אלגבריים",
-        question_text: "אתגר של סימנים והוצאת גורם משותף. פשטו את הביטוי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(12 - 4x) : (x - 3) = ?</div>",
-        options: ["-4", "4", "-3", "3 - x"],
-        correctAnswer: 0,
-        hint: "הוציאו במונה את המספר 4 כגורם משותף, ותקבלו 4*(3 פחות x). זה הפוך מהמכנה. לכן מוציאים מינוס 4!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוציא גורם משותף 4 מהמונה. נקבל 4 כפול (3 פחות x).&rlm;", math_expression: "12 - 4x = 4(3 - x)" },
-            { verbal_explanation: "שלב ב': נראה ש- (3 פחות x) הוא הנגדי של המכנה. נוציא מינוס 4 במקום זאת.&rlm;", math_expression: "12 - 4x = -4(-3 + x) = -4(x - 3)" },
-            { verbal_explanation: "שלב ג': נציב בשבר ונצמצם את הסוגריים התואמים.&rlm;", math_expression: "-4(x - 3) : (x - 3) = -4" }
-        ],
-        final_answer: "-4"
+        "final_answer": "x + y"
     },
 
-    // ==========================================================
-    // תת נושא 2: כפל וחילוק שברים אלגבריים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 13
+    // ==========================================
+    // תת נושא 2: כפל וחילוק שברים אלגבריים (10 שאלות)
+    // ==========================================
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "כפל של שברים פשוטים עם נעלמים. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x : 3) × (6 : x) = ?</div>",
-        options: ["2", "x² : 18", "6x : 3x", "18"],
-        correctAnswer: 0,
-        hint: "צמצמו באלכסון לפני הכפל! ה-x מצטמצם מול ה-x, וה-6 מצטמצם מול ה-3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך א': נבצע כפל מונים וכפל מכנים.&rlm;", math_expression: "(x × 6) : (3 × x) = 6x : 3x" },
-            { verbal_explanation: "נצמצם את ה-x ואת המספרים.&rlm;", math_expression: "6 : 3 = 2" },
-            { verbal_explanation: "דרך ב' (מהירה): צמצום באלכסון מראש.&rlm;", math_expression: "2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חשבו את מכפלת השברים הבאה: \\( \\frac{2x}{3} \\times \\frac{9}{4x} \\)&rlm;",
+        "options": ["3/2", "18x/12x", "x/2", "2/3"],
+        "correctAnswer": 0,
+        "hint": "ניתן לכפול מונה במונה ומכנה במכנה, ואז לצמצם את התוצאה.",
+        "solution_steps": [
+            { "verbal_explanation": "בכפל שברים, נכפול את המונים זה בזה ואת המכנים זה בזה בנפרד.", "math_expression": "\\frac{2x \\times 9}{3 \\times 4x}" },
+            { "verbal_explanation": "נחשב את המכפלה העליונה (מונה).", "math_expression": "18x" },
+            { "verbal_explanation": "נחשב את המכפלה התחתונה (מכנה).", "math_expression": "12x" },
+            { "verbal_explanation": "נכתוב את השבר השלם שנוצר ונחל בצמצום. המשתנים מתבטלים לחלוטין.", "math_expression": "\\frac{18x}{12x} = \\frac{18}{12}" },
+            { "verbal_explanation": "נצמצם את השבר המספרי על ידי חלוקת המונה והמכנה בשש.", "math_expression": "\\frac{3}{2}" }
         ],
-        final_answer: "2"
+        "final_answer": "3/2"
     },
-    // שאלה 14
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "חשבו את תוצאת הכפל הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x² : 5) × (10 : x) = ?</div>",
-        options: ["2x", "x : 2", "5x", "2x²"],
-        correctAnswer: 0,
-        hint: "צמצמו את המספרים באלכסון (10 מול 5). וצמצמו את האותיות באלכסון (x² מול x).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום כשבר אחד על ידי כפל מונים וכפל מכנים.&rlm;", math_expression: "(10x²) : (5x)" },
-            { verbal_explanation: "שלב ב': נצמצם את המספרים: 10 לחלק ל-5 נותן 2.&rlm;", math_expression: "2x² : x" },
-            { verbal_explanation: "שלב ג': נצמצם משתנים: x² לחלק ל-x משאיר x אחד.&rlm;", math_expression: "2x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חשבו את תרגיל הכפל הבא על ידי צמצום אלכסוני (לפני ההכפלה): \\( \\frac{x - 2}{5} \\times \\frac{10}{x - 2} \\)&rlm;",
+        "options": ["2", "10/5", "1/2", "x - 2"],
+        "correctAnswer": 0,
+        "hint": "שימו לב ש-(x-2) מופיע גם במונה השמאלי וגם במכנה הימני. אפשר לצמצם אותם מיד.",
+        "solution_steps": [
+            { "verbal_explanation": "בכפל שברים, מותר לצמצם גורמים זהים המופיעים במונה של שבר אחד ובמכנה של השני.", "math_expression": "\\text{Cross Reduce}" },
+            { "verbal_explanation": "נצמצם את הסוגריים השלמים הנמצאים בהצלבה. הם נעלמים מהמשוואה.", "math_expression": "(x - 2) \\div (x - 2) = 1" },
+            { "verbal_explanation": "נצמצם גם את המספרים בהצלבה השנייה. עשר מתחלק בחמש לשתיים.", "math_expression": "10 \\div 5 = 2" },
+            { "verbal_explanation": "כל מה שנותר לאחר הצמצום המהיר הוא המספר שתיים.", "math_expression": "2" }
         ],
-        final_answer: "2x"
+        "final_answer": "2"
     },
-    // שאלה 15
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "לפני שמכפילים, כדאי לפרק ולצמצם! מה התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((2x + 4) : 3) × (9 : (x + 2)) = ?</div>",
-        options: ["6", "18", "2x + 2", "3(x + 2)"],
-        correctAnswer: 0,
-        hint: "הוציאו 2 כגורם משותף מהמונה הראשון. תקבלו 2 כפול (x+2). עכשיו צמצמו באלכסון.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפרק את המונה השמאלי.&rlm;", math_expression: "2x + 4 = 2(x + 2)" },
-            { verbal_explanation: "שלב ב': נרשום את התרגיל מחדש עם הפירוק.&rlm;", math_expression: "[2(x + 2) : 3] × [9 : (x + 2)]" },
-            { verbal_explanation: "שלב ג': נצמצם באלכסון את הסוגריים (x+2), ונצמצם את 9 מול 3.&rlm;", math_expression: "(2 : 1) × (3 : 1)" },
-            { verbal_explanation: "שלב ד': נכפול את מה שנשאר.&rlm;", math_expression: "2 × 3 = 6" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חשבו את תרגיל החילוק הבא: \\( \\frac{3x}{4} \\div \\frac{9x^2}{8} \\)&rlm;",
+        "options": ["2/3x", "3x/2", "27x^3/32", "1/x"],
+        "correctAnswer": 0,
+        "hint": "חילוק בשבר שווה לכפל בשבר ההופכי שלו. הפכו את השבר השני, ואז כפלו וצמצמו.",
+        "solution_steps": [
+            { "verbal_explanation": "כלל יסוד בחילוק שברים הוא להפוך את השבר השני ולהמיר את הפעולה לכפל.", "math_expression": "\\frac{3x}{4} \\times \\frac{8}{9x^2}" },
+            { "verbal_explanation": "כעת נוכל לצמצם בהצלבה. נחלק את השמונה בארבע, ויישאר לנו שתיים במונה.", "math_expression": "8 \\div 4 = 2" },
+            { "verbal_explanation": "נצמצם בהצלבה את האיקסים והמספרים. תשעה איקס בריבוע חלקי שלושה איקס משאיר שלושה איקס במכנה.", "math_expression": "9x^2 \\div 3x = 3x" },
+            { "verbal_explanation": "נרכיב את השבר הסופי מכל מה שנותר לאחר הצמצומים.", "math_expression": "\\frac{2}{3x}" }
         ],
-        final_answer: "6"
+        "final_answer": "2/3x"
     },
-    // שאלה 16
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "חילוק שברים אלגבריים (זכרו כפל בהופכי!). פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((x - 5) : 2) : ((x - 5) : 4) = ?</div>",
-        options: ["2", "0.5", "x - 5", "8"],
-        correctAnswer: 0,
-        hint: "הפכו את החילוק לכפל, והפכו את השבר השני. ואז צמצמו באלכסון.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': חילוק שברים הופך לכפל בהופכי.&rlm;", math_expression: "[(x - 5) : 2] × [4 : (x - 5)]" },
-            { verbal_explanation: "שלב ב': נצמצם באלכסון את הסוגריים (x-5).&rlm;", math_expression: "1 : 2 × 4 : 1" },
-            { verbal_explanation: "שלב ג': נשארנו עם 4 לחלק ל-2.&rlm;", math_expression: "4 : 2 = 2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "כפלו את השברים: \\( \\frac{x + 1}{x} \\times \\frac{x^2}{x + 1} \\)&rlm;",
+        "options": ["x", "x^2", "x + 1", "1/x"],
+        "correctAnswer": 0,
+        "hint": "צמצמו גורמים דומים בין המונים למכנים לפני ביצוע ההכפלה המלאה.",
+        "solution_steps": [
+            { "verbal_explanation": "נבדוק אילו איברים נמצאים גם למעלה וגם למטה וניתן למחקם.", "math_expression": "\\text{Cancel out}" },
+            { "verbal_explanation": "הביטוי שבתוך הסוגריים מופיע פעמיים ולכן נמחק אותו לגמרי.", "math_expression": "(x + 1) \\div (x + 1) = 1" },
+            { "verbal_explanation": "המשתנה איקס בריבוע במונה יצטמצם עם המשתנה הרגיל במכנה, ויישאר איקס אחד במונה.", "math_expression": "x^2 \\div x = x" },
+            { "verbal_explanation": "כל שאר האיברים נעלמו ונותרנו עם התשובה.", "math_expression": "x" }
         ],
-        final_answer: "2"
+        "final_answer": "x"
     },
-    // שאלה 17
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "תרגיל כפל הכולל הפרש ריבועים. פשטו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((x² - 9) : 4) × (2 : (x - 3)) = ?</div>",
-        options: ["(x + 3) : 2", "(x - 3) : 2", "x + 3", "2(x + 3)"],
-        correctAnswer: 0,
-        hint: "פרקו את המונה השמאלי לפי נוסחת הכפל המקוצר. צמצמו באלכסון.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפרק את המונה לפי הפרש ריבועים.&rlm;", math_expression: "x² - 9 = (x - 3)(x + 3)" },
-            { verbal_explanation: "שלב ב': נציב מחדש בתרגיל.&rlm;", math_expression: "[(x - 3)(x + 3) : 4] × [2 : (x - 3)]" },
-            { verbal_explanation: "שלב ג': נצמצם את (x-3) ואת המספרים (2 ו-4).&rlm;", math_expression: "[(x + 3) : 2] × [1 : 1]" },
-            { verbal_explanation: "שלב ד': נרשום את התוצאה.&rlm;", math_expression: "(x + 3) : 2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "בצעו את פעולת החילוק הבאה: \\( \\frac{x^2 - 9}{2} \\div \\frac{x - 3}{4} \\)&rlm;",
+        "options": ["2(x + 3)", "x + 3", "2(x - 3)", "0.5(x + 3)"],
+        "correctAnswer": 0,
+        "hint": "הפכו את השבר השני וכפלו. פרקו את המונה הראשון לפי נוסחת הפרש ריבועים.",
+        "solution_steps": [
+            { "verbal_explanation": "נהפוך את השבר הימני ונשנה את סימן הפעולה לכפל.", "math_expression": "\\frac{x^2 - 9}{2} \\times \\frac{4}{x - 3}" },
+            { "verbal_explanation": "נפרק את המונה של השבר השמאלי לזוג סוגריים בעזרת נוסחת הפרש ריבועים.", "math_expression": "x^2 - 9 = (x - 3)(x + 3)" },
+            { "verbal_explanation": "נרשום את התרגיל המלא לקראת שלב הצמצום.", "math_expression": "\\frac{(x - 3)(x + 3)}{2} \\times \\frac{4}{x - 3}" },
+            { "verbal_explanation": "נצמצם את הסוגריים של איקס פחות שלוש לחלוטין. נצמצם את הארבע בשתיים ונקבל שתיים במונה.", "math_expression": "\\frac{4}{2} = 2 \\quad , \\quad \\frac{x - 3}{x - 3} = 1" },
+            { "verbal_explanation": "נרשום את התוצאה כהכפלה של מה שנשאר.", "math_expression": "2(x + 3)" }
         ],
-        final_answer: "(x + 3) : 2"
+        "final_answer": "2(x + 3)"
     },
-    // שאלה 18
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "חילוק שברים עם נעלמים. פתרו וצמצמו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(5x : 7) : (10x : 21) = ?</div>",
-        options: ["1.5", "2 : 3", "15x", "5 : x"],
-        correctAnswer: 0,
-        hint: "הפכו לכפל בהופכי: 5x:7 כפול 21:10x. ה-x מצטמצם. המספרים מצטמצמים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נהפוך את החילוק לכפל בהופכי.&rlm;", math_expression: "(5x : 7) × (21 : 10x)" },
-            { verbal_explanation: "שלב ב': נצמצם את האות x מול האות x באלכסון.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ג': נצמצם את 21 מול 7 (נשאר 3). ונצמצם 5 מול 10 (נשאר 2 למטה).&rlm;", math_expression: "3 : 2" },
-            { verbal_explanation: "התוצאה היא 1.5.&rlm;", math_expression: "1.5" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חשבו את תרגיל הכפל: \\( \\frac{5a}{a + 2} \\times \\frac{2a + 4}{10a^2} \\)&rlm;",
+        "options": ["1/a", "a", "1/2a", "10a/(a+2)"],
+        "correctAnswer": 0,
+        "hint": "הוציאו גורם משותף מ-(2a+4). לאחר מכן, צמצמו כל מה שאפשר במונה ובמכנה.",
+        "solution_steps": [
+            { "verbal_explanation": "נפרק את המונה הימני לגורמים על ידי הוצאת המספר שתיים מחוץ לסוגריים.", "math_expression": "2a + 4 = 2(a + 2)" },
+            { "verbal_explanation": "נכתוב מחדש את התרגיל מוכן לפעולת צמצום.", "math_expression": "\\frac{5a}{a + 2} \\times \\frac{2(a + 2)}{10a^2}" },
+            { "verbal_explanation": "נצמצם את הסוגריים המשותפים למונה ולמכנה.", "math_expression": "1" },
+            { "verbal_explanation": "נכפול את המספרים במונים ואת המספרים במכנים.", "math_expression": "\\frac{5a \\times 2}{10a^2} = \\frac{10a}{10a^2}" },
+            { "verbal_explanation": "המספרים עשר מתבטלים. המשתנה במונה מבטל את החזקה במכנה.", "math_expression": "\\frac{1}{a}" }
         ],
-        final_answer: "1.5"
+        "final_answer": "1/a"
     },
-    // שאלה 19
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "חילוק הדורש פירוק כפל מקוצר. פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((x² - 16) : x) : ((x + 4) : 2x) = ?</div>",
-        options: ["2(x - 4)", "x - 4", "2x - 16", "(x - 4) : 2"],
-        correctAnswer: 0,
-        hint: "הפכו לכפל. פרקו את המונה השמאלי לפי נוסחה. צמצמו אלכסונים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נהפוך לכפל בהופכי.&rlm;", math_expression: "[(x² - 16) : x] × [2x : (x + 4)]" },
-            { verbal_explanation: "שלב ב': נפרק את המונה השמאלי.&rlm;", math_expression: "x² - 16 = (x - 4)(x + 4)" },
-            { verbal_explanation: "שלב ג': נציב ונצמצם. (x+4) מצטמצם. וגם ה-x מצטמצם באלכסון.&rlm;", math_expression: "[(x - 4) : 1] × [2 : 1]" },
-            { verbal_explanation: "שלב ד': נכפול את מה שנשאר.&rlm;", math_expression: "2(x - 4)" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "בצעו את חילוק השברים: \\( \\frac{x^2 + 5x}{6} \\div \\frac{x}{3} \\)&rlm;",
+        "options": ["(x + 5)/2", "x(x + 5)/2", "(x + 5)/18", "2(x + 5)"],
+        "correctAnswer": 0,
+        "hint": "הוציאו x כגורם משותף במונה הראשון. הפכו את השבר השני כדי לכפול.",
+        "solution_steps": [
+            { "verbal_explanation": "נמיר את פעולת החילוק לכפל על ידי הפיכת השבר שבצד ימין.", "math_expression": "\\frac{x^2 + 5x}{6} \\times \\frac{3}{x}" },
+            { "verbal_explanation": "נפרק את המונה השמאלי לגורמים בעזרת המשתנה כגורם משותף.", "math_expression": "x(x + 5)" },
+            { "verbal_explanation": "נציב בתרגיל החדש ונצמצם את המספר שלוש עם השש (יישאר שתיים במכנה).", "math_expression": "\\frac{x(x + 5)}{2} \\times \\frac{1}{x}" },
+            { "verbal_explanation": "נצמצם את המשתנה הבודד במונה עם חברו במכנה.", "math_expression": "1" },
+            { "verbal_explanation": "השבר הסופי יורכב מהחלקים המעטים שנותרו.", "math_expression": "\\frac{x + 5}{2}" }
         ],
-        final_answer: "2(x - 4)"
+        "final_answer": "(x + 5)/2"
     },
-    // שאלה 20
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "כפל עם טריק של סימנים הפוכים. חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((3x - 12) : 5) × (15 : (4 - x)) = ?</div>",
-        options: ["-9", "9", "-3", "3(x - 4)"],
-        correctAnswer: 0,
-        hint: "הוציאו 3 מהמונה השמאלי. במכנה הימני יש 4-x. צמצמו סוגריים נגדיים וקבלו 1-.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפרק את המונה השמאלי.&rlm;", math_expression: "3x - 12 = 3(x - 4)" },
-            { verbal_explanation: "שלב ב': נרשום את התרגיל מחדש. נצמצם את ה-15 עם ה-5 (נשאר 3).&rlm;", math_expression: "[3(x - 4) : 1] × [3 : (4 - x)]" },
-            { verbal_explanation: "שלב ג': נשים לב שהסוגריים נגדיים. חלוקתם זה בזה נותנת מינוס 1.&rlm;", math_expression: "(x - 4) : (4 - x) = -1" },
-            { verbal_explanation: "שלב ד': נכפול הכל: 3 כפול 3 כפול מינוס 1.&rlm;", math_expression: "-9" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חשבו: \\( \\frac{1}{x - 1} \\times (x^2 - 1) \\)&rlm;",
+        "options": ["x + 1", "x - 1", "1/(x + 1)", "x^2 - 1"],
+        "correctAnswer": 0,
+        "hint": "אפשר לראות את (x^2 - 1) כשבר שהמכנה שלו הוא 1. השתמשו בנוסחת הפרש ריבועים במונה וצמצמו.",
+        "solution_steps": [
+            { "verbal_explanation": "נתייחס למספר השלם כשבר, נכניס אותו למונה ונשתמש בנוסחת הפרש הריבועים לפירוקו.", "math_expression": "x^2 - 1 = (x - 1)(x + 1)" },
+            { "verbal_explanation": "הביטוי כולו נכתב כשבר אחד גדול לאחר הכפל במונה.", "math_expression": "\\frac{1 \\times (x - 1)(x + 1)}{x - 1}" },
+            { "verbal_explanation": "נזהה את הסוגריים הזהים במונה ובמכנה ונצמצם אותם.", "math_expression": "(x - 1) \\div (x - 1) = 1" },
+            { "verbal_explanation": "מה שנותר במונה הוא הפתרון לשאלה.", "math_expression": "x + 1" }
         ],
-        final_answer: "-9"
+        "final_answer": "x + 1"
     },
-    // שאלה 21
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "כפל של שברים והרבה x-ים. פשטו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((x + 1) : x²) × (x : (x + 1)) = ?</div>",
-        options: ["1 : x", "x", "x²", "1"],
-        correctAnswer: 0,
-        hint: "צמצמו את הסוגריים במלואם. אחר כך צמצמו את ה-x למעלה עם ה-x² למטה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נצמצם באלכסון את הגוש המשותף (x + 1).&rlm;", math_expression: "(1 : x²) × (x : 1)" },
-            { verbal_explanation: "שלב ב': נכפול מונים ומכנים.&rlm;", math_expression: "x : x²" },
-            { verbal_explanation: "שלב ג': נצמצם x אחד. נשאר x למטה.&rlm;", math_expression: "1 : x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חילוק מורכב: \\( \\frac{ab + a}{b^2} \\div \\frac{b + 1}{b} \\)&rlm;",
+        "options": ["a/b", "a/b^2", "ab", "(a+1)/b"],
+        "correctAnswer": 0,
+        "hint": "הפכו את השבר השני. הוציאו a מהמונה הראשון. בצעו צמצומים.",
+        "solution_steps": [
+            { "verbal_explanation": "ראשית נהפוך את השבר המחלק לשבר הופכי ונשנה את הפעולה לכפל.", "math_expression": "\\frac{ab + a}{b^2} \\times \\frac{b}{b + 1}" },
+            { "verbal_explanation": "נוציא את המשתנה המשותף מהמונה של השבר הראשון.", "math_expression": "ab + a = a(b + 1)" },
+            { "verbal_explanation": "נסדר את התרגיל עם המונה המפורק ונבטל סוגריים משותפים.", "math_expression": "\\frac{a(b + 1)}{b^2} \\times \\frac{b}{b + 1}" },
+            { "verbal_explanation": "המשתנה במונה מבטל אחד מהמשתנים בחזקה שבמכנה.", "math_expression": "b \\div b^2 = \\frac{1}{b}" },
+            { "verbal_explanation": "נאחד את שיירי הצמצום לשבר סופי וקצר.", "math_expression": "\\frac{a}{b}" }
         ],
-        final_answer: "1 : x"
+        "final_answer": "a/b"
     },
-    // שאלה 22
     {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "תרגיל חילוק עם הוצאת גורם משותף:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((4x + 8) : x) : (2 : x²) = ?</div>",
-        options: ["2x(x + 2)", "2(x + 2) : x", "8x + 16", "x(x + 2)"],
-        correctAnswer: 0,
-        hint: "הפכו לכפל בהופכי. הוציאו 4 כגורם משותף במונה. צמצמו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נהפוך לכפל בהופכי.&rlm;", math_expression: "[(4x + 8) : x] × [x² : 2]" },
-            { verbal_explanation: "שלב ב': נפרק את המונה.&rlm;", math_expression: "4x + 8 = 4(x + 2)" },
-            { verbal_explanation: "שלב ג': נציב ונצמצם. 4 מצטמצם עם 2 (נשאר 2 למעלה). x² מצטמצם עם x (נשאר x למעלה).&rlm;", math_expression: "2(x + 2) × x" },
-            { verbal_explanation: "שלב ד': נסדר את הביטוי בדרך המקובלת.&rlm;", math_expression: "2x(x + 2)" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "כפל וחילוק שברים אלגבריים",
+        "question_text": "חשבו: \\( \\frac{2x}{x + 3} \\times \\frac{x^2 + 6x + 9}{4x^2} \\)&rlm;",
+        "options": ["(x + 3)/2x", "2x(x + 3)", "(x + 3)/4x", "1/2x"],
+        "correctAnswer": 0,
+        "hint": "המונה של השבר השני הוא נוסחת כפל מקוצר של (x+3) בריבוע. צמצמו מונים עם מכנים.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה במונה השבר הימני נוסחת ריבוע סכום, ונכתוב אותה בצורתה הסגורה.", "math_expression": "x^2 + 6x + 9 = (x + 3)^2 = (x + 3)(x + 3)" },
+            { "verbal_explanation": "נרשום את התרגיל מחדש עם צורתו המפורקת של המונה.", "math_expression": "\\frac{2x}{x + 3} \\times \\frac{(x + 3)(x + 3)}{4x^2}" },
+            { "verbal_explanation": "נצמצם את הביטוי שבמכנה מול אחד משני הביטויים הזהים במונה.", "math_expression": "1" },
+            { "verbal_explanation": "נצמצם את המקדמים: שתיים חלקי ארבע שווה לחצי (שתיים במכנה).", "math_expression": "2 \\div 4 = \\frac{1}{2}" },
+            { "verbal_explanation": "נצמצם את המשתנים: איקס חלקי איקס בריבוע שווה לאיקס במכנה.", "math_expression": "x \\div x^2 = \\frac{1}{x}" },
+            { "verbal_explanation": "נבנה את השבר המסכם את החישוב.", "math_expression": "\\frac{x + 3}{2x}" }
         ],
-        final_answer: "2x(x + 2)"
-    },
-    // שאלה 23
-    {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "פשטו את ביטוי הכפל הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((x² - 25) : 3) × (6 : (x + 5)) = ?</div>",
-        options: ["2(x - 5)", "2x - 25", "x - 5", "2(x + 5)"],
-        correctAnswer: 0,
-        hint: "המונה מתפרק להפרש ריבועים. ה-6 וה-3 מצטמצמים ל-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפרק את המונה השמאלי.&rlm;", math_expression: "x² - 25 = (x - 5)(x + 5)" },
-            { verbal_explanation: "שלב ב': נצמצם באלכסון את המספרים (6 חלקי 3 שווה 2).&rlm;", math_expression: "[(x - 5)(x + 5) : 1] × [2 : (x + 5)]" },
-            { verbal_explanation: "שלב ג': נצמצם את הסוגריים المשותפים.&rlm;", math_expression: "(x - 5) × 2" },
-            { verbal_explanation: "נרשום את התוצאה בצורה מסודרת.&rlm;", math_expression: "2(x - 5)" }
-        ],
-        final_answer: "2(x - 5)"
-    },
-    // שאלה 24
-    {
-        topic: "algebraic_fractions",
-        subTopic: "כפל וחילוק שברים אלגבריים",
-        question_text: "תרגיל אחרון לנושא! חילוק ששווה לשים לב לסימנים שלו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>((x - 1) : 8) : ((1 - x) : 16) = ?</div>",
-        options: ["-2", "2", "-0.5", "x - 1"],
-        correctAnswer: 0,
-        hint: "הפכו לכפל בהופכי. (x-1) לחלק ל- (1-x) שווה למינוס 1. ו-16 לחלק ל-8 שווה 2. כמה זה מינוס 1 כפול 2?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': כפל בהופכי.&rlm;", math_expression: "[(x - 1) : 8] × [16 : (1 - x)]" },
-            { verbal_explanation: "שלב ב': חלוקת מספרים. 16 למעלה ו-8 למטה נותנים 2 למעלה.&rlm;", math_expression: "[(x - 1) : 1] × [2 : (1 - x)]" },
-            { verbal_explanation: "שלב ג': הביטויים נגדיים ולכן חלוקתם שווה למינוס 1.&rlm;", math_expression: "-1 × 2 = -2" }
-        ],
-        final_answer: "-2"
+        "final_answer": "(x + 3)/2x"
     },
 
-    // ==========================================================
-    // תת נושא 3: חיבור וחיסור שברים אלגבריים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 25
+    // ==========================================
+    // תת נושא 3: חיבור וחיסור שברים אלגבריים (10 שאלות)
+    // ==========================================
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "חיבור שברים בעלי מכנה משותף. פשטו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(2x + 3) : 5 + (3x - 3) : 5 = ?</div>",
-        options: ["x", "x + 6", "(5x + 6) : 5", "5x"],
-        correctAnswer: 0,
-        hint: "מכיוון שהמכנה כבר זהה, פשוט חברו את המונים וכנסו איברים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המכנה זהה (5), לכן נרשום הכל יחד.&rlm;", math_expression: "(2x + 3 + 3x - 3) : 5" },
-            { verbal_explanation: "שלב ב': נכנס איברים במונה. הפלוס 3 והמינוס 3 מתבטלים.&rlm;", math_expression: "5x : 5" },
-            { verbal_explanation: "שלב ג': נצמצם את ה-5.&rlm;", math_expression: "x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חשבו את הסכום: \\( \\frac{2x}{5} + \\frac{x}{5} \\)&rlm;",
+        "options": ["3x/5", "3x/10", "2x^2/25", "2x/5"],
+        "correctAnswer": 0,
+        "hint": "כאשר המכנה שווה, מחברים רק את המונים. המכנה נשאר כפי שהוא.",
+        "solution_steps": [
+            { "verbal_explanation": "הבסיס לחשבון שברים נשמר: מכנים זהים מאפשרים חיבור ישיר.", "math_expression": "\\text{Common Denominator}" },
+            { "verbal_explanation": "נחבר את האיברים הנמצאים בחלק העליון של שני השברים יחד אל מעל קו שבר משותף.", "math_expression": "\\frac{2x + x}{5}" },
+            { "verbal_explanation": "נבצע את הכינוס הפשוט במונה. שתיים ועוד אחד שווה שלוש.", "math_expression": "3x" },
+            { "verbal_explanation": "התוצאה תישאר בצורת השבר עם המכנה המקורי.", "math_expression": "\\frac{3x}{5}" }
         ],
-        final_answer: "x"
+        "final_answer": "3x/5"
     },
-    // שאלה 26
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "חיסור שברים עם אותו מכנה. פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(5x - 2) : 4 - (x - 2) : 4 = ?</div>",
-        options: ["x", "x - 1", "(4x - 4) : 4", "x - 4"],
-        correctAnswer: 0,
-        hint: "זהירות! סימן המינוס מתייחס ל*כל* המונה השני. השתמשו בסוגריים: - (x - 2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום תחת קו שבר משותף עם סוגריים למונה השני.&rlm;", math_expression: "[5x - 2 - (x - 2)] : 4" },
-            { verbal_explanation: "שלב ב': נפתח סוגריים במונה. המינוס הופך סימנים.&rlm;", math_expression: "(5x - 2 - x + 2) : 4" },
-            { verbal_explanation: "שלב ג': נכנס איברים (מינוס 2 ופלוס 2 מתבטלים).&rlm;", math_expression: "4x : 4" },
-            { verbal_explanation: "שלב ד': נצמצם.&rlm;", math_expression: "x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "בצעו את החיסור הבא: \\( \\frac{7a}{3} - \\frac{a}{3} \\)&rlm;",
+        "options": ["2a", "6a/3", "8a/3", "2a/3"],
+        "correctAnswer": 0,
+        "hint": "חסרו את המונים וצמצמו את השבר אם אפשר (6 לחלק ל-3).",
+        "solution_steps": [
+            { "verbal_explanation": "מכיוון שהמכנים זהים, נוכל לאחד את התרגיל לשבר אחד ולהתמקד בחיסור המונים.", "math_expression": "\\frac{7a - a}{3}" },
+            { "verbal_explanation": "שבע פחות אחד משאיר אותנו עם שש.", "math_expression": "\\frac{6a}{3}" },
+            { "verbal_explanation": "ניתן ואף מומלץ לצמצם את התוצאה. המקדם שש מתחלק בשלוש ללא שארית.", "math_expression": "6 \\div 3 = 2" },
+            { "verbal_explanation": "הביטוי הסופי מתקבל ללא קו שבר.", "math_expression": "2a" }
         ],
-        final_answer: "x"
+        "final_answer": "2a"
     },
-    // שאלה 27
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "מציאת מכנה משותף למספרים. חשבו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 2 + x : 3 = ?</div>",
-        options: ["5x : 6", "2x : 5", "x : 5", "x : 6"],
-        correctAnswer: 0,
-        hint: "המכנה המשותף הקטן ביותר הוא 6. הרחיבו את הראשון ב-3, ואת השני ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המכנה המשותף המינימלי הוא 6.&rlm;", math_expression: "M = 6" },
-            { verbal_explanation: "שלב ב': נרחיב את השבר הראשון פי 3.&rlm;", math_expression: "3x : 6" },
-            { verbal_explanation: "שלב ג': נרחיב את השבר השני פי 2.&rlm;", math_expression: "2x : 6" },
-            { verbal_explanation: "שלב ד': נחבר את המונים.&rlm;", math_expression: "(3x + 2x) : 6 = 5x : 6" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חשבו: \\( \\frac{x}{2} + \\frac{x}{4} \\)&rlm;",
+        "options": ["3x/4", "2x/6", "3x/8", "x/6"],
+        "correctAnswer": 0,
+        "hint": "המכנה המשותף כאן הוא 4. הרחיבו את השבר הראשון על ידי הכפלת המונה והמכנה ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "המכנים שונים. עלינו למצוא מכנה משותף מינימלי כדי לאחד את השברים, שהוא במקרה זה ארבע.", "math_expression": "4" },
+            { "verbal_explanation": "נרחיב את השבר השמאלי פי שתיים כך שגם המכנה שלו יהפוך לארבע.", "math_expression": "\\frac{x \\times 2}{2 \\times 2} = \\frac{2x}{4}" },
+            { "verbal_explanation": "נחבר את השבר המורחב עם השבר המקורי הימני מעל מכנה אחד.", "math_expression": "\\frac{2x + x}{4}" },
+            { "verbal_explanation": "נכנס את האיברים במונה לקבלת השבר המסכם.", "math_expression": "\\frac{3x}{4}" }
         ],
-        final_answer: "5x : 6"
+        "final_answer": "3x/4"
     },
-    // שאלה 28
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "מכנה משותף עם ביטויים. פשטו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x + 1) : 3 - (x - 1) : 2 = ?</div>",
-        options: ["(5 - x) : 6", "(-x + 5) : 5", "(x + 5) : 6", "(-x - 1) : 6"],
-        correctAnswer: 0,
-        hint: "מכנה משותף 6. כפלו את המונה הראשון ב-2, ואת המונה השני ב-3. אל תשכחו את המינוס!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': מכנה משותף 6. נרחיב.&rlm;", math_expression: "[2(x + 1) - 3(x - 1)] : 6" },
-            { verbal_explanation: "שלב ב': נפתח סוגריים במונה (שימו לב להכפלה במינוס 3).&rlm;", math_expression: "(2x + 2 - 3x + 3) : 6" },
-            { verbal_explanation: "שלב ג': נכנס איברים.&rlm;", math_expression: "(-x + 5) : 6" },
-            { verbal_explanation: "ניתן לכתוב זאת גם כך:&rlm;", math_expression: "(5 - x) : 6" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חסרו את השברים: \\( \\frac{5}{x} - \\frac{2}{x} \\)&rlm;",
+        "options": ["3/x", "3/x^2", "7/x", "3"],
+        "correctAnswer": 0,
+        "hint": "גם כאשר המכנה הוא אות (x), אם הוא זהה בשני השברים, פשוט מחסרים את המונים.",
+        "solution_steps": [
+            { "verbal_explanation": "לשני השברים יש מכנה אלגברי משותף, ולכן חוקי החשבון נשמרים כרגיל.", "math_expression": "x" },
+            { "verbal_explanation": "נאחד את הביטויים לשבר יחיד ונחסר את החלק העליון.", "math_expression": "\\frac{5 - 2}{x}" },
+            { "verbal_explanation": "החיסור הפשוט מספק את המונה הסופי.", "math_expression": "3" },
+            { "verbal_explanation": "נציב את התוצאה מעל המכנה ליצירת הפתרון.", "math_expression": "\\frac{3}{x}" }
         ],
-        final_answer: "(5 - x) : 6"
+        "final_answer": "3/x"
     },
-    // שאלה 29
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "חיבור שברים שהמכנה שלהם הוא נעלם. מהי התוצאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 : x + 5 : x = ?</div>",
-        options: ["9 : x", "9 : x²", "9 : 2x", "20 : x"],
-        correctAnswer: 0,
-        hint: "המכנה (x) זהה בשני השברים. פשוט חברו מונים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כאשר המכנה זהה, אנו מעתיקים אותו ורק מחברים את המונים.&rlm;", math_expression: "(4 + 5) : x" },
-            { verbal_explanation: "נחבר.&rlm;", math_expression: "9 : x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חשבו את הסכום הבא ומצאו מכנה משותף: \\( \\frac{1}{x} + \\frac{1}{y} \\)&rlm;",
+        "options": ["(y + x) / xy", "2 / xy", "2 / (x + y)", "xy / (x + y)"],
+        "correctAnswer": 0,
+        "hint": "המכנה המשותף של שני משתנים שונים הוא המכפלה שלהם (xy). הרחיבו כל שבר במשתנה שחסר לו.",
+        "solution_steps": [
+            { "verbal_explanation": "כאשר המכנים הם אותיות שונות, הדרך המהירה למצוא מכנה משותף היא לכפול אותם זה בזה.", "math_expression": "x \\times y = xy" },
+            { "verbal_explanation": "נרחיב את השבר הראשון. נכפול את המונה והמכנה במשתנה של השבר השני.", "math_expression": "\\frac{1 \\times y}{x \\times y} = \\frac{y}{xy}" },
+            { "verbal_explanation": "נרחיב את השבר השני. נכפול את המונה והמכנה במשתנה של השבר הראשון.", "math_expression": "\\frac{1 \\times x}{y \\times x} = \\frac{x}{xy}" },
+            { "verbal_explanation": "כעת נחבר את המונים שנוצרו לנו מעל המכנה האחיד.", "math_expression": "\\frac{y + x}{xy}" }
         ],
-        final_answer: "9 : x"
+        "final_answer": "(y + x) / xy"
     },
-    // שאלה 30
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "מכנים דומים, אבל לא זהים. מצאו מכנה משותף ופתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 : x - 1 : 2x = ?</div>",
-        options: ["5 : 2x", "2 : x", "5 : x", "2 : 2x"],
-        correctAnswer: 0,
-        hint: "המכנה הראשון הוא x. השני הוא 2x. המכנה המשותף הוא 2x. הרחיבו רק את הראשון פי 2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המכנה המשותף הוא 2x. נרחיב את השבר הראשון פי 2.&rlm;", math_expression: "(3 × 2) : (x × 2) = 6 : 2x" },
-            { verbal_explanation: "שלב ב': השבר השני נשאר ללא שינוי.&rlm;", math_expression: "6 : 2x - 1 : 2x" },
-            { verbal_explanation: "שלב ג': נחסר את המונים.&rlm;", math_expression: "(6 - 1) : 2x = 5 : 2x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "בצעו את החיסור: \\( \\frac{x + 4}{3} - \\frac{x}{3} \\)&rlm;",
+        "options": ["4/3", "2x/3", "(2x + 4)/3", "4"],
+        "correctAnswer": 0,
+        "hint": "המכנה זהה. כתבו את המונים על שבר אחד וחסרו: x + 4 פחות x.",
+        "solution_steps": [
+            { "verbal_explanation": "המכנה משותף לשניהם, לכן נרשום קו שבר ארוך ונחבר את כל מה שלמעלה.", "math_expression": "\\frac{(x + 4) - x}{3}" },
+            { "verbal_explanation": "נכנס את האיברים הדומים במונה. המשתנים מקזזים זה את זה לאפס.", "math_expression": "x - x = 0" },
+            { "verbal_explanation": "במונה נותר המספר החופשי בלבד.", "math_expression": "4" },
+            { "verbal_explanation": "נקבל שבר מספרי ללא משתנים כתשובה לתרגיל.", "math_expression": "\\frac{4}{3}" }
         ],
-        final_answer: "5 : 2x"
+        "final_answer": "4/3"
     },
-    // שאלה 31
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "פשטו את התרגיל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2x : 5 + x : 10 = ?</div>",
-        options: ["x : 2", "3x : 15", "5x : 10", "3x : 10"],
-        correctAnswer: 0,
-        hint: "המכנה המשותף הוא 10. הרחיבו את הראשון פי 2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרחיב את השבר הראשון למכנה 10.&rlm;", math_expression: "(2x × 2) : (5 × 2) = 4x : 10" },
-            { verbal_explanation: "שלב ב': נחבר את השברים.&rlm;", math_expression: "4x : 10 + x : 10 = 5x : 10" },
-            { verbal_explanation: "שלב ג': נצמצם ב-5.&rlm;", math_expression: "x : 2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חשבו את התרגיל הבא: \\( \\frac{3}{2x} + \\frac{1}{x} \\)&rlm;",
+        "options": ["5/2x", "4/3x", "4/2x", "2/x"],
+        "correctAnswer": 0,
+        "hint": "המכנה המשותף הוא 2x. השבר הראשון כבר מכיל אותו, את השני יש להרחיב פי 2.",
+        "solution_steps": [
+            { "verbal_explanation": "המכנה המשותף שמכיל את שני המכנים הנתונים הוא פעמיים המשתנה.", "math_expression": "2x" },
+            { "verbal_explanation": "השבר השמאלי כבר מוכן. את השבר הימני נכפיל בשתיים במונה ובמכנה להתאמה.", "math_expression": "\\frac{1 \\times 2}{x \\times 2} = \\frac{2}{2x}" },
+            { "verbal_explanation": "נרשום את התרגיל החדש ונחבר את המונים יחד מעל מכנה אחד.", "math_expression": "\\frac{3 + 2}{2x}" },
+            { "verbal_explanation": "סכום המונים ייתן את הפתרון הסופי.", "math_expression": "\\frac{5}{2x}" }
         ],
-        final_answer: "x : 2"
+        "final_answer": "5/2x"
     },
-    // שאלה 32
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "חיבור שברים עם ביטויים במכנה (מכנה זהה):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 : (x - 2) + 3 : (x - 2) = ?</div>",
-        options: ["8 : (x - 2)", "8 : (2x - 4)", "15 : (x - 2)", "8 : x"],
-        correctAnswer: 0,
-        hint: "המכנים זהים לחלוטין. חברו את המונים ואל תגעו במכנה!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מכיוון שהמכנים שווים, נעתיק את המכנה ונחבר את המונים.&rlm;", math_expression: "(5 + 3) : (x - 2)" },
-            { verbal_explanation: "נחשב ונקבל את התוצאה הסופית.&rlm;", math_expression: "8 : (x - 2)" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חסרו ופשטו: \\( \\frac{2x + 1}{x - 1} - \\frac{x + 2}{x - 1} \\)&rlm;",
+        "options": ["(x - 1)/(x - 1) = 1", "(x + 3)/(x - 1)", "x/(x - 1)", "(3x + 3)/(x - 1)"],
+        "correctAnswer": 0,
+        "hint": "שימו לב! סימן המינוס שבין השברים חל על כל המונה השני. לכן זה הופך להיות מינוס איקס ומינוס שתיים.",
+        "solution_steps": [
+            { "verbal_explanation": "המכנה משותף. נאחד לשבר אחד, ונקפיד להכניס את המונה השני לסוגריים עקב פעולת החיסור שלפניו.", "math_expression": "\\frac{2x + 1 - (x + 2)}{x - 1}" },
+            { "verbal_explanation": "נפתח את הסוגריים במונה. המינוס כופל ומשנה את כל הסימנים שבפנים.", "math_expression": "\\frac{2x + 1 - x - 2}{x - 1}" },
+            { "verbal_explanation": "נכנס איברים במונה. שני איקס פחות איקס נותן איקס. אחד פחות שתיים נותן מינוס אחד.", "math_expression": "\\frac{x - 1}{x - 1}" },
+            { "verbal_explanation": "הגענו למצב שבו המונה זהה לחלוטין למכנה. חלוקה כזו שווה תמיד לאחד.", "math_expression": "1" }
         ],
-        final_answer: "8 : (x - 2)"
+        "final_answer": "(x - 1)/(x - 1) = 1"
     },
-    // שאלה 33
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "מה תהיה התוצאה של חיסור השברים הללו?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7 : (x + 1) - 7 : (x + 1) = ?</div>",
-        options: ["0", "14 : (x + 1)", "1", "7"],
-        correctAnswer: 0,
-        hint: "אנחנו מחסרים מאובייקט בדיוק את אותו האובייקט.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שני השברים זהים לחלוטין. חיסור של ביטוי מעצמו נותן אפס.&rlm;", math_expression: "0 : (x + 1) = 0" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חשבו בעזרת מציאת מכנה משותף: \\( \\frac{2}{x + 1} + \\frac{3}{x + 2} \\)&rlm;",
+        "options": ["(5x + 7) / (x+1)(x+2)", "5 / (x+1)(x+2)", "(5x + 5) / (x+1)(x+2)", "(6) / (2x+3)"],
+        "correctAnswer": 0,
+        "hint": "המכנה המשותף הוא הכפל של שני המכנים (x+1)(x+2). הרחיבו כל שבר במכנה של השבר השני.",
+        "solution_steps": [
+            { "verbal_explanation": "המכנה המשותף הוא מכפלת שני הביטויים. כעת נרחיב כל שבר בהצלבה.", "math_expression": "(x + 1)(x + 2)" },
+            { "verbal_explanation": "נכפול את המונה הראשון במכנה של השני, ואת המונה השני במכנה של הראשון.", "math_expression": "\\frac{2(x + 2)}{(x + 1)(x + 2)} + \\frac{3(x + 1)}{(x + 1)(x + 2)}" },
+            { "verbal_explanation": "נאחד לקו שבר אחד ונפתח את הסוגריים שבמונה בעזרת חוק הפילוג.", "math_expression": "\\frac{2x + 4 + 3x + 3}{(x + 1)(x + 2)}" },
+            { "verbal_explanation": "נכנס את האיברים הדומים במונה כדי להגיע לתשובה הסופית.", "math_expression": "\\frac{5x + 7}{(x + 1)(x + 2)}" }
         ],
-        final_answer: "0"
+        "final_answer": "(5x + 7) / (x+1)(x+2)"
     },
-    // שאלה 34
     {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "פשטו את התרגיל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3x : 4 - x : 2 = ?</div>",
-        options: ["x : 4", "2x : 2", "x : 2", "x : 8"],
-        correctAnswer: 0,
-        hint: "המכנה המשותף הוא 4. הרחיבו את השני פי 2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרחיב את השבר השני למכנה 4.&rlm;", math_expression: "(x × 2) : (2 × 2) = 2x : 4" },
-            { verbal_explanation: "שלב ב': נחסר את המונים.&rlm;", math_expression: "3x : 4 - 2x : 4 = x : 4" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "חיבור וחיסור שברים אלגבריים",
+        "question_text": "חיסור שברים מורכב מעט יותר: \\( \\frac{3x}{x^2 - 4} - \\frac{1}{x - 2} \\)&rlm;",
+        "options": ["(2x - 2) / (x^2 - 4)", "(2x + 2) / (x^2 - 4)", "(3x - 1) / (x^2 - 4)", "2 / (x + 2)"],
+        "correctAnswer": 0,
+        "hint": "המכנה הראשון מתפרק ל-(x-2)(x+2). המכנה המשותף הוא זה. לכן, צריך להרחיב רק את השבר השני ב-(x+2).",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בנוסחת הפרש ריבועים כדי לפרק לגורמים את המכנה של השבר השמאלי.", "math_expression": "x^2 - 4 = (x - 2)(x + 2)" },
+            { "verbal_explanation": "נזהה שהמכנה של השבר הימני מוכל בתוך המכנה שפירקנו. זהו המכנה המשותף שלנו.", "math_expression": "(x - 2)(x + 2)" },
+            { "verbal_explanation": "השבר השמאלי נשאר כמות שהוא. את השבר הימני נרחיב בביטוי החסר לו.", "math_expression": "\\frac{1 \\times (x + 2)}{(x - 2)(x + 2)}" },
+            { "verbal_explanation": "נרשום על שבר מאוחד. יש לחסר את כל המונה שהורחב.", "math_expression": "\\frac{3x - (x + 2)}{x^2 - 4}" },
+            { "verbal_explanation": "נפתח סוגריים עם המינוס ונכנס איברים כדי לקבל את הביטוי האחרון.", "math_expression": "\\frac{3x - x - 2}{x^2 - 4} = \\frac{2x - 2}{x^2 - 4}" }
         ],
-        final_answer: "x : 4"
-    },
-    // שאלה 35
-    {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "מצאו מכנה משותף מינימלי ופתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 : 3x + 1 : x = ?</div>",
-        options: ["5 : 3x", "3 : 4x", "5 : 4x", "11 : 3x"],
-        correctAnswer: 0,
-        hint: "המכנה המשותף הוא 3x. הרחיבו את השבר השני פי 3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרחיב את השבר השני פי 3.&rlm;", math_expression: "(1 × 3) : (x × 3) = 3 : 3x" },
-            { verbal_explanation: "שלב ב': נחבר את המונים.&rlm;", math_expression: "(2 + 3) : 3x = 5 : 3x" }
-        ],
-        final_answer: "5 : 3x"
-    },
-    // שאלה 36
-    {
-        topic: "algebraic_fractions",
-        subTopic: "חיבור וחיסור שברים אלגבריים",
-        question_text: "חיבור עם מספר איברים במונה. פתרו ופשטו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x + 2) : 3 + (x + 4) : 3 = ?</div>",
-        options: ["(2x + 6) : 3", "(x + 6) : 3", "(2x + 8) : 3", "2x + 2"],
-        correctAnswer: 0,
-        hint: "המכנה זהה. חברו את המונים וכנסו איברים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום הכל מעל מכנה יחיד.&rlm;", math_expression: "(x + 2 + x + 4) : 3" },
-            { verbal_explanation: "שלב ב': נכנס איברים (x ועוד x זה 2x. ו-2+4 זה 6).&rlm;", math_expression: "(2x + 6) : 3" }
-        ],
-        final_answer: "(2x + 6) : 3"
+        "final_answer": "(2x - 2) / (x^2 - 4)"
     },
 
-    // ==========================================================
-    // תת נושא 4: תחום הצבה (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 37
+    // ==========================================
+    // תת נושא 4: תחום הצבה (10 שאלות)
+    // ==========================================
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מהו תחום ההצבה של הביטוי הבא? כלומר, איזה מספר אסור להציב במקום x?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 : x</div>",
-        options: ["x ≠ 0", "כל מספר חיובי", "x ≠ 5", "כל המספרים מותרים"],
-        correctAnswer: 0,
-        hint: "הכלל החשוב ביותר: אסור לחלק באפס!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תחום הצבה קובע אילו ערכים חוקיים להצבה במשתנה, כדי שהביטוי יהיה מוגדר.&rlm;", math_expression: "" },
-            { verbal_explanation: "המכנה לא יכול להיות אפס. במקרה זה, המכנה הוא x, ולכן x שונה מאפס.&rlm;", math_expression: "x ≠ 0" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה של הביטוי האלגברי: \\( \\frac{5}{x} \\)? (כלומר, אילו ערכים אסור להציב במקום x?)&rlm;",
+        "options": ["x ≠ 0", "x ≠ 5", "כל מספר מותר", "x > 0"],
+        "correctAnswer": 0,
+        "hint": "במתמטיקה יש חוק ברזל: אסור בתכלית האיסור לחלק באפס.",
+        "solution_steps": [
+            { "verbal_explanation": "תחום ההצבה מטרתו למנוע מצבים שאינם מוגדרים במתמטיקה, כמו חלוקה באפס.", "math_expression": "\\div 0 \\Rightarrow \\times" },
+            { "verbal_explanation": "נבדוק את המכנה של השבר, ונרכיב משוואה שבודקת מתי הוא שווה לאפס.", "math_expression": "x = 0" },
+            { "verbal_explanation": "מכיוון שהמשתנה עצמו נמצא במכנה, אסור לו לקבל את הערך אפס.", "math_expression": "x \\neq 0" },
+            { "verbal_explanation": "תחום ההצבה הוא כל המספרים מלבד אפס.", "math_expression": "x \\neq 0" }
         ],
-        final_answer: "x ≠ 0"
+        "final_answer": "x ≠ 0"
     },
-    // שאלה 38
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מהי ההגבלה על המשתנה x בביטוי האלגברי הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>8 : (x - 4)</div>",
-        options: ["x ≠ 4", "x ≠ -4", "x ≠ 8", "x ≠ 0"],
-        correctAnswer: 0,
-        hint: "קחו את המכנה והשוו לאפס (x - 4 = 0). פתרו כדי למצוא את הערך האסור.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נדרוש שהמכנה שונה מאפס.&rlm;", math_expression: "x - 4 ≠ 0" },
-            { verbal_explanation: "שלב ב': נעביר את 4 ימינה בחיבור.&rlm;", math_expression: "x ≠ 4" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה של הביטוי: \\( \\frac{12}{x - 4} \\)?&rlm;",
+        "options": ["x ≠ 4", "x ≠ -4", "x ≠ 0", "x ≠ 12"],
+        "correctAnswer": 0,
+        "hint": "השוו את המכנה כולו ל-0 (x - 4 = 0) ופתרו כדי למצוא את המספר האסור.",
+        "solution_steps": [
+            { "verbal_explanation": "ניקח את הביטוי השלם שנמצא במכנה ונבדוק איזה ערך יאפס אותו.", "math_expression": "x - 4 = 0" },
+            { "verbal_explanation": "נפתור את המשוואה הפשוטה על ידי הוספת ארבע.", "math_expression": "x = 4" },
+            { "verbal_explanation": "המספר ארבע גורם למכנה להיות אפס, דבר שאסור לעשות.", "math_expression": "4 - 4 = 0" },
+            { "verbal_explanation": "לכן, המספר ארבע לא חוקי ונרשום זאת כתחום ההצבה.", "math_expression": "x \\neq 4" }
         ],
-        final_answer: "x ≠ 4"
+        "final_answer": "x ≠ 4"
     },
-    // שאלה 39
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מצאו את תחום ההצבה של הביטוי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x + 2) : (x + 7)</div>",
-        options: ["x ≠ -7", "x ≠ 7", "x ≠ -2", "x ≠ 0"],
-        correctAnswer: 0,
-        hint: "המונה לא מעניין אותנו. רק המכנה חייב להיות שונה מאפס.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נתעלם מהמונה. המכנה הוא (x + 7).&rlm;", math_expression: "x + 7 ≠ 0" },
-            { verbal_explanation: "שלב ב': נעביר את 7 אגף (במינוס).&rlm;", math_expression: "x ≠ -7" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מצאו את התחום שבו הביטוי \\( \\frac{3x + 1}{2x + 10} \\) אינו מוגדר.&rlm;",
+        "options": ["x ≠ -5", "x ≠ 5", "x ≠ -1/3", "x ≠ 10"],
+        "correctAnswer": 0,
+        "hint": "המונה (החלק העליון) לא רלוונטי כלל לתחום ההצבה. התמקדו רק במכנה והשוו אותו ל-0.",
+        "solution_steps": [
+            { "verbal_explanation": "תחום הצבה תלוי אך ורק במכנה השבר. המונה אינו מעניין אותנו.", "math_expression": "2x + 10" },
+            { "verbal_explanation": "נשווה את המכנה לאפס כדי לחשוף את הנקודה הבעייתית.", "math_expression": "2x + 10 = 0" },
+            { "verbal_explanation": "נפתור את המשוואה. נחסר עשר ונחלק בשתיים.", "math_expression": "2x = -10 \\Rightarrow x = -5" },
+            { "verbal_explanation": "המספר מינוס חמש יאפס את המכנה, ולכן הוא הערך שממנו יש להימנע.", "math_expression": "x \\neq -5" }
         ],
-        final_answer: "x ≠ -7"
+        "final_answer": "x ≠ -5"
     },
-    // שאלה 40
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מה קורה כשיש מקדם ל-x? מהו תחום ההצבה של:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 : 3x</div>",
-        options: ["x ≠ 0", "x ≠ 3", "x ≠ -3", "x ≠ 10"],
-        correctAnswer: 0,
-        hint: "המכנה הוא 3 כפול x. רק כפל באפס ייתן אפס.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': התנאי למכנה.&rlm;", math_expression: "3x ≠ 0" },
-            { verbal_explanation: "שלב ב': נחלק ב-3. אפס חלקי 3 זה אפס.&rlm;", math_expression: "x ≠ 0" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה של הביטוי: \\( \\frac{7}{x^2 - 9} \\)?&rlm;",
+        "options": ["x ≠ 3 וגם x ≠ -3", "x ≠ 9", "x ≠ 3", "x ≠ -9"],
+        "correctAnswer": 0,
+        "hint": "למשוואה x בריבוע שווה 9 יש שני פתרונות, גם חיובי וגם שלילי. שניהם אסורים.",
+        "solution_steps": [
+            { "verbal_explanation": "ניקח את המכנה הריבועי ונציב אותו שווה לאפס.", "math_expression": "x^2 - 9 = 0" },
+            { "verbal_explanation": "נעביר את התשע אגף כדי לפתור את המשוואה.", "math_expression": "x^2 = 9" },
+            { "verbal_explanation": "נחפש מספר שכפול עצמו נותן תשע. שלוש כפול שלוש מתאים, אך גם מינוס שלוש כפול מינוס שלוש.", "math_expression": "3^2 = 9 \\quad , \\quad (-3)^2 = 9" },
+            { "verbal_explanation": "לכן, קיימים שני ערכים שיאפסו את המכנה ושניהם נחשבים לאסורים.", "math_expression": "x \\neq 3 \\quad , \\quad x \\neq -3" }
         ],
-        final_answer: "x ≠ 0"
+        "final_answer": "x ≠ 3 וגם x ≠ -3"
     },
-    // שאלה 41
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מהו תחום ההצבה של הביטוי הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 : (2x - 10)</div>",
-        options: ["x ≠ 5", "x ≠ 10", "x ≠ -5", "x ≠ 2"],
-        correctAnswer: 0,
-        hint: "קחו את המכנה והשוו לאפס. העבירו 10 וחלקו ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': דרישת המכנה.&rlm;", math_expression: "2x - 10 ≠ 0" },
-            { verbal_explanation: "שלב ב': נעביר 10 ימינה.&rlm;", math_expression: "2x ≠ 10" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "x ≠ 5" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה של הביטוי המכיל שורש: \\( \\sqrt{x} \\)?&rlm;",
+        "options": ["x ≥ 0", "x > 0", "x ≠ 0", "כל מספר מותר"],
+        "correctAnswer": 0,
+        "hint": "שורש ריבועי מוגדר רק עבור מספרים חיוביים או אפס. לא ניתן להוציא שורש למספר שלילי.",
+        "solution_steps": [
+            { "verbal_explanation": "בנוסף לשברים, גם שורשים יוצרים מגבלות על תחום ההצבה המותר.", "math_expression": "\\sqrt{\\dots}" },
+            { "verbal_explanation": "מספר שלילי כפול עצמו נותן מספר חיובי. לכן, אין מספר ממשי שכפול עצמו ייתן מספר שלילי.", "math_expression": "- \\times - = +" },
+            { "verbal_explanation": "הכלל אומר שהביטוי הנמצא תחת סימן השורש חייב להיות חיובי או אפס.", "math_expression": "\\ge 0" },
+            { "verbal_explanation": "נרשום את התנאי המלא עבור המשתנה שלנו.", "math_expression": "x \\ge 0" }
         ],
-        final_answer: "x ≠ 5"
+        "final_answer": "x ≥ 0"
     },
-    // שאלה 42
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מלכודת קלאסית! מהו תחום ההצבה של הביטוי הבא? (בדקו את התחום *לפני* שאתם מצמצמים!)&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x - 3) : (x - 3)</div>",
-        options: ["x ≠ 3", "כל מספר", "x ≠ 0", "x ≠ -3"],
-        correctAnswer: 0,
-        hint: "אסור לצמצם ולטעון שהתחום הוא הכל. התחום תמיד נקבע לפי הביטוי הראשוני.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תחום הצבה תמיד נקבע מהביטוי המקורי בדיוק כפי שנכתב.&rlm;", math_expression: "" },
-            { verbal_explanation: "המכנה המקורי הוא x-3.&rlm;", math_expression: "x - 3 ≠ 0" },
-            { verbal_explanation: "לכן אסור להציב 3, אפילו שאם נצמצם נקבל 1.&rlm;", math_expression: "x ≠ 3" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה של: \\( \\frac{1}{\\sqrt{x - 2}} \\)?&rlm;",
+        "options": ["x > 2", "x ≥ 2", "x ≠ 2", "x < 2"],
+        "correctAnswer": 0,
+        "hint": "כאן יש שני כללים יחד: בגלל השורש הביטוי חייב להיות חיובי או אפס, אבל בגלל המכנה אסור לו להיות אפס.",
+        "solution_steps": [
+            { "verbal_explanation": "נתקלנו בביטוי המשלב גם מכנה וגם שורש יחד, לכן נבדוק את שני הכללים.", "math_expression": "\\frac{1}{\\sqrt{x - 2}}" },
+            { "verbal_explanation": "בגלל קיום השורש, הביטוי שתחתיו חייב להיות גדול מאפס או שווה לו.", "math_expression": "x - 2 \\ge 0" },
+            { "verbal_explanation": "בגלל שכל זה יושב במכנה, החלק של השווה לאפס פסול לחלוטין.", "math_expression": "x - 2 \\neq 0" },
+            { "verbal_explanation": "נשלב את שני התנאים לאי שוויון אחד קפדני: הביטוי חייב להיות ממש גדול מאפס.", "math_expression": "x - 2 > 0" },
+            { "verbal_explanation": "נפתור את אי השוויון ונגיע לטווח ההצבה המדויק.", "math_expression": "x > 2" }
         ],
-        final_answer: "x ≠ 3"
+        "final_answer": "x > 2"
     },
-    // שאלה 43
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מכנה של חזקה. מהן ההגבלות על x בביטוי הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 : (x² - 16)</div>",
-        options: ["x ≠ 4 וגם x ≠ -4", "x ≠ 16", "x ≠ 4", "x ≠ -16"],
-        correctAnswer: 0,
-        hint: "אילו שני מספרים שנעלה בריבוע ייתנו 16?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המכנה שונה מאפס.&rlm;", math_expression: "x² - 16 ≠ 0" },
-            { verbal_explanation: "שלב ב': העברת אגף.&rlm;", math_expression: "x² ≠ 16" },
-            { verbal_explanation: "שלב ג': שורש ריבועי מניב שתי תוצאות - חיובית ושלילית.&rlm;", math_expression: "x ≠ 4 , x ≠ -4" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מצאו את הערכים האסורים עבור הביטוי: \\( \\frac{x - 1}{x(x + 5)} \\)&rlm;",
+        "options": ["x ≠ 0 וגם x ≠ -5", "x ≠ 0", "x ≠ -5", "x ≠ 1 וגם x ≠ -5"],
+        "correctAnswer": 0,
+        "hint": "המכנה מורכב משני גורמים כפולים. אם אחד מהם יהיה שווה ל-0, כל המכנה יתאפס.",
+        "solution_steps": [
+            { "verbal_explanation": "המכנה מורכב ממכפלה של שני איברים שונים.", "math_expression": "x(x + 5)" },
+            { "verbal_explanation": "לפי חוק המכפלה, אם אחד מהגורמים יקבל את הערך אפס, כל המכפלה תתאפס והמכנה יהפוך לפסול.", "math_expression": "0 \\times \\dots = 0" },
+            { "verbal_explanation": "נבדוק מה מאפס את הגורם הראשון. התשובה היא כמובן אפס.", "math_expression": "x = 0" },
+            { "verbal_explanation": "נבדוק מה מאפס את הגורם בתוך הסוגריים. התשובה היא מינוס חמש.", "math_expression": "x + 5 = 0 \\Rightarrow x = -5" },
+            { "verbal_explanation": "שני הערכים הללו הם מספרים אסורים בתחום ההצבה.", "math_expression": "x \\neq 0 \\quad , \\quad x \\neq -5" }
         ],
-        final_answer: "x ≠ 4 וגם x ≠ -4"
+        "final_answer": "x ≠ 0 וגם x ≠ -5"
     },
-    // שאלה 44
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מכנה המורכב ממכפלה. מהו תחום ההצבה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7 : (x(x - 2))</div>",
-        options: ["x ≠ 0 וגם x ≠ 2", "x ≠ 2", "x ≠ 0", "x ≠ 7"],
-        correctAnswer: 0,
-        hint: "בכפל, מספיק שגורם אחד יהיה 0 כדי שהכל יתאפס. לכן שני הגורמים חייבים להיות שונים מאפס.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': המכנה בנוי משני גורמים.&rlm;", math_expression: "x × (x - 2) ≠ 0" },
-            { verbal_explanation: "שלב ב': נדרוש מהגורם הראשון לא להיות אפס.&rlm;", math_expression: "x ≠ 0" },
-            { verbal_explanation: "שלב ג': נדרוש מהגורם השני לא להיות אפס.&rlm;", math_expression: "x - 2 ≠ 0  =>  x ≠ 2" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה של הביטוי: \\( 2x^2 + 5x - 7 \\)?&rlm;",
+        "options": ["כל מספר", "x > 0", "x ≠ 0", "x ≠ 7"],
+        "correctAnswer": 0,
+        "hint": "האם יש כאן שבר שיכול להתאפס? האם יש שורש? אם לא, אין מגבלות.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי למצוא את תחום ההצבה, נחפש מרכיבים בעייתיים בביטוי.", "math_expression": "2x^2 + 5x - 7" },
+            { "verbal_explanation": "אין בביטוי קו שבר, לכן אין חשש לחלוקה באפס.", "math_expression": "\\text{No Fraction}" },
+            { "verbal_explanation": "אין בביטוי סימן של שורש זוגי, לכן אין חשש לתוכן שלילי לא חוקי.", "math_expression": "\\text{No Root}" },
+            { "verbal_explanation": "כאשר אין מגבלות מובנות, ניתן להציב כל מספר שנבחר במשתנה ללא בעיה.", "math_expression": "\\text{Any Number}" }
         ],
-        final_answer: "x ≠ 0 וגם x ≠ 2"
+        "final_answer": "כל מספר"
     },
-    // שאלה 45
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "היזהרו מהשאלה הזו! מהו תחום ההצבה של הביטוי?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4 : (x² + 5)</div>",
-        options: ["כל x מותר (אין הגבלה)", "x ≠ 5", "x ≠ -5", "x ≠ 0"],
-        correctAnswer: 0,
-        hint: "נסו לחשוב: האם קיים מספר בעולם, שכאשר נעלה אותו בריבוע ונוסיף 5, ייתן אפס? x² תמיד חיובי או אפס!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נדרוש שהמכנה שונה מאפס.&rlm;", math_expression: "x² + 5 ≠ 0" },
-            { verbal_explanation: "נעביר 5 אגף.&rlm;", math_expression: "x² ≠ -5" },
-            { verbal_explanation: "כיוון ש-x² הוא תמיד אי-שלילי (חיובי או אפס), הוא לעולם לא יהיה שווה למינוס 5.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן המכנה לעולם לא מתאפס. אין הגבלות!&rlm;", math_expression: "" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מצאו את התחום עבור הביטוי: \\( \\frac{10}{x^2 + 4} \\)&rlm;",
+        "options": ["כל מספר", "x ≠ 2 וגם x ≠ -2", "x ≠ -4", "x > -4"],
+        "correctAnswer": 0,
+        "hint": "האם (x בריבוע + 4) יכול אי פעם להיות שווה ל-0? זכרו שמספר בריבוע הוא תמיד חיובי (או אפס).",
+        "solution_steps": [
+            { "verbal_explanation": "נציב את המכנה למשוואה כדי לראות אם הוא יכול להתאפס אי פעם.", "math_expression": "x^2 + 4 = 0" },
+            { "verbal_explanation": "ננסה לפתור. נעביר את הארבע ונראה שאיקס בריבוע צריך להיות שלילי.", "math_expression": "x^2 = -4" },
+            { "verbal_explanation": "כל מספר, חיובי או שלילי, שיעלה בחזקה שנייה ייתן תוצאה חיובית תמיד (או אפס).", "math_expression": "x^2 \\ge 0" },
+            { "verbal_explanation": "לכן לעולם לא נוכל לקבל מינוס ארבע, והמכנה תמיד יישאר גדול מאפס.", "math_expression": "\\text{Impossible}" },
+            { "verbal_explanation": "מאחר והמכנה מוגן מאיפוס, התחום אינו מוגבל וניתן להציב כל מספר.", "math_expression": "\\text{Any Number}" }
         ],
-        final_answer: "כל x מותר (אין הגבלה)"
+        "final_answer": "כל מספר"
     },
-    // שאלה 46
     {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מהי ההגבלה על x במקרה הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>12 : (5 - x)</div>",
-        options: ["x ≠ 5", "x ≠ -5", "x ≠ 12", "x ≠ 0"],
-        correctAnswer: 0,
-        hint: "איזה מספר נציב ב-x כדי ש-5 פחות x יהיה שווה אפס?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את התנאי על המכנה.&rlm;", math_expression: "5 - x ≠ 0" },
-            { verbal_explanation: "שלב ב': נעביר את x ימינה (כדי שיהפוך לחיובי).&rlm;", math_expression: "5 ≠ x" }
+        "topic": "algebraic_technique_grade_9",
+        "subTopic": "תחום הצבה",
+        "question_text": "מהו תחום ההצבה כאשר יש שני שברים שונים בביטוי: \\( \\frac{4}{x - 3} + \\frac{1}{x + 5} \\)?&rlm;",
+        "options": ["x ≠ 3 וגם x ≠ -5", "x ≠ 3", "x ≠ -5", "x ≠ -3 וגם x ≠ 5"],
+        "correctAnswer": 0,
+        "hint": "אסור שאף אחד מהמכנים יתאפס. עליכם להגדיר תנאי לכל שבר בנפרד ולאחד אותם.",
+        "solution_steps": [
+            { "verbal_explanation": "כשיש מספר שברים במקביל, עלינו לוודא שאף אחד מהמכנים לא מהווה סכנה.", "math_expression": "\\frac{1}{A} + \\frac{1}{B}" },
+            { "verbal_explanation": "נבדוק את השבר השמאלי. כדי שהמכנה שלו יתאפס המשתנה צריך להיות שלוש. זהו הערך האסור הראשון.", "math_expression": "x - 3 = 0 \\Rightarrow x \\neq 3" },
+            { "verbal_explanation": "נבדוק את השבר הימני. כדי שהמכנה שלו יתאפס המשתנה צריך להיות מינוס חמש. זהו הערך האסור השני.", "math_expression": "x + 5 = 0 \\Rightarrow x \\neq -5" },
+            { "verbal_explanation": "תחום ההצבה הכולל מכיל את שתי ההגבלות הללו יחד.", "math_expression": "x \\neq 3 \\quad , \\quad x \\neq -5" }
         ],
-        final_answer: "x ≠ 5"
-    },
-    // שאלה 47
-    {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "תחום הצבה לתרגיל עם שני שברים נפרדים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>1 : x + 1 : (x + 1) = ?</div>",
-        options: ["x ≠ 0 וגם x ≠ -1", "x ≠ 1", "x ≠ 0", "x ≠ -1"],
-        correctAnswer: 0,
-        hint: "אף אחד מהמכנים לא יכול להיות אפס. מצאו את ההגבלה של כל אחד בנפרד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נבדוק את המכנה השמאלי.&rlm;", math_expression: "x ≠ 0" },
-            { verbal_explanation: "שלב ב': נבדוק את המכנה הימני.&rlm;", math_expression: "x + 1 ≠ 0  =>  x ≠ -1" },
-            { verbal_explanation: "שלב ג': התחום הסופי הוא האיחוד של שתי ההגבלות.&rlm;", math_expression: "x ≠ 0 , x ≠ -1" }
-        ],
-        final_answer: "x ≠ 0 וגם x ≠ -1"
-    },
-    // שאלה 48
-    {
-        topic: "algebraic_fractions",
-        subTopic: "תחום הצבה",
-        question_text: "מצאו את ההגבלה לביטוי הבא (המונה לא רלוונטי):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(2x + 1) : (4x + 12)</div>",
-        options: ["x ≠ -3", "x ≠ 3", "x ≠ -1.5", "x ≠ 12"],
-        correctAnswer: 0,
-        hint: "השוו את המכנה 4x+12 לאפס ופתרו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נדרוש מהמכנה להיות שונה מאפס.&rlm;", math_expression: "4x + 12 ≠ 0" },
-            { verbal_explanation: "שלב ב': נעביר 12 אגף.&rlm;", math_expression: "4x ≠ -12" },
-            { verbal_explanation: "שלב ג': נחלק ב-4.&rlm;", math_expression: "x ≠ -3" }
-        ],
-        final_answer: "x ≠ -3"
+        "final_answer": "x ≠ 3 וגם x ≠ -5"
     }
-
 ];

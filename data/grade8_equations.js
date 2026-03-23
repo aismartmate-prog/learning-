@@ -1,746 +1,639 @@
-// ========================================================================
-// שכבת גיל: כיתה ח'-ט' | נושא: משוואות ואי שוויונות
-// 4 תתי נושאים | 48 שאלות סה"כ
-// פתרונות מפורטים צעד אחר צעד (האכלה בכפית), איורי SVG לייצוג אי שוויונות.
-// כתיבה נקייה: חילוק מיוצג כ- (:), כפל כ- (×), שברים כ- (1/2). ללא LaTeX.
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
-    // תת נושא 1: משוואות עם מכנה מספרי (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
+    // ==========================================
+    // תת נושא 1: משוואות עם מכנה מספרי (10 שאלות)
+    // ==========================================
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "פתרו את המשוואה הבאה ומצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 3 = 5</div>",
-        options: ["15", "8", "2", "1.66"],
-        correctAnswer: 0,
-        hint: "המכנה הוא 3 (כמו שבר x/3). כדי לבטל את החילוק ב-3, כפלו את שני אגפי המשוואה ב-3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': מטרתנו לבודד את ה-x. הנעלם מחולק ב-3.", math_expression: "x : 3 = 5" },
-            { verbal_explanation: "שלב ב': נבצע את הפעולה ההפוכה לחילוק - נכפול את שני אגפי המשוואה ב-3.", math_expression: "(x : 3) × 3 = 5 × 3" },
-            { verbal_explanation: "שלב ג': נחשב את התוצאה באגף ימין.", math_expression: "x = 15" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{x}{3} = 4 \\)&rlm;",
+        "options": ["12", "7", "1", "1.33"],
+        "correctAnswer": 0,
+        "hint": "קו שבר מייצג חילוק. כדי לבטל אותו, כפלו את שני האגפים במכנה.",
+        "solution_steps": [
+            { "verbal_explanation": "המשוואה מציגה משתנה המחולק במספר שלוש.", "math_expression": "\\frac{x}{3} = 4" },
+            { "verbal_explanation": "כדי לבטל את המכנה ולבודד את המשתנה, נכפול את שני אגפי המשוואה בשלוש.", "math_expression": "\\times 3" },
+            { "verbal_explanation": "באגף שמאל, המכנה מצטמצם ונשאר רק המשתנה.", "math_expression": "x" },
+            { "verbal_explanation": "באגף ימין, נכפול את המספר ארבע בשלוש.", "math_expression": "4 \\times 3" },
+            { "verbal_explanation": "נחשב את המכפלה ונקבל את התשובה הסופית.", "math_expression": "x = 12" }
         ],
-        final_answer: "15"
+        "final_answer": "12"
     },
-    // שאלה 2
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "מצאו את x במשוואה הכוללת שבר:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(2x) : 5 = 4</div>",
-        options: ["10", "20", "2.5", "15"],
-        correctAnswer: 0,
-        hint: "הכפילו תחילה את כל המשוואה ב-5 כדי להיפטר מהמכנה. לאחר מכן חלקו ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את שני האגפים ב-5 כדי 'לחלץ' את המונה.", math_expression: "2x = 4 × 5" },
-            { verbal_explanation: "שלב ב': נחשב את הכפל באגף ימין.", math_expression: "2x = 20" },
-            { verbal_explanation: "שלב ג': כעת נחלק את המשוואה ב-2 כדי לבודד את x.", math_expression: "x = 20 : 2 = 10" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה: \\( \\frac{x}{5} + 2 = 7 \\)&rlm;",
+        "options": ["25", "10", "35", "5"],
+        "correctAnswer": 0,
+        "hint": "העבירו תחילה את המספר 2 לאגף הימני בעזרת חיסור, ורק לאחר מכן כפלו במכנה.",
+        "solution_steps": [
+            { "verbal_explanation": "תחילה נבודד את השבר על ידי ביטול פעולת החיבור.", "math_expression": "\\frac{x}{5} + 2 = 7" },
+            { "verbal_explanation": "נחסר שתיים משני אגפי המשוואה.", "math_expression": "7 - 2 = 5" },
+            { "verbal_explanation": "נקבל משוואה חדשה שבה השבר שווה לחמש.", "math_expression": "\\frac{x}{5} = 5" },
+            { "verbal_explanation": "כדי להיפטר מהמכנה, נכפול את שני האגפים בחמש.", "math_expression": "\\times 5" },
+            { "verbal_explanation": "נחשב את אגף ימין ונקבל את הפתרון.", "math_expression": "x = 25" }
         ],
-        final_answer: "10"
+        "final_answer": "25"
     },
-    // שאלה 3
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "משוואה עם ביטוי במונה. מצאו את הערך של x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x + 4) : 2 = 7</div>",
-        options: ["10", "14", "18", "3"],
-        correctAnswer: 0,
-        hint: "התייחסו למונה (x+4) כאל גוש אחד. כפלו את המשוואה ב-2, ואז חסרו 4.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את שני האגפים במכנה (2).", math_expression: "x + 4 = 7 × 2" },
-            { verbal_explanation: "שלב ב': נחשב את הכפל בימין.", math_expression: "x + 4 = 14" },
-            { verbal_explanation: "שלב ג': נעביר את 4 לאגף ימין בחיסור (או נחסר 4 משני האגפים).", math_expression: "x = 14 - 4" },
-            { verbal_explanation: "נקבל את התשובה הסופית.", math_expression: "x = 10" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה: \\( \\frac{2x}{7} = 4 \\)&rlm;",
+        "options": ["14", "28", "2", "12"],
+        "correctAnswer": 0,
+        "hint": "כפלו ב-7 כדי לבטל את המכנה, ולאחר מכן חלקו ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "נבטל את קו השבר על ידי הכפלת שני צידי המשוואה בשבע.", "math_expression": "\\times 7" },
+            { "verbal_explanation": "באגף ימין נחשב את הכפל של ארבע בשבע.", "math_expression": "4 \\times 7 = 28" },
+            { "verbal_explanation": "המשוואה המעודכנת היא שני איקס שווה עשרים ושמונה.", "math_expression": "2x = 28" },
+            { "verbal_explanation": "נחלק את המשוואה בשתיים כדי למצוא את המשתנה הבודד.", "math_expression": "28 \\div 2" },
+            { "verbal_explanation": "הפתרון הוא ארבע עשרה.", "math_expression": "x = 14" }
         ],
-        final_answer: "10"
+        "final_answer": "14"
     },
-    // שאלה 4
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "פתרו משוואה שבה הנעלם נמצא משני צידי קו השבר בנפרד (שני מכנים זהים):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(3x) : 4 - (x) : 4 = 5</div>",
-        options: ["10", "20", "2", "5"],
-        correctAnswer: 0,
-        hint: "המכנים זהים. אפשר פשוט לחסר את המונים: 3x פחות x. או להכפיל את כל המשוואה ב-4 מההתחלה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך א': מכיוון שהמכנה שווה (4), נחסר את המונים ישירות.", math_expression: "(3x - x) : 4 = 5" },
-            { verbal_explanation: "נכנס איברים במונה.", math_expression: "(2x) : 4 = 5" },
-            { verbal_explanation: "נכפול ב-4.", math_expression: "2x = 20" },
-            { verbal_explanation: "נחלק ב-2 למציאת x.", math_expression: "x = 10" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "מצאו את הערך של \\( x \\): \\( \\frac{x - 1}{2} = 5 \\)&rlm;",
+        "options": ["11", "9", "6", "12"],
+        "correctAnswer": 0,
+        "hint": "כפלו קודם ב-2. המונה יישאר כמו שהוא (x-1). אז הוסיפו 1.",
+        "solution_steps": [
+            { "verbal_explanation": "כל המונה מחולק בשתיים. נכפול את שני האגפים בשתיים כדי לבטל את המכנה.", "math_expression": "\\times 2" },
+            { "verbal_explanation": "באגף שמאל יישאר רק המונה. באגף ימין נכפול חמש בשתיים.", "math_expression": "x - 1 = 10" },
+            { "verbal_explanation": "כדי לבודד את המשתנה, נבטל את החיסור על ידי הוספת אחד לשני האגפים.", "math_expression": "+ 1" },
+            { "verbal_explanation": "נחבר באגף ימין למציאת התשובה.", "math_expression": "10 + 1 = 11" },
+            { "verbal_explanation": "התוצאה הסופית היא אחת עשרה.", "math_expression": "x = 11" }
         ],
-        final_answer: "10"
+        "final_answer": "11"
     },
-    // שאלה 5
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "מה עושים כשיש שני מכנים מספריים שונים? פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 2 = (x + 3) : 5</div>",
-        options: ["2", "1", "3", "5"],
-        correctAnswer: 0,
-        hint: "מכנה משותף מינימלי הוא 10. אפשר פשוט לעשות 'כפל בהצלבה': 5 כפול x, ו-2 כפול (x+3).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול כל צד במכנה של הצד השני (כפל בהצלבה).", math_expression: "5 × x = 2 × (x + 3)" },
-            { verbal_explanation: "שלב ב': נפתח סוגריים באגף ימין.", math_expression: "5x = 2x + 6" },
-            { verbal_explanation: "שלב ג': נעביר את 2x שמאלה במינוס.", math_expression: "5x - 2x = 6" },
-            { verbal_explanation: "שלב ד': נכנס איברים (3x) ונחלק ב-3.", math_expression: "3x = 6  =>  x = 2" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה הבאה המכילה שני שברים: \\( \\frac{x}{2} + \\frac{x}{3} = 5 \\)&rlm;",
+        "options": ["6", "5", "10", "30"],
+        "correctAnswer": 0,
+        "hint": "כפלו את כל המשוואה במכנה המשותף הקטן ביותר, שהוא 6.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא מכנה משותף לשניים ולשלוש, שהוא שש. נכפול את כל המשוואה בשש.", "math_expression": "\\times 6" },
+            { "verbal_explanation": "נכפול את השבר הראשון בשש. שש לחלק לשתיים זה שלוש, לכן נקבל שלושה איקס.", "math_expression": "3x" },
+            { "verbal_explanation": "נכפול את השבר השני בשש. שש לחלק לשלוש זה שתיים, לכן נקבל שני איקס.", "math_expression": "2x" },
+            { "verbal_explanation": "נכפול גם את האגף הימני בשש.", "math_expression": "5 \\times 6 = 30" },
+            { "verbal_explanation": "נחבר את האיברים בצד שמאל ונרשום משוואה חדשה.", "math_expression": "5x = 30" },
+            { "verbal_explanation": "נחלק בחמש לקבלת הפתרון הסופי.", "math_expression": "x = 6" }
         ],
-        final_answer: "2"
+        "final_answer": "6"
     },
-    // שאלה 6
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "משוואה עם שבר ומספר שלם. מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 4 + 2 = 7</div>",
-        options: ["20", "5", "36", "18"],
-        correctAnswer: 0,
-        hint: "העבירו את ה-2 אגף קודם (לפני הכפל ב-4). זה יקל על החישוב.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': מומלץ לבודד קודם כל את השבר. נחסר 2 משני האגפים.", math_expression: "x : 4 = 7 - 2" },
-            { verbal_explanation: "שלב ב': נחשב את אגף ימין.", math_expression: "x : 4 = 5" },
-            { verbal_explanation: "שלב ג': נכפול את שני האגפים במכנה 4.", math_expression: "x = 5 × 4 = 20" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה: \\( \\frac{3x}{4} - \\frac{x}{2} = 2 \\)&rlm;",
+        "options": ["8", "4", "2", "6"],
+        "correctAnswer": 0,
+        "hint": "המכנה המשותף הוא 4. כפלו את כל המשוואה ב-4.",
+        "solution_steps": [
+            { "verbal_explanation": "נבחר להכפיל את כל המשוואה במכנה משותף ארבע כדי לבטל את השברים.", "math_expression": "\\times 4" },
+            { "verbal_explanation": "השבר הראשון מוכפל בארבע, ולכן המכנה מצטמצם ונשאר רק המונה.", "math_expression": "3x" },
+            { "verbal_explanation": "השבר השני מוכפל בארבע. ארבע לחלק לשתיים שווה שתיים, לכן המונה יוכפל בשתיים.", "math_expression": "2x" },
+            { "verbal_explanation": "האגף הימני גם הוא מוכפל בארבע.", "math_expression": "2 \\times 4 = 8" },
+            { "verbal_explanation": "נכתוב את המשוואה המלאה וללא שברים.", "math_expression": "3x - 2x = 8" },
+            { "verbal_explanation": "נחסר את האיברים ונקבל את התשובה ישירות.", "math_expression": "x = 8" }
         ],
-        final_answer: "20"
+        "final_answer": "8"
     },
-    // שאלה 7
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "כאן צריך מכנה משותף לכל המשוואה. פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 3 - x : 4 = 2</div>",
-        options: ["24", "12", "6", "2"],
-        correctAnswer: 0,
-        hint: "המכנה המשותף של 3 ו-4 הוא 12. כפלו כל אחד מהאיברים במשוואה ב-12.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את כל איברי המשוואה במכנה המשותף 12 כדי לבטל את השברים.", math_expression: "" },
-            { verbal_explanation: "שלב ב': האיבר הראשון: (x:3) כפול 12 שווה 4x.", math_expression: "4x" },
-            { verbal_explanation: "שלב ג': האיבר השני: (x:4) כפול 12 שווה 3x.", math_expression: "- 3x" },
-            { verbal_explanation: "שלב ד': לא נשכח לכפול גם את ה-2 שבאגף הימני ב-12.", math_expression: "4x - 3x = 2 × 12" },
-            { verbal_explanation: "שלב ה': נחשב ונקבל את x.", math_expression: "x = 24" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה (היעזרו בכפל בהצלבה): \\( \\frac{x + 3}{5} = \\frac{x}{2} \\)&rlm;",
+        "options": ["2", "3", "5", "1"],
+        "correctAnswer": 0,
+        "hint": "כאשר שבר שווה לשבר, ניתן לכפול את המונה של האחד במכנה של השני.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בשיטת כפל בהצלבה כדי להיפטר מהשברים.", "math_expression": "\\frac{x + 3}{5} = \\frac{x}{2}" },
+            { "verbal_explanation": "נכפול את המונה השמאלי במכנה הימני, ונסדר בסוגריים.", "math_expression": "2(x + 3)" },
+            { "verbal_explanation": "נכפול את המונה הימני במכנה השמאלי.", "math_expression": "5x" },
+            { "verbal_explanation": "נשווה בין המכפלות ונפתח את הסוגריים.", "math_expression": "2x + 6 = 5x" },
+            { "verbal_explanation": "נחסר שני איקס משני הצדדים כדי להעביר את המשתנים יחד.", "math_expression": "6 = 3x" },
+            { "verbal_explanation": "נחלק בשלוש למציאת הפתרון.", "math_expression": "x = 2" }
         ],
-        final_answer: "24"
+        "final_answer": "2"
     },
-    // שאלה 8
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "שימו לב למינוס שלפני קו השבר! פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x - (x - 2) : 2 = 4</div>",
-        options: ["6", "10", "2", "8"],
-        correctAnswer: 0,
-        hint: "כפלו את כל המשוואה ב-2. המינוס שמול השבר יהפוך את הסימנים שבתוך המונה: 2x - (x - 2) = 8.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את כל המשוואה ב-2 כדי להיפטר מהמכנה.", math_expression: "2 × x - (x - 2) = 4 × 2" },
-            { verbal_explanation: "שלב ב': נפתח את הסוגריים. המינוס משנה את הסימנים בפנים.", math_expression: "2x - x + 2 = 8" },
-            { verbal_explanation: "שלב ג': נכנס איברים (2x פחות x זה x). ונעביר את ה-2 ימינה בחיסור.", math_expression: "x = 8 - 2 = 6" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{4x - 2}{3} = 6 \\)&rlm;",
+        "options": ["5", "4", "20", "10"],
+        "correctAnswer": 0,
+        "hint": "כפלו את המשוואה ב-3. לאחר מכן פתרו את המשוואה הליניארית הרגילה שנוצרה.",
+        "solution_steps": [
+            { "verbal_explanation": "נכפול את המשוואה כולה בשלוש כדי לצמצם את המכנה.", "math_expression": "\\times 3" },
+            { "verbal_explanation": "באגף שמאל נותר המונה המקורי. באגף ימין נכפול שש בשלוש.", "math_expression": "4x - 2 = 18" },
+            { "verbal_explanation": "נוסיף שתיים לשני הצדדים כדי להתחיל לבודד את המשתנה.", "math_expression": "18 + 2 = 20" },
+            { "verbal_explanation": "נקבל ארבעה איקס שווה לעשרים.", "math_expression": "4x = 20" },
+            { "verbal_explanation": "נחלק בארבע ונגיע לפתרון.", "math_expression": "x = 5" }
         ],
-        final_answer: "6"
+        "final_answer": "5"
     },
-    // שאלה 9
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "אתגר מכנה משותף עם ביטויים ארוכים. מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(2x - 1) : 3 = (x + 5) : 2</div>",
-        options: ["17", "11", "5", "7"],
-        correctAnswer: 0,
-        hint: "כפל בהצלבה! 2 יוכפל במונה השמאלי, ו-3 יוכפל במונה הימני. 2(2x-1) = 3(x+5).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נבצע כפל באלכסון (הצלבה).", math_expression: "2 × (2x - 1) = 3 × (x + 5)" },
-            { verbal_explanation: "שלב ב': נפתח סוגריים לפי חוק הפילוג בשני האגפים.", math_expression: "4x - 2 = 3x + 15" },
-            { verbal_explanation: "שלב ג': נעביר איקסים שמאלה ומספרים ימינה.", math_expression: "4x - 3x = 15 + 2" },
-            { verbal_explanation: "שלב ד': נחשב ונקבל את התוצאה.", math_expression: "x = 17" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{x}{4} - 1 = \\frac{x}{5} \\)&rlm;",
+        "options": ["20", "10", "4", "5"],
+        "correctAnswer": 0,
+        "hint": "מכנה משותף של 4 و-5 הוא 20. כפלו את כל איברי המשוואה (כולל ה-1) ב-20.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא מכנה משותף לשברים שהוא עשרים. נכפול את המשוואה כולה בעשרים.", "math_expression": "\\times 20" },
+            { "verbal_explanation": "האיבר הראשון כפול עשרים שווה לחמישה איקס.", "math_expression": "5x" },
+            { "verbal_explanation": "המספר השלם כפול עשרים שווה לעשרים.", "math_expression": "-20" },
+            { "verbal_explanation": "האיבר הימני כפול עשרים שווה לארבעה איקס.", "math_expression": "4x" },
+            { "verbal_explanation": "המשוואה החדשה היא חמישה איקס פחות עשרים שווה לארבעה איקס.", "math_expression": "5x - 20 = 4x" },
+            { "verbal_explanation": "נחסר ארבעה איקס ונוסיף עשרים לשני האגפים כדי לפתור.", "math_expression": "x = 20" }
         ],
-        final_answer: "17"
+        "final_answer": "20"
     },
-    // שאלה 10
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "קבעו מהי טעות נפוצה בפתרון המשוואה x/5 = x/10 + 2 ?&rlm;",
-        options: ["לכפול את השברים במכנה, אבל לשכוח לכפול גם את המספר 2 ב-10.", "להחסיר 2 משני האגפים.", "להכפיל את המכנים זה בזה.", "לחלק את x ב-5."],
-        correctAnswer: 0,
-        hint: "כשמכפילים משוואה במכנה משותף (למשל 10), הכלל הוא ש*כל* האיברים צריכים להיות מוכפלים, כולל המספרים השלמים!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כדי לפתור את המשוואה, המכנה המשותף הוא 10.", math_expression: "" },
-            { verbal_explanation: "יש להכפיל כל איבר. השבר הראשון יוכפל ב-2, השבר השני ב-1.", math_expression: "2x = x + 20" },
-            { verbal_explanation: "טעות קריטית תהיה לשכוח להכפיל את המספר השלם (2) במכנה المשותף.", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם מכנה מספרי",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{x + 4}{2} + \\frac{x}{3} = 7 \\)&rlm;",
+        "options": ["6", "10", "4", "12"],
+        "correctAnswer": 0,
+        "hint": "המכנה המשותף הוא 6. הכפילו את השבר הראשון ב-3 (אל תשכחו סוגריים למונה), את השני ב-2, ואת 7 ב-6.",
+        "solution_steps": [
+            { "verbal_explanation": "נכפיל את כל המשוואה בשש כדי להיפטר מהמכנים.", "math_expression": "\\times 6" },
+            { "verbal_explanation": "השבר הראשון מוכפל בשלוש, יש לשים סוגריים על המונה.", "math_expression": "3(x + 4)" },
+            { "verbal_explanation": "השבר השני מוכפל בשתיים.", "math_expression": "2x" },
+            { "verbal_explanation": "האגף הימני יוכפל בשש.", "math_expression": "7 \\times 6 = 42" },
+            { "verbal_explanation": "נכתוב את המשוואה המלאה ונפתח סוגריים.", "math_expression": "3x + 12 + 2x = 42" },
+            { "verbal_explanation": "נכנס איברים ונחסר שנים עשר משני הצדדים.", "math_expression": "5x = 30 \\Rightarrow x = 6" }
         ],
-        final_answer: "לכפול את השברים במכנה, אבל לשכוח לכפול גם את המספר 2 ב-10."
-    },
-    // שאלה 11
-    {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "פתרו משוואה פשוטה למראית עין:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-x : 4 = 3</div>",
-        options: ["-12", "12", "-0.75", "1"],
-        correctAnswer: 0,
-        hint: "כפלו ב-4. תקבלו 12 = x-. איך הופכים את ה-x לחיובי? כופלים במינוס 1.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את המשוואה ב-4 כדי להעלים את המכנה.", math_expression: "-x = 3 × 4 = 12" },
-            { verbal_explanation: "שלב ב': נחלק (או נכפול) ב- (1-) כדי למצוא את ערכו של x החיובי.", math_expression: "x = -12" }
-        ],
-        final_answer: "-12"
-    },
-    // שאלה 12
-    {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם מכנה מספרי",
-        question_text: "משוואה עם שברים המבטלים זה את זה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x + 3) : 2 - (x + 3) : 2 = 0</div>",
-        options: ["כל מספר מותר (אינסוף פתרונות)", "אין פתרון", "x = 3", "x = -3"],
-        correctAnswer: 0,
-        hint: "אנחנו מחסרים ביטוי מעצמו. התוצאה היא תמיד אפס, לא משנה איזה מספר תציבו במקום x!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שני השברים באגף שמאל זהים לחלוטין.", math_expression: "" },
-            { verbal_explanation: "חיסור של ביטוי מעצמו נותן תמיד 0. לכן משוואה זו מתפשטת ל- 0 = 0.", math_expression: "0 = 0" },
-            { verbal_explanation: "זהו פסוק אמת שתמיד נכון. ולכן כל מספר חוקי שיוצב ב-x ייתן פתרון נכון.", math_expression: "" }
-        ],
-        final_answer: "כל מספר מותר (אינסוף פתרונות)"
+        "final_answer": "6"
     },
 
-    // ==========================================================
-    // תת נושא 2: משוואות עם נעלם במכנה (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 13
+    // ==========================================
+    // תת נושא 2: משוואות עם נעלם במכנה (10 שאלות)
+    // ==========================================
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "לפני שמתחילים לפתור משוואה שבה ה-x נמצא במכנה, מה חובה לרשום (לבדוק)?&rlm;",
-        options: ["תחום הצבה (קבוצת ההצבה)", "את ציר ה-y", "נוסחת כפל מקוצר", "להעלות בריבוע את המשוואה"],
-        correctAnswer: 0,
-        hint: "במתמטיקה אסור לחלק באפס! חייבים לוודא אילו מספרים יגרמו למכנה להתאפס ולפסול אותם מראש.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מכיוון שהנעלם (x) מופיע במכנה, קיימת סכנה שנציב מספר שיאפס את המכנה.", math_expression: "" },
-            { verbal_explanation: "חלוקה באפס אינה חוקית. לכן, שלב החובה הראשון הוא מציאת התחום שבו מותר להציב מספרים (תחום ההצבה).", math_expression: "x ≠ 0" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{10}{x} = 2 \\)&rlm;",
+        "options": ["5", "20", "8", "12"],
+        "correctAnswer": 0,
+        "hint": "כפלו את שני האגפים ב-x כדי להעלות אותו מהמכנה למונה, ואז חלקו ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "כאשר המשתנה נמצא במכנה, עלינו להעלות אותו למעלה. נכפול את המשוואה באיקס.", "math_expression": "\\times x" },
+            { "verbal_explanation": "באגף השמאלי האיקס יצטמצם ויישאר עשר. באגף הימני נקבל פעמיים איקס.", "math_expression": "10 = 2x" },
+            { "verbal_explanation": "נחלק את המשוואה בשתיים כדי לבודד את המשתנה.", "math_expression": "10 \\div 2" },
+            { "verbal_explanation": "התוצאה היא חמש.", "math_expression": "x = 5" }
         ],
-        final_answer: "תחום הצבה (קבוצת ההצבה)"
+        "final_answer": "5"
     },
-    // שאלה 14
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "פתרו את המשוואה הבאה ומצאו את x (הניחו ש- x ≠ 0):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 : x = 2</div>",
-        options: ["5", "20", "0.2", "8"],
-        correctAnswer: 0,
-        hint: "כפלו את שני האגפים ב-x. תקבלו 10 = 2x. עכשיו חלקו ב-2.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את שני האגפים במכנה (x) כדי 'להעלות' אותו למונה.", math_expression: "10 = 2 × x" },
-            { verbal_explanation: "שלב ב': נחלק את המשוואה ב-2 כדי לבודד את x.", math_expression: "x = 10 : 2" },
-            { verbal_explanation: "שלב ג': נחשב ונוודא שהפתרון אינו מתנגש עם תחום ההצבה.", math_expression: "x = 5" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה: \\( \\frac{12}{x} = 4 \\)&rlm;",
+        "options": ["3", "48", "8", "16"],
+        "correctAnswer": 0,
+        "hint": "המשמעות היא: באיזה מספר נחלק את 12 כדי לקבל 4?",
+        "solution_steps": [
+            { "verbal_explanation": "נכפול את שני אגפי המשוואה במשתנה שבמכנה.", "math_expression": "\\times x" },
+            { "verbal_explanation": "נרשום את המשוואה החדשה, שבה המשתנה נמצא כעת בשורה אחת עם המספרים.", "math_expression": "12 = 4x" },
+            { "verbal_explanation": "כדי למצוא את המשתנה, נחלק את שני הצדדים בארבע.", "math_expression": "12 \\div 4" },
+            { "verbal_explanation": "נחשב ונקבל את הפתרון.", "math_expression": "x = 3" }
         ],
-        final_answer: "5"
+        "final_answer": "3"
     },
-    // שאלה 15
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "פתרון עם כפל בהצלבה. מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>6 : x = 9 : 3</div>",
-        options: ["2", "18", "1.5", "4"],
-        correctAnswer: 0,
-        hint: "השבר מימין הוא פשוט 3 (כי 9 חלקי 3 זה 3). המשוואה היא 6 : x = 3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך א': נחשב קודם את האגף הימני (9 לחלק ל-3).", math_expression: "9 : 3 = 3" },
-            { verbal_explanation: "כעת המשוואה היא: 6 לחלק ל-x שווה 3. כלומר 6 = 3x.", math_expression: "6 = 3x" },
-            { verbal_explanation: "נחלק ב-3 ונקבל x=2.", math_expression: "x = 2" },
-            { verbal_explanation: "דרך ב': כפל בהצלבה. 6 כפול 3 שווה 9 כפול x. 18 = 9x. התשובה היא 2.", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "מצאו את הערך של \\( x \\) במשוואה: \\( \\frac{15}{x} + 2 = 7 \\)&rlm;",
+        "options": ["3", "5", "10", "15"],
+        "correctAnswer": 0,
+        "hint": "הסירו תחילה את ה-2 מאגף שמאל על ידי חיסור. רק אז טפלו בשבר.",
+        "solution_steps": [
+            { "verbal_explanation": "נבודד את השבר על ידי חיסור שתיים משני אגפי המשוואה.", "math_expression": "7 - 2 = 5" },
+            { "verbal_explanation": "נקבל משוואה שבה חמש עשרה לחלק למשתנה שווה לחמש.", "math_expression": "\\frac{15}{x} = 5" },
+            { "verbal_explanation": "נכפול את המשוואה במשתנה כדי להעלותו למונה.", "math_expression": "15 = 5x" },
+            { "verbal_explanation": "נחלק בחמש את שני האגפים.", "math_expression": "15 \\div 5" },
+            { "verbal_explanation": "הפתרון הוא שלוש.", "math_expression": "x = 3" }
         ],
-        final_answer: "2"
+        "final_answer": "3"
     },
-    // שאלה 16
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "מהו תחום ההצבה (התנאי) עבור המשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>12 : (x - 4) = 3</div>",
-        options: ["x ≠ 4", "x ≠ 0", "x ≠ -4", "x ≠ 3"],
-        correctAnswer: 0,
-        hint: "קחו את המכנה (x - 4) וקבעו שהוא חייב להיות שונה מ-0.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נדרוש שהמכנה של השבר לא יתאפס.", math_expression: "x - 4 ≠ 0" },
-            { verbal_explanation: "שלב ב': נעביר את 4 ימינה (הופך חיובי).", math_expression: "x ≠ 4" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{20}{x - 1} = 5 \\)&rlm;",
+        "options": ["5", "4", "6", "21"],
+        "correctAnswer": 0,
+        "hint": "המכנה כולו הוא (x-1). כפלו את שני האגפים ב-(x-1).",
+        "solution_steps": [
+            { "verbal_explanation": "המכנה כולו מכיל ביטוי עם משתנה. נכפול את המשוואה בכל המכנה הזה.", "math_expression": "\\times (x - 1)" },
+            { "verbal_explanation": "באגף שמאל יישאר המונה, ובאגף ימין המכנה יוכפל בחמש.", "math_expression": "20 = 5(x - 1)" },
+            { "verbal_explanation": "נחלק את המשוואה בחמש כדי להעלים את הסוגריים.", "math_expression": "20 \\div 5 = 4" },
+            { "verbal_explanation": "נרשום משוואה פשוטה ונפתור אותה על ידי הוספת אחד.", "math_expression": "4 = x - 1 \\Rightarrow x = 5" }
         ],
-        final_answer: "x ≠ 4"
+        "final_answer": "5"
     },
-    // שאלה 17
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "בהמשך לשאלה הקודמת, פתרו את המשוואה:<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>12 : (x - 4) = 3</div>",
-        options: ["8", "16", "6", "0"],
-        correctAnswer: 0,
-        hint: "כפלו את שני האגפים ב- (x - 4). תקבלו: 12 = 3*(x-4). פתחו סוגריים ופתרו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול במכנה את שני האגפים.", math_expression: "12 = 3 × (x - 4)" },
-            { verbal_explanation: "שלב ב': נפתח סוגריים.", math_expression: "12 = 3x - 12" },
-            { verbal_explanation: "שלב ג': נעביר את 12- שמאלה (יהפוך לפלוס 12).", math_expression: "12 + 12 = 3x  =>  24 = 3x" },
-            { verbal_explanation: "שלב ד': נחלק ב-3.", math_expression: "x = 8" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה: \\( \\frac{8}{2x} = 2 \\)&rlm;",
+        "options": ["2", "4", "8", "1"],
+        "correctAnswer": 0,
+        "hint": "ניתן לצמצם את השבר (לחלק מונה ומכנה ב-2) לפני שממשיכים בפתרון.",
+        "solution_steps": [
+            { "verbal_explanation": "אפשר לפשט את השבר על ידי חלוקת המונה והמכנה בשתיים.", "math_expression": "\\frac{8}{2x} = \\frac{4}{x}" },
+            { "verbal_explanation": "המשוואה המפושטת היא ארבע לחלק למשתנה שווה שתיים.", "math_expression": "\\frac{4}{x} = 2" },
+            { "verbal_explanation": "נכפול במשתנה כדי להעלותו למונה.", "math_expression": "4 = 2x" },
+            { "verbal_explanation": "נחלק בשתיים לקבלת הפתרון הסופי.", "math_expression": "x = 2" }
         ],
-        final_answer: "8"
+        "final_answer": "2"
     },
-    // שאלה 18
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "משוואה עם נעלמים בשני המכנים. מצאו את x (הניחו x ≠ 0 ו- x ≠ -1):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5 : x = 10 : (x + 1)</div>",
-        options: ["1", "2", "-1", "5"],
-        correctAnswer: 0,
-        hint: "עשו כפל בהצלבה: 5 כפול (x+1) שווה ל-10 כפול x.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': כפל בהצלבה של המונים והמכנים הנגדיים.", math_expression: "5 × (x + 1) = 10 × x" },
-            { verbal_explanation: "שלב ב': נפתח סוגריים בשמאל.", math_expression: "5x + 5 = 10x" },
-            { verbal_explanation: "שלב ג': נעביר 5x לאגף ימין בחיסור.", math_expression: "5 = 10x - 5x  =>  5 = 5x" },
-            { verbal_explanation: "שלב ד': נחלק ב-5.", math_expression: "x = 1" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "מצאו את הערך של \\( x \\): \\( \\frac{14}{x + 2} = 2 \\)&rlm;",
+        "options": ["5", "7", "9", "12"],
+        "correctAnswer": 0,
+        "hint": "כפלו את כל המשוואה ב-(x+2), או לחלופין, חשבו: איזה מספר במכנה ייתן את התוצאה 2?",
+        "solution_steps": [
+            { "verbal_explanation": "נכפול את שני אגפי המשוואה במכנה השלם המכיל את המשתנה.", "math_expression": "\\times (x + 2)" },
+            { "verbal_explanation": "נקבל משוואה שבה האגף הימני כולל סוגריים.", "math_expression": "14 = 2(x + 2)" },
+            { "verbal_explanation": "נחלק את המשוואה בשתיים.", "math_expression": "14 \\div 2 = 7" },
+            { "verbal_explanation": "נקבל שבע שווה לביטוי שבתוך הסוגריים.", "math_expression": "7 = x + 2" },
+            { "verbal_explanation": "נחסר שתיים ונמצא את התשובה.", "math_expression": "x = 5" }
         ],
-        final_answer: "1"
+        "final_answer": "5"
     },
-    // שאלה 19
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "מה עושים כשהנעלם במכנה מופיע עם סימן מינוס? פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>8 : (-2x) = -2</div>",
-        options: ["2", "-2", "4", "-4"],
-        correctAnswer: 0,
-        hint: "כפלו ב-2x-. מינוס 2 כפול מינוס 2x שווה ל-4x חיובי. 8 = 4x.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את המשוואה כולה במכנה (2x-).", math_expression: "8 = (-2) × (-2x)" },
-            { verbal_explanation: "שלב ב': נבצע את הכפל. מינוס כפול מינוס נותן פלוס 4x.", math_expression: "8 = 4x" },
-            { verbal_explanation: "שלב ג': נחלק ב-4.", math_expression: "x = 2" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה הבאה בעזרת כפל בהצלבה: \\( \\frac{6}{x} = \\frac{3}{2} \\)&rlm;",
+        "options": ["4", "9", "1", "12"],
+        "correctAnswer": 0,
+        "hint": "כפלו את המונה של צד אחד במכנה של הצד השני, והשוו למכפלת הזוג הנותר.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בשיטת הכפל בהצלבה הפותרת משוואות של שבר שווה לשבר.", "math_expression": "\\frac{6}{x} = \\frac{3}{2}" },
+            { "verbal_explanation": "נכפול את המונה השמאלי במכנה הימני.", "math_expression": "6 \\times 2 = 12" },
+            { "verbal_explanation": "נכפול את המכנה השמאלי במונה הימני.", "math_expression": "3 \\times x = 3x" },
+            { "verbal_explanation": "נשווה בין המכפלות.", "math_expression": "3x = 12" },
+            { "verbal_explanation": "נחלק בשלוש למציאת הפתרון.", "math_expression": "x = 4" }
         ],
-        final_answer: "2"
+        "final_answer": "4"
     },
-    // שאלה 20
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "מלכודת 'פתרון נפסל'! פתרו את המשוואה ובדקו אם הפתרון חוקי:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(x² - 4) : (x - 2) = 4</div>",
-        options: ["אין פתרון (הפתרון x=2 נפסל בגלל תחום הצבה)", "x = 2", "x = -2", "x = 4"],
-        correctAnswer: 0,
-        hint: "פרקו את המונה ל- (x-2)(x+2) וצמצמו. תקבלו x+2 = 4, כלומר x=2. אבל רגע! האם מותר להציב 2 במכנה המקורי (x-2)?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נמצא את תחום ההצבה תחילה! המכנה (x-2) שונה מאפס. כלומר x שונה מ-2.", math_expression: "x ≠ 2" },
-            { verbal_explanation: "שלב ב': נפרק ונצמצם את השבר (בעזרת הפרש ריבועים).", math_expression: "[(x-2)(x+2)] : (x-2) = x + 2" },
-            { verbal_explanation: "שלב ג': נפתור את המשוואה המפושטת.", math_expression: "x + 2 = 4  =>  x = 2" },
-            { verbal_explanation: "שלב ד': נשווה את הפתרון (x=2) לתחום ההצבה. מכיוון ש-2 אסור להצבה, אנו פוסלים את הפתרון.", math_expression: "הפתרון נפסל." }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה: \\( \\frac{18}{x - 3} = 6 \\)&rlm;",
+        "options": ["6", "3", "9", "21"],
+        "correctAnswer": 0,
+        "hint": "כפלו את המשוואה ב-(x-3).",
+        "solution_steps": [
+            { "verbal_explanation": "נכפול את המשוואה כולה בביטוי שנמצא במכנה.", "math_expression": "\\times (x - 3)" },
+            { "verbal_explanation": "נקבל משוואה שבה המכנה עבר לאגף הימני ונכפל בשש.", "math_expression": "18 = 6(x - 3)" },
+            { "verbal_explanation": "נחלק את המשוואה בשש כדי להעלים את המקדם של הסוגריים.", "math_expression": "18 \\div 6 = 3" },
+            { "verbal_explanation": "נשווה את התוצאה לתוכן הסוגריים ונוסיף שלוש.", "math_expression": "3 = x - 3 \\Rightarrow x = 6" }
         ],
-        final_answer: "אין פתרון (הפתרון x=2 נפסל בגלל תחום הצבה)"
+        "final_answer": "6"
     },
-    // שאלה 21
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "משוואה עם שני שברים זהים. פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3 : x + 2 : x = 10</div>",
-        options: ["0.5 (חצי)", "2", "5", "0.2 (חמישית)"],
-        correctAnswer: 0,
-        hint: "חברו את המונים מכיוון שהמכנה זהה (5 חלקי x שווה 10). ואז כפלו ב-x וחילקו ב-10.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': חיבור השברים על ידי חיבור המונים.", math_expression: "(3 + 2) : x = 10" },
-            { verbal_explanation: "שלב ב': פישוט השבר.", math_expression: "5 : x = 10" },
-            { verbal_explanation: "שלב ג': כפל ב-x להעלאתו מהמכנה.", math_expression: "5 = 10 × x" },
-            { verbal_explanation: "שלב ד': חילוק ב-10. 5 חלקי 10 הם חצי.", math_expression: "x = 5 : 10 = 0.5" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה הבאה: \\( \\frac{24}{2x + 2} = 4 \\)&rlm;",
+        "options": ["2", "4", "10", "6"],
+        "correctAnswer": 0,
+        "hint": "הכפילו את המשוואה במכנה (2x+2), חלקו ב-4, ופתרו את המשוואה הפשוטה שתתקבל.",
+        "solution_steps": [
+            { "verbal_explanation": "נכפול את אגפי המשוואה במכנה כולו.", "math_expression": "\\times (2x + 2)" },
+            { "verbal_explanation": "נרשום את המשוואה שמתקבלת.", "math_expression": "24 = 4(2x + 2)" },
+            { "verbal_explanation": "נחלק בארבע.", "math_expression": "24 \\div 4 = 6" },
+            { "verbal_explanation": "נקבל משוואה פשוטה יותר, נחסר ממנה שתיים.", "math_expression": "6 = 2x + 2 \\Rightarrow 4 = 2x" },
+            { "verbal_explanation": "נחלק בשתיים למציאת הפתרון.", "math_expression": "x = 2" }
         ],
-        final_answer: "0.5 (חצי)"
+        "final_answer": "2"
     },
-    // שאלה 22
     {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "קצת אתגר (הוצאת גורם משותף בפתרון):&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>(4x - 6) : (2x) = 1</div>",
-        options: ["3", "1.5", "2", "6"],
-        correctAnswer: 0,
-        hint: "כפלו ב-2x. המשוואה תהיה 4x - 6 = 2x. העבירו 2x שמאלה ואת 6 ימינה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכפול את המשוואה במכנה (2x) (בהנחה ש-x שונה מ-0).", math_expression: "4x - 6 = 1 × 2x" },
-            { verbal_explanation: "שלב ב': נסדר איברים. נעביר 2x שמאלה בחיסור, ו-6 ימינה בחיבור.", math_expression: "4x - 2x = 6" },
-            { verbal_explanation: "שלב ג': כינוס (2x) וחלוקה ב-2.", math_expression: "2x = 6  =>  x = 3" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "משוואות עם נעלם במכנה",
+        "question_text": "פתרו את המשוואה המורכבת משני שברים בעלי אותו מכנה: \\( \\frac{5}{x} + \\frac{5}{x} = 2 \\)&rlm;",
+        "options": ["5", "10", "2", "2.5"],
+        "correctAnswer": 0,
+        "hint": "כאשר המכנה שווה, ניתן פשוט לחבר את המונים יחד לשבר אחד.",
+        "solution_steps": [
+            { "verbal_explanation": "לשני השברים יש מכנה משותף זהה ולכן אפשר לחבר את המונים מיד.", "math_expression": "\\frac{5 + 5}{x} = 2" },
+            { "verbal_explanation": "נרשום את השבר החדש שנוצר מחיבור המונים.", "math_expression": "\\frac{10}{x} = 2" },
+            { "verbal_explanation": "נכפול במשתנה איקס כדי להעבירו למונה.", "math_expression": "10 = 2x" },
+            { "verbal_explanation": "נחלק בשתיים ונגיע לפתרון המבוקש.", "math_expression": "x = 5" }
         ],
-        final_answer: "3"
-    },
-    // שאלה 23
-    {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "מה עושים כששני שברים מחוסרים זה מזה ויוצרים אפס? מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7 : (x + 1) - 7 : (2x - 3) = 0</div>",
-        options: ["4", "1", "3", "0"],
-        correctAnswer: 0,
-        hint: "העבירו את השבר השני (עם המינוס) לאגף ימין, כך שתקבלו שבר = שבר. מכיוון שהמונים שווים (7), גם המכנים חייבים להיות שווים! x+1 = 2x-3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נעביר את השבר השלילי לאגף ימין.", math_expression: "7 : (x + 1) = 7 : (2x - 3)" },
-            { verbal_explanation: "שלב ב': אם שני שברים שווים זה לזה והמונים שלהם שווים, גם המכנים שלהם חייבים להיות שווים.", math_expression: "x + 1 = 2x - 3" },
-            { verbal_explanation: "שלב ג': נפתור. נעביר x ימינה (יישארו 1x) ו-3 שמאלה בחיבור (יהפוך ל-4).", math_expression: "1 + 3 = 2x - x" },
-            { verbal_explanation: "התוצאה.", math_expression: "x = 4" }
-        ],
-        final_answer: "4"
-    },
-    // שאלה 24
-    {
-        topic: "equations_inequalities",
-        subTopic: "משוואות עם נעלם במכנה",
-        question_text: "שאלה אחרונה בנושא: מה הפתרון של המשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2 : x + 3 = 3 + 2 : x</div>",
-        options: ["כל x (למעט 0)", "אין פתרון", "x = 2", "x = 3"],
-        correctAnswer: 0,
-        hint: "זהו שוויון מושלם (זהות). כל מספר שונה מאפס יקיים אותו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "האגפים זהים לחלוטין. אם נעביר את 3 ימינה בחיסור ואת (2:x) שמאלה בחיסור, הכל יתאפס ונקבל 0=0.", math_expression: "0 = 0" },
-            { verbal_explanation: "במשוואת זהות, כל הצבה אפשרית היא פתרון.", math_expression: "" },
-            { verbal_explanation: "אולם, יש להתחשב בתחום ההצבה: חלוקה ב-x אוסרת על x להיות 0. לכן כל מספר מלבד 0 מתאים.", math_expression: "x ≠ 0" }
-        ],
-        final_answer: "כל x (למעט 0)"
+        "final_answer": "5"
     },
 
-    // ==========================================================
-    // תת נושא 3: פתרון אי שוויונות (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 25
+    // ==========================================
+    // תת נושא 3: פתרון אי שוויונות (10 שאלות)
+    // ==========================================
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "כיצד פותרים אי שוויון רגיל? פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x + 4 > 10</div>",
-        options: ["x > 6", "x < 6", "x = 6", "x > 14"],
-        correctAnswer: 0,
-        hint: "העבירו את ה-4 לאגף ימין, בדיוק כמו במשוואה רגילה, ושמרו על כיוון הסימן '&gt;'.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "פתרון אי שוויון מתבצע (ברובו) בדיוק כמו משוואה רגילה.&rlm;", math_expression: "" },
-            { verbal_explanation: "נעביר את המספר 4 לצד ימין בסימן חיסור.&rlm;", math_expression: "x > 10 - 4" },
-            { verbal_explanation: "התוצאה:&rlm;", math_expression: "x > 6" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון הבא: \\( x + 4 > 10 \\)&rlm;",
+        "options": ["x > 6", "x < 6", "x > 14", "x < 14"],
+        "correctAnswer": 0,
+        "hint": "פתרון אי שוויון דומה מאוד לפתרון משוואה רגילה. העבירו אגפים תוך שינוי סימן.",
+        "solution_steps": [
+            { "verbal_explanation": "נתייחס לאי השוויון כמעט כמו אל משוואה וננסה לבודד את המשתנה.", "math_expression": "x + 4 > 10" },
+            { "verbal_explanation": "נחסר ארבע משני האגפים.", "math_expression": "- 4" },
+            { "verbal_explanation": "נחשב את ההפרש באגף ימין.", "math_expression": "10 - 4 = 6" },
+            { "verbal_explanation": "נרשום את התשובה הסופית. סימן אי השוויון נשאר באותו כיוון.", "math_expression": "x > 6" }
         ],
-        final_answer: "x > 6"
+        "final_answer": "x > 6"
     },
-    // שאלה 26
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "פתרו את אי השוויון הכולל כפל:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3x ≤ 15</div>",
-        options: ["x ≤ 5", "x ≥ 5", "x = 5", "x ≤ 12"],
-        correctAnswer: 0,
-        hint: "חלקו את שני האגפים ב-3 החיובי. כיוון הסימן אינו משתנה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כדי לבודד את x, נחלק את שני צידי אי השוויון ב-3.&rlm;", math_expression: "x ≤ 15 : 3" },
-            { verbal_explanation: "מכיוון שחילקנו במספר חיובי (3), כיוון אי השוויון נשאר כפי שהיה.&rlm;", math_expression: "x ≤ 5" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון: \\( 2x < 14 \\)&rlm;",
+        "options": ["x < 7", "x > 7", "x < 12", "x = 7"],
+        "correctAnswer": 0,
+        "hint": "חלקו את שני הצדדים ב-2. מכיוון שמחלקים במספר חיובי, כיוון אי השוויון לא משתנה.",
+        "solution_steps": [
+            { "verbal_explanation": "עלינו לבודד את המשתנה מתוך המכפלה.", "math_expression": "2x < 14" },
+            { "verbal_explanation": "נחלק את שני האגפים בשתיים. המספר חיובי ולכן הכיוון נשמר.", "math_expression": "\\div 2" },
+            { "verbal_explanation": "נבצע את פעולת החילוק של ארבע עשרה בשתיים.", "math_expression": "14 \\div 2 = 7" },
+            { "verbal_explanation": "הפתרון הוא שכל מספר הקטן משבע יקיים את התנאי.", "math_expression": "x < 7" }
         ],
-        final_answer: "x ≤ 5"
+        "final_answer": "x < 7"
     },
-    // שאלה 27
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "חוק חשוב מאוד! פתרו את אי השוויון הבא:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-2x > 8</div>",
-        options: ["x < -4", "x > -4", "x > 4", "x < 4"],
-        correctAnswer: 0,
-        hint: "כאשר כופלים או מחלקים אי שוויון במספר **שלילי** (כמו 2- במקרה שלנו), חובה להפוך את כיוון אי השוויון! (מ-> ל-<).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחלק את שני האגפים במקדם של x, שהוא מינוס 2.&rlm;", math_expression: "x ... 8 : (-2)" },
-            { verbal_explanation: "שלב ב': מכיוון שחילקנו במספר שלילי, חוקי האי שוויון מחייבים אותנו 'להפוך' את הסימן (מ-'גדול מ-' ל-'קטן מ-').&rlm;", math_expression: "x < -4" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון הבא: \\( 3x - 5 > 10 \\)&rlm;",
+        "options": ["x > 5", "x < 5", "x > 15", "x < 15"],
+        "correctAnswer": 0,
+        "hint": "הוסיפו 5 לכל צד, ולאחר מכן חלקו ב-3.",
+        "solution_steps": [
+            { "verbal_explanation": "נבטל את פעולת החיסור על ידי הוספת חמש לשני האגפים.", "math_expression": "10 + 5 = 15" },
+            { "verbal_explanation": "נרשום את אי השוויון המעודכן.", "math_expression": "3x > 15" },
+            { "verbal_explanation": "נחלק בשלוש שהוא מספר חיובי. הכיוון נשאר כמו שהוא.", "math_expression": "\\div 3" },
+            { "verbal_explanation": "התשובה מציגה את התחום הנכון לפתרון.", "math_expression": "x > 5" }
         ],
-        final_answer: "x < -4"
+        "final_answer": "x > 5"
     },
-    // שאלה 28
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "פתרו את אי השוויון, וזכרו את חוק היפוך הסימן אם תצטרכו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 - 5x ≥ 25</div>",
-        options: ["x ≤ -3", "x ≥ -3", "x ≤ 3", "x ≥ 3"],
-        correctAnswer: 0,
-        hint: "העבירו את ה-10 ימינה (תקבלו 15). לאחר מכן חלקו במינוס 5, והפכו את הסימן מ-≥ ל-≤.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחסר 10 משני האגפים.&rlm;", math_expression: "-5x ≥ 25 - 10" },
-            { verbal_explanation: "שלב ב': נחשב.&rlm;", math_expression: "-5x ≥ 15" },
-            { verbal_explanation: "שלב ג': נחלק במינוס 5. כיוון שחילקנו במספר שלילי, הסימן מתהפך.&rlm;", math_expression: "x ≤ 15 : (-5)  =>  x ≤ -3" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון: \\( -2x > 8 \\)&rlm;",
+        "options": ["x < -4", "x > -4", "x < 4", "x > 4"],
+        "correctAnswer": 0,
+        "hint": "זהירות! כאשר מחלקים או כופלים את שני האגפים במספר שלילי, חובה להפוך את כיוון סימן אי השוויון.",
+        "solution_steps": [
+            { "verbal_explanation": "נתון אי שוויון עם מקדם שלילי לפני המשתנה.", "math_expression": "-2x > 8" },
+            { "verbal_explanation": "כדי לבודד את המשתנה נחלק את שני האגפים במינוס שתיים.", "math_expression": "\\div -2" },
+            { "verbal_explanation": "חשוב מאוד: חלוקה במספר שלילי מחייבת את הפיכת כיוון סימן אי השוויון.", "math_expression": "> \\rightarrow <" },
+            { "verbal_explanation": "נחשב את אגף ימין: שמונה לחלק למינוס שתיים.", "math_expression": "8 \\div -2 = -4" },
+            { "verbal_explanation": "נרשום את התשובה הסופית וההפוכה.", "math_expression": "x < -4" }
         ],
-        final_answer: "x ≤ -3"
+        "final_answer": "x < -4"
     },
-    // שאלה 29
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "פתרו אי שוויון עם נעלמים בשני האגפים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4x - 2 < 2x + 8</div>",
-        options: ["x < 5", "x > 5", "x < 3", "x < -5"],
-        correctAnswer: 0,
-        hint: "העבירו 2x שמאלה (4x-2x) ואת מינוס 2 ימינה (8+2). המקדם של x יהיה חיובי, אז אין צורך להפוך סימן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסדר אגפים. 2x עובר שמאלה במינוס, ו-2 ימינה בפלוס.&rlm;", math_expression: "4x - 2x < 8 + 2" },
-            { verbal_explanation: "שלב ב': נכנס איברים.&rlm;", math_expression: "2x < 10" },
-            { verbal_explanation: "שלב ג': נחלק ב-2 الحיובי. הסימן נשאר כפי שהוא.&rlm;", math_expression: "x < 5" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "מצאו את קבוצת הפתרונות של אי השוויון: \\( 5 - x < 2 \\)&rlm;",
+        "options": ["x > 3", "x < 3", "x > -3", "x < -3"],
+        "correctAnswer": 0,
+        "hint": "חסרו 5 משני הצדדים. תקבלו מינוס x קטן ממינוס 3. עכשיו הכפילו במינוס 1 (וזכרו להפוך את הסימן!).",
+        "solution_steps": [
+            { "verbal_explanation": "נחסר חמש משני האגפים כדי לבודד את המשתנה ואת סימנו.", "math_expression": "2 - 5 = -3" },
+            { "verbal_explanation": "נקבל מינוס משתנה קטן ממינוס שלוש.", "math_expression": "-x < -3" },
+            { "verbal_explanation": "כדי לקבל את המשתנה חיובי, נכפול או נחלק במינוס אחד. לכן נהפוך את כיוון הסימן.", "math_expression": "< \\rightarrow >" },
+            { "verbal_explanation": "שני המינוסים באגפים הופכים לחיוביים ומתקבל הפתרון הנכון.", "math_expression": "x > 3" }
         ],
-        final_answer: "x < 5"
+        "final_answer": "x > 3"
     },
-    // שאלה 30
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "איזה מהמספרים הבאים **אינו** מהווה פתרון לאי השוויון: x ≥ 7 ?&rlm;",
-        options: ["6", "7", "8", "100"],
-        correctAnswer: 0,
-        hint: "הסימן ≥ אומר 'גדול או שווה ל-7'. 7 הוא פתרון. 8 גם. מי לא מתאים?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "אי השוויון x ≥ 7 דורש ש-x יהיה 7 או כל מספר שגדול ממנו.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר 6 קטן מ-7, ולכן אינו מקיים את אי השוויון (פסוק שקר: 6 אינו גדול או שווה ל-7).&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון הבא (כולל סימן שווה): \\( 4x + 2 \\le 18 \\)&rlm;",
+        "options": ["x ≤ 4", "x ≥ 4", "x < 4", "x > 4"],
+        "correctAnswer": 0,
+        "hint": "הסימן 'קטן או שווה' נשאר איתכם לכל אורך הדרך ומתנהג בדיוק כמו סימן 'קטן'.",
+        "solution_steps": [
+            { "verbal_explanation": "נחסר שתיים משני האגפים של אי השוויון.", "math_expression": "18 - 2 = 16" },
+            { "verbal_explanation": "נרשום את התוצאה תוך שמירה על הסימן קטן או שווה.", "math_expression": "4x \\le 16" },
+            { "verbal_explanation": "נחלק בארבע שהוא מספר חיובי, ולכן הכיוון לא ישתנה.", "math_expression": "\\div 4" },
+            { "verbal_explanation": "נחשב ונגיע לפתרון הסופי.", "math_expression": "x \\le 4" }
         ],
-        final_answer: "6"
+        "final_answer": "x ≤ 4"
     },
-    // שאלה 31
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "פתרון של אי שוויון שיכול לקרות רק עם סוגריים. פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>- (x - 4) < 6</div>",
-        options: ["x > -2", "x < -2", "x > 10", "x < 10"],
-        correctAnswer: 0,
-        hint: "פתחו סוגריים עם המינוס (-x + 4 < 6). העבירו את ה-4, ואז חלקו במינוס 1 (והפכו סימן).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת סוגריים.&rlm;", math_expression: "-x + 4 < 6" },
-            { verbal_explanation: "שלב ב': נחסר 4 משני האגפים.&rlm;", math_expression: "-x < 6 - 4  =>  -x < 2" },
-            { verbal_explanation: "שלב ג': נכפול (או נחלק) את שני האגפים במינוס 1. פעולה זו מחייבת הפיכת כיוון אי השוויון.&rlm;", math_expression: "x > -2" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון: \\( -3x - 1 \\ge 8 \\)&rlm;",
+        "options": ["x ≤ -3", "x ≥ -3", "x ≤ 3", "x ≥ 3"],
+        "correctAnswer": 0,
+        "hint": "הוסיפו 1, ואז חלקו במינוס 3 וזכרו להפוך את סימן האי שוויון.",
+        "solution_steps": [
+            { "verbal_explanation": "נוסיף אחד לשני האגפים.", "math_expression": "8 + 1 = 9" },
+            { "verbal_explanation": "נקבל אי שוויון עם מקדם שלילי.", "math_expression": "-3x \\ge 9" },
+            { "verbal_explanation": "נחלק במינוס שלוש. חלוקה במספר שלילי מחייבת את הפיכת הסימן.", "math_expression": "\\ge \\rightarrow \\le" },
+            { "verbal_explanation": "תשע לחלק למינוס שלוש נותן תוצאה שלילית.", "math_expression": "9 \\div -3 = -3" },
+            { "verbal_explanation": "הפתרון המלא כולל את הסימן ההפוך והמספר.", "math_expression": "x \\le -3" }
         ],
-        final_answer: "x > -2"
+        "final_answer": "x ≤ -3"
     },
-    // שאלה 32
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "האם קבוצת הפתרונות של x > 5 שווה לקבוצת הפתרונות של 5 < x ?&rlm;",
-        options: ["כן, זה בדיוק אותו אי שוויון הכתוב בצורה הפוכה.", "לא, הם הפוכים לחלוטין.", "כן, אבל רק למספרים חיוביים.", "לא, כי הסימן השתנה."],
-        correctAnswer: 0,
-        hint: "קראו את המשפטים בעברית: 'איקס גדול מחמש', לעומת 'חמש קטן מאיקס'. האם המשמעות זהה? בהחלט.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הצד ה'פתוח' (הגדול) של הסימן > מופנה תמיד כלפי ה-x בשני הביטויים.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, קריאה משמאל לימין או מימין לשמאל לא משנה את העובדה ש-x חייב להיות גדול מ-5.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון המכיל שבר: \\( \\frac{x}{2} > 4 \\)&rlm;",
+        "options": ["x > 8", "x < 8", "x > 2", "x < 2"],
+        "correctAnswer": 0,
+        "hint": "כפלו את שני הצדדים ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "נתון אי שוויון שבו המשתנה נמצא במונה של שבר.", "math_expression": "\\frac{x}{2} > 4" },
+            { "verbal_explanation": "נכפול את שני האגפים בשתיים כדי לבטל את המכנה.", "math_expression": "\\times 2" },
+            { "verbal_explanation": "כיוון ששתיים הוא מספר חיובי, סימן אי השוויון נשאר באותו הכיוון.", "math_expression": ">" },
+            { "verbal_explanation": "הפתרון הוא כל מספר שגדול משמונה.", "math_expression": "x > 8" }
         ],
-        final_answer: "כן, זה בדיוק אותו אי שוויון הכתוב בצורה הפוכה."
+        "final_answer": "x > 8"
     },
-    // שאלה 33
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "אי שוויון מורכב: פתרו.&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 2 + 5 ≤ 7</div>",
-        options: ["x ≤ 4", "x ≥ 4", "x ≤ 6", "x ≥ 6"],
-        correctAnswer: 0,
-        hint: "חסרו 5 מה-7 (תקבלו 2). עכשיו כפלו ב-2. האם הופכים סימן כשכופלים ב-2? לא (כי 2 הוא חיובי).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחסר 5 משני האגפים.&rlm;", math_expression: "x : 2 ≤ 7 - 5  =>  x : 2 ≤ 2" },
-            { verbal_explanation: "שלב ב': נכפול את המשוואה ב-2 חיובי (לכן לא הופכים סימן).&rlm;", math_expression: "x ≤ 2 × 2" },
-            { verbal_explanation: "התוצאה:&rlm;", math_expression: "x ≤ 4" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון המכיל סוגריים: \\( 2(x - 1) < 10 \\)&rlm;",
+        "options": ["x < 6", "x > 6", "x < 4", "x > 4"],
+        "correctAnswer": 0,
+        "hint": "אפשר לפתוח סוגריים או לחלק ישירות ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "נחלק את שני צידי אי השוויון בשתיים כדי להיפטר מהכופל.", "math_expression": "10 \\div 2 = 5" },
+            { "verbal_explanation": "אי השוויון הפשוט שנוצר הוא המשתנה פחות אחד קטן מחמש.", "math_expression": "x - 1 < 5" },
+            { "verbal_explanation": "נוסיף אחד לשני האגפים.", "math_expression": "5 + 1 = 6" },
+            { "verbal_explanation": "נרשום את הפתרון הסופי.", "math_expression": "x < 6" }
         ],
-        final_answer: "x ≤ 4"
+        "final_answer": "x < 6"
     },
-    // שאלה 34
     {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "מצב של 'פסוק אמת' באי שוויון. פתרו את:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2x + 5 > 2x + 1</div>",
-        options: ["כל x (אינסוף פתרונות)", "אין פתרון", "x > 4", "x = 0"],
-        correctAnswer: 0,
-        hint: "חסרו 2x משני האגפים. תקבלו 5 > 1. האם 5 אכן גדול מ-1? כן, תמיד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': ננסה לרכז את ה-x באגף אחד.&rlm;", math_expression: "2x - 2x > 1 - 5" },
-            { verbal_explanation: "שלב ב': נקבל אפס שגדול ממינוס ארבע, או לחלופין 5 > 1 לפני העברת המספרים.&rlm;", math_expression: "0 > -4" },
-            { verbal_explanation: "זהו פסוק אמת מוחלט. לכן, לא משנה מה נציב במקום x, אי השוויון תמיד יתקיים.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "פתרון אי שוויונות",
+        "question_text": "פתרו את אי השוויון בו המשתנה מופיע בשני הצדדים: \\( 5x > 2x + 12 \\)&rlm;",
+        "options": ["x > 4", "x < 4", "x > 6", "x < 6"],
+        "correctAnswer": 0,
+        "hint": "העבירו את כל האיברים המכילים x לצד אחד (חסרו 2x משני הצדדים), ואז חלקו.",
+        "solution_steps": [
+            { "verbal_explanation": "נחסר שני איקס משני האגפים כדי לכנס את המשתנים לאגף אחד.", "math_expression": "5x - 2x > 12" },
+            { "verbal_explanation": "נחשב את ההפרש ונקבל שלושה איקס.", "math_expression": "3x > 12" },
+            { "verbal_explanation": "נחלק בשלוש את שני האגפים. הכיוון נשמר כי חילקנו בחיובי.", "math_expression": "\\div 3" },
+            { "verbal_explanation": "נקבל את הפתרון הנדרש.", "math_expression": "x > 4" }
         ],
-        final_answer: "כל x (אינסוף פתרונות)"
-    },
-    // שאלה 35
-    {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "מצב של 'פסוק שקר' באי שוויון. מה יקרה בתרגיל הבא?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x < x - 2</div>",
-        options: ["אין פתרון", "כל x פותר את זה", "x < -2", "x = 0"],
-        correctAnswer: 0,
-        hint: "האם מספר יכול להיות קטן יותר מעצמו פחות שתיים?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נחסר x משני האגפים.&rlm;", math_expression: "x - x < -2" },
-            { verbal_explanation: "נקבל את האי שוויון אפס קטן ממינוס שתיים.&rlm;", math_expression: "0 < -2" },
-            { verbal_explanation: "זהו פסוק שקר, לכן אין אף x שיקיים את התנאי הזה.&rlm;", math_expression: "" }
-        ],
-        final_answer: "אין פתרון"
-    },
-    // שאלה 36
-    {
-        topic: "equations_inequalities",
-        subTopic: "פתרון אי שוויונות",
-        question_text: "מה ההבדל במשמעות בין הסימן < לבין הסימן ≤ ?&rlm;",
-        options: ["≤ כולל גם את השוויון (המספר עצמו מהווה פתרון), בעוד < מתייחס רק למספרים הקטנים ממנו ממש.", "≤ מיועד למספרים שליליים.", "< כולל את השוויון.", "אין הבדל."],
-        correctAnswer: 0,
-        hint: "הקו התחתון בסימן ≤ מתפקד כמו חצי מסימן ה- =. הוא אומר 'קטן מ... או שווה ל...'.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הסימן < קורא למספרים שהם אך ורק קטנים מהערך, ולא שווים לו. למשל 4 < 5 זה אמת, 5 < 5 זה שקר.&rlm;", math_expression: "" },
-            { verbal_explanation: "הסימן ≤ (קטן-שווה) מתיר גם את השוויון, כך ש- 5 ≤ 5 זה פסוק אמת.&rlm;", math_expression: "" }
-        ],
-        final_answer: "≤ כולל גם את השוויון (המספר עצמו מהווה פתרון), בעוד < מתייחס רק למספרים הקטנים ממנו ממש."
+        "final_answer": "x > 4"
     },
 
-    // ==========================================================
-    // תת נושא 4: ייצוג על ציר המספרים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 37
+    // ==========================================
+    // תת נושא 4: ייצוג על ציר המספרים (10 שאלות)
+    // ==========================================
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "איזה אי שוויון מיוצג על ידי השרטוט הבא (עיגול ריק, וחץ הפונה ימינה)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 300 80' width='100%' height='80' style='max-width:300px;'><line x1='10' y1='50' x2='290' y2='50' stroke='#334155' stroke-width='2'/><circle cx='100' cy='50' r='5' fill='#ffffff' stroke='#3b82f6' stroke-width='2'/><text x='100' y='75' font-family='Arial' font-size='14' fill='#0f172a' text-anchor='middle'>3</text><line x1='105' y1='50' x2='280' y2='50' stroke='#3b82f6' stroke-width='4'/><polygon points='280,45 290,50 280,55' fill='#3b82f6'/></svg></div>",
-        options: ["x > 3", "x ≥ 3", "x < 3", "x ≤ 3"],
-        correctAnswer: 0,
-        hint: "החץ מצביע על המספרים הגדולים מ-3 (ימינה). העיגול הריק מסמל שה-3 עצמו אינו נכלל בפתרון.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "חץ הפונה ימינה מייצג את כל המספרים הגדולים מהנקודה המודגשת (x >).&rlm;", math_expression: "" },
-            { verbal_explanation: "עיגול ריק (לא מלא) מציין שהנקודה עצמה (3) אינה חלק מהפתרון, ולכן אין סימן 'שווה' באי-השוויון.&rlm;", math_expression: "x > 3" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 100\" width=\"200\" height=\"80\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"50\" x2=\"280\" y2=\"50\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"280\" y1=\"50\" x2=\"270\" y2=\"45\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"280\" y1=\"50\" x2=\"270\" y2=\"55\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"150\" cy=\"50\" r=\"5\" fill=\"white\" stroke=\"#ef4444\" stroke-width=\"2\"/><line x1=\"155\" y1=\"50\" x2=\"260\" y2=\"50\" stroke=\"#ef4444\" stroke-width=\"3\"/><text x=\"146\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">3</text></svg></div><br>איזה אי שוויון מיוצג בשרטוט שלפניכם (עיגול ריק במספר 3 וחץ ימינה)?&rlm;",
+        "options": ["x > 3", "x < 3", "x ≥ 3", "x ≤ 3"],
+        "correctAnswer": 0,
+        "hint": "עיגול ריק אומר שהמספר עצמו לא כלול (אין סימן שווה). חץ ימינה מסמן מספרים גדולים יותר.",
+        "solution_steps": [
+            { "verbal_explanation": "החץ בגרף מצביע ימינה, אל הכיוון החיובי שבו המספרים גדולים יותר.", "math_expression": ">" },
+            { "verbal_explanation": "העיגול על המספר שלוש הוא עיגול ריק, כלומר המספר שלוש אינו נכלל בפתרון.", "math_expression": "> \\quad , \\quad \\neq" },
+            { "verbal_explanation": "נשלב את שני הנתונים יחד לאי שוויון אחד.", "math_expression": "x > 3" },
+            { "verbal_explanation": "הביטוי המתאים הוא איקס גדול משלוש.", "math_expression": "x > 3" }
         ],
-        final_answer: "x > 3"
+        "final_answer": "x > 3"
     },
-    // שאלה 38
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "מה אומר 'עיגול מלא' (צבוע מבפנים) על ציר המספרים בייצוג של אי-שוויון?&rlm;",
-        options: ["שהמספר עליו מונח העיגול הוא חלק מקבוצת הפתרונות (מציינים זאת ב- ≤ או ≥).", "שהוא אינו חלק מהפתרון.", "שהפתרון מיועד למספרים שלמים בלבד.", "שהחץ חייב לפנות שמאלה."],
-        correctAnswer: 0,
-        hint: "עיגול 'מלא' משמעותו 'כולל'. עיגול 'ריק' משמעותו 'לא כולל'.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כדי להבדיל בין > (גדול מ) לבין ≥ (גדול או שווה), משתמשים בצביעת העיגול שעל הציר.&rlm;", math_expression: "" },
-            { verbal_explanation: "צביעה מלאה מסמלת שהמספר עצמו מקיים את התנאי והוא נכלל בפתרון הסופי.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 100\" width=\"200\" height=\"80\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"50\" x2=\"280\" y2=\"50\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"280\" y1=\"50\" x2=\"270\" y2=\"45\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"280\" y1=\"50\" x2=\"270\" y2=\"55\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"50\" r=\"5\" fill=\"#3b82f6\"/><line x1=\"195\" y1=\"50\" x2=\"40\" y2=\"50\" stroke=\"#3b82f6\" stroke-width=\"3\"/><line x1=\"40\" y1=\"50\" x2=\"50\" y2=\"45\" stroke=\"#3b82f6\" stroke-width=\"3\"/><line x1=\"40\" y1=\"50\" x2=\"50\" y2=\"55\" stroke=\"#3b82f6\" stroke-width=\"3\"/><text x=\"196\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">5</text></svg></div><br>איזה אי שוויון מיוצג בשרטוט (עיגול מלא ב-5 וחץ שמאלה)?&rlm;",
+        "options": ["x ≤ 5", "x < 5", "x ≥ 5", "x > 5"],
+        "correctAnswer": 0,
+        "hint": "עיגול מלא פירושו שהמספר כלול (יש סימן שווה). חץ שמאלה פירושו מספרים קטנים יותר.",
+        "solution_steps": [
+            { "verbal_explanation": "החץ פונה שמאלה, המציין את כל הערכים שקטנים מהמספר הנבחר.", "math_expression": "<" },
+            { "verbal_explanation": "העיגול מעל המספר חמש צבוע ומלא. המשמעות היא שהמספר חמש נכלל בתוך הפתרון.", "math_expression": "\\le" },
+            { "verbal_explanation": "הביטוי השלם כולל גם את סימן ה'קטן מ' וגם את קו ה'שווה ל'.", "math_expression": "x \\le 5" },
+            { "verbal_explanation": "כלומר, איקס קטן או שווה לחמש.", "math_expression": "x \\le 5" }
         ],
-        final_answer: "שהמספר עליו מונח העיגול הוא חלק מקבוצת הפתרונות (מציינים זאת ב- ≤ או ≥)."
+        "final_answer": "x ≤ 5"
     },
-    // שאלה 39
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "איזה שרטוט מתאר נכון את התחום x ≤ -2 ?&rlm;",
-        options: ["עיגול מלא על מינוס 2, וחץ פונה שמאלה.", "עיגול ריק על מינוס 2, וחץ פונה שמאלה.", "עיגול מלא על מינוס 2, וחץ פונה ימינה.", "עיגול ריק על מינוס 2, וחץ פונה ימינה."],
-        correctAnswer: 0,
-        hint: "הסימן ≤ אומר 'קטן או שווה'. 'שווה' דורש עיגול מלא. 'קטן מ-' דורש תנועה למספרים קטנים יותר, כלומר שמאלה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המילה 'שווה ל' מחייבת שימוש בעיגול מלא (צבוע).&rlm;", math_expression: "" },
-            { verbal_explanation: "הכיוון 'קטן מ-' מכוון למספרים השליליים יותר, הנמצאים בצד השמאלי של ציר המספרים.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 300 100\" width=\"200\" height=\"80\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"20\" y1=\"50\" x2=\"280\" y2=\"50\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"280\" y1=\"50\" x2=\"270\" y2=\"45\" stroke=\"#0f172a\" stroke-width=\"2\"/><line x1=\"280\" y1=\"50\" x2=\"270\" y2=\"55\" stroke=\"#0f172a\" stroke-width=\"2\"/><circle cx=\"100\" cy=\"50\" r=\"5\" fill=\"white\" stroke=\"#eab308\" stroke-width=\"2\"/><line x1=\"95\" y1=\"50\" x2=\"40\" y2=\"50\" stroke=\"#eab308\" stroke-width=\"3\"/><line x1=\"40\" y1=\"50\" x2=\"50\" y2=\"45\" stroke=\"#eab308\" stroke-width=\"3\"/><line x1=\"40\" y1=\"50\" x2=\"50\" y2=\"55\" stroke=\"#eab308\" stroke-width=\"3\"/><text x=\"92\" y=\"70\" font-family=\"Arial\" font-size=\"14\" fill=\"#0f172a\">-2</text></svg></div><br>מה מתאר השרטוט הבא (עיגול ריק במינוס 2, חץ שמאלה)?&rlm;",
+        "options": ["x < -2", "x > -2", "x ≤ -2", "x ≥ -2"],
+        "correctAnswer": 0,
+        "hint": "חץ שמאלה = קטן מ. עיגול ריק = ללא סימן שווה.",
+        "solution_steps": [
+            { "verbal_explanation": "נזהה את כיוון החץ. הוא מצביע שמאלה, ולכן מייצג ערכים קטנים יותר.", "math_expression": "<" },
+            { "verbal_explanation": "נבחן את העיגול. הוא ריק, ולכן אין סימן שווה.", "math_expression": "<" },
+            { "verbal_explanation": "נשלב את הנתונים עם המספר שעל הציר.", "math_expression": "x < -2" },
+            { "verbal_explanation": "הפתרון הוא איקס קטן ממינוס שתיים.", "math_expression": "x < -2" }
         ],
-        final_answer: "עיגול מלא על מינוס 2, וחץ פונה שמאלה."
+        "final_answer": "x < -2"
     },
-    // שאלה 40
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "פתרו את התרגיל ובחרו את הייצוג המתאים: -3x < 12&rlm;",
-        options: ["עיגול ריק על מינוס 4, וחץ פונה ימינה.", "עיגול מלא על מינוס 4, וחץ פונה שמאלה.", "עיגול ריק על 4, וחץ פונה ימינה.", "עיגול ריק על מינוס 4, וחץ פונה שמאלה."],
-        correctAnswer: 0,
-        hint: "חלקו ב-3-. אל תשכחו שהסימן מתהפך (מ-< ל->). התוצאה היא x > -4.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחלק במינוס 3 את שני האגפים ונהפוך את סימן האי-שוויון.&rlm;", math_expression: "x > 12 : (-3)  =>  x > -4" },
-            { verbal_explanation: "שלב ב': נתרגם את x > -4 לשרטוט. אין סימן שווה, לכן העיגול ריק. הכיוון 'גדול מ' מורה ימינה.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "כיצד ייראה על ציר המספרים הפתרון של אי השוויון: \\( x \\ge 0 \\)?&rlm;",
+        "options": ["עיגול מלא באפס, חץ ימינה", "עיגול ריק באפס, חץ ימינה", "עיגול מלא באפס, חץ שמאלה", "עיגול ריק באפס, חץ שמאלה"],
+        "correctAnswer": 0,
+        "hint": "הסימן אומר 'גדול או שווה'. לאיזה כיוון מציירים, והאם העיגול מלא?",
+        "solution_steps": [
+            { "verbal_explanation": "סימן האי שוויון הוא גדול מ-, ולכן החץ על ציר המספרים יצביע ימינה אל המספרים החיוביים.", "math_expression": "> \\rightarrow \\text{Right}" },
+            { "verbal_explanation": "בנוסף, קיים סימן של 'שווה ל' מתחת לאי השוויון.", "math_expression": "\\ge" },
+            { "verbal_explanation": "המשמעות הגרפית היא שהעיגול המסמן את נקודת ההתחלה באפס חייב להיות מלא וצבוע.", "math_expression": "\\text{Full Circle}" },
+            { "verbal_explanation": "לכן, התיאור הנכון הוא עיגול מלא וחץ ימינה.", "math_expression": "\\rightarrow" }
         ],
-        final_answer: "עיגול ריק על מינוס 4, וחץ פונה ימינה."
+        "final_answer": "עיגול מלא באפס, חץ ימינה"
     },
-    // שאלה 41
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "קבוצת פתרון בין שני מספרים ('וגם'). כיצד ייראה השרטוט של התחום שבו x גדול מ-2 אך קטן מ-7 (נכתב כ: 2 < x < 7)?&rlm;",
-        options: ["קטע סגור (ללא חיצים) המחבר בין עיגול ריק על 2 לבין עיגול ריק על 7.", "שני חיצים פונים ימינה.", "חץ הפונה ימינה מ-2, וחץ פונה שמאלה מ-7.", "קטע המחבר בין שני עיגולים מלאים על 2 ו-7."],
-        correctAnswer: 0,
-        hint: "זהו 'כלוב'. ה-x חסום בין 2 ל-7 ולא יכול לברוח. מכיוון שאין סימני 'שווה', העיגולים בשני הקצוות ריקים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ביטוי של x הנמצא בין שני מספרים מגדיר קטע מוגבל על הישר, ולא קרן נמשכת.&rlm;", math_expression: "" },
-            { verbal_explanation: "היות והאי שוויונות הם < ולא ≤, קצות הקטע (2 ו-7) מסומנים בעיגולים ריקים.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "פתרו את אי השוויון: \\( 2x > 4 \\). כיצד ייראה הפתרון על ציר המספרים?&rlm;",
+        "options": ["עיגול ריק ב-2, חץ ימינה", "עיגול מלא ב-2, חץ ימינה", "עיגול ריק ב-4, חץ ימינה", "עיגול ריק ב-2, חץ שמאלה"],
+        "correctAnswer": 0,
+        "hint": "קודם פתרו את התרגיל (חלקו ב-2), ואז קבעו את הציור לפי התוצאה.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי לדעת איזה גרף לצייר, חובה עלינו לפתור תחילה את אי השוויון.", "math_expression": "2x > 4" },
+            { "verbal_explanation": "נחלק את שני האגפים בשתיים. הסימן נשאר כפי שהוא.", "math_expression": "x > 2" },
+            { "verbal_explanation": "הפתרון הוא איקס גדול משתיים. נתרגם זאת לגרף: גדול אומר חץ ימינה.", "math_expression": "\\rightarrow" },
+            { "verbal_explanation": "היעדר סימן שווה אומר שהעיגול על המספר שתיים יישאר ריק.", "math_expression": "\\text{Empty Circle}" }
         ],
-        final_answer: "קטע סגור (ללא חיצים) המחבר בין עיגול ריק על 2 לבין עיגול ריק על 7."
+        "final_answer": "עיגול ריק ב-2, חץ ימינה"
     },
-    // שאלה 42
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "איזה מבין השרטוטים ייצג את הפתרון של המשוואה הרגילה x = 5 על ציר המספרים?&rlm;",
-        options: ["נקודה אחת בודדת וצבועה (עיגול מלא) על המספר 5, ללא שום חץ.", "עיגול מלא על 5 עם חיצים לשני הכיוונים.", "עיגול ריק על 5.", "לא ניתן לייצג משוואה רגילה על ישר מספרים."],
-        correctAnswer: 0,
-        hint: "משוואה מציינת פתרון יחיד ומוחלט. אין כיוונים, רק מיקום מדוייק אחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "משוואה כמו x=5 דורשת ערך אחד ויחיד להצבה.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן לא יהיה שום כיוון המשכיות (ללא חיצים). נסמן את הפתרון כנקודה מלאה במיקום 5.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "פתרו את אי השוויון: \\( -x \\le -3 \\). כיצד נצייר את התשובה על ציר המספרים?&rlm;",
+        "options": ["עיגול מלא ב-3, חץ ימינה", "עיגול ריק ב-3, חץ שמאלה", "עיגול מלא במינוס 3, חץ שמאלה", "עיגול מלא ב-3, חץ שמאלה"],
+        "correctAnswer": 0,
+        "hint": "כשמכפילים במינוס אחד את אי השוויון, הסימן מתהפך! התוצאה תהיה $x \\ge 3$.",
+        "solution_steps": [
+            { "verbal_explanation": "אי השוויון מופיע עם משתנה שלילי. עלינו להפוך אותו לחיובי.", "math_expression": "-x \\le -3" },
+            { "verbal_explanation": "נכפול במינוס אחד את שני האגפים, ונהפוך את כיוון הסימן כנדרש.", "math_expression": "x \\ge 3" },
+            { "verbal_explanation": "כעת נצייר: הסימן פונה ימינה למספרים הגדולים, לכן נמתח חץ ימינה.", "math_expression": "\\rightarrow" },
+            { "verbal_explanation": "הסימן כולל קו השווה. לכן העיגול על המספר שלוש יהיה צבוע ומלא.", "math_expression": "\\text{Full Circle}" }
         ],
-        final_answer: "נקודה אחת בודדת וצבועה (עיגול מלא) על המספר 5, ללא שום חץ."
+        "final_answer": "עיגול מלא ב-3, חץ ימינה"
     },
-    // שאלה 43
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "קבוצת פתרון מתפצלת (או/או). כיצד ייראה השרטוט עבור x < 0 או x ≥ 4 ?&rlm;",
-        options: ["קרן הפונה שמאלה מ-0 (עיגול ריק), וקרן הפונה ימינה מ-4 (עיגול מלא).", "קטע המחבר בין 0 ל-4.", "קרן הפונה ימינה מ-0.", "עיגול מלא על 0 ועל 4."],
-        correctAnswer: 0,
-        hint: "אלו שני אזורים שלא נפגשים (או זה, או זה). התחום של ה-0 דורש פניה שמאלה (עיגול ריק). התחום של ה-4 דורש פניה ימינה עם עיגול מלא.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "תנאי ראשון: x < 0. מיוצג על ידי עיגול ריק ב-0 וחץ המופנה שמאלה אל המספרים השליליים.&rlm;", math_expression: "" },
-            { verbal_explanation: "תנאי שני: x ≥ 4. מיוצג על ידי עיגול מלא ב-4 וחץ המופנה ימינה אל המספרים הגדולים.&rlm;", math_expression: "" },
-            { verbal_explanation: "המילה 'או' מאפשרת לשני הפתרונות להתקיים במקביל כקרניים נפרדות.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "ציר מספרים מציג פתרון שבו יש עיגול ריק במינוס 1, וחץ ימינה (כלומר \\( x > -1 \\)). איזה מהתרגילים הבאים יוביל לאותו הפתרון?&rlm;",
+        "options": ["2x > -2", "-x > 1", "x + 1 < 0", "x - 1 > 0"],
+        "correctAnswer": 0,
+        "hint": "פתרו כל אחד מהתרגילים ובדקו מי נותן את התוצאה המוצגת בגרף.",
+        "solution_steps": [
+            { "verbal_explanation": "הגרף המתואר במילים מציג את אי השוויון איקס גדול ממינוס אחד.", "math_expression": "x > -1" },
+            { "verbal_explanation": "נבחן את האפשרות הראשונה ונפתור אותה על ידי חלוקה בשתיים.", "math_expression": "2x > -2 \\Rightarrow x > -1" },
+            { "verbal_explanation": "האפשרות הראשונה נותנת בדיוק את הפתרון של הגרף, ולכן היא התשובה הנכונה.", "math_expression": "2x > -2" },
+            { "verbal_explanation": "נוודא את השנייה: מינוס איקס גדול מאחד ייתן איקס קטן ממינוס אחד, שזה חץ הפוך.", "math_expression": "-x > 1 \\Rightarrow x < -1" }
         ],
-        final_answer: "קרן הפונה שמאלה מ-0 (עיגול ריק), וקרן הפונה ימינה מ-4 (עיגול מלא)."
+        "final_answer": "2x > -2"
     },
-    // שאלה 44
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "אם השרטוט מראה חץ עבה לאורך *כל* ציר המספרים, ללא כל עיגולים או הפסקות, מה משמעותו?&rlm;",
-        options: ["'כל x הוא פתרון' (אינסוף פתרונות או פסוק אמת מוחלט).", "אין פתרון.", "x = 0", "רק מספרים חיוביים פותרים."],
-        correctAnswer: 0,
-        hint: "כשכל הישר צבוע, זה אומר שכל מספר בעולם יכול להתקבל כתשובה חוקית (כמו שקרה לנו ב- 0 < 5).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הצללה של כל ישר המספרים מהווה ייצוג חזותי למצב של 'כל מספר הוא פתרון'.&rlm;", math_expression: "" },
-            { verbal_explanation: "מצב כזה קורה כאשר אנו פותרים אי שוויון ומגיעים לפסוק שתמיד נכון (למשל 4 > 2).&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "גרף מסוים מציג את התחום \\( x \\le 4 \\). איזו אי-שוויון מתאים לגרף הזה?&rlm;",
+        "options": ["x - 1 ≤ 3", "2x < 8", "x + 2 ≥ 6", "-x ≤ -4"],
+        "correctAnswer": 0,
+        "hint": "חפשו את האפשרות שכאשר תפתרו אותה, תקבלו בדיוק את אי השוויון שבשאלה.",
+        "solution_steps": [
+            { "verbal_explanation": "נחפש אי שוויון שהפתרון הסופי שלו זהה לזה שמופיע בגרף הנתון.", "math_expression": "x \\le 4" },
+            { "verbal_explanation": "נפתור את האפשרות הראשונה על ידי הוספת אחד לשני האגפים.", "math_expression": "x - 1 \\le 3 \\Rightarrow x \\le 4" },
+            { "verbal_explanation": "האפשרות הראשונה מתאימה לחלוטין לגרף.", "math_expression": "x - 1 \\le 3" },
+            { "verbal_explanation": "האפשרות השנייה תיתן איקס קטן מארבע (בלי השווה) ולכן היא נפסלת.", "math_expression": "2x < 8 \\Rightarrow x < 4" }
         ],
-        final_answer: "'כל x הוא פתרון' (אינסוף פתרונות או פסוק אמת מוחלט)."
+        "final_answer": "x - 1 ≤ 3"
     },
-    // שאלה 45
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "מה המשמעות של ציר מספרים שנשאר ריק לחלוטין (ללא כל סימון, עיגול או חץ)?&rlm;",
-        options: ["'אין פתרון' (פסוק שקר).", "כל מספר הוא פתרון.", "x = 0", "השרטוט פשוט חסר."],
-        correctAnswer: 0,
-        hint: "אם אין אף מספר שמקיים את התנאי, אין לנו שום דבר לצייר על הישר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כאשר לא קיים פתרון למערכת או לאי-שוויון (למשל כאשר מקבלים סתירה כמו 5 < 2).&rlm;", math_expression: "" },
-            { verbal_explanation: "אין אף מספר שמקיים את הדרישה, ולכן ישר המספרים נשאר נקי וללא סימונים.&rlm;", math_expression: "" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "האם הנקודה \\( x = 3 \\) נכללת (צבועה) בגרף של אי השוויון \\( x > 3 \\)?&rlm;",
+        "options": ["לא", "כן", "רק אם החץ שמאלה", "אי אפשר לדעת"],
+        "correctAnswer": 0,
+        "hint": "סימן 'גדול מ' (ללא שווה) אומר שהמספר עצמו הוא הגבול, אבל אינו כלול בפנים.",
+        "solution_steps": [
+            { "verbal_explanation": "אי השוויון הנתון משתמש בסימן גדול מ- ללא תוספת של קו השוויון.", "math_expression": ">" },
+            { "verbal_explanation": "משמעות הדבר היא שכל המספרים שגדולים משלוש מתקבלים, אך לא שלוש עצמו.", "math_expression": "3 \\ngtr 3" },
+            { "verbal_explanation": "על הגרף הדבר ייוצג באמצעות עיגול ריק, המראה אי-הכללה של הנקודה.", "math_expression": "\\text{Empty Circle}" },
+            { "verbal_explanation": "התשובה היא שהנקודה אינה נכללת.", "math_expression": "\\text{No}" }
         ],
-        final_answer: "'אין פתרון' (פסוק שקר)."
+        "final_answer": "לא"
     },
-    // שאלה 46
     {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "איזה מהמספרים הבאים נכלל בתחום הפתרון של השרטוט הבא: עיגול ריק על המספר 2, וחץ פונה ימינה.&rlm;",
-        options: ["2.1", "2", "1", "0"],
-        correctAnswer: 0,
-        hint: "חץ ימינה מעיד על מספרים גדולים מ-2. עיגול ריק מעיד ש-2 אינו נכלל! אבל 2.1 (גדול מ-2) כן נכלל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "השרטוט מתאר את אי השוויון x > 2.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר 2 עצמו נפסל בגלל העיגול הריק. המספרים 1 ו-0 קטנים מ-2 ונמצאים מחוץ לתחום הצבוע.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר 2.1 (גדול ולו במעט מ-2) נמצא על הקרן הצבועה ולכן הוא פתרון תקין.&rlm;", math_expression: "2.1 > 2" }
+        "topic": "equations_inequalities_grade_8",
+        "subTopic": "ייצוג על ציר המספרים",
+        "question_text": "גרף מציג עיגול ריק ב-2 וחץ שמאלה (כלומר \\( x < 2 \\)). איזה מהמספרים הבאים הוא פתרון אפשרי לאי השוויון הזה?&rlm;",
+        "options": ["0", "2", "5", "10"],
+        "correctAnswer": 0,
+        "hint": "כל מספר שקטן מ-2 ונמצא משמאלו על ציר המספרים מהווה פתרון.",
+        "solution_steps": [
+            { "verbal_explanation": "הגרף מתאר את כלל המספרים שנמצאים משמאל למספר שתיים, כלומר קטנים ממנו.", "math_expression": "x < 2" },
+            { "verbal_explanation": "נעבור על האפשרויות ונבדוק מי מהן מקיימת את התנאי הזה.", "math_expression": "?" },
+            { "verbal_explanation": "המספרים חמש ועשר גדולים משתיים ואינם מתאימים.", "math_expression": "5 > 2 \\quad , \\quad 10 > 2" },
+            { "verbal_explanation": "המספר שתיים לא מתאים כי העיגול ריק (אין סימן שווה).", "math_expression": "2 \\nless 2" },
+            { "verbal_explanation": "המספר אפס קטן משתיים ומהווה פתרון חוקי.", "math_expression": "0 < 2" }
         ],
-        final_answer: "2.1"
-    },
-    // שאלה 47
-    {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "פתרו את המערכת מסוג 'וגם': נדרש גם ש- x > 1, וגם ש- x < 5. איך נראית התוצאה הסופית המשותפת על הציר?&rlm;",
-        options: ["קטע סגור המחבר בין העיגול הריק שב-1 לעיגול הריק שב-5.", "קרן מ-1 ימינה, וקרן נפרדת מ-5 שמאלה.", "כל ישר המספרים.", "אין פתרון משותף."],
-        correctAnswer: 0,
-        hint: "מערכת 'וגם' דורשת את האזור המשותף (החיתוך) של שני החיצים. החץ מ-1 הולך ימינה, החץ מ-5 הולך שמאלה. הם חופפים בדיוק בקטע שבין 1 ל-5.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מערכת 'וגם' מחפשת את נקודות המפגש של שני התנאים (חיתוך הקבוצות).&rlm;", math_expression: "" },
-            { verbal_explanation: "קרן אחת יוצאת מ-1 ימינה, הקרן השנייה יוצאת מ-5 שמאלה.&rlm;", math_expression: "" },
-            { verbal_explanation: "האזור שבו שתי הקרניים 'נשכבות' אחת על השנייה הוא הקטע שבין 1 ל-5.&rlm;", math_expression: "1 < x < 5" }
-        ],
-        final_answer: "קטע סגור המחבר בין העיגול הריק שב-1 לעיגול הריק שב-5."
-    },
-    // שאלה 48
-    {
-        topic: "equations_inequalities",
-        subTopic: "ייצוג על ציר המספרים",
-        question_text: "מערכת 'וגם' מכשילה: נדרש גם ש- x > 6, וגם ש- x < 2. מהי התשובה?&rlm;",
-        options: ["אין פתרון (הציר יישאר ריק).", "כל הציר.", "קטע בין 2 ל-6.", "או x>6 או x<2."],
-        correctAnswer: 0,
-        hint: "האם קיים מספר שגם גדול מ-6 וגם קטן מ-2 בו זמנית?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המילה 'וגם' דורשת מספר שיענה על שני התנאים במקביל.&rlm;", math_expression: "" },
-            { verbal_explanation: "קרן אחת פונה ימינה מ-6, השנייה פונה שמאלה מ-2. אין ביניהן שום אזור חפיפה על הציר.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן קבוצת הפתרון היא קבוצה ריקה, ואין לצייר כלום על הציר.", math_expression: "" }
-        ],
-        final_answer: "אין פתרון (הציר יישאר ריק)."
+        "final_answer": "0"
     }
-
 ];

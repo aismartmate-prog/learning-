@@ -1,736 +1,631 @@
-// ========================================================================
-// שכבת גיל: כיתה ח' | נושא: סטטיסטיקה והסתברות
-// 4 תתי נושאים | 48 שאלות סה"כ
-// פתרונות מפורטים צעד-אחר-צעד: חישובי ממוצע, חציון, והסתברויות.
-// כתיבה נוקשה: חילוק ושברים מוצגים אך ורק בעזרת (:) או במילים! ללא לוכסנים.
-// כולל איורי SVG (גרף עמודות, רולטה, קוביה). ללא LaTeX.
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
-    // תת נושא 1: מרחב מדגם והסתברות קלאסית (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
+    // ==========================================
+    // תת נושא 1: מרחב מדגם והסתברות קלאסית (10 שאלות)
+    // ==========================================
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "מהו 'מרחב המדגם' בזריקת קוביית משחק הוגנת ורגילה בעלת 6 פאות?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><rect x='20' y='20' width='60' height='60' rx='10' fill='#fef08a' stroke='#ca8a04' stroke-width='3'/><circle cx='35' cy='35' r='5' fill='#0f172a'/><circle cx='65' cy='65' r='5' fill='#0f172a'/><circle cx='35' cy='65' r='5' fill='#0f172a'/><circle cx='65' cy='35' r='5' fill='#0f172a'/><circle cx='50' cy='50' r='5' fill='#0f172a'/></svg></div>",
-        options: ["{1, 2, 3, 4, 5, 6}", "{1, 6}", "{2, 4, 6}", "{0, 1, 2, 3, 4, 5, 6}"],
-        correctAnswer: 0,
-        hint: "מרחב המדגם הוא קבוצת כל התוצאות האפשריות שיכולות לקרות. אילו מספרים מופיעים על הפאות של הקובייה?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מרחב מדגם הוא רשימה של כל האפשרויות שיכולות להתקבל בניסוי הסתברותי.&rlm;", math_expression: "" },
-            { verbal_explanation: "בקוביית משחק סטנדרטית יש 6 פאות, ועליהן המספרים 1 עד 6.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, הקבוצה המכילה את כל האפשרויות היא המספרים מ-1 ועד 6.&rlm;", math_expression: "{1, 2, 3, 4, 5, 6}" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "מטילים קוביית משחק הוגנת (שעל פאותיה רשומים המספרים מ-1 עד 6). מהי ההסתברות שיתקבל המספר 4?&rlm;",
+        "options": ["1/6", "4/6", "1/4", "1/2"],
+        "correctAnswer": 0,
+        "hint": "ההסתברות מחושבת כחלוקה של מספר התוצאות הרצויות במספר התוצאות האפשריות הכולל.",
+        "solution_steps": [
+            { "verbal_explanation": "נבדוק מהו מספר התוצאות האפשריות בהטלת קובייה. בקובייה יש שש פאות.", "math_expression": "6" },
+            { "verbal_explanation": "נבדוק כמה תוצאות רצויות יש לנו. אנו מעוניינים רק במספר ארבע, שהוא פאה אחת מתוך השש.", "math_expression": "1" },
+            { "verbal_explanation": "נבנה את השבר המייצג את ההסתברות: כמות התוצאות הרצויות חלקי סך התוצאות האפשריות.", "math_expression": "\\frac{1}{6}" },
+            { "verbal_explanation": "ההסתברות לקבל את המספר ארבע היא שישית.", "math_expression": "\\frac{1}{6}" }
         ],
-        final_answer: "{1, 2, 3, 4, 5, 6}"
+        "final_answer": "1/6"
     },
-    // שאלה 2
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "בזריקת קובייה הוגנת, מהי ההסתברות לקבל את המספר 4?&rlm;",
-        options: ["1 : 6 (שישית)", "4 : 6 (ארבע שישיות)", "1 : 4 (רבע)", "0.4"],
-        correctAnswer: 0,
-        hint: "הסתברות מחושבת כך: (מספר האפשרויות הרצויות) לחלק ב- (סך כל האפשרויות במרחב המדגם). כמה פעמים המספר 4 מופיע על הקובייה?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סך כל התוצאות האפשריות (מרחב המדגם) הוא 6.&rlm;", math_expression: "Total = 6" },
-            { verbal_explanation: "שלב ב': התוצאה הרצויה לנו (המספר 4) מופיעה על הקובייה פעם אחת בלבד.&rlm;", math_expression: "Wanted = 1" },
-            { verbal_explanation: "שלב ג': ההסתברות היא יחס הרצוי לסך הכל (1 מתוך 6).&rlm;", math_expression: "1 : 6" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "מטילים קוביית משחק הוגנת. מהי ההסתברות שיתקבל מספר זוגי?&rlm;",
+        "options": ["1/2", "1/3", "1/6", "3/4"],
+        "correctAnswer": 0,
+        "hint": "רשמו לעצמכם אילו מספרים זוגיים יש בקובייה (2, 4, 6), וספרו כמה הם מתוך סך כל המספרים.",
+        "solution_steps": [
+            { "verbal_explanation": "מרחב המדגם השלם (כל האפשרויות) מכיל שישה מספרים.", "math_expression": "6" },
+            { "verbal_explanation": "המספרים הזוגיים האפשריים בהטלת קובייה הם שתיים, ארבע ושש. בסך הכל שלוש תוצאות רצויות.", "math_expression": "3" },
+            { "verbal_explanation": "נרשום את ההסתברות כשבר: שלוש תוצאות רצויות מתוך שש אפשריות.", "math_expression": "\\frac{3}{6}" },
+            { "verbal_explanation": "נצמצם את השבר על ידי חלוקת המונה והמכנה בשלוש ונקבל חצי.", "math_expression": "\\frac{1}{2}" }
         ],
-        final_answer: "1 : 6 (שישית)"
+        "final_answer": "1/2"
     },
-    // שאלה 3
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "מהי ההסתברות לקבל מספר זוגי בזריקת קובייה הוגנת?&rlm;",
-        options: ["3 : 6 (שזה בדיוק חצי)", "2 : 6", "4 : 6", "1 : 6"],
-        correctAnswer: 0,
-        hint: "כמה מספרים זוגיים יש בקובייה? רשמו אותם. (2, 4, 6). ספרו אותם וחלקו ב-6.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את התוצאות הרצויות. המספרים הזוגיים בקובייה הם 2, 4 ו-6.&rlm;", math_expression: "{2, 4, 6}" },
-            { verbal_explanation: "שלב ב': יש לנו 3 תוצאות רצויות מתוך סך הכל 6 תוצאות אפשריות.&rlm;", math_expression: "Wanted = 3 , Total = 6" },
-            { verbal_explanation: "שלב ג': ההסתברות היא 3 מתוך 6. ניתן לצמצם יחס זה לחצי (1:2).&rlm;", math_expression: "3 : 6 = 1 : 2" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "זורקים מטבע הוגן שיש לו שני צדדים: 'עץ' ו'פלי'. מהי ההסתברות שהמטבע ייפול על 'עץ'?&rlm;",
+        "options": ["1/2", "1/3", "1/4", "1"],
+        "correctAnswer": 0,
+        "hint": "למטבע יש רק שתי אפשרויות. 'עץ' הוא אחת מהן.",
+        "solution_steps": [
+            { "verbal_explanation": "מרחב המדגם למטבע בודד מכיל שתי אפשרויות בלבד.", "math_expression": "2" },
+            { "verbal_explanation": "אנו מחפשים את הצד של 'עץ', המהווה רק אפשרות אחת מתוך השתיים.", "math_expression": "1" },
+            { "verbal_explanation": "נרכיב את השבר המציג את ההסתברות: הרצוי חלקי המצוי.", "math_expression": "\\frac{1}{2}" },
+            { "verbal_explanation": "ההסתברות היא בדיוק חצי.", "math_expression": "\\frac{1}{2}" }
         ],
-        final_answer: "3 : 6 (שזה בדיוק חצי)"
+        "final_answer": "1/2"
     },
-    // שאלה 4
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "בשק יש 5 כדורים אדומים, 3 כדורים כחולים ו-2 כדורים צהובים. בוחרים כדור אחד באקראי (בלי להסתכל). מהי ההסתברות שהכדור שייבחר יהיה כחול?&rlm;",
-        options: ["3 : 10", "3 : 5", "1 : 3", "2 : 10"],
-        correctAnswer: 0,
-        hint: "חשבו קודם כמה כדורים יש בסך הכל בשק (זהו המכנה). המונה הוא מספר הכדורים הכחולים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את סך כל הכדורים בשק.&rlm;", math_expression: "5 + 3 + 2 = 10" },
-            { verbal_explanation: "שלב ב': מספר התוצאות הרצויות (כדורים כחולים) הוא 3.&rlm;", math_expression: "Wanted = 3" },
-            { verbal_explanation: "שלב ג': ההסתברות היא 3 חלקי סך הכל הכדורים (10).&rlm;", math_expression: "3 : 10" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "בשק אטום יש 3 כדורים אדומים ו-2 כדורים כחולים (סך הכל 5 כדורים). מוציאים כדור אחד באקראי מבלי להסתכל. מהי ההסתברות שהכדור שנוציא יהיה אדום?&rlm;",
+        "options": ["3/5", "2/5", "1/3", "3/2"],
+        "correctAnswer": 0,
+        "hint": "המכנה הוא מספר הכדורים הכולל בשק. המונה הוא מספר הכדורים האדומים.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את סך כל הכדורים בשק, המהווים את כלל האפשרויות להוצאה.", "math_expression": "3 + 2 = 5" },
+            { "verbal_explanation": "התוצאה הרצויה לנו היא כדור אדום. ישנם שלושה כדורים אדומים בשק.", "math_expression": "3" },
+            { "verbal_explanation": "נרשום את ההסתברות כשבר: מספר הכדורים האדומים חלקי המספר הכולל.", "math_expression": "\\frac{3}{5}" },
+            { "verbal_explanation": "ההסתברות להוצאת כדור אדום היא שלוש חמישיות.", "math_expression": "\\frac{3}{5}" }
         ],
-        final_answer: "3 : 10"
+        "final_answer": "3/5"
     },
-    // שאלה 5
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "זורקים מטבע הוגן פעמיים. מהו מרחב המדגם של הניסוי הזה? (עץ=ע, פלי=פ)&rlm;",
-        options: ["{עע, עפ, פע, פפ}", "{ע, פ}", "{עע, פפ, עפ}", "{פעמיים עץ, פעמיים פלי}"],
-        correctAnswer: 0,
-        hint: "בזריקה הראשונה יש 2 אפשרויות. בשנייה יש 2 אפשרויות. סך הכל 2 כפול 2 שווה 4 אפשרויות. רשמו את כולן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נרשום את כל התוצאות האפשריות של זריקת שני מטבעות ברצף.&rlm;", math_expression: "" },
-            { verbal_explanation: "אפשרות 1: עץ בראשון ועץ בשני (עע).&rlm;", math_expression: "" },
-            { verbal_explanation: "אפשרות 2: עץ בראשון ופלי בשני (עפ).&rlm;", math_expression: "" },
-            { verbal_explanation: "אפשרות 3: פלי בראשון ועץ בשני (פע).&rlm;", math_expression: "" },
-            { verbal_explanation: "אפשרות 4: פלי בראשון ופלי בשני (פפ).&rlm;", math_expression: "" },
-            { verbal_explanation: "אלו בדיוק 4 אפשרויות ייחודיות.&rlm;", math_expression: "{עע, עפ, פע, פפ}" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "מסובבים רולטה שמחולקת ל-8 גזרות שוות המסומנות במספרים מ-1 עד 8. מהי ההסתברות שהרולטה תעצור על מספר שגדול מ-6?&rlm;",
+        "options": ["2/8 (או 1/4)", "3/8", "6/8", "1/8"],
+        "correctAnswer": 0,
+        "hint": "המספרים שגדולים מ-6 ברולטה הם רק 7 ו-8. ספרו כמה הם, וחלקו בסך הכל.",
+        "solution_steps": [
+            { "verbal_explanation": "המספר הכולל של הגזרות ברולטה הוא שמונה.", "math_expression": "8" },
+            { "verbal_explanation": "המספרים שגדולים משש הם שבע ושמונה בלבד. בסך הכל שתי אפשרויות רצויות.", "math_expression": "2" },
+            { "verbal_explanation": "נרשום את ההסתברות: שתיים מתוך שמונה.", "math_expression": "\\frac{2}{8}" },
+            { "verbal_explanation": "נצמצם את השבר על ידי חלוקה בשתיים ונקבל רבע.", "math_expression": "\\frac{1}{4}" }
         ],
-        final_answer: "{עע, עפ, פע, פפ}"
+        "final_answer": "2/8 (או 1/4)"
     },
-    // שאלה 6
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "בהמשך לשאלה הקודמת (זריקת מטבע פעמיים). מהי ההסתברות לקבל בדיוק פעם אחת 'עץ'?&rlm;",
-        options: ["2 : 4 (שזה חצי)", "1 : 4", "3 : 4", "1 : 2 (אבל רק בגלל שיש מטבע אחד)"],
-        correctAnswer: 0,
-        hint: "הסתכלו על מרחב המדגם {עע, עפ, פע, פפ}. באילו מהזוגות האלו יש בדיוק 'ע' אחד?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מרחב המדגם הוא בן 4 אפשרויות: {עע, עפ, פע, פפ}.&rlm;", math_expression: "Total = 4" },
-            { verbal_explanation: "נחפש את האפשרויות בהן יש בדיוק פעם אחת עץ: (עפ) ו-(פע). אלו 2 תוצאות רצויות.&rlm;", math_expression: "Wanted = 2" },
-            { verbal_explanation: "ההסתברות היא 2 מתוך 4, שניתן לצמצם לחצי (1:2).&rlm;", math_expression: "2 : 4 = 1 : 2" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "מטילים קוביית משחק הוגנת. מהי ההסתברות שיתקבל מספר שקטן מ-3?&rlm;",
+        "options": ["2/6 (או 1/3)", "3/6 (או 1/2)", "1/6", "4/6"],
+        "correctAnswer": 0,
+        "hint": "המספרים הקטנים מ-3 בקובייה הם רק 1 ו-2. השתמשו בזה כדי לבנות את השבר.",
+        "solution_steps": [
+            { "verbal_explanation": "סך כל התוצאות האפשריות בקובייה הוא שש.", "math_expression": "6" },
+            { "verbal_explanation": "התוצאות הרצויות (מספרים הקטנים משלוש) הן אחד ושתיים. אלו שתי תוצאות.", "math_expression": "2" },
+            { "verbal_explanation": "נציב את הנתונים בשבר של רצוי חלקי מצוי.", "math_expression": "\\frac{2}{6}" },
+            { "verbal_explanation": "נצמצם את השבר בשתיים לקבלת התשובה הסופית, שהיא שליש.", "math_expression": "\\frac{1}{3}" }
         ],
-        final_answer: "2 : 4 (שזה חצי)"
+        "final_answer": "2/6 (או 1/3)"
     },
-    // שאלה 7
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "רולטה (סביבון) מחולקת ל-8 גזרות שוות בגודלן, המסומנות במספרים 1 עד 8. מהי ההסתברות שהחץ יעצור על מספר גדול מ-5?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><circle cx='50' cy='50' r='45' fill='#e2e8f0' stroke='#334155' stroke-width='2'/><line x1='50' y1='5' x2='50' y2='95' stroke='#334155' stroke-width='2'/><line x1='5' y1='50' x2='95' y2='50' stroke='#334155' stroke-width='2'/><line x1='18' y1='18' x2='82' y2='82' stroke='#334155' stroke-width='2'/><line x1='18' y1='82' x2='82' y2='18' stroke='#334155' stroke-width='2'/><polygon points='50,50 60,15 40,15' fill='#ef4444'/></svg></div>",
-        options: ["3 : 8", "4 : 8", "5 : 8", "2 : 8"],
-        correctAnswer: 0,
-        hint: "אילו מספרים גדולים מ-5 יש ברולטה? (6, 7, 8). כמה מספרים אלו בסך הכל?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סך כל האפשרויות ברולטה הוא 8.&rlm;", math_expression: "Total = 8" },
-            { verbal_explanation: "שלב ב': התוצאות הרצויות (גדול מ-5) הן המספרים 6, 7, 8. אלו 3 תוצאות.&rlm;", math_expression: "Wanted = 3" },
-            { verbal_explanation: "שלב ג': ההסתברות היא 3 מתוך 8.&rlm;", math_expression: "3 : 8" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "בוחרים באקראי מספר אחד מתוך קבוצת המספרים מ-1 עד 10 (כולל). מהי ההסתברות שהמספר שנבחר יהיה מספר ראשוני? (תזכורת: מספרים ראשוניים עד 10 הם 2, 3, 5, 7).&rlm;",
+        "options": ["4/10 (או 2/5)", "3/10", "5/10 (או 1/2)", "2/10 (או 1/5)"],
+        "correctAnswer": 0,
+        "hint": "ספרו כמה מספרים ראשוניים צוינו בתזכורת, וחלקו אותם בעשר.",
+        "solution_steps": [
+            { "verbal_explanation": "מרחב המדגם מכיל עשרה מספרים שלמים אפשריים לבחירה.", "math_expression": "10" },
+            { "verbal_explanation": "קבוצת המספרים הראשוניים בתחום זה כוללת את שתיים, שלוש, חמש ושבע. כלומר, ארבעה מספרים רצויים.", "math_expression": "4" },
+            { "verbal_explanation": "נבנה את השבר המייצג את ההסתברות: ארבעה מתוך עשרה.", "math_expression": "\\frac{4}{10}" },
+            { "verbal_explanation": "ניתן לצמצם את השבר על ידי חלוקה בשתיים ולקבל שתי חמישיות.", "math_expression": "\\frac{2}{5}" }
         ],
-        final_answer: "3 : 8"
+        "final_answer": "4/10 (או 2/5)"
     },
-    // שאלה 8
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "זורקים שתי קוביות משחק רגילות (אחת כחולה ואחת אדומה). כמה תוצאות אפשריות שונות יש במרחב המדגם כולו?&rlm;",
-        options: ["36", "12", "6", "24"],
-        correctAnswer: 0,
-        hint: "לקובייה הראשונה יש 6 אפשרויות. לכל אחת מהאפשרויות האלו, לקובייה השנייה יש 6 אפשרויות. נכפול אותן (חוק הכפל).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כאשר יש לנו שני ניסויים בלתי תלויים שקורים יחד, סך כל האפשרויות הוא מכפלת האפשרויות של כל ניסוי בנפרד.&rlm;", math_expression: "" },
-            { verbal_explanation: "לקובייה הראשונה 6 אפשרויות. לקובייה השנייה 6 אפשרויות.&rlm;", math_expression: "6 × 6 = 36" },
-            { verbal_explanation: "ישנם 36 זוגות אפשריים (למשל: 1-1, 1-2, 1-3... 6-6).&rlm;", math_expression: "36" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "זורקים שני מטבעות הוגנים יחד. התוצאות האפשריות הן: (עץ, עץ), (עץ, פלי), (פלי, עץ), (פלי, פלי). מהי ההסתברות שנקבל בדיוק פעם אחת 'עץ' ופעם אחת 'פלי'?&rlm;",
+        "options": ["2/4 (או 1/2)", "1/4", "3/4", "0"],
+        "correctAnswer": 0,
+        "hint": "בדקו ברשימת האפשרויות בכמה מהן יש בדיוק 'עץ' אחד ו'פלי' אחד.",
+        "solution_steps": [
+            { "verbal_explanation": "סך כל האפשרויות למרחב המדגם של זריקת שני מטבעות נתון לנו והוא ארבע.", "math_expression": "4" },
+            { "verbal_explanation": "אנו מחפשים את המקרים של עץ ופלי. זה מופיע בשתי צורות: או עץ קודם ופלי אחר כך, או להפך. סך הכל שתי אפשרויות רצויות.", "math_expression": "2" },
+            { "verbal_explanation": "נרכיב את השבר: שתיים מתוך ארבע אפשרויות כוללות.", "math_expression": "\\frac{2}{4}" },
+            { "verbal_explanation": "נצמצם את השבר ונגלה שההסתברות היא חצי.", "math_expression": "\\frac{1}{2}" }
         ],
-        final_answer: "36"
+        "final_answer": "2/4 (או 1/2)"
     },
-    // שאלה 9
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "מתוך המילה 'מתמטיקה' (מ, ת, מ, ט, י, ק, ה) בוחרים אות אחת באקראי. מהי ההסתברות שהאות שנבחרה היא 'מ'?&rlm;",
-        options: ["2 : 7", "1 : 7", "2 : 5", "1 : 6"],
-        correctAnswer: 0,
-        hint: "ספרו כמה אותיות יש במילה בסך הכל (7). ספרו כמה פעמים מופיעה האות מ' (2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נספור את סך כל האותיות במילה 'מתמטיקה'. יש 7 אותיות.&rlm;", math_expression: "Total = 7" },
-            { verbal_explanation: "שלב ב': נספור כמה פעמים מופיעה האות מ'. היא מופיעה פעמיים.&rlm;", math_expression: "Wanted = 2" },
-            { verbal_explanation: "שלב ג': ההסתברות היא מספר האותיות מ' מתוך סך כל האותיות.&rlm;", math_expression: "2 : 7" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "מטילים קוביית משחק הוגנת. מהי ההסתברות לקבל מספר שהוא כפולה של 3 (המספרים 3, 6)?&rlm;",
+        "options": ["2/6 (או 1/3)", "3/6", "1/6", "1/2"],
+        "correctAnswer": 0,
+        "hint": "ישנם רק שני מספרים על קובייה שהם כפולות של 3. חלקו 2 ב-6.",
+        "solution_steps": [
+            { "verbal_explanation": "המספר הכולל של התוצאות על קוביית משחק הוא שש.", "math_expression": "6" },
+            { "verbal_explanation": "הכפולות של שלוש שנמצאות על הקובייה הן שלוש ושש בלבד. אלו שתי תוצאות אפשריות רצויות.", "math_expression": "2" },
+            { "verbal_explanation": "נציב בשבר: שתיים חלקי שש.", "math_expression": "\\frac{2}{6}" },
+            { "verbal_explanation": "נצמצם בשתיים לקבלת התשובה הסופית, שהיא שליש.", "math_expression": "\\frac{1}{3}" }
         ],
-        final_answer: "2 : 7"
+        "final_answer": "2/6 (או 1/3)"
     },
-    // שאלה 10
     {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "בחפיסת קלפים רגילה יש 52 קלפים. רבע מהם (13) הם בצורת 'לב אדום'. מהי ההסתברות לשלוף באקראי קלף שאינו 'לב אדום'?&rlm;",
-        options: ["39 : 52 (שזה 3 : 4)", "13 : 52 (שזה 1 : 4)", "1 : 2", "26 : 52"],
-        correctAnswer: 0,
-        hint: "אם 13 הם לב אדום, כמה קלפים נשארו? (52 פחות 13).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב כמה קלפים הם לא לב אדום. 52 פחות 13 שווה 39 קלפים.&rlm;", math_expression: "52 - 13 = 39" },
-            { verbal_explanation: "שלב ב': ההסתברות לשלוף אחד מהם היא 39 מתוך 52.&rlm;", math_expression: "39 : 52" },
-            { verbal_explanation: "שלב ג': ניתן לצמצם את השבר. אם נחלק את המונה והמכנה ב-13, נקבל 3 מתוך 4 (שלושה רבעים).&rlm;", math_expression: "3 : 4" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מרחב מדגם והסתברות קלאסית",
+        "question_text": "קערה מכילה 5 כדורים לבנים ו-5 כדורים שחורים. מוציאים כדור אחד באקראי. מהי ההסתברות שהכדור שיוצא יהיה לבן?&rlm;",
+        "options": ["1/2", "5/5", "1/5", "1/10"],
+        "correctAnswer": 0,
+        "hint": "חצי מהכדורים לבנים וחצי שחורים. לכן ההסתברות היא חצי.",
+        "solution_steps": [
+            { "verbal_explanation": "נמצא את הכמות הכוללת של הכדורים בקערה על ידי חיבור הצבעים.", "math_expression": "5 + 5 = 10" },
+            { "verbal_explanation": "התוצאה הרצויה היא כדור לבן. ישנם חמישה כדורים לבנים.", "math_expression": "5" },
+            { "verbal_explanation": "נבנה את השבר: חמש תוצאות רצויות מתוך עשר אפשריות.", "math_expression": "\\frac{5}{10}" },
+            { "verbal_explanation": "נצמצם את השבר על ידי חלוקה בחמש ונקבל בדיוק חצי.", "math_expression": "\\frac{1}{2}" }
         ],
-        final_answer: "39 : 52 (שזה 3 : 4)"
-    },
-    // שאלה 11
-    {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "מהי ההסתברות של 'מאורע ודאי' (משהו שבטוח יקרה 100%) ומהי ההסתברות של 'מאורע בלתי אפשרי'?&rlm;",
-        options: ["ודאי = 1, בלתי אפשרי = 0", "ודאי = 100, בלתי אפשרי = 1", "ודאי = אינסוף, בלתי אפשרי = מינוס 1", "ודאי = 1, בלתי אפשרי = מינוס 1"],
-        correctAnswer: 0,
-        hint: "הסתברות נמדדת תמיד בין 0 ל-1. אפס אומר 'אין סיכוי', ואחד שלם (100 מתוך 100) אומר 'בטוח לחלוטין'.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "במתמטיקה, הסתברות מבוטאת כשבר (או מספר עשרוני) בין 0 ל-1.&rlm;", math_expression: "" },
-            { verbal_explanation: "0 מייצג 0% סיכוי (מאורע בלתי אפשרי, למשל לקבל 7 בקובייה רגילה).&rlm;", math_expression: "P = 0" },
-            { verbal_explanation: "1 מייצג 100% סיכוי, כלומר השלם כולו (מאורע ודאי, למשל לקבל מספר קטן מ-10 בקובייה).&rlm;", math_expression: "P = 1" }
-        ],
-        final_answer: "ודאי = 1, בלתי אפשרי = 0"
-    },
-    // שאלה 12
-    {
-        topic: "statistics_probability",
-        subTopic: "מרחב מדגם והסתברות קלאסית",
-        question_text: "בכיתה יש 30 תלמידים. 12 מהם מרכיבים משקפיים. אם בוחרים תלמיד באקראי, מהי ההסתברות שייבחר תלמיד ש**אינו** מרכיב משקפיים?&rlm;",
-        options: ["18 : 30 (שזה 3 : 5)", "12 : 30 (שזה 2 : 5)", "15 : 30", "20 : 30"],
-        correctAnswer: 0,
-        hint: "מצאו קודם כמה תלמידים אינם מרכיבים משקפיים (30 פחות 12).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את מספר התלמידים ללא משקפיים.&rlm;", math_expression: "30 - 12 = 18" },
-            { verbal_explanation: "שלב ב': ההסתברות לבחור אחד מהם היא 18 מתוך 30.&rlm;", math_expression: "18 : 30" },
-            { verbal_explanation: "שלב ג': נצמצם את השבר. נחלק מונה ומכנה ב-6.&rlm;", math_expression: "(18 : 6) : (30 : 6) = 3 : 5" }
-        ],
-        final_answer: "18 : 30 (שזה 3 : 5)"
+        "final_answer": "1/2"
     },
 
-    // ==========================================================
-    // תת נושא 2: מאורע משלים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 13
+    // ==========================================
+    // תת נושא 2: מאורע משלים (10 שאלות)
+    // ==========================================
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "מהו הכלל הבסיסי ביותר לגבי ההסתברות של 'מאורע' וההסתברות של ה'מאורע המשלים' שלו (ההפך ממנו)?&rlm;",
-        options: ["הסכום של שתי ההסתברויות שלהם שווה תמיד ל-1 (או 100%).", "ההסתברות שלהם תמיד שווה לחצי.", "הסכום שלהם שווה ל-0.", "מכפלתם שווה ל-1."],
-        correctAnswer: 0,
-        hint: "או שיירד גשם, או שלא יירד גשם. אין אפשרות שלישית. הסכום של הסיכויים חייב לכסות הכל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מאורע משלים מכיל את כל האפשרויות שלא נמצאות במאורע המקורי.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן, אם נחבר את הסיכוי שמשהו יקרה עם הסיכוי שהוא לא יקרה, נכסה את כל מרחב המדגם.&rlm;", math_expression: "" },
-            { verbal_explanation: "סכום זה תמיד מהווה את השלם, כלומר 1 (או 100%).&rlm;", math_expression: "P(A) + P(Not A) = 1" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "ההסתברות שיירד מחר גשם היא 0.3. מהי ההסתברות שמחר לא יירד גשם?&rlm;",
+        "options": ["0.7", "0.3", "1.0", "0.5"],
+        "correctAnswer": 0,
+        "hint": "סכום ההסתברויות של מאורע והמאורע המשלים שלו (ההפך ממנו) שווה תמיד ל-1.",
+        "solution_steps": [
+            { "verbal_explanation": "במתמטיקה, הסתברות שלמה ומוחלטת למשהו שיקרה בוודאות שווה לאחד.", "math_expression": "1.0" },
+            { "verbal_explanation": "המאורע שלא יירד גשם הוא המאורע המשלים לירידת גשם. נחסר את ההסתברות לגשם מתוך השלם.", "math_expression": "1.0 - 0.3" },
+            { "verbal_explanation": "נבצע את תרגיל החיסור לקבלת ההסתברות המשלמת.", "math_expression": "0.7" },
+            { "verbal_explanation": "ההסתברות שלא יירד מחר גשם היא אפס נקודה שבע.", "math_expression": "0.7" }
         ],
-        final_answer: "הסכום של שתי ההסתברויות שלהם שווה תמיד ל-1 (או 100%)."
+        "final_answer": "0.7"
     },
-    // שאלה 14
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "לפי התחזית, ההסתברות שיירד מחר גשם היא 30% (או 0.3). מהי ההסתברות שמחר **לא** יירד גשם?&rlm;",
-        options: ["70% (או 0.7)", "30% (או 0.3)", "0%", "100%"],
-        correctAnswer: 0,
-        hint: "חיסרו 30% מתוך 100% השלמים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המאורע 'לא יירד גשם' הוא המשלים של 'יירד גשם'.&rlm;", math_expression: "" },
-            { verbal_explanation: "סכום ההסתברויות הוא 100%.&rlm;", math_expression: "100% - 30% = 70%" },
-            { verbal_explanation: "בכתיב עשרוני: 1 שלם פחות 0.3 שווה 0.7.&rlm;", math_expression: "1 - 0.3 = 0.7" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "ההסתברות שקבוצת כדורגל תנצח במשחק היא 3/7. מהי ההסתברות שהקבוצה לא תנצח במשחק?&rlm;",
+        "options": ["4/7", "3/7", "1/7", "7/7"],
+        "correctAnswer": 0,
+        "hint": "ההסתברות השלמה היא 1 (או 7/7). חסרו ממנה את ההסתברות לניצחון.",
+        "solution_steps": [
+            { "verbal_explanation": "סך כל ההסתברויות במשחק מסתכמות לשלם אחד. נכתוב את השלם כשבר עם מכנה שבע.", "math_expression": "\\frac{7}{7}" },
+            { "verbal_explanation": "ההסתברות לניצחון היא שלוש שביעיות. נחסר אותה מהשלם כדי למצוא את ההסתברות לאי-ניצחון.", "math_expression": "\\frac{7}{7} - \\frac{3}{7}" },
+            { "verbal_explanation": "נחסר את המונים ונקבל ארבע.", "math_expression": "7 - 3 = 4" },
+            { "verbal_explanation": "ההסתברות שהקבוצה לא תנצח היא ארבע שביעיות.", "math_expression": "\\frac{4}{7}" }
         ],
-        final_answer: "70% (או 0.7)"
+        "final_answer": "4/7"
     },
-    // שאלה 15
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "ההסתברות שקבוצת הכדורגל תנצח במשחק היא 3 מתוך 8 (3:8). מהי ההסתברות שהקבוצה לא תנצח (תפסיד או תעשה תיקו)?&rlm;",
-        options: ["5 : 8", "3 : 8", "8 : 8", "1 : 8"],
-        correctAnswer: 0,
-        hint: "השלם הוא 8 מתוך 8. חסרו ממנו את ה-3 מתוך 8.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "השלם (מאורע ודאי) מיוצג על ידי השבר 8 מתוך 8 (8:8).&rlm;", math_expression: "1 = 8 : 8" },
-            { verbal_explanation: "נחסר מהשלם את ההסתברות לניצחון.&rlm;", math_expression: "8 : 8 - 3 : 8" },
-            { verbal_explanation: "נישאר עם 5 מתוך 8.&rlm;", math_expression: "5 : 8" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "מפעל מייצר נורות. ההסתברות שנורה שנבחרה באקראי תהיה פגומה היא 5% (שהם 0.05). מהי ההסתברות שהנורה תהיה תקינה (לא פגומה)?&rlm;",
+        "options": ["95% (או 0.95)", "50% (או 0.50)", "5% (או 0.05)", "100% (או 1)"],
+        "correctAnswer": 0,
+        "hint": "המאורע של בחירת נורה תקינה משלים למאורע של בחירת נורה פגומה. הם צריכים להשלים יחד ל-100%.",
+        "solution_steps": [
+            { "verbal_explanation": "כלל הנורות במפעל מייצגות מאה אחוז מהייצור.", "math_expression": "100\\%" },
+            { "verbal_explanation": "חמישה אחוזים מהנורות פגומות. נחסר אותן מכלל האחוזים כדי לגלות את החלק התקין.", "math_expression": "100 - 5" },
+            { "verbal_explanation": "נקבל תשעים וחמישה אחוזים.", "math_expression": "95\\%" },
+            { "verbal_explanation": "נהפוך את האחוז לשבר עשרוני לקבלת התשובה הנוספת.", "math_expression": "0.95" }
         ],
-        final_answer: "5 : 8"
+        "final_answer": "95% (או 0.95)"
     },
-    // שאלה 16
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "בזריקת קובייה הוגנת, המאורע A הוא 'קבלת המספר 2'. מהו המאורע המשלים ומה ההסתברות שלו?&rlm;",
-        options: ["קבלת המספרים 1, 3, 4, 5, 6. ההסתברות היא 5 : 6.", "קבלת המספר 2 שוב. ההסתברות היא 1 : 6.", "קבלת מספר זוגי. ההסתברות היא 3 : 6.", "קבלת כל מספר מלבד 6. ההסתברות 5 : 6."],
-        correctAnswer: 0,
-        hint: "המשלים אומר 'כל דבר שהוא לא 2'. כמה אפשרויות כאלו נשארו על הקובייה?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מאורע משלים ל-'קבלת 2' הוא 'לא לקבל 2'.&rlm;", math_expression: "" },
-            { verbal_explanation: "האפשרויות הנותרות בקובייה הן: 1, 3, 4, 5, 6. אלו 5 אפשרויות.&rlm;", math_expression: "" },
-            { verbal_explanation: "ההסתברות לכך היא 5 מתוך 6 סך הכל אפשרויות.&rlm;", math_expression: "5 : 6" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "ההסתברות לזכות בפרס בהגרלה היא 0.15. מהי ההסתברות שלא לזכות בפרס?&rlm;",
+        "options": ["0.85", "0.15", "0.95", "1.15"],
+        "correctAnswer": 0,
+        "hint": "חסרו 0.15 מתוך 1 השלם.",
+        "solution_steps": [
+            { "verbal_explanation": "ההסתברות הכוללת והשלמה היא אחד.", "math_expression": "1.00" },
+            { "verbal_explanation": "נחסר מהשלם את ההסתברות לזכייה בהגרלה כדי לקבל את המאורע המשלים של הפסד.", "math_expression": "1.00 - 0.15" },
+            { "verbal_explanation": "החיסור מניב תוצאה של שמונים וחמש מאיות.", "math_expression": "0.85" },
+            { "verbal_explanation": "ההסתברות לא לזכות היא אפס נקודה שמונים וחמש.", "math_expression": "0.85" }
         ],
-        final_answer: "קבלת המספרים 1, 3, 4, 5, 6. ההסתברות היא 5 : 6."
+        "final_answer": "0.85"
     },
-    // שאלה 17
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "בשק יש כדורים בשלושה צבעים: אדום, שחור ולבן. ההסתברות להוציא כדור אדום היא 0.25. ההסתברות להוציא כדור שחור היא 0.40. מהי ההסתברות להוציא כדור לבן?&rlm;",
-        options: ["0.35", "0.65", "0.60", "0.25"],
-        correctAnswer: 0,
-        hint: "סך כל ההסתברויות של כל הצבעים בשק חייב להיות שווה ל-1 שלם. חברו את הידועים וחסרו מ-1.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': סכום ההסתברויות של אדום ושחור.&rlm;", math_expression: "0.25 + 0.40 = 0.65" },
-            { verbal_explanation: "שלב ב': הכדור הלבן הוא המאורע המשלים לשני הצבעים האחרים ביחד, כי אין צבעים נוספים.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ג': נחסר את הסכום מ-1 שלם.&rlm;", math_expression: "1 - 0.65 = 0.35" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "ההסתברות שעידו יקלע לסל היא 7/10. מהי ההסתברות שעידו יחטיא את הסל?&rlm;",
+        "options": ["3/10", "7/10", "1/10", "10/10"],
+        "correctAnswer": 0,
+        "hint": "ההחטאה היא המאורע המשלים לקליעה. השלימו את 7/10 ל-10/10.",
+        "solution_steps": [
+            { "verbal_explanation": "השלם, המייצג את כל האפשרויות בזריקה, הוא עשר חלקי עשר.", "math_expression": "\\frac{10}{10}" },
+            { "verbal_explanation": "נחסר מהשלם את ההסתברות לקליעה מוצלחת.", "math_expression": "\\frac{10}{10} - \\frac{7}{10}" },
+            { "verbal_explanation": "מכיוון שהמכנה משותף, נחסר רק את המונים. עשר פחות שבע שווה שלוש.", "math_expression": "10 - 7 = 3" },
+            { "verbal_explanation": "ההסתברות להחטאה היא שלוש עשיריות.", "math_expression": "\\frac{3}{10}" }
         ],
-        final_answer: "0.35"
+        "final_answer": "3/10"
     },
-    // שאלה 18
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "קבוצת תלמידים משחקת במשחק. ההסתברות של תלמיד לזכות בפרס הראשון היא 2%. מהי ההסתברות שהתלמיד **לא** יזכה בפרס הראשון?&rlm;",
-        options: ["98%", "20%", "0.98%", "80%"],
-        correctAnswer: 0,
-        hint: "השלם הוא 100%. חסרו 2%.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המאורע 'לא לזכות' משלים למאורע 'כן לזכות'.&rlm;", math_expression: "" },
-            { verbal_explanation: "סכום ההסתברויות הוא 100%.&rlm;", math_expression: "100% - 2% = 98%" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "בזריקת קובייה הוגנת, ההסתברות לקבל את המספר 6 היא 1/6. מהי ההסתברות לקבל מספר שהוא לא 6 (כלומר 1, 2, 3, 4 או 5)?&rlm;",
+        "options": ["5/6", "1/6", "6/6", "4/6"],
+        "correctAnswer": 0,
+        "hint": "אם תוצאה אחת היא 6, נשארו 5 תוצאות אחרות שאינן 6 מתוך השש.",
+        "solution_steps": [
+            { "verbal_explanation": "ההסתברות השלמה לכלל התוצאות בקובייה היא שש שישיות.", "math_expression": "\\frac{6}{6}" },
+            { "verbal_explanation": "נחסר את ההסתברות של קבלת המספר שש מתוך השלם.", "math_expression": "\\frac{6}{6} - \\frac{1}{6}" },
+            { "verbal_explanation": "נחסר את המונים. שש פחות אחד שווה חמש.", "math_expression": "6 - 1 = 5" },
+            { "verbal_explanation": "ההסתברות לקבל מספר שאינו שש היא חמש שישיות.", "math_expression": "\\frac{5}{6}" }
         ],
-        final_answer: "98%"
+        "final_answer": "5/6"
     },
-    // שאלה 19
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "זורקים שני מטבעות. המאורע A הוא 'התקבל עץ לפחות פעם אחת'. המאורע המשלים שלו הוא...&rlm;",
-        options: ["התקבל פלי פעמיים (אף עץ לא התקבל).", "התקבל עץ פעמיים.", "התקבל פלי פעם אחת.", "אין מאורע משלים."],
-        correctAnswer: 0,
-        hint: "ההפך מ-'לפחות פעם אחת' הוא 'אף פעם לא'. מרחב המדגם: {עע, עפ, פע, פפ}.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מרחב המדגם: {עץ-עץ, עץ-פלי, פלי-עץ, פלי-פלי}.&rlm;", math_expression: "" },
-            { verbal_explanation: "המאורע 'לפחות עץ אחד' כולל את התוצאות: {עע, עפ, פע}.&rlm;", math_expression: "" },
-            { verbal_explanation: "מה שנשאר בחוץ (המשלים) הוא התוצאה שבה אין אף עץ.&rlm;", math_expression: "{פפ} (כלומר פלי פעמיים)" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "בשקית יש 20 סוכריות, ו-4 מתוכן הן בטעם לימון. ההסתברות להוציא סוכריית לימון היא 4/20. מהי ההסתברות להוציא סוכריה שאינה בטעם לימון?&rlm;",
+        "options": ["16/20", "4/20", "12/20", "20/20"],
+        "correctAnswer": 0,
+        "hint": "מצאו כמה סוכריות נשארו בשקית שאינן לימון, וחלקו בסך הכל.",
+        "solution_steps": [
+            { "verbal_explanation": "ההסתברות המלאה להוציא סוכרייה כלשהי היא עשרים מתוך עשרים.", "math_expression": "\\frac{20}{20}" },
+            { "verbal_explanation": "נחסר את ההסתברות של הוצאת סוכריית הלימון כדי למצוא את המאורע המשלים.", "math_expression": "\\frac{20}{20} - \\frac{4}{20}" },
+            { "verbal_explanation": "נחסר ארבע מעשרים ונקבל שישה עשר.", "math_expression": "20 - 4 = 16" },
+            { "verbal_explanation": "ההסתברות להוציא סוכריה שאינה לימון היא שש עשרה חלקי עשרים.", "math_expression": "\\frac{16}{20}" }
         ],
-        final_answer: "התקבל פלי פעמיים (אף עץ לא התקבל)."
+        "final_answer": "16/20"
     },
-    // שאלה 20
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "חוקר בדק שכיחות של מוצרים פגומים במפעל ומצא שההסתברות שמוצר יהיה פגום היא 1 מתוך 50 (1:50). מהי ההסתברות שהמוצר יהיה תקין?&rlm;",
-        options: ["49 : 50", "1 : 50", "50 : 50", "1 : 49"],
-        correctAnswer: 0,
-        hint: "השלם הוא 50 מתוך 50. חסרו את ה-1 הפגום.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ההסתברות למוצר תקין (משלים לפגום) שווה ל-1 שלם פחות ההסתברות לפגום.&rlm;", math_expression: "1 - 1 : 50" },
-            { verbal_explanation: "1 שלם שווה ל-50 חלקי 50.&rlm;", math_expression: "50 : 50 - 1 : 50 = 49 : 50" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "ההסתברות שרכבת תאחר להגיע לתחנה היא 12%. מהי ההסתברות שהרכבת תגיע בזמן ולא תאחר?&rlm;",
+        "options": ["88%", "12%", "100%", "98%"],
+        "correctAnswer": 0,
+        "hint": "השלימו את האחוז הנתון למאה אחוז.",
+        "solution_steps": [
+            { "verbal_explanation": "סך כל האפשרויות להגעת הרכבת מהוות מאה אחוזים.", "math_expression": "100\\%" },
+            { "verbal_explanation": "נחסר ממאה האחוזים את אחוז הסיכוי שהרכבת תאחר.", "math_expression": "100 - 12" },
+            { "verbal_explanation": "נחשב את ההפרש לקבלת אחוז הסיכוי שהרכבת תגיע בזמן כראוי.", "math_expression": "88" },
+            { "verbal_explanation": "ההסתברות היא שמונים ושמונה אחוזים.", "math_expression": "88\\%" }
         ],
-        final_answer: "49 : 50"
+        "final_answer": "88%"
     },
-    // שאלה 21
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "מתוך האותיות א, ב, ג, ד, ה, בוחרים אות באקראי. ההסתברות לבחור אות אהו\"י (א, ה) היא 2 : 5. מהי ההסתברות שהאות שנבחרה **אינה** אות אהו\"י?&rlm;",
-        options: ["3 : 5", "2 : 5", "1 : 5", "5 : 5"],
-        correctAnswer: 0,
-        hint: "יש 5 אותיות. 2 מהן הן אהו\"י. השאר אינן.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נחשב את המשלים מתוך השלם 1 (או 5:5).&rlm;", math_expression: "5 : 5 - 2 : 5" },
-            { verbal_explanation: "נחסר את המונים.&rlm;", math_expression: "3 : 5" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "גלגל מזל מחולק ל-8 גזרות שוות. 3 מהגזרות צבועות באדום, לכן ההסתברות לעצור על אדום היא 3/8. מהי ההסתברות לעצור על גזרה שאינה אדומה?&rlm;",
+        "options": ["5/8", "3/8", "8/8", "1/8"],
+        "correctAnswer": 0,
+        "hint": "שמונה חלקי שמונה פחות שלוש חלקי שמונה.",
+        "solution_steps": [
+            { "verbal_explanation": "הגלגל כולו מיוצג על ידי השבר שמונה שמיניות.", "math_expression": "\\frac{8}{8}" },
+            { "verbal_explanation": "נחסר מהשלם את ההסתברות ליפול על גזרה אדומה כדי למצוא את ההסתברות המשלמת לשאר הצבעים.", "math_expression": "\\frac{8}{8} - \\frac{3}{8}" },
+            { "verbal_explanation": "נבצע את פעולת החיסור של המונים.", "math_expression": "8 - 3 = 5" },
+            { "verbal_explanation": "ההסתברות לעצור על גזרה לא אדומה היא חמש שמיניות.", "math_expression": "\\frac{5}{8}" }
         ],
-        final_answer: "3 : 5"
+        "final_answer": "5/8"
     },
-    // שאלה 22
     {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "אם נתונה הסתברות של P למאורע מסוים. איזה ביטוי מתאר תמיד את ההסתברות של המאורע המשלים לו?&rlm;",
-        options: ["1 - P", "P - 1", "P + 1", "0"],
-        correctAnswer: 0,
-        hint: "השלם תמיד שווה ל-1. המאורע המשלים הוא מה שנשאר אחרי שמורידים את P מ-1.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "סכום ההסתברויות של מאורע והמשלים שלו שווה ל-1.&rlm;", math_expression: "P + P(complementary) = 1" },
-            { verbal_explanation: "כדי למצוא את המשלים, נעביר את P אגף בחיסור.&rlm;", math_expression: "P(complementary) = 1 - P" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "מאורע משלים",
+        "question_text": "בכיתה יש 30 תלמידים. 6 מתוכם מרכיבים משקפיים. נבחר תלמיד באקראי. ידוע שההסתברות שייבחר תלמיד עם משקפיים היא 6/30. מהי ההסתברות שייבחר תלמיד שאינו מרכיב משקפיים?&rlm;",
+        "options": ["24/30", "6/30", "30/30", "20/30"],
+        "correctAnswer": 0,
+        "hint": "השלימו את 6 התלמידים ל-30, ואז רשמו זאת כשבר.",
+        "solution_steps": [
+            { "verbal_explanation": "הכיתה השלמה מיוצגת על ידי השבר שלושים חלקי שלושים.", "math_expression": "\\frac{30}{30}" },
+            { "verbal_explanation": "נחסר את השבר המייצג את התלמידים שמרכיבים משקפיים.", "math_expression": "\\frac{30}{30} - \\frac{6}{30}" },
+            { "verbal_explanation": "נחשב את החיסור במונה. שלושים פחות שש שווה עשרים וארבע.", "math_expression": "30 - 6 = 24" },
+            { "verbal_explanation": "ההסתברות לבחור תלמיד ללא משקפיים היא עשרים וארבעה מתוך שלושים.", "math_expression": "\\frac{24}{30}" }
         ],
-        final_answer: "1 - P"
-    },
-    // שאלה 23
-    {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "קולע למטרה קולע למטרה בהסתברות של 0.8. ב-50 זריקות, כמה זריקות צפויות **להחטיא** את המטרה?&rlm;",
-        options: ["10", "40", "20", "5"],
-        correctAnswer: 0,
-        hint: "קודם מצאו את ההסתברות להחטאה (המשלים של 0.8). לאחר מכן כפלו את ההסתברות הזו ב-50 זריקות.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': ההסתברות להחטאה היא המשלים של קליעה.&rlm;", math_expression: "1 - 0.8 = 0.2" },
-            { verbal_explanation: "שלב ב': נחשב 0.2 מתוך 50 הזריקות. (0.2 זה בעצם חמישית, או שתי עשיריות).&rlm;", math_expression: "50 × 0.2 = 10" }
-        ],
-        final_answer: "10"
-    },
-    // שאלה 24
-    {
-        topic: "statistics_probability",
-        subTopic: "מאורע משלים",
-        question_text: "ההסתברות שצבע המכונית הבאה שתעבור ברחוב הוא לבן היא 40%. ההסתברות שהצבע יהיה כסף היא 25%. מהי ההסתברות שהמכונית תהיה בצבע ש**אינו** לבן ו**אינו** כסף?&rlm;",
-        options: ["35%", "65%", "15%", "100%"],
-        correctAnswer: 0,
-        hint: "חברו את ההסתברויות של 'לבן' ו'כסף' יחד (65%). הצבעים האחרים הם המשלים של שניהם יחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': ההסתברות שהרכב יהיה לבן או כסף היא הסכום שלהם.&rlm;", math_expression: "40% + 25% = 65%" },
-            { verbal_explanation: "שלב ב': ההסתברות לכל צבע אחר היא המשלים ל-100%.&rlm;", math_expression: "100% - 65% = 35%" }
-        ],
-        final_answer: "35%"
+        "final_answer": "24/30"
     },
 
-    // ==========================================================
-    // תת נושא 3: ממוצע, חציון ושכיח (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 25
+    // ==========================================
+    // תת נושא 3: ממוצע, חציון ושכיח (10 שאלות)
+    // ==========================================
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "מהו ה'שכיח' (Mode) בקבוצת נתונים?&rlm;",
-        options: ["הערך שמופיע הכי הרבה פעמים (בתדירות הגבוהה ביותר).", "הערך שנמצא בדיוק באמצע הרשימה המסודרת.", "סכום כל הערכים מחולק במספרם.", "ההפרש בין הערך הגדול לקטן."],
-        correctAnswer: 0,
-        hint: "המילה 'שכיח' באה מהמילה 'שכיחות' - כלומר כמה נפוץ משהו.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "ממוצע = סכום חלקי הכמות. חציון = המספר האמצעי ברצף.&rlm;", math_expression: "" },
-            { verbal_explanation: "שכיח הוא פשוט הערך הפופולרי ביותר, זה שמופיע מספר רב יותר של פעמים מכל השאר בקבוצה.&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "תלמיד קיבל במבחנים את הציונים הבאים: 70, 80, 90. מהו הציון הממוצע שלו?&rlm;",
+        "options": ["80", "70", "90", "240"],
+        "correctAnswer": 0,
+        "hint": "כדי למצוא ממוצע, חברו את כל הציונים יחד וחלקו את הסכום במספר המבחנים.",
+        "solution_steps": [
+            { "verbal_explanation": "השלב הראשון במציאת ממוצע הוא לחבר יחד את כל הנתונים.", "math_expression": "70 + 80 + 90" },
+            { "verbal_explanation": "נחשב את סכום הציונים הכולל.", "math_expression": "240" },
+            { "verbal_explanation": "השלב השני הוא לספור כמה נתונים היו לנו. במקרה זה, שלושה ציונים.", "math_expression": "3" },
+            { "verbal_explanation": "נחלק את סכום הציונים במספר הנתונים כדי למצוא את הממוצע.", "math_expression": "240 \\div 3" },
+            { "verbal_explanation": "התוצאה היא שמונים. הציון הממוצע הוא שמונים.", "math_expression": "80" }
         ],
-        final_answer: "הערך שמופיע הכי הרבה פעמים (בתדירות הגבוהה ביותר)."
+        "final_answer": "80"
     },
-    // שאלה 26
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "חשבו את הממוצע של קבוצת המספרים הבאה: 4, 6, 8, 10.&rlm;",
-        options: ["7", "6", "8", "28"],
-        correctAnswer: 0,
-        hint: "חברו את כל המספרים (4+6+8+10) וחלקו ב-4 (מספר האיברים).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': חישוב סכום האיברים.&rlm;", math_expression: "4 + 6 + 8 + 10 = 28" },
-            { verbal_explanation: "שלב ב': ישנם 4 מספרים בקבוצה. נחלק את הסכום ב-4.&rlm;", math_expression: "28 : 4 = 7" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "נתונה קבוצת המספרים הבאה: 4, 4, 5, 6, 7. מהו השכיח בקבוצה זו?&rlm;",
+        "options": ["4", "5", "6", "7"],
+        "correctAnswer": 0,
+        "hint": "השכיח הוא הנתון שמופיע הכי הרבה פעמים בקבוצה.",
+        "solution_steps": [
+            { "verbal_explanation": "השכיח בסטטיסטיקה מוגדר כערך בעל התדירות הגבוהה ביותר.", "math_expression": "\\text{Max}" },
+            { "verbal_explanation": "נסרוק את קבוצת המספרים הנתונה ונבדוק כמה פעמים מופיע כל מספר.", "math_expression": "4, 4, 5, 6, 7" },
+            { "verbal_explanation": "המספרים חמש, שש ושבע מופיעים פעם אחת כל אחד. המספר ארבע מופיע פעמיים.", "math_expression": "2 > 1" },
+            { "verbal_explanation": "מכיוון שהמספר ארבע מופיע הכי הרבה פעמים, הוא השכיח של הקבוצה.", "math_expression": "4" }
         ],
-        final_answer: "7"
+        "final_answer": "4"
     },
-    // שאלה 27
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "מהו החציון (Median) בקבוצת המספרים הבאה: 3, 1, 4, 2, 5 ?&rlm;",
-        options: ["3", "4", "2", "15"],
-        correctAnswer: 0,
-        hint: "כדי למצוא חציון, חובה קודם כל לסדר את המספרים מהקטן לגדול! (1,2,3,4,5). איזה מספר עומד בדיוק באמצע?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': החוק הראשון של חציון - מסדרים את הרשימה לפי גודל.&rlm;", math_expression: "1, 2, 3, 4, 5" },
-            { verbal_explanation: "שלב ב': נחפש את המספר האמצעי (כך שיש מספר זהה של איברים מימינו ומשמאלו).&rlm;", math_expression: "המספר 3" },
-            { verbal_explanation: "יש שני מספרים משמאלו (1,2) ושניים מימינו (4,5), לכן 3 הוא החציון.&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "נתונה קבוצת המספרים הבאה: 1, 3, 5, 7, 9. המספרים כבר מסודרים מהקטן לגדול. מהו החציון?&rlm;",
+        "options": ["5", "3", "7", "25"],
+        "correctAnswer": 0,
+        "hint": "החציון הוא המספר שנמצא בדיוק באמצע הרשימה המסודרת.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי למצוא את החציון, יש לוודא שהנתונים מסודרים מהקטן לגדול. הם אכן מסודרים.", "math_expression": "1, 3, 5, 7, 9" },
+            { "verbal_explanation": "נספור כמה מספרים יש ברשימה. ישנם חמישה איברים, שזה מספר אי זוגי.", "math_expression": "5" },
+            { "verbal_explanation": "בכמות אי זוגית של איברים, החציון הוא האיבר שממוקם בדיוק במרכז. שניים מימינו ושניים משמאלו.", "math_expression": "5" },
+            { "verbal_explanation": "האיבר השלישי הוא המספר חמש. זהו החציון.", "math_expression": "5" }
         ],
-        final_answer: "3"
+        "final_answer": "5"
     },
-    // שאלה 28
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "מציאת חציון בקבוצה זוגית. מהו החציון בקבוצת המספרים: 2, 8, 4, 6 ?&rlm;",
-        options: ["5", "4", "6", "8"],
-        correctAnswer: 0,
-        hint: "סדרו את המספרים: 2,4,6,8. אין מספר אחד באמצע! לכן, קחו את שני המספרים האמצעיים (4 ו-6) ועשו להם ממוצע (חברו וחלקו ב-2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסדר מהקטן לגדול.&rlm;", math_expression: "2, 4, 6, 8" },
-            { verbal_explanation: "שלב ב': כיוון שיש 4 מספרים (כמות זוגית), אין מספר אחד באמצע. ניקח את השניים האמצעיים.&rlm;", math_expression: "4, 6" },
-            { verbal_explanation: "שלב ג': החציון יהיה הממוצע של שני מספרים אלו.&rlm;", math_expression: "(4 + 6) : 2 = 10 : 2 = 5" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "נתונה קבוצת הציונים הבאה המסודרת מהנמוך לגבוה: 60, 70, 80, 90. מהו החציון בקבוצה זו?&rlm;",
+        "options": ["75", "70", "80", "150"],
+        "correctAnswer": 0,
+        "hint": "כשיש מספר זוגי של נתונים, אין מספר אחד באמצע. מחשבים את הממוצע של שני המספרים האמצעיים.",
+        "solution_steps": [
+            { "verbal_explanation": "הנתונים כבר מסודרים בסדר עולה. נספור כמה איברים יש: ארבעה איברים (כמות זוגית).", "math_expression": "4" },
+            { "verbal_explanation": "כאשר כמות האיברים זוגית, לוקחים את שני האיברים האמצעיים.", "math_expression": "70 \\quad , \\quad 80" },
+            { "verbal_explanation": "נמצא את הממוצע של שני האיברים הללו. נחבר אותם ונחלק בשתיים.", "math_expression": "(70 + 80) \\div 2" },
+            { "verbal_explanation": "הסכום הוא מאה וחמישים. לחלק לשתיים שווה שבעים וחמש.", "math_expression": "150 \\div 2 = 75" },
+            { "verbal_explanation": "החציון של הציונים הוא שבעים וחמש.", "math_expression": "75" }
         ],
-        final_answer: "5"
+        "final_answer": "75"
     },
-    // שאלה 29
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "מצאו את השכיח בסדרת הציונים הבאה: 80, 85, 85, 90, 95, 95, 95, 100.&rlm;",
-        options: ["95", "85", "90", "100"],
-        correctAnswer: 0,
-        hint: "איזה מספר מופיע הכי הרבה פעמים?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נבדוק את התדירות של כל ציון ברשימה.&rlm;", math_expression: "" },
-            { verbal_explanation: "80 (פעם אחת), 85 (פעמיים), 90 (פעם אחת), 100 (פעם אחת).&rlm;", math_expression: "" },
-            { verbal_explanation: "הציון 95 מופיע 3 פעמים, שזה הכי הרבה ברשימה, ולכן הוא השכיח.&rlm;", math_expression: "95" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "במהלך השבוע נמדדו הטמפרטורות הבאות (במעלות צלזיוס): 20, 22, 22, 24. מהי הטמפרטורה הממוצעת?&rlm;",
+        "options": ["22", "20", "24", "88"],
+        "correctAnswer": 0,
+        "hint": "חברו את ארבע הטמפרטורות וחלקו את הסכום ב-4.",
+        "solution_steps": [
+            { "verbal_explanation": "נחבר את כל המדידות של הטמפרטורה יחד למציאת הסכום הכולל.", "math_expression": "20 + 22 + 22 + 24" },
+            { "verbal_explanation": "נחשב את הסכום.", "math_expression": "88" },
+            { "verbal_explanation": "נבדוק כמה מדידות בוצעו. ישנן ארבע מדידות בסך הכל.", "math_expression": "4" },
+            { "verbal_explanation": "נחלק את סכום הטמפרטורות במספר המדידות.", "math_expression": "88 \\div 4" },
+            { "verbal_explanation": "הטמפרטורה הממוצעת היא עשרים ושתיים מעלות.", "math_expression": "22" }
         ],
-        final_answer: "95"
+        "final_answer": "22"
     },
-    // שאלה 30
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "הממוצע של שלושה מספרים הוא 10. מהו סכום שלושת המספרים האלה?&rlm;",
-        options: ["30", "10", "3", "13"],
-        correctAnswer: 0,
-        hint: "ממוצע מחושב כך: סכום לחלק לכמות. סכום לחלק ל-3 שווה 10. הכפילו ב-3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "נוסחת הממוצע היא: סכום לחלק למספר האיברים.&rlm;", math_expression: "Sum : 3 = 10" },
-            { verbal_explanation: "נפעיל פעולה הפוכה ונכפיל את הממוצע במספר האיברים כדי למצוא את הסכום הכולל.&rlm;", math_expression: "Sum = 10 × 3 = 30" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "לפניכם קבוצת מספרים שאינה מסודרת: 9, 2, 5, 7, 1. מצאו את החציון של קבוצה זו.&rlm;",
+        "options": ["5", "7", "2", "9"],
+        "correctAnswer": 0,
+        "hint": "קודם כל חייבים לסדר את המספרים מהקטן לגדול. רק אז חפשו את האמצע.",
+        "solution_steps": [
+            { "verbal_explanation": "חובה לסדר את כל הנתונים מהמספר הקטן ביותר ועד לגדול ביותר לפני מציאת החציון.", "math_expression": "1, 2, 5, 7, 9" },
+            { "verbal_explanation": "נספור את כמות האיברים בסדרה המעודכנת. ישנם חמישה איברים.", "math_expression": "5" },
+            { "verbal_explanation": "נחפש את האיבר הממוקם במרכז הרשימה המסודרת. זהו האיבר השלישי.", "math_expression": "5" },
+            { "verbal_explanation": "החציון הוא המספר חמש.", "math_expression": "5" }
         ],
-        final_answer: "30"
+        "final_answer": "5"
     },
-    // שאלה 31
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "תלמיד קיבל 80, 90 ו-100 בשלושה מבחנים. הוא ניגש למבחן רביעי, והממוצע שלו נשאר 90. כמה קיבל במבחן הרביעי?&rlm;",
-        options: ["90", "100", "80", "85"],
-        correctAnswer: 0,
-        hint: "אם הממוצע לא השתנה, סימן שהציון החדש שהוספנו זהה בדיוק לממוצע הקודם!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך א' (הבנה): ממוצע הציונים 80, 90, 100 הוא 90. הוספת ציון שזהה לממוצע לעולם לא תשנה את הממוצע.&rlm;", math_expression: "" },
-            { verbal_explanation: "דרך ב' (אלגברית): נחשב סכום עבור ממוצע 90 מ-4 מבחנים.&rlm;", math_expression: "Sum = 90 × 4 = 360" },
-            { verbal_explanation: "הסכום של 3 המבחנים הראשונים הוא 270.&rlm;", math_expression: "80 + 90 + 100 = 270" },
-            { verbal_explanation: "נחסר כדי למצוא את המבחן הרביעי.&rlm;", math_expression: "360 - 270 = 90" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "קבוצת משקלים (בקילוגרמים) נרשמה כך: 40, 50, 40, 60, 40. מהו השכיח של המשקלים?&rlm;",
+        "options": ["40", "50", "60", "46"],
+        "correctAnswer": 0,
+        "hint": "חפשו את המשקל שחוזר על עצמו יותר מכל שאר המשקלים.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי למצוא את השכיח, עלינו לבדוק את התדירות של כל מספר ברשימה.", "math_expression": "40, 50, 40, 60, 40" },
+            { "verbal_explanation": "המספר חמישים מופיע פעם אחת. המספר שישים מופיע פעם אחת. המספר ארבעים מופיע שלוש פעמים.", "math_expression": "3 > 1" },
+            { "verbal_explanation": "הערך שמופיע בתדירות הגבוהה ביותר הוא ארבעים.", "math_expression": "40" },
+            { "verbal_explanation": "לכן, השכיח של המשקלים הוא ארבעים.", "math_expression": "40" }
         ],
-        final_answer: "90"
+        "final_answer": "40"
     },
-    // שאלה 32
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "האם ייתכן שלקבוצת נתונים יהיה יותר מ'שכיח' אחד?&rlm;",
-        options: ["כן, אם יש שני ערכים (או יותר) שמופיעים את אותו מספר פעמים מרבי.", "לא, השכיח חייב להיות יחיד.", "כן, אבל רק אם הם מספרים זוגיים.", "לא, במקרה כזה עושים להם ממוצע."],
-        correctAnswer: 0,
-        hint: "קחו קבוצה: 2, 2, 3, 3, 4. גם 2 וגם 3 מופיעים פעמיים (הכי הרבה). שניהם שכיחים!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בניגוד לחציון ולממוצע שהם תמיד תוצאה יחידה, 'שכיח' יכול להיות כמה ערכים במקביל.&rlm;", math_expression: "" },
-            { verbal_explanation: "אם שני מספרים שונים מופיעים 5 פעמים ברשימה (ואף מספר אחר לא מופיע יותר), שניהם יוכתרו כשכיחים של הקבוצה.&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "הממוצע של 3 מספרים הוא 10. ידוע ששניים מהמספרים הם 8 ו-12. מהו המספר השלישי החסר?&rlm;",
+        "options": ["10", "30", "5", "8"],
+        "correctAnswer": 0,
+        "hint": "אם הממוצע של 3 מספרים הוא 10, אז הסכום הכולל שלהם חייב להיות 30. מצאו איזה מספר חסר כדי להגיע ל-30.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי למצוא את הסכום הכולל של כל המספרים, נכפול את הממוצע במספר האיברים.", "math_expression": "10 \\times 3 = 30" },
+            { "verbal_explanation": "סכום כל שלושת המספרים יחד הוא שלושים.", "math_expression": "30" },
+            { "verbal_explanation": "נחבר את שני המספרים שכבר ידועים לנו.", "math_expression": "8 + 12 = 20" },
+            { "verbal_explanation": "נחסר מסכום היעד את הסכום הקיים כדי לגלות את המספר שחסר.", "math_expression": "30 - 20" },
+            { "verbal_explanation": "המספר השלישי הוא עשר.", "math_expression": "10" }
         ],
-        final_answer: "כן, אם יש שני ערכים (או יותר) שמופיעים את אותו מספר פעמים מרבי."
+        "final_answer": "10"
     },
-    // שאלה 33
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "האם החציון חייב להיות מספר שמופיע בעצמו בתוך רשימת הנתונים המקורית?&rlm;",
-        options: ["לא, במקרה של כמות זוגית של נתונים, החציון יכול להיות הממוצע בין שני מספרים, ולכן מספר חדש.", "כן, החציון תמיד לקוח מתוך הרשימה.", "לא, הוא תמיד מספר עשרוני.", "כן, אחרת זו טעות בחישוב."],
-        correctAnswer: 0,
-        hint: "חישבו על הרשימה 2, 4. החציון הוא 3. האם 3 נמצא ברשימה? לא.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "כאשר יש כמות אי-זוגית של נתונים, החציון הוא המספר האמצעי (נמצא ברשימה).&rlm;", math_expression: "" },
-            { verbal_explanation: "אך כאשר הכמות זוגית, אנו מחשבים ממוצע של שני האמצעיים. ממוצע זה לרוב ייתן מספר שלא הופיע במקור.&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "גילאי הילדים בקבוצה הם: 12, 13, 14, 15. מצאו את החציון של גילאי הקבוצה.&rlm;",
+        "options": ["13.5", "13", "14", "13.25"],
+        "correctAnswer": 0,
+        "hint": "הגילאים כבר מסודרים. יש מספר זוגי של ילדים, אז חשבו את הממוצע של שני הגילאים האמצעיים.",
+        "solution_steps": [
+            { "verbal_explanation": "המספרים מסודרים בסדר עולה וישנם ארבעה מספרים בסך הכל.", "math_expression": "12, 13, 14, 15" },
+            { "verbal_explanation": "נאתר את שני המספרים הממוקמים במרכז הרשימה.", "math_expression": "13 \\quad , \\quad 14" },
+            { "verbal_explanation": "נחשב את הממוצע של שני המספרים הללו.", "math_expression": "(13 + 14) \\div 2" },
+            { "verbal_explanation": "סכומם הוא עשרים ושבע. נחלק לשתיים.", "math_expression": "27 \\div 2 = 13.5" },
+            { "verbal_explanation": "גיל החציון הוא שלוש עשרה וחצי.", "math_expression": "13.5" }
         ],
-        final_answer: "לא, במקרה של כמות זוגית של נתונים, החציון יכול להיות הממוצע בין שני מספרים, ולכן מספר חדש."
+        "final_answer": "13.5"
     },
-    // שאלה 34
     {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "הממוצע של 5 תלמידים הוא 80. הצטרף תלמיד שישי. הממוצע של כל ה-6 עלה ל-82. מה היה הציון של התלמיד השישי?&rlm;",
-        options: ["92", "82", "90", "100"],
-        correctAnswer: 0,
-        hint: "סכום 5 התלמידים הוא 400 (5 כפול 80). סכום ה-6 הוא 492 (6 כפול 82). מה ההפרש?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את סכום הציונים של 5 התלמידים הראשונים.&rlm;", math_expression: "5 × 80 = 400" },
-            { verbal_explanation: "שלב ב': נחשב את סכום הציונים החדש (של כל ה-6).&rlm;", math_expression: "6 × 82 = 492" },
-            { verbal_explanation: "שלב ג': ההפרש בין הסכומים הוא הציון של התלמיד השישי שהתווסף.&rlm;", math_expression: "492 - 400 = 92" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "ממוצע, חציון ושכיח",
+        "question_text": "נתונים המספרים הבאים, המסודרים בסדר עולה: 2, 3, 3, 4, 4, 4, 5. מצאו את החציון של רשימת המספרים הזו.&rlm;",
+        "options": ["4", "3", "3.5", "5"],
+        "correctAnswer": 0,
+        "hint": "הרשימה כבר מסודרת. ספרו כמה מספרים יש, ומצאו את המספר שנמצא בדיוק במרכז.",
+        "solution_steps": [
+            { "verbal_explanation": "המספרים מסודרים היטב. נספור כמה מספרים קיימים ברשימה. ישנם שבעה איברים.", "math_expression": "7" },
+            { "verbal_explanation": "כיוון ששבע הוא מספר אי זוגי, יש רק איבר אחד מרכזי. המיקום שלו הוא השביעי פלוס אחד, חלקי שתיים.", "math_expression": "(7 + 1) \\div 2 = 4" },
+            { "verbal_explanation": "האיבר הרביעי ברשימה הוא החציון. נספור עד האיבר הרביעי.", "math_expression": "4" },
+            { "verbal_explanation": "האיבר במקום הרביעי הוא המספר ארבע. לכן החציון הוא ארבע.", "math_expression": "4" }
         ],
-        final_answer: "92"
-    },
-    // שאלה 35
-    {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "הממוצע של המספרים 10, 20 ו-x הוא 15. מהו x?&rlm;",
-        options: ["15", "10", "20", "5"],
-        correctAnswer: 0,
-        hint: "ממוצע של 3 איברים שווה 15, לכן הסכום שלהם הוא 45. (10+20+x=45).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרכיב משוואת ממוצע.&rlm;", math_expression: "(10 + 20 + x) : 3 = 15" },
-            { verbal_explanation: "שלב ב': נכפול ב-3 את שני האגפים לקבלת הסכום.&rlm;", math_expression: "30 + x = 45" },
-            { verbal_explanation: "שלב ג': נחסר 30 כדי למצוא את x.&rlm;", math_expression: "x = 45 - 30 = 15" }
-        ],
-        final_answer: "15"
-    },
-    // שאלה 36
-    {
-        topic: "statistics_probability",
-        subTopic: "ממוצע, חציון ושכיח",
-        question_text: "הוספת 'ערך חריג קיצוני' (למשל, הוספת הציון 10 לרשימה של עשרות תלמידים שקיבלו 90). איזה מדד יושפע יותר בחוזקה ויימשך כלפי מטה?&rlm;",
-        options: ["הממוצע יושפע הרבה יותר מהחציון.", "החציון יושפע הרבה יותר.", "שניהם יושפעו באותה מידה בדיוק.", "השכיח יושפע יותר מכולם."],
-        correctAnswer: 0,
-        hint: "חציון רק מסתכל מי באמצע הרשימה ולא 'אכפת לו' כמה קטן המספר הראשון. ממוצע מתחשב בכל מספר ומשקלל אותו פנימה!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "הממוצע מחושב מסכום כל הערכים, ולכן כל ערך קיצוני (נמוך מאוד או גבוה מאוד) מושך את הממוצע לכיוונו.&rlm;", math_expression: "" },
-            { verbal_explanation: "החציון תלוי רק במיקום (סדר). הוספת ערך קיצוני בקצה הרשימה תזיז את ה'אמצע' רק צעד אחד הצידה, ולרוב בקושי תשנה את הערך שלו.&rlm;", math_expression: "" }
-        ],
-        final_answer: "הממוצע יושפע הרבה יותר מהחציון."
+        "final_answer": "4"
     },
 
-    // ==========================================================
-    // תת נושא 4: דיאגרמות שכיחות (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 37
+    // ==========================================
+    // תת נושא 4: דיאגרמות שכיחות (10 שאלות)
+    // ==========================================
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "קריאת גרף עמודות. בגרף שלפניכם מוצגות מספר שעות הקריאה של תלמידים בשבוע. הציר האופקי (x) הוא שעות, האנכי (y) הוא מספר תלמידים (שכיחות). כמה תלמידים יש בסך הכל בכיתה זו?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 200 120' width='100%' height='120' style='max-width:200px;'><line x1='30' y1='100' x2='180' y2='100' stroke='#334155' stroke-width='2'/><line x1='30' y1='10' x2='30' y2='100' stroke='#334155' stroke-width='2'/><rect x='40' y='60' width='30' height='40' fill='#3b82f6'/><text x='55' y='55' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>4</text><text x='55' y='115' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>1 hr</text><rect x='90' y='20' width='30' height='80' fill='#10b981'/><text x='105' y='15' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>8</text><text x='105' y='115' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>2 hr</text><rect x='140' y='70' width='30' height='30' fill='#f59e0b'/><text x='155' y='65' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>3</text><text x='155' y='115' font-family='Arial' font-size='10' fill='#0f172a' text-anchor='middle'>3 hr</text></svg></div>",
-        options: ["15 תלמידים", "12 תלמידים", "3 תלמידים", "24 תלמידים"],
-        correctAnswer: 0,
-        hint: "חברו את גובה העמודות (המספרים שמופיעים מעל כל עמודה). כל עמודה מייצגת כמות של תלמידים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "סך כל האוכלוסייה (סך השכיחויות) מחושב על ידי חיבור הגבהים של כל העמודות בגרף.&rlm;", math_expression: "" },
-            { verbal_explanation: "עמודה ראשונה: 4 תלמידים. עמודה שנייה: 8 תלמידים. עמודה שלישית: 3 תלמידים.&rlm;", math_expression: "4 + 8 + 3 = 15" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 250 150\" width=\"200\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"130\" x2=\"230\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><line x1=\"30\" y1=\"10\" x2=\"30\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><rect x=\"50\" y=\"80\" width=\"30\" height=\"50\" fill=\"#3b82f6\"/><rect x=\"100\" y=\"30\" width=\"30\" height=\"100\" fill=\"#3b82f6\"/><rect x=\"150\" y=\"60\" width=\"30\" height=\"70\" fill=\"#3b82f6\"/><text x=\"65\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">1</text><text x=\"115\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">2</text><text x=\"165\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">3</text><text x=\"10\" y=\"85\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">5</text><text x=\"5\" y=\"35\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"10\" y=\"65\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">7</text></svg></div><br>לפניכם דיאגרמת עמודות (גרף) המציגה את מספר הספרים שקראו תלמידים בחודש האחרון. הציר האופקי מראה את מספר הספרים (1, 2 או 3). הציר האנכי מראה את מספר התלמידים (שכיחות). כמה תלמידים בסך הכל השתתפו בסקר זה?&rlm;",
+        "options": ["22", "10", "3", "12"],
+        "correctAnswer": 0,
+        "hint": "כדי למצוא את המספר הכולל, עליכם לקרוא את הגובה של כל עמודה בגרף ולחבר את כל הגבהים יחד.",
+        "solution_steps": [
+            { "verbal_explanation": "גובהה של כל עמודה מייצג את כמות התלמידים בקבוצה המסוימת.", "math_expression": "\\text{Height}" },
+            { "verbal_explanation": "העמודה הראשונה (ספר אחד) מגיעה לגובה של חמש.", "math_expression": "5" },
+            { "verbal_explanation": "העמודה השנייה (שני ספרים) מגיעה לשיא הגובה, שהוא עשר.", "math_expression": "10" },
+            { "verbal_explanation": "העמודה השלישית (שלושה ספרים) מגיעה לגובה של שבע.", "math_expression": "7" },
+            { "verbal_explanation": "נחבר את כל התלמידים מכל העמודות למציאת סך הכל. חמש ועוד עשר ועוד שבע.", "math_expression": "5 + 10 + 7 = 22" }
         ],
-        final_answer: "15 תלמידים"
+        "final_answer": "22"
     },
-    // שאלה 38
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "בהסתמך על הגרף מהשאלה הקודמת, מהו ה'שכיח' (מספר השעות הנפוץ ביותר)?&rlm;",
-        options: ["2 שעות (2 hr)", "8 שעות", "1 שעה (1 hr)", "4 שעות"],
-        correctAnswer: 0,
-        hint: "השכיח הוא הערך (על ציר x האופקי) שיש לו את העמודה הגבוהה ביותר (על ציר y האנכי).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שכיח הוא הערך בעל התדירות הגבוהה ביותר בגרף, כלומר העמודה הכי גבוהה.&rlm;", math_expression: "" },
-            { verbal_explanation: "העמודה הגבוהה ביותר מייצגת 8 תלמידים. הערך שלה על הציר האופקי הוא 2 שעות.&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 250 150\" width=\"200\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"130\" x2=\"230\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><line x1=\"30\" y1=\"10\" x2=\"30\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><rect x=\"50\" y=\"80\" width=\"30\" height=\"50\" fill=\"#3b82f6\"/><rect x=\"100\" y=\"30\" width=\"30\" height=\"100\" fill=\"#3b82f6\"/><rect x=\"150\" y=\"60\" width=\"30\" height=\"70\" fill=\"#3b82f6\"/><text x=\"65\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">1</text><text x=\"115\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">2</text><text x=\"165\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">3</text><text x=\"10\" y=\"85\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">5</text><text x=\"5\" y=\"35\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"10\" y=\"65\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">7</text></svg></div><br>בהתייחס לאותה דיאגרמת עמודות של קריאת ספרים, מהו השכיח (הנתון המופיע מספר הפעמים הרב ביותר)?&rlm;",
+        "options": ["2", "10", "3", "1"],
+        "correctAnswer": 0,
+        "hint": "השכיח הוא הערך שעל הציר האופקי שמעליו מופיעה העמודה הגבוהה ביותר.",
+        "solution_steps": [
+            { "verbal_explanation": "השכיח מזוהה בגרף העמודות על ידי חיפוש העמודה הגבוהה ביותר.", "math_expression": "\\text{Max Height}" },
+            { "verbal_explanation": "נבחן את הגרף ונראה שהעמודה האמצעית היא הגבוהה ביותר (גובה של עשר).", "math_expression": "10 > 7 > 5" },
+            { "verbal_explanation": "הערך שרשום מתחת לעמודה זו, על הציר האופקי, הוא השכיח.", "math_expression": "2" },
+            { "verbal_explanation": "לכן, קריאת שני ספרים היא המספר השכיח.", "math_expression": "2" }
         ],
-        final_answer: "2 שעות (2 hr)"
+        "final_answer": "2"
     },
-    // שאלה 39
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "חישוב ממוצע מתוך טבלת שכיחויות. ישנם ציונים ותדירויות: ציון 70 (2 תלמידים), ציון 80 (3 תלמידים), ציון 90 (5 תלמידים). מהו ממוצע הציונים הכיתתי?&rlm;",
-        options: ["83", "80", "85", "90"],
-        correctAnswer: 0,
-        hint: "הכפילו כל ציון במספר התלמידים שקיבלו אותו. חברו את כל התוצאות (סך הנקודות הכולל), וחלקו במספר התלמידים הכולל (10).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחשב את סכום הציונים הכולל (ממוצע משוקלל).&rlm;", math_expression: "(70 × 2) + (80 × 3) + (90 × 5)" },
-            { verbal_explanation: "נחשב: 140 + 240 + 450 = 830.&rlm;", math_expression: "Sum = 830" },
-            { verbal_explanation: "שלב ב': נחשב את מספר התלמידים הכולל.&rlm;", math_expression: "2 + 3 + 5 = 10" },
-            { verbal_explanation: "שלב ג': נחלק סכום בכמות למציאת הממוצע.&rlm;", math_expression: "830 : 10 = 83" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 250 150\" width=\"200\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"130\" x2=\"230\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><line x1=\"30\" y1=\"10\" x2=\"30\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><rect x=\"50\" y=\"80\" width=\"30\" height=\"50\" fill=\"#3b82f6\"/><rect x=\"100\" y=\"30\" width=\"30\" height=\"100\" fill=\"#3b82f6\"/><rect x=\"150\" y=\"60\" width=\"30\" height=\"70\" fill=\"#3b82f6\"/><text x=\"65\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">1</text><text x=\"115\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">2</text><text x=\"165\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">3</text><text x=\"10\" y=\"85\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">5</text><text x=\"5\" y=\"35\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">10</text><text x=\"10\" y=\"65\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">7</text></svg></div><br>שוב באותה דיאגרמת עמודות, כמה תלמידים קראו יותר מספר אחד בחודש האחרון?&rlm;",
+        "options": ["17", "10", "7", "22"],
+        "correctAnswer": 0,
+        "hint": "'יותר מספר אחד' אומר שאתם צריכים לחפש תלמידים שקראו 2 ספרים או 3 ספרים. חברו את הגבהים של שתי העמודות האלה.",
+        "solution_steps": [
+            { "verbal_explanation": "הביטוי 'יותר מספר אחד' מתייחס לאלו שקראו שני ספרים ולאלו שקראו שלושה.", "math_expression": "> 1 \\Rightarrow 2 , 3" },
+            { "verbal_explanation": "נסתכל על העמודה של שני ספרים. מספר התלמידים שם הוא עשר.", "math_expression": "10" },
+            { "verbal_explanation": "נסתכל על העמודה של שלושה ספרים. מספר התלמידים שם הוא שבע.", "math_expression": "7" },
+            { "verbal_explanation": "נחבר את כמויות התלמידים משתי הקבוצות הללו.", "math_expression": "10 + 7" },
+            { "verbal_explanation": "סך הכל שבעה עשר תלמידים קראו יותר מספר אחד.", "math_expression": "17" }
         ],
-        final_answer: "83"
+        "final_answer": "17"
     },
-    // שאלה 40
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "חציון מטבלת שכיחויות: ישנם 10 תלמידים בסך הכל (כמות זוגית). היכן ימוקם החציון?&rlm;",
-        options: ["הממוצע שבין התלמיד ה-5 לתלמיד ה-6 (כשהציונים מסודרים).", "הציון של התלמיד ה-5 בלבד.", "הממוצע שבין התלמיד ה-1 לתלמיד ה-10.", "הציון האמצעי בין 70 ל-90."],
-        correctAnswer: 0,
-        hint: "כשיש 10 איברים, חצי מהם (5) הם 'החצי התחתון', וחצי (5) הם ה'חצי העליון'. החציון נופל בדיוק ברווח שבין ה-5 ל-6.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בכמות זוגית של איברים (N=10), אין איבר אחד בודד באמצע.&rlm;", math_expression: "" },
-            { verbal_explanation: "לכן לוקחים את שני האיברים האמצעיים. אם נסדר בשורה, אלו יהיו המקומות ה-5 וה-6.&rlm;", math_expression: "N : 2 = 5" },
-            { verbal_explanation: "החציון יהיה הממוצע של הציון של התלמיד ה-5 והציון של התלמיד ה-6.&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "לפניכם טבלת שכיחויות של ציוני כיתה במתמטיקה:<br>ציון 70: 2 תלמידים.<br>ציון 80: 4 תלמידים.<br>ציון 90: 4 תלמידים.<br>כמה תלמידים ניגשו למבחן בסך הכל?&rlm;",
+        "options": ["10", "3", "240", "80"],
+        "correctAnswer": 0,
+        "hint": "מספר התלמידים מיוצג על ידי ה'שכיחות'. חברו את כל השכיחויות שמופיעות בטבלה.",
+        "solution_steps": [
+            { "verbal_explanation": "סך הכל התלמידים בכיתה הוא סכום השכיחויות מכל הציונים יחד.", "math_expression": "\\text{Total Frequency}" },
+            { "verbal_explanation": "ישנם שני תלמידים שקיבלו את הציון הראשון.", "math_expression": "2" },
+            { "verbal_explanation": "ישנם ארבעה שקיבלו את הציון השני, ועוד ארבעה שקיבלו את השלישי.", "math_expression": "4 \\quad , \\quad 4" },
+            { "verbal_explanation": "נחבר את כל התלמידים: שתיים ועוד ארבע ועוד ארבע.", "math_expression": "2 + 4 + 4" },
+            { "verbal_explanation": "בסך הכל ניגשו עשרה תלמידים למבחן.", "math_expression": "10" }
         ],
-        final_answer: "הממוצע שבין התלמיד ה-5 לתלמיד ה-6 (כשהציונים מסודרים)."
+        "final_answer": "10"
     },
-    // שאלה 41
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "מהי 'שכיחות יחסית'?&rlm;",
-        options: ["היחס בין כמות הפעמים שערך מסוים הופיע לבין סך כל הנתונים במדגם (מוצג לרוב כשבר או אחוז).", "מספר הפעמים המדויק שערך הופיע.", "השכיח הגבוה ביותר פחות השכיח הנמוך ביותר.", "יחס בין הממוצע לחציון."],
-        correctAnswer: 0,
-        hint: "המילה 'יחסית' אומרת שאנו בודקים את הכמות *ביחס* למשהו אחר (ביחס לסך הכל הכללי).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שכיחות רגילה היא מספר שלם (למשל: 4 תלמידים קיבלו ציון 100).&rlm;", math_expression: "" },
-            { verbal_explanation: "שכיחות יחסית היא שבר המתאר את החלק מתוך השלם (למשל: 4 תלמידים מתוך 20, שזה 1:5 או 20%).&rlm;", math_expression: "Freq : Total = Rel_Freq" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "בהמשך לטבלת השכיחויות (70: 2 תלמידים, 80: 4 תלמידים, 90: 4 תלמידים). מהו חציון הציונים של הכיתה?&rlm;",
+        "options": ["80", "85", "75", "90"],
+        "correctAnswer": 0,
+        "hint": "יש 10 תלמידים (מספר זוגי). החציון ייפול בין התלמיד ה-5 לתלמיד ה-6 ברשימה המסודרת מהנמוך לגבוה. חפשו לאיזה ציון הם שייכים.",
+        "solution_steps": [
+            { "verbal_explanation": "ישנם עשרה תלמידים בכיתה, שזהו מספר זוגי. החציון יהיה הממוצע של האיבר החמישי והשישי ברשימה המסודרת.", "math_expression": "10 \\Rightarrow 5 , 6" },
+            { "verbal_explanation": "נתחיל לספור תלמידים מהציון הנמוך ביותר. בציון שבעים יש שני תלמידים. חסרים לנו עוד תלמידים כדי להגיע לאמצע.", "math_expression": "2" },
+            { "verbal_explanation": "נעבור לציון שמונים שבו יש ארבעה תלמידים. יחד עם הקודמים הגענו לשישה תלמידים. כלומר, התלמיד החמישי והשישי נמצאים שניהם בקבוצה זו.", "math_expression": "2 + 4 = 6" },
+            { "verbal_explanation": "התלמיד החמישי קיבל שמונים. התלמיד השישי קיבל שמונים.", "math_expression": "80 \\quad , \\quad 80" },
+            { "verbal_explanation": "הממוצע של שמונים ושמונים הוא שמונים. לכן החציון הוא שמונים.", "math_expression": "80" }
         ],
-        final_answer: "היחס בין כמות הפעמים שערך מסוים הופיע לבין סך כל הנתונים במדגם (מוצג לרוב כשבר או אחוז)."
+        "final_answer": "80"
     },
-    // שאלה 42
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "דיאגרמת עוגה (פאי): קבוצה של 40 ילדים נשאלה מהו הצבע האהוב עליהם. רבע מהעוגה צבוע באדום. כמה ילדים בחרו בצבע אדום?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 100 100' width='80' height='80'><circle cx='50' cy='50' r='45' fill='#3b82f6' stroke='#0f172a' stroke-width='2'/><path d='M 50 50 L 50 5 A 45 45 0 0 1 95 50 Z' fill='#ef4444'/><text x='65' y='35' font-family='Arial' font-size='12' fill='#fff'>25%</text></svg></div>",
-        options: ["10 ילדים", "25 ילדים", "4 ילדים", "40 ילדים"],
-        correctAnswer: 0,
-        hint: "דיאגרמת העוגה מייצגת 100% בסך הכל. רבע מהעוגה (25%) שווה לרבע מתוך 40 הילדים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "רבע מעוגה (25%) מייצג רבע מהכמות הכוללת של המדגם.&rlm;", math_expression: "1 : 4" },
-            { verbal_explanation: "הכמות הכוללת היא 40 ילדים. נחשב רבע מתוך 40.&rlm;", math_expression: "40 : 4 = 10" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "בהמשך לטבלת השכיחויות (70: 2 תלמידים, 80: 4 תלמידים, 90: 4 תלמידים). מהו הציון הממוצע של הכיתה?&rlm;",
+        "options": ["82", "80", "85", "240"],
+        "correctAnswer": 0,
+        "hint": "כדי לחשב ממוצע מטבלת שכיחויות, כפלו כל ציון במספר התלמידים שקיבלו אותו, חברו את כל התוצאות, וחלקו בסך הכל התלמידים (10).",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את סך כל הציונים של התלמידים בקבוצה הראשונה. פעמיים שבעים.", "math_expression": "70 \\times 2 = 140" },
+            { "verbal_explanation": "נחשב לקבוצה השנייה: ארבע פעמים שמונים.", "math_expression": "80 \\times 4 = 320" },
+            { "verbal_explanation": "נחשב לקבוצה השלישית: ארבע פעמים תשעים.", "math_expression": "90 \\times 4 = 360" },
+            { "verbal_explanation": "נחבר את כל המכפלות יחד לקבלת סכום הציונים של כל הכיתה.", "math_expression": "140 + 320 + 360 = 820" },
+            { "verbal_explanation": "נחלק את הסכום הכולל במספר התלמידים בכיתה, שהוא עשר.", "math_expression": "820 \\div 10" },
+            { "verbal_explanation": "הממוצע הכיתתי הוא שמונים ושתיים.", "math_expression": "82" }
         ],
-        final_answer: "10 ילדים"
+        "final_answer": "82"
     },
-    // שאלה 43
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "בטבלת שכיחויות נתונים הערכים הבאים: 1 הופיע 5 פעמים, 2 הופיע X פעמים, 3 הופיע 10 פעמים. בסך הכל יש 20 משתתפים בסקר. מהי התדירות (X) של המספר 2?&rlm;",
-        options: ["5", "10", "15", "2"],
-        correctAnswer: 0,
-        hint: "סך כל התדירויות בטבלה חייב להיות שווה למספר המשתתפים הכולל (20). 5 ועוד 10 ועוד מה חסר?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "סכום התדירויות בטבלה הוא סך כל האנשים.&rlm;", math_expression: "5 + x + 10 = 20" },
-            { verbal_explanation: "נחבר את הערכים הידועים.&rlm;", math_expression: "15 + x = 20" },
-            { verbal_explanation: "נחסר 15 כדי למצוא את המשתתפים החסרים.&rlm;", math_expression: "x = 20 - 15 = 5" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "<div dir=\"ltr\" style=\"text-align:center;\"><svg viewBox=\"0 0 250 150\" width=\"200\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"30\" y1=\"130\" x2=\"230\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><line x1=\"30\" y1=\"10\" x2=\"30\" y2=\"130\" stroke=\"#0f172a\" stroke-width=\"1.5\"/><rect x=\"40\" y=\"90\" width=\"30\" height=\"40\" fill=\"#f59e0b\"/><rect x=\"90\" y=\"50\" width=\"30\" height=\"80\" fill=\"#f59e0b\"/><rect x=\"140\" y=\"70\" width=\"30\" height=\"60\" fill=\"#f59e0b\"/><rect x=\"190\" y=\"110\" width=\"30\" height=\"20\" fill=\"#f59e0b\"/><text x=\"55\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">0</text><text x=\"105\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">1</text><text x=\"155\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">2</text><text x=\"205\" y=\"145\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">3</text><text x=\"10\" y=\"95\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">2</text><text x=\"10\" y=\"55\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">4</text><text x=\"10\" y=\"75\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">3</text><text x=\"10\" y=\"115\" font-family=\"Arial\" font-size=\"12\" fill=\"#0f172a\">1</text></svg></div><br>לפניכם גרף המתאר את כמות השערים שהבקיעה קבוצת כדורגל במספר משחקים. הציר האופקי מראה את מספר השערים במשחק. הציר האנכי מראה בכמה משחקים זה קרה. מהו אחוז המשחקים שבהם הבקיעה הקבוצה בדיוק 2 שערים?&rlm;",
+        "options": ["30%", "20%", "40%", "3%"],
+        "correctAnswer": 0,
+        "hint": "חשבו קודם בכמה משחקים הקבוצה שיחקה בסך הכל (חברו את גובה העמודות). אחר כך בנו שבר שבו המונה הוא מספר המשחקים עם 2 שערים.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשב את סך כל המשחקים שהקבוצה שיחקה על ידי חיבור הגבהים של כל העמודות.", "math_expression": "2 + 4 + 3 + 1 = 10" },
+            { "verbal_explanation": "הקבוצה שיחקה עשרה משחקים בסך הכל.", "math_expression": "10" },
+            { "verbal_explanation": "נסתכל בעמודה של שני שערים ונראה מה גובהה. היא מגיעה לגובה שלוש.", "math_expression": "3" },
+            { "verbal_explanation": "נבנה את השבר: שלושה משחקים מתוך עשרה.", "math_expression": "\\frac{3}{10}" },
+            { "verbal_explanation": "נרחיב את השבר כך שהמכנה יהיה מאה כדי למצוא את האחוז.", "math_expression": "\\frac{30}{100}" },
+            { "verbal_explanation": "ההסתברות היא שלושים אחוזים.", "math_expression": "30\\%" }
         ],
-        final_answer: "5"
+        "final_answer": "30%"
     },
-    // שאלה 44
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "דיאגרמת עמודות כפולה משמשת לרוב למטרה אחת עיקרית, מהי?&rlm;",
-        options: ["להשוות בין שתי קבוצות שונות (למשל בנים לעומת בנות) על פני אותם קריטריונים.", "להראות שני נתונים מתמטיים מנוגדים כמו חיבור וחיסור.", "לבלבל את הקורא בכוונה.", "כאשר אין מספיק מקום בטבלה אחת."],
-        correctAnswer: 0,
-        hint: "שתי עמודות צמודות בכל קטגוריה (אחת אדומה ואחת כחולה למשל) מאפשרות לראות 'מי עקף את מי' בקלות במבט אחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דיאגרמת עמודות כפולה מציגה שתי סדרות של נתונים זו לצד זו על אותם ערכי x.&rlm;", math_expression: "" },
-            { verbal_explanation: "המטרה שלה היא השוואה חזותית ישירה וקלה בין שתי תת-קבוצות (כמו כיתה א' מול כיתה ב' באותם מקצועות).&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "טבלת שכיחויות מציגה מידות נעליים של ילדים בקבוצה:<br>מידה 37: ילד 1<br>מידה 38: 3 ילדים<br>מידה 39: 5 ילדים<br>מידה 40: ילד 1<br>מהי מידת הנעליים השכיחה בקבוצה?&rlm;",
+        "options": ["39", "5", "38", "40"],
+        "correctAnswer": 0,
+        "hint": "חפשו את הערך (מידת הנעליים) שלו מתאימה השכיחות הגבוהה ביותר (הכי הרבה ילדים).",
+        "solution_steps": [
+            { "verbal_explanation": "השכיח הוא הערך שיש לו את תדירות ההופעה הגדולה ביותר בטבלה.", "math_expression": "\\text{Max Frequency}" },
+            { "verbal_explanation": "נבדוק את השכיחויות בטבלה: אחד, שלוש, חמש ואחד. המספר הגדול ביותר הוא חמש.", "math_expression": "5 > 3 > 1" },
+            { "verbal_explanation": "המספר חמש מייצג את כמות הילדים שנועלים את מידה שלושים ותשע.", "math_expression": "39" },
+            { "verbal_explanation": "לכן, המידה השכיחה ביותר בקבוצה היא שלושים ותשע.", "math_expression": "39" }
         ],
-        final_answer: "להשוות בין שתי קבוצות שונות (למשל בנים לעומת בנות) על פני אותם קריטריונים."
+        "final_answer": "39"
     },
-    // שאלה 45
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "מהו ה'טווח' (Range) של קבוצת נתונים סטטיסטית?&rlm;",
-        options: ["ההפרש בין הערך הגבוה ביותר לערך הנמוך ביותר במדגם.", "סכום כל הערכים.", "המרחק הממוצע של כל ערך מהממוצע.", "המספר שנמצא באמצע הגרף."],
-        correctAnswer: 0,
-        hint: "הטווח בודק עד כמה הנתונים 'מפוזרים' מקצה אל קצה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "טווח הוא מדד הפיזור הפשוט ביותר בסטטיסטיקה.&rlm;", math_expression: "" },
-            { verbal_explanation: "הוא מחושב על ידי חיסור התצפית הקטנה ביותר מהתצפית הגדולה ביותר.&rlm;", math_expression: "Range = Max - Min" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "בהמשך לטבלת מידות הנעליים (37:1, 38:3, 39:5, 40:1), כמה ילדים יש בסך הכל בקבוצה?&rlm;",
+        "options": ["10", "4", "39", "154"],
+        "correctAnswer": 0,
+        "hint": "חברו את כל המספרים המייצגים את כמות הילדים בכל אחת מהמידות.",
+        "solution_steps": [
+            { "verbal_explanation": "סך כל הילדים בקבוצה מתקבל מחיבור כל השכיחויות המופיעות בטבלה.", "math_expression": "\\text{Sum}" },
+            { "verbal_explanation": "נחבר את מספר הילדים בכל קטגוריה: אחד, ועוד שלוש, ועוד חמש, ועוד אחד.", "math_expression": "1 + 3 + 5 + 1" },
+            { "verbal_explanation": "נחשב את הסכום הכולל.", "math_expression": "10" },
+            { "verbal_explanation": "בקבוצה יש עשרה ילדים.", "math_expression": "10" }
         ],
-        final_answer: "ההפרש בין הערך הגבוה ביותר לערך הנמוך ביותר במדגם."
+        "final_answer": "10"
     },
-    // שאלה 46
     {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "ציר y בדיאגרמת עמודות של התפלגות ציונים מייצג בדרך כלל את...&rlm;",
-        options: ["השכיחות (מספר התלמידים שקיבלו כל ציון).", "את הציון עצמו.", "את הממוצע הכיתתי.", "את גיל התלמידים."],
-        correctAnswer: 0,
-        hint: "הציר האופקי (הרצפה) מראה 'על מה אנחנו מדברים' (ציונים 60, 70, 80). הציר האנכי מראה 'כמה כאלה יש'.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "בדיאגרמת שכיחויות סטנדרטית, ציר x (האופקי) מכיל את קטגוריות המשתנה (הציונים).&rlm;", math_expression: "" },
-            { verbal_explanation: "ציר y (האנכי) מכיל תמיד את התדירות / השכיחות (כמה פעמים כל קטגוריה הופיעה).&rlm;", math_expression: "" }
+        "topic": "statistics_probability_grade_8",
+        "subTopic": "דיאגרמות שכיחות",
+        "question_text": "ושאלה אחרונה על טבלת מידות הנעליים (37:1, 38:3, 39:5, 40:1). מהו חציון מידות הנעליים של הילדים בקבוצה?&rlm;",
+        "options": ["39", "38.5", "38", "39.5"],
+        "correctAnswer": 0,
+        "hint": "יש 10 ילדים, לכן החציון ייקבע על פי הילד ה-5 וה-6 ברשימה. מצאו מהן המידות שלהם בטבלה.",
+        "solution_steps": [
+            { "verbal_explanation": "בקבוצה יש עשרה ילדים. החציון יהיה הממוצע של המידות של הילד החמישי והילד השישי כאשר הם מסודרים לפי המידה.", "math_expression": "10 \\Rightarrow 5 , 6" },
+            { "verbal_explanation": "הילד הראשון נועל מידה שלושים ושבע.", "math_expression": "1" },
+            { "verbal_explanation": "שלושת הילדים הבאים נועלים שלושים ושמונה. הגענו לסך הכל ארבעה ילדים. עדיין לא הגענו לאמצע.", "math_expression": "1 + 3 = 4" },
+            { "verbal_explanation": "חמשת הילדים הבאים נועלים שלושים ותשע. כלומר הילד החמישי, השישי, וכן הלאה, נמצאים כאן.", "math_expression": "4 + 5 = 9" },
+            { "verbal_explanation": "לכן, גם הילד החמישי וגם השישי נועלים מידה שלושים ותשע. הממוצע של אותה מידה הוא המידה עצמה.", "math_expression": "39" }
         ],
-        final_answer: "השכיחות (מספר התלמידים שקיבלו כל ציון)."
-    },
-    // שאלה 47
-    {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "מתוך 20 ילדים בחוג, 5 מנגנים בגיטרה. אם נציג זאת בדיאגרמת עוגה (פאי), כמה אחוזים משטח העוגה תתפוס גזרת הגיטרה?&rlm;",
-        options: ["25%", "5%", "20%", "50%"],
-        correctAnswer: 0,
-        hint: "שבר של 5 מתוך 20 שווה ערך לרבע. רבע באחוזים הוא...?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נרשום את היחס כשבר של החלק מתוך השלם.&rlm;", math_expression: "5 : 20" },
-            { verbal_explanation: "שלב ב': נצמצם או נרחיב כדי להגיע לאחוזים (מכנה 100). נכפיל פי 5.&rlm;", math_expression: "(5 × 5) : (20 × 5) = 25 : 100" },
-            { verbal_explanation: "שלב ג': 25 מאיות הן בדיוק 25% משטח העוגה השלם.&rlm;", math_expression: "25%" }
-        ],
-        final_answer: "25%"
-    },
-    // שאלה 48
-    {
-        topic: "statistics_probability",
-        subTopic: "דיאגרמות שכיחות",
-        question_text: "האם אפשר למצוא את הממוצע המדויק מתוך דיאגרמת עוגה שמציגה רק אחוזים של קטגוריות?&rlm;",
-        options: ["לא, כי חסר לנו מספר המשתתפים הכולל (הכמות האמיתית).", "כן, מחברים את האחוזים ומחלקים במספרם.", "כן, תמיד יוצא 100.", "רק אם האחוזים מחולקים שווה בשווה."],
-        correctAnswer: 0,
-        hint: "דיאגרמת עוגה מראה רק יחס (חלקים מסך הכל). היא לא מספרת לנו אם היו 10 אנשים בסקר או מיליון אנשים בסקר.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דיאגרמת עוגה עם אחוזים (שכיחות יחסית) לא מספקת מידע על הכמות המוחלטת (n).&rlm;", math_expression: "" },
-            { verbal_explanation: "כדי לחשב ממוצע אמיתי, אנו חייבים לדעת את הכמויות המדויקות (כמה בדיוק קיבלו 80, כמה בדיוק קיבלו 90). ללא נתון כמותי נוסף, זה בלתי אפשרי.&rlm;", math_expression: "" }
-        ],
-        final_answer: "לא, כי חסר לנו מספר המשתתפים הכולל (הכמות האמיתית)."
+        "final_answer": "39"
     }
-
 ];

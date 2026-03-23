@@ -1,578 +1,482 @@
-// ========================================================================
-// שכבת גיל: כיתה ז' | נושא: משוואות ובעיות מילוליות
-// 3 תתי נושאים | 36 שאלות סה"כ
-// פתרונות מפורטים שלב אחר שלב (העברת אגפים, כינוס, בידוד נעלם).
-// כולל איורים (מאזניים, צורות). כתיבה נקייה: × לכפל, : לחילוק. ללא LaTeX!
-// ========================================================================
-
 const questionsDB = [
-
-    // ==========================================================
-    // תת נושא 1: פתרון משוואות בנעלם אחד (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 1
+    // ==========================================
+    // תת נושא 1: פתרון משוואות בנעלם אחד (10 שאלות)
+    // ==========================================
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "פתרו את המשוואה הבאה ומצאו את ערכו של x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2x + 5 = 15</div><div style='text-align:center;'><svg viewBox='0 0 200 80' width='100%' height='80' style='max-width:200px;'><line x1='10' y1='60' x2='190' y2='60' stroke='#94a3b8' stroke-width='4'/><polygon points='100,60 90,80 110,80' fill='#475569'/><rect x='30' y='30' width='30' height='30' fill='#fca5a5' rx='5'/><text x='45' y='50' font-family='Arial' font-size='14' fill='#7f1d1d'>2x+5</text><rect x='140' y='30' width='30' height='30' fill='#86efac' rx='5'/><text x='155' y='50' font-family='Arial' font-size='14' fill='#14532d'>15</text></svg></div>",
-        options: ["5", "10", "4", "20"],
-        correctAnswer: 0,
-        hint: "מטרתנו היא לבודד את ה-x. תחילה נעביר את המספר 5 לאגף ימין (ונשנה את סימנו למינוס).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחסר 5 משני אגפי המשוואה (או נעביר את ה-5 ימינה בסימן הפוך).&rlm;", math_expression: "2x = 15 - 5" },
-            { verbal_explanation: "שלב ב': נחשב את אגף ימין.&rlm;", math_expression: "2x = 10" },
-            { verbal_explanation: "שלב ג': נחלק את שני האגפים במקדם של x (ב-2).&rlm;", math_expression: "x = 10 : 2" },
-            { verbal_explanation: "נקבל את התוצאה הסופית.&rlm;", math_expression: "x = 5" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה ומצאו את ערכו של \\( x \\):<br>\\( x + 7 = 15 \\)&rlm;",
+        "options": ["8", "22", "7", "15"],
+        "correctAnswer": 0,
+        "hint": "כדי לבודד את x, בצעו את הפעולה ההפוכה לחיבור על האגף השני.",
+        "solution_steps": [
+            { "verbal_explanation": "המטרה שלנו בפתרון משוואה היא להשאיר את הנעלם לבדו בצד אחד של המשוואה.", "math_expression": "x + 7 = 15" },
+            { "verbal_explanation": "נבצע את הפעולה ההפוכה לחיבור שבע, והיא חיסור שבע משני אגפי המשוואה.", "math_expression": "- 7" },
+            { "verbal_explanation": "נחסר שבע מהמספר חמש עשרה שבאגף הימני.", "math_expression": "15 - 7" },
+            { "verbal_explanation": "נחשב את פעולת החיסור הפשוטה ונקבל את התוצאה.", "math_expression": "8" },
+            { "verbal_explanation": "הפתרון של המשוואה הוא שמונה.", "math_expression": "x = 8" }
         ],
-        final_answer: "5"
+        "final_answer": "8"
     },
-    // שאלה 2
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "מהו הפתרון של המשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3x - 7 = 14</div>",
-        options: ["7", "21", "6", "4"],
-        correctAnswer: 0,
-        hint: "העבירו את ה- 7- לצד ימין (הוא יהפוך ל- 7+). לאחר מכן חלקו ב-3.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נוסיף 7 לשני האגפים כדי לבודד את האיבר עם ה-x.&rlm;", math_expression: "3x = 14 + 7" },
-            { verbal_explanation: "שלב ב': נחשב את הסכום.&rlm;", math_expression: "3x = 21" },
-            { verbal_explanation: "שלב ג': נחלק את התוצאה ב-3.&rlm;", math_expression: "x = 21 : 3" },
-            { verbal_explanation: "נקבל את הערך של x.&rlm;", math_expression: "x = 7" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 3x = 18 \\)&rlm;",
+        "options": ["6", "15", "21", "54"],
+        "correctAnswer": 0,
+        "hint": "כאשר מספר כתוב צמוד לאות, מסתתר ביניהם סימן כפל. מהי הפעולה ההפוכה לכפל?",
+        "solution_steps": [
+            { "verbal_explanation": "במשוואה זו יש פעולת כפל נסתרת בין המספר שלוש לנעלם.", "math_expression": "3 \\times x = 18" },
+            { "verbal_explanation": "כדי לבודד את הנעלם, נבצע את הפעולה ההפוכה שהיא חילוק.", "math_expression": "\\div 3" },
+            { "verbal_explanation": "נחלק את שני צידי המשוואה בשלוש.", "math_expression": "18 \\div 3" },
+            { "verbal_explanation": "נחשב את התוצאה של פעולת החילוק מתוך לוח הכפל.", "math_expression": "6" },
+            { "verbal_explanation": "מצאנו שערכו של הנעלם הוא שש.", "math_expression": "x = 6" }
         ],
-        final_answer: "7"
+        "final_answer": "6"
     },
-    // שאלה 3
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "משוואה עם נעלמים בשני האגפים. מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5x = 2x + 12</div>",
-        options: ["4", "12", "6", "3"],
-        correctAnswer: 0,
-        hint: "עלינו לרכז את כל האיברים עם x באגף אחד (שמאל) ואת המספרים באגף השני. העבירו את 2x שמאלה במינוס.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחסר 2x משני האגפים (נעביר את 2x שמאלה בסימן הפוך).&rlm;", math_expression: "5x - 2x = 12" },
-            { verbal_explanation: "שלב ב': נכנס איברים דומים באגף שמאל.&rlm;", math_expression: "3x = 12" },
-            { verbal_explanation: "שלב ג': נחלק את שני האגפים ב-3.&rlm;", math_expression: "x = 12 : 3" },
-            { verbal_explanation: "קיבלנו את התשובה.&rlm;", math_expression: "x = 4" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 2x - 5 = 11 \\)&rlm;",
+        "options": ["8", "3", "16", "6"],
+        "correctAnswer": 0,
+        "hint": "התחילו תמיד מביטול פעולות החיבור והחיסור לפני שאתם מבטלים את הכפל.",
+        "solution_steps": [
+            { "verbal_explanation": "נתונה משוואה המשלבת פעולות כפל וחיסור יחד.", "math_expression": "2x - 5 = 11" },
+            { "verbal_explanation": "תחילה נבטל את פעולת החיסור על ידי הוספת חמש לשני צידי המשוואה.", "math_expression": "+ 5" },
+            { "verbal_explanation": "נחבר חמש לאחת עשרה ונקבל משוואה מעודכנת ופשוטה יותר.", "math_expression": "2x = 16" },
+            { "verbal_explanation": "כעת נחלק את שני האגפים במקדם של הנעלם, שהוא שתיים.", "math_expression": "16 \\div 2" },
+            { "verbal_explanation": "נחשב את החילוק. שש עשרה לחלק לשתיים נותן לנו את התוצאה.", "math_expression": "8" },
+            { "verbal_explanation": "הפתרון הסופי של המשוואה הוא שמונה.", "math_expression": "x = 8" }
         ],
-        final_answer: "4"
+        "final_answer": "8"
     },
-    // שאלה 4
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "פתרו את המשוואה הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>7x - 4 = 3x + 16</div>",
-        options: ["5", "10", "4", "3"],
-        correctAnswer: 0,
-        hint: "העבירו את ה- 3x לאגף שמאל (במינוס) ואת ה- 4- לאגף ימין (בפלוס).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נעביר איברים. איברים עם x שמאלה, מספרים ימינה.&rlm;", math_expression: "7x - 3x = 16 + 4" },
-            { verbal_explanation: "שלב ב': נכנס איברים דומים בכל אחד מהאגפים.&rlm;", math_expression: "4x = 20" },
-            { verbal_explanation: "שלב ג': נחלק את שני האגפים במקדם של x (שהוא 4).&rlm;", math_expression: "x = 20 : 4 = 5" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "מצאו את ערכו של \\( x \\) במשוואה הבאה:<br>\\( \\frac{x}{4} = 5 \\)&rlm;",
+        "options": ["20", "9", "1", "1.25"],
+        "correctAnswer": 0,
+        "hint": "קו שבר מייצג פעולת חילוק. בטלו אותו בעזרת כפל.",
+        "solution_steps": [
+            { "verbal_explanation": "במשוואה מופיע שבר, שמשמעותו חלוקה של הנעלם בארבע.", "math_expression": "\\frac{x}{4} = 5" },
+            { "verbal_explanation": "כדי לבטל את החילוק ולבודד את המשתנה, נכפול את שני האגפים בארבע.", "math_expression": "\\times 4" },
+            { "verbal_explanation": "באגף הימני נרשום את תרגיל הכפל החדש.", "math_expression": "5 \\times 4" },
+            { "verbal_explanation": "נבצע את המכפלה כדי לגלות את ערך הנעלם.", "math_expression": "20" },
+            { "verbal_explanation": "לכן, הנעלם שווה לעשרים.", "math_expression": "x = 20" }
         ],
-        final_answer: "5"
+        "final_answer": "20"
     },
-    // שאלה 5
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "שימו לב לסימן המינוס! פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 - 2x = 4</div>",
-        options: ["3", "-3", "7", "-7"],
-        correctAnswer: 0,
-        hint: "העבירו את המספר 10 לאגף ימין (הוא יהפוך למינוס 10). זכרו שהמקדם של x הוא 2-.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נעביר את 10 לאגף ימין. נשארנו עם 2x-.&rlm;", math_expression: "-2x = 4 - 10" },
-            { verbal_explanation: "שלב ב': נחשב את אגף ימין (4 פחות 10).&rlm;", math_expression: "-2x = -6" },
-            { verbal_explanation: "שלב ג': נחלק את שני האגפים ב- 2-. מינוס לחלק למינוס נותן פלוס.&rlm;", math_expression: "x = -6 : (-2)" },
-            { verbal_explanation: "נקבל את הערך החיובי 3.&rlm;", math_expression: "x = 3" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 5x + 2 = 17 \\)&rlm;",
+        "options": ["3", "15", "10", "4"],
+        "correctAnswer": 0,
+        "hint": "הסירו את המספר 2 מכל צד על ידי חיסור, ולאחר מכן חלקו ב-5.",
+        "solution_steps": [
+            { "verbal_explanation": "נבודד את האיבר שמכיל את המשתנה על ידי ביטול פעולת החיבור.", "math_expression": "5x + 2 = 17" },
+            { "verbal_explanation": "נחסר שתיים משני האגפים של המשוואה.", "math_expression": "17 - 2" },
+            { "verbal_explanation": "המשוואה החדשה תהיה חמישה איקס שווה לחמש עשרה.", "math_expression": "5x = 15" },
+            { "verbal_explanation": "כדי לגלות איקס בודד, נחלק את המשוואה במקדם שלו, שהוא חמש.", "math_expression": "15 \\div 5" },
+            { "verbal_explanation": "תוצאת החילוק היא שלוש.", "math_expression": "3" },
+            { "verbal_explanation": "הערך של הנעלם הוא שלוש.", "math_expression": "x = 3" }
         ],
-        final_answer: "3"
+        "final_answer": "3"
     },
-    // שאלה 6
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "פתרו את המשוואה הבאה. מה קורה כאן?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4x + 8 = 4x + 8</div>",
-        options: ["אינסוף פתרונות (כל מספר יתאים)", "אין אף פתרון", "x = 0", "x = 8"],
-        correctAnswer: 0,
-        hint: "נסו להעביר את ה-4x שמאלה. מה תקבלו? פסוק אמת או פסוק שקר?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נעביר את 4x שמאלה ואת 8 ימינה.&rlm;", math_expression: "4x - 4x = 8 - 8" },
-            { verbal_explanation: "שלב ב': נכנס איברים. קיבלנו אפס שווה לאפס.&rlm;", math_expression: "0 = 0" },
-            { verbal_explanation: "זהו 'פסוק אמת' שתמיד נכון, ללא קשר לערכו של x. לכן לכל מספר יש פתרון.&rlm;", math_expression: "אינסוף פתרונות" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 10 - x = 4 \\)&rlm;",
+        "options": ["6", "14", "-6", "40"],
+        "correctAnswer": 0,
+        "hint": "שאלו את עצמכם: איזה מספר יש להחסיר מעשר כדי לקבל ארבע?",
+        "solution_steps": [
+            { "verbal_explanation": "במשוואה זו הנעלם מופיע עם סימן חיסור לפניו (הוא המחוסר בתרגיל).", "math_expression": "10 - x = 4" },
+            { "verbal_explanation": "נוכל לחשב ישירות: עשר פחות התוצאה ייתן לנו את הנעלם.", "math_expression": "10 - 4" },
+            { "verbal_explanation": "נחשב את תרגיל החיסור הפשוט.", "math_expression": "6" },
+            { "verbal_explanation": "נוודא את התשובה: עשר פחות שש אכן שווה לארבע.", "math_expression": "x = 6" }
         ],
-        final_answer: "אינסוף פתרונות (כל מספר יתאים)"
+        "final_answer": "6"
     },
-    // שאלה 7
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "בחנו את המשוואה הבאה וקבעו מה הפתרון שלה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5x + 3 = 5x + 7</div>",
-        options: ["אין פתרון", "אינסוף פתרונות", "x = 4", "x = 0"],
-        correctAnswer: 0,
-        hint: "האם יכול להיות ש- 5x פלוס 3 יהיה שווה ל- 5x פלוס 7? מה קורה כשמעבירים אגפים?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נעביר את ה-5x שמאלה ואת ה-3 ימינה.&rlm;", math_expression: "5x - 5x = 7 - 3" },
-            { verbal_explanation: "שלב ב': נכנס איברים. קיבלנו אפס שווה 4.&rlm;", math_expression: "0 = 4" },
-            { verbal_explanation: "0 אינו שווה ל-4. זהו 'פסוק שקר'. לכן לא קיים אף x שיקיים את המשוואה.&rlm;", math_expression: "אין פתרון" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "מצאו את הנעלם במשוואה:<br>\\( 4x - 6 = 18 \\)&rlm;",
+        "options": ["6", "24", "3", "8"],
+        "correctAnswer": 0,
+        "hint": "הוסיפו 6 לשני הצדדים של המשוואה כדי להעלים את המינוס 6.",
+        "solution_steps": [
+            { "verbal_explanation": "נתחיל בבידוד איבר הכפל. עלינו להעלים את החיסור של השש.", "math_expression": "4x - 6 = 18" },
+            { "verbal_explanation": "נוסיף שש לשני אגפי המשוואה.", "math_expression": "18 + 6" },
+            { "verbal_explanation": "נחשב את סכום המספרים באגף ימין.", "math_expression": "24" },
+            { "verbal_explanation": "הגענו למשוואה פשוטה: ארבעה איקס שווים לעשרים וארבע.", "math_expression": "4x = 24" },
+            { "verbal_explanation": "נחלק בארבע כדי למצוא את ערכו של איקס יחיד.", "math_expression": "24 \\div 4" },
+            { "verbal_explanation": "הפתרון הוא שש.", "math_expression": "x = 6" }
         ],
-        final_answer: "אין פתרון"
+        "final_answer": "6"
     },
-    // שאלה 8
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "משוואה עם חילוק. מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x : 2 + 4 = 10</div>",
-        options: ["12", "3", "28", "8"],
-        correctAnswer: 0,
-        hint: "תחילה העבירו את ה-4 ימינה (10 פחות 4). לאחר מכן, איך 'מבטלים' חילוק ב-2? על ידי כפל ב-2!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נבודד את האיבר עם ה-x. נעביר את ה-4 ימינה בחיסור.&rlm;", math_expression: "x : 2 = 10 - 4" },
-            { verbal_explanation: "שלב ב': נחשב.&rlm;", math_expression: "x : 2 = 6" },
-            { verbal_explanation: "שלב ג': כדי לבודד את x, נכפול את שני האגפים ב-2 (פעולה הפוכה לחילוק).&rlm;", math_expression: "x = 6 × 2 = 12" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה המכילה שבר:<br>\\( \\frac{2x}{3} = 6 \\)&rlm;",
+        "options": ["9", "18", "4", "36"],
+        "correctAnswer": 0,
+        "hint": "התחילו בביטול המכנה על ידי כפל כל המשוואה ב-3. לאחר מכן, חלקו את התוצאה ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "תחילה נבטל את המכנה של השבר על ידי הכפלת שני האגפים במספר שלוש.", "math_expression": "\\times 3" },
+            { "verbal_explanation": "באגף הימני נחשב את הכפל של שש בשלוש.", "math_expression": "6 \\times 3 = 18" },
+            { "verbal_explanation": "נקבל משוואה שבה נעלם המכנה: שני איקס שווים לשמונה עשרה.", "math_expression": "2x = 18" },
+            { "verbal_explanation": "כעת נחלק את המשוואה כולה בשתיים כדי לבודד את המשתנה.", "math_expression": "18 \\div 2" },
+            { "verbal_explanation": "נחשב את תוצאת החילוק ונקבל תשע.", "math_expression": "9" },
+            { "verbal_explanation": "הנעלם שווה לתשע.", "math_expression": "x = 9" }
         ],
-        final_answer: "12"
+        "final_answer": "9"
     },
-    // שאלה 9
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "פתרו את המשוואה הבאה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-3x = 15</div>",
-        options: ["-5", "5", "-45", "45"],
-        correctAnswer: 0,
-        hint: "חלקו את התוצאה (15) במקדם של x, שהוא 3-. זכרו את חוקי הסימנים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נחלק את שני אגפי המשוואה במקדם 3-.&rlm;", math_expression: "x = 15 : (-3)" },
-            { verbal_explanation: "שלב ב': פלוס לחלק למינוס נותן מינוס.&rlm;", math_expression: "x = -5" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 7x + 1 = 22 \\)&rlm;",
+        "options": ["3", "21", "4", "2"],
+        "correctAnswer": 0,
+        "hint": "הפחיתו 1 משני הצדדים, ואז חלקו ב-7.",
+        "solution_steps": [
+            { "verbal_explanation": "נחסר אחד משני צידי המשוואה כדי להעביר את המספרים החופשיים לאגף אחד.", "math_expression": "22 - 1" },
+            { "verbal_explanation": "נחשב את תוצאת החיסור.", "math_expression": "21" },
+            { "verbal_explanation": "המשוואה שלנו היא כעת שבעה איקס שווה עשרים ואחת.", "math_expression": "7x = 21" },
+            { "verbal_explanation": "נחלק בשבע את שני האגפים.", "math_expression": "21 \\div 7" },
+            { "verbal_explanation": "תוצאת החילוק היא שלוש, וזהו הפתרון.", "math_expression": "x = 3" }
         ],
-        final_answer: "-5"
+        "final_answer": "3"
     },
-    // שאלה 10
     {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "כנסו איברים באותו אגף ופתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2x + 3x - 5x = 10</div>",
-        options: ["אין פתרון", "x = 0", "אינסוף פתרונות", "x = 2"],
-        correctAnswer: 0,
-        hint: "חברו קודם את כל ה-x-ים בצד שמאל: 2 פלוס 3 פחות 5. מה קיבלתם?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכנס את כל האיברים עם x באגף שמאל.&rlm;", math_expression: "(2 + 3 - 5)x = 10" },
-            { verbal_explanation: "שלב ב': 5x פחות 5x שווה ל-0.&rlm;", math_expression: "0 = 10" },
-            { verbal_explanation: "פסוק שקר. אפס אינו שווה ל-10. למשוואה אין פתרון.&rlm;", math_expression: "" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "פתרון משוואות בנעלם אחד",
+        "question_text": "מצאו את הנעלם במשוואה:<br>\\( 12 - 2x = 4 \\)&rlm;",
+        "options": ["4", "8", "6", "16"],
+        "correctAnswer": 0,
+        "hint": "אתם יכולים להעביר את 2x לצד ימין ואת ה-4 לצד שמאל, או לחשב כמה צריך להחסיר מ-12 כדי לקבל 4.",
+        "solution_steps": [
+            { "verbal_explanation": "נחשוב על האיבר שני איקס כיחידה אחת. מה עלינו לחסר משנים עשר כדי לקבל ארבע?", "math_expression": "12 - 4 = 8" },
+            { "verbal_explanation": "מכאן אנו מבינים שהאיבר שני איקס כולו שווה לשמונה.", "math_expression": "2x = 8" },
+            { "verbal_explanation": "כדי למצוא את איקס בודד, נחלק את המשוואה בשתיים.", "math_expression": "8 \\div 2" },
+            { "verbal_explanation": "תוצאת החילוק היא ארבע.", "math_expression": "4" },
+            { "verbal_explanation": "הפתרון למשוואה הוא ארבע.", "math_expression": "x = 4" }
         ],
-        final_answer: "אין פתרון"
-    },
-    // שאלה 11
-    {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>8x - 3 = 5x + 6</div>",
-        options: ["3", "1", "9", "0.3"],
-        correctAnswer: 0,
-        hint: "העבירו את ה-5x שמאלה ואת ה-3 ימינה. תקבלו 3x באגף אחד ו-9 באגף שני.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נעביר איברים. 5x עובר שמאלה (במינוס), ו-3 עובר ימינה (בפלוס).&rlm;", math_expression: "8x - 5x = 6 + 3" },
-            { verbal_explanation: "שלב ב': נכנס איברים דומים.&rlm;", math_expression: "3x = 9" },
-            { verbal_explanation: "שלב ג': נחלק ב-3.&rlm;", math_expression: "x = 9 : 3 = 3" }
-        ],
-        final_answer: "3"
-    },
-    // שאלה 12
-    {
-        topic: "equations",
-        subTopic: "פתרון משוואות בנעלם אחד",
-        question_text: "קלאסיקה! פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x + x + x = 27</div>",
-        options: ["9", "3", "27", "81"],
-        correctAnswer: 0,
-        hint: "כמה פעמים x מופיע בסך הכל? רשמו זאת ככפל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נכנס איברים דומים באגף שמאל. יש לנו שלושה איברי x.&rlm;", math_expression: "3x = 27" },
-            { verbal_explanation: "שלב ב': נחלק את המשוואה במקדם 3.&rlm;", math_expression: "x = 27 : 3" },
-            { verbal_explanation: "התוצאה:&rlm;", math_expression: "x = 9" }
-        ],
-        final_answer: "9"
+        "final_answer": "4"
     },
 
-    // ==========================================================
-    // תת נושא 2: משוואות עם סוגריים (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 13
+    // ==========================================
+    // תת נושא 2: משוואות עם סוגריים (10 שאלות)
+    // ==========================================
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "פתרו את המשוואה הבאה בעזרת פתיחת סוגריים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2(x + 3) = 14</div>",
-        options: ["4", "5", "8", "1"],
-        correctAnswer: 0,
-        hint: "הכפילו את 2 בכל מה שבתוך הסוגריים: 2x ועוד 6. לאחר מכן פתרו רגיל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפתח סוגריים לפי חוק הפילוג (2 כפול x, ו-2 כפול 3).&rlm;", math_expression: "2x + 6 = 14" },
-            { verbal_explanation: "שלב ב': נעביר את 6 לאגף ימין בחיסור.&rlm;", math_expression: "2x = 14 - 6 = 8" },
-            { verbal_explanation: "שלב ג': נחלק ב-2.&rlm;", math_expression: "x = 8 : 2 = 4" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה הבאה הכוללת סוגריים:<br>\\( 2(x + 3) = 14 \\)&rlm;",
+        "options": ["4", "7", "1", "10"],
+        "correctAnswer": 0,
+        "hint": "תוכלו לפתוח את הסוגריים לפי חוק הפילוג, או פשוט לחלק מראש את כל המשוואה ב-2.",
+        "solution_steps": [
+            { "verbal_explanation": "המספר שתיים כופל את כל הביטוי שבתוך הסוגריים.", "math_expression": "2 \\times (x + 3) = 14" },
+            { "verbal_explanation": "נחלק את המשוואה כולה בשתיים כדי להעלים את המכפיל שמחוץ לסוגריים.", "math_expression": "14 \\div 2" },
+            { "verbal_explanation": "הביטוי שבתוך הסוגריים נשאר לבדו ושווה לשבע.", "math_expression": "x + 3 = 7" },
+            { "verbal_explanation": "נחסר שלוש מאגף ימין כדי לבודד את המשתנה.", "math_expression": "7 - 3" },
+            { "verbal_explanation": "התוצאה של פעולת החיסור היא ארבע, וזהו הפתרון.", "math_expression": "x = 4" }
         ],
-        final_answer: "4"
+        "final_answer": "4"
     },
-    // שאלה 14
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "מהו הערך של x?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3(x - 4) = 15</div>",
-        options: ["9", "1", "19", "5"],
-        correctAnswer: 0,
-        hint: "פתחו סוגריים (3x - 12). לחלופין, אפשר לחלק את כל המשוואה ב-3 מיד בהתחלה!&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך א': פתיחת סוגריים. נכפול ב-3.&rlm;", math_expression: "3x - 12 = 15" },
-            { verbal_explanation: "נעביר את 12 ימינה בפלוס.&rlm;", math_expression: "3x = 15 + 12 = 27" },
-            { verbal_explanation: "נחלק ב-3.&rlm;", math_expression: "x = 9" },
-            { verbal_explanation: "דרך ב' (מהירה): נחלק הכל ב-3.&rlm;", math_expression: "x - 4 = 5  =>  x = 9" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה:<br>\\( 3(x - 2) = 15 \\)&rlm;",
+        "options": ["7", "5", "3", "17"],
+        "correctAnswer": 0,
+        "hint": "כמו קודם, חלקו את המשוואה ב-3. לאחר מכן תוכלו להוסיף 2 למספר שקיבלתם.",
+        "solution_steps": [
+            { "verbal_explanation": "כדי 'לשחרר' את האיברים מתוך הסוגריים, נחלק את כל המשוואה במקדם שלוש.", "math_expression": "15 \\div 3" },
+            { "verbal_explanation": "נרשום את המשוואה החדשה, ללא הסוגריים, המשווה לחמש.", "math_expression": "x - 2 = 5" },
+            { "verbal_explanation": "כדי לבודד את איקס, נבטל את החיסור על ידי הוספת שתיים לשני הצדדים.", "math_expression": "5 + 2" },
+            { "verbal_explanation": "נחשב ונגלה שהנעלם שווה לשבע.", "math_expression": "x = 7" }
         ],
-        final_answer: "9"
+        "final_answer": "7"
     },
-    // שאלה 15
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "שימו לב למינוס שלפני הסוגריים! פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-(x + 5) = -8</div>",
-        options: ["3", "-13", "13", "-3"],
-        correctAnswer: 0,
-        hint: "המינוס לפני הסוגריים הופך את הסימן של כל איבר בפנים. -x - 5. לחלופין, בטלו את המינוסים משני האגפים.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "דרך פשוטה: נכפול את שני האגפים במינוס 1 כדי להעלים את המינוסים.&rlm;", math_expression: "x + 5 = 8" },
-            { verbal_explanation: "כעת פשוט נעביר את 5 לאגף ימין בחיסור.&rlm;", math_expression: "x = 8 - 5" },
-            { verbal_explanation: "התוצאה:&rlm;", math_expression: "x = 3" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "מצאו את ערכו של \\( x \\) במשוואה:<br>\\( 4(2x + 1) = 36 \\)&rlm;",
+        "options": ["4", "9", "8", "5"],
+        "correctAnswer": 0,
+        "hint": "התחילו בחלוקת שני האגפים ב-4, ומשם פתרו משוואה רגילה בשני שלבים.",
+        "solution_steps": [
+            { "verbal_explanation": "נחלק את המשוואה בארבע כדי לבטל את הכופל החיצוני.", "math_expression": "36 \\div 4" },
+            { "verbal_explanation": "הביטוי שבתוך הסוגריים שווה לתשע.", "math_expression": "2x + 1 = 9" },
+            { "verbal_explanation": "נחסר אחד משני האגפים כדי לבודד את איבר המשתנה.", "math_expression": "9 - 1 = 8" },
+            { "verbal_explanation": "קיבלנו משוואה פשוטה: שני איקס שווים לשמונה.", "math_expression": "2x = 8" },
+            { "verbal_explanation": "נחלק בשתיים ונמצא שהנעלם שווה לארבע.", "math_expression": "x = 4" }
         ],
-        final_answer: "3"
+        "final_answer": "4"
     },
-    // שאלה 16
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "פתרו את המשוואה:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4(2x - 1) = 20</div>",
-        options: ["3", "2.5", "1.5", "4"],
-        correctAnswer: 0,
-        hint: "פתחו סוגריים: 8x פחות 4 שווה 20.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת סוגריים. 4 כפול 2x שווה 8x, ו-4 כפול 1- שווה 4-.&rlm;", math_expression: "8x - 4 = 20" },
-            { verbal_explanation: "שלב ב': נעביר את 4 ימינה בחיבור.&rlm;", math_expression: "8x = 20 + 4 = 24" },
-            { verbal_explanation: "שלב ג': נחלק במקדם 8.&rlm;", math_expression: "x = 24 : 8 = 3" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה הבאה תוך פתיחת סוגריים:<br>\\( 5(x - 4) = 10 \\)&rlm;",
+        "options": ["6", "2", "14", "10"],
+        "correctAnswer": 0,
+        "hint": "ניתן לפתור על ידי חלוקה ב-5 תחילה, או לפתוח סוגריים (להכפיל ב-5 גם את איקס וגם את הארבע).",
+        "solution_steps": [
+            { "verbal_explanation": "נבחר בשיטת החלוקה. נחלק את כל המשוואה בחמש.", "math_expression": "10 \\div 5" },
+            { "verbal_explanation": "נקבל שהתוכן הפנימי של הסוגריים שווה לשתיים.", "math_expression": "x - 4 = 2" },
+            { "verbal_explanation": "כדי למצוא את איקס, נוסיף ארבע לאגף הימני.", "math_expression": "2 + 4" },
+            { "verbal_explanation": "החישוב מראה לנו שאיקס שווה לשש.", "math_expression": "x = 6" }
         ],
-        final_answer: "3"
+        "final_answer": "6"
     },
-    // שאלה 17
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "סוגריים בשני האגפים! מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5(x + 2) = 3(x + 6)</div>",
-        options: ["4", "2", "8", "6"],
-        correctAnswer: 0,
-        hint: "פתחו סוגריים בכל אגף בנפרד, ואז העבירו את ה-x-ים שמאלה ואת המספרים ימינה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפתח סוגריים בשני האגפים.&rlm;", math_expression: "5x + 10 = 3x + 18" },
-            { verbal_explanation: "שלב ב': נעביר את 3x שמאלה (במינוס) ואת 10 ימינה (במינוס).&rlm;", math_expression: "5x - 3x = 18 - 10" },
-            { verbal_explanation: "שלב ג': נכנס איברים.&rlm;", math_expression: "2x = 8" },
-            { verbal_explanation: "שלב ד': נחלק ב-2.&rlm;", math_expression: "x = 4" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 2(3x - 1) = 16 \\)&rlm;",
+        "options": ["3", "9", "5", "8"],
+        "correctAnswer": 0,
+        "hint": "חלקו ב-2, ואז הוסיפו 1, ולסיום חלקו ב-3.",
+        "solution_steps": [
+            { "verbal_explanation": "נחלק את המשוואה בשתיים כדי להעלים את הסוגריים.", "math_expression": "16 \\div 2" },
+            { "verbal_explanation": "נקבל משוואה ללא סוגריים ששווה לשמונה.", "math_expression": "3x - 1 = 8" },
+            { "verbal_explanation": "נוסיף אחד לשני צידי המשוואה.", "math_expression": "8 + 1 = 9" },
+            { "verbal_explanation": "נחלק את המשוואה החדשה בשלוש כדי לבודד את איקס.", "math_expression": "3x = 9 \\Rightarrow 9 \\div 3" },
+            { "verbal_explanation": "נמצא שהנעלם שווה לשלוש.", "math_expression": "x = 3" }
         ],
-        final_answer: "4"
+        "final_answer": "3"
     },
-    // שאלה 18
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "משוואה עם חיסור וסוגריים:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>10 - 2(x - 3) = 4</div>",
-        options: ["6", "3", "0", "-1"],
-        correctAnswer: 0,
-        hint: "שימו לב למינוס שלפני ה-2. הוא כופל את ה-x למינוס 2x, ואת ה-3- לפלוס 6.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפתח סוגריים בזהירות עם ה- 2-.&rlm;", math_expression: "10 - 2x + 6 = 4" },
-            { verbal_explanation: "שלב ב': נכנס מספרים באגף שמאל (10 ועוד 6).&rlm;", math_expression: "16 - 2x = 4" },
-            { verbal_explanation: "שלב ג': נעביר את 16 ימינה.&rlm;", math_expression: "-2x = 4 - 16 = -12" },
-            { verbal_explanation: "שלב ד': נחלק ב- 2-. (מינוס ומינוס זה פלוס).&rlm;", math_expression: "x = -12 : (-2) = 6" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "מצאו את \\( x \\) במשוואה הבאה:<br>\\( 6(x + 2) = 42 \\)&rlm;",
+        "options": ["5", "7", "9", "30"],
+        "correctAnswer": 0,
+        "hint": "מה כפול 6 שווה ל-42? זה הערך של הביטוי כולו בתוך הסוגריים.",
+        "solution_steps": [
+            { "verbal_explanation": "נשתמש בלוח הכפל כדי להבין שמה שבתוך הסוגריים חייב להיות שווה לשבע, כי שש כפול שבע שווה לארבעים ושתיים.", "math_expression": "42 \\div 6 = 7" },
+            { "verbal_explanation": "נרשום את המשוואה הפנימית בלבד.", "math_expression": "x + 2 = 7" },
+            { "verbal_explanation": "נחסר שתיים מאגף ימין למציאת המשתנה.", "math_expression": "7 - 2" },
+            { "verbal_explanation": "נקבל שאיקס שווה לחמש.", "math_expression": "x = 5" }
         ],
-        final_answer: "6"
+        "final_answer": "5"
     },
-    // שאלה 19
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>3(x + 1) + 2(x - 1) = 11</div>",
-        options: ["2", "1", "3", "10"],
-        correctAnswer: 0,
-        hint: "פתחו את שני זוגות הסוגריים, כנסו את איברי ה-x יחד ואת המספרים יחד.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת סוגריים.&rlm;", math_expression: "3x + 3 + 2x - 2 = 11" },
-            { verbal_explanation: "שלב ב': כינוס איברים דומים (3x+2x=5x, ו- 3-2=1).&rlm;", math_expression: "5x + 1 = 11" },
-            { verbal_explanation: "שלב ג': העברת ה-1 ימינה בחסור.&rlm;", math_expression: "5x = 10" },
-            { verbal_explanation: "שלב ד': חילוק ב-5.&rlm;", math_expression: "x = 2" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 3(4 - x) = 6 \\)&rlm;",
+        "options": ["2", "6", "1", "4"],
+        "correctAnswer": 0,
+        "hint": "חלקו ב-3 תחילה. איזה מספר תורידו מ-4 כדי לקבל את התוצאה?",
+        "solution_steps": [
+            { "verbal_explanation": "נחלק את שני צידי המשוואה בשלוש.", "math_expression": "6 \\div 3 = 2" },
+            { "verbal_explanation": "הביטוי הפנימי נשאר שווה לשתיים.", "math_expression": "4 - x = 2" },
+            { "verbal_explanation": "כדי למצוא איזה מספר הורדנו מארבע, נחסר מהארבע את התוצאה.", "math_expression": "4 - 2" },
+            { "verbal_explanation": "התוצאה היא שתיים, ולכן איקס שווה שתיים.", "math_expression": "x = 2" }
         ],
-        final_answer: "2"
+        "final_answer": "2"
     },
-    // שאלה 20
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "שימו לב למינוס! פתרו:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>4x - (x + 7) = 8</div>",
-        options: ["5", "-5", "15", "1"],
-        correctAnswer: 0,
-        hint: "המינוס לפני הסוגריים מתייחס גם ל-x וגם ל-7. פתחו כך: 4x - x - 7.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת הסוגריים הופכת את הסימנים בפנים.&rlm;", math_expression: "4x - x - 7 = 8" },
-            { verbal_explanation: "שלב ב': נכנס את ה-xים.&rlm;", math_expression: "3x - 7 = 8" },
-            { verbal_explanation: "שלב ג': נעביר 7 ימינה בחיבור.&rlm;", math_expression: "3x = 8 + 7 = 15" },
-            { verbal_explanation: "שלב ד': נחלק ב-3.&rlm;", math_expression: "x = 5" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה:<br>\\( 10(x - 2) = 50 \\)&rlm;",
+        "options": ["7", "5", "3", "52"],
+        "correctAnswer": 0,
+        "hint": "חלקו את שני האגפים ב-10, ואז הוסיפו 2.",
+        "solution_steps": [
+            { "verbal_explanation": "נבטל את המכפיל שמחוץ לסוגריים על ידי חלוקת חמישים בעשר.", "math_expression": "50 \\div 10" },
+            { "verbal_explanation": "הביטוי שבתוך הסוגריים נשאר לבדו ומושווה לחמש.", "math_expression": "x - 2 = 5" },
+            { "verbal_explanation": "נוסיף שתיים לשני הצדדים כדי להשאיר את איקס מבודד.", "math_expression": "5 + 2" },
+            { "verbal_explanation": "נחשב ונגלה שהנעלם הוא שבע.", "math_expression": "x = 7" }
         ],
-        final_answer: "5"
+        "final_answer": "7"
     },
-    // שאלה 21
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "מה קורה במשוואה הבאה?&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>2(3x + 4) = 6x + 8</div>",
-        options: ["אינסוף פתרונות", "אין פתרון", "x = 0", "x = 8"],
-        correctAnswer: 0,
-        hint: "פתחו את הסוגריים. האם שני האגפים זהים לחלוטין?&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נפתח סוגריים באגף שמאל.&rlm;", math_expression: "6x + 8 = 6x + 8" },
-            { verbal_explanation: "שלב ב': קיבלנו שוויון זהה לחלוטין (זהות). אם נעביר אגפים נקבל 0 = 0.&rlm;", math_expression: "0 = 0" },
-            { verbal_explanation: "שלב ג': זהו פסוק אמת תמיד, לכן כל מספר יכול להיות x.&rlm;", math_expression: "אינסוף פתרונות" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "מצאו את הנעלם במשוואה:<br>\\( 7(x + 1) = 28 \\)&rlm;",
+        "options": ["3", "4", "21", "5"],
+        "correctAnswer": 0,
+        "hint": "פתחו סוגריים או חלקו ב-7. איזו דרך קלה לכם יותר?",
+        "solution_steps": [
+            { "verbal_explanation": "הפעם נפתור בעזרת פתיחת סוגריים. נכפול כל איבר בפנים בשבע.", "math_expression": "7 \\times x + 7 \\times 1" },
+            { "verbal_explanation": "נרשום את המשוואה החדשה והפתוחה לחלוטין.", "math_expression": "7x + 7 = 28" },
+            { "verbal_explanation": "נחסר שבע משני הצדדים של המשוואה.", "math_expression": "28 - 7 = 21" },
+            { "verbal_explanation": "נקבל שבעה איקס שווה עשרים ואחת.", "math_expression": "7x = 21" },
+            { "verbal_explanation": "נחלק בשבע לקבלת הפתרון הסופי.", "math_expression": "x = 3" }
         ],
-        final_answer: "אינסוף פתרונות"
+        "final_answer": "3"
     },
-    // שאלה 22
     {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "משוואה עם תוצאה שלילית:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>-3(x - 2) = 9</div>",
-        options: ["-1", "1", "5", "-5"],
-        correctAnswer: 0,
-        hint: "פתיחת סוגריים: 3x- ועוד 6. לאחר מכן העבירו את ה-6.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת סוגריים עם גורם שלילי. מינוס כפול מינוס זה פלוס.&rlm;", math_expression: "-3x + 6 = 9" },
-            { verbal_explanation: "שלב ב': נעביר את 6 ימינה בחיסור.&rlm;", math_expression: "-3x = 9 - 6 = 3" },
-            { verbal_explanation: "שלב ג': נחלק ב- 3-.&rlm;", math_expression: "x = 3 : (-3) = -1" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "משוואות עם סוגריים",
+        "question_text": "פתרו את המשוואה הבאה:<br>\\( 4(5 - x) = 12 \\)&rlm;",
+        "options": ["2", "8", "3", "1"],
+        "correctAnswer": 0,
+        "hint": "חלקו את 12 ב-4, וחשבו כמה צריך לחסר מ-5 כדי לקבל את מה שיצא לכם.",
+        "solution_steps": [
+            { "verbal_explanation": "נחלק את המשוואה בארבע כדי לבטל את הכפל החיצוני.", "math_expression": "12 \\div 4 = 3" },
+            { "verbal_explanation": "הסוגריים נותרו לבד ומשווים לשלוש.", "math_expression": "5 - x = 3" },
+            { "verbal_explanation": "אנו צריכים לגלות איזה מספר נחסר מחמש כדי לקבל שלוש. נחסר שלוש מחמש.", "math_expression": "5 - 3 = 2" },
+            { "verbal_explanation": "התשובה היא שתיים.", "math_expression": "x = 2" }
         ],
-        final_answer: "-1"
-    },
-    // שאלה 23
-    {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "קצת יותר ארוך. פתרו לאט ובזהירות:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>5x - 2(x - 4) = x + 10</div>",
-        options: ["1", "2", "-1", "4"],
-        correctAnswer: 0,
-        hint: "פתחו סוגריים: 5x - 2x + 8. כנסו את אגף שמאל, ואז העבירו את ה-x מאגף ימין לשמאל.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת סוגריים (מינוס כפול מינוס).&rlm;", math_expression: "5x - 2x + 8 = x + 10" },
-            { verbal_explanation: "שלב ב': כינוס באגף שמאל.&rlm;", math_expression: "3x + 8 = x + 10" },
-            { verbal_explanation: "שלב ג': העברת x שמאלה במינוס, ו-8 ימינה במינוס.&rlm;", math_expression: "3x - x = 10 - 8" },
-            { verbal_explanation: "שלב ד': פתרון סופי.&rlm;", math_expression: "2x = 2  =>  x = 1" }
-        ],
-        final_answer: "1"
-    },
-    // שאלה 24
-    {
-        topic: "equations",
-        subTopic: "משוואות עם סוגריים",
-        question_text: "מצאו את x:&rlm;<br><div dir='ltr' style='text-align:center; font-size:1.6rem; margin:15px 0;'>x + 4(x - 1) = 16</div>",
-        options: ["4", "3", "5", "2"],
-        correctAnswer: 0,
-        hint: "ה-x הראשון נשאר כמו שהוא. פתחו את הסוגריים רק עם ה-4.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': פתיחת הסוגריים.&rlm;", math_expression: "x + 4x - 4 = 16" },
-            { verbal_explanation: "שלב ב': כינוס ה-x-ים והעברת 4 ימינה בחיבור.&rlm;", math_expression: "5x = 16 + 4" },
-            { verbal_explanation: "שלב ג': חילוק.&rlm;", math_expression: "5x = 20  =>  x = 4" }
-        ],
-        final_answer: "4"
+        "final_answer": "2"
     },
 
-    // ==========================================================
-    // תת נושא 3: בניית משוואה לבעיה (12 שאלות)
-    // ==========================================================
-    
-    // שאלה 25
+    // ==========================================
+    // תת נושא 3: בניית משוואה לבעיה (10 שאלות)
+    // ==========================================
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "דן חשב על מספר. הוא כפל אותו ב-3, הוסיף לתוצאה 4 וקיבל 19. איזו משוואה מתארת את הבעיה, ומהו המספר?&rlm;",
-        options: ["3x + 4 = 19 (המספר הוא 5)", "3(x + 4) = 19 (המספר הוא 3)", "x + 12 = 19 (המספר הוא 7)", "4x + 3 = 19 (המספר הוא 4)"],
-        correctAnswer: 0,
-        hint: "תירגמו צעד אחר צעד: מספר (x), כפל ב-3 (3x), הוסף 4 (+4). שווה 19.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן את המספר הסודי ב-x.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': בניית המשוואה. כפל ב-3 נותן 3x. נוסיף 4 ונשווה ל-19.&rlm;", math_expression: "3x + 4 = 19" },
-            { verbal_explanation: "שלב ג': נפתור את המשוואה. נחסר 4.&rlm;", math_expression: "3x = 15" },
-            { verbal_explanation: "שלב ד': נחלק ב-3.&rlm;", math_expression: "x = 5" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "דני חשב על מספר מסוים וסימן אותו באות \\( x \\). הוא כפל את המספר שלו ב-3, והוסיף לתוצאה 4. בסוף החשבון הוא קיבל 19. איזו משוואה מתוך הבאות מתארת נכון את הסיפור של דני?&rlm;",
+        "options": ["3x + 4 = 19", "3 + 4x = 19", "3(x + 4) = 19", "4x + 3 = 19"],
+        "correctAnswer": 0,
+        "hint": "עקבו אחרי הפעולות בסדר שבו דני ביצע אותן: קודם כפל ב-3, ואז חיבור של 4.",
+        "solution_steps": [
+            { "verbal_explanation": "הנעלם שלנו (המספר שדני חשב עליו) מסומן באות איקס.", "math_expression": "x" },
+            { "verbal_explanation": "הפעולה הראשונה שדני ביצע היא להכפיל את המספר בשלוש.", "math_expression": "3 \\times x = 3x" },
+            { "verbal_explanation": "לאחר מכן הוא הוסיף לתוצאה ארבע. כלומר, פעולת חיבור.", "math_expression": "3x + 4" },
+            { "verbal_explanation": "בסיום התהליך התוצאה שווה לתשע עשרה. לכן נציב סימן שוויון ואת התוצאה.", "math_expression": "3x + 4 = 19" },
+            { "verbal_explanation": "זוהי המשוואה הנכונה שבנינו לפי סיפור הבעיה.", "math_expression": "3x + 4 = 19" }
         ],
-        final_answer: "3x + 4 = 19 (המספר הוא 5)"
+        "final_answer": "3x + 4 = 19"
     },
-    // שאלה 26
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "סכומם של שני מספרים עוקבים (הבאים אחד אחרי השני) הוא 25. כיצד נבנה משוואה כדי למצוא אותם? (נסמן את הקטן ב-x).&rlm;",
-        options: ["x + (x + 1) = 25", "x + 2x = 25", "x + x = 25", "x + y = 25"],
-        correctAnswer: 0,
-        hint: "אם המספר הראשון הוא x, המספר שבא אחריו בסדרה הוא x+1.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נסמן את המספר הראשון ב-x.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': מספר עוקב גדול מהקודם ב-1, לכן נסמן אותו ב- (x+1).&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ג': נחבר אותם ונשווה ל-25.&rlm;", math_expression: "x + (x + 1) = 25" },
-            { verbal_explanation: "פתרון המשוואה הוא 2x = 24 לכן x=12. המספרים הם 12 ו-13.&rlm;", math_expression: "" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "בסל פירות יש תפוחים ותפוזים. כמות התפוחים גדולה פי 4 מכמות התפוזים. יחד יש בסל 25 פירות. אם נסמן את כמות התפוזים ב-\\( x \\), איזה תרגיל מתאר את המצב?&rlm;",
+        "options": ["x + 4x = 25", "4 + x = 25", "4x = 25", "x * x = 25"],
+        "correctAnswer": 0,
+        "hint": "התפוזים הם x. התפוחים הם פי 4, אז הם 4x. חברו את שני הסוגים יחד והשוו ל-25.",
+        "solution_steps": [
+            { "verbal_explanation": "נגדיר את הכמות ההתחלתית והקטנה יותר, כמות התפוזים, כנעלם.", "math_expression": "x" },
+            { "verbal_explanation": "כמות התפוחים גדולה פי ארבעה, לכן נרשום אותה כמכפלה של המשתנה בארבע.", "math_expression": "4x" },
+            { "verbal_explanation": "בסל ישנם גם תפוחים וגם תפוזים יחד, אז עלינו לחבר את הכמויות של שניהם.", "math_expression": "x + 4x" },
+            { "verbal_explanation": "הסכום הכולל של הפירות שווה לעשרים וחמישה.", "math_expression": "x + 4x = 25" }
         ],
-        final_answer: "x + (x + 1) = 25"
+        "final_answer": "x + 4x = 25"
     },
-    // שאלה 27
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "היקף של מלבן הוא 30 ס\"מ. אורך המלבן גדול ב-3 ס\"מ מרוחבו. איזו משוואה תעזור לנו למצוא את הרוחב (x)?&rlm;<br><div style='text-align:center; margin:15px 0;'><svg viewBox='0 0 150 80' width='100%' height='80' style='max-width:150px;'><rect x='10' y='10' width='130' height='60' fill='#fef08a' stroke='#ca8a04' stroke-width='2'/><text x='75' y='45' font-family='Arial' font-size='12' fill='#0f172a'>x + 3</text><text x='125' y='70' font-family='Arial' font-size='12' fill='#0f172a'>x</text></svg></div>",
-        options: ["2x + 2(x + 3) = 30", "x + (x + 3) = 30", "x × (x + 3) = 30", "4x + 3 = 30"],
-        correctAnswer: 0,
-        hint: "למלבן יש 4 צלעות: שתיים באורך x ושתיים באורך x+3. סכום כולן הוא ההיקף.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': הרוחב הוא x, האורך הוא x+3.&rlm;", math_expression: "" },
-            { verbal_explanation: "שלב ב': ההיקף הוא פעמיים הרוחב ועוד פעמיים האורך.&rlm;", math_expression: "2 × x + 2 × (x + 3) = 30" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "גיל האב היום גדול ב-30 שנים מגיל בנו הקטן. סכום הגילים של שניהם יחד הוא 40. איזו משוואה נבנה כדי למצוא את גיל הבן (אם נסמן את גיל הבן ב-\\( x \\))?&rlm;",
+        "options": ["x + (x + 30) = 40", "x + 30 = 40", "30x = 40", "x(x + 30) = 40"],
+        "correctAnswer": 0,
+        "hint": "גיל הבן הוא x. גיל האב הוא אותו x פלוס תוספת של 30 שנים. הסכום של שניהם מחובר יחד שווה ל-40.",
+        "solution_steps": [
+            { "verbal_explanation": "גילו של הבן מיוצג על ידי הנעלם הקצר ביותר.", "math_expression": "x" },
+            { "verbal_explanation": "האב מבוגר בשלושים שנים. גילו מיוצג על ידי חיבור הגיל של הבן והתוספת.", "math_expression": "x + 30" },
+            { "verbal_explanation": "נחבר את הגיל של הבן עם הגיל של האב כדי לבנות את הסכום, ונשתמש בסוגריים לסדר ולהפרדה.", "math_expression": "x + (x + 30)" },
+            { "verbal_explanation": "הסכום הכולל נתון לנו כשווה לארבעים. נשלים את המשוואה.", "math_expression": "x + (x + 30) = 40" }
         ],
-        final_answer: "2x + 2(x + 3) = 30"
+        "final_answer": "x + (x + 30) = 40"
     },
-    // שאלה 28
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "אבא גדול מבנו ב-30 שנים. סכום הגילאים שלהם יחד הוא 50. בת כמה הבן? (סמנו את גיל הבן ב-x).&rlm;",
-        options: ["10", "20", "15", "5"],
-        correctAnswer: 0,
-        hint: "גיל הבן הוא x. גיל האב הוא x+30. סכומם יחד שווה ל-50.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "שלב א': נבנה את המשוואה. (גיל הבן) + (גיל האב) = 50.&rlm;", math_expression: "x + (x + 30) = 50" },
-            { verbal_explanation: "שלב ב': נכנס איברים.&rlm;", math_expression: "2x + 30 = 50" },
-            { verbal_explanation: "שלב ג': נחסר 30 ונחלק ב-2.&rlm;", math_expression: "2x = 20  =>  x = 10" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "לרון היו 50 שקלים בארנק לפני שנכנס לחנות. הוא קנה 3 מחברות זהות במחיר של \\( x \\) שקלים כל אחת. הקופאי החזיר לו 14 שקלים עודף. איזו משוואה תעזור לנו למצוא את מחיר המחברת?&rlm;",
+        "options": ["50 - 3x = 14", "50 + 3x = 14", "3x - 50 = 14", "50 - x = 14"],
+        "correctAnswer": 0,
+        "hint": "מתוך הסכום ההתחלתי שרון הביא, החסירו את העלות של 3 המחברות. מה שנשאר הוא העודף.",
+        "solution_steps": [
+            { "verbal_explanation": "רון התחיל עם סכום של חמישים שקלים בכיסו.", "math_expression": "50" },
+            { "verbal_explanation": "עלות של מחברת בודדת היא איקס. עלות של שלוש מחברות היא שלוש כפול איקס.", "math_expression": "3x" },
+            { "verbal_explanation": "נקטין את הכסף שהיה לו בעלות של המחברות שקנה על ידי פעולת חיסור.", "math_expression": "50 - 3x" },
+            { "verbal_explanation": "העודף שנשאר שווה לארבע עשרה, לכן נשווה את הביטוי לארבע עשרה.", "math_expression": "50 - 3x = 14" }
         ],
-        final_answer: "10"
+        "final_answer": "50 - 3x = 14"
     },
-    // שאלה 29
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "מחירו של ספר כפול ממחירה של מחברת. תלמיד קנה 3 ספרים ו-2 מחברות ושילם 40 שקלים. איזו משוואה מתארת את הבעיה אם מחיר המחברת הוא x?&rlm;",
-        options: ["3(2x) + 2x = 40", "3x + 2x = 40", "3(x) + 2(2x) = 40", "6x = 40"],
-        correctAnswer: 0,
-        hint: "מחברת עולה x. לכן ספר עולה 2x. הוא קנה 3 ספרים (3 פעמים 2x) ו-2 מחברות (2 פעמים x).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מחיר מחברת = x. מחיר ספר = 2x.&rlm;", math_expression: "" },
-            { verbal_explanation: "עלות 3 ספרים היא 3 כפול מחיר הספר.&rlm;", math_expression: "3 × (2x)" },
-            { verbal_explanation: "עלות 2 מחברות היא 2 כפול מחיר המחברת.&rlm;", math_expression: "2 × x" },
-            { verbal_explanation: "נחבר את ההוצאות ונשווה ל-40.&rlm;", math_expression: "3(2x) + 2x = 40" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "ישנם 3 אחים. ההפרש בין כל אח לאח הבא אחריו הוא בדיוק שנתיים (כלומר כל אח גדול מהשני בשנתיים). סכום הגילים שלהם הוא 24. אם נסמן את גיל האח הצעיר ביותר ב-\\( x \\), איזו משוואה מתארת את הסכום הזה?&rlm;",
+        "options": ["x + (x + 2) + (x + 4) = 24", "3x + 2 = 24", "x + (x + 1) + (x + 2) = 24", "x + 2x + 4x = 24"],
+        "correctAnswer": 0,
+        "hint": "האח הצעיר הוא x. האמצעי גדול ממנו בשנתיים. הבכור גדול מהאמצעי בעוד שנתיים (ולכן גדול מהצעיר ב-4).",
+        "solution_steps": [
+            { "verbal_explanation": "גילו של האח הקטן ביותר מיוצג בעזרת איקס.", "math_expression": "x" },
+            { "verbal_explanation": "האח האמצעי מבוגר בשנתיים, ולכן גילו הוא איקס ועוד שתיים.", "math_expression": "x + 2" },
+            { "verbal_explanation": "האח הגדול מבוגר מהאמצעי בעוד שנתיים, לכן גילו הוא איקס ועוד ארבע.", "math_expression": "x + 4" },
+            { "verbal_explanation": "נחבר את שלושת הגילים הללו יחד בשורה אחת ארוכה בסוגריים.", "math_expression": "x + (x + 2) + (x + 4)" },
+            { "verbal_explanation": "סכום הגילים הכולל של כולם שווה לעשרים וארבע.", "math_expression": "x + (x + 2) + (x + 4) = 24" }
         ],
-        final_answer: "3(2x) + 2x = 40"
+        "final_answer": "x + (x + 2) + (x + 4) = 24"
     },
-    // שאלה 30
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "סכומם של שלושה מספרים זוגיים עוקבים הוא 60. איזו משוואה מאפשרת למצוא את המספר הקטן מביניהם (x)?&rlm;",
-        options: ["x + (x + 2) + (x + 4) = 60", "x + (x + 1) + (x + 2) = 60", "3x = 60", "x + 2x + 3x = 60"],
-        correctAnswer: 0,
-        hint: "מספרים זוגיים קופצים ב-2. אם הראשון x, השני x+2, השלישי x+4.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מספר זוגי ראשון: x.&rlm;", math_expression: "" },
-            { verbal_explanation: "המספר הזוגי הבא גדול ממנו ב-2.&rlm;", math_expression: "x + 2" },
-            { verbal_explanation: "המספר הזוגי השלישי גדול בעוד 2.&rlm;", math_expression: "x + 4" },
-            { verbal_explanation: "סכומם שווה ל-60.&rlm;", math_expression: "x + (x + 2) + (x + 4) = 60" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "היקף של מלבן הוא 30 סנטימטרים. האורך של המלבן גדול ב-3 סנטימטרים מהרוחב שלו. אם נסמן את הרוחב של המלבן ב-\\( x \\), איזו משוואה תתאר נכון את היקף המלבן הזה?&rlm;",
+        "options": ["2x + 2(x + 3) = 30", "x + (x + 3) = 30", "2x + 3 = 30", "x(x + 3) = 30"],
+        "correctAnswer": 0,
+        "hint": "בהיקף מלבן מחברים פעמיים את הרוחב ופעמיים את האורך המורחב.",
+        "solution_steps": [
+            { "verbal_explanation": "רוחב המלבן מוגדר בתור המשתנה שלנו.", "math_expression": "x" },
+            { "verbal_explanation": "האורך גדול בשלוש מהרוחב, ולכן הוא שווה לאיקס ועוד שלוש.", "math_expression": "x + 3" },
+            { "verbal_explanation": "היקף של מלבן מורכב מפעמיים הרוחב ועוד פעמיים האורך.", "math_expression": "2 \\times x + 2 \\times (x + 3)" },
+            { "verbal_explanation": "נשווה את הביטוי השלם שבנינו להיקף הנתון, שהוא שלושים.", "math_expression": "2x + 2(x + 3) = 30" }
         ],
-        final_answer: "x + (x + 2) + (x + 4) = 60"
+        "final_answer": "2x + 2(x + 3) = 30"
     },
-    // שאלה 31
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "במשולש, זווית ב' גדולה פי 2 מזווית א', וזווית ג' גדולה ב-20 מעלות מזווית א'. איזו משוואה נבנה כדי למצוא את גודל זווית א' (x)?&rlm;",
-        options: ["x + 2x + (x + 20) = 180", "x + 2x + 20x = 180", "x + x/2 + (x - 20) = 180", "4x = 180"],
-        correctAnswer: 0,
-        hint: "סכום זוויות במשולש הוא תמיד 180 מעלות. א'=x, ב'=2x, ג'=x+20.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "זווית א' = x.&rlm;", math_expression: "" },
-            { verbal_explanation: "זווית ב' כפולה מזווית א', לכן 2x.&rlm;", math_expression: "" },
-            { verbal_explanation: "זווית ג' גדולה ב-20, לכן x+20.&rlm;", math_expression: "" },
-            { verbal_explanation: "סכום כל הזוויות הוא 180.&rlm;", math_expression: "x + 2x + (x + 20) = 180" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "מורה חילקה 40 סוכריות מתוך שקית, באופן שווה לחלוטין למספר לא ידוע של ילדים שנסמן ב-\\( x \\). התברר שכל ילד קיבל בדיוק 8 סוכריות. איזו משוואה מתארת את פעולת החלוקה הזו?&rlm;",
+        "options": ["40 / x = 8", "x / 40 = 8", "40 - x = 8", "40x = 8"],
+        "correctAnswer": 0,
+        "hint": "חילוק של הכמות הכוללת במספר הילדים נותן את הכמות שכל ילד קיבל.",
+        "solution_steps": [
+            { "verbal_explanation": "הכמות ההתחלתית והשלמה של הסוכריות בקופסה היא ארבעים.", "math_expression": "40" },
+            { "verbal_explanation": "המורה ביצעה פעולת חילוק לכל הכמות הזו בין קבוצה של איקס ילדים.", "math_expression": "40 \\div x" },
+            { "verbal_explanation": "החלק או המנה שכל ילד קיבל לידיו שווה לשמונה.", "math_expression": "8" },
+            { "verbal_explanation": "נרכיב מהנתונים את משוואת החלוקה השלמה.", "math_expression": "40 \\div x = 8" }
         ],
-        final_answer: "x + 2x + (x + 20) = 180"
+        "final_answer": "40 / x = 8"
     },
-    // שאלה 32
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "50 סוכריות חולקו בין דן וטל. דן קיבל 10 סוכריות יותר מטל. אם טל קיבל x סוכריות, איזו משוואה מתאימה לבעיה?&rlm;",
-        options: ["x + (x + 10) = 50", "x + 10 = 50", "2x = 50 - 10", "10x = 50"],
-        correctAnswer: 0,
-        hint: "החלק של טל (x) ועוד החלק של דן (x+10) משלימים יחד ל-50.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "סוכריות של טל: x.&rlm;", math_expression: "" },
-            { verbal_explanation: "סוכריות של דן: x + 10.&rlm;", math_expression: "" },
-            { verbal_explanation: "סך כל הסוכריות יחד הוא 50.&rlm;", math_expression: "x + (x + 10) = 50" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "חשבתי על מספר מסוים וקראתי לו \\( x \\). קודם כל הורדתי ממנו 2. לאחר מכן, כפלתי את התוצאה שקיבלתי ב-5. התשובה הסופית שלי הייתה 30. איזו משוואה מציגה בדיוק את הפעולות שעשיתי?&rlm;",
+        "options": ["5(x - 2) = 30", "5x - 2 = 30", "x - 2 * 5 = 30", "2(x - 5) = 30"],
+        "correctAnswer": 0,
+        "hint": "מכיוון שכפלו את *התוצאה* של ההפחתה, אתם חייבים להשתמש בסוגריים מסביב לפעולת ההפחתה.",
+        "solution_steps": [
+            { "verbal_explanation": "המספר הראשוני שחשבתי עליו מיוצג באות איקס.", "math_expression": "x" },
+            { "verbal_explanation": "הפעולה הראשונה הייתה להוריד שתיים. מכיוון שהפעולה הבאה מתייחסת לכל הביטוי הזה כתוצאה, נכניס אותו לסוגריים.", "math_expression": "(x - 2)" },
+            { "verbal_explanation": "את כל התוכן של הסוגריים הכפלתי במספר חמש.", "math_expression": "5 \\times (x - 2)" },
+            { "verbal_explanation": "לבסוף נשווה את הביטוי למספר שלושים, כפי שמופיע בחידה.", "math_expression": "5(x - 2) = 30" }
         ],
-        final_answer: "x + (x + 10) = 50"
+        "final_answer": "5(x - 2) = 30"
     },
-    // שאלה 33
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "רונית קנתה 5 עטים זהים. היא שילמה בשטר של 50 שקלים וקיבלה עודף של 15 שקלים. מהי המשוואה שתעזור למצוא את מחיר העט (x)?&rlm;",
-        options: ["5x + 15 = 50", "5x - 15 = 50", "50x = 15", "x + 15 = 50"],
-        correctAnswer: 0,
-        hint: "הסכום ששילמה (העטים) פלוס העודף שקיבלה מרכיבים חזרה את כל השטר שנתנה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "עלות 5 עטים היא 5 כפול מחיר עט אחד (5x).&rlm;", math_expression: "" },
-            { verbal_explanation: "עלות העטים ועוד העודף (15) שווים לערך השטר (50).&rlm;", math_expression: "5x + 15 = 50" },
-            { verbal_explanation: "אפשר גם לרשום זאת כ: 50 פחות 5x שווה ל-15.&rlm;", math_expression: "" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "אמא קנתה 2 חולצות זהות שמחיר כל אחת מהן הוא \\( x \\) שקלים. בנוסף, היא קנתה זוג מכנסיים במחיר קבוע וידוע של 100 שקלים. על כל הקנייה הזו יחד היא שילמה בדיוק 250 שקלים. איזו משוואה מתארת את הקנייה של אמא?&rlm;",
+        "options": ["2x + 100 = 250", "2(x + 100) = 250", "100x + 2 = 250", "x + 200 = 250"],
+        "correctAnswer": 0,
+        "hint": "שתי חולצות מיוצגות כ-2x. חברו אליהן את מחיר המכנסיים החד-פעמי.",
+        "solution_steps": [
+            { "verbal_explanation": "המחיר של חולצה בודדת הוא איקס. קנייה של שתי חולצות זהות תעלה פעמיים איקס.", "math_expression": "2x" },
+            { "verbal_explanation": "בנוסף לחולצות, הצטרף פריט אחד נוסף שעלותו מאה שקלים.", "math_expression": "100" },
+            { "verbal_explanation": "נחבר את כל עלויות הקנייה כדי ליצור את ביטוי ההוצאה הכולל.", "math_expression": "2x + 100" },
+            { "verbal_explanation": "התשלום הסופי עמד על מאתיים וחמישים שקלים. נשווה את הביטוי אליו.", "math_expression": "2x + 100 = 250" }
         ],
-        final_answer: "5x + 15 = 50"
+        "final_answer": "2x + 100 = 250"
     },
-    // שאלה 34
     {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "בכיתה יש 32 תלמידים. מספר הבנים קטן ב-4 ממספר הבנות. אם מספר הבנות הוא x, איזו משוואה נכונה?&rlm;",
-        options: ["x + (x - 4) = 32", "x - 4 = 32", "2x + 4 = 32", "x + 4 = 32"],
-        correctAnswer: 0,
-        hint: "הבנות הן x. הבנים הם x פחות 4. הסכום של שניהם יחד הוא כל הכיתה.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "מספר הבנות: x.&rlm;", math_expression: "" },
-            { verbal_explanation: "מספר הבנים קטן ב-4, כלומר: x - 4.&rlm;", math_expression: "" },
-            { verbal_explanation: "הסכום של כולם יחד הוא 32.&rlm;", math_expression: "x + (x - 4) = 32" }
+        "topic": "equations_word_problems_grade_7",
+        "subTopic": "בניית משוואה לבעיה",
+        "question_text": "באוטובוס היו מספר נוסעים לא ידוע שנסמן ב-\\( x \\). כשהגיע האוטובוס לתחנה, ירדו ממנו 5 נוסעים, ועלו אליו 8 נוסעים חדשים. לאחר שהדלתות נסגרו, ספרו ויש באוטובוס 30 נוסעים. איזו משוואה מתאימה לסיפור?&rlm;",
+        "options": ["x - 5 + 8 = 30", "x + 5 - 8 = 30", "x - 5 = 30", "30 - 5 + 8 = x"],
+        "correctAnswer": 0,
+        "hint": "התחילו מכמות הנוסעים המקורית, החסירו את מי שירד והוסיפו את מי שעלה, על פי סדר ההתרחשות.",
+        "solution_steps": [
+            { "verbal_explanation": "כמות הנוסעים שהייתה באוטובוס בתחילת הסיפור היא המשתנה שלנו.", "math_expression": "x" },
+            { "verbal_explanation": "חמישה אנשים ירדו מהאוטובוס, ולכן כמות האנשים הצטמצמה ונשתמש בחיסור.", "math_expression": "x - 5" },
+            { "verbal_explanation": "שמונה אנשים עלו לאוטובוס, ולכן כמות האנשים גדלה ונוסיף אותם בחיבור.", "math_expression": "x - 5 + 8" },
+            { "verbal_explanation": "הספירה הנוכחית של הנוסעים מראה שלושים אנשים. נשלים את המשוואה.", "math_expression": "x - 5 + 8 = 30" }
         ],
-        final_answer: "x + (x - 4) = 32"
-    },
-    // שאלה 35
-    {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "שתי מכוניות יצאו מאותה נקודה ונסעו בכיוונים מנוגדים. אחת במהירות 80 קמ\"ש והשנייה במהירות 90 קמ\"ש. לאחר זמן מסוים (x), המרחק ביניהן היה 340 ק\"מ. איזו משוואה תמצא את הזמן?&rlm;",
-        options: ["80x + 90x = 340", "90x - 80x = 340", "80 + 90 = 340x", "170 = 340x"],
-        correctAnswer: 0,
-        hint: "המרחק שעברה כל מכונית הוא המהירות שלה כפול הזמן (x). מכיוון שנסעו לכיוונים מנוגדים, המרחק הכולל הוא החיבור של שניהם.&rlm;",
-        solution_steps: [
-            { verbal_explanation: "המרחק שעברה מכונית א' הוא מהירותה כפול הזמן.&rlm;", math_expression: "80x" },
-            { verbal_explanation: "המרחק שעברה מכונית ב' הוא מהירותה כפול הזמן.&rlm;", math_expression: "90x" },
-            { verbal_explanation: "סכום המרחקים של שתיהן יחד הוא המרחק ביניהן.&rlm;", math_expression: "80x + 90x = 340" }
-        ],
-        final_answer: "80x + 90x = 340"
-    },
-    // שאלה 36
-    {
-        topic: "equations",
-        subTopic: "בניית משוואה לבעיה",
-        question_text: "קניתי x מחקים ב-5 שקלים למחק, ועוד מחברות שמספרן גדול ב-2 ממספר המחקים. כל מחברת עלתה 3 שקלים. שילמתי 38 שקלים. איזו משוואה נכונה?&rlm;",
-        options: ["5x + 3(x + 2) = 38", "5x + 3x + 2 = 38", "8(x + 2) = 38", "5x + 3(x - 2) = 38"],
-        correctAnswer: 0,
-        hint: "מחיר המחקים הכולל הוא 5x. מספר המחברות הוא (x+2), ולכן מחירן הכולל הוא 3 פעמים (x+2).&rlm;",
-        solution_steps: [
-            { verbal_explanation: "עלות המחקים: כמות (x) כפול מחיר יחיד (5).&rlm;", math_expression: "5x" },
-            { verbal_explanation: "עלות המחברות: הכמות היא (x+2) והמחיר הוא 3 ליחידה.&rlm;", math_expression: "3(x + 2)" },
-            { verbal_explanation: "הסכום של שניהם שווה לתשלום הכולל.&rlm;", math_expression: "5x + 3(x + 2) = 38" }
-        ],
-        final_answer: "5x + 3(x + 2) = 38"
+        "final_answer": "x - 5 + 8 = 30"
     }
-
 ];

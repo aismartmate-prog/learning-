@@ -20,6 +20,7 @@
             --bg-light: #f8fafc;
             --bg-gray: #f1f5f9;
             --white: #ffffff;
+            --border-soft: #cbd5e1;
             
             /* מעברי צבע מודרניים */
             --gradient-gold: linear-gradient(135deg, #c5a059 0%, #d9b87a 100%);
@@ -45,10 +46,10 @@
             color: var(--text-dark);
             overflow-x: hidden;
             line-height: 1.6;
-            -webkit-tap-highlight-color: transparent; /* מונע הבהוב כחול בלחיצה במובייל */
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ----- כפתורים מעוצבים (הוקטנו לפרופורציה נורמלית) ----- */
+        /* ----- כפתורים מעוצבים ----- */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -65,7 +66,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            z-index: 10; /* מבטיח שהכפתורים יהיו לחיצים */
+            z-index: 10;
         }
 
         .btn-green {
@@ -102,7 +103,7 @@
             transform: translateY(-2px);
         }
 
-        /* ----- תפריט ניווט עם Glassmorphism ----- */
+        /* ----- תפריט ניווט ----- */
         nav {
             background-color: var(--primary-blue);
             padding: 15px 5%;
@@ -112,7 +113,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 2000; /* הוגדל כדי שלא יוסתר */
+            z-index: 2000;
             transition: all 0.4s ease;
         }
         
@@ -177,10 +178,10 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 2002;
-            padding: 5px; /* שטח לחיצה גדול יותר בסלולר */
+            padding: 5px;
         }
 
-        /* ----- אזור ראשי (Hero) משופר ומעודן ----- */
+        /* ----- אזור ראשי (Hero) ----- */
         .hero {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             color: var(--white);
@@ -209,7 +210,7 @@
 
         .hero .fade-in {
             position: relative;
-            z-index: 10; /* מבטיח שהתוכן יהיה מעל אפקטי הרקע ויהיה לחיץ */
+            z-index: 10;
         }
 
         .hero h1 {
@@ -239,7 +240,7 @@
             justify-content: center;
             gap: 15px;
             position: relative;
-            z-index: 20; /* חשוב מאוד כדי שהכפתורים יהיו לחיצים */
+            z-index: 20;
         }
 
         .custom-shape-divider-bottom {
@@ -254,7 +255,7 @@
 
         .custom-shape-divider-bottom .shape-fill { fill: var(--bg-light); }
 
-        /* ----- רצועת אמינות ומספרים ----- */
+        /* ----- רצועת אמינות ----- */
         .trust-stats {
             display: flex;
             justify-content: center;
@@ -277,7 +278,7 @@
         .stat-item p { font-size: 1rem; color: var(--text-light); font-weight: 500; }
         .stat-item i { color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 10px;}
 
-        /* ----- מחלקות כלליות ----- */
+        /* ----- הגדרות סקשנים ----- */
         .section-padding { padding: 70px 5%; position: relative; z-index: 5;}
         .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 15px; color: var(--primary-blue); }
         .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-light); margin-bottom: 45px; max-width: 650px; margin-left: auto; margin-right: auto;}
@@ -285,7 +286,7 @@
         .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* ----- אזור אודות / אמינות מורחב ----- */
+        /* ----- הסיפור שלנו ----- */
         .about-wrapper {
             background: var(--white);
             border-radius: 20px;
@@ -342,7 +343,22 @@
             color: var(--primary-blue);
         }
 
-        /* ----- מקצועות (בלונים מעודנים) ----- */
+        /* ----- למה אנחנו ----- */
+        .methodology { background-color: var(--white); }
+        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .method-card { 
+            padding: 30px 20px; border-radius: 16px; background: var(--bg-gray); 
+            border: 1px solid var(--border-soft); text-align: right; transition: all 0.3s ease;
+        }
+        .method-card:hover {
+            background: var(--white); box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold); transform: translateY(-4px);
+        }
+        .method-card i { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 15px; }
+        .method-card h3 { font-size: 1.25rem; color: var(--primary-blue); margin-bottom: 10px; font-weight: 800; }
+        .method-card p { font-size: 0.95rem; color: var(--text-light); }
+
+        /* ----- מקצועות ----- */
         .subjects-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
         .subject-blob {
             width: 140px; height: 140px; background-color: var(--white);
@@ -366,34 +382,31 @@
         .subject-blob:hover i { transform: scale(1.1); color: var(--white); }
         .subject-blob h3 { font-size: 1rem; font-weight: 700; }
 
-        /* ----- למה אנחנו ----- */
-        .methodology { background-color: var(--white); }
-        .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
-        .method-card { 
-            padding: 30px 20px; border-radius: 16px; background: var(--bg-gray); 
-            border: 1px solid var(--border-soft); text-align: right; transition: all 0.3s ease;
-        }
-        .method-card:hover {
-            background: var(--white); box-shadow: var(--shadow-md);
-            border-color: var(--accent-gold); transform: translateY(-4px);
-        }
-        .method-card i { font-size: 2.2rem; color: var(--accent-green); margin-bottom: 15px; }
-        .method-card h3 { font-size: 1.25rem; color: var(--primary-blue); margin-bottom: 10px; font-weight: 800; }
-        .method-card p { font-size: 0.95rem; color: var(--text-light); }
-
-        /* ----- חבילת רכישה ----- */
+        /* ----- מסלול פרימיום ----- */
         .pricing-section { background: linear-gradient(to bottom, var(--bg-light), var(--bg-gray)); }
-        .pricing-card-wrapper { max-width: 800px; margin: 0 auto; position: relative; z-index: 10;}
+        .pricing-card-wrapper { max-width: 900px; margin: 0 auto; position: relative; z-index: 10;}
         .pricing-card {
             background: var(--white); border-radius: 20px; box-shadow: var(--shadow-lg);
             overflow: hidden; display: flex; flex-direction: column; border: 1.5px solid var(--accent-gold);
             position: relative;
         }
+        
         .pricing-ribbon {
-            background: var(--accent-gold); color: #000; position: absolute; top: 15px; right: -30px;
-            transform: rotate(45deg); padding: 5px 35px; font-weight: 800; font-size: 0.85rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 10;
+            background: var(--accent-gold); 
+            color: #000; 
+            position: absolute; 
+            top: 25px; 
+            right: -38px;
+            transform: rotate(45deg); 
+            padding: 6px 45px; 
+            font-weight: 800; 
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+            z-index: 10;
+            text-align: center;
+            white-space: nowrap;
         }
+        
         .pricing-header {
             background: var(--primary-blue); color: var(--white); padding: 30px;
             text-align: center; border-bottom: 3px solid var(--accent-gold);
@@ -403,7 +416,7 @@
         .pricing-price span { font-size: 1.1rem; color: #cbd5e1; font-weight: 500; }
         .pricing-commitment { font-size: 0.95rem; color: #94a3b8; }
 
-        .pricing-body { padding: 35px 30px; display: flex; flex-wrap: wrap; gap: 30px; }
+        .pricing-body { padding: 35px 30px; display: flex; flex-wrap: nowrap; gap: 30px; align-items: center; justify-content: space-between; }
         .pricing-features { flex: 1; min-width: 260px; }
         .pricing-features ul { list-style: none; }
         .pricing-features li { 
@@ -416,14 +429,13 @@
         }
 
         .pricing-action {
-            flex: 1; min-width: 260px; display: flex; flex-direction: column; justify-content: center;
+            flex: 0 0 35%; min-width: 260px; display: flex; flex-direction: column; justify-content: center;
             align-items: center; background: var(--bg-light); padding: 25px; border-radius: 12px; text-align: center;
-            z-index: 15; /* מוודא שכפתור הרכישה לחיץ */
+            z-index: 15;
         }
         .pricing-action h4 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary-blue); font-weight: 700; }
         .pricing-action p { margin-bottom: 15px; color: var(--text-light); font-size: 0.9rem; }
-        .secure-badges { display: flex; gap: 10px; margin-top: 15px; color: #64748b; font-size: 1.4rem;}
-
+        
         /* ----- המלצות ----- */
         .testimonials { background-color: var(--primary-blue); color: var(--white); }
         .testimonials .section-title { color: var(--white); }
@@ -436,17 +448,7 @@
         .testi-author { font-weight: 700; color: var(--white); font-size: 1.05rem;}
         .verified-badge { display: inline-flex; align-items: center; gap: 5px; color: var(--accent-green); font-size: 0.85rem; font-weight: 600; margin-top: 5px;}
 
-        /* ----- שאלות נפוצות ----- */
-        .faq-section { max-width: 750px; margin: 0 auto; }
-        details { background: var(--white); border: 1px solid var(--border-soft); border-radius: 12px; margin-bottom: 12px; overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow 0.3s ease;}
-        details:hover { box-shadow: var(--shadow-md); }
-        summary { padding: 16px 20px; font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::-webkit-details-marker { display: none; }
-        summary::after { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--accent-gold); transition: transform 0.3s ease; }
-        details[open] summary::after { transform: rotate(180deg); }
-        .faq-content { padding: 0 20px 20px 20px; color: var(--text-light); font-size: 1rem; line-height: 1.6; border-top: 1px solid var(--bg-gray); margin-top: 5px; padding-top: 15px;}
-
-        /* ----- צור קשר וכתובת ----- */
+        /* ----- צור קשר ----- */
         .contact-section { background-color: var(--white); }
         .contact-wrapper { display: flex; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; background: var(--bg-gray); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-lg);}
         .contact-info { flex: 1; min-width: 280px; background: var(--gradient-blue); color: var(--white); padding: 40px; position: relative;}
@@ -462,7 +464,6 @@
         .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 2px solid var(--bg-gray); border-radius: 8px; font-size: 1rem; font-family: inherit; transition: 0.3s; background: var(--bg-light);}
         .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-gold); background: var(--white); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
 
-        /* ----- שיתופי פעולה ----- */
         .trust-badges { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--border-soft); }
         .badge { text-align: center; color: var(--text-light); }
         .badge i { font-size: 2.2rem; color: #cbd5e1; margin-bottom: 10px; transition: color 0.3s ease;}
@@ -473,7 +474,7 @@
         footer { background-color: var(--primary-blue); color: #cbd5e1; text-align: center; padding: 25px 15px; border-top: 3px solid var(--accent-gold); font-size: 0.95rem; z-index: 10; position: relative;}
         footer i { color: #ef4444; margin: 0 3px;}
 
-        /* ----- חלון הרשמה וסליקה סימטרי ונקי ----- */
+        /* ----- חלון הרשמה וסליקה (Modal) משופר ----- */
         .checkout-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(5px);
@@ -487,45 +488,51 @@
             transform: translateY(20px); transition: transform 0.3s ease; max-height: 90vh; display: flex; flex-direction: column;
         }
         .checkout-overlay.active .checkout-modal { transform: translateY(0); }
+        
         .checkout-header { background: var(--primary-blue); color: var(--white); padding: 20px; text-align: center; border-bottom: 3px solid var(--accent-gold); position: relative; flex-shrink: 0;}
         .checkout-header h2 { font-size: 1.4rem; font-weight: 800;}
         .checkout-header p { color: #cbd5e1; margin-top: 5px; font-size: 0.9rem; }
+        
         .close-checkout {
             position: absolute; top: 15px; left: 15px; color: var(--white); font-size: 1.3rem; cursor: pointer;
-            background: rgba(255,255,255,0.1); width: 30px; height: 30px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); width: 32px; height: 32px; border-radius: 50%;
             display: flex; justify-content: center; align-items: center; transition: 0.2s;
             z-index: 3010;
         }
         .close-checkout:hover { background: #ef4444; }
+        
         .checkout-body { padding: 25px; overflow-y: auto; }
         
         .form-section-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 12px; border-bottom: 2px solid var(--bg-gray); padding-bottom: 5px; display: flex; align-items: center; gap: 8px; }
         .form-section-title i { color: var(--accent-gold); }
         
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
         .form-group.full-width { grid-column: 1 / -1; }
         
-        .checkout-form label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark); text-align: right;}
+        .checkout-form label { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--primary-blue); text-align: right;}
         .checkout-form input {
-            width: 100%; padding: 10px 12px; border: 1px solid var(--border-soft); border-radius: 6px;
-            font-size: 0.95rem; font-family: inherit; background: #f8fafc; transition: all 0.3s ease;
+            width: 100%; padding: 12px 15px; border: 1px solid var(--border-soft); border-radius: 8px;
+            font-size: 1rem; font-family: inherit; background: #f8fafc; transition: all 0.3s ease;
             box-sizing: border-box; text-align: right;
         }
         
-        /* סידור שדות באנגלית שיהיו מיושרים לשמאל, אך הכותרת נשארת לימין */
-        .checkout-form input[type="email"], 
-        .checkout-form input[type="tel"], 
-        .checkout-form input[type="password"], 
-        .checkout-form input.cc-num {
-            direction: ltr; text-align: left;
+        /* כיווניות לשדות אנגלית ומספרים */
+        .checkout-form input[dir="ltr"] {
+            text-align: left;
+            direction: ltr;
         }
         
         .checkout-form input:focus { outline: none; border-color: var(--accent-gold); background: var(--white); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1); }
         
-        /* עיצוב הצ'קבוקסים המשפטיים של התקנון */
+        /* שדה כרטיס אשראי מעוצב */
+        .cc-wrapper { position: relative; }
+        .cc-wrapper input { padding-left: 45px !important; }
+        .cc-wrapper i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; color: #94a3b8; }
+        
+        /* צ'קבוקסים */
         .terms-container { background: #fdfcf8; border: 1px solid var(--accent-gold); border-radius: 8px; padding: 12px; margin-bottom: 20px; }
         .checkbox-item.align-top { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
-        .checkbox-item.align-top input { width: 16px; height: 16px; margin-top: 4px; cursor: pointer; accent-color: var(--primary-header); flex-shrink: 0;}
+        .checkbox-item.align-top input { width: 16px; height: 16px; margin-top: 4px; cursor: pointer; flex-shrink: 0;}
         .terms-text { font-size: 0.85rem; color: var(--text-dark); line-height: 1.4; text-align: right;}
         
         .order-summary { background: var(--bg-gray); padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px dashed var(--border-soft); }
@@ -547,7 +554,7 @@
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* ========================================================
-           התאמות מושלמות למובייל וטאבלט (רספונסיביות מורחבת)
+           התאמות מושלמות למובייל וטאבלט
            ======================================================== */
         @media (max-width: 1024px) {
             .nav-links {
@@ -628,7 +635,7 @@
 
     <header class="hero">
         <div class="fade-in">
-            <h1>הדרך הבטוחה להצלחה <span>מכיתה ה' ועד לבגרות.</span></h1>
+            <h1>הדרך הבטוחה להצלחה <br><span>מכיתה ה' ועד לבגרות.</span></h1>
             <p>מערכת הלמידה והתרגול המתקדמת בישראל. מותאמת ב-100% לתוכנית הלימודים של משרד החינוך, מבוססת בינה מלאכותית, ומחזירה את הביטחון העצמי לתלמידים.</p>
             
             <div class="btn-group">
@@ -834,7 +841,7 @@
                     <h3>נשמח לשמוע מכם</h3>
                     <p>אנו זמינים בימים א'-ה' בין השעות 09:00-18:00</p>
                     <div class="info-line"><i class="fa-solid fa-phone"></i> 054-1234567</div>
-                    <div class="info-line"><i class="fa-solid fa-envelope"></i> support@h-limud.co.il</div>
+                    <div class="info-line"><i class="fa-solid fa-envelope"></i> Hishigim.Online@gmail.com</div>
                     <div class="info-line"><i class="fa-solid fa-location-dot"></i> רחוב ההשכלה 10, תל אביב</div>
                 </div>
                 
@@ -845,7 +852,7 @@
                     </div>
                     <div class="form-group">
                         <label>אימייל לחזרה</label>
-                        <input type="email" required placeholder="example@gmail.com" dir="ltr" style="text-align: left;">
+                        <input type="email" required placeholder="example@gmail.com" dir="ltr">
                     </div>
                     <div class="form-group">
                         <label>נושא הפנייה</label>
@@ -903,15 +910,15 @@
                         </div>
                         <div class="form-group full-width">
                             <label>כתובת אימייל (שם משתמש)</label>
-                            <input type="email" required placeholder="example@gmail.com">
+                            <input type="email" required placeholder="user@example.com" dir="ltr">
                         </div>
                         <div class="form-group">
                             <label>סיסמה רצויה</label>
-                            <input type="password" id="reg-pwd" required placeholder="מינימום 6 תווים" minlength="6">
+                            <input type="password" id="reg-pwd" required placeholder="******" minlength="6" dir="ltr">
                         </div>
                         <div class="form-group">
                             <label>אימות סיסמה</label>
-                            <input type="password" id="reg-pwd-confirm" required placeholder="הקלידו שוב">
+                            <input type="password" id="reg-pwd-confirm" required placeholder="******" dir="ltr">
                         </div>
                     </div>
 
@@ -919,22 +926,22 @@
                     <div class="form-grid">
                         <div class="form-group full-width">
                             <label>מספר כרטיס אשראי</label>
-                            <div style="position: relative;">
-                                <input type="text" class="cc-num" required placeholder="0000 0000 0000 0000" maxlength="19" onkeyup="formatCC(this)">
-                                <i class="fa-brands fa-cc-visa" style="position: absolute; left: 15px; top: 12px; color: #cbd5e1; font-size: 1.2rem;"></i>
+                            <div class="cc-wrapper">
+                                <input type="text" class="cc-num" required placeholder="0000 0000 0000 0000" maxlength="19" onkeyup="formatCC(this)" dir="ltr">
+                                <i class="fa-brands fa-cc-visa"></i>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>תוקף (MM/YY)</label>
-                            <input type="text" required placeholder="12/26" maxlength="5" dir="ltr" style="text-align: left;">
+                            <input type="text" required placeholder="12/26" maxlength="5" dir="ltr">
                         </div>
                         <div class="form-group">
                             <label>CVV</label>
-                            <input type="text" required placeholder="123" maxlength="4" dir="ltr" style="text-align: left;">
+                            <input type="text" required placeholder="123" maxlength="4" dir="ltr">
                         </div>
                         <div class="form-group full-width">
                             <label>תעודת זהות של בעל הכרטיס (משלם)</label>
-                            <input type="text" required placeholder="מספר ת.ז (9 ספרות)" maxlength="9" dir="ltr" style="text-align: left;">
+                            <input type="text" required placeholder="מספר ת.ז (9 ספרות)" maxlength="9" dir="ltr">
                         </div>
                     </div>
 
@@ -981,7 +988,7 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
         
-        // סגירת התפריט בלחיצה בחוץ (לא יפריע לכפתור ההמבורגר בעצמו)
+        // סגירת התפריט בלחיצה בחוץ
         document.addEventListener('click', function(e) {
             const nav = document.getElementById('navLinks');
             const menuBtn = document.querySelector('.mobile-menu-btn');
@@ -997,7 +1004,7 @@
             else nav.classList.remove('scrolled');
         });
 
-        // אנימציות Fade-In בכניסה לאלמנט
+        // אנימציות Fade-In
         const faders = document.querySelectorAll('.fade-in');
         const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -1010,7 +1017,7 @@
 
         faders.forEach(fader => { appearOnScroll.observe(fader); });
 
-        // מודל ההרשמה - פתיחה וסגירה בטוחה
+        // מודל ההרשמה
         const modal = document.getElementById('checkout-modal');
         function openCheckoutModal() {
             modal.classList.add('active');
@@ -1021,22 +1028,19 @@
             document.body.style.overflow = 'auto';
         }
         
-        // סגירת המודל בלחיצה על הרקע הכהה
         modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeCheckoutModal();
-            }
+            if (e.target === modal) closeCheckoutModal();
         });
 
-        // עיצוב אוטומטי למספר כרטיס אשראי (כל 4 ספרות רווח)
+        // עיצוב אוטומטי לכרטיס אשראי
         function formatCC(input) {
             let val = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-            let matches = val.match(/\d{1,4}/g); // Changed to {1,4} so it formats as you type smoothly
+            let matches = val.match(/\d{1,4}/g); 
             let match = matches ? matches.join(' ') : val;
             input.value = match;
         }
 
-        // טיפול בשליחת טופס התשלום
+        // שליחת הטופס
         function handlePayment(e) {
             e.preventDefault();
             
@@ -1051,7 +1055,6 @@
             const overlay = document.getElementById('processing-overlay');
             overlay.style.display = 'flex';
             
-            // סימולציה של סליקה (2.5 שניות) ואז מעבר למערכת
             setTimeout(() => {
                 overlay.style.display = 'none';
                 closeCheckoutModal();
