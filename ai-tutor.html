@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>מורה פרטי AI - המרכז להישגים לימודיים</title>
+    <title>מורה פרטי - המרכז להישגים לימודיים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+        chtml: { displayAlign: 'right', scale: 1.05 }
+      };
+    </script>
+
     <style>
         :root {
             --primary-header: #0f172a;  
@@ -12,7 +23,7 @@
             --bg-color: #f1f5f9;      
             --surface-color: #ffffff; 
             --border-soft: #e2e8f0;
-            --chat-user-bg: #c7d2fe;
+            --chat-user-bg: #e0e7ff; 
             --chat-user-text: #1e3a8a;
             --chat-ai-bg: #ffffff;
             --chat-ai-text: #1e293b;
@@ -27,7 +38,6 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            /* מונע גלילה מיותרת בכל המסך, משאיר אותה רק בצ'אט */
             overflow: hidden; 
         }
 
@@ -41,54 +51,65 @@
             border-bottom: 3px solid var(--accent-gold);
             z-index: 10;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            flex-shrink: 0; /* מונע מההדר להתכווץ */
+            flex-shrink: 0; 
         }
 
         header h1 { 
             margin: 0; 
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             font-weight: 700; 
             display: flex; 
             align-items: center; 
-            gap: 8px;
+            gap: 10px;
+            color: var(--white);
+        }
+        
+        header h1 i {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
         }
         
         .back-btn { 
             color: var(--accent-gold); 
             text-decoration: none; 
-            font-weight: 600; 
+            font-weight: bold; 
             cursor: pointer; 
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             background: rgba(255,255,255,0.1);
-            padding: 5px 12px;
-            border-radius: 20px;
-            transition: background 0.2s;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
         }
-        .back-btn:hover { background: rgba(255,255,255,0.2); }
+        .back-btn:hover { 
+            background: rgba(255,255,255,0.2); 
+            color: #ef4444;
+        }
 
         .chat-container {
             flex: 1;
-            padding: 20px 15px;
+            padding: 15px; 
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 10px; 
             background-color: var(--bg-color);
-            /* תמיכה טובה יותר בגלילה בסלולר */
             -webkit-overflow-scrolling: touch; 
         }
 
         .message {
-            max-width: 88%;
-            padding: 14px 18px;
-            border-radius: 18px;
-            line-height: 1.6;
+            max-width: 95%; 
+            padding: 10px 14px; 
+            border-radius: 12px;
+            line-height: 1.4; 
             font-size: 1rem;
             position: relative;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
             word-wrap: break-word;
             animation: fadeIn 0.3s ease-out;
-            /* שומר על רווחים ופסקאות מהשרת - קריטי למתמטיקה ולסדר! */
             white-space: pre-wrap; 
         }
 
@@ -102,22 +123,57 @@
             background: var(--chat-ai-bg);
             color: var(--chat-ai-text);
             border: 1px solid var(--border-soft);
-            border-bottom-right-radius: 4px; /* עיצוב בועה מימין לשמאל */
+            border-bottom-right-radius: 4px; 
         }
         
-        .message.ai strong { color: var(--accent-gold); display: block; margin-bottom: 5px; font-size: 0.9rem;}
+        .message.ai strong { 
+            color: var(--primary-header); 
+            font-weight: 800;
+        }
+
+        .ai-heading {
+            margin: 6px 0 2px 0;
+            display: block;
+        }
+        .ai-heading strong {
+            color: var(--accent-gold); 
+            font-weight: 800;
+            font-size: 1.05rem;
+        }
+
+        .message.ai span[dir="ltr"] {
+             margin: 0 4px; 
+             display: inline-block;
+        }
+
+        .message.ai div[dir="ltr"], .message.ai div[style*="text-align: center"] {
+            font-size: 1.1rem !important; 
+            padding: 6px 10px !important; 
+            margin: 4px 0 !important; 
+            border-radius: 6px !important;
+            background: #f8fafc !important;
+            border: 1px solid var(--border-soft) !important;
+            box-shadow: none !important; 
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            line-height: 1 !important; 
+        }
+
+        .message.ai p { margin: 4px 0; }
+        .message.ai ul { margin: 4px 0; padding-right: 20px; }
+        .message.ai li { margin-bottom: 2px; }
 
         .message.user {
             align-self: flex-end;
             background: var(--chat-user-bg);
             color: var(--chat-user-text);
             border: 1px solid #a5b4fc;
-            border-bottom-left-radius: 4px; /* עיצוב בועה מימין לשמאל */
+            border-bottom-left-radius: 4px; 
         }
 
         .message img {
             max-width: 100%;
-            max-height: 200px; /* הגבלת גובה תמונה בצ'אט */
+            max-height: 200px; 
             object-fit: contain;
             border-radius: 8px;
             margin-bottom: 8px;
@@ -125,17 +181,16 @@
             border: 1px solid rgba(0,0,0,0.1);
         }
 
-        /* עיצוב אזור ההקלדה */
         .input-area {
             background: var(--surface-color);
-            padding: 15px;
+            padding: 12px; 
             border-top: 1px solid var(--border-soft);
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+            gap: 8px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.03); 
             flex-shrink: 0;
-            padding-bottom: calc(15px + env(safe-area-inset-bottom)); /* התאמה לאייפון */
+            padding-bottom: calc(12px + env(safe-area-inset-bottom)); 
         }
 
         .image-preview-container {
@@ -172,7 +227,7 @@
 
         .input-row {
             display: flex;
-            align-items: flex-end; /* יישור לתחתית כשתיבת הטקסט גדלה */
+            align-items: flex-end; 
             gap: 10px;
             background: #f8fafc;
             border: 1px solid var(--border-soft);
@@ -239,36 +294,30 @@
             display: none;
             align-self: flex-start;
             background: var(--chat-ai-bg);
-            padding: 12px 20px;
-            border-radius: 18px;
+            padding: 8px 16px;
+            border-radius: 12px;
             border: 1px solid var(--border-soft);
             border-bottom-right-radius: 4px;
             color: var(--accent-gold);
             font-weight: bold;
         }
-        .typing-indicator span { animation: blink 1.4s infinite both; font-size: 2rem; line-height: 0.1; display: inline-block; vertical-align: bottom;}
+        .typing-indicator span { animation: blink 1.4s infinite both; font-size: 1.5rem; line-height: 0.1; display: inline-block; vertical-align: bottom;}
         .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
         .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
         @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
-        
-        /* התאמות למסכים קטנים מאוד */
-        @media (max-width: 380px) {
-            .message { max-width: 92%; font-size: 0.95rem; }
-            textarea { font-size: 0.95rem; }
-        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>המורה האישי 🤖</h1>
-    <a onclick="closeChat()" class="back-btn">סגור ✕</a>
+    <h1><i class="fa-solid fa-user-graduate"></i> מורה פרטי</h1>
+    <a onclick="closeChat()" class="back-btn" title="סגור חלון">✕</a>
 </header>
 
 <div class="chat-container" id="chat-box">
     <div class="message ai">
-        <strong>מורה AI:</strong>
-        היי! אני המורה האישי שלך. נתקעת בשיעורי הבית? לא הבנת משהו בחומר?<br><br>
+        <strong><i class="fa-solid fa-chalkboard-user" style="color: var(--accent-gold);"></i> מורה פרטי:</strong><br>
+        היי! אני המורה האישי שלך. נתקעת בשיעורי הבית? לא הבנת משהו בחומר?<br>
         כתוב לי שאלה, או לחץ על סמל המצלמה כדי לצלם לי את התרגיל ואעזור לך להבין את הדרך! 📚
     </div>
     
@@ -285,15 +334,17 @@
 
     <div class="input-row">
         <input type="file" id="image-upload" accept="image/jpeg, image/png, image/jpg, image/webp, image/heic" onchange="handleImageSelection(event)">
-        <label for="image-upload" class="btn-upload" title="צלם או העלה תמונה">📷</label>
+        <label for="image-upload" class="btn-upload" title="צלם או העלה תמונה"><i class="fa-solid fa-camera"></i></label>
         
         <textarea id="user-input" rows="1" placeholder="הקלד הודעה..." oninput="autoResize(this)"></textarea>
         
-        <button class="btn-send" id="send-btn" onclick="sendMessage()">➤</button>
+        <button class="btn-send" id="send-btn" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
 </div>
 
 <script>
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwPj1iT_s88hMHCtayOTsKGrDjGTG3BHpO-Sikl_y5bXvQUPXw-WHbDUEbAqDnUkmjW/exec"; 
+    
     const chatBox = document.getElementById('chat-box');
     const userInput = document.getElementById('user-input');
     const imageUpload = document.getElementById('image-upload');
@@ -302,11 +353,8 @@
     const typingIndicator = document.getElementById('typing-indicator');
     
     let currentImageBase64 = null;
-    
-    // מערך לשמירת היסטוריית השיחה כדי שהמורה יזכור את ההקשר
     let chatHistory = [];
 
-    // פונקציית סגירה - מנסה לסגור דרך דף האב אם נטען ב-Iframe
     function closeChat() {
         if (window.parent && typeof window.parent.closeAiModal === 'function') {
             window.parent.closeAiModal();
@@ -330,7 +378,7 @@
                 imgPreview.src = e.target.result;
                 currentImageBase64 = e.target.result;
                 previewContainer.style.display = 'block';
-                userInput.focus(); // החזרת פוקוס להקלדה
+                userInput.focus(); 
             }
             reader.readAsDataURL(file);
         }
@@ -343,11 +391,70 @@
         previewContainer.style.display = 'none';
     }
 
+    function cleanAndFormatAI(text) {
+        let processed = text;
+        
+        // --- חסימה מוחלטת והסרה של כל הסולמיות ---
+        // מזהה 1 או יותר סולמיות בתחילת שורה (גם אם יש רווח לפניהן או אחריהן) ומעלים אותן.
+        // הוא לוקח את הטקסט שאחרי הסולמיות והופך אותו לכותרת מודגשת ועדינה.
+        processed = processed.replace(/^[ \t]*#+\s*(.*)$/gm, '<div class="ai-heading"><strong>$1</strong></div>');
+
+        // 1. טיפול בהדגשות (כוכביות)
+        processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        processed = processed.replace(/(?<![\\+=\-\/])\*(.*?)\*(?![\\+=\-\/])/g, '<strong>$1</strong>');
+
+        // 2. אכיפת \displaystyle בתוך משוואות בשורה
+        processed = processed.replace(/\\\((.*?)\\\)/g, function(match, mathInner) {
+            let hebrewWords = mathInner.match(/[א-ת₪"']+/g) || [];
+            let cleanMath = mathInner.replace(/[א-ת₪"']/g, '').trim();
+            if (!cleanMath.includes('\\displaystyle')) {
+                cleanMath = '\\displaystyle ' + cleanMath;
+            }
+            cleanMath = cleanMath.replace(/(\d+)\s*[\.\*]\s*(\d+)/g, "$1 \\times $2"); 
+            cleanMath = cleanMath.replace(/(\d+)\s*[\.\*]\s*([A-Za-z])/g, "$1 \\times $2"); 
+
+            if (hebrewWords.length > 0) {
+                return '\\(' + cleanMath + '\\) ' + hebrewWords.join(' ');
+            }
+            return '\\(' + cleanMath + '\\)';
+        });
+
+        // 3. טיפול במשוואות בבלוק
+        processed = processed.replace(/\$\$(.*?)\$\$/g, function(match, mathInner) {
+            let hebrewWords = mathInner.match(/[א-ת₪"']+/g) || [];
+            let cleanMath = mathInner.replace(/[א-ת₪"']/g, '').trim();
+            cleanMath = cleanMath.replace(/(\d+)\s*[\.\*]\s*(\d+)/g, "$1 \\times $2");
+            cleanMath = cleanMath.replace(/(\d+)\s*[\.\*]\s*([A-Za-z])/g, "$1 \\times $2");
+
+            if (hebrewWords.length > 0) {
+                return '$$' + cleanMath + '$$ ' + hebrewWords.join(' ');
+            }
+            return '$$' + cleanMath + '$$';
+        });
+
+        // 4. טיפול במטבע וסידור (800 ש"ח)
+        processed = processed.replace(/₪|שקלים/g, 'ש"ח');
+        processed = processed.replace(/(\d+(?:\.\d+)?)\s*(ש"ח)|(ש"ח)\s*(\d+(?:\.\d+)?)/g, function(match, p1, p2, p3, p4) {
+            let num = p1 || p4;
+            return `<bdi dir="rtl">${num} ש"ח</bdi>`;
+        });
+
+        processed = processed.replace(/ש"ח\s*חדשים\s*\(\s*ש"ח\s*\)/g, 'ש"ח');
+        processed = processed.replace(/ש"ח\s*\(\s*ש"ח\s*\)/g, 'ש"ח');
+        processed = processed.replace(/ש"ח\s*ש"ח/g, 'ש"ח');
+
+        // 5. ניקוי רווחים
+        processed = processed.trim().replace(/^(?:<br\s*\/?>|\n)+|(?:<br\s*\/?>|\n)+$/gi, '');
+        processed = processed.replace(/(\n|<br\s*\/?>){3,}/gi, '<br><br>');
+        processed = processed.replace(/\n/g, '<br>');
+
+        return processed;
+    }
+
     async function sendMessage() {
         const text = userInput.value.trim();
         if (text === "" && !currentImageBase64) return;
 
-        // 1. הצגת הודעת המשתמש בצ'אט
         let userMsgHTML = "";
         if (currentImageBase64) userMsgHTML += `<img src="${currentImageBase64}">`;
         if (text !== "") userMsgHTML += `<div>${text.replace(/\n/g, '<br>')}</div>`;
@@ -356,31 +463,24 @@
         const messageToSend = text;
         const imageToSend = currentImageBase64;
 
-        // הוספה להיסטוריה המקומית
         chatHistory.push({ role: "user", content: messageToSend });
-        // מגבילים את ההיסטוריה ל-10 ההודעות האחרונות כדי לא להעמיס על הבקשה
         if(chatHistory.length > 10) chatHistory = chatHistory.slice(chatHistory.length - 10);
 
-        // איפוס שדות הקלט
         userInput.value = "";
         userInput.style.height = 'auto';
         removeImage();
 
-        // 2. הצגת אנימציית "המורה מקליד..."
         chatBox.appendChild(typingIndicator);
         typingIndicator.style.display = 'block';
         chatBox.scrollTop = chatBox.scrollHeight;
 
         try {
-            // הקישור הישיר ששלחת מגוגל
-            const SERVER_URL = 'https://script.google.com/macros/s/AKfycbwPj1iT_s88hMHCtayOTsKGrDjGTG3BHpO-Sikl_y5bXvQUPXw-WHbDUEbAqDnUkmjW/exec'; 
-
-            const response = await fetch(SERVER_URL, {
+            const response = await fetch(WEB_APP_URL, {
                 method: 'POST',
                 body: JSON.stringify({
                     message: messageToSend,
                     image: imageToSend,
-                    history: chatHistory // שליחת ההיסטוריה לשרת
+                    history: chatHistory 
                 })
             });
 
@@ -388,31 +488,41 @@
             typingIndicator.style.display = 'none';
 
             if (data.reply) {
-                // הוספת תשובת ה-AI להיסטוריה
-                chatHistory.push({ role: "assistant", content: data.reply });
+                let safeReply = cleanAndFormatAI(data.reply);
                 
-                // התשובה מוצגת כפי שהיא, ה-CSS יעשה את עבודת הריווח
-                appendMessage(`<strong>מורה AI:</strong>\n${data.reply}`, 'ai');
+                chatHistory.push({ role: "assistant", content: safeReply });
+                
+                appendMessage(safeReply, 'ai');
+                
+                if (window.MathJax) {
+                    MathJax.typesetPromise().catch((err) => console.log('MathJax error:', err));
+                }
+                
             } else {
-                appendMessage(`<strong>מערכת:</strong> המורה לא הצליח לענות. נסה לשלוח שוב.`, 'ai');
+                appendMessage(`<strong><i class="fa-solid fa-chalkboard-user"></i> מורה פרטי:</strong> השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה.`, 'ai');
             }
 
         } catch (error) {
             console.error('Error:', error);
             typingIndicator.style.display = 'none';
-            appendMessage(`<strong>מערכת:</strong> שגיאת תקשורת. אנא ודא שהקוד בגוגל מעודכן ושעשית "פריסה חדשה".`, 'ai');
+            appendMessage(`<strong><i class="fa-solid fa-chalkboard-user"></i> מורה פרטי:</strong> השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה.`, 'ai');
         }
     }
 
     function appendMessage(content, sender) {
         const msgDiv = document.createElement('div');
         msgDiv.className = `message ${sender}`;
-        msgDiv.innerHTML = content;
+        
+        if (sender === 'ai') {
+            msgDiv.innerHTML = `<strong><i class="fa-solid fa-chalkboard-user" style="color: var(--accent-gold);"></i> מורה פרטי:</strong><br>${content}`;
+        } else {
+            msgDiv.innerHTML = content;
+        }
+        
         chatBox.insertBefore(msgDiv, typingIndicator);
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // טיפול ב-Enter לשליחה מהירה (Shift+Enter לירידת שורה)
     userInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();

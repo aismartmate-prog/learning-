@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>המרכז להישגים לימודיים | דף הבית</title>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <title>המרכז להישגים לימודיים | למידה מתקדמת</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* פלטת צבעים יוקרתית - אפור פנינה, שחור וזהב */
+            /* פלטת עיצוב יוקרתית - הדר לבן, גוף כחול-נייבי נעים (לא צורם) */
             --primary-header: #0f172a;  
             --accent-gold: #c5a059;   
-            --primary-blue: #0f172a;  
-            --bg-color: #f1f5f9;      
-            --surface-color: #ffffff; 
-            --text-main: #1e293b;     
-            --text-muted: #64748b;    
-            --border-soft: #e2e8f0;
+            --primary-blue: #1e293b;  
+            --bg-color: #0f172a;      /* כחול לילה רך */
+            --surface-color: #1e293b; /* כרטיסיות בכחול מעט בהיר יותר ליצירת עומק */
+            --text-main: #f8fafc;     
+            --text-muted: #94a3b8;    
+            --border-soft: #334155;
             
-            /* צבעי מקצועות יוקרתיים */
-            --math: #dc2626; 
-            --english: #d97706; 
-            --hebrew: #7c3aed;
-            --science: #059669; 
-            --arabic: #ea580c;
-            --finance: #10b981; 
+            /* צבעי מקצועות */
+            --math: #ef4444; 
+            --english: #f59e0b; 
+            --hebrew: #8b5cf6;
+            --science: #10b981; 
+            --arabic: #f97316;
+            --finance: #06b6d4; 
             
-            --shadow-card: 0 12px 30px -5px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 20px 40px -5px rgba(197, 160, 89, 0.25);
+            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 15px 35px -5px rgba(197, 160, 89, 0.2);
         }
 
         /* הגדרות נגישות */
@@ -42,7 +43,8 @@
             padding: 0; 
             color: var(--text-main); 
             line-height: 1.4;
-            background: radial-gradient(circle at top, #ffffff 0%, #e2e8f0 100%);
+            /* הרקע הכחול הנעים */
+            background: linear-gradient(135deg, #0f172a 0%, #172033 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -50,28 +52,79 @@
         }
 
         /* רקע צף ללימודים */
-        #floating-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
-        .floating-icon { position: absolute; font-size: 3rem; color: var(--primary-blue); opacity: 0.03; animation: floatDiagonal infinite linear; font-family: times new roman, serif; font-style: italic;}
-        @keyframes floatDiagonal { 0% { transform: translate(0, 0) rotate(0deg); } 100% { transform: translate(150px, -150px) rotate(360deg); } }
+        #floating-container { 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: 0; overflow: hidden; pointer-events: none; 
+        }
+        .floating-icon { 
+            position: absolute; 
+            font-size: 3rem; 
+            color: #ffffff; 
+            opacity: 0.02; 
+            animation: floatDiagonal infinite linear; 
+            font-family: times new roman, serif; 
+            font-style: italic;
+        }
+        @keyframes floatDiagonal { 
+            0% { transform: translate(0, 0) rotate(0deg); } 
+            100% { transform: translate(150px, -150px) rotate(360deg); } 
+        }
 
-        /* עדכוני מערכת */
-        .edu-updates-strip { background: var(--primary-header); color: var(--accent-gold); padding: 5px 0; font-size: 0.85rem; border-bottom: 1px solid #333; overflow: hidden; white-space: nowrap; position: relative; z-index: 10; font-weight: 600;}
-        .edu-ticker { display: inline-block; animation: marquee-slow 50s linear infinite; }
-        @keyframes marquee-slow { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        /* עדכוני מערכת (לבן) */
+        .edu-updates-strip { 
+            background: #ffffff; 
+            color: var(--primary-header); 
+            padding: 5px 0; 
+            font-size: 0.85rem; 
+            border-bottom: 2px solid var(--border-soft); 
+            overflow: hidden; 
+            white-space: nowrap; 
+            position: relative; 
+            z-index: 10; 
+            font-weight: 600;
+            text-align: center;
+        }
+        .edu-ticker { 
+            display: inline-block; 
+            animation: marquee-slow 50s linear infinite; 
+        }
+        @keyframes marquee-slow { 
+            from { transform: translateX(100%); } 
+            to { transform: translateX(-100%); } 
+        }
 
         /* כפתור נגישות */
-        .accessibility-btn { position: fixed; bottom: 15px; right: 15px; width: 40px; height: 40px; background: var(--primary-header); color: var(--accent-gold); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; z-index: 3000; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: 0.3s; }
-        .accessibility-btn:hover { background: var(--accent-gold); color: #000; transform: scale(1.05); }
-        .acc-menu { position: fixed; bottom: 65px; right: 15px; background: white; border-radius: 12px; box-shadow: var(--shadow-hover); display: none; flex-direction: column; padding: 10px; z-index: 3000; border: 2px solid var(--accent-gold); width: 160px; }
-        .acc-menu button { background: #f8fafc; color: #000; border: 1px solid #e2e8f0; padding: 6px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; font-family: 'Heebo'; font-weight: 600; text-align: right; font-size: 0.85rem;}
+        .accessibility-btn { 
+            position: fixed; bottom: 15px; right: 15px; width: 40px; height: 40px; 
+            background: var(--surface-color); color: var(--accent-gold); 
+            border: 2px solid var(--accent-gold); border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 18px; cursor: pointer; z-index: 3000; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: 0.3s; 
+        }
+        .accessibility-btn:hover { 
+            background: var(--accent-gold); color: #000; transform: scale(1.05); 
+        }
+        .acc-menu { 
+            position: fixed; bottom: 65px; right: 15px; background: var(--surface-color); 
+            border-radius: 12px; box-shadow: var(--shadow-hover); display: none; 
+            flex-direction: column; padding: 10px; z-index: 3000; 
+            border: 1px solid var(--border-soft); width: 160px; 
+        }
+        .acc-menu button { 
+            background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid var(--border-soft); 
+            padding: 6px; margin-bottom: 5px; border-radius: 6px; cursor: pointer; 
+            font-family: 'Heebo'; font-weight: 600; text-align: right; font-size: 0.85rem;
+        }
 
-        /* --- תוספת: כפתור מורה פרטי AI צף --- */
+        /* --- כפתור מורה פרטי צף (לבן בוהק) --- */
         .ai-tutor-fab {
             position: fixed;
             bottom: 15px;
             left: 15px;
-            background: var(--primary-header);
-            color: var(--accent-gold);
+            background: #ffffff;
+            color: var(--primary-header);
             padding: 10px 20px;
             border-radius: 30px;
             font-family: 'Heebo', sans-serif;
@@ -80,7 +133,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.2);
             cursor: pointer;
             z-index: 3000;
             transition: all 0.3s ease;
@@ -94,16 +147,17 @@
         }
         .ai-tutor-fab .icon { font-size: 1.4rem; }
 
-        /* --- תוספת: עיצוב חלון צ'אט של המורה (בסגנון וואטסאפ מוקטן) --- */
+        /* --- חלון צ'אט של המורה (לבן נקי ללא כפילות) --- */
         .ai-chat-window {
             position: fixed;
-            bottom: 75px; 
-            left: 15px;
-            width: 350px;
-            height: 500px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            bottom: 80px; 
+            left: 20px;
+            width: 450px; 
+            height: 620px; 
+            max-height: 85vh; 
+            background: #ffffff; 
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             border: 2px solid var(--accent-gold);
             display: none;
             flex-direction: column;
@@ -117,41 +171,45 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .ai-chat-header {
-            background: var(--primary-header);
-            color: white;
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--accent-gold);
-            font-weight: 700;
+        /* כפתור סגירה צף מעל הצ'אט, מונע כפילות של כותרות */
+        .ai-chat-close-new {
+            position: absolute; 
+            top: 12px; 
+            left: 15px; /* ממוקם בצד שמאל למעלה */
+            background: #f8fafc; 
+            color: #64748b; 
+            width: 32px; 
+            height: 32px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.2rem; 
+            cursor: pointer; 
+            z-index: 3010; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+            transition: 0.2s; 
+            border: 1px solid #e2e8f0;
         }
         
-        .ai-chat-close {
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: #ffffff;
-            transition: 0.2s;
-        }
-        
-        .ai-chat-close:hover {
-            color: #ef4444;
+        .ai-chat-close-new:hover {
+            color: #ef4444; 
+            background: #fff; 
+            transform: scale(1.05);
         }
 
         .ai-chat-iframe {
             width: 100%;
             height: 100%;
             border: none;
+            background: #ffffff; 
         }
-        /* ---------------------------------------------------- */
 
-        /* הדר עליון */
+        /* --- הדר עליון (לבן בלבד) עם פס זהב כגבול תחתון --- */
         header { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(10px);
+            background: #ffffff; 
             padding: 15px 30px 10px 30px; 
-            border-bottom: 2px solid var(--border-soft); 
+            border-bottom: 2px solid var(--accent-gold); 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -163,25 +221,19 @@
         .logo-container { text-align: center; margin-bottom: 15px; }
         .logo-text { color: var(--primary-header); font-size: 2.4rem; font-weight: 900; margin: 0; letter-spacing: 0px; white-space: nowrap; line-height: 1.1;}
         .logo-text span { font-weight: 300; color: var(--accent-gold); }
-        .logo-subtext { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; margin: 0; letter-spacing: 4px; text-transform: uppercase;}
+        .logo-subtext { color: #64748b; font-size: 0.85rem; font-weight: 500; margin: 0; letter-spacing: 4px; text-transform: uppercase;}
 
-        .nav-bar-wrapper { display: flex; justify-content: space-between; width: 100%; max-width: 1400px; align-items: center; }
-        
-        .top-nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;}
-        .nav-btn { 
-            background: rgba(15, 23, 42, 0.04); border: 1px solid transparent; color: var(--text-main); 
-            font-family: 'Heebo'; font-weight: 600; font-size: 0.85rem; padding: 6px 14px; 
-            border-radius: 20px; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
-        }
-        .nav-btn:hover { background: var(--accent-gold); color: #fff; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.2); transform: translateY(-2px); }
+        .nav-bar-wrapper { display: flex; justify-content: flex-end; width: 100%; max-width: 1400px; align-items: center; }
 
         .guest-access { display: flex; align-items: center; gap: 10px; justify-content: flex-end;}
         .user-welcome-tag, .btn-guest { height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 25px; font-size: 0.9rem; font-weight: 700; padding: 0 20px; transition: all 0.3s; cursor: pointer; }
-        .user-welcome-tag { background: #f8fafc; color: var(--primary-blue); border: 1px solid var(--border-soft); display: none; }
+        .user-welcome-tag { background: rgba(15,23,42,0.05); color: var(--primary-header); border: 1px solid var(--border-soft); display: none; }
         .user-welcome-tag:hover { border-color: var(--accent-gold); }
         .btn-guest { background: var(--primary-header); color: #fff; border: 2px solid transparent; box-shadow: 0 4px 10px rgba(0,0,0,0.1); white-space: nowrap;}
         .btn-guest:hover { background: transparent; color: var(--primary-header); border-color: var(--primary-header); transform: translateY(-2px); }
-        .btn-logout { background: #f8fafc !important; color: #dc2626 !important; border: 1px solid #fecaca !important; }
+        
+        /* גופן Heebo לכפתור התנתק */
+        .btn-logout { background: #f8fafc !important; color: #dc2626 !important; border: 1px solid #fecaca !important; font-family: 'Heebo', sans-serif;}
         .btn-logout:hover { background: #fee2e2 !important; border-color: #ef4444 !important; }
 
         .container { 
@@ -196,6 +248,7 @@
             justify-content: flex-start;
         }
 
+        /* --- רשת המקצועות והכרטיסיות הכחולות (Dark Mode) --- */
         .subjects-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
@@ -203,32 +256,30 @@
             width: 100%;
         }
 
-        /* --- עיצוב הבועות (Balloons/Bubbles) החדש --- */
         @keyframes floatBubble {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-12px); }
         }
 
         .subject-card { 
-            background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.85) 100%);
-            border-radius: 45px; /* הופך לבועה */
+            background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 45px; 
             padding: 35px 25px 30px 25px; 
             text-align: center; 
-            box-shadow: var(--shadow-card), inset 0 -5px 15px rgba(0,0,0,0.02); 
+            box-shadow: var(--shadow-card), inset 0 -5px 15px rgba(0,0,0,0.2); 
             position: relative; 
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            border: 2px solid #ffffff; 
+            border: 1px solid var(--border-soft); 
             display: flex; 
             flex-direction: column; 
             align-items: center;
             justify-content: space-between; 
             min-height: 240px; 
             z-index: 5;
-            overflow: hidden; /* שומר שההילה תישאר בפנים */
+            overflow: hidden; 
             animation: floatBubble 6s ease-in-out infinite;
         }
         
-        /* הוספת זמני השהייה שונים כדי שהבועות ירחפו בצורה אורגנית */
         .subject-card:nth-child(1) { animation-delay: 0s; }
         .subject-card:nth-child(2) { animation-delay: 1.5s; }
         .subject-card:nth-child(3) { animation-delay: 3s; }
@@ -237,13 +288,12 @@
         .subject-card:nth-child(6) { animation-delay: 3.5s; }
 
         .subject-card:hover { 
-            box-shadow: var(--shadow-hover), inset 0 -5px 15px rgba(0,0,0,0.02); 
+            box-shadow: var(--shadow-hover); 
             border-color: var(--accent-gold); 
             z-index: 10;
-            animation-play-state: paused; /* עוצר את הריחוף כשמצביעים */
+            animation-play-state: paused;
         }
         
-        /* ההילה הצבעונית בפנים (מחליף את הפס הישר) */
         .card-line { 
             position: absolute; 
             top: -30px; 
@@ -251,105 +301,107 @@
             width: 130px; 
             height: 130px; 
             border-radius: 50%;
-            opacity: 0.12;
+            opacity: 0.15;
             filter: blur(25px);
             z-index: 0;
             transition: all 0.5s ease;
         }
         .subject-card:hover .card-line {
-            opacity: 0.25;
+            opacity: 0.3;
             transform: scale(1.2);
         }
 
-        /* וידוא שהטקסט והכפתורים מעל ההילה */
         .subject-icon, .subject-card h3, .subject-card p, .btn-action, .grade-overlay {
             position: relative;
             z-index: 2;
         }
 
-        .subject-icon { width: 60px; height: 60px; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: var(--primary-blue); background: #ffffff; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+        .subject-icon { 
+            width: 60px; height: 60px; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(255,255,255,0.05); border-radius: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);
+        }
         .subject-icon svg { width: 60%; height: 60%; }
 
-        .subject-card h3 { margin: 0 0 8px 0; font-size: 1.35rem; color: var(--primary-blue); font-weight: 800;}
+        .subject-card h3 { margin: 0 0 8px 0; font-size: 1.35rem; color: var(--text-main); font-weight: 800;}
         .subject-card p { font-size: 0.95rem; margin: 0 0 20px 0; color: var(--text-muted); line-height: 1.4;}
 
-        .btn-action { background: var(--surface-color); color: var(--primary-header); border: 2px solid var(--border-soft); padding: 12px 20px; border-radius: 30px; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); width: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.02);}
-        .subject-card:hover .btn-action { background: var(--accent-gold); color: #fff; border-color: var(--accent-gold); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.3); transform: translateY(-2px);}
+        /* --- כפתור "התחל תרגול" המעודכן - לבן עדין וגופן Varela Round --- */
+        .btn-action { 
+            background: #f1f5f9; 
+            color: var(--primary-header); 
+            border: 1px solid transparent; 
+            padding: 10px 20px; 
+            border-radius: 20px; 
+            font-weight: 700; 
+            font-size: 0.95rem; 
+            cursor: pointer; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            width: 100%; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: 'Varela Round', sans-serif;
+        }
+        .subject-card:hover .btn-action { 
+            background: var(--accent-gold); 
+            color: #000; 
+            border-color: var(--accent-gold); 
+            box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); 
+        }
 
-        /* --- כרטיסיות מתמטיקה (בגרויות וכיתות) מותאמות לבועה --- */
-        .grade-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.97); display: none; flex-direction: column; justify-content: center; align-items: center; padding: 35px 20px 20px 20px; z-index: 20; box-sizing: border-box; border-radius: 45px; backdrop-filter: blur(5px);}
-        .grade-title { font-weight: 800; color: var(--primary-blue); margin-bottom: 12px; font-size: 1.15rem; }
+        /* חלונות הגילאים - כחול כהה */
+        .grade-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); display: none; flex-direction: column; justify-content: center; align-items: center; padding: 35px 20px 20px 20px; z-index: 20; box-sizing: border-box; border-radius: 45px; backdrop-filter: blur(8px);}
+        .grade-title { font-weight: 800; color: var(--text-main); margin-bottom: 12px; font-size: 1.15rem; }
         .grade-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; }
-        .grade-link { padding: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none; color: var(--primary-blue); font-weight: 700; text-align: center; font-size: 0.95rem; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center;}
-        .grade-link:hover { border-color: var(--accent-gold); background: #fff; color: #000; transform: scale(1.03); box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+        .grade-link { padding: 10px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft); border-radius: 12px; text-decoration: none; color: var(--text-main); font-weight: 700; text-align: center; font-size: 0.95rem; transition: 0.2s; cursor: pointer; display: flex; align-items: center; justify-content: center;}
+        .grade-link:hover { border-color: var(--accent-gold); background: rgba(197,160,89,0.1); color: var(--accent-gold); transform: scale(1.03);}
         
-        /* כפתור בגרויות */
-        .btn-bagrut { grid-column: span 2; background: #ffffff !important; color: var(--primary-header) !important; border: 2px solid var(--accent-gold) !important; font-weight: 800; font-size: 1rem; margin-top: 5px; border-radius: 15px;}
-        .btn-bagrut:hover { background: var(--accent-gold) !important; color: #fff !important; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(197, 160, 89, 0.25); }
+        .btn-bagrut { grid-column: span 2; background: rgba(197,160,89,0.1) !important; color: var(--accent-gold) !important; border: 1px solid var(--accent-gold) !important; font-weight: 800; font-size: 1rem; margin-top: 5px; border-radius: 15px;}
+        .btn-bagrut:hover { background: var(--accent-gold) !important; color: #000 !important; transform: translateY(-2px); }
         
         .bagrut-list { display: flex; flex-direction: column; gap: 10px; width: 100%; max-height: 150px; overflow-y: auto; padding-right: 5px; box-sizing: border-box;}
-        .bagrut-list::-webkit-scrollbar { width: 6px; }
-        .bagrut-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
-        .bagrut-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .bagrut-list::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
+        .bagrut-list::-webkit-scrollbar { width: 4px; }
+        .bagrut-list::-webkit-scrollbar-track { background: transparent; }
+        .bagrut-list::-webkit-scrollbar-thumb { background: var(--border-soft); border-radius: 10px; }
 
-        .unit-group { display: flex; flex-direction: column; gap: 6px; background: #ffffff; border: 1px solid var(--border-soft); border-radius: 15px; padding: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);}
-        .unit-label { font-size: 0.95rem; font-weight: 800; color: var(--primary-header); text-align: center; border-bottom: 2px solid var(--border-soft); padding-bottom: 6px; margin: 0 0 4px 0; }
+        .unit-group { display: flex; flex-direction: column; gap: 6px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-soft); border-radius: 15px; padding: 12px;}
+        .unit-label { font-size: 0.95rem; font-weight: 800; color: var(--text-muted); text-align: center; border-bottom: 1px solid var(--border-soft); padding-bottom: 6px; margin: 0 0 4px 0; }
         .pill-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); gap: 8px;}
-        .pill-container .grade-link { padding: 6px 4px; font-size: 0.85rem; border-radius: 8px; background: #f8fafc; border: 1px solid #e2e8f0; font-weight: 700; }
-        .pill-container .grade-link:hover { border-color: var(--accent-gold); background: var(--accent-gold); color: #fff; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(197, 160, 89, 0.2);}
+        .pill-container .grade-link { padding: 6px 4px; font-size: 0.85rem; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-soft); font-weight: 700; }
+        .pill-container .grade-link:hover { border-color: var(--accent-gold); background: var(--accent-gold); color: #fff; transform: translateY(-2px);}
         
         .close-overlay {
             position: absolute; top: 15px; left: 20px; font-size: 1.3rem; font-weight: bold;
             color: #94a3b8; cursor: pointer; transition: color 0.2s; z-index: 30; line-height: 1;
-            background: #f1f5f9; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%;
+            background: rgba(255,255,255,0.05); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%;
         }
         .close-overlay:hover { color: #fff; background: #ef4444; }
 
-        /* חלון התחברות והרשמה */
-        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; }
-        .login-card { background: white; color: #000; width: 420px; padding: 25px 30px; border-radius: 20px; position: relative; text-align: center; max-height: 90vh; overflow-y: auto; border-top: 6px solid var(--accent-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3);}
+        /* אזור ההתחברות (כהה) */
+        .login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; }
+        .login-card { background: var(--surface-color); color: var(--text-main); width: 420px; padding: 25px 30px; border-radius: 20px; position: relative; text-align: center; max-height: 90vh; overflow-y: auto; border: 1px solid var(--border-soft); box-shadow: 0 20px 50px rgba(0,0,0,0.5);}
         
-        .login-card input, .login-card select { width: 100%; padding: 10px 12px; margin-bottom: 12px; border: 1.5px solid #cbd5e1; border-radius: 10px; box-sizing: border-box; font-family: 'Heebo'; font-size: 0.95rem; background: #f8fafc; transition: all 0.2s;}
-        .login-card input:focus, .login-card select:focus { border-color: var(--accent-gold); outline: none; background: #fff; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);}
+        .login-card input, .login-card select { width: 100%; padding: 10px 12px; margin-bottom: 12px; border: 1px solid var(--border-soft); border-radius: 10px; box-sizing: border-box; font-family: 'Heebo'; font-size: 0.95rem; background: var(--bg-color); color: var(--text-main); transition: all 0.2s;}
+        .login-card input:focus, .login-card select:focus { border-color: var(--accent-gold); outline: none; background: rgba(255,255,255,0.05); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);}
         
         .input-row { display: flex; gap: 10px; width: 100%; align-items: flex-start;}
         .input-row input, .input-row select { flex: 1; min-width: 0; margin-bottom: 0;}
         
-        #children-container { background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px dashed #cbd5e1; margin-bottom: 15px; text-align: right;}
+        #children-container { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; border: 1px dashed var(--border-soft); margin-bottom: 15px; text-align: right;}
         .child-entry { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
-        .remove-child-btn { background: #fee2e2; color: #ef4444; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.2s; flex-shrink: 0; }
-        .remove-child-btn:hover { background: #fecaca; color: #b91c1c; }
+        .remove-child-btn { background: rgba(239,68,68,0.1); color: #ef4444; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.2s; flex-shrink: 0; border: 1px solid rgba(239,68,68,0.2);}
+        .remove-child-btn:hover { background: #ef4444; color: #fff; }
 
-        .profile-btn { cursor: pointer; background: #ffffff; color: var(--primary-blue); padding: 15px; border-radius: 12px; margin-bottom: 10px; font-weight: 700; border: 1.5px solid var(--border-soft); transition: 0.3s; display: flex; align-items: center; justify-content: flex-start; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);}
-        .profile-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(197, 160, 89, 0.15);}
+        .profile-btn { cursor: pointer; background: rgba(255,255,255,0.05); color: var(--text-main); padding: 15px; border-radius: 12px; margin-bottom: 10px; font-weight: 700; border: 1px solid var(--border-soft); transition: 0.3s; display: flex; align-items: center; justify-content: flex-start; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
+        .profile-btn:hover { border-color: var(--accent-gold); transform: translateY(-2px);}
 
         .forgot-pass-link { display: block; margin: 5px 0 15px 0; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; text-decoration: underline;}
 
-        .auth-tabs { display:flex; margin-bottom:20px; border-bottom: 2px solid var(--border-soft); }
+        .auth-tabs { display:flex; margin-bottom:20px; border-bottom: 1px solid var(--border-soft); }
         .auth-tab { flex:1; cursor:pointer; font-weight:800; font-size: 1rem; padding:10px; transition: 0.2s; color: var(--text-muted); }
-        .auth-tab.active { color: var(--primary-header); border-bottom: 3px solid var(--accent-gold); }
-        .auth-tab:hover:not(.active) { color: #000; }
+        .auth-tab.active { color: var(--accent-gold); border-bottom: 3px solid var(--accent-gold); }
+        .auth-tab:hover:not(.active) { color: var(--text-main); }
 
-        /* --- חלונות מידע כללי --- */
-        .info-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.8); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 4000; }
-        .info-modal-card { background: white; padding: 35px; border-radius: 20px; width: 90%; max-width: 600px; max-height: 85vh; overflow-y: auto; position: relative; border-top: 6px solid var(--accent-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.3);}
-        .info-modal-card h2 { color: var(--primary-header); margin-top: 0; border-bottom: 2px solid var(--border-soft); padding-bottom: 12px; margin-bottom: 25px; font-size: 1.7rem; font-weight: 900;}
-        
-        .reviews-container { display: flex; flex-direction: column; gap: 20px; text-align: right; }
-        .review-box { background: #ffffff; border: 1px solid var(--border-soft); padding: 25px; border-radius: 16px; display: flex; gap: 15px; align-items: center; box-shadow: 0 6px 15px rgba(0,0,0,0.03); position: relative;}
-        .review-content { flex: 1; }
-        .review-content p { margin: 0 0 10px 0; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; font-style: italic;}
-        .review-author { font-weight: 800; color: var(--primary-header); font-size: 0.95rem; }
-        .verified-badge { display: inline-flex; align-items: center; gap: 4px; background: #dcfce7; color: #166534; font-size: 0.75rem; padding: 3px 8px; border-radius: 12px; font-weight: 700; margin-right: 10px; border: 1px solid #86efac;}
-        .exam-proof { width: 100px; height: 100px; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-3deg); flex-shrink:0; position: relative;}
-        .exam-proof::before { content: ''; position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; border: 1px solid #e2e8f0; border-radius: 8px; }
-        .exam-proof span { color: #dc2626; font-weight: 900; font-size: 2rem; font-family: Tahoma, serif; line-height: 1; z-index: 1;}
-        .exam-proof small { font-size: 0.7rem; color: var(--text-muted); font-weight: bold; margin-top: 6px; z-index: 1;}
-
-        .custom-alert-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(3px); display: none; justify-content: center; align-items: center; z-index: 5000; }
-        .custom-alert-card { background: white; padding: 30px; border-radius: 20px; width: 320px; text-align: center; box-shadow: var(--shadow-hover); border: 2px solid var(--accent-gold); }
-        .custom-alert-msg { font-size: 1.1rem; font-weight: 700; color: var(--primary-header); margin-bottom: 25px; }
+        .custom-alert-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(3px); display: none; justify-content: center; align-items: center; z-index: 5000; }
+        .custom-alert-card { background: var(--surface-color); padding: 30px; border-radius: 16px; width: 320px; text-align: center; border: 1px solid var(--accent-gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5);}
+        .custom-alert-msg { font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 25px; }
 
         footer { text-align: center; padding: 20px; background: transparent; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; position: relative; z-index: 10; margin-top: auto;}
 
@@ -357,17 +409,12 @@
         @media (max-width: 1000px) {
             body { overflow-y: auto; } 
             .subjects-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .ai-chat-window { width: calc(100% - 20px); height: calc(100vh - 80px); bottom: 60px; left: 10px; }
             header { padding: 15px; }
             .logo-text { font-size: 2rem; }
             .nav-bar-wrapper { flex-direction: column; gap: 10px; }
             .guest-access { width: 100%; justify-content: center;}
-            .top-nav { flex-wrap: wrap; justify-content: center; gap: 8px;}
-            .review-box { flex-direction: column; text-align: center; }
-            .exam-proof { transform: rotate(0); }
             .login-card { width: 90%; padding: 20px; }
-            
-            .ai-tutor-fab { padding: 8px 15px; font-size: 0.95rem; }
-            .ai-chat-window { width: calc(100% - 20px); height: calc(100vh - 80px); bottom: 60px; left: 10px; }
         }
     </style>
 </head>
@@ -376,7 +423,7 @@
 <div id="custom-alert" class="custom-alert-overlay">
     <div class="custom-alert-card">
         <div id="alert-text" class="custom-alert-msg"></div>
-        <button class="btn-action" style="padding: 10px 25px; width:100%; border-radius: 12px;" onclick="closeAlert()">אישור</button>
+        <button class="btn-action" style="padding: 10px 25px; width:100%; border-radius: 12px; background:var(--accent-gold); color:#000; border:none; font-family:'Heebo', sans-serif;" onclick="closeAlert()">אישור</button>
     </div>
 </div>
 
@@ -387,19 +434,16 @@
     <button onclick="toggleAcc('large-text')">טקסט גדול</button>
     <button onclick="toggleAcc('high-contrast')">ניגודיות גבוהה</button>
     <button onclick="toggleAcc('underline-links')">הדגשת קישורים</button>
-    <button onclick="resetAcc()" style="background:#fee2e2; color:#b91c1c; border-color:#f87171;">איפוס</button>
+    <button onclick="resetAcc()" style="background:rgba(239,68,68,0.1); color:#ef4444; border-color:rgba(239,68,68,0.2);">איפוס</button>
 </div>
 
 <div class="ai-tutor-fab" onclick="handleAiClick()" title="שאל את המורה הפרטי">
-    <span>מורה פרטי AI</span>
-    <span class="icon">🤖</span>
+    <span>מורה פרטי</span>
+    <span class="icon">🎓</span>
 </div>
 
 <div id="ai-chat-window" class="ai-chat-window">
-    <div class="ai-chat-header">
-        <span>שיחה עם המורה 🤖</span>
-        <span class="ai-chat-close" onclick="closeAiModal()" title="מזער חלון">✕</span>
-    </div>
+    <span class="ai-chat-close-new" onclick="closeAiModal()" title="סגור חלון">✕</span>
     <iframe id="ai-iframe" class="ai-chat-iframe" src=""></iframe>
 </div>
 
@@ -414,9 +458,6 @@
     </div>
     
     <div class="nav-bar-wrapper">
-        <div class="top-nav">
-        </div>
-        
         <div class="guest-access">
             <div id="user-welcome" class="user-welcome-tag" onclick="openProfileSwitcher()"></div>
             <button class="btn-guest" id="main-auth-btn" onclick="handleAuthClick()">כניסה לחשבון</button>
@@ -445,7 +486,7 @@
                     <a href="math.html?grade=ז" class="grade-link">כיתה ז'</a>
                     <a href="math.html?grade=ח" class="grade-link">כיתה ח'</a>
                     <a href="math.html?grade=ט" class="grade-link">כיתה ט'</a>
-                    <button class="grade-link btn-bagrut" onclick="showMenu('bagrut-overlay')">שאלוני בגרות</button>
+                    <button class="grade-link btn-bagrut" onclick="showMenu('bagrut-overlay')">שאלוני בגרות (י'-י"ב)</button>
                 </div>
             </div>
             
@@ -454,7 +495,7 @@
                 <div class="grade-title" style="margin-bottom:10px;">שאלוני בגרות במתמטיקה</div>
                 <div class="bagrut-list">
                     <div class="unit-group">
-                        <div class="unit-label">3 יחידות</div>
+                        <div class="unit-label">3 יחידות לימוד</div>
                         <div class="pill-container">
                             <a href="math.html?grade=35172" class="grade-link">35172</a>
                             <a href="math.html?grade=35371" class="grade-link">35371</a>
@@ -462,14 +503,14 @@
                         </div>
                     </div>
                     <div class="unit-group">
-                        <div class="unit-label">4 יחידות</div>
+                        <div class="unit-label">4 יחידות לימוד</div>
                         <div class="pill-container">
                             <a href="math.html?grade=35471" class="grade-link">35471</a>
                             <a href="math.html?grade=35472" class="grade-link">35472</a>
                         </div>
                     </div>
                     <div class="unit-group">
-                        <div class="unit-label">5 יחידות</div>
+                        <div class="unit-label">5 יחידות לימוד</div>
                         <div class="pill-container">
                             <a href="math.html?grade=35571" class="grade-link">35571</a>
                             <a href="math.html?grade=35572" class="grade-link">35572</a>
@@ -554,7 +595,7 @@
                 <input type="email" id="login-email" placeholder="אימייל / Email *">
                 <input type="password" id="login-pass" placeholder="סיסמה">
                 <span class="forgot-pass-link" onclick="handleForgotPass()">שכחתי סיסמה</span>
-                <button class="btn-action" style="border-radius:12px; margin-top:10px;" onclick="handleLocalLogin()">היכנס למערכת</button>
+                <button class="btn-action" style="border-radius:12px; margin-top:10px; background:var(--accent-gold); color:#000; border:none; font-family:'Heebo', sans-serif;" onclick="handleLocalLogin()">היכנס למערכת</button>
             </div>
             
             <div id="register-section" style="display:none; text-align:right;">
@@ -574,7 +615,7 @@
                 </div>
                 
                 <div id="children-container">
-                    <label style="font-size:1rem; font-weight:800; color:var(--primary-blue); display:block; margin-bottom:12px;">פרטי התלמידים (הילדים הלומדים):</label>
+                    <label style="font-size:1rem; font-weight:800; color:var(--text-main); display:block; margin-bottom:12px;">פרטי התלמידים (הילדים הלומדים):</label>
                     <div class="child-entry">
                         <input type="text" class="child-name" placeholder="שם הילד *" style="margin-bottom:0;">
                         <select class="child-grade" style="margin-bottom:0;">
@@ -592,23 +633,13 @@
                     <button type="button" onclick="addChildRow()" style="background:none; border:none; color:var(--accent-gold); cursor:pointer; font-weight:800; font-size:0.95rem; text-decoration:underline; transition:0.2s;">+ הוסף תלמיד נוסף</button>
                 </div>
                 
-                <button class="btn-action" style="border-radius:12px;" onclick="handleLocalRegister()">צור חשבון חדש</button>
+                <button class="btn-action" style="border-radius:12px; background:var(--accent-gold); color:#000; border:none; font-family:'Heebo', sans-serif;" onclick="handleLocalRegister()">צור חשבון חדש</button>
             </div>
         </div>
         
         <div id="profile-selection" style="display:none;">
-            <h3 style="margin-bottom:25px; font-weight:900; color:var(--primary-blue); font-size:1.4rem;">מי לומד עכשיו?</h3>
+            <h3 style="margin-bottom:25px; font-weight:900; color:var(--text-main); font-size:1.4rem;">מי לומד עכשיו?</h3>
             <div id="profiles-list"></div>
-        </div>
-    </div>
-</div>
-
-<div id="global-info-modal" class="info-modal-overlay">
-    <div class="info-modal-card">
-        <span class="close-overlay" style="top:20px; right:auto; left:20px;" onclick="closeGlobalModal()">✕</span>
-        <h2 id="global-info-title">כותרת</h2>
-        <div id="global-info-content" style="text-align:right; font-size:1.05rem; line-height:1.6; color:var(--text-muted);">
-            תוכן החלון...
         </div>
     </div>
 </div>
@@ -626,7 +657,6 @@
         console.warn('LocalStorage blocked.');
     }
 
-    // --- פונקציות מורה פרטי AI מעודכנות ---
     function handleAiClick() {
         if(localStorage.getItem('loggedInEmail')) {
             openAiModal();
@@ -652,7 +682,6 @@
     function closeAiModal() {
         document.getElementById('ai-chat-window').style.display = 'none';
     }
-    // ------------------------------------
 
     function myAlert(text) {
         document.getElementById('alert-text').innerText = text;
@@ -662,94 +691,9 @@
         document.getElementById('custom-alert').style.display = 'none';
     }
 
-    function openGlobalModal(type) {
-        const title = document.getElementById('global-info-title');
-        const content = document.getElementById('global-info-content');
-        
-        if (type === 'about') {
-            title.innerText = "קצת עלינו - המרכז להישגים לימודיים";
-            content.innerHTML = `
-                <p>המרכז להישגים לימודיים נוסד בשנת 2020, בשיאה של מגפת הקורונה העולמית. מתוך המשבר והאתגר העצום של הלמידה מרחוק, הבנו שזוהי למעשה ההזדמנות ליצור את הדרך הנכונה, המדויקת והמותאמת ביותר עבור ילדים ללמוד ולהצליח.</p>
-                <p>גילינו שלמידה דיגיטלית חכמה, המשלבת תרגול אינטראקטיבי, פידבק מיידי וניתוח נתונים, מביאה לתוצאות חסרות תקדים ועוקפת את שיטות הלימוד המסורתיות.</p>
-                <p>מאז ועד היום, אנו מפתחים, משכללים ומשפרים את המערכת שלנו מדי יום, תוך הקפדה על חומרי הלימוד האיכותיים ביותר, המותאמים בצורה מושלמת לתוכנית הלימודים של משרד החינוך בישראל, מבית הספר היסודי ועד למבחני הבגרות.</p>
-                <p style="font-weight:bold; color:var(--accent-gold); margin-top:20px; text-align:center;">המטרה שלנו: לאפשר לכל תלמיד לממש את הפוטנציאל שלו למצוינות.</p>
-            `;
-        } 
-        else if (type === 'reviews') {
-            title.innerText = "המלצות והוכחות להצלחה";
-            content.innerHTML = `
-                <p style="margin-bottom:20px; font-weight:bold; color:var(--primary-blue); text-align:center;">ההשקעה שלנו משתקפת בציונים של התלמידים שלנו.</p>
-                <div class="reviews-container">
-                    <div class="review-box">
-                        <div class="review-content">
-                            <p>"הבת שלי פחדה ממתמטיקה והייתה על ממוצע 60. מאז שהתחלנו לתרגל במערכת, היא הבינה את ההיגיון מאחורי המספרים. היום היא קיבלה 95 במבחן המסכם! מדהים."</p>
-                            <span class="review-author">מיכל, אמא לתלמידת ח'</span>
-                            <br><span class="verified-badge">✓ הורה מאומת</span>
-                        </div>
-                        <div class="exam-proof">
-                            <span>95</span>
-                            <small>במבחן במתמטיקה</small>
-                        </div>
-                    </div>
-                    
-                    <div class="review-box">
-                        <div class="review-content">
-                            <p>"התרגולים באנגלית (במיוחד קטעי ה-Unseen) הם ברמה הכי קרובה לבגרות שראיתי. זה נתן לי ביטחון ענק וסיימתי עם 92 סופי ב-5 יחידות."</p>
-                            <span class="review-author">יונתן, תלמיד י"ב</span>
-                            <br><span class="verified-badge">✓ תלמיד מאומת</span>
-                        </div>
-                        <div class="exam-proof">
-                            <span>92</span>
-                            <small>בגרות 5 יחידות</small>
-                        </div>
-                    </div>
-
-                    <div class="review-box">
-                        <div class="review-content">
-                            <p>"כאמא ל-3 ילדים בגילאים שונים, המערכת הזו הצילה אותנו כלכלית. יש פה הכל - לשון, מדעים, מתמטיקה. הילדים לומדים לבד והציונים בתעודה מדברים בעד עצמם."</p>
-                            <span class="review-author">דנה, אמא ל-3</span>
-                            <br><span class="verified-badge">✓ מנוי משפחתי</span>
-                        </div>
-                        <div class="exam-proof">
-                            <span style="font-size:1.6rem; color:#059669;">מצוין</span>
-                            <small>הערכה בתעודה</small>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-        else if (type === 'collab') {
-            title.innerText = "שיתופי פעולה אסטרטגיים";
-            content.innerHTML = `
-                <p>אנו מאמינים בכוחה של טכנולוגיה לסגור פערים ולהנגיש חינוך איכותי לכולם.</p>
-                <p>המרכז להישגים לימודיים פתוח לשיתופי פעולה עם מוסדות וארגונים:</p>
-                <ul style="line-height:1.6; margin-top:15px;">
-                    <li><strong>בתי ספר:</strong> שילוב המערכת במערך השיעורים ואפשרות מעקב מורים אחר התקדמות תלמידים.</li>
-                    <li><strong>רשויות מקומיות:</strong> רכישת רישיונות מרוכזים ומסובסדים לתלמידי הרשות.</li>
-                    <li><strong>עמותות וקידום נוער:</strong> תוכניות מיוחדות להנגשת המערכת לאוכלוסיות מגוונות.</li>
-                </ul>
-                <p style="margin-top:20px; font-weight:bold; color:var(--primary-blue);">לפרטים נוספים ותיאום פגישת הדגמה, אנא השאירו פרטים בחלון 'צור קשר'.</p>
-            `;
-        }
-        else if (type === 'contact') {
-            title.innerText = "צור קשר";
-            content.innerHTML = `
-                <p>נשמח לעמוד לשירותך לכל שאלה, תקלה או הצעה.</p>
-                <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
-                    <input type="text" placeholder="שם מלא" style="padding:12px; border-radius:10px; border:1px solid var(--border-soft); font-family:'Heebo'; font-size:1rem;">
-                    <input type="email" placeholder="אימייל לחזרה" style="padding:12px; border-radius:10px; border:1px solid var(--border-soft); font-family:'Heebo'; font-size:1rem;">
-                    <textarea placeholder="כיצד נוכל לעזור?" rows="5" style="padding:12px; border-radius:10px; border:1px solid var(--border-soft); font-family:'Heebo'; font-size:1rem; resize:none;"></textarea>
-                    <button class="btn-action" style="width:100%; border-radius:12px; margin-top:10px; padding:12px;" onclick="myAlert('פנייתך נשלחה בהצלחה למחלקת פניות הציבור. נחזור אליך בהקדם!'); closeGlobalModal();">שליחת פנייה</button>
-                </div>
-            `;
-        }
-
-        document.getElementById('global-info-modal').style.display = 'flex';
-    }
-
-    function closeGlobalModal() {
-        document.getElementById('global-info-modal').style.display = 'none';
-    }
+    function toggleAccMenu() { const m = document.getElementById('acc-menu'); if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+    function toggleAcc(cls) { document.body.classList.toggle(cls); }
+    function resetAcc() { document.body.className = ''; }
 
     function createFloatingIcons() {
         const container = document.getElementById('floating-container');
@@ -779,7 +723,6 @@
             }
         } catch(e) {}
     }
-
     setInterval(keepAlive, 10000);
 
     const INACTIVITY_LIMIT = 30 * 60 * 1000; 
@@ -856,19 +799,6 @@
         }
     }, 3000);
 
-    function handleForgotPass() {
-        const email = prompt("אנא הזן את כתובת האימייל שלך לשחזור סיסמה:");
-        if (!email) return;
-        try {
-            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
-            if (users[email.toLowerCase().trim()]) {
-                myAlert("הוראות לשחזור סיסמה נשלחו לתיבת המייל (בסימולציה זו: הסיסמה שלך היא " + users[email.toLowerCase().trim()].password + ")");
-            } else {
-                myAlert("אימייל זה לא נמצא במערכת.");
-            }
-        } catch(e) {}
-    }
-
     function updateUI() {
         const btn = document.getElementById('main-auth-btn');
         const welcome = document.getElementById('user-welcome');
@@ -889,6 +819,12 @@
     function openProfileSwitcher() {
         try {
             const currentEmail = localStorage.getItem('loggedInEmail');
+            
+            if (currentEmail === "aviv@fakiro.co.il") {
+                myAlert("אתה מחובר כמנהל המערכת. אין אפשרות להחליף פרופיל תלמיד במסך זה.");
+                return;
+            }
+
             const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
             const user = users[currentEmail];
             if (user && user.children) {
@@ -932,6 +868,19 @@
         } catch(e) { myAlert("שגיאה במערכת ההתחברות."); }
     }
 
+    function handleForgotPass() {
+        const email = prompt("אנא הזן את כתובת האימייל שלך לשחזור סיסמה:");
+        if (!email) return;
+        try {
+            const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            if (users[email.toLowerCase().trim()]) {
+                myAlert("הוראות לשחזור סיסמה נשלחו לתיבת המייל (בסימולציה זו: הסיסמה שלך היא " + users[email.toLowerCase().trim()].password + ")");
+            } else {
+                myAlert("אימייל זה לא נמצא במערכת.");
+            }
+        } catch(e) {}
+    }
+
     function addChildRow() {
         const container = document.getElementById('children-container');
         const row = document.createElement('div');
@@ -944,7 +893,7 @@
                 <option value="ז">כיתה ז'</option>
                 <option value="ח">כיתה ח'</option>
                 <option value="ט">כיתה ט'</option>
-                <option value="תיכון">תיכון (י'-י"ב)</option>
+                <option value="תיכון">תיכון ובגרויות</option>
             </select>
             <span class="remove-child-btn" onclick="this.parentElement.remove()" title="מחק תלמיד">✕</span>
         `;
@@ -1032,7 +981,7 @@
             
             const d = document.createElement('div'); 
             d.className = 'profile-btn'; 
-            d.innerHTML = `<span style="font-size:1.6rem;">👤</span> <span style="font-size:1.2rem;">${cName}</span> <span style="font-size:0.9rem; color:#64748b; background:#e2e8f0; padding:6px 12px; border-radius:15px; margin-right:auto;">כיתה ${cGrade}</span>`;
+            d.innerHTML = `<span style="font-size:1.6rem;">👤</span> <span style="font-size:1.2rem;">${cName}</span> <span style="font-size:0.9rem; color:var(--text-main); background:rgba(255,255,255,0.1); border:1px solid var(--border-soft); padding:4px 10px; border-radius:15px; margin-right:auto;">כיתה ${cGrade}</span>`;
             
             d.onclick = () => { 
                 try { localStorage.setItem('activeProfile', cName); } catch(e){}
@@ -1046,7 +995,7 @@
         const currentEmail = localStorage.getItem('loggedInEmail');
         if (localStorage.getItem('activeProfile') || currentEmail) { 
             try {
-                if(currentEmail) {
+                if(currentEmail && currentEmail !== "aviv@fakiro.co.il") {
                     const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
                     if(users[currentEmail]) {
                         users[currentEmail].isOnline = false;
@@ -1055,7 +1004,7 @@
                 }
                 localStorage.removeItem('activeProfile'); 
                 localStorage.removeItem('loggedInEmail'); 
-            } catch(e) {}
+            } catch(e) { console.warn('שגיאה בעדכון מצב התחברות'); }
             location.reload(); 
         } else {
             toggleLogin(); 
@@ -1103,10 +1052,6 @@
             toggleLogin(); 
         }
     }
-    
-    function toggleAccMenu() { const m = document.getElementById('acc-menu'); if(m) m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
-    function toggleAcc(cls) { document.body.classList.toggle(cls); }
-    function resetAcc() { document.body.className = ''; }
 
     keepAlive();
     updateUI();

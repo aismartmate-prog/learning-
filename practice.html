@@ -154,6 +154,23 @@
             border-color: #22c55e;
             color: #14532d;
         }
+        
+        .btn-mute {
+            background: #fee2e2;
+            border-color: #f87171;
+            color: #b91c1c;
+            margin-top: 4px;
+        }
+        .btn-mute:hover:not(:disabled) {
+            background: #fecaca;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+        .btn-mute.muted {
+            background: #dcfce7;
+            border-color: #4ade80;
+            color: #166534;
+        }
 
         .main-content { 
             flex: 1; 
@@ -494,8 +511,8 @@
             position: fixed;
             bottom: 70px;
             left: 15px;
-            width: 360px;
-            height: 550px;
+            width: 450px;
+            height: 620px;
             max-width: calc(100vw - 30px);
             max-height: calc(100vh - 90px);
             display: none;
@@ -600,8 +617,8 @@
 <body>
 
 <div class="ai-tutor-fab" onclick="openAiTutorModal()" title="שאל את המורה הפרטי">
-    <span>מורה פרטי AI</span>
-    <span class="icon">🤖</span>
+    <span>מורה פרטי</span>
+    <span class="icon">🎓</span>
 </div>
 
 <div id="ai-tutor-modal" class="ai-modal-overlay">
@@ -617,7 +634,7 @@
             <h2>חיפוש נושא תרגול</h2>
             <span class="search-close" onclick="closeSearchModal()">✕</span>
         </div>
-        <input type="text" id="search-input" class="search-input" placeholder="הקלד נושא לחיפוש (למשל: משוואות, אנגלית, אחוזים)..." onkeyup="filterSearch()">
+        <input type="text" id="search-input" class="search-input" placeholder="הקלד נושא לחיפוש (למשל: משוואות, אנגלית, מערכות בגוף האדם)..." onkeyup="filterSearch()">
         <div class="search-results" id="search-results"></div>
     </div>
 </div>
@@ -649,6 +666,10 @@
         
         <button class="btn-side" onclick="goBackToActivity()" style="margin-top: auto; color: var(--primary-header); font-weight: bold;"><span>החלף פעילות</span> <span>🗂️</span></button>
         <button class="btn-side" onclick="window.location.href='tirgul.html'" style="color: #64748b; font-weight: bold; border-color: transparent;"><span>חזרה למסך הראשי</span> <span>🏠</span></button>
+        
+        <button id="btn-mute" class="btn-side btn-mute" onclick="toggleMute()">
+            <span id="mute-text">השתק צלילים</span> <span id="mute-icon">🔈</span>
+        </button>
     </aside>
     
     <main class="main-content">
@@ -690,152 +711,246 @@
 </div>
 
 <script>
+    // --- טעינת קבצי הקול שלך (מתוך הניתוב שצירפת) ---
+    const correctFiles = [
+        'audio/correct.mp3',
+        'audio/correct1.mp3',
+        'audio/correct2.mp3'
+    ];
+
+    const uncorrectFiles = [
+        'audio/uncorrect1.mp3',
+        'audio/uncorrect3.mp3',
+        'audio/uncorrect4.mp3',
+        'audio/uncorrect6.mp3'
+    ];
+
+    // אובייקט שמחזיק את הסאונד שמתנגן כרגע
+    let currentPlayingSound = null;
+
     let filteredQuestions = [], displayIndex = 0, userAnswers = {}, returnUrl = 'tirgul.html'; 
     let currentTopic = "", currentSubtopic = "", currentGrade = "";
     let isFinanceMode = false, isEnglishMode = false, isHebrewMode = false, isArabicMode = false, isMathMode = false;
     let currentSpeechText = ""; window.currentPassage = ""; 
     
+    // משתנה השתקה גלובלי
+    let isMuted = false;
+    
     window.allOriginalQuestions = [];
     window.difficultyTiers = { easy: [], medium: [], hard: [] };
 
-    // מאגר החיפוש המדויק לכל הנושאים שקיימים בוודאות בלבד - ללא שגיאות וללא חט"ב כללי! תואם לקריאה ב-script.src
+    // מאגר החיפוש המדויק על סמך התמונות המצורפות
     const detailedSearchDB = [
-        // כיתות ה'-ו'
-        { name: "שברים", link: "practice.html?grade=5_6&topic=fractions", grade: "מתמטיקה ה'-ו'" },
-        { name: "מידות עשרוניות", link: "practice.html?grade=5_6&topic=decimals", grade: "מתמטיקה ה'-ו'" },
-        { name: "אחוזים", link: "practice.html?grade=5_6&topic=percents", grade: "מתמטיקה ה'-ו'" },
-        { name: "גיאומטריה", link: "practice.html?grade=5_6&topic=geometry", grade: "מתמטיקה ה'-ו'" },
-        { name: "בעיות מילוליות", link: "practice.html?grade=5_6&topic=verbal_problems", grade: "מתמטיקה ה'-ו'" },
+        // מתמטיקה ה'-ו' בר אילן (מצוינות)
+        { name: "מתמטיקה ה'-ו' בר אילן (מצוינות)", link: "practice.html?grade=5_6_bar_ilan&topic=bar_ilan", grade: "מתמטיקה ה'-ו'" },
 
-        // כיתה ז'
-        { name: "מספרים מכוונים", link: "practice.html?grade=grade7&topic=signed_numbers", grade: "מתמטיקה כיתה ז'" },
-        { name: "חוקי פעולות החשבון", link: "practice.html?grade=grade7&topic=arithmetic_laws", grade: "מתמטיקה כיתה ז'" },
-        { name: "חזקות ושורשים", link: "practice.html?grade=grade7&topic=powers", grade: "מתמטיקה כיתה ז'" },
-        { name: "ביטויים אלגבריים", link: "practice.html?grade=grade7&topic=expressions", grade: "מתמטיקה כיתה ז'" },
-        { name: "משוואות", link: "practice.html?grade=grade7&topic=equations", grade: "מתמטיקה כיתה ז'" },
-        { name: "בעיות מילוליות", link: "practice.html?grade=grade7&topic=verbal_problems", grade: "מתמטיקה כיתה ז'" },
-        { name: "פונקציות", link: "practice.html?grade=grade7&topic=functions", grade: "מתמטיקה כיתה ז'" },
-        { name: "גיאומטריה וזוויות", link: "practice.html?grade=grade7&topic=angles", grade: "מתמטיקה כיתה ז'" },
+        // מתמטיקה ה'-ו'
+        { name: "מתמטיקה ה'-ו' - שברים", link: "practice.html?grade=5_6&topic=fractions", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - מידות עשרוניות", link: "practice.html?grade=5_6&topic=decimals", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - אחוזים", link: "practice.html?grade=5_6&topic=percents", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - גיאומטריה", link: "practice.html?grade=5_6&topic=geometry", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - בעיות מילוליות", link: "practice.html?grade=5_6&topic=verbal_problems", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - יחס", link: "practice.html?grade=5_6&topic=ratio", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - חקר נתונים (Data Analysis)", link: "practice.html?grade=5_6&topic=dataAnalysis", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - תרגול מסכם (Summary)", link: "practice.html?grade=5_6&topic=summary", grade: "מתמטיקה ה'-ו'" },
+        { name: "מתמטיקה ה'-ו' - מבחנים מסכמים (Final Reviews)", link: "practice.html?grade=5_6&topic=finalReviews", grade: "מתמטיקה ה'-ו'" },
 
-        // כיתה ח'
-        { name: "יחס ופרופורציה", link: "practice.html?grade=grade8&topic=ratio", grade: "מתמטיקה כיתה ח'" },
-        { name: "משוואות ואי-שוויונים", link: "practice.html?grade=grade8&topic=equations", grade: "מתמטיקה כיתה ח'" },
-        { name: "פונקציה קווית לינארית", link: "practice.html?grade=grade8&topic=linear_functions", grade: "מתמטיקה כיתה ח'" },
-        { name: "בעיות מילוליות", link: "practice.html?grade=grade8&topic=verbal_problems", grade: "מתמטיקה כיתה ח'" },
-        { name: "סטטיסטיקה והסתברות", link: "practice.html?grade=grade8&topic=statistics", grade: "מתמטיקה כיתה ח'" },
-        { name: "המשולש (גיאומטריה)", link: "practice.html?grade=grade8&topic=triangles", grade: "מתמטיקה כיתה ח'" },
+        // מתמטיקה כיתה ז'
+        { name: "מתמטיקה ז' - מספרים מכוונים", link: "practice.html?grade=grade7&topic=signed_numbers", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - חוקי פעולות החשבון", link: "practice.html?grade=grade7&topic=arithmetic_laws", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - חזקות ושורשים", link: "practice.html?grade=grade7&topic=powers", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - ביטויים אלגבריים", link: "practice.html?grade=grade7&topic=expressions", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - משוואות", link: "practice.html?grade=grade7&topic=equations", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - בעיות מילוליות", link: "practice.html?grade=grade7&topic=word_problems", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - פונקציות", link: "practice.html?grade=grade7&topic=functions", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - גיאומטריה", link: "practice.html?grade=grade7&topic=geometry", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - מרובעים", link: "practice.html?grade=grade7&topic=quadrilaterals", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - משולשים", link: "practice.html?grade=grade7&topic=triangles", grade: "מתמטיקה ז'" },
+        { name: "מתמטיקה ז' - זוויות", link: "practice.html?grade=grade7&topic=angles", grade: "מתמטיקה ז'" },
 
-        // כיתה ט'
-        { name: "טכניקה אלגברית", link: "practice.html?grade=grade9&topic=algebraic_technique", grade: "מתמטיקה כיתה ט'" },
-        { name: "מערכת משוואות", link: "practice.html?grade=grade9&topic=linear_systems", grade: "מתמטיקה כיתה ט'" },
-        { name: "שברים אלגבריים", link: "practice.html?grade=grade9&topic=algebraic_fractions", grade: "מתמטיקה כיתה ט'" },
-        { name: "חוק הפילוג ופירוק לגורמים", link: "practice.html?grade=grade9&topic=distributive_and_factoring", grade: "מתמטיקה כיתה ט'" },
-        { name: "משוואות ריבועיות ופרמטרים", link: "practice.html?grade=grade9&topic=equations_and_parametric", grade: "מתמטיקה כיתה ט'" },
-        { name: "מרובעים (גיאומטריה)", link: "practice.html?grade=grade9&topic=quadrilaterals", grade: "מתמטיקה כיתה ט'" },
-        { name: "הסתברות", link: "practice.html?grade=grade9&topic=probability", grade: "מתמטיקה כיתה ט'" },
-        { name: "חקר נתונים וסיכויים", link: "practice.html?grade=grade9&topic=dataAnalysis", grade: "מתמטיקה כיתה ט'" },
-        { name: "תרגול מסכם כיתה ט'", link: "practice.html?grade=grade9&topic=summary", grade: "מתמטיקה כיתה ט'" },
+        // מתמטיקה כיתה ח'
+        { name: "מתמטיקה ח' - יחס ופרופורציה", link: "practice.html?grade=grade8&topic=ratio", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - משוואות", link: "practice.html?grade=grade8&topic=equations", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - טכניקה אלגברית", link: "practice.html?grade=grade8&topic=algebraic_technique", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - פונקציה קווית (לינארית)", link: "practice.html?grade=grade8&topic=linear_functions", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - בעיות מילוליות", link: "practice.html?grade=grade8&topic=word_problems", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - סטטיסטיקה", link: "practice.html?grade=grade8&topic=statistics", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - אחוזים", link: "practice.html?grade=grade8&topic=percents", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - גיאומטריה", link: "practice.html?grade=grade8&topic=geometry", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - משולשים", link: "practice.html?grade=grade8&topic=triangles", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - זוויות", link: "practice.html?grade=grade8&topic=angles", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - חפיפה", link: "practice.html?grade=grade8&topic=congruence", grade: "מתמטיקה ח'" },
+        { name: "מתמטיקה ח' - מיצ\"ב", link: "practice.html?grade=grade8&topic=meitzav", grade: "מתמטיקה ח'" },
 
-        // תיכון 172
-        { name: "הכנה לבגרות (172)", link: "practice.html?grade=35172&topic=bagrut_prep", grade: "מתמטיקה 172" },
-        { name: "אלגברה ומשוואות (172)", link: "practice.html?grade=35172&topic=algebra_172", grade: "מתמטיקה 172" },
-        { name: "בעיות מילוליות (172)", link: "practice.html?grade=35172&topic=word_problems_172", grade: "מתמטיקה 172" },
-        { name: "גיאומטריה אנליטית (172)", link: "practice.html?grade=35172&topic=analytic_geometry_172", grade: "מתמטיקה 172" },
-        { name: "הנדסת המישור (172)", link: "practice.html?grade=35172&topic=geometry_172", grade: "מתמטיקה 172" },
-        { name: "טריגונומטריה במישור (172)", link: "practice.html?grade=35172&topic=trigo_172", grade: "מתמטיקה 172" },
-        { name: "סטטיסטיקה והסתברות (172)", link: "practice.html?grade=35172&topic=stats_prob_172", grade: "מתמטיקה 172" },
+        // מתמטיקה כיתה ט'
+        { name: "מתמטיקה ט' - טכניקה אלגברית", link: "practice.html?grade=grade9&topic=algebraic_technique", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - שברים אלגבריים", link: "practice.html?grade=grade9&topic=algebraic_fractions", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - מערכת משוואות", link: "practice.html?grade=grade9&topic=linear_systems", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - משוואות ופרמטרים", link: "practice.html?grade=grade9&topic=equations_and_parametric", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - חוק הפילוג ופירוק לגורמים", link: "practice.html?grade=grade9&topic=distributive_and_factoring", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - פונקציות", link: "practice.html?grade=grade9&topic=functions", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - חזקות ושורשים", link: "practice.html?grade=grade9&topic=powers_and_roots", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - בעיות מילוליות", link: "practice.html?grade=grade9&topic=word_problems", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - גיאומטריה", link: "practice.html?grade=grade9&topic=geometry", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - הסתברות", link: "practice.html?grade=grade9&topic=probability", grade: "מתמטיקה ט'" },
+        { name: "מתמטיקה ט' - תרגול מסכם (Final Review)", link: "practice.html?grade=grade9&topic=final_review", grade: "מתמטיקה ט'" },
 
-        // תיכון 371
-        { name: "הכנה לבגרות (371)", link: "practice.html?grade=35371&topic=bagrut_prep", grade: "מתמטיקה 371" },
-        { name: "דמיון משולשים (371)", link: "practice.html?grade=35371&topic=triangle_sim_371", grade: "מתמטיקה 371" },
-        { name: "טריגונומטריה במשולש ישר זווית (371)", link: "practice.html?grade=35371&topic=trigo_right_371", grade: "מתמטיקה 371" },
-        { name: "הסתברות וסטטיסטיקה (371)", link: "practice.html?grade=35371&topic=prob_stats_371", grade: "מתמטיקה 371" },
+        // מתמטיקה 172
+        { name: "מתמטיקה 172 - אלגברה בסיסית", link: "practice.html?grade=35172&topic=basic_algebra_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - אלגברה ומשוואות", link: "practice.html?grade=35172&topic=algebra_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - בעיות מילוליות", link: "practice.html?grade=35172&topic=word_problems_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - מערכת משוואות", link: "practice.html?grade=35172&topic=system_eq_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - משוואות", link: "practice.html?grade=35172&topic=equations_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - ביטויים אלגבריים", link: "practice.html?grade=35172&topic=algebraic_expr_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - שברים אלגבריים", link: "practice.html?grade=35172&topic=algebraic_frac_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - פירוק לגורמים", link: "practice.html?grade=35172&topic=factoring_frac_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - פונקציה לינארית", link: "practice.html?grade=35172&topic=linear_func_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - פונקציה ריבועית", link: "practice.html?grade=35172&topic=quadratic_func_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - גיאומטריה", link: "practice.html?grade=35172&topic=geometry_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - הנדסת המישור", link: "practice.html?grade=35172&topic=lines_plane_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - גיאומטריה אנליטית", link: "practice.html?grade=35172&topic=analytic_geom_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - טריגונומטריה", link: "practice.html?grade=35172&topic=trigonometry_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - שטחים והיקפים", link: "practice.html?grade=35172&topic=area_perim_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - משולשים ומרובעים", link: "practice.html?grade=35172&topic=triangles_quads_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - סטטיסטיקה והסתברות", link: "practice.html?grade=35172&topic=stats_prob_172", grade: "מתמטיקה 172" },
+        { name: "מתמטיקה 172 - הכנה לבגרות", link: "practice.html?grade=35172&topic=bagrut_prep", grade: "מתמטיקה 172" },
 
-        // תיכון 372
-        { name: "הכנה לבגרות (372)", link: "practice.html?grade=35472&topic=bagrut_prep", grade: "מתמטיקה 372" },
-        { name: "פונקציה ריבועית (372)", link: "practice.html?grade=35472&topic=quad_func_372", grade: "מתמטיקה 372" },
-        { name: "חקירת פונקציה (372)", link: "practice.html?grade=35472&topic=func_investigation_372", grade: "מתמטיקה 372" },
+        // מתמטיקה 371
+        { name: "מתמטיקה 371 - דמיון משולשים", link: "practice.html?grade=35371&topic=triangle_sim_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - יחס דמיון", link: "practice.html?grade=35371&topic=sim_ratio_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - טריגונומטריה ישר זווית", link: "practice.html?grade=35371&topic=trigo_right_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - טריגונומטריה בכלל המשולשים", link: "practice.html?grade=35371&topic=trigo_all_triangles_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - בעיות גדילה ודעיכה", link: "practice.html?grade=35371&topic=growth_decay_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - מודלים מעריכיים", link: "practice.html?grade=35371&topic=exp_models_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - תכנון לינארי (אופטימיזציה)", link: "practice.html?grade=35371&topic=linear_prog_opt_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - הסתברות וסטטיסטיקה", link: "practice.html?grade=35371&topic=prob_stats_371", grade: "מתמטיקה 371" },
+        { name: "מתמטיקה 371 - הכנה לבגרות", link: "practice.html?grade=35371&topic=bagrut_prep", grade: "מתמטיקה 371" },
+
+        // מתמטיקה 372
+        { name: "מתמטיקה 372 - פונקציה ריבועית (פרבולה)", link: "practice.html?grade=35372&topic=quad_func_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - משוואות ריבועיות", link: "practice.html?grade=35372&topic=quad_eq_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - חקירת פונקציה", link: "practice.html?grade=35372&topic=func_investigation_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - גאומטריה אנליטית", link: "practice.html?grade=35372&topic=analytic_geom_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - הנדסת המרחב וגופים", link: "practice.html?grade=35372&topic=space_geom_bodies_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - התפלגות נורמלית", link: "practice.html?grade=35372&topic=normal_dist_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - עצי הסתברות", link: "practice.html?grade=35372&topic=prob_trees_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - סדרות", link: "practice.html?grade=35372&topic=sequences_372", grade: "מתמטיקה 372" },
+        { name: "מתמטיקה 372 - הכנה לבגרות", link: "practice.html?grade=35372&topic=bagrut_prep", grade: "מתמטיקה 372" },
+
+        // מתמטיקה 471
+        { name: "מתמטיקה 471 - משוואות ואי-שוויונים אלגבריים", link: "practice.html?grade=35471&topic=alg_equations_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - בעיות מילוליות (אלגברה)", link: "practice.html?grade=35471&topic=word_problems_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - חדו\"א פולינומים ופונקציות רציונליות", link: "practice.html?grade=35471&topic=calculus_poly_rational_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - חדו\"א פולינומים", link: "practice.html?grade=35471&topic=calculus_poly_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - חדו\"א פונקציות רציונליות", link: "practice.html?grade=35471&topic=calculus_rational_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - בעיות קיצון (אופטימיזציה)", link: "practice.html?grade=35471&topic=extrema_probs_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - גאומטריה אוקלידית", link: "practice.html?grade=35471&topic=geom_euclid_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - גאומטריה אנליטית", link: "practice.html?grade=35471&topic=analytic_geom_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - הסתברות קלאסית וסטטיסטיקה", link: "practice.html?grade=35471&topic=prob_stats_471", grade: "מתמטיקה 471" },
+        { name: "מתמטיקה 471 - הכנה לבגרות", link: "practice.html?grade=35471&topic=bagrut_prep", grade: "מתמטיקה 471" },
+
+        // מתמטיקה 472
+        { name: "מתמטיקה 472 - טריגונומטריה במישור", link: "practice.html?grade=35472&topic=trigo_plane_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - טריגונומטריה במרחב", link: "practice.html?grade=35472&topic=trigo_space_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - וקטורים", link: "practice.html?grade=35472&topic=vectors_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - חדו\"א מעריכיות ולוגריתמיות", link: "practice.html?grade=35472&topic=calculus_exp_log_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - חדו\"א טריגונומטריות", link: "practice.html?grade=35472&topic=calculus_trigo_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - חדו\"א שורש", link: "practice.html?grade=35472&topic=calculus_root_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - חשבון אינטגרלי", link: "practice.html?grade=35472&topic=integral_calculus_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - סדרות", link: "practice.html?grade=35472&topic=sequences_472", grade: "מתמטיקה 472" },
+        { name: "מתמטיקה 472 - הכנה לבגרות", link: "practice.html?grade=35472&topic=bagrut_prep", grade: "מתמטיקה 472" },
+
+        // מתמטיקה 571
+        { name: "מתמטיקה 571 - גאומטריה אנליטית", link: "practice.html?grade=35571&topic=analytic_geom_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - גאומטריה (אוקלידית)", link: "practice.html?grade=35571&topic=geom_euclid_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - טריגונומטריה וגאומטריה", link: "practice.html?grade=35571&topic=trigo_geometry_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - חדו\"א פולינומים ומנות", link: "practice.html?grade=35571&topic=calculus_poly_rational_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - חדו\"א שורשים", link: "practice.html?grade=35571&topic=calculus_root_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - בעיות קיצון", link: "practice.html?grade=35571&topic=extrema_optimization_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - הסתברות", link: "practice.html?grade=35571&topic=probability_571", grade: "מתמטיקה 571" },
+        { name: "מתמטיקה 571 - הכנה לבגרות", link: "practice.html?grade=35571&topic=bagrut_prep", grade: "מתמטיקה 571" },
+
+        // מתמטיקה 572
+        { name: "מתמטיקה 572 - מספרים מרוכבים", link: "practice.html?grade=35572&topic=complex_numbers_572", grade: "מתמטיקה 572" },
+        { name: "מתמטיקה 572 - וקטורים", link: "practice.html?grade=35572&topic=vectors_572", grade: "מתמטיקה 572" },
+        { name: "מתמטיקה 572 - חדו\"א פונקציות מעריכיות ולוגריתמיות", link: "practice.html?grade=35572&topic=calculus_exp_log_572", grade: "מתמטיקה 572" },
+        { name: "מתמטיקה 572 - חדו\"א טריגונומטריה", link: "practice.html?grade=35572&topic=calculus_trigo_572", grade: "מתמטיקה 572" },
+        { name: "מתמטיקה 572 - חדו\"א אינטגרלים", link: "practice.html?grade=35572&topic=calculus_integrals_572", grade: "מתמטיקה 572" },
+        { name: "מתמטיקה 572 - טריגו במרחב", link: "practice.html?grade=35572&topic=trigo_space_572", grade: "מתמטיקה 572" },
+        { name: "מתמטיקה 572 - סדרות", link: "practice.html?grade=35572&topic=sequences_572", grade: "מתמטיקה 572" },
+
+        // אנגלית 
+        { name: "אנגלית ליסודי (Elementary)", link: "english.html", grade: "אנגלית" },
+        { name: "אנגלית מהבסיס (ABC)", link: "english.html", grade: "אנגלית" },
+        { name: "דקדוק זמנים (Grammar Tenses)", link: "english.html", grade: "אנגלית" },
+        { name: "דקדוק מתקדם (Advanced Grammar)", link: "english.html", grade: "אנגלית" },
+        { name: "אוצר מילים והשלמות (Vocabulary)", link: "english.html", grade: "אנגלית" },
+        { name: "הבנת הנקרא (Reading Comprehension)", link: "english.html", grade: "אנגלית" },
+        { name: "ספרות באנגלית (Literature)", link: "english.html", grade: "אנגלית" },
+        { name: "אנגלית - הכנה לבגרות", link: "english.html", grade: "אנגלית" },
+
+        // לשון והבעה 
+        { name: "יסודות הלשון (ד'-ו')", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "תורת ההגה והצורות", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "מערכת הפועל", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "גזרות הפועל המורכבות", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "שם העצם ותצורתו", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "תחביר בסיסי ומתקדם", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "סוגי משפטים", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "מילות יחס וקישור", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "הבנת הנקרא והבעה עברית", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "כתיבה וסקירה ממזגת", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "תקינות לשונית", link: "hebrew.html", grade: "לשון והבעה" },
+        { name: "לשון - הכנה לבגרות", link: "hebrew.html", grade: "לשון והבעה" },
+
+        // מדעים 
+        { name: "חומרים ומבנה החומר", link: "science.html", grade: "מדעים" },
+        { name: "מערכות בגוף האדם", link: "science.html", grade: "מדעים" },
+        { name: "מדעי החיים והסביבה (אקולוגיה)", link: "science.html", grade: "מדעים" },
+        { name: "אנרגיה, כוחות וטכנולוגיה", link: "science.html", grade: "מדעים" },
+        { name: "כדור הארץ והיקום", link: "science.html", grade: "מדעים" },
+
+        // חינוך פיננסי 
+        { name: "ניהול תקציב וצרכנות נבונה", link: "finance.html", grade: "חינוך פיננסי" },
+        { name: "עולם העבודה וזכויות עובדים", link: "finance.html", grade: "חינוך פיננסי" },
+        { name: "בנקאות, אשראי והלוואות", link: "finance.html", grade: "חינוך פיננסי" },
+        { name: "חיסכון, השקעות ושוק ההון", link: "finance.html", grade: "חינוך פיננסי" },
+        { name: "ביטוח וניהול סיכונים", link: "finance.html", grade: "חינוך פיננסי" },
+        { name: "כלכלה דיגיטלית וזהירות פיננסית", link: "finance.html", grade: "חינוך פיננסי" },
         
-        // תיכון 471
-        { name: "אלגברה ושברים אלגבריים (471)", link: "practice.html?grade=35471&topic=alg_frac_471", grade: "מתמטיקה 471" },
-        { name: "פונקציות לינאריות וריבועיות (471)", link: "practice.html?grade=35471&topic=func_lin_quad_471", grade: "מתמטיקה 471" },
-        { name: "טריגונומטריה (471)", link: "practice.html?grade=35471&topic=trigo_471", grade: "מתמטיקה 471" },
-        { name: "אלגברה - משוואות ואי-שוויונים (471)", link: "practice.html?grade=35471&topic=alg_equations_471", grade: "מתמטיקה 471" },
-        { name: "בעיות מילוליות (471)", link: "practice.html?grade=35471&topic=word_problems_471", grade: "מתמטיקה 471" },
-        { name: "חדו\"א בסיסי (471)", link: "practice.html?grade=35471&topic=basic_calculus_471", grade: "מתמטיקה 471" },
-        { name: "חדו\"א - פולינומים (471)", link: "practice.html?grade=35471&topic=calculus_poly_471", grade: "מתמטיקה 471" },
-        { name: "חדו\"א - פונקציות רציונליות (471)", link: "practice.html?grade=35471&topic=calculus_rational_471", grade: "מתמטיקה 471" },
-        { name: "בעיות קיצון (471)", link: "practice.html?grade=35471&topic=extrema_probs_471", grade: "מתמטיקה 471" },
-        { name: "גאומטריה אוקלידית (471)", link: "practice.html?grade=35471&topic=geom_euclid_471", grade: "מתמטיקה 471" },
-        { name: "גאומטריה אנליטית (471)", link: "practice.html?grade=35471&topic=analytic_geom_471", grade: "מתמטיקה 471" },
-
-        // תיכון 472
-        { name: "פונקציות מתקדמות (472)", link: "practice.html?grade=35472&topic=adv_func_472", grade: "מתמטיקה 472" },
-        { name: "חקירת פונקציות (472)", link: "practice.html?grade=35472&topic=func_investigation_472", grade: "מתמטיקה 472" },
-        { name: "בעיות קיצון (472)", link: "practice.html?grade=35472&topic=extrema_probs_472", grade: "מתמטיקה 472" },
-        { name: "טריגונומטריה מתקדמת (472)", link: "practice.html?grade=35472&topic=adv_trigo_472", grade: "מתמטיקה 472" },
-        { name: "הסתברות (472)", link: "practice.html?grade=35472&topic=probability_472", grade: "מתמטיקה 472" },
-        { name: "סדרות (472)", link: "practice.html?grade=35472&topic=sequences_472", grade: "מתמטיקה 472" },
-        { name: "טריגונומטריה במישור (472)", link: "practice.html?grade=35472&topic=trigo_plane_472", grade: "מתמטיקה 472" },
-        { name: "טריגונומטריה במרחב (472)", link: "practice.html?grade=35472&topic=trigo_space_472", grade: "מתמטיקה 472" },
-        { name: "חדו\"א - פונקציות שורש (472)", link: "practice.html?grade=35472&topic=calculus_root_472", grade: "מתמטיקה 472" },
-        { name: "חדו\"א - פונקציות טריגונומטריות (472)", link: "practice.html?grade=35472&topic=calculus_trigo_472", grade: "מתמטיקה 472" },
-        { name: "חדו\"א - מעריכיות ולוגריתמיות (472)", link: "practice.html?grade=35472&topic=calculus_exp_log_472", grade: "מתמטיקה 472" },
-        { name: "חשבון אינטגרלי (472)", link: "practice.html?grade=35472&topic=integral_calculus_472", grade: "מתמטיקה 472" },
-
-        // תיכון 571
-        { name: "גאומטריה אוקלידית (571)", link: "practice.html?grade=35571&topic=geom_euclid_571", grade: "מתמטיקה 571" },
-        { name: "גאומטריה אנליטית (571)", link: "practice.html?grade=35571&topic=analytic_geom_571", grade: "מתמטיקה 571" },
-        { name: "פונקציות (571)", link: "practice.html?grade=35571&topic=functions_571", grade: "מתמטיקה 571" },
-        { name: "חדו\"א – נגזרות (571)", link: "practice.html?grade=35571&topic=calculus_deriv_571", grade: "מתמטיקה 571" },
-        { name: "חדו\"א – משיקים (571)", link: "practice.html?grade=35571&topic=calculus_tangents_571", grade: "מתמטיקה 571" },
-        { name: "טריגונומטריה מתקדמת (571)", link: "practice.html?grade=35571&topic=adv_trigo_571", grade: "מתמטיקה 571" },
-        { name: "סדרות (571)", link: "practice.html?grade=35571&topic=sequences_571", grade: "מתמטיקה 571" },
-        { name: "הסתברות (571)", link: "practice.html?grade=35571&topic=probability_571", grade: "מתמטיקה 571" },
-
-        // תיכון 572
-        { name: "חדו\"א – אינטגרלים (572)", link: "practice.html?grade=35572&topic=calculus_integrals_572", grade: "מתמטיקה 572" },
-        { name: "פונקציות טריגונומטריות (572)", link: "practice.html?grade=35572&topic=trigo_func_572", grade: "מתמטיקה 572" },
-        { name: "פונקציות (572)", link: "practice.html?grade=35572&topic=functions_572", grade: "מתמטיקה 572" },
-        { name: "חקירת פונקציות (572)", link: "practice.html?grade=35572&topic=func_investigation_572", grade: "מתמטיקה 572" },
-        { name: "סדרות (572)", link: "practice.html?grade=35572&topic=sequences_572", grade: "מתמטיקה 572" },
-        { name: "הסתברות (572)", link: "practice.html?grade=35572&topic=probability_572", grade: "מתמטיקה 572" },
-        { name: "גאומטריה אנליטית (572)", link: "practice.html?grade=35572&topic=analytic_geom_572", grade: "מתמטיקה 572" },
-
-        // אנגלית
-        { name: "אנגלית מהבסיס (ABC)", link: "practice.html?grade=english&topic=abc_basics", grade: "אנגלית" },
-        { name: "אנגלית ליסודי", link: "practice.html?grade=english&topic=Elementary", grade: "אנגלית" },
-        { name: "דקדוק זמנים (Grammar Tenses)", link: "practice.html?grade=english&topic=Grammar_Tenses", grade: "אנגלית" },
-        { name: "דקדוק מתקדם (Advanced Grammar)", link: "practice.html?grade=english&topic=Grammar_Advanced", grade: "אנגלית" },
-        { name: "אוצר מילים והשלמות (Vocabulary & Cloze)", link: "practice.html?grade=english&topic=Vocabulary_Cloze", grade: "אנגלית" },
-        { name: "הבנת הנקרא - טקסטים (Reading Comprehension)", link: "practice.html?grade=english&topic=Reading_Comprehension", grade: "אנגלית" },
-        { name: "ספרות (Literature)", link: "practice.html?grade=english&topic=Literature_High_School", grade: "אנגלית" },
-
-        // לשון והבעה
-        { name: "יסודות הלשון (ד'-ו')", link: "practice.html?grade=hebrew&topic=יסודי_כללי", grade: "לשון והבעה" },
-        { name: "תורת ההגה והצורות", link: "practice.html?grade=hebrew&topic=תורת_ההגה", grade: "לשון והבעה" },
-        { name: "מערכת הפועל", link: "practice.html?grade=hebrew&topic=פועל", grade: "לשון והבעה" },
-        { name: "גזרות הפועל המורכבות", link: "practice.html?grade=hebrew&topic=גזרות_הפועל_מתקדם", grade: "לשון והבעה" },
-        { name: "שם העצם ותצורתו", link: "practice.html?grade=hebrew&topic=שם_העצם", grade: "לשון והבעה" },
-        { name: "תחביר בסיסי ומתקדם", link: "practice.html?grade=hebrew&topic=תחביר", grade: "לשון והבעה" },
-        { name: "סוגי משפטים", link: "practice.html?grade=hebrew&topic=סוגי_משפטים", grade: "לשון והבעה" },
-        { name: "מילות יחס וקישור", link: "practice.html?grade=hebrew&topic=מילות_יחס_וקישור", grade: "לשון והבעה" },
-        { name: "הבנת הנקרא והבעה", link: "practice.html?grade=hebrew&topic=הבנת_הנקרא_והבעה", grade: "לשון והבעה" },
-        { name: "כתיבה וסקירה ממזגת", link: "practice.html?grade=hebrew&topic=כתיבה_וסקירה", grade: "לשון והבעה" },
-        { name: "תקינות לשונית", link: "practice.html?grade=hebrew&topic=תקינות", grade: "לשון והבעה" },
-
-        // מדעים
-        { name: "חומרים ומבנה החומר", link: "practice.html?grade=science&topic=חומרים_ומבנה_החומר", grade: "מדעים" },
-        { name: "כדור הארץ והיקום", link: "practice.html?grade=science&topic=כדור_הארץ_והיקום", grade: "מדעים" },
-
-        // חינוך פיננסי
-        { name: "ניהול תקציב וצרכנות נבונה", link: "practice.html?grade=finance&topic=budget_consumerism", grade: "חינוך פיננסי" },
-        { name: "עולם העבודה וזכויות עובדים", link: "practice.html?grade=finance&topic=work_and_wages", grade: "חינוך פיננסי" },
-        { name: "בנקאות, אשראי והלוואות", link: "practice.html?grade=finance&topic=banking_and_credit", grade: "חינוך פיננסי" },
-        { name: "חיסכון, השקעות ושוק ההון", link: "practice.html?grade=finance&topic=savings_investments", grade: "חינוך פיננסי" },
-        { name: "ביטוח וניהול סיכונים", link: "practice.html?grade=finance&topic=insurance_risks", grade: "חינוך פיננסי" },
-        { name: "כלכלה דיגיטלית וזהירות פיננסית", link: "practice.html?grade=finance&topic=digital_economy", grade: "חינוך פיננסי" }
+        // ערבית 
+        { name: "יסודות הקריאה והכתיבה בערבית", link: "arabic.html", grade: "ערבית" },
+        { name: "הבנת הנקרא (טקסטים בערבית)", link: "arabic.html", grade: "ערבית" },
+        { name: "אוצר מילים ושיח בערבית", link: "arabic.html", grade: "ערבית" },
+        { name: "דקדוק - תורת השם בערבית", link: "arabic.html", grade: "ערבית" },
+        { name: "דקדוק - מערכת הפועל בערבית", link: "arabic.html", grade: "ערבית" },
+        { name: "תחביר (סינטקס) בערבית", link: "arabic.html", grade: "ערבית" },
+        { name: "ערבית תקשורתית וספרותית", link: "arabic.html", grade: "ערבית" }
     ];
+
+    function toggleMute() {
+        isMuted = !isMuted;
+        const btn = document.getElementById('btn-mute');
+        const icon = document.getElementById('mute-icon');
+        const text = document.getElementById('mute-text');
+        
+        if (isMuted) {
+            btn.classList.add('muted');
+            icon.innerText = "🔇";
+            text.innerText = "הפעל צלילים";
+            if(window.speechSynthesis) window.speechSynthesis.cancel();
+            
+            // עצירת סאונד נוכחי אם מנגן
+            if (currentPlayingSound) {
+                currentPlayingSound.pause();
+                currentPlayingSound.currentTime = 0;
+            }
+        } else {
+            btn.classList.remove('muted');
+            icon.innerText = "🔈";
+            text.innerText = "השתק צלילים";
+        }
+    }
 
     function openSearchModal() {
         document.getElementById('search-modal').style.display = 'flex';
@@ -878,6 +993,7 @@
     }
 
     function speakCurrentQuestion(btnElement) {
+        if(isMuted) return;
         if (!window.speechSynthesis) return alert("הדפדפן שלך לא תומך בהקראה קולית.");
         window.speechSynthesis.cancel();
         if (btnElement.classList.contains('playing')) {
@@ -894,6 +1010,11 @@
         const utterance = new SpeechSynthesisUtterance(textToRead);
         utterance.lang = 'he-IL'; 
         utterance.rate = 0.9;
+        
+        const voices = window.speechSynthesis.getVoices();
+        let bestVoice = voices.find(v => v.lang === 'he-IL' && (v.name.includes('Google') || v.name.includes('Hila') || v.name.includes('Carmit'))) || voices.find(v => v.lang === 'he-IL' && !v.name.includes('Asaf'));
+        if (bestVoice) utterance.voice = bestVoice;
+        
         utterance.onend = () => btnElement.classList.remove('playing');
         utterance.onerror = () => btnElement.classList.remove('playing');
         window.speechSynthesis.speak(utterance);
@@ -902,6 +1023,7 @@
     if (window.speechSynthesis) { window.speechSynthesis.onvoiceschanged = function() { window.speechSynthesis.getVoices(); }; }
     
     function playSound(type) {
+        if(isMuted) return;
         try {
             const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const gain = ctx.createGain();
             osc.connect(gain); gain.connect(ctx.destination);
@@ -910,51 +1032,33 @@
         } catch(e) { console.log("Audio not supported"); }
     }
 
+    // פונקציית בחירת הקולות הרנדומליים והטיימינג החדש
     function playFeedbackVoice(isCorrect) {
-        if (!window.speechSynthesis) return;
-        window.speechSynthesis.cancel();
+        if(isMuted) return;
         
-        const correctPhrases = [
-            "תשובה נכונה! כל הכבוד!",
-            "וואו! איזה מוח! גאון!",
-            "בדיוק! יצאת תותח!",
-            "יש! תשובה מושלמת!",
-            "פגז! המשך כך!"
-        ];
-        
-        const wrongPhrases = [
-            "טעות, אבל מטעויות לומדים!",
-            "אופס! פספוס קטן, נסה שוב.",
-            "לא נורא! בפעם הבאה תצליח!",
-            "התשובה שגויה. כמעט צדקת!",
-            "היי! התבלבלת קצת, קרא שוב את השאלה."
-        ];
-        
-        let textArray = isCorrect ? correctPhrases : wrongPhrases;
-        let text = textArray[Math.floor(Math.random() * textArray.length)];
-        
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'he-IL'; 
-        
-        // הגדרות מושלמות לקול דמות אנימציה חמודה (לא מהיר מדי, גבוה אבל ברור)
-        utterance.pitch = 1.7; 
-        utterance.rate = 1.15; 
-        utterance.volume = 1.0;
+        // עצירת סאונד קודם אם הוא עדיין מנגן (טיימינג מיידי)
+        if (currentPlayingSound) {
+            currentPlayingSound.pause();
+            currentPlayingSound.currentTime = 0;
+        }
 
-        const voices = window.speechSynthesis.getVoices();
-        
-        // התעקשות חכמה על קול נשי כדי שהפיץ' הגבוה יישמע כמו דמות מצוירת ולא כמו גבר משובש
-        const femaleVoice = voices.find(v => v.lang === 'he-IL' && (v.name.includes('Hila') || v.name.includes('Carmit') || v.name.includes('Google')));
-        const backupVoice = voices.find(v => v.lang === 'he-IL');
-        
-        if (femaleVoice) {
-            utterance.voice = femaleVoice;
-        } else if (backupVoice) {
-            utterance.voice = backupVoice;
+        let randomFile;
+        if (isCorrect) {
+            // בוחר קובץ אקראי מתוך רשימת התשובות הנכונות
+            const randomIndex = Math.floor(Math.random() * correctFiles.length);
+            randomFile = correctFiles[randomIndex];
+        } else {
+            // בוחר קובץ אקראי מתוך רשימת התשובות השגויות
+            const randomIndex = Math.floor(Math.random() * uncorrectFiles.length);
+            randomFile = uncorrectFiles[randomIndex];
         }
         
-        window.speechSynthesis.speak(utterance);
-    } 
+        currentPlayingSound = new Audio(randomFile);
+        currentPlayingSound.play().catch(e => { 
+            // אם הדפדפן חסם את ההפעלה (או הקובץ לא נמצא), נפעיל צליל רגיל כגיבוי
+            playSound(isCorrect ? 'correct' : 'wrong'); 
+        });
+    }
     
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(String(str)); }
 
@@ -1184,12 +1288,19 @@
             if (btnCalculator) btnCalculator.style.display = 'none';
         }
         
-        const gradeNames = { "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35471": "35471", "35472": "35472", "35582": "35582", "finance": "חינוך פיננסי", "english": "אנגלית", "hebrew": "לשון והבעה", "arabic": "ערבית" };
+        const gradeNames = { 
+            "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", 
+            "35172": "שאלון 172", "35371": "שאלון 371", "35372": "שאלון 372", 
+            "35471": "שאלון 471", "35472": "שאלון 472", "35571": "שאלון 571", "35572": "שאלון 572", 
+            "finance": "חינוך פיננסי", "english": "אנגלית", "hebrew": "לשון והבעה", "arabic": "ערבית", "science": "מדעים" 
+        };
         currentGrade = gradeNames[gradeParam] || gradeParam || "";
         
         let displayTopic = "";
         
+        // מילון תרגומים מלא ומקיף (עברית צחה בכל הכותרות)
         const specificTopicTranslations = {
+            // מתמטיקה כללי
             "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
             "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות",
             "fractions": "שברים", "summary": "תרגול מסכם", "triangles": "המשולש",
@@ -1203,60 +1314,66 @@
             "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות",
             "final_review": "תרגול מסכם", "logic_combinatorics": "לוגיקה וקומבינטוריקה", 
             "advanced_verbal": "בעיות מילוליות מורכבות", "advanced_geometry": "גיאומטריה מתקדמת", 
-            "patterns_sequences": "חשיבה אלגברית", "algebra_172": "אלגברה ומשוואות", 
-            "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", 
-            "geometry_172": "הנדסת המישור והמרחב", "trigo_172": "טריגונומטריה במישור", 
-            "stats_prob_172": "סטטיסטיקה והסתברות", "algebraic_expr_172": "ביטויים אלגבריים", 
-            "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", 
+            "patterns_sequences": "חשיבה אלגברית", 
+            
+            // מתמטיקה 172
+            "algebra_172": "אלגברה ומשוואות", "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", 
+            "geometry_172": "הנדסת המישור", "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות", 
+            "algebraic_expr_172": "ביטויים אלגבריים", "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", 
             "lines_plane_172": "ישר במישור", "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים",
-            "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית",
-            "triangles_quads_172": "משולשים ומרובעים", "triangle_sim_371": "דמיון משולשים", 
-            "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
-            "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים", "growth_decay_371": "גדילה ודעיכה", 
-            "exp_models_371": "מודלים מעריכיים", "prob_stats_371": "הסתברות וסטטיסטיקה", 
-            "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה", "quad_func_372": "פונקציה ריבועית", 
-            "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", 
-            "analytic_geom_372": "גאומטריה אנליטית", "space_geom_bodies_372": "הנדסת המרחב וגופים", 
-            "sequences_372": "סדרות", "alg_frac_471": "אלגברה ושברים אלגבריים",
-            "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
-            "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
-            "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות",
-            "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
-            "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+            "basic_algebra_172": "אלגברה בסיסית", "linear_func_172": "פונקציה לינארית", "triangles_quads_172": "משולשים ומרובעים", 
+            "equations_172": "משוואות (Equations)", "system_eq_172": "מערכת משוואות", "quadratic_func_172": "פונקציה ריבועית", "factoring_frac_172": "פירוק לגורמים",
+            
+            // מתמטיקה 371 + 372
+            "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
+            "trigo_all_triangles_371": "טריגונומטריה בכלל המשולשים", "growth_decay_371": "בעיות גדילה ודעיכה", 
+            "exp_models_371": "מודלים מעריכיים", "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי", 
+            "quad_func_372": "פונקציה ריבועית (פרבולה)", "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", 
+            "analytic_geom_372": "גאומטריה אנליטית", "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות חשבוניות והנדסיות", 
+            "normal_dist_372": "התפלגות נורמלית", "prob_trees_372": "עצי הסתברות",
+            
+            // מתמטיקה 471 + 472
+            "alg_frac_471": "אלגברה ושברים אלגבריים", "func_lin_quad_471": "פונקציות לינאריות וריבועיות", 
+            "trigo_471": "טריגונומטריה", "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית",
+            "basic_calculus_471": "חדו\"א בסיסי", "adv_func_472": "פונקציות מתקדמות", "func_investigation_472": "חקירת פונקציות", 
+            "extrema_probs_472": "בעיות קיצון", "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות",
+            "alg_equations_471": "משוואות ואי-שוויונים אלגבריים", "word_problems_471": "בעיות מילוליות (אלגברה)",
+            "prob_stats_471": "הסתברות קלאסית וסטטיסטיקה", "calculus_poly_471": "חשבון דיפרנציאלי - פולינומים",
+            "calculus_rational_471": "חשבון דיפרנציאלי - פונקציות רציונליות", "extrema_probs_471": "בעיות קיצון (אופטימיזציה)",
+            "sequences_472": "סדרות", "trigo_plane_472": "טריגונומטריה במישור", "trigo_space_472": "טריגונומטריה במרחב",
+            "calculus_root_472": "חדו\"א - פונקציות שורש (אי-רציונליות)", "calculus_trigo_472": "חדו\"א - טריגונומטריות",
+            "calculus_exp_log_472": "חדו\"א - מעריכיות ולוגריתמיות", "integral_calculus_472": "חשבון אינטגרלי", "vectors_472": "וקטורים",
+            
+            // מתמטיקה 571 + 572
             "geom_euclid_571": "גאומטריה אוקלידית", "analytic_geom_571": "גאומטריה אנליטית",
             "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
             "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת",
-            "sequences_571": "סדרות", "probability_571": "הסתברות",
+            "sequences_571": "סדרות", "probability_571": "הסתברות", "trigo_geometry_571": "טריגונומטריה וגאומטריה", 
+            "extrema_optimization_571": "בעיות קיצון ואופטימיזציה", "calculus_poly_rational_571": "חדו\"א - פולינומים ופונקציות רציונליות", 
+            "calculus_root_571": "חדו\"א - פונקציות שורש",
             "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
             "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות",
             "sequences_572": "סדרות", "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית",
+            "calculus_exp_log_572": "חדו\"א - פונקציות מעריכיות ולוגריתמיות", "complex_numbers_572": "מספרים מרוכבים", 
+            "vectors_572": "וקטורים", "calculus_trigo_572": "חדו\"א - טריגונומטריה", "trigo_space_572": "טריגונומטריה במרחב",
+            
+            // שאר מקצועות
             "budget_consumerism": "ניהול תקציב וצרכנות נבונה", "work_and_wages": "עולם העבודה וזכויות עובדים",
             "banking_and_credit": "בנקאות, אשראי והלוואות", "savings_investments": "חיסכון, השקעות ושוק ההון",
             "insurance_risks": "ביטוח וניהול סיכונים", "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית",
             "vocabulary": "אוצר מילים", "grammar": "דקדוק", "reading_comprehension": "הבנת הנקרא",
-            "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)",
+            "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", "תורת_ההגה": "תורת ההגה והצורות",
             "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
             "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם",
             "סוגי_משפטים": "סוגי משפטים", "מילות_יחס_וקישור": "מילות יחס וקישור",
             "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", "תקינות": "תקינות לשונית",
-            "alg_equations_471": "אלגברה - משוואות ואי-שוויונים",
-            "word_problems_471": "בעיות מילוליות (אלגברה)",
-            "prob_stats_471": "הסתברות קלאסית וסטטיסטיקה",
-            "calculus_poly_471": "חשבון דיפרנציאלי - פולינומים",
-            "calculus_rational_471": "חשבון דיפרנציאלי - פונקציות רציונליות",
-            "extrema_probs_471": "בעיות קיצון (אופטימיזציה)",
-            "sequences_472": "סדרות",
-            "trigo_plane_472": "טריגונומטריה במישור",
-            "trigo_space_472": "טריגונומטריה במרחב",
-            "calculus_root_472": "חדו\"א - פונקציות שורש (אי-רציונליות)",
-            "calculus_trigo_472": "חדו\"א - פונקציות טריגונומטריות",
-            "calculus_exp_log_472": "חדו\"א - מעריכיות ולוגריתמיות",
-            "integral_calculus_472": "חשבון אינטגרלי (כל הפונקציות)",
             "Elementary": "אנגלית ליסודי", "Grammar_Tenses": "דקדוק (זמנים)", 
             "Grammar_Advanced": "דקדוק מתקדם", "Vocabulary_Cloze": "אוצר מילים והשלמות", 
             "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)",
             "abc_basics": "אנגלית מהבסיס (ABC)", "חומרים_ומבנה_החומר": "חומרים ומבנה החומר",
-            "כדור_הארץ_והיקום": "כדור הארץ והיקום"
+            "כדור_הארץ_והיקום": "כדור הארץ והיקום", "מערכות_בגוף_האדם": "מערכות בגוף האדם",
+            "מדעי_החיים_והסביבה": "מדעי החיים והסביבה (אקולוגיה)", "אנרגיה_כוחות_וטכנולוגיה": "אנרגיה, כוחות וטכנולוגיה",
+            "writing": "כתיבה וחיבור", "bar_ilan": "מצוינות בר אילן (ה'-ו')"
         };
         
         if (currentTopic.toLowerCase().includes('bagrut')) {
@@ -1265,11 +1382,17 @@
             displayTopic = "אנגלית מהבסיס (ABC)";
         } else {
             let topicsArray = currentTopic.split(',');
-            let translatedTopics = topicsArray.map(t => specificTopicTranslations[t.trim()] || t.trim());
+            let translatedTopics = topicsArray.map(t => {
+                let cleanT = t.trim();
+                if (specificTopicTranslations[cleanT]) return specificTopicTranslations[cleanT];
+                return cleanT.replace(/_/g, ' '); 
+            });
             displayTopic = translatedTopics.join(', ');
         }
         
         let headerText = "";
+        let gradeDisplay = currentGrade;
+        
         if (isFinanceMode) {
             headerText = `חינוך פיננסי`;
         } else if (isEnglishMode) {
@@ -1278,8 +1401,14 @@
             headerText = `לשון והבעה`;
         } else if (isArabicMode) {
             headerText = `ערבית`;
+        } else if (subjectParam === 'science' || gradeParam === 'science') {
+            headerText = `מדעים`;
         } else {
-            headerText = `${activity} | כיתה ${currentGrade}`;
+            if (gradeParam.startsWith('35')) {
+                headerText = `מתמטיקה | שאלון ${gradeDisplay}`; 
+            } else {
+                headerText = `${activity} | מתמטיקה | כיתה ${gradeDisplay}`;
+            }
         }
         
         if (displayTopic) headerText += ` | ${displayTopic}`;
@@ -1428,9 +1557,10 @@
 
         script.onerror = () => {
             document.getElementById('q-text').innerHTML = `
-                <div style="color:#ef4444; font-weight:bold;">
-                    שגיאה בטעינת הקובץ!<br>
-                    המערכת חיפשה את הקובץ: <span dir="ltr">${filePath}</span> ולא מצאה אותו בתיקיית data.
+                <div style="color:#ef4444; font-weight:bold; padding: 20px; text-align: center; border: 2px dashed #f87171; border-radius: 12px; background: #fef2f2;">
+                    <span style="font-size: 1.5rem;">⚠️ שגיאה בטעינת הקובץ!</span><br><br>
+                    המערכת חיפשה את הקובץ: <br><strong dir="ltr">${filePath}</strong><br> ולא מצאה אותו בתיקיית הנתונים (data).<br><br>
+                    <small style="color: #475569;">זה אומר שהקובץ הזה עדיין לא קיים על המחשב שלך, ולכן הקישור בחיפוש מוביל לדף ריק.</small>
                 </div>`;
             document.getElementById('q-number-display').style.display = 'none';
         };
@@ -1658,16 +1788,20 @@
                         btn.style.backgroundColor = 'var(--correct-bg)';
                         btn.style.borderColor = 'var(--correct-border)';
                         btn.style.color = 'var(--correct-text)';
-                        playSound('correct');
+                        
+                        // כאן מופעל הסאונד הרנדומלי החדש!
                         playFeedbackVoice(true);
+                        
                         fb.innerText = "כל הכבוד! תשובה נכונה.";
                         fb.className = 'feedback-correct';
                     } else {
                         btn.style.backgroundColor = 'var(--wrong-bg)';
                         btn.style.borderColor = 'var(--wrong-border)';
                         btn.style.color = 'var(--wrong-text)';
-                        playSound('wrong');
+                        
+                        // כאן מופעל הסאונד הרנדומלי החדש!
                         playFeedbackVoice(false);
+                        
                         fb.innerText = "טעות, נסו שוב או היעזרו ברמז.";
                         fb.className = 'feedback-wrong';
                     }
