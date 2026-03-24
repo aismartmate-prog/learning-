@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>מורה פרטי - המרכז להישגים לימודיים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,7 +29,11 @@
             --chat-ai-text: #1e293b;
         }
 
-        * { box-sizing: border-box; }
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
 
         body {
             font-family: 'Heebo', sans-serif;
@@ -39,6 +43,7 @@
             flex-direction: column;
             height: 100vh;
             overflow: hidden; 
+            touch-action: none;
         }
 
         header {
@@ -83,6 +88,8 @@
             justify-content: center;
             border-radius: 50%;
             transition: all 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
         }
         .back-btn:hover { 
             background: rgba(255,255,255,0.2); 
@@ -98,6 +105,7 @@
             gap: 10px; 
             background-color: var(--bg-color);
             -webkit-overflow-scrolling: touch; 
+            touch-action: pan-y;
         }
 
         .message {
@@ -223,6 +231,8 @@
             cursor: pointer;
             font-weight: bold;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .input-row {
@@ -253,6 +263,8 @@
             color: var(--text-muted);
             border-radius: 50%;
             margin-bottom: 2px;
+            user-select: none;
+            -webkit-user-select: none;
         }
         .btn-upload:active { background: #e2e8f0; }
 
@@ -261,7 +273,7 @@
             border: none;
             padding: 10px 5px;
             font-family: 'Heebo', sans-serif;
-            font-size: 1rem;
+            font-size: 16px; /* מונע זום אוטומטי במכשירי אפל */
             color: var(--text-main);
             resize: none;
             outline: none;
@@ -287,6 +299,8 @@
             transition: all 0.2s;
             flex-shrink: 0;
             margin-bottom: 1px;
+            user-select: none;
+            -webkit-user-select: none;
         }
         .btn-send:active { transform: scale(0.95); background: var(--accent-gold); color: #000; }
 
@@ -305,6 +319,14 @@
         .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
         .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
         @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
+        
+        @media (max-width: 600px) {
+            .message { max-width: 90%; }
+        }
+        @media (max-width: 380px) {
+            .message { max-width: 95%; font-size: 0.95rem; }
+            .btn-send, .btn-upload { width: 36px; height: 36px; font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
@@ -499,13 +521,13 @@
                 }
                 
             } else {
-                appendMessage(`<strong><i class="fa-solid fa-chalkboard-user"></i> מורה פרטי:</strong> השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה.`, 'ai');
+                appendMessage(`השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה.`, 'ai');
             }
 
         } catch (error) {
             console.error('Error:', error);
             typingIndicator.style.display = 'none';
-            appendMessage(`<strong><i class="fa-solid fa-chalkboard-user"></i> מורה פרטי:</strong> השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה.`, 'ai');
+            appendMessage(`השרתים שלנו קצת עמוסים כרגע 😅 אנא נסה שוב בעוד דקה.`, 'ai');
         }
     }
 

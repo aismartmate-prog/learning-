@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>מערכת תרגול - המרכז להישגים לימודיים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -56,6 +56,12 @@
             --formula-border: #7dd3fc;
         }
         
+        /* מניעת סימון טקסט מקרי והתנהגות אפליקציה במובייל */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
         body { 
             font-family: 'Heebo', sans-serif; 
             background-color: var(--bg-color); 
@@ -65,6 +71,8 @@
             display: flex; 
             flex-direction: column; 
             line-height: 1.3; 
+            /* הגנה נוספת לזום באפל */
+            touch-action: pan-y;
         }
         
         header { 
@@ -89,6 +97,9 @@
             font-weight: 600; 
             letter-spacing: 0.5px; 
             color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .practice-layout { 
@@ -128,6 +139,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between; 
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         .btn-side:hover:not(:disabled) { 
@@ -218,6 +231,8 @@
             color: #475569;
             cursor: pointer;
             transition: all 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
         }
         .btn-diff:hover { border-color: var(--accent-gold); color: var(--primary-header); }
         .btn-diff.active { background: var(--primary-header); color: #fff; border-color: var(--primary-header); box-shadow: 0 2px 8px rgba(0,0,0,0.2);}
@@ -229,6 +244,8 @@
             color: #000000; 
             text-align: center; 
             line-height: 1.5; 
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         mjx-container {
@@ -252,6 +269,8 @@
             gap: 10px; 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             box-shadow: 0 4px 10px rgba(99,102,241,0.2); 
+            user-select: none;
+            -webkit-user-select: none;
         }
         .btn-tts:hover { 
             background: linear-gradient(135deg, #c7d2fe, #a5b4fc); 
@@ -287,6 +306,8 @@
             gap: 8px; 
             transition: all 0.2s ease; 
             box-shadow: 0 2px 5px rgba(197,160,89,0.2); 
+            user-select: none;
+            -webkit-user-select: none;
         }
         .btn-reading-window:hover {
             background: linear-gradient(135deg, #f5ecd6, #eaddba); 
@@ -401,6 +422,8 @@
             text-align: center;
             line-height: 1.3;
             font-family: 'Cambria Math', 'Times New Roman', 'Heebo', serif;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         .btn-option:hover { 
@@ -437,6 +460,8 @@
             font-size: 1.05rem; 
             transition: all 0.2s ease; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         .btn-next-main:hover {
@@ -498,6 +523,8 @@
             z-index: 3000;
             transition: all 0.3s ease;
             border: 2px solid var(--accent-gold);
+            user-select: none;
+            -webkit-user-select: none;
         }
         .ai-tutor-fab:hover {
             transform: scale(1.05) translateY(-3px);
@@ -548,6 +575,7 @@
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             transition: 0.2s;
+            user-select: none;
         }
         .ai-modal-close:hover { background: #ef4444; transform: scale(1.1); }
         .ai-modal-iframe { width: 100%; height: 100%; border: none; }
@@ -581,6 +609,7 @@
         .search-item:hover { background: #fff; border-color: var(--accent-gold); transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
         .search-tag { font-size: 0.8rem; background: #e2e8f0; padding: 2px 8px; border-radius: 12px; color: #475569;}
 
+        /* התאמות מתקדמות למובייל וטאבלט */
         @media (max-width: 1000px) {
             .practice-layout { flex-direction: column; padding: 10px; }
             .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; position: static; gap:6px;}
@@ -589,6 +618,7 @@
         }
 
         @media (max-width: 600px) {
+            header { padding: 0 15px; }
             .btn-side { flex: 1 1 calc(50% - 10px); } 
             .options-grid { grid-template-columns: 1fr; gap: 10px; } 
             .ai-tutor-fab { padding: 8px 15px; font-size: 0.95rem; }

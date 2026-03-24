@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>המרכז להישגים לימודיים | למידה מתקדמת</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,6 +28,25 @@
             
             --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
             --shadow-hover: 0 15px 35px -5px rgba(197, 160, 89, 0.2);
+        }
+
+        /* --- מניעת זום בלחיצה כפולה והתאמה למגע (טאצ') --- */
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            touch-action: manipulation;
+        }
+
+        button, a, .subject-card, .btn-action, .grade-link, .close-overlay, .ai-chat-close-new, .ai-tutor-fab {
+            touch-action: manipulation;
+        }
+
+        /* מניעת זום אוטומטי באייפון בעת לחיצה על שדות טקסט */
+        input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], select, textarea {
+            font-size: 16px !important; 
         }
 
         /* הגדרות נגישות */
@@ -405,16 +424,38 @@
 
         footer { text-align: center; padding: 20px; background: transparent; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; position: relative; z-index: 10; margin-top: auto;}
 
-        /* התאמה למסכים קטנים */
-        @media (max-width: 1000px) {
-            body { overflow-y: auto; } 
-            .subjects-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-            .ai-chat-window { width: calc(100% - 20px); height: calc(100vh - 80px); bottom: 60px; left: 10px; }
-            header { padding: 15px; }
-            .logo-text { font-size: 2rem; }
-            .nav-bar-wrapper { flex-direction: column; gap: 10px; }
-            .guest-access { width: 100%; justify-content: center;}
-            .login-card { width: 90%; padding: 20px; }
+        /* --- 100% התאמה מוחלטת לסלולר וטאבלט (מדיה קוורי חדש) --- */
+        @media (max-width: 1024px) {
+            .subjects-grid { grid-template-columns: repeat(2, 1fr); }
+            .container { padding: 30px 15px; }
+        }
+
+        @media (max-width: 768px) {
+            .subjects-grid { grid-template-columns: 1fr; }
+            header { padding: 15px; text-align: center; }
+            .logo-text { font-size: 2rem; white-space: normal; line-height: 1.2; }
+            .logo-subtext { letter-spacing: 2px; font-size: 0.8rem; }
+            
+            .nav-bar-wrapper { flex-direction: column; width: 100%; gap: 15px; }
+            .guest-access { flex-direction: column; width: 100%; gap: 10px; }
+            .btn-guest, .user-welcome-tag { width: 100%; justify-content: center; }
+            
+            .login-card { width: 95%; padding: 20px 15px; max-height: 90vh; overflow-y: auto; }
+            .input-row { flex-direction: column; gap: 0; }
+            
+            .child-entry { flex-direction: column; gap: 8px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border: 1px solid var(--border-soft); }
+            .child-entry input, .child-entry select { margin-bottom: 0 !important; width: 100%; }
+            .remove-child-btn { width: 100%; margin-top: 5px; }
+            
+            .grade-options { grid-template-columns: 1fr; }
+            .pill-container { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text { font-size: 1.7rem; }
+            .ai-chat-window { width: 100%; height: 100%; max-height: 100vh; bottom: 0; left: 0; border-radius: 0; border: none; z-index: 9999; }
+            .ai-tutor-fab { bottom: 10px; left: 10px; font-size: 0.95rem; padding: 10px 15px; }
+            header { padding: 15px 10px; }
         }
     </style>
 </head>
@@ -661,6 +702,7 @@
         if(localStorage.getItem('loggedInEmail')) {
             openAiModal();
         } else {
+            myAlert("המורה הפרטי AI זמין למשתמשים רשומים בלבד.");
             toggleLogin();
         }
     }
@@ -816,6 +858,7 @@
         }
     }
 
+    // התיקון לבאג הפרופילים של מנהל
     function openProfileSwitcher() {
         try {
             const currentEmail = localStorage.getItem('loggedInEmail');
