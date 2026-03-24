@@ -974,6 +974,15 @@
         "Reading_Comprehension": "הבנת הנקרא", "Literature_High_School": "ספרות (Literature)"
     };
 
+    // פונקציה חכמה לתרגום נושאים מרובים
+    function translateText(text) {
+        if (!text) return "";
+        return text.split(',').map(t => {
+            let clean = t.trim();
+            return topicNamesHe[clean] || clean.replace(/_/g, ' ');
+        }).join(', ');
+    }
+
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
 
     function formatContent(text) {
@@ -1057,16 +1066,16 @@
         currentTopicStr = topicsParam || "";
         currentActivity = act;
         
-        const gradeNames = { "english": "אנגלית", "hebrew": "לשון והבעה", "science": "מדעים", "arabic": "ערבית", "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35472": "35472", "35582": "35582" };
+        const gradeNames = { "english": "אנגלית", "hebrew": "לשון והבעה", "science": "מדעים", "arabic": "ערבית", "finance": "חינוך פיננסי", "5_6": "ה'-ו'", "bar_ilan": "בר אילן", "grade7": "ז'", "grade8": "ח'", "grade9": "ט'", "35172": "172", "35371": "371", "35471": "471", "35472": "472", "35571": "571", "35572": "572" };
         let displayGrade = gradeNames[gradeParam] || rawGrade; 
         
         let displayTopic = "";
         if (currentTopicStr.toLowerCase().includes('bagrut')) {
             displayTopic = "הכנה לבגרות";
+        } else if (currentTopicStr === 'abc_basics') {
+            displayTopic = "אנגלית מהבסיס (ABC)";
         } else {
-            let topicsArray = currentTopicStr.split(',');
-            let translatedTopics = topicsArray.map(t => topicNamesHe[t.trim()] || t.trim());
-            displayTopic = translatedTopics.join(', ');
+            displayTopic = translateText(currentTopicStr);
         }
         
         let isFin = (gradeParam === "finance" || subjectParam === "finance");
@@ -1086,20 +1095,26 @@
 
         let headerText = "";
         if (isFin) {
-            headerText = `חינוך פיננסי`;
+            headerText = `${act} | חינוך פיננסי`;
         } else if (isEng) {
-            headerText = `אנגלית`;
+            headerText = `${act} | אנגלית`;
         } else if (isHeb) {
-            headerText = `לשון והבעה`;
+            headerText = `${act} | לשון והבעה`;
         } else if (isArabicMode) {
-            headerText = `ערבית`;
+            headerText = `${act} | ערבית`;
+        } else if (gradeParam === 'science' || subjectParam === 'science') {
+            headerText = `${act} | מדעים`;
         } else {
-            headerText = `${act} | כיתה ${displayGrade}`;
+            if (gradeParam.startsWith('35')) {
+                headerText = `${act} | מתמטיקה | שאלון ${displayGrade}`; 
+            } else {
+                headerText = `${act} | מתמטיקה | כיתה ${displayGrade}`;
+            }
         }
         
         if (displayTopic) headerText += ` | ${displayTopic}`;
         if (subtopicsParam && subtopicsParam.trim() !== "") {
-            headerText += ` | ${subtopicsParam}`;
+            headerText += ` | ${translateText(subtopicsParam)}`;
         }
         document.getElementById('header-title').innerText = headerText;
         
@@ -1118,16 +1133,10 @@
         document.getElementById('intro-time-limit').innerText = examMinutes;
         document.getElementById('timer-text').innerText = `${examMinutes}:00`;
 
-        let topicsForIntro = [];
-        let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
-        
-        topicsToLoad.forEach(t => {
-            topicsForIntro.push(topicNamesHe[t.trim()] || t.trim());
-        });
-        
-        let introTopicsText = topicsForIntro.join(", ");
+        // התאמת נושאי המבוא במסך הראשון לעברית צחה
+        let introTopicsText = translateText(currentTopicStr);
         if(subtopicsParam && subtopicsParam.trim() !== "") {
-            introTopicsText += ` (${subtopicsParam.split(',').join(', ')})`;
+            introTopicsText += ` (${translateText(subtopicsParam)})`;
         }
         document.getElementById('intro-topics').innerText = introTopicsText;
 
@@ -1136,35 +1145,39 @@
         let filesToLoad = [];
         
         if (gradeParam === "finance" || subjectParam === "finance") {
+            let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
             topicsToLoad.forEach(t => {
                 let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
                 filesToLoad.push(`data/finance_${safeTopic}.js`);
             });
         } else if (gradeParam === "bar_ilan" || gradeParam === "5_6_bar_ilan") {
             filesToLoad.push(`data/5_6_bar_ilan.js`);
-        } else if (topicsToLoad.length > 0) {
-            topicsToLoad.forEach(t => {
-                let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
-                if (gradeParam === "5_6" || gradeParam === "ה-ו") {
-                    filesToLoad.push(`data/5_6_${safeTopic}.js`);
-                } else if (gradeParam === "35172" && safeTopic === "trigo_172") {
-                    filesToLoad.push(`data/35172_trigonometry_172.js`);
-                } else if (gradeParam === "english" || subjectParam === "english") {
-                    filesToLoad.push(`data/english_${safeTopic}.js`);
-                } else if (gradeParam === "hebrew" || subjectParam === "hebrew") {
-                    if(safeTopic === 'יסודי_כללי') {
-                        filesToLoad.push(`data/כללי_יסודי_כללי.js`);
+        } else {
+            let topicsToLoad = currentTopicStr ? currentTopicStr.split(',') : [];
+            if (topicsToLoad.length > 0) {
+                topicsToLoad.forEach(t => {
+                    let safeTopic = t.trim().replace(/\s+/g, '_').replace(/'/g, '');
+                    if (gradeParam === "5_6" || gradeParam === "ה-ו") {
+                        filesToLoad.push(`data/5_6_${safeTopic}.js`);
+                    } else if (gradeParam === "35172" && safeTopic === "trigo_172") {
+                        filesToLoad.push(`data/35172_trigonometry_172.js`);
+                    } else if (gradeParam === "english" || subjectParam === "english") {
+                        filesToLoad.push(`data/english_${safeTopic}.js`);
+                    } else if (gradeParam === "hebrew" || subjectParam === "hebrew") {
+                        if(safeTopic === 'יסודי_כללי') {
+                            filesToLoad.push(`data/כללי_יסודי_כללי.js`);
+                        } else {
+                            filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+                        }
+                    } else if (gradeParam === "science" || subjectParam === "science") {
+                        filesToLoad.push(`data/science_${safeTopic}.js`);
+                    } else if (gradeParam === "arabic" || subjectParam === "arabic") {
+                        filesToLoad.push(`data/arabic_${safeTopic}.js`);
                     } else {
-                        filesToLoad.push(`data/hebrew_${safeTopic}.js`);
+                        filesToLoad.push(`data/${gradeParam}_${safeTopic}.js`);
                     }
-                } else if (gradeParam === "science" || subjectParam === "science") {
-                    filesToLoad.push(`data/science_${safeTopic}.js`);
-                } else if (gradeParam === "arabic" || subjectParam === "arabic") {
-                    filesToLoad.push(`data/arabic_${safeTopic}.js`);
-                } else {
-                    filesToLoad.push(`data/${gradeParam}_${safeTopic}.js`);
-                }
-            });
+                });
+            }
         }
 
         let currentFileIndex = 0;
@@ -1259,12 +1272,9 @@
                  questions = allQuestionsFlat.sort(() => 0.5 - Math.random()).slice(0, targetNum);
             }
             
+            // --- ערבוב אופציות לכולם תמיד, כולל מתמטיקה ---
             questions.forEach(q => {
-                if (!isMathMode) {
-                    q.shuffledOptions = shuffleOptions(q.options);
-                } else {
-                    q.shuffledOptions = q.options.map((opt, index) => ({ text: opt, originalIndex: index }));
-                }
+                q.shuffledOptions = shuffleOptions(q.options);
             });
 
             answers = new Array(questions.length).fill(null);
@@ -1416,7 +1426,6 @@
 
         document.getElementById('q-text').innerHTML = qTextHtml;
         
-        // תיקון הרמז במבחן כדי למנוע חזרתיות
         const hintBtn = document.getElementById('hint-btn');
         if (q.hint && String(q.hint).trim() !== "") {
             document.getElementById('hint-box').innerHTML = `<div dir="rtl"><b style="color:#713f12;">רמז:</b> ${formatContent(q.hint)}</div>`;
@@ -1626,7 +1635,6 @@
         document.getElementById('sol-btn').disabled = false;
         document.getElementById('sol-btn').classList.remove('btn-disabled-gray');
         
-        // תיקון כפתור הרמז במצב הגשה לפי הלוגיקה החדשה
         const q = questions[currentIndex];
         const hintBtn = document.getElementById('hint-btn');
         if (q.hint && String(q.hint).trim() !== "") {
