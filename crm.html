@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניהול - המרכז להישגים לימודיים</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --theme-primary: #000000;
+            --theme-accent: #c5a059;
+            --theme-bg-gradient: linear-gradient(-45deg, #1e293b, #0f172a, #334155, #000000);
+            
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-main: #ffffff;
+            --danger: #ef4444;
+            --success: #10b981;
+        }
+
+        * { box-sizing: border-box; font-family: 'Heebo', sans-serif; }
+        
+        body { 
+            margin: 0; 
+            min-height: 100vh; 
+            background: var(--theme-bg-gradient); 
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-main); 
+            display: flex; 
+            flex-direction: column;
+            overflow-x: hidden;
+            transition: background 1s ease;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* ================= מסך התחברות ================= */
+        #login-screen {
+            display: flex; justify-content: center; align-items: center;
+            flex: 1; padding: 20px; animation: fadeIn 0.8s ease;
+        }
+        .login-box { width: 100%; max-width: 420px; padding: 40px 30px; text-align: center; }
+        .login-logo { font-size: 4rem; color: var(--theme-accent); margin-bottom: 10px; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .login-box h1 { margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 900; }
+        .login-box p { margin: 0 0 30px 0; font-size: 1rem; opacity: 0.8; }
+
+        .input-group { position: relative; margin-bottom: 20px; text-align: right; }
+        .input-group i { position: absolute; right: 15px; top: 15px; color: rgba(255,255,255,0.6); font-size: 1.2rem; }
+        .input-group input {
+            width: 100%; padding: 14px 45px 14px 15px; border-radius: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
+            color: white; font-size: 1.1rem; outline: none; transition: 0.3s;
+        }
+        .input-group input:focus { background: rgba(255,255,255,0.15); border-color: var(--theme-accent); box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); }
+
+        .btn-login {
+            width: 100%; padding: 15px; border-radius: 12px; border: none;
+            background: var(--theme-accent); color: var(--theme-primary);
+            font-size: 1.2rem; font-weight: 800; cursor: pointer; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-top: 10px;
+        }
+        .btn-login:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(197, 160, 89, 0.4); }
+        .error-msg { color: #fca5a5; font-weight: 700; margin-top: 15px; display: none; background: rgba(239, 68, 68, 0.2); padding: 10px; border-radius: 8px; border: 1px solid rgba(239, 68, 68, 0.4);}
+
+        /* ================= סביבת עבודה ================= */
+        #app-screen { display: none; flex-direction: column; height: 100vh; }
+        
+        .app-header {
+            padding: 10px 30px; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--glass-border); background: rgba(0,0,0,0.2); z-index: 10;
+        }
+        .app-header h2 { margin: 0; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+        .user-controls { display: flex; align-items: center; gap: 20px; font-weight: 600; }
+        
+        .btn-logout {
+            background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: white;
+            padding: 6px 14px; border-radius: 8px; cursor: pointer; font-weight: 700; transition: 0.3s;
+        }
+        .btn-logout:hover { background: var(--danger); }
+
+        .dashboard-container { flex: 1; padding: 15px 20px; overflow-y: auto; display: flex; gap: 15px; max-width: 1600px; margin: 0 auto; width: 100%; }
+        .column { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+
+        .glass-card { padding: 15px; display: flex; flex-direction: column; gap: 10px; }
+        .glass-card h3 { margin: 0; font-size: 1.2rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+        /* טפסים בתוך האפליקציה */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .label-white { font-weight: 700; margin-bottom: 4px; display: block; font-size: 0.9rem; opacity: 0.9; }
+        .glass-input {
+            width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+            border-radius: 8px; color: white; outline: none; font-size: 0.95rem; transition: 0.2s;
+        }
+        .glass-input:focus { border-color: var(--theme-accent); background: rgba(0,0,0,0.4); }
+        .glass-input option { background: var(--theme-primary); color: white; }
+        .glass-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-action {
+            width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: 800; font-size: 1rem;
+            cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-theme { background: var(--theme-accent); color: var(--theme-primary); }
+        .btn-theme:hover { filter: brightness(1.1); transform: translateY(-2px); }
+        .btn-excel { background: rgba(22, 163, 74, 0.8); border: 1px solid #4ade80; color: white; width: auto; padding: 6px 12px; font-size: 0.85rem; border-radius: 6px; cursor: pointer; transition: 0.3s;}
+        .btn-excel:hover { background: #16a34a; }
+
+        /* קריאות */
+        .ticket {
+            background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 12px; padding: 12px 15px;
+            border-right: 6px solid var(--glass-border); transition: 0.3s; margin-bottom: 10px;
+        }
+        .ticket.waiting { border-right-color: #f59e0b; }
+        .ticket.active { border-right-color: #3b82f6; background: rgba(59, 130, 246, 0.1); }
+        .ticket.done { border-right-color: #10b981; opacity: 0.7; }
+        
+        .ticket-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;}
+        .ticket-info { font-size: 0.9rem; opacity: 0.9; line-height: 1.4; margin-bottom: 8px; }
+        
+        .tag-glass { background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; margin-left: 5px; border: 1px solid rgba(255,255,255,0.2); }
+        .whatsapp-btn { background: #25D366; color: white; border: none; padding: 5px 10px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 5px; text-decoration: none;}
+        .whatsapp-btn:hover { background: #1ebc59; }
+
+        .sla-timer { font-size: 0.85rem; padding: 3px 8px; border-radius: 6px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); font-family: monospace; }
+        .sla-timer.danger { color: #ef4444; border-color: #ef4444; animation: pulse 1s infinite; }
+
+        /* טיימר */
+        .timer-display {
+            font-size: 2.5rem; font-family: monospace; font-weight: 900; text-align: center;
+            color: var(--theme-accent); letter-spacing: 3px; text-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.3); border-radius: 15px; padding: 10px; border: 1px solid var(--glass-border);
+            margin: 10px 0;
+        }
+
+        /* טבלאות מנהל */
+        .glass-table { width: 100%; border-collapse: collapse; margin-top: 5px; }
+        .glass-table th { text-align: right; padding: 10px; border-bottom: 2px solid var(--theme-accent); color: var(--theme-accent); font-weight: 800; font-size: 0.95rem; }
+        .glass-table td { padding: 8px 10px; border-bottom: 1px solid var(--glass-border); font-size: 0.9rem;}
+
+        .tutor-earnings-box { display: flex; justify-content: space-between; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--glass-border); }
+        .tutor-earnings-item { text-align: center; flex: 1; }
+        .tutor-earnings-val { font-size: 1.4rem; font-weight: 900; color: var(--theme-accent); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        @media (max-width: 900px) { .dashboard-container { flex-direction: column; } }
+
+        /* רקע צף */
+        #floating-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+        .floating-icon { position: absolute; font-size: 2rem; color: var(--theme-accent); opacity: 0.04; animation: float 25s infinite linear; }
+        @keyframes float { from { transform: translateY(100vh); } to { transform: translateY(-10vh); } }
+    </style>
+</head>
+<body>
+
+<div id="floating-container"></div>
+
+<div id="login-screen">
+    <div class="glass-panel login-box">
+        <i class="fa-solid fa-graduation-cap login-logo"></i>
+        <h1>מערכת מורים ומוקד</h1>
+        <p>המרכז להישגים לימודיים</p>
+
+        <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="login-user" placeholder="שם משתמש (למורים: הקלד שם מלא)">
+        </div>
+        <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="login-pass" placeholder="סיסמה">
+        </div>
+
+        <button class="btn-login" onclick="performLogin()">כניסה למערכת <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+        <div id="login-error" class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> פרטים שגויים, נסה שנית.</div>
+        
+        <div style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5; text-align: right;">
+            הדרכה לבדיקה:<br>מנהל: admin / 1234<br>מוקדן: moked / 1234<br>מורה: [שם כלשהו] / tutor123
+        </div>
+    </div>
+</div>
+
+<div id="app-screen">
+    <header class="app-header glass-panel" style="border-radius: 0; border-top: none; border-left: none; border-right: none; box-shadow: none;">
+        <h2><i class="fa-solid fa-graduation-cap"></i> <span id="header-role-title">ניהול מערכת</span></h2>
+        <div class="user-controls">
+            <span>שלום, <strong id="logged-in-user">משתמש</strong></span>
+            <button class="btn-logout" onclick="performLogout()"><i class="fa-solid fa-power-off"></i> יציאה</button>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <div id="dashboard-owner" style="display: none; width: 100%; gap: 15px; flex-direction: column;">
+            
+            <div class="glass-panel glass-card" style="flex-direction: row; justify-content: space-around; align-items: center; padding: 15px; flex-wrap: wrap; gap: 15px;">
+                <div style="text-align:center; flex:1; min-width:120px;">
+                    <div style="opacity:0.8; font-size:0.9rem;">שיחות היום</div>
+                    <div id="admin-today-calls" style="font-size:1.8rem; font-weight:900;">0</div>
+                </div>
+                <div style="text-align:center; flex:1; min-width:120px;">
+                    <div style="opacity:0.8; font-size:0.9rem;">עלות יומית</div>
+                    <div id="admin-today-money" style="font-size:1.8rem; font-weight:900; color:var(--success);">₪ 0</div>
+                </div>
+                <div style="width:1px; background:var(--glass-border); align-self:stretch; display:block;"></div>
+                <div style="text-align:center; flex:1; min-width:120px;">
+                    <div style="opacity:0.8; font-size:0.9rem;">שיחות החודש</div>
+                    <div id="admin-month-calls" style="font-size:1.8rem; font-weight:900;">0</div>
+                </div>
+                <div style="text-align:center; flex:1; min-width:120px;">
+                    <div style="opacity:0.8; font-size:0.9rem;">עלות חודשית סה"כ</div>
+                    <div id="admin-month-money" style="font-size:1.8rem; font-weight:900; color:var(--theme-accent);">₪ 0</div>
+                </div>
+            </div>
+
+            <div class="glass-panel glass-card" style="margin-bottom: 5px;">
+                <h3><i class="fa-solid fa-address-book"></i> מאגר מנויים זכאים למורה (ידני + אוטומטי מהאתר)</h3>
+                <div style="display: flex; gap: 10px; align-items: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 12px; border: 1px solid var(--glass-border); flex-wrap: wrap;">
+                    <input type="text" id="admin-new-sub-name" class="glass-input" placeholder="שם הלקוח המלא" style="flex: 1; border: none; background: rgba(255,255,255,0.05); min-width: 150px;">
+                    <input type="tel" id="admin-new-sub-phone" class="glass-input" placeholder="מספר טלפון (לדוגמה: 0501234567)" style="flex: 2; border: none; background: rgba(255,255,255,0.05); min-width: 200px;">
+                    <button class="btn-action btn-theme" style="width: auto; padding: 10px 20px;" onclick="addSubscriber()">הוסף ידנית <i class="fa-solid fa-plus"></i></button>
+                </div>
+                
+                <div id="admin-sub-list" style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px; max-height: 350px; overflow-y: auto;"></div>
+            </div>
+
+            <div style="display: flex; gap: 15px; align-items: flex-start; flex-wrap: wrap;">
+                
+                <div class="glass-panel glass-card" style="flex: 1; min-width: 400px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3><i class="fa-solid fa-users-gear"></i> דוח שכר ופעילות מורים</h3>
+                        <button class="btn-excel" onclick="exportSalariesCSV()"><i class="fa-solid fa-file-excel"></i> ייצא שכר</button>
+                    </div>
+                    
+                    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+                        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                            <input type="text" id="filter-tutor-name" class="glass-input" style="flex:1; padding:8px; min-width:100px;" placeholder="חיפוש מורה..." onkeyup="renderApp()">
+                            <input type="date" id="filter-tutor-from" class="glass-input" style="width:auto; padding:8px; font-family: monospace;" onchange="renderApp()" title="מתאריך">
+                            <input type="date" id="filter-tutor-to" class="glass-input" style="width:auto; padding:8px; font-family: monospace;" onchange="renderApp()" title="עד תאריך">
+                            <button class="btn-action" style="width:auto; padding:8px 12px; background:rgba(255,255,255,0.1); color:white;" onclick="clearAdminFilters()"><i class="fa-solid fa-eraser"></i> נקה</button>
+                        </div>
+                        <div id="tutor-summary" style="font-size:0.9rem; color:var(--theme-accent); font-weight:bold; min-height:20px;"></div>
+                    </div>
+
+                    <div style="overflow-x: auto; max-height: 400px; overflow-y: auto;">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>מורה</th>
+                                    <th>כמות שיחות</th>
+                                    <th>סה"כ זמן</th>
+                                    <th>שכר לתשלום</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="glass-panel glass-card" style="flex: 1; min-width: 400px;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3><i class="fa-solid fa-user-graduate"></i> דוח מעקב לקוחות</h3>
+                        <button class="btn-excel" onclick="exportClientsCSV()"><i class="fa-solid fa-file-excel"></i> ייצא לקוחות</button>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:10px; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 8px;">
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <i class="fa-solid fa-magnifying-glass" style="color:var(--theme-accent); padding-right:5px;"></i>
+                            <input type="text" id="filter-client" class="glass-input" style="flex:1; padding:8px; border:none; border-bottom:1px solid var(--theme-accent); border-radius:0; background:transparent;" placeholder="הקלד שם לקוח או טלפון לחיפוש..." onkeyup="renderApp()">
+                        </div>
+                        <div id="client-summary" style="font-size:0.9rem; color:var(--theme-accent); font-weight:bold; min-height:20px;"></div>
+                    </div>
+
+                    <div style="overflow-x: auto; max-height: 400px; overflow-y: auto;">
+                        <table class="glass-table">
+                            <thead>
+                                <tr>
+                                    <th>תאריך</th>
+                                    <th>לקוח וכיתה</th>
+                                    <th>טלפון הלקוח</th>
+                                    <th>התחלה</th>
+                                    <th>סיום</th>
+                                    <th>מורה מטפל</th>
+                                    <th>סה"כ זמן</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-clients-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dashboard-dispatcher" style="display: none; width: 100%; gap: 15px;">
+            <div class="column">
+                <div class="glass-panel glass-card">
+                    <h3><i class="fa-solid fa-plus-circle"></i> פתיחת קריאה חדשה למורים</h3>
+                    <div>
+                        <label class="label-white">שם התלמיד</label>
+                        <input type="text" id="d-name" class="glass-input" placeholder="שם מלא">
+                    </div>
+                    <div style="margin-top:10px;">
+                        <label class="label-white">טלפון (מזהה)</label>
+                        <input type="tel" id="d-phone" class="glass-input" placeholder="05x-xxxxxxx">
+                    </div>
+                    
+                    <div class="form-row" style="margin-top:10px;">
+                        <div>
+                            <label class="label-white">מקצוע</label>
+                            <select id="d-subject" class="glass-input" onchange="checkFormLogic()">
+                                <option value="מתמטיקה">מתמטיקה</option>
+                                <option value="אנגלית">אנגלית</option>
+                                <option value="לשון">לשון והבעה</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="label-white">כיתה</label>
+                            <select id="d-grade" class="glass-input" onchange="checkFormLogic()">
+                                <option value="ה'-ו'">ה'-ו'</option>
+                                <option value="ז'">ז'</option>
+                                <option value="ח'">ח'</option>
+                                <option value="ט'">ט'</option>
+                                <option value="י'">י'</option>
+                                <option value="י״א">י"א</option>
+                                <option value="י״ב">י"ב</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="units-container" style="margin-top:10px; margin-bottom: 10px; display:none;">
+                        <label class="label-white">רמת לימוד (יח"ל) / שאלון <span style="color:#fde047;">*חובה לתיכון</span></label>
+                        <select id="d-level" class="glass-input">
+                            <option value="3 יח״ל">3 יח"ל</option>
+                            <option value="4 יח״ל">4 יח"ל</option>
+                            <option value="5 יח״ל">5 יח"ל</option>
+                        </select>
+                    </div>
+
+                    <div id="sub-warning" style="display:none; background:rgba(239, 68, 68, 0.2); border:1px solid #ef4444; padding:12px; border-radius:8px; margin-top:10px;">
+                        <div style="color:#fca5a5; font-weight:bold; margin-bottom:10px;"><i class="fa-solid fa-triangle-exclamation"></i> שים לב: טלפון הלקוח אינו מופיע במאגר המנויים הידני או באתר!</div>
+                        <div style="display:flex; gap:10px;">
+                            <button class="btn-action" style="background:#ef4444; color:white; flex:1; padding:8px;" onclick="confirmDispatch(true)">אשר קריאה כחריג</button>
+                            <button class="btn-action" style="background:rgba(255,255,255,0.1); color:white; flex:1; padding:8px;" onclick="cancelDispatch()">בטל</button>
+                        </div>
+                    </div>
+
+                    <button id="btn-create-ticket" class="btn-action btn-theme" style="margin-top:10px;" onclick="initDispatch()">
+                        שדר קריאה לכל המורים <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="column">
+                <div class="glass-panel glass-card" style="flex:1;">
+                    <h3><i class="fa-solid fa-satellite-dish"></i> מוניטור שיחות חי - מוקד</h3>
+                    <div id="dispatcher-monitor"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dashboard-tutor" style="display: none; width: 100%; gap: 15px;">
+            <div class="column">
+                <div class="glass-panel glass-card">
+                    <h3><i class="fa-solid fa-users-viewfinder"></i> תלמידים ממתינים לעזרה</h3>
+                    <div id="tutor-queue"></div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="tutor-earnings-box">
+                    <div class="tutor-earnings-item" style="border-left: 1px solid var(--glass-border);">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">רווח משיעור אחרון</div>
+                        <div class="tutor-earnings-val" id="tutor-earn-last">₪0.00</div>
+                    </div>
+                    <div class="tutor-earnings-item" style="border-left: 1px solid var(--glass-border);">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">רווח יומי סה"כ</div>
+                        <div class="tutor-earnings-val" id="tutor-earn-daily">₪0.00</div>
+                    </div>
+                    <div class="tutor-earnings-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">החודש עד כה</div>
+                        <div class="tutor-earnings-val" id="tutor-earn-monthly">₪0.00</div>
+                    </div>
+                </div>
+
+                <div class="glass-panel glass-card" id="tutor-active-card" style="display:none; border-color:var(--success); box-shadow: 0 0 15px rgba(16, 185, 129, 0.2); padding: 15px;">
+                    <h3 style="font-size: 1rem; padding-bottom: 5px; margin-bottom: 5px;"><i class="fa-solid fa-circle-dot" style="color:var(--success); animation: pulse 1.5s infinite;"></i> שיעור פעיל עכשיו</h3>
+                    <div id="tutor-active-info" style="font-size: 0.95rem; line-height: 1.4;"></div>
+                    <div class="timer-display" id="tutor-timer" style="font-size: 2rem; padding: 5px; margin: 5px 0;">00:00</div>
+                    <button class="btn-action btn-theme" style="background:var(--success); color:white; padding: 10px; font-size: 0.95rem;" onclick="finishTutorCall()">
+                        סיים שיעור <i class="fa-solid fa-check"></i>
+                    </button>
+                </div>
+                
+                <div class="glass-panel glass-card" id="tutor-history-card">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> יומן השיחות שלי (היום)</h3>
+                    <div id="tutor-history"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const PAY_PER_MINUTE = 2; // שכר לדקה שלמה
+
+    // מניעת התנגשות: שמירת הלוגין ב-SessionStorage (מקומי לכרטיסייה הנוכחית)
+    let sessionRole = sessionStorage.getItem('crm_session_role') || null;
+    let sessionUser = sessionStorage.getItem('crm_session_user') || null;
+    
+    // שמירת הנתונים ב-LocalStorage (משותף לכל הכרטיסיות)
+    let callsDB = JSON.parse(localStorage.getItem('glass_crm_calls_v4')) || [];
+    
+    // קריאה והמרה חכמה של המנויים הידניים שהוזנו במערכת ה-CRM
+    let rawSubs = JSON.parse(localStorage.getItem('glass_crm_subs_v2')) || JSON.parse(localStorage.getItem('glass_crm_subs')) || [];
+    let subscribersDB = rawSubs.map(s => typeof s === 'string' ? { name: 'לקוח ללא שם', phone: s } : s);
+    
+    let activeTimer = null;
+    let activeSeconds = 0;
+    let currentCallId = null;
+    let globalTimerInterval = null;
+
+    // ----- פונקציית סנכרון חכמה לאתר השוברים -----
+    function getAutoSyncedSubs() {
+        let autoSubs = [];
+        try {
+            let eduUsers = JSON.parse(localStorage.getItem('edu_users') || '{}');
+            let sharedConfig = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
+            let today = new Date().toISOString().split('T')[0];
+            
+            for (let email in eduUsers) {
+                let u = eduUsers[email];
+                if (u.phone) {
+                    let v = sharedConfig.vouchers.find(x => x.usedBy === email);
+                    // בודק אם לשם משתמש הזה יש שובר פעיל שלא פג תוקפו
+                    if (v && (v.expiryDate >= today || v.expiryDate === "2099-12-31")) {
+                        let fullName = ((u.firstName || '') + ' ' + (u.lastName || '')).trim() || 'תלמיד מהאתר';
+                        let city = u.city || '---';
+                        let childrenCount = u.children ? u.children.length : 0;
+                        let regDate = v.dateUsed ? formatDateOnly(v.dateUsed) : '---';
+                        let expDate = v.expiryDate === "2099-12-31" ? "ללא הגבלה" : formatDateOnly(v.expiryDate);
+
+                        autoSubs.push({ 
+                            name: fullName, 
+                            phone: u.phone, 
+                            isAuto: true,
+                            city: city,
+                            childrenCount: childrenCount,
+                            regDate: regDate,
+                            expiryDate: expDate
+                        });
+                    }
+                }
+            }
+        } catch(e) { console.error("Error syncing users", e); }
+        return autoSubs;
+    }
+
+    // פונקציות עזר לזמן ותאריך
+    function formatTimeStr(totalSeconds) {
+        if(!totalSeconds) return "00:00";
+        let m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+        let s = (totalSeconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+    }
+
+    function parseILDate(dateStr) {
+        if(!dateStr) return 0;
+        let parts = dateStr.split(/[./-]/);
+        if(parts.length === 3) {
+            return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
+        }
+        return 0;
+    }
+
+    function formatDateOnly(dateString) {
+        if (!dateString) return '---';
+        if (dateString.includes(',')) return dateString.split(',')[0]; 
+        const d = new Date(dateString);
+        if(isNaN(d.getTime())) return dateString;
+        return d.toLocaleDateString('he-IL');
+    }
+
+    // הפעלה ראשונית של רקע וחלונות
+    initIcons();
+    if(sessionRole && sessionUser) {
+        setupUI(sessionRole, sessionUser);
+    }
+
+    // סנכרון מאגר הנתונים בין כרטיסיות מבלי לנתק את המשתמש
+    window.addEventListener('storage', (e) => {
+        if(e.key === 'glass_crm_calls_v4') {
+            callsDB = JSON.parse(e.newValue) || [];
+            if(sessionRole) renderApp();
+        }
+        if(e.key === 'glass_crm_subs_v2' || e.key === 'edu_users' || e.key === 'shared_config') {
+            let rs = JSON.parse(localStorage.getItem('glass_crm_subs_v2')) || [];
+            subscribersDB = rs.map(s => typeof s === 'string' ? { name: 'לקוח ללא שם', phone: s } : s);
+            if(sessionRole === 'owner') renderSubscribers();
+        }
+    });
+
+    function saveDB() {
+        localStorage.setItem('glass_crm_calls_v4', JSON.stringify(callsDB));
+        renderApp();
+    }
+    
+    function saveSubs() {
+        localStorage.setItem('glass_crm_subs_v2', JSON.stringify(subscribersDB.filter(s => !s.isAuto))); // לא שומרים את האוטומטיים כדי שלא יוכפלו
+        if(sessionRole === 'owner') renderSubscribers();
+    }
+
+    function startGlobalTimers() {
+        if(globalTimerInterval) clearInterval(globalTimerInterval);
+        globalTimerInterval = setInterval(() => {
+            const els = document.querySelectorAll('.sla-timer-val');
+            els.forEach(el => {
+                let openedAt = parseInt(el.getAttribute('data-time'));
+                let diffSeconds = Math.floor((Date.now() - openedAt) / 1000);
+                let leftSeconds = (15 * 60) - diffSeconds; // 15 דקות
+                
+                if(leftSeconds <= 0) {
+                    el.innerText = "חריגת SLA!";
+                    el.parentElement.classList.add('danger');
+                } else {
+                    el.innerText = formatTimeStr(leftSeconds);
+                }
+            });
+        }, 1000);
+    }
+
+    // --- לוגיקת התחברות ---
+    function performLogin() {
+        const user = document.getElementById('login-user').value.trim();
+        const pass = document.getElementById('login-pass').value;
+        const err = document.getElementById('login-error');
+
+        if(user === 'admin' && pass === '1234') {
+            sessionStorage.setItem('crm_session_role', 'owner');
+            sessionStorage.setItem('crm_session_user', 'מנהל ראשי');
+            setupUI('owner', 'מנהל ראשי');
+        } 
+        else if (user === 'moked' && pass === '1234') {
+            sessionStorage.setItem('crm_session_role', 'dispatcher');
+            sessionStorage.setItem('crm_session_user', 'מוקדן מערכת');
+            setupUI('dispatcher', 'מוקדן מערכת');
+        }
+        else if (user !== '' && pass === 'tutor123') {
+            sessionStorage.setItem('crm_session_role', 'tutor');
+            sessionStorage.setItem('crm_session_user', user);
+            setupUI('tutor', user);
+        }
+        else {
+            err.style.display = 'block';
+            setTimeout(() => err.style.display = 'none', 3000);
+        }
+    }
+
+    function setupUI(role, name) {
+        sessionRole = role;
+        sessionUser = name;
+        
+        document.getElementById('login-screen').style.display = 'none';
+        document.getElementById('app-screen').style.display = 'flex';
+        document.getElementById('logged-in-user').innerText = name;
+
+        document.getElementById('dashboard-owner').style.display = 'none';
+        document.getElementById('dashboard-dispatcher').style.display = 'none';
+        document.getElementById('dashboard-tutor').style.display = 'none';
+
+        if(role === 'owner') {
+            document.getElementById('dashboard-owner').style.display = 'flex';
+            document.getElementById('header-role-title').innerText = 'דאשבורד מנהל מרכז';
+            saveSubs(); 
+            renderSubscribers();
+        } 
+        else if (role === 'dispatcher') {
+            document.getElementById('dashboard-dispatcher').style.display = 'flex';
+            document.getElementById('header-role-title').innerText = 'עמדת מוקדן והפניות';
+            checkFormLogic();
+        }
+        else if (role === 'tutor') {
+            document.getElementById('dashboard-tutor').style.display = 'flex';
+            document.getElementById('header-role-title').innerText = 'סביבת הוראה אישית';
+        }
+
+        startGlobalTimers();
+        renderApp();
+    }
+
+    function performLogout() {
+        if(currentCallId) return alert("לא ניתן להתנתק בזמן שיעור פעיל!");
+        if(globalTimerInterval) clearInterval(globalTimerInterval);
+        
+        sessionStorage.removeItem('crm_session_role');
+        sessionStorage.removeItem('crm_session_user');
+        sessionRole = null;
+        sessionUser = null;
+        
+        document.getElementById('app-screen').style.display = 'none';
+        document.getElementById('login-screen').style.display = 'flex';
+        document.getElementById('login-user').value = '';
+        document.getElementById('login-pass').value = '';
+    }
+
+    // --- ניהול מנויים ע"י מנהל ---
+    function addSubscriber() {
+        const name = document.getElementById('admin-new-sub-name').value.trim();
+        const phone = document.getElementById('admin-new-sub-phone').value.trim();
+        
+        if(!name || !phone) return alert("נא להזין גם שם וגם מספר טלפון להוספה!");
+        
+        let autoSubs = getAutoSyncedSubs();
+        
+        if(!subscribersDB.some(s => s.phone === phone) && !autoSubs.some(s => s.phone === phone)) {
+            subscribersDB.push({ name: name, phone: phone });
+            saveSubs();
+        } else {
+            alert("לקוח עם מספר טלפון זה כבר קיים במערכת הידנית או האוטומטית מהאתר.");
+        }
+        
+        document.getElementById('admin-new-sub-name').value = '';
+        document.getElementById('admin-new-sub-phone').value = '';
+    }
+    
+    function removeSubscriber(phone) {
+        if(confirm("האם אתה בטוח שברצונך להסיר מנוי זה? (זה לא ימחק היסטוריית שיחות)")) {
+            subscribersDB = subscribersDB.filter(p => p.phone !== phone);
+            saveSubs();
+        }
+    }
+    
+    function renderSubscribers() {
+        const list = document.getElementById('admin-sub-list');
+        list.innerHTML = '';
+        
+        let autoSubs = getAutoSyncedSubs();
+        
+        // מיזוג הרשימות למניעת כפילויות
+        let combinedSubs = [...subscribersDB];
+        autoSubs.forEach(autoSub => {
+            if(!combinedSubs.some(s => s.phone === autoSub.phone)) {
+                combinedSubs.push(autoSub);
+            }
+        });
+        
+        let sortedSubs = combinedSubs.sort((a, b) => a.name.localeCompare(b.name));
+        
+        sortedSubs.forEach(sub => {
+            let actionBtn = sub.isAuto 
+                ? `<span style="font-size:0.75rem; background:rgba(255,255,255,0.1); padding:4px 8px; border-radius:6px; opacity:0.8;"><i class="fa-solid fa-link"></i> סונכרן אוטומטית</span>`
+                : `<button onclick="removeSubscriber('${sub.phone}')" style="background:rgba(239, 68, 68, 0.2); border:1px solid #ef4444; color:#ef4444; border-radius:6px; padding:5px 12px; cursor:pointer; font-weight:bold; transition:0.3s;" onmouseover="this.style.background='#ef4444'; this.style.color='white';" onmouseout="this.style.background='rgba(239, 68, 68, 0.2)'; this.style.color='#ef4444';"><i class="fa-solid fa-trash"></i> הסר ידני</button>`;
+            
+            let extraDetails = '';
+            if (sub.isAuto) {
+                extraDetails = `
+                    <div style="display:flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; font-size: 0.8rem; color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px;">
+                        <span><i class="fa-solid fa-city" style="color:var(--theme-accent);"></i> עיר: ${sub.city}</span>
+                        <span><i class="fa-solid fa-children" style="color:var(--theme-accent);"></i> תלמידים: ${sub.childrenCount}</span>
+                        <span><i class="fa-solid fa-calendar-plus" style="color:var(--theme-accent);"></i> הרשמה: ${sub.regDate}</span>
+                        <span><i class="fa-solid fa-calendar-check" style="color:var(--theme-accent);"></i> תוקף: <strong style="color:white;">${sub.expiryDate}</strong></span>
+                    </div>
+                `;
+            }
+
+            list.innerHTML += `
+                <div style="display:flex; flex-direction:column; background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <strong style="color:var(--theme-accent); font-size:1.05rem;">${sub.name}</strong> 
+                            <span style="font-family:monospace; margin-right:10px; opacity:0.8;">${sub.phone}</span>
+                        </div>
+                        ${actionBtn}
+                    </div>
+                    ${extraDetails}
+                </div>
+            `;
+        });
+        
+        if(sortedSubs.length === 0) list.innerHTML = '<span style="opacity:0.5; font-size:0.9rem;">אין מנויים מוזנים במערכת. הוסיפו מנויים למעלה או שמשתמשים יירשמו באתר.</span>';
+    }
+
+    // נקה מסננים במנהל
+    function clearAdminFilters() {
+        if(document.getElementById('filter-tutor-name')) document.getElementById('filter-tutor-name').value = '';
+        if(document.getElementById('filter-tutor-from')) document.getElementById('filter-tutor-from').value = '';
+        if(document.getElementById('filter-tutor-to')) document.getElementById('filter-tutor-to').value = '';
+        if(document.getElementById('filter-client')) document.getElementById('filter-client').value = '';
+        renderApp();
+    }
+
+    // --- לוגיקת מוקדן יצירת קריאה ---
+    function checkFormLogic() {
+        const subj = document.getElementById('d-subject').value;
+        const grade = document.getElementById('d-grade').value;
+        const unitsBox = document.getElementById('units-container');
+        
+        const isHighSchool = ['י\'', 'י״א', 'י״ב'].includes(grade);
+        const isMathEng = ['מתמטיקה', 'אנגלית'].includes(subj);
+
+        if (isHighSchool && isMathEng) {
+            unitsBox.style.display = 'block';
+        } else {
+            unitsBox.style.display = 'none';
+        }
+    }
+
+    function initDispatch() {
+        const name = document.getElementById('d-name').value;
+        const phone = document.getElementById('d-phone').value;
+        
+        if(!name || !phone) return alert("נא למלא שם וטלפון של התלמיד");
+
+        let autoSubs = getAutoSyncedSubs();
+        let isManualSub = subscribersDB.some(s => s.phone === phone);
+        let isAutoSub = autoSubs.some(s => s.phone === phone);
+
+        if(!isManualSub && !isAutoSub) {
+            document.getElementById('sub-warning').style.display = 'block';
+            document.getElementById('btn-create-ticket').style.display = 'none';
+        } else {
+            confirmDispatch(false); // ממשיך רגיל
+        }
+    }
+    
+    function cancelDispatch() {
+        document.getElementById('sub-warning').style.display = 'none';
+        document.getElementById('btn-create-ticket').style.display = 'block';
+    }
+
+    function confirmDispatch(isForced) {
+        const name = document.getElementById('d-name').value;
+        const phone = document.getElementById('d-phone').value;
+        const subj = document.getElementById('d-subject').value;
+        const grade = document.getElementById('d-grade').value;
+        
+        const isHighSchool = ['י\'', 'י״א', 'י״ב'].includes(grade);
+        const isMathEng = ['מתמטיקה', 'אנגלית'].includes(subj);
+        let level = "";
+
+        if(isHighSchool && isMathEng) {
+            level = document.getElementById('d-level').value;
+        }
+
+        callsDB.push({
+            id: Date.now(),
+            student: name,
+            phone: phone,
+            subject: subj,
+            grade: grade,
+            level: level,
+            status: 'waiting',
+            tutor: '',
+            durationSecs: 0,
+            date: new Date().toLocaleDateString('he-IL'),
+            openedAtTS: Date.now(), 
+            openedTimeStr: new Date().toLocaleTimeString('he-IL', {hour: '2-digit', minute:'2-digit'}),
+            exactStartStr: '',
+            exactEndStr: '',
+            forced: isForced
+        });
+        
+        saveDB();
+        
+        // איפוס טופס
+        document.getElementById('d-name').value = '';
+        document.getElementById('d-phone').value = '';
+        cancelDispatch();
+    }
+
+    // --- פעולת מורה ---
+    function takeTutorCall(id) {
+        if(currentCallId) return alert("אתה כבר בשיחה פעילה!");
+        const call = callsDB.find(c => c.id == id);
+        if(call && call.status === 'waiting') {
+            call.status = 'active';
+            call.tutor = sessionUser;
+            call.exactStartStr = new Date().toLocaleTimeString('he-IL', {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+            currentCallId = id;
+            activeSeconds = 0;
+            saveDB();
+            
+            document.getElementById('tutor-active-card').style.display = 'flex';
+            clearInterval(activeTimer);
+            activeTimer = setInterval(() => {
+                activeSeconds++;
+                document.getElementById('tutor-timer').innerText = formatTimeStr(activeSeconds);
+            }, 1000);
+        }
+    }
+
+    function finishTutorCall() {
+        const call = callsDB.find(c => c.id == currentCallId);
+        if(call) {
+            call.status = 'done';
+            call.exactEndStr = new Date().toLocaleTimeString('he-IL', {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+            call.durationSecs = activeSeconds;
+            saveDB();
+        }
+        clearInterval(activeTimer);
+        document.getElementById('tutor-active-card').style.display = 'none';
+        currentCallId = null;
+        renderApp(); // רנדור מחדש לעדכון הכספים
+    }
+
+    // --- ייצוא לאקסל (מנהל) ---
+    function exportSalariesCSV() {
+        const doneCalls = callsDB.filter(c => c.status === 'done');
+        if(doneCalls.length === 0) return alert("אין נתונים לייצוא");
+
+        let map = {};
+        doneCalls.forEach(c => {
+            if(!map[c.tutor]) map[c.tutor] = { calls: 0, secs: 0, shifts: [] };
+            map[c.tutor].calls++;
+            map[c.tutor].secs += (c.durationSecs || 0);
+            map[c.tutor].shifts.push(`${c.date} ${c.exactStartStr}-${c.exactEndStr}`);
+        });
+
+        let csvContent = "\uFEFF"; // BOM for Hebrew
+        csvContent += "שם המורה,מספר שיעורים,סהכ דקות ושניות,לתשלום (שח),פירוט משמרות\n";
+        
+        for(let name in map) {
+            let cost = (map[name].secs / 60) * PAY_PER_MINUTE;
+            let shiftsText = `"${map[name].shifts.join(', ')}"`;
+            csvContent += `${name},${map[name].calls},${formatTimeStr(map[name].secs)},${cost.toFixed(2)},${shiftsText}\n`;
+        }
+
+        downloadCSV(csvContent, "Tutors_Salary_Report.csv");
+    }
+
+    function exportClientsCSV() {
+        const doneCalls = callsDB.filter(c => c.status === 'done');
+        if(doneCalls.length === 0) return alert("אין נתונים לייצוא");
+
+        let csvContent = "\uFEFF";
+        csvContent += "תאריך,לקוח וכיתה,טלפון הלקוח,התחלה מדויקת,סיום מדויק,מורה מטפל,סהכ זמן\n";
+        
+        doneCalls.forEach(c => {
+            csvContent += `${c.date},${c.student} - ${c.grade},${c.phone},${c.exactStartStr},${c.exactEndStr},${c.tutor},${formatTimeStr(c.durationSecs)}\n`;
+        });
+
+        downloadCSV(csvContent, "Clients_Activity_Report.csv");
+    }
+
+    function downloadCSV(content, filename) {
+        const encodedUri = encodeURI("data:text/csv;charset=utf-8," + content);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", filename);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // --- רינדור המסכים ---
+    function renderApp() {
+        if(!sessionRole) return;
+
+        // מוקדן
+        if(sessionRole === 'dispatcher') {
+            const monitor = document.getElementById('dispatcher-monitor');
+            monitor.innerHTML = '';
+            callsDB.slice().reverse().forEach(c => {
+                if(c.status === 'done') return;
+                
+                let slaHtml = '';
+                if(c.status === 'waiting') {
+                    slaHtml = `<div class="sla-timer"><i class="fa-regular fa-clock"></i> נותר לחזרה: <span class="sla-timer-val" data-time="${c.openedAtTS}">טוען...</span></div>`;
+                }
+
+                monitor.innerHTML += `
+                    <div class="ticket ${c.status}">
+                        <div class="ticket-title">
+                            <span>${c.student} <span style="font-size:0.9rem; font-weight:normal; opacity:0.8;">${c.phone}</span> ${c.forced ? '<span style="color:#ef4444; font-size:0.7rem;">(חריג)</span>' : ''}</span>
+                            <a href="https://wa.me/972${c.phone.substring(1)}?text=היי ${c.student}, מורה מהמרכז להישגים לימודיים בדרך אליך!" target="_blank" class="whatsapp-btn">
+                                <i class="fa-brands fa-whatsapp"></i> הודעה
+                            </a>
+                        </div>
+                        <div class="ticket-info">
+                            <span class="tag-glass">${c.subject}</span> 
+                            <span class="tag-glass">${c.grade}</span> 
+                            ${c.level ? `<span class="tag-glass">${c.level}</span>` : ''}
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="font-weight:800; font-size:0.9rem; color: ${c.status==='waiting' ? '#fde047' : '#38bdf8'};">
+                                ${c.status === 'waiting' ? '<i class="fa-solid fa-hourglass-half"></i> מחפש מורה...' : '<i class="fa-solid fa-headset"></i> מטופל ע"י: ' + c.tutor}
+                            </div>
+                            <div style="text-align:left;">
+                                <div style="font-size:0.75rem; opacity:0.7; margin-bottom:3px;">נפתחה: ${c.openedTimeStr}</div>
+                                ${slaHtml}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            if(monitor.innerHTML === '') monitor.innerHTML = '<div style="opacity:0.6; text-align:center;">אין קריאות באוויר.</div>';
+        }
+
+        // מורה
+        if(sessionRole === 'tutor') {
+            const queue = document.getElementById('tutor-queue');
+            queue.innerHTML = '';
+            callsDB.filter(c => c.status === 'waiting').forEach(c => {
+                queue.innerHTML += `
+                    <div class="ticket waiting">
+                        <div class="ticket-title">
+                            <span>${c.student} <span style="font-size:0.9rem; font-weight:normal; font-family:monospace;">${c.phone}</span></span>
+                            <span style="font-size:0.85rem; opacity:0.8; font-weight:normal;"><i class="fa-regular fa-clock"></i> ביקש ב-${c.openedTimeStr}</span>
+                        </div>
+                        <div class="ticket-info">
+                            <span class="tag-glass">${c.subject}</span> <span class="tag-glass">${c.grade}</span> ${c.level ? `<span class="tag-glass">${c.level}</span>` : ''}
+                            ${c.forced ? '<br><span style="color:#ef4444; font-size:0.85rem;">(לקוח חריג)</span>' : ''}
+                        </div>
+                        <div style="font-size:0.8rem; color:#fde047; margin-top:5px; margin-bottom:5px;">
+                            <i class="fa-solid fa-circle-info"></i> תזכורת: שיחה מוגבלת ל-30 דקות
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; margin-top:5px;">
+                            <div class="sla-timer"><i class="fa-solid fa-stopwatch"></i> חובה לענות תוך: <span class="sla-timer-val" data-time="${c.openedAtTS}">טוען...</span></div>
+                        </div>
+                        <button class="btn-action btn-theme" onclick="takeTutorCall(${c.id})"><i class="fa-solid fa-phone"></i> קח שיחה למענה</button>
+                    </div>
+                `;
+            });
+            if(queue.innerHTML === '') queue.innerHTML = '<div style="opacity:0.6; text-align:center;">אין תלמידים ממתינים כרגע.</div>';
+
+            const history = document.getElementById('tutor-history');
+            history.innerHTML = '';
+            
+            let myCalls = callsDB.filter(c => c.status === 'done' && c.tutor === sessionUser);
+            let todayStr = new Date().toLocaleDateString('he-IL');
+            let currMonth = new Date().getMonth();
+            let currYear = new Date().getFullYear();
+            
+            let earnLast = 0;
+            let earnDaily = 0;
+            let earnMonthly = 0;
+            
+            myCalls.forEach(c => {
+                let cost = ((c.durationSecs || 0) / 60) * PAY_PER_MINUTE;
+                let cDateObj = new Date(c.openedAtTS);
+                
+                if(c.date === todayStr) earnDaily += cost;
+                if(cDateObj.getMonth() === currMonth && cDateObj.getFullYear() === currYear) earnMonthly += cost;
+            });
+            
+            if(myCalls.length > 0) {
+                let lastCallSecs = myCalls[myCalls.length - 1].durationSecs || 0;
+                earnLast = (lastCallSecs / 60) * PAY_PER_MINUTE;
+            }
+
+            document.getElementById('tutor-earn-last').innerText = `₪${earnLast.toFixed(2)}`;
+            document.getElementById('tutor-earn-daily').innerText = `₪${earnDaily.toFixed(2)}`;
+            document.getElementById('tutor-earn-monthly').innerText = `₪${earnMonthly.toFixed(2)}`;
+
+            myCalls.reverse().forEach(c => {
+                let costStr = (((c.durationSecs || 0) / 60) * PAY_PER_MINUTE).toFixed(2);
+                history.innerHTML += `
+                    <div class="ticket done">
+                        <div class="ticket-title">
+                            <span>${c.student}</span> 
+                            <span style="color:var(--success);"><i class="fa-solid fa-stopwatch"></i> ${formatTimeStr(c.durationSecs)} | ₪${costStr}</span>
+                        </div>
+                        <div class="ticket-info">${c.subject} (${c.grade}) - סיים ב-${c.exactEndStr}</div>
+                    </div>
+                `;
+            });
+
+            const activeCall = callsDB.find(c => c.id == currentCallId && c.status === 'active');
+            if(activeCall) {
+                document.getElementById('tutor-active-info').innerHTML = `
+                    <div style="font-size:1.2rem; font-weight:900; margin-bottom:2px;">${activeCall.student}</div>
+                    <div style="color:var(--theme-accent); font-weight:700; margin-bottom:5px;"><i class="fa-solid fa-phone"></i> ${activeCall.phone}</div>
+                    <span class="tag-glass" style="font-size:0.75rem;">${activeCall.subject}</span> <span class="tag-glass" style="font-size:0.75rem;">${activeCall.grade}</span> ${activeCall.level ? `<span class="tag-glass" style="font-size:0.75rem;">${activeCall.level}</span>` : ''}
+                `;
+            }
+        }
+
+        // מנהל
+        if(sessionRole === 'owner') {
+            const tbody = document.getElementById('admin-table-body');
+            const cBody = document.getElementById('admin-clients-body');
+            tbody.innerHTML = '';
+            cBody.innerHTML = '';
+            
+            const elClient = document.getElementById('filter-client');
+            const elTutorName = document.getElementById('filter-tutor-name');
+            const elTutorFrom = document.getElementById('filter-tutor-from');
+            const elTutorTo = document.getElementById('filter-tutor-to');
+
+            const clientQuery = elClient ? elClient.value.trim().toLowerCase() : '';
+            const tutorQuery = elTutorName ? elTutorName.value.trim().toLowerCase() : '';
+            const dateFrom = elTutorFrom ? elTutorFrom.value : '';
+            const dateTo = elTutorTo ? elTutorTo.value : '';
+
+            let tsFrom = dateFrom ? new Date(dateFrom).setHours(0,0,0,0) : 0;
+            let tsTo = dateTo ? new Date(dateTo).setHours(23,59,59,999) : Infinity;
+
+            let totalSecsAll = 0;
+            let map = {};
+
+            let todayCallsCount = 0;
+            let todaySecs = 0;
+            let monthCallsCount = 0;
+            let monthSecs = 0;
+
+            let clientCallsToday = 0;
+            let clientCallsMonth = 0;
+            let clientCallsTotal = 0;
+
+            let todayStr = new Date().toLocaleDateString('he-IL');
+            let currentMonth = new Date().getMonth();
+            let currentYear = new Date().getFullYear();
+
+            let filteredTutorSecs = 0;
+
+            const doneCalls = callsDB.filter(c => c.status === 'done');
+
+            doneCalls.forEach(c => {
+                let secs = c.durationSecs || 0;
+                totalSecsAll += secs; 
+                
+                let cDateTS = parseILDate(c.date);
+                let callDateObj = new Date(cDateTS);
+
+                if(c.date === todayStr) {
+                    todayCallsCount++;
+                    todaySecs += secs;
+                }
+                if(callDateObj.getMonth() === currentMonth && callDateObj.getFullYear() === currentYear) {
+                    monthCallsCount++;
+                    monthSecs += secs;
+                }
+
+                // -- לוגיקת סינון לקוחות --
+                let matchClient = true;
+                if(clientQuery) {
+                    matchClient = c.student.toLowerCase().includes(clientQuery) || c.phone.includes(clientQuery);
+                }
+
+                if(matchClient) {
+                    cBody.innerHTML += `
+                        <tr>
+                            <td><span style="color:var(--text-muted); font-size:0.85rem;">${c.date}</span></td>
+                            <td><strong style="color:white;">${c.student}</strong><br><span style="font-size:0.8rem; opacity:0.8;">כיתה ${c.grade}</span></td>
+                            <td><strong style="color:var(--theme-accent); font-family:monospace;">${c.phone}</strong></td>
+                            <td style="font-size:0.85rem;">${c.exactStartStr}</td>
+                            <td style="font-size:0.85rem;">${c.exactEndStr}</td>
+                            <td>${c.tutor}</td>
+                            <td style="font-family:monospace;">${formatTimeStr(secs)}</td>
+                        </tr>
+                    `;
+
+                    if(clientQuery) {
+                        clientCallsTotal++;
+                        if(c.date === todayStr) clientCallsToday++;
+                        if(callDateObj.getMonth() === currentMonth && callDateObj.getFullYear() === currentYear) {
+                            clientCallsMonth++;
+                        }
+                    }
+                }
+
+                // -- לוגיקת סינון מורים --
+                let matchTutor = true;
+                if(tutorQuery && !c.tutor.toLowerCase().includes(tutorQuery)) matchTutor = false;
+                if(dateFrom && cDateTS < tsFrom) matchTutor = false;
+                if(dateTo && cDateTS > tsTo) matchTutor = false;
+
+                if(matchTutor) {
+                    if(!map[c.tutor]) map[c.tutor] = { count: 0, secs: 0 };
+                    map[c.tutor].count++;
+                    map[c.tutor].secs += secs;
+                    
+                    filteredTutorSecs += secs;
+                }
+            });
+
+            document.getElementById('admin-today-calls').innerText = todayCallsCount;
+            document.getElementById('admin-today-money').innerText = `₪ ${((todaySecs/60) * PAY_PER_MINUTE).toFixed(2)}`;
+            
+            document.getElementById('admin-month-calls').innerText = monthCallsCount;
+            document.getElementById('admin-month-money').innerText = `₪ ${((monthSecs/60) * PAY_PER_MINUTE).toFixed(2)}`;
+
+            for(let name in map) {
+                let cost = (map[name].secs / 60) * PAY_PER_MINUTE;
+
+                tbody.innerHTML += `
+                    <tr>
+                        <td><strong style="color:white;">${name}</strong></td>
+                        <td>${map[name].count}</td>
+                        <td style="font-family:monospace; font-size:1.1rem;">${formatTimeStr(map[name].secs)}</td>
+                        <td style="color:var(--theme-accent); font-weight:800;">₪ ${cost.toFixed(2)}</td>
+                    </tr>
+                `;
+            }
+
+            if(elClient && document.getElementById('client-summary')) {
+                if(clientQuery) {
+                    document.getElementById('client-summary').innerHTML = `<i class="fa-solid fa-chart-pie"></i> סך הכל נמצאו ${clientCallsTotal} שיחות ללקוח. מתוכן: ${clientCallsToday} היום | ${clientCallsMonth} החודש.`;
+                } else {
+                    document.getElementById('client-summary').innerHTML = '';
+                }
+            }
+
+            if(elTutorName && document.getElementById('tutor-summary')) {
+                if(tutorQuery || dateFrom || dateTo) {
+                    let cost = (filteredTutorSecs / 60) * PAY_PER_MINUTE;
+                    document.getElementById('tutor-summary').innerHTML = `<i class="fa-solid fa-calculator"></i> סיכום נתונים לסינון הנוכחי: זמן כולל ${formatTimeStr(filteredTutorSecs)} | שכר מצטבר: ₪${cost.toFixed(2)}`;
+                } else {
+                    document.getElementById('tutor-summary').innerHTML = '';
+                }
+            }
+        }
+    }
+
+    function initIcons() {
+        const container = document.getElementById('floating-container');
+        const icons = ['π', '√', 'A', 'א', '∞', '∑', '?', '!', '📚', '🎓'];
+        for(let i=0; i<15; i++) {
+            const div = document.createElement('div');
+            div.className = 'floating-icon';
+            div.innerText = icons[Math.floor(Math.random()*icons.length)];
+            div.style.left = Math.random()*100 + 'vw';
+            div.style.animationDelay = Math.random()*15 + 's';
+            div.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+            container.appendChild(div);
+        }
+    }
+</script>
+</body>
+</html>
