@@ -417,9 +417,8 @@
         let processed = text;
         
         // --- חסימה מוחלטת והסרה של כל הסולמיות ---
-        // מזהה 1 או יותר סולמיות בתחילת שורה (גם אם יש רווח לפניהן או אחריהן) ומעלים אותן.
-        // הוא לוקח את הטקסט שאחרי הסולמיות והופך אותו לכותרת מודגשת ועדינה.
-        processed = processed.replace(/^[ \t]*#+\s*(.*)$/gm, '<div class="ai-heading"><strong>$1</strong></div>');
+        // מוחק באופן גורף כל סימן של סולמית (#) מכל מקום בטקסט כדי שלא יופיעו סולמיות לפני שלבים
+        processed = processed.replace(/#/g, '');
 
         // 1. טיפול בהדגשות (כוכביות)
         processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -488,6 +487,13 @@
         chatHistory.push({ role: "user", content: messageToSend });
         if(chatHistory.length > 10) chatHistory = chatHistory.slice(chatHistory.length - 10);
 
+        // --- הוספת הנחיית מערכת נסתרת שמונעת מהמורה לענות על נושאים שאינם לימודים ---
+        // יצירת עותק נפרד של ההיסטוריה שיישלח לשרת בלבד
+        let serverHistory = JSON.parse(JSON.stringify(chatHistory));
+        if (serverHistory.length > 0) {
+            serverHistory[serverHistory.length - 1].content += "\n\n[הנחיית מערכת קריטית: אתה מורה פרטי. עליך לענות **אך ורק** על שאלות הקשורות ללימודים, שיעורי בית או חינוך. אם התלמיד שואל שאלה או מבקש בקשה שאינה קשורה ללימודים בשום צורה, סרב בנימוס ואמור שאתה כאן רק כדי לעזור בלימודים.]";
+        }
+
         userInput.value = "";
         userInput.style.height = 'auto';
         removeImage();
@@ -502,7 +508,7 @@
                 body: JSON.stringify({
                     message: messageToSend,
                     image: imageToSend,
-                    history: chatHistory 
+                    history: serverHistory // שולחים את ההיסטוריה המחמירה
                 })
             });
 

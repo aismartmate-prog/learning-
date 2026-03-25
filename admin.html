@@ -9,7 +9,7 @@
         :root {
             --primary-header: #0f172a;  
             --accent-gold: #b09151;   
-            --bg-body: #fdfdfc;       
+            --bg-body: #fdfdfc;        
             --surface-card: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
@@ -18,8 +18,8 @@
             --danger-red: #ef4444;
             --whatsapp-green: #25D366;
             
-            --shadow-card: 0 10px 30px rgba(0,0,0,0.04);
-            --shadow-hover: 0 15px 35px rgba(176, 145, 81, 0.1);
+            --shadow-card: 0 4px 15px rgba(0,0,0,0.03);
+            --shadow-hover: 0 8px 25px rgba(176, 145, 81, 0.08);
         }
 
         /* מניעת זום בלחיצה כפולה וסימון טקסט מקרי במובייל */
@@ -28,59 +28,62 @@
             touch-action: manipulation;
         }
 
-        body { font-family: 'Heebo', sans-serif; background: var(--bg-body); padding: 0; direction: rtl; margin: 0; color: var(--text-main); line-height: 1.5; }
+        body { font-family: 'Heebo', sans-serif; background: var(--bg-body); padding: 0; direction: rtl; margin: 0; color: var(--text-main); line-height: 1.4; font-size: 0.95rem; }
 
-        .admin-nav { background: var(--primary-header); color: white; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-bottom: 3px solid var(--accent-gold); }
-        .nav-title { margin: 0; font-weight: 900; font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
-        .nav-left { display: flex; align-items: center; gap: 20px; }
-        .container { max-width: 1300px; margin: 30px auto; padding: 0 20px; }
+        /* קומפקטיות להדר */
+        .admin-nav { background: var(--primary-header); color: white; padding: 10px 25px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-bottom: 2px solid var(--accent-gold); }
+        .nav-title { margin: 0; font-weight: 900; font-size: 1.3rem; display: flex; align-items: center; gap: 8px; }
+        .nav-left { display: flex; align-items: center; gap: 15px; }
         
-        .voucher-creator { background: var(--surface-card); padding: 30px; border-radius: 20px; box-shadow: var(--shadow-card); border-right: 10px solid var(--accent-gold); margin-bottom: 30px; display: flex; flex-wrap: wrap; gap: 25px; align-items: flex-end; transition: 0.3s; }
-        .voucher-creator:hover { box-shadow: var(--shadow-hover); }
-        .form-section-title { font-weight: 800; font-size: 1.1rem; color: var(--primary-header); margin-bottom: 10px; }
-
-        .input-group { display: flex; flex-direction: column; gap: 8px; }
-        .input-group label { font-weight: 700; font-size: 0.9rem; color: var(--text-muted); }
-        .voucher-creator input, .voucher-creator select { padding: 14px 18px; border: 2px solid var(--border-soft); border-radius: 12px; font-family: 'Heebo'; font-size: 1rem; outline: none; transition: all 0.2s; background: #f8fafc; }
-        .voucher-creator input:focus, .voucher-creator select:focus { border-color: var(--accent-gold); background: #fff; box-shadow: 0 0 0 4px rgba(176, 145, 81, 0.1); }
-
-        .card { background: var(--surface-card); padding: 30px; border-radius: 20px; box-shadow: var(--shadow-card); margin-bottom: 25px; transition: 0.3s;}
+        .container { max-width: 1400px; margin: 15px auto; padding: 0 15px; }
         
-        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 35px; }
-        .stat-item { background: var(--surface-card); padding: 20px; border-radius: 18px; text-align: center; box-shadow: var(--shadow-card); border-bottom: 5px solid var(--border-soft); transition: 0.3s; }
-        .stat-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
-        .stat-item h4 { margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
-        .stat-item div { font-size: 2.2rem; font-weight: 900; margin-top: 10px; color: var(--primary-header); }
+        /* סטטיסטיקות למעלה! */
+        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+        .stat-item { background: var(--surface-card); padding: 12px 15px; border-radius: 12px; text-align: center; box-shadow: var(--shadow-card); border-bottom: 4px solid var(--border-soft); transition: 0.2s; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .stat-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+        .stat-item h4 { margin: 0; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+        .stat-item div { font-size: 1.8rem; font-weight: 900; margin-top: 5px; color: var(--primary-header); line-height: 1;}
 
-        .table-card { padding: 0; border-top: 5px solid var(--accent-gold); overflow: hidden;}
-        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } 
-        table { width: 100%; border-collapse: collapse; background: var(--surface-card); font-size: 0.95rem; min-width: 800px; } /* min-width מבטיח שהטבלה לא תמעך ותיגלל הצידה */
-        th, td { padding: 18px 10px; border-bottom: 1px solid var(--border-soft); text-align: center; white-space: nowrap; }
-        th { background: #f8fafc; color: var(--text-muted); font-weight: 800; position: sticky; top: 0; z-index: 10; }
+        /* יצירת שוברים בשורה אחת קומפקטית */
+        .voucher-creator { background: var(--surface-card); padding: 15px 20px; border-radius: 12px; box-shadow: var(--shadow-card); border-right: 6px solid var(--accent-gold); margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end; transition: 0.3s; }
+        .form-section-title { font-weight: 800; font-size: 1rem; color: var(--primary-header); margin-bottom: 0; margin-left: 15px; display: flex; align-items: center;}
+
+        .input-group { display: flex; flex-direction: column; gap: 4px; }
+        .input-group label { font-weight: 700; font-size: 0.8rem; color: var(--text-muted); }
+        .voucher-creator input, .voucher-creator select { padding: 8px 12px; border: 1px solid var(--border-soft); border-radius: 8px; font-family: 'Heebo'; font-size: 0.95rem; outline: none; transition: all 0.2s; background: #f8fafc; height: 38px; box-sizing: border-box;}
+        .voucher-creator input:focus, .voucher-creator select:focus { border-color: var(--accent-gold); background: #fff; box-shadow: 0 0 0 2px rgba(176, 145, 81, 0.1); }
+
+        .card { background: var(--surface-card); border-radius: 12px; box-shadow: var(--shadow-card); margin-bottom: 20px; transition: 0.3s;}
         
-        td strong.voucher-code { color: var(--accent-gold); font-weight: 900; font-size: 1.05rem;}
+        /* טבלה מצומצמת */
+        .table-card { padding: 0; border-top: 4px solid var(--accent-gold); overflow: hidden;}
+        .table-responsive { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; max-height: 55vh; } 
+        table { width: 100%; border-collapse: collapse; background: var(--surface-card); font-size: 0.9rem; min-width: 800px; } 
+        th, td { padding: 10px 8px; border-bottom: 1px solid var(--border-soft); text-align: center; white-space: nowrap; }
+        th { background: #f1f5f9; color: var(--text-muted); font-weight: 800; position: sticky; top: 0; z-index: 10; font-size: 0.85rem;}
+        
+        td strong.voucher-code { color: var(--accent-gold); font-weight: 900; font-size: 0.95rem;}
         
         .sortable { cursor: pointer; user-select: none; transition: 0.2s; -webkit-user-select: none; }
         .sortable:hover { background: #e2e8f0; color: var(--primary-header); }
-        .sort-icon { font-size: 0.7rem; color: #cbd5e1; margin-right: 4px; }
+        .sort-icon { font-size: 0.65rem; color: #cbd5e1; margin-right: 4px; }
 
-        /* מודאלים מעוצבים */
-        .admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-        .admin-modal-content { background: white; padding: 30px 35px; border-radius: 20px; width: 90%; max-width: 450px; text-align: right; overflow-y: auto; max-height: 90vh; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border-top: 8px solid var(--accent-gold); box-sizing: border-box; }
-        .admin-modal-content h3 { color: var(--primary-header); font-weight: 900; margin-top: 0; font-size: 1.4rem; border-bottom: 2px solid var(--border-soft); padding-bottom: 15px;}
+        /* מודאלים מעוצבים ומוקטנים */
+        .admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(3px); }
+        .admin-modal-content { background: white; padding: 25px; border-radius: 16px; width: 90%; max-width: 450px; text-align: right; overflow-y: auto; max-height: 90vh; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border-top: 6px solid var(--accent-gold); box-sizing: border-box; }
+        .admin-modal-content h3 { color: var(--primary-header); font-weight: 900; margin-top: 0; font-size: 1.2rem; border-bottom: 2px solid var(--border-soft); padding-bottom: 10px; margin-bottom: 15px;}
         
-        .admin-modal-content input { width: 100%; padding: 12px; margin: 8px 0 15px 0; border: 2px solid var(--border-soft); border-radius: 10px; box-sizing: border-box; font-family: 'Heebo'; font-size:0.95rem; transition: 0.2s;}
+        .admin-modal-content input, .admin-modal-content select, .admin-modal-content input[type="date"] { width: 100%; padding: 10px; margin: 4px 0 12px 0; border: 1.5px solid var(--border-soft); border-radius: 8px; box-sizing: border-box; font-family: 'Heebo'; font-size:0.9rem; transition: 0.2s;}
         .admin-modal-content input:focus { border-color: var(--accent-gold); outline:none; }
         
-        /* גריד פרטים אישיים בחלון */
-        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        .details-item { background: #f8fafc; padding: 12px 15px; border-radius: 12px; border: 1px solid var(--border-soft); }
-        .details-item span { display: block; font-size: 0.8rem; color: var(--text-muted); font-weight: 800; margin-bottom: 3px; }
-        .details-item strong { display: block; font-size: 1rem; color: var(--primary-header); word-break: break-all; }
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        .details-item { background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid var(--border-soft); }
+        .details-item span { display: block; font-size: 0.75rem; color: var(--text-muted); font-weight: 800; margin-bottom: 2px; }
+        .details-item strong { display: block; font-size: 0.95rem; color: var(--primary-header); word-break: break-all; line-height: 1.2;}
         .details-item.full-width { grid-column: span 2; }
         
-        .btn { padding: 10px 20px; border: none; border-radius: 10px; cursor: pointer; font-weight: 700; font-family: 'Heebo'; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.95rem; user-select: none; -webkit-user-select: none; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn { padding: 8px 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-family: 'Heebo'; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font-size: 0.9rem; user-select: none; -webkit-user-select: none; }
+        .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .btn-gold { background: var(--accent-gold); color: white; }
         .btn-red { background: var(--danger-red); color: white; }
         .btn-blue { background: #3b82f6; color: white; }
@@ -88,158 +91,85 @@
         .btn-whatsapp { background: var(--whatsapp-green); color: white; }
         .btn-whatsapp:hover { background: #1da851; }
         
-        .btn-sm { padding: 6px 12px; font-size: 0.85rem; border-radius: 8px;}
-        .btn-icon { padding: 4px; background: none; border: none; cursor: pointer; font-size: 1.1rem; border-radius: 4px; transition: 0.2s; opacity: 0.6; user-select: none; -webkit-user-select: none;}
-        .btn-icon:hover { opacity: 1; background: #e2e8f0; transform: scale(1.1); }
+        .btn-sm { padding: 5px 10px; font-size: 0.8rem; border-radius: 6px;}
+        .btn-icon { padding: 4px 6px; background: #f1f5f9; border: 1px solid #cbd5e1; cursor: pointer; font-size: 0.9rem; border-radius: 6px; transition: 0.2s; color: var(--text-muted);}
+        .btn-icon:hover { background: var(--accent-gold); color: #fff; border-color: var(--accent-gold); }
 
-        .status-tag { padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; display: inline-block; }
+        .status-tag { padding: 4px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; display: inline-block; }
         .status-online { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
-        .status-offline { background: #f1f5f9; color: var(--text-muted); }
+        .status-offline { background: #f1f5f9; color: var(--text-muted); border: 1px solid #e2e8f0; }
         
-        #refresh-timer { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 2px; text-align: left; }
-        .edit-label { display: block; margin-top: 5px; font-weight: 800; font-size: 0.9rem; color: var(--primary-header); }
+        #refresh-timer { font-size: 0.7rem; color: rgba(255,255,255,0.7); margin-top: 2px; text-align: left; }
+        .edit-label { display: block; margin-top: 5px; font-weight: 800; font-size: 0.85rem; color: var(--primary-header); }
         
-        .table-controls-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
-        .search-box { flex: 1; position: relative; min-width: 300px; max-width: 400px; }
-        .search-input { width: 100%; padding: 12px 15px 12px 40px; border: 2px solid var(--border-soft); border-radius: 10px; font-family: 'Heebo'; box-sizing: border-box; font-size:0.95rem; }
-        .search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        /* פאנל חיפוש ושליטה קומפקטי */
+        .table-controls-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; background: var(--surface-card); padding: 12px 20px; border-radius: 12px; box-shadow: var(--shadow-card);}
+        .search-box { flex: 1; position: relative; min-width: 250px; max-width: 350px; }
+        .search-input { width: 100%; padding: 8px 15px 8px 35px; border: 1.5px solid var(--border-soft); border-radius: 8px; font-family: 'Heebo'; box-sizing: border-box; font-size:0.9rem; height: 36px;}
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 0.9rem;}
 
-        .bulk-actions-bar { background: #e0f2fe; border: 1px solid #bae6fd; padding: 10px 20px; border-radius: 10px; display: none; align-items: center; gap: 15px; margin-bottom: 15px; animation: fadeIn 0.3s; flex-wrap: wrap;}
-        .bulk-actions-bar span { font-weight: 800; color: #0369a1; }
+        .bulk-actions-bar { background: #e0f2fe; border: 1px solid #bae6fd; padding: 8px 15px; border-radius: 8px; display: none; align-items: center; gap: 10px; margin-bottom: 12px; animation: fadeIn 0.2s; flex-wrap: wrap;}
+        .bulk-actions-bar span { font-weight: 800; color: #0369a1; font-size: 0.9rem;}
         @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
         
-        .pagination-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #f8fafc; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 15px;}
-        .page-btn { background: white; border: 1px solid var(--border-soft); padding: 6px 15px; border-radius: 6px; cursor: pointer; font-family: 'Heebo'; font-weight: 700; transition: 0.2s; user-select: none; -webkit-user-select: none;}
+        .pagination-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; background: #f8fafc; border-top: 1px solid var(--border-soft); flex-wrap: wrap; gap: 10px;}
+        .page-btn { background: white; border: 1px solid var(--border-soft); padding: 4px 12px; border-radius: 6px; cursor: pointer; font-family: 'Heebo'; font-weight: 700; transition: 0.2s; font-size: 0.85rem;}
         .page-btn:hover:not(:disabled) { border-color: var(--accent-gold); color: var(--accent-gold); }
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .page-info { font-weight: 700; color: var(--text-muted); font-size: 0.9rem; text-align: center;}
+        .page-info { font-weight: 700; color: var(--text-muted); font-size: 0.85rem; text-align: center;}
         
-        .row-checkbox { width: 18px; height: 18px; accent-color: var(--accent-gold); cursor: pointer; }
-        .small-text { font-size: 0.85rem; color: var(--text-muted); display: block; }
+        .row-checkbox { width: 16px; height: 16px; accent-color: var(--accent-gold); cursor: pointer; margin: 0;}
+        .small-text { font-size: 0.8rem; color: var(--text-muted); display: block; }
         
-        .verify-box { background: #fef2f2; border: 1px dashed #fca5a5; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+        .verify-box { background: #fef2f2; border: 1px dashed #fca5a5; padding: 12px; border-radius: 8px; margin-bottom: 15px; }
 
-        /* התאמות מתקדמות למובייל וטאבלט 100% התאמה */
         @media (max-width: 1024px) {
-            .admin-nav { padding: 15px 20px; }
-            .container { margin: 20px auto; }
+            .admin-nav { padding: 10px 15px; }
+            .container { margin: 15px auto; }
         }
 
         @media (max-width: 768px) {
-            .admin-nav {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-                text-align: center;
-            }
-            .nav-left {
-                width: 100%;
-                justify-content: center;
-            }
-            .nav-left > div {
-                align-items: center !important;
-            }
-            .nav-left > div > div {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            #refresh-timer {
-                text-align: center;
-            }
+            .admin-nav { flex-direction: column; gap: 10px; padding: 12px; text-align: center; }
+            .nav-left { width: 100%; justify-content: center; }
+            .nav-left > div { align-items: center !important; }
+            .nav-left > div > div { flex-wrap: wrap; justify-content: center; }
+            #refresh-timer { text-align: center; }
             
-            .voucher-creator {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 20px;
-            }
-            .voucher-creator .input-group {
-                width: 100%;
-            }
-            .voucher-creator input, .voucher-creator select {
-                width: 100% !important;
-                box-sizing: border-box;
-            }
-            .voucher-creator button {
-                width: 100%;
-                margin-top: 10px;
-            }
-
-            .table-controls-container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .search-box {
-                min-width: 100%;
-                max-width: 100%;
-            }
-            .table-controls-container > div:last-child {
-                flex-direction: column;
-                width: 100%;
-            }
-            .table-controls-container select,
-            .table-controls-container button {
-                width: 100%;
-            }
-
-            .bulk-actions-bar {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            .bulk-actions-bar button {
-                width: 100%;
-            }
-
-            .card {
-                padding: 15px;
-            }
+            .stats-bar { grid-template-columns: 1fr 1fr; }
             
-            .pagination-container {
-                flex-direction: column;
-                justify-content: center;
-            }
+            .voucher-creator { flex-direction: column; align-items: stretch; padding: 15px; }
+            .voucher-creator .input-group { width: 100%; }
+            .voucher-creator button { width: 100%; height: auto; padding: 10px;}
+
+            .table-controls-container { flex-direction: column; align-items: stretch; padding: 15px;}
+            .search-box { min-width: 100%; max-width: 100%; }
+            .table-controls-container > div:last-child { flex-direction: column; width: 100%; }
+            .table-controls-container select, .table-controls-container button { width: 100%; }
+
+            .bulk-actions-bar { flex-direction: column; align-items: stretch; text-align: center; }
+            .bulk-actions-bar button { width: 100%; }
+
+            .pagination-container { flex-direction: column; justify-content: center; }
         }
 
-        @media (max-width: 600px) {
-            .nav-title { font-size: 1.3rem; }
-            
-            /* הפיכת גריד הפרטים האישיים לעמודה אחת במסכים קטנים */
-            .details-grid {
-                grid-template-columns: 1fr;
-            }
-            .details-item.full-width {
-                grid-column: span 1;
-            }
-
-            .admin-modal-content {
-                padding: 20px;
-            }
-
-            #edit-box > div:last-child {
-                flex-direction: column;
-            }
-            
-            .stats-bar {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .stats-bar {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 480px) {
+            .nav-title { font-size: 1.1rem; }
+            .details-grid { grid-template-columns: 1fr; }
+            .details-item.full-width { grid-column: span 1; }
+            .admin-modal-content { padding: 15px; }
+            #edit-box > div:last-child { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
 <div class="admin-nav">
-    <div class="nav-title">המרכז להישגים לימודיים - פאנל ניהול ⚙️</div>
+    <div class="nav-title">המרכז להישגים לימודיים - ניהול ⚙️</div>
     <div class="nav-left">
         <div style="display: flex; flex-direction: column; align-items: flex-start;">
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 8px;">
                 <button class="btn btn-blue btn-sm" onclick="window.location.href='tirgul.html'">🌐 לאתר</button>
-                <button class="btn btn-gold btn-sm" onclick="toggleModal('adminPassModal')">🔑 שינוי סיסמה</button>
+                <button class="btn btn-gold btn-sm" onclick="toggleModal('adminPassModal')">🔑 סיסמה</button>
                 <button class="btn btn-red btn-sm" onclick="adminLogout()">🚪 התנתק</button>
             </div>
             <div id="refresh-timer">רענון אוטומטי בעוד: <span id="timer-sec">30</span> שניות</div>
@@ -251,31 +181,30 @@
     <div class="admin-modal-content">
         <h3>שינוי סיסמת מנהל 🔑</h3>
         <input type="password" id="old-p" placeholder="סיסמה נוכחית">
-        <hr style="border: 0; border-top: 1px solid var(--border-soft); margin: 20px 0;">
+        <hr style="border: 0; border-top: 1px solid var(--border-soft); margin: 15px 0;">
         <input type="password" id="new-p" placeholder="סיסמה חדשה">
         <input type="password" id="confirm-p" placeholder="אימות סיסמה חדשה">
-        <button class="btn btn-gold" style="width:100%; margin-top:15px; padding:12px;" onclick="updateAdminPass()">עדכן סיסמה</button>
-        <button class="btn" style="width:100%; margin-top:10px; background:#f1f5f9; color: var(--text-main);" onclick="toggleModal('adminPassModal')">ביטול</button>
+        <button class="btn btn-gold" style="width:100%; margin-top:10px;" onclick="updateAdminPass()">עדכן סיסמה</button>
+        <button class="btn" style="width:100%; margin-top:8px; background:#f1f5f9; color: var(--text-main);" onclick="toggleModal('adminPassModal')">ביטול</button>
     </div>
 </div>
 
 <div id="editUserModal" class="admin-modal" onclick="closeModalOnOutsideClick(event, 'editUserModal')">
     <div class="admin-modal-content">
-        <h3 id="modal-title">פרטי לקוח ועריכה 📋</h3>
+        <h3 id="modal-title">פרטי לקוח وعריכה 📋</h3>
         
-        <div id="full-user-details" class="details-grid">
-            </div>
+        <div id="full-user-details" class="details-grid"></div>
 
         <div id="verify-box" class="verify-box">
-            <p style="margin:0 0 10px 0; font-weight:800; color:#b91c1c; font-size:0.9rem;">הזן סיסמת מנהל כדי לפתוח אפשרויות עריכה:</p>
-            <div style="display:flex; gap:10px;">
+            <p style="margin:0 0 8px 0; font-weight:800; color:#b91c1c; font-size:0.85rem;">הזן סיסמת מנהל לעריכה:</p>
+            <div style="display:flex; gap:8px;">
                 <input type="password" id="verify-admin-p" placeholder="סיסמת מנהל..." style="margin:0; width:100%;">
-                <button class="btn btn-gold" style="white-space:nowrap;" onclick="confirmAdminAction()">פתח עריכה</button>
+                <button class="btn btn-gold btn-sm" style="white-space:nowrap;" onclick="confirmAdminAction()">אישור</button>
             </div>
         </div>
 
-        <div id="edit-box" style="display:none; background:#f8fafc; padding:20px; border-radius:12px; border:1px solid var(--border-soft);">
-            <div style="margin-bottom: 15px; font-weight:900; color:var(--primary-header); font-size:1.1rem; border-bottom:2px solid #e2e8f0; padding-bottom:10px;">אזור ניהול ועריכה ✏️</div>
+        <div id="edit-box" style="display:none; background:#f8fafc; padding:15px; border-radius:12px; border:1px solid var(--border-soft);">
+            <div style="margin-bottom: 10px; font-weight:900; color:var(--primary-header); font-size:1rem; border-bottom:2px solid #e2e8f0; padding-bottom:8px;">אזור ניהול ועריכה ✏️</div>
             
             <label class="edit-label">סיסמת לקוח:</label>
             <input type="text" id="e-pass">
@@ -283,76 +212,85 @@
             <label class="edit-label">טלפון / נייד:</label>
             <input type="text" id="e-phone" placeholder="0501234567">
             
-            <label class="edit-label">הגבלת מכשירים (כמות משתמשים בו-זמנית):</label>
+            <label class="edit-label">הגבלת מכשירים בו-זמנית:</label>
             <input type="number" id="e-limit" min="1" max="10" value="1">
             
-            <label class="edit-label">תאריך תוקף מנוי (תפוגה):</label>
+            <label class="edit-label">תוקף מנוי:</label>
             <input type="date" id="e-date">
 
-            <div style="display:flex; gap:10px; margin-top:20px;">
-                <button class="btn btn-gold" style="flex:1;" onclick="saveChanges()">שמור שינויים</button>
-                <button class="btn btn-red" style="flex:1;" onclick="resetSessions()" title="מנתק את כל מי שמחובר לחשבון זה כרגע">🚫 נתק מכשירים</button>
+            <div style="display:flex; gap:8px; margin-top:15px;">
+                <button class="btn btn-gold" style="flex:1;" onclick="saveChanges()">שמור</button>
+                <button class="btn btn-red" style="flex:1;" onclick="resetSessions()" title="מנתק את כל מי שמחובר לחשבון">🚫 נתק משתמש</button>
             </div>
         </div>
-        <button class="btn" style="width:100%; margin-top:20px; background:#e2e8f0; color: var(--text-main); font-size:1rem;" onclick="toggleModal('editUserModal')">סגור חלון</button>
+        <button class="btn" style="width:100%; margin-top:15px; background:#e2e8f0; color: var(--text-main);" onclick="toggleModal('editUserModal')">סגור חלון</button>
     </div>
 </div>
 
 <div id="bulkExtendModal" class="admin-modal" onclick="closeModalOnOutsideClick(event, 'bulkExtendModal')">
     <div class="admin-modal-content">
         <h3>הארכת מנוי גורפת ⏳</h3>
-        <p>בחר בכמה חודשים תרצה להאריך את המנויים של הלקוחות המסומנים:</p>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;">בחר כמות חודשים להארכה:</p>
         <input type="number" id="bulk-months" value="1" min="1" max="24">
-        <button class="btn btn-gold" style="width:100%; margin-top:15px; padding:12px;" onclick="confirmBulkExtend()">הארך לכל המסומנים</button>
-        <button class="btn" style="width:100%; margin-top:10px; background:#f1f5f9; color: var(--text-main);" onclick="toggleModal('bulkExtendModal')">ביטול</button>
+        <button class="btn btn-gold" style="width:100%; margin-top:10px;" onclick="confirmBulkExtend()">הארך לכולם</button>
+        <button class="btn" style="width:100%; margin-top:8px; background:#f1f5f9; color: var(--text-main);" onclick="toggleModal('bulkExtendModal')">ביטול</button>
     </div>
 </div>
 
 <div class="container">
+    
+    <div class="stats-bar">
+        <div class="stat-item" style="border-color: var(--accent-gold);"><h4>סה"כ שוברים</h4><div id="stat-total">0</div></div>
+        <div class="stat-item" style="border-color: var(--success-green);"><h4>לקוחות פעילים</h4><div id="stat-active">0</div></div>
+        <div class="stat-item" style="border-color: var(--primary-header);"><h4>מחוברים כרגע</h4><div id="stat-online">0</div></div>
+        <div class="stat-item" style="border-color: var(--danger-red);"><h4>מנויים שפגו</h4><div id="stat-expired">0</div></div>
+        <div class="stat-item" style="border-color: #f59e0b;"><h4>שוברים פנויים</h4><div id="stat-free">0</div></div>
+    </div>
+
     <div class="voucher-creator">
-        <div style="width:100%; margin-bottom: 5px;"><div class="form-section-title">יצירת שוברים חדשים 🆕</div></div>
+        <div class="form-section-title">יצירת שוברים 🆕</div>
         <div class="input-group">
-            <label>קוד שובר הבא</label>
-            <input type="text" id="v-next" readonly style="font-weight:bold; color:var(--accent-gold); width:130px; text-align: center;">
+            <label>קוד הבא</label>
+            <input type="text" id="v-next" readonly style="font-weight:bold; color:var(--accent-gold); width:100px; text-align: center;">
         </div>
         <div class="input-group">
-            <label>כמות זמן</label>
-            <input type="number" id="v-num" value="1" min="1" style="width:90px; text-align:center;">
+            <label>כמות</label>
+            <input type="number" id="v-num" value="1" min="1" style="width:70px; text-align:center;">
         </div>
         <div class="input-group">
             <label>יחידות זמן</label>
-            <select id="v-type" onchange="checkInfinite(this.value)">
+            <select id="v-type" onchange="checkInfinite(this.value)" style="width:130px;">
                 <option value="days">ימים</option>
                 <option value="months" selected>חודשים</option>
                 <option value="years">שנים</option>
-                <option value="infinite">ללא הגבלת זמן ♾️</option>
+                <option value="infinite">ללא הגבלה ♾️</option>
             </select>
         </div>
-        <button class="btn btn-gold" onclick="addVoucher()" style="height:50px; font-size:1.05rem;">+ צור שובר חדש</button>
+        <button class="btn btn-gold" onclick="addVoucher()" style="height:38px;">+ צור</button>
     </div>
 
     <div id="bulk-actions-bar" class="bulk-actions-bar">
         <span id="bulk-count">נבחרו 0 שוברים</span>
-        <button class="btn btn-blue btn-sm" onclick="toggleModal('bulkExtendModal')">⏳ הארך מנוי למסומנים</button>
-        <button class="btn btn-red btn-sm" onclick="bulkDelete()">🗑️ מחק שוברים מסומנים</button>
+        <button class="btn btn-blue btn-sm" onclick="toggleModal('bulkExtendModal')">⏳ הארך מסומנים</button>
+        <button class="btn btn-red btn-sm" onclick="bulkDelete()">🗑️ מחק מסומנים</button>
         <button class="btn btn-sm" style="background:#fff; border:1px solid #bae6fd; color:#0369a1;" onclick="clearSelection()">בטל בחירה</button>
     </div>
 
     <div class="table-controls-container">
         <div class="search-box">
             <span class="search-icon">🔍</span>
-            <input type="text" id="subscriber-search" class="search-input" placeholder="חיפוש חכם (שם, מייל, טלפון, קוד)..." oninput="setSearch()">
+            <input type="text" id="subscriber-search" class="search-input" placeholder="חיפוש חכם (שם, מייל, טלפון)..." oninput="setSearch()">
         </div>
         
-        <div style="display:flex; gap: 10px; align-items:center; flex-wrap: wrap;">
-            <select id="rows-per-page" onchange="changeRowsPerPage()" style="padding: 10px; border-radius: 10px; border: 2px solid var(--border-soft); font-family:'Heebo'; outline:none;">
-                <option value="10">10 שורות בעמוד</option>
-                <option value="25" selected>25 שורות בעמוד</option>
-                <option value="50">50 שורות בעמוד</option>
+        <div style="display:flex; gap: 8px; align-items:center; flex-wrap: wrap;">
+            <select id="rows-per-page" onchange="changeRowsPerPage()" style="padding: 6px; border-radius: 8px; border: 1px solid var(--border-soft); font-family:'Heebo'; outline:none; height: 36px;">
+                <option value="10">10 שורות</option>
+                <option value="25" selected>25 שורות</option>
+                <option value="50">50 שורות</option>
                 <option value="1000">הצג הכל</option>
             </select>
-            <button class="btn btn-green btn-sm" style="padding:10px 15px;" onclick="exportToCSV()">📥 ייצוא ל-CSV</button>
-            <button class="btn btn-red btn-sm" style="padding:10px 15px;" onclick="deleteExpiredVouchers()">🗑️ נקה פגי תוקף</button>
+            <button class="btn btn-green btn-sm" style="height: 36px;" onclick="exportToCSV()">📥 ייצוא</button>
+            <button class="btn btn-red btn-sm" style="height: 36px;" onclick="deleteExpiredVouchers()">🗑️ נקה פגי תוקף</button>
         </div>
     </div>
 
@@ -361,14 +299,14 @@
             <table>
                 <thead>
                     <tr>
-                        <th style="width: 40px;"><input type="checkbox" id="selectAllCheckbox" class="row-checkbox" onclick="toggleSelectAll()"></th>
+                        <th style="width: 30px;"><input type="checkbox" id="selectAllCheckbox" class="row-checkbox" onclick="toggleSelectAll()"></th>
                         <th class="sortable" onclick="setSort('codeVal')">קוד <span id="sort-codeVal" class="sort-icon">↕️</span></th>
                         <th class="sortable" onclick="setSort('nameVal')" style="text-align:right;">שם לקוח <span id="sort-nameVal" class="sort-icon">↕️</span></th>
                         <th class="sortable" onclick="setSort('childrenCount')">ילדים <span id="sort-childrenCount" class="sort-icon">↕️</span></th>
-                        <th class="sortable" onclick="setSort('regDateVal')">ת. הרשמה <span id="sort-regDateVal" class="sort-icon">↕️</span></th>
-                        <th class="sortable" onclick="setSort('expiryVal')">תוקף מנוי <span id="sort-expiryVal" class="sort-icon">↕️</span></th>
+                        <th class="sortable" onclick="setSort('regDateVal')">הרשמה <span id="sort-regDateVal" class="sort-icon">↕️</span></th>
+                        <th class="sortable" onclick="setSort('expiryVal')">תוקף <span id="sort-expiryVal" class="sort-icon">↕️</span></th>
                         <th class="sortable" onclick="setSort('onlineVal')">סטטוס <span id="sort-onlineVal" class="sort-icon">↕️</span></th>
-                        <th>ניהול מהיר</th>
+                        <th>ניהול</th>
                     </tr>
                 </thead>
                 <tbody id="table-body"></tbody>
@@ -379,14 +317,6 @@
             <span class="page-info" id="page-info-text">עמוד 1 מתוך 1</span>
             <button class="page-btn" id="btn-next-page" onclick="changePage(1)">הבא</button>
         </div>
-    </div>
-
-    <div class="stats-bar">
-        <div class="stat-item" style="border-color: var(--accent-gold);"><h4>סה"כ שוברים</h4><div id="stat-total">0</div></div>
-        <div class="stat-item" style="border-color: var(--success-green);"><h4>לקוחות פעילים</h4><div id="stat-active">0</div></div>
-        <div class="stat-item" style="border-color: var(--primary-header);"><h4>מחוברים כרגע</h4><div id="stat-online">0</div></div>
-        <div class="stat-item" style="border-color: var(--danger-red);"><h4>מנויים שפגו</h4><div id="stat-expired">0</div></div>
-        <div class="stat-item" style="border-color: #f59e0b;"><h4>שוברים פנויים</h4><div id="stat-free">0</div></div>
     </div>
 </div>
 
@@ -460,7 +390,6 @@
         render();
     }
 
-    // הפונקציה המרכזית לפתיחת חלון הפרטים החדש
     function openEdit(code, email) {
         activeVoucherCode = code;
         const users = JSON.parse(localStorage.getItem('edu_users') || '{}');
@@ -468,17 +397,15 @@
         const v = config.vouchers.find(x => x.code === code);
         const u = users[email] || {};
         
-        // יצירת קישור וכפתור לוואטסאפ
-        const clientName = (u.firstName || u.lastName) ? (u.firstName || '') + ' ' + (u.lastName || '') : 'טרם נרשם למערכת';
+        const clientName = (u.firstName || u.lastName) ? (u.firstName || '') + ' ' + (u.lastName || '') : 'טרם נרשם';
         const phone = u.phone || '---';
         const waLink = getWaLink(phone);
         const waBtn = phone !== '---' 
-            ? `<a href="${waLink}" target="_blank" class="btn btn-whatsapp btn-sm" style="text-decoration:none; margin-right:10px;">💬 הודעת WhatsApp</a>` 
+            ? `<a href="${waLink}" target="_blank" class="btn btn-whatsapp btn-sm" style="text-decoration:none;">💬 וואטסאפ</a>` 
             : '';
             
-        // בניית גריד הפרטים האישיים
         let infoHTML = `
-            <div class="details-item full-width" style="border-right: 4px solid var(--accent-gold);">
+            <div class="details-item full-width" style="border-right: 3px solid var(--accent-gold);">
                 <span>שם לקוח / הורה רוכש:</span>
                 <strong>${clientName}</strong>
             </div>
@@ -501,19 +428,17 @@
                 <strong>${u.city || '---'}</strong>
             </div>
             <div class="details-item">
-                <span>כניסה אחרונה למערכת:</span>
+                <span>כניסה אחרונה:</span>
                 <strong style="color:${u.lastSeen ? 'var(--success-green)' : 'var(--text-main)'};">${u.lastSeen ? formatDateTime(u.lastSeen) : '---'}</strong>
             </div>
         `;
         document.getElementById('full-user-details').innerHTML = infoHTML;
         
-        // טעינת הנתונים לתוך שדות העריכה
         document.getElementById('e-pass').value = u.password || "";
         document.getElementById('e-phone').value = u.phone || "";
-        document.getElementById('e-limit').value = u.deviceLimit || 1; // ברירת מחדל 1
+        document.getElementById('e-limit').value = u.deviceLimit || 1; 
         document.getElementById('e-date').value = v ? v.expiryDate : "";
         
-        // אתחול תצוגת המודאל (הסתרת אזור העריכה עד לאישור סיסמה)
         document.getElementById('verify-admin-p').value = "";
         document.getElementById('verify-box').style.display = 'block';
         document.getElementById('edit-box').style.display = 'none';
@@ -524,7 +449,7 @@
     function deleteVoucher(code) {
         const adminPass = prompt("הכנס סיסמת מנהל למחיקת השובר:");
         if(adminPass === (localStorage.getItem('admin_p') || "2391995")) {
-            if(confirm("האם אתה בטוח שברצונך למחוק את שובר " + code + "?")) {
+            if(confirm("בטוח שברצונך למחוק את שובר " + code + "?")) {
                 let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
                 const v = config.vouchers.find(x => x.code === code);
                 if(v && v.usedBy) {
@@ -537,7 +462,6 @@
                 
                 selectedVouchers = selectedVouchers.filter(c => c !== code);
                 updateBulkActionsBar();
-                
                 render();
             }
         } else if(adminPass !== null) alert("סיסמה שגויה.");
@@ -555,7 +479,7 @@
                 const email = v.usedBy;
                 u.password = document.getElementById('e-pass').value;
                 u.phone = document.getElementById('e-phone').value;
-                u.deviceLimit = parseInt(document.getElementById('e-limit').value) || 1; // שומר את הגבלת המכשירים החדשה
+                u.deviceLimit = parseInt(document.getElementById('e-limit').value) || 1; 
                 u.expiry = v.expiryDate;
 
                 if (config.kickedUsers) {
@@ -596,7 +520,6 @@
         navigator.clipboard.writeText(text).then(() => {}).catch(err => alert('שגיאה בהעתקה'));
     }
 
-    // פונקציה לייצור לינק מהיר לוואטסאפ
     function getWaLink(phone) {
         if (!phone || phone === '---') return '#';
         let p = phone.replace(/\D/g, ''); 
@@ -607,7 +530,7 @@
     function formatDateTime(timestamp) {
         if (!timestamp) return '---';
         const d = new Date(timestamp);
-        return d.toLocaleDateString('he-IL') + " בשעה " + d.toLocaleTimeString('he-IL', {hour: '2-digit', minute:'2-digit'});
+        return d.toLocaleDateString('he-IL') + " " + d.toLocaleTimeString('he-IL', {hour: '2-digit', minute:'2-digit'});
     }
 
     function formatDateOnly(dateString) {
@@ -661,7 +584,7 @@
 
     function bulkDelete() {
         if (selectedVouchers.length === 0) return;
-        const adminPass = prompt(`אתה עומד למחוק ${selectedVouchers.length} שוברים. הכנס סיסמת מנהל לאישור:`);
+        const adminPass = prompt(`מוחק ${selectedVouchers.length} שוברים. סיסמת מנהל:`);
         if(adminPass === (localStorage.getItem('admin_p') || "2391995")) {
             let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
             let users = JSON.parse(localStorage.getItem('edu_users') || '{}');
@@ -676,7 +599,7 @@
             localStorage.setItem('edu_users', JSON.stringify(users));
             clearSelection();
             render();
-            alert("השוברים נמחקו בהצלחה.");
+            alert("השוברים נמחקו.");
         } else if(adminPass !== null) alert("סיסמה שגויה.");
     }
 
@@ -707,7 +630,7 @@
         toggleModal('bulkExtendModal');
         clearSelection();
         render();
-        alert(`המנויים הוארכו ב-${monthsToAdd} חודשים בהצלחה.`);
+        alert(`המנויים הוארכו ב-${monthsToAdd} חודשים.`);
     }
 
     function changeRowsPerPage() {
@@ -774,7 +697,7 @@
     }
 
     function deleteExpiredVouchers() {
-        const adminPass = prompt("פעולה זו תמחק לצמיתות את כל השוברים שפג תוקפם ואת היוזרים המשויכים אליהם. הכנס סיסמת מנהל לאישור:");
+        const adminPass = prompt("ימחק לצמיתות שוברים פגי תוקף ויוזרים משויכים. סיסמת מנהל:");
         if(adminPass === (localStorage.getItem('admin_p') || "2391995")) {
             let config = JSON.parse(localStorage.getItem('shared_config') || '{"vouchers":[]}');
             let users = JSON.parse(localStorage.getItem('edu_users') || '{}');
@@ -795,9 +718,9 @@
                 localStorage.setItem('shared_config', JSON.stringify(config));
                 localStorage.setItem('edu_users', JSON.stringify(users));
                 updateBulkActionsBar();
-                alert("נמחקו " + deletedCount + " שוברים שפג תוקפם.");
+                alert("נמחקו " + deletedCount + " שוברים.");
                 render();
-            } else alert("לא נמצאו שוברים שפג תוקפם במערכת.");
+            } else alert("לא נמצאו שוברים פגי תוקף.");
         } else if (adminPass !== null) alert("סיסמה שגויה.");
     }
 
@@ -891,12 +814,12 @@
         const endIndex = startIndex + rowsPerPage;
         const pagedData = mappedData.slice(startIndex, endIndex);
 
-        document.getElementById('page-info-text').innerText = `עמוד ${currentPage} מתוך ${totalPages} (סה"כ ${totalRows} רשומות)`;
+        document.getElementById('page-info-text').innerText = `עמ' ${currentPage} מתוך ${totalPages} (${totalRows} רשומות)`;
         document.getElementById('btn-prev-page').disabled = currentPage === 1;
         document.getElementById('btn-next-page').disabled = currentPage === totalPages;
 
         if (pagedData.length === 0) {
-            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 40px; color: var(--text-muted);">לא נמצאו לקוחות.</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 30px; color: var(--text-muted);">לא נמצאו נתונים.</td></tr>`;
         } else {
             pagedData.forEach(item => {
                 const v = item.originalV;
@@ -914,14 +837,14 @@
                             <button class="btn-icon" onclick="copyToClipboard('${v.code}')" title="העתק קוד">📋</button>
                         </td>
                         <td style="font-weight: 700; color: var(--primary-header); text-align:right;">${item.nameDisplay}</td>
-                        <td style="font-weight: 700;">${item.childrenCount} 🧑‍🎓</td>
+                        <td style="font-weight: 700;">${item.childrenCount}</td>
                         <td><span class="small-text">${item.regDateDisplay}</span></td>
                         <td style="font-weight: 500;">${v.expiryDate === "2099-12-31" ? "♾️ ללא הגבלה" : v.expiryDate}</td>
                         <td>${onlineHTML}</td>
                         <td>
-                            <div style="display:flex; gap:8px; justify-content:center;">
-                                <button class="btn btn-sm btn-blue" onclick="openEdit('${v.code}','${v.usedBy}')">👁️ פרטים ועריכה</button>
-                                <button class="btn btn-sm btn-red" onclick="deleteVoucher('${v.code}')">מחק</button>
+                            <div style="display:flex; gap:6px; justify-content:center;">
+                                <button class="btn-icon" onclick="openEdit('${v.code}','${v.usedBy}')" title="ניהול ועריכה">⚙️</button>
+                                <button class="btn-icon" style="color:var(--danger-red);" onclick="deleteVoucher('${v.code}')" title="מחק">🗑️</button>
                             </div>
                         </td>
                     </tr>`;
