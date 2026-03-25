@@ -5,88 +5,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>המרדף - המרכז להישגים לימודיים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-bg: #0f172a;  
-            --board-bg: #1e293b;
-            --accent-gold: #fbbf24;
-            --accent-blue: #3b82f6;
-            --danger-red: #ef4444;
+            /* צבעי המערכת המקוריים בשילוב תאורת גיימינג */
+            --bg-deep: #020617;
+            --bg-panel: #0f172a;
+            --bg-card: #1e293b;
+            --accent-gold: #c5a059;
+            --accent-gold-glow: rgba(197, 160, 89, 0.6);
+            --player-color: #38bdf8;
+            --player-glow: rgba(56, 189, 248, 0.6);
+            --chaser-red: #ef4444;
+            --chaser-glow: rgba(239, 68, 68, 0.6);
             --success-green: #10b981;
+            --success-glow: rgba(16, 185, 129, 0.6);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --track-bg: #334155;
-            
-            --correct-bg: rgba(16, 185, 129, 0.2); 
-            --correct-border: #34d399; 
-            
-            --wrong-bg: rgba(239, 68, 68, 0.2); 
-            --wrong-border: #f87171; 
+            --border-soft: rgba(255,255,255,0.1);
         }
         
-        body { font-family: 'Heebo', sans-serif; background-color: var(--primary-bg); color: var(--text-main); margin: 0; min-height: 100vh; display: flex; flex-direction: column; line-height: 1.3; }
-        header { background: #000000; color: white; padding: 0 25px; border-bottom: 2px solid var(--accent-blue); display: flex; justify-content: space-between; align-items: center; height: 55px; box-sizing: border-box; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
-        header h1 { margin: 0; font-size: 1.25rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; font-family: 'Heebo', sans-serif; }
 
-        .chase-container { display: flex; flex-direction: column; max-width: 1000px; margin: 20px auto; padding: 0 15px; width: 100%; box-sizing: border-box; flex: 1; }
+        body { 
+            margin: 0; 
+            padding: 0;
+            background: radial-gradient(circle at top, #1e293b 0%, #020617 100%);
+            color: var(--text-main); 
+            height: 100vh; /* מונע גלילה - גובה מסך מלא מדויק */
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden; /* חוסם גלילה חיצונית לחלוטין */
+        }
 
-        .board { background: var(--board-bg); border: 2px solid var(--track-bg); border-radius: 15px; padding: 20px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
-        .board-title { text-align: center; font-size: 1.1rem; color: var(--accent-gold); font-weight: 800; margin-top: 0; margin-bottom: 15px; }
-        .track { display: flex; justify-content: space-between; align-items: center; position: relative; padding: 20px 0; }
-        .track::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: var(--track-bg); z-index: 1; transform: translateY(-50%); }
+        /* --- הדר (קומפקטי ויוקרתי) --- */
+        header { 
+            background: rgba(15, 23, 42, 0.8); 
+            backdrop-filter: blur(10px);
+            padding: 0 15px; 
+            border-bottom: 1px solid var(--accent-gold); 
+            display: flex; justify-content: space-between; align-items: center; 
+            height: 50px; flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        header h1 { margin: 0; font-size: 1.2rem; font-weight: 900; color: var(--accent-gold); text-shadow: 0 0 10px var(--accent-gold-glow); display: flex; align-items: center; gap: 8px;}
+        .back-btn { color: var(--text-muted); text-decoration: none; cursor: pointer; font-size: 0.9rem; font-weight: 700; transition: 0.2s; display: flex; align-items: center; gap: 5px;}
+        .back-btn:hover { color: var(--accent-gold); }
 
-        .step { width: 40px; height: 40px; background: var(--primary-bg); border: 3px solid var(--track-bg); border-radius: 50%; display: flex; justify-content: center; align-items: center; z-index: 2; font-weight: bold; color: var(--text-muted); position: relative; transition: all 0.3s ease; }
-        .step.start { border-color: var(--danger-red); box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
-        .step.bank { border-color: var(--success-green); box-shadow: 0 0 15px rgba(16, 185, 129, 0.6); width: 50px; height: 50px; }
+        /* --- מעטפת ראשית (ממלאת את המסך, מסדרת אלמנטים בגריד/פלקס) --- */
+        .chase-container { 
+            display: flex; flex-direction: column; 
+            width: 100%; max-width: 900px; 
+            margin: 0 auto; padding: 10px; 
+            flex: 1; position: relative; 
+            overflow: hidden;
+        }
 
-        .token { position: absolute; font-size: 1.8rem; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: 10; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5)); }
-        .token-player { color: var(--accent-blue); top: -35px; }
-        .token-chaser { color: var(--danger-red); bottom: -35px; font-size: 2rem;}
+        /* --- מסך פתיחה --- */
+        .overlay-screen { 
+            background: linear-gradient(145deg, #1e293b, #0f172a); 
+            border-radius: 16px; padding: 25px; 
+            text-align: center; border: 1px solid var(--accent-gold); 
+            max-width: 450px; width: 100%; margin: auto; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.7), inset 0 0 20px var(--accent-gold-glow);
+        }
+        .overlay-title { font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 5px; font-weight: 900; text-shadow: 0 0 15px var(--accent-gold-glow);}
+        .overlay-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 20px; font-weight: 600;}
+        
+        .rules-box {
+            text-align: right; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; 
+            margin-bottom: 20px; border: 1px solid var(--border-soft); font-size: 0.85rem; line-height: 1.5; color: #cbd5e1;
+        }
+        .rules-box strong { color: var(--accent-gold); }
 
-        .lifelines { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
-        .lifeline-btn { background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid var(--accent-blue); color: white; padding: 10px 20px; border-radius: 30px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 1rem; transition: all 0.2s; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2); }
-        .lifeline-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, #2dd4bf, #047857); border-color: #34d399; }
-        .lifeline-btn:disabled { opacity: 0.3; cursor: not-allowed; border-color: var(--track-bg); box-shadow: none; filter: grayscale(100%); }
+        .players-input-area { display: flex; gap: 10px; margin-bottom: 20px; }
+        .player-input-group { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+        .player-input-group label { font-size: 0.8rem; font-weight: 700; color: var(--text-main); }
+        .player-input-group input { 
+            width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--border-soft); 
+            background: #020617; color: white; font-size: 0.95rem; outline: none; transition: 0.3s; font-weight: bold;
+        }
+        .player-input-group.p1 input:focus { border-color: var(--player-color); box-shadow: 0 0 8px var(--player-glow);}
+        .player-input-group.p2 input:focus { border-color: var(--chaser-red); box-shadow: 0 0 8px var(--chaser-glow);}
 
-        .question-box { background: var(--board-bg); border-radius: 15px; padding: 30px; border: 1px solid var(--track-bg); box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-align: center; display: none; }
-        .question-text { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; color: white; line-height: 1.4; }
-        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .option-btn { background: #0f172a; border: 2px solid #334155; color: #f8fafc; padding: 15px; border-radius: 10px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; min-height: 60px; display: flex; align-items: center; justify-content: center; }
-        .option-btn:hover:not(:disabled):not(.hidden-opt) { border-color: var(--accent-blue); background: rgba(59, 130, 246, 0.1); transform: scale(1.02); }
-        .option-btn.selected { border-color: var(--accent-gold); background: rgba(251, 191, 36, 0.1); }
-        .opt-correct { background: var(--correct-bg) !important; border-color: var(--correct-border) !important; color: #10b981 !important; }
-        .opt-wrong { background: var(--wrong-bg) !important; border-color: var(--wrong-border) !important; color: #ef4444 !important; }
-        .hidden-opt { visibility: hidden; }
-        .turn-status { margin-top: 20px; font-size: 1.2rem; font-weight: 800; height: 30px; color: var(--accent-gold); }
+        .btn-action { 
+            background: linear-gradient(to right, #c5a059, #b08d4a); 
+            color: #000; border: none; padding: 12px 20px; font-size: 1.1rem; font-weight: 900; 
+            border-radius: 12px; cursor: pointer; transition: 0.2s; 
+            box-shadow: 0 6px 15px var(--accent-gold-glow); width: 100%;
+        }
+        .btn-action:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-gold-glow); filter: brightness(1.1);}
+        .btn-action:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .btn-action:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(100%); }
 
-        .overlay-screen { background: var(--board-bg); border-radius: 12px; padding: 30px 25px; text-align: center; border: 1px solid rgba(251, 191, 36, 0.4); box-shadow: 0 8px 30px rgba(0,0,0,0.4); max-width: 550px; margin: 30px auto; width: 100%; box-sizing: border-box; }
-        .overlay-title { font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 5px; font-weight: 800;}
-        .overlay-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 25px;}
-        .btn-action { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; border: none; padding: 12px 35px; font-size: 1.15rem; font-weight: 800; border-radius: 25px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); display: inline-block; }
-        .btn-action:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
-        .btn-action:disabled { opacity: 0.5; cursor: not-allowed; }
+        /* --- מסך משחק (חלוקה חכמה לחלק עליון ותחתון) --- */
+        #game-screen { display: none; width: 100%; height: 100%; flex-direction: column; gap: 10px; }
 
-        .tools-bar { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; }
-        .btn-tool { background: #1e293b; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; }
-        .btn-tool:hover { background: rgba(251, 191, 36, 0.1); }
+        /* 1. לוח המסלול (עליון) */
+        .board { 
+            background: var(--bg-panel); border: 1px solid var(--border-soft); 
+            border-radius: 12px; padding: 15px 15px 25px 15px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); flex-shrink: 0;
+            position: relative;
+        }
+        
+        .track { 
+            display: flex; justify-content: space-between; align-items: center; 
+            position: relative; 
+        }
+        .track::before { 
+            content: ''; position: absolute; top: 50%; left: 10px; right: 10px; 
+            height: 4px; background: linear-gradient(90deg, var(--chaser-red) 0%, #334155 50%, var(--success-green) 100%); 
+            z-index: 1; transform: translateY(-50%); border-radius: 4px;
+        }
 
-        #hint-display { display: none; background: rgba(250, 204, 21, 0.1); border: 1px solid var(--accent-gold); color: #fde047; padding: 15px; border-radius: 8px; margin-top: 15px; font-weight: 600; }
+        .step { 
+            width: 25px; height: 25px; background: var(--bg-deep); 
+            border: 2px solid var(--text-muted); border-radius: 50%; 
+            display: flex; justify-content: center; align-items: center; 
+            z-index: 2; position: relative; transition: 0.4s; 
+        }
+        .step.start { border-color: var(--chaser-red); box-shadow: 0 0 10px var(--chaser-glow); }
+        .step.bank { 
+            width: 35px; height: 35px; border-color: var(--success-green); 
+            background: rgba(16,185,129,0.2); box-shadow: 0 0 15px var(--success-glow); 
+            font-size: 1.2rem; color: var(--success-green);
+        }
 
-        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } .track { padding: 30px 0; } .step { width: 30px; height: 30px; font-size: 0.8rem;} .step.bank { width: 40px; height: 40px; } .token { font-size: 1.4rem; } .token-player { top: -25px; } .token-chaser { bottom: -25px; } .lifelines { flex-wrap: wrap; } .lifeline-btn { flex: 1 1 calc(50% - 10px); justify-content: center;} .question-text { font-size: 1.2rem; } }
+        /* סמלי השחקנים */
+        .token { 
+            position: absolute; display: flex; flex-direction: column; align-items: center;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); z-index: 10; 
+        }
+        .token-player { top: -25px; }
+        .token-chaser { bottom: -25px; }
+        
+        .token-icon { font-size: 1.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
+        .token-player .token-icon { color: var(--player-color); text-shadow: 0 0 10px var(--player-glow); animation: bounce 1.5s infinite alternate;}
+        .token-chaser .token-icon { color: var(--chaser-red); text-shadow: 0 0 10px var(--chaser-glow); font-size: 1.7rem; animation: pulseRed 2s infinite;}
 
-        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; }
-        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
-        .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
-        .fraction-denominator { text-align: center; padding: 0 2px; }
-        sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
+        @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-5px); } }
+        @keyframes pulseRed { 0% { filter: drop-shadow(0 0 5px var(--chaser-red)); } 50% { filter: drop-shadow(0 0 15px var(--chaser-red)); } 100% { filter: drop-shadow(0 0 5px var(--chaser-red)); } }
+
+        /* 2. גלגלי הצלה (שורה צרה) */
+        .lifelines { display: flex; justify-content: center; gap: 10px; flex-shrink: 0; }
+        .lifeline-btn { 
+            background: linear-gradient(180deg, var(--bg-card), var(--bg-panel));
+            border: 1px solid var(--border-soft); color: var(--text-main); 
+            padding: 8px 12px; border-radius: 8px; font-weight: 700; cursor: pointer; 
+            display: flex; align-items: center; gap: 6px; font-size: 0.85rem; 
+            transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3); flex: 1; justify-content: center;
+        }
+        .lifeline-btn i { color: var(--accent-gold); font-size: 1rem;}
+        .lifeline-btn:hover:not(:disabled) { border-color: var(--accent-gold); background: rgba(197, 160, 89, 0.1); transform: translateY(-2px);}
+        .lifeline-btn:disabled { opacity: 0.3; cursor: not-allowed; filter: grayscale(100%); transform: scale(0.95); }
+
+        /* 3. קופסת שאלות וכפתורים (תופסת את שאר המקום) */
+        .question-box { 
+            background: var(--bg-panel); border-radius: 12px; padding: 15px; 
+            border: 1px solid var(--border-soft); box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
+            display: flex; flex-direction: column; flex: 1; overflow: hidden;
+        }
+        
+        .tools-bar { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; flex-shrink: 0;}
+        .btn-tool { background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); padding: 5px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 5px; font-size: 0.8rem; transition: 0.2s;}
+        .btn-tool:hover { border-color: var(--player-color); color: var(--text-main); background: var(--player-glow);}
+
+        #hint-display { display: none; background: rgba(197, 160, 89, 0.1); border: 1px dashed var(--accent-gold); color: var(--accent-gold); padding: 10px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 10px; font-weight: 700; text-align: center; flex-shrink: 0; }
+
+        .question-text-wrapper { 
+            margin-bottom: 10px; padding: 10px 15px; 
+            background: var(--bg-deep); border-radius: 10px; 
+            border-right: 4px solid var(--accent-gold);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);
+            flex-shrink: 0; max-height: 25vh; overflow-y: auto; scrollbar-width: none;
+        }
+        .question-text { font-size: 1.25rem; font-weight: 800; color: #fff; line-height: 1.4; text-align: center; }
+        .question-text img, .question-text svg { max-width: 100%; max-height: 120px; display: block; margin: 10px auto; border-radius: 6px; }
+        
+        /* Math */
+        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 3px; font-family: monospace; font-size: 1.1em; color: var(--accent-gold); font-weight: bold;}
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.8em; direction: ltr; margin: 0 2px;}
+        .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 1px 2px 0 2px; }
+        .fraction-denominator { text-align: center; padding: 0 2px 2px 2px; }
+        sup { font-size: 0.7em; vertical-align: super; line-height: 0; color: var(--accent-gold);}
         sub { font-size: 0.7em; vertical-align: sub; }
+
+        /* Options */
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; align-content: stretch; }
+        .option-btn { 
+            background: linear-gradient(180deg, #1e293b, #0f172a); 
+            border: 2px solid var(--border-soft); 
+            color: var(--text-main); 
+            padding: 10px; border-radius: 12px; 
+            font-size: 1.05rem; font-weight: 700; cursor: pointer; 
+            transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            display: flex; align-items: center; justify-content: center; 
+            line-height: 1.3; box-shadow: 0 4px 6px rgba(0,0,0,0.3); text-align: center;
+        }
+        .option-btn:hover:not(:disabled):not(.hidden-opt) { 
+            border-color: var(--accent-gold); background: rgba(197, 160, 89, 0.1); 
+            transform: scale(1.02); box-shadow: 0 6px 15px var(--accent-gold-glow);
+        }
+        .option-btn:active:not(:disabled):not(.hidden-opt) { transform: scale(0.95); }
+        
+        .opt-correct { 
+            background: linear-gradient(180deg, #059669, #064e3b) !important; 
+            border-color: var(--success-green) !important; color: #fff !important; 
+            box-shadow: 0 0 20px var(--success-glow) !important; 
+            animation: popCorrect 0.5s ease;
+        }
+        @keyframes popCorrect { 0% {transform: scale(1);} 50% {transform: scale(1.05);} 100% {transform: scale(1);} }
+        
+        .opt-wrong { 
+            background: linear-gradient(180deg, #dc2626, #7f1d1d) !important; 
+            border-color: var(--danger-red) !important; color: #fff !important; 
+            box-shadow: 0 0 15px var(--chaser-glow) !important; opacity: 0.8;
+            animation: shakeWrong 0.4s ease;
+        }
+        @keyframes shakeWrong { 0%, 100% {transform: translateX(0);} 20%, 60% {transform: translateX(-5px);} 40%, 80% {transform: translateX(5px);} }
+        .hidden-opt { visibility: hidden; opacity: 0; }
+
+        /* Turn Status */
+        .turn-status { 
+            margin-top: 10px; font-size: 1.1rem; font-weight: 800; height: 25px; 
+            color: var(--player-color); text-shadow: 0 0 10px var(--player-glow); 
+            text-align: center; flex-shrink: 0; transition: 0.3s;
+        }
+
+        /* --- תאימות מובייל מושלמת --- */
+        @media (max-width: 600px) { 
+            .options-grid { grid-template-columns: 1fr; gap: 8px;} 
+            .board { padding: 15px 10px 25px 10px; margin-bottom: 10px;}
+            .track { padding: 0; } 
+            .step { width: 22px; height: 22px; } 
+            .step.bank { width: 30px; height: 30px; font-size: 1rem;} 
+            .token-icon { font-size: 1.3rem; }
+            .token-player { top: -20px; } 
+            .token-chaser { bottom: -20px; } 
+            
+            .lifelines { gap: 8px; margin-bottom: 10px;} 
+            .lifeline-btn { padding: 8px 5px; font-size: 0.8rem; border-radius: 8px;} 
+            
+            .question-box { padding: 12px; border-radius: 12px; gap: 8px;}
+            .question-text-wrapper { padding: 10px; margin-bottom: 5px; max-height: 22vh;}
+            .question-text { font-size: 1.1rem; }
+            .option-btn { font-size: 1rem; padding: 10px; min-height: 50px; border-radius: 10px;}
+            
+            .tools-bar { gap: 6px; margin-bottom: 5px; }
+            .btn-tool { padding: 4px 8px; font-size: 0.75rem; }
+            
+            .turn-status { font-size: 1rem; margin-top: 5px; height: 20px;}
+            
+            .overlay-screen { padding: 20px 15px;}
+            .overlay-title { font-size: 2rem; }
+            .players-input-area { flex-direction: column; gap: 10px; margin-bottom: 15px;}
+            .btn-action { font-size: 1.1rem; padding: 10px;}
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 id="header-title">המרדף</h1>
-    <a onclick="goBackToSelection()" style="color: var(--accent-gold); text-decoration: none; cursor: pointer; font-weight: 500; font-size: 1.05rem; transition: opacity 0.2s;">חזרה ↩</a>
+    <h1><i class="fa-solid fa-bolt"></i> המרדף</h1>
+    <a onclick="goBackToSelection()" class="back-btn">יציאה <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
 </header>
 
 <div class="chase-container">
@@ -95,38 +277,49 @@
         <div class="overlay-title">המרדף</div>
         <div class="overlay-subtitle" id="intro-topic-desc">טוען נתונים...</div>
         
-        <div style="text-align: right; background: rgba(0,0,0,0.2); padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; display: inline-block; border: 1px solid #334155; max-width: 100%; box-sizing: border-box; font-size: 0.95rem; line-height: 1.5;">
-            <h3 style="margin-top:0; color: #3b82f6; font-size: 1.1rem; margin-bottom: 10px;">איך משחקים?</h3>
-            <ul style="margin-bottom:0; padding-right: 20px;">
-                <li style="margin-bottom: 5px;">אתם מתחילים ביתרון של 3 צעדים. הצ'ייסר מתחיל בצעד 0.</li>
-                <li style="margin-bottom: 5px;">על כל תשובה נכונה שלכם - אתם מתקדמים צעד לעבר הבנק.</li>
-                <li style="margin-bottom: 5px;">לאחר מכן, הצ'ייסר עונה ומתקדם (הוא צודק ברוב הפעמים, אך לא תמיד!).</li>
-                <li style="margin-bottom: 5px;"><strong>היזהרו:</strong> אם הצ'ייסר תופס אתכם - המשחק נגמר.</li>
-                <li><strong>המטרה:</strong> להגיע לבנק בשלום! יש לכם 3 גלגלי הצלה בדרך.</li>
-            </ul>
+        <div class="rules-box">
+            <strong>איך משחקים?</strong><br>
+            • אתם מתחילים ביתרון של 3 צעדים.<br>
+            • תשובה נכונה = צעד לבנק.<br>
+            • הצ'ייסר עונה אחריכם (הוא לא תמיד צודק).<br>
+            • <span style="color:var(--chaser-red);">נתפסתם?</span> המשחק נגמר.<br>
+            • <span style="color:var(--success-green);">הגעתם לבנק?</span> ניצחתם!
         </div>
-        <br>
-        <button class="btn-action" id="start-btn" onclick="startGame()" disabled style="opacity:0.5;">התחל במרדף!</button>
+        
+        <div class="players-input-area">
+            <div class="player-input-group p1">
+                <label for="p1-name"><i class="fa-solid fa-user"></i> השחקן הבורח</label>
+                <input type="text" id="p1-name" placeholder="הקלידו שם..." value="שחקן 1">
+            </div>
+            <div class="player-input-group p2">
+                <label for="p2-name"><i class="fa-solid fa-user-ninja"></i> הצ'ייסר</label>
+                <input type="text" id="p2-name" placeholder="הקלידו שם..." value="הצ'ייסר">
+            </div>
+        </div>
+        
+        <button class="btn-action" id="start-btn" onclick="startGame()" disabled style="opacity:0.5;"><i class="fa-solid fa-play"></i> התחל משחק</button>
     </div>
 
-    <div id="game-screen" style="display: none; width: 100%;">
+    <div id="game-screen">
         
         <div class="board">
-            <div class="board-title">מסלול הבריחה</div>
             <div class="track" id="track-container"></div>
         </div>
 
         <div class="lifelines">
-            <button class="lifeline-btn" id="ll-5050" onclick="use5050()"><span>50:50</span> <span>⚖️</span></button>
-            <button class="lifeline-btn" id="ll-hint" onclick="useHint()"><span>רמז</span> <span>💡</span></button>
-            <button class="lifeline-btn" id="ll-skip" onclick="useSkip()"><span>החלף שאלה</span> <span>🔄</span></button>
+            <button class="lifeline-btn" id="ll-5050" onclick="use5050()" title="50:50"><span>50:50</span> <i class="fa-solid fa-scale-balanced"></i></button>
+            <button class="lifeline-btn" id="ll-hint" onclick="useHint()" title="רמז"><span>רמז</span> <i class="fa-solid fa-lightbulb"></i></button>
+            <button class="lifeline-btn" id="ll-skip" onclick="useSkip()" title="החלף שאלה"><span>החלף</span> <i class="fa-solid fa-forward-step"></i></button>
         </div>
 
         <div class="question-box" id="question-box">
             <div class="tools-bar" id="tools-bar"></div>
             <div id="hint-display"></div>
             
-            <div class="question-text" id="q-text"></div>
+            <div class="question-text-wrapper">
+                <div class="question-text" id="q-text"></div>
+            </div>
+            
             <div class="options-grid" id="q-options"></div>
             
             <div class="turn-status" id="turn-status">תורכם. בחרו תשובה.</div>
@@ -134,11 +327,11 @@
     </div>
 
     <div id="end-screen" class="overlay-screen" style="display: none;">
-        <div class="overlay-title" id="end-title" style="font-size: 2.2rem;"></div>
-        <div class="overlay-subtitle" id="end-subtitle" style="font-size: 1.1rem; color: white;"></div>
-        <button class="btn-action" onclick="window.location.reload()">שחקו שוב</button>
-        <br><br>
-        <button class="btn-action" style="background: #334155; color: white; font-size: 1rem; padding: 10px 20px; box-shadow: none; margin-top: 15px;" onclick="goBackToSelection()">בחירת נושא אחר</button>
+        <div class="overlay-title" id="end-title"></div>
+        <div class="overlay-subtitle" id="end-subtitle" style="margin-bottom: 20px; font-weight: bold; line-height: 1.5; color: white;"></div>
+        
+        <button class="btn-action" onclick="window.location.reload()" style="margin-bottom: 10px;"><i class="fa-solid fa-rotate-right"></i> משחק חוזר</button>
+        <button class="btn-action" style="background: var(--bg-input); color: var(--text-main); box-shadow: none;" onclick="goBackToSelection()"><i class="fa-solid fa-folder-open"></i> נושא אחר</button>
     </div>
 
 </div>
@@ -150,6 +343,9 @@
     let playerPos = 3;
     let chaserPos = 0;
     let chaserAccuracy = 0.80; 
+    
+    let p1Name = "שחקן 1";
+    let p2Name = "הצ'ייסר";
 
     let urlGrade = '', urlSubject = '', currentTopicStr = '', currentSubtopic = '';
     let isMathMode = false, isEnglishMode = false, isArabicMode = false, isHebrewMode = false;
@@ -217,14 +413,14 @@
 
         let displayTopic = "";
         if (currentTopicStr.toLowerCase().includes('bagrut')) displayTopic = "הכנה לבגרות";
-        else if (currentTopicStr === 'abc_basics') displayTopic = "אנגלית מהבסיס (ABC)";
+        else if (currentTopicStr === 'abc_basics') displayTopic = "אנגלית מהבסיס";
         else {
             let topicsArray = currentTopicStr.split(',');
             displayTopic = topicsArray.map(t => topicTranslations[t.trim()] || t.trim()).join(', ');
         }
         
         let safeSubtopicDisplay = currentSubtopic ? currentSubtopic.replace(/&#39;/g, "'").replace(/&quot;/g, '"') : '';
-        document.getElementById('intro-topic-desc').innerText = `נושא: ${displayTopic} ${safeSubtopicDisplay ? '| '+safeSubtopicDisplay : ''}`;
+        document.getElementById('intro-topic-desc').innerText = `${displayTopic} ${safeSubtopicDisplay ? '| '+safeSubtopicDisplay : ''}`;
 
         const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
         if (isEnglishMode) returnUrl = 'english.html';
@@ -324,7 +520,7 @@
         let rawPool = window.allFetchedQuestions.filter(q => {
             if (selectedSubs.length > 0) {
                 const qSub = String(q.subTopic || q.subtopic || "").trim();
-                if (!qSub) return true; // שומר שאלות ללא תת נושא לביטחון
+                if (!qSub) return true; 
                 
                 if (isEnglishMode) {
                     return decodedSub.includes(qSub) || qSub.includes(decodedSub.split('(')[0].trim());
@@ -364,13 +560,18 @@
             startBtn.disabled = false;
             startBtn.style.opacity = 1;
         } else {
-            startBtn.innerText = "אין שאלות זמינות למשחק זה";
+            startBtn.innerText = "אין שאלות זמינות";
         }
     }
 
     function startGame() {
+        let n1 = document.getElementById('p1-name').value.trim();
+        let n2 = document.getElementById('p2-name').value.trim();
+        if(n1) p1Name = n1;
+        if(n2) p2Name = n2;
+
         document.getElementById('intro-screen').style.display = 'none';
-        document.getElementById('game-screen').style.display = 'block';
+        document.getElementById('game-screen').style.display = 'flex';
         buildTrack();
         nextTurn();
     }
@@ -386,9 +587,7 @@
             if (i === 0) stepDiv.classList.add('start');
             if (i === TOTAL_STEPS) {
                 stepDiv.classList.add('bank');
-                stepDiv.innerHTML = '🏦';
-            } else {
-                stepDiv.innerText = i;
+                stepDiv.innerHTML = '<i class="fa-solid fa-vault"></i>';
             }
             track.appendChild(stepDiv);
         }
@@ -402,7 +601,7 @@
         if(pStep) {
             let pToken = document.createElement('div');
             pToken.className = 'token token-player';
-            pToken.innerText = '🏃‍♂️';
+            pToken.innerHTML = '<div class="token-icon"><i class="fa-solid fa-user"></i></div><div class="token-glow"></div>';
             pStep.appendChild(pToken);
         }
 
@@ -410,25 +609,19 @@
         if(cStep) {
             let cToken = document.createElement('div');
             cToken.className = 'token token-chaser';
-            cToken.innerText = '🤖';
+            cToken.innerHTML = '<div class="token-icon"><i class="fa-solid fa-user-ninja"></i></div><div class="token-glow"></div>';
             cStep.appendChild(cToken);
         }
     }
 
     function nextTurn() {
         if (pool.length === 0) {
-            endGame(false, "נגמרו השאלות! הצלחתם לשרוד, אבל לא הגעתם לבנק.");
+            endGame(false, "נגמרו השאלות! שרדתם, אבל לא הגעתם לבנק.");
             return;
         }
         
         currentQuestion = pool.pop(); 
-        
-        // 💥 ערבוב התשובות בכל טעינת שאלה 💥
-        if (!isMathMode) {
-            currentQuestion.shuffledOptions = shuffleOptions(currentQuestion.options);
-        } else {
-            currentQuestion.shuffledOptions = currentQuestion.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
-        }
+        currentQuestion.shuffledOptions = shuffleOptions(currentQuestion.options);
 
         renderQuestion();
     }
@@ -443,8 +636,21 @@
         qOptions.innerHTML = '';
         toolsBar.innerHTML = '';
         hintDisplay.style.display = 'none';
-        turnStatus.innerText = "תורכם. בחרו תשובה.";
-        turnStatus.style.color = "var(--accent-gold)";
+        turnStatus.innerHTML = `תור של <span style="color:var(--player-blue); text-shadow:0 0 10px var(--player-blue);">${p1Name}</span>`;
+
+        if (isMathMode) {
+            let calcBtn = document.createElement('button');
+            calcBtn.className = 'btn-tool';
+            calcBtn.innerHTML = '<i class="fa-solid fa-calculator"></i> מחשבון';
+            calcBtn.onclick = openCalculatorWindow;
+            toolsBar.appendChild(calcBtn);
+
+            let formBtn = document.createElement('button');
+            formBtn.className = 'btn-tool';
+            formBtn.innerHTML = '<i class="fa-solid fa-square-root-variable"></i> נוסחאות';
+            formBtn.onclick = openFormulasWindow;
+            toolsBar.appendChild(formBtn);
+        }
 
         let showReadingBtn = false;
         let qTopic = String(currentQuestion.topic || "").toLowerCase();
@@ -464,27 +670,32 @@
         if (showReadingBtn) {
             let btn = document.createElement('button');
             btn.className = 'btn-tool';
-            btn.innerHTML = '📖 טקסט קריאה';
+            btn.innerHTML = '<i class="fa-solid fa-book-open"></i> טקסט קריאה';
             btn.onclick = openReadingWindow;
             toolsBar.appendChild(btn);
         }
 
         let qDir = isEnglishMode ? "ltr" : "rtl";
-        let qAlign = isEnglishMode ? "left" : "right";
-        qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formatContent(currentQuestion.question)}</div>`;
+        let qAlign = isEnglishMode ? "left" : "center";
+        
+        let formattedQText = formatContent(currentQuestion.question);
+        qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formattedQText}</div>`;
 
         (currentQuestion.shuffledOptions || []).forEach((opt, idx) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             btn.id = `opt-${idx}`;
-            let optDir = containsHebrew(opt.text) ? "rtl" : "ltr";
-            btn.innerHTML = `<span dir="${optDir}">${formatContent(opt.text)}</span>`;
+            
+            let hasHebrew = containsHebrew(opt.text);
+            let optDir = (hasHebrew && !isEnglishMode) ? "rtl" : "ltr";
+            
+            let formattedOptText = formatContent(opt.text);
+            
+            btn.innerHTML = `<span dir="${optDir}" style="display:inline-block; width:100%;">${formattedOptText}</span>`;
             
             btn.onclick = () => handleAnswer(opt.originalIndex, btn);
             qOptions.appendChild(btn);
         });
-
-        document.getElementById('question-box').style.display = 'block';
     }
 
     function handleAnswer(selectedIndex, btnElement) {
@@ -496,13 +707,13 @@
         if (isCorrect) {
             btnElement.classList.add('opt-correct');
             playSound('correct');
-            turnStatus.innerText = "תשובה נכונה! אתם מתקדמים צעד.";
+            turnStatus.innerHTML = `נכון! <i class="fa-solid fa-check"></i> מתקדמים.`;
             turnStatus.style.color = "var(--success-green)";
             playerPos++;
         } else {
             btnElement.classList.add('opt-wrong');
             playSound('wrong');
-            turnStatus.innerText = "תשובה שגויה. אתם נשארים במקום.";
+            turnStatus.innerHTML = `טעות <i class="fa-solid fa-xmark"></i> נשארים במקום.`;
             turnStatus.style.color = "var(--danger-red)";
             
             const correctIdx = (currentQuestion.shuffledOptions || []).findIndex(o => o.originalIndex === currentQuestion.correctAnswer);
@@ -515,22 +726,22 @@
 
         setTimeout(() => {
             chaserTurn();
-        }, 1500);
+        }, 1500); 
     }
 
     function chaserTurn() {
         const turnStatus = document.getElementById('turn-status');
-        turnStatus.innerText = "הצ'ייסר חושב...";
-        turnStatus.style.color = "white";
+        turnStatus.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${p2Name} חושב...`;
+        turnStatus.style.color = "var(--text-muted)";
         
         setTimeout(() => {
             const isChaserCorrect = Math.random() <= chaserAccuracy;
             if (isChaserCorrect) {
-                turnStatus.innerText = "הצ'ייסר צדק! הוא מתקדם צעד.";
+                turnStatus.innerHTML = `${p2Name} צדק! <i class="fa-solid fa-angles-down"></i> מתקדם.`;
                 turnStatus.style.color = "var(--danger-red)";
                 chaserPos++;
             } else {
-                turnStatus.innerText = "הצ'ייסר טעה! הוא נשאר במקום.";
+                turnStatus.innerHTML = `${p2Name} טעה! <i class="fa-solid fa-shield-halved"></i> נשאר במקום.`;
                 turnStatus.style.color = "var(--success-green)";
             }
             
@@ -545,9 +756,9 @@
 
     function checkGameState() {
         if (chaserPos >= playerPos) {
-            endGame(false, "הצ'ייסר תפס אתכם! המשחק נגמר.");
+            endGame(false, `הצ'ייסר ${p2Name} תפס אתכם! המשחק נגמר.`);
         } else if (playerPos >= TOTAL_STEPS) {
-            endGame(true, "כל הכבוד! הגעתם לבנק והבטחתם את מקומכם.");
+            endGame(true, `כל הכבוד ${p1Name}! הגעתם לבנק והבטחתם את מקומכם.`);
         } else {
             nextTurn(); 
         }
@@ -559,14 +770,14 @@
         const title = document.getElementById('end-title');
         
         endScreen.style.display = 'block';
-        document.getElementById('end-subtitle').innerText = message;
+        document.getElementById('end-subtitle').innerHTML = message;
 
         if (isWin) {
-            title.innerText = "ניצחון! 🏆";
+            title.innerHTML = `<i class="fa-solid fa-trophy"></i> ניצחון!`;
             title.style.color = "var(--success-green)";
             playSound('correct'); 
         } else {
-            title.innerText = "נתפסתם! 💥";
+            title.innerHTML = `<i class="fa-solid fa-skull"></i> נתפסתם!`;
             title.style.color = "var(--danger-red)";
             playSound('wrong'); 
         }
@@ -590,16 +801,16 @@
     function useHint() {
         document.getElementById('ll-hint').disabled = true;
         const hintBox = document.getElementById('hint-display');
-        hintBox.innerHTML = `<b>רמז:</b> ${formatContent(currentQuestion.hint || "נסו לחשוב על הכללים שלמדנו.")}`;
+        hintBox.innerHTML = `<b><i class="fa-solid fa-lightbulb"></i> רמז:</b> ${formatContent(currentQuestion.hint || "נסו לחשוב על הכללים שלמדנו.")}`;
         hintBox.style.display = 'block';
     }
 
     function useSkip() {
         document.getElementById('ll-skip').disabled = true;
-        document.getElementById('turn-status').innerText = "השאלה הוחלפה...";
+        document.getElementById('turn-status').innerText = "מוחלף...";
         setTimeout(() => {
             nextTurn();
-        }, 500);
+        }, 300);
     }
 
     function openReadingWindow() {
@@ -613,11 +824,12 @@
             <title>טקסט קריאה</title>
             <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
             <style>
-                body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; color: #0f172a; padding: 30px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
-                .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
-                h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
-                .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
+                body { font-family: 'Heebo', sans-serif; background-color: #0b1121; color: #f8fafc; padding: 20px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
+                .header { text-align: center; border-bottom: 2px solid #334155; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #f8fafc; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
+                .content { background: #1e293b; padding: 25px; border-radius: 12px; border: 1px solid #334155; white-space: pre-wrap;}
                 .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
+                @media (max-width: 600px) { body { padding: 15px; font-size: 1rem;} .content { padding: 15px; } }
             </style>
         </head>
         <body>
@@ -629,11 +841,126 @@
         readingWin.document.close();
     }
 
+    function openCalculatorWindow() {
+        const calcWin = window.open('', '_blank', 'width=320,height=480,scrollbars=no');
+        if (!calcWin) return;
+        let calcHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="ltr">
+        <head>
+            <meta charset="UTF-8">
+            <title>מחשבון</title>
+            <style>
+                body { font-family: sans-serif; background: #0b1121; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+                .calculator { background: #1e293b; padding: 20px; border-radius: 15px; width: 100%; max-width: 300px; box-sizing: border-box; border: 1px solid #334155;}
+                .display { background: #000; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #000; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
+                .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+                button { background: #334155; color: white; border: none; padding: 15px 0; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
+                button:hover { background: #475569; }
+                .btn-op { background: #3b82f6; color: #fff; }
+                .btn-clear { background: #ef4444; }
+                .btn-eq { background: #10b981; grid-column: span 2; color: #fff;}
+            </style>
+        </head>
+        <body>
+            <div class="calculator">
+                <input type="text" class="display" id="display" disabled value="0">
+                <div class="buttons">
+                    <button class="btn-clear" onclick="clearDisplay()">C</button>
+                    <button onclick="append('(')">(</button>
+                    <button onclick="append(')')">)</button>
+                    <button class="btn-op" onclick="append('/')">÷</button>
+                    <button onclick="append('7')">7</button>
+                    <button onclick="append('8')">8</button>
+                    <button onclick="append('9')">9</button>
+                    <button class="btn-op" onclick="append('*')">×</button>
+                    <button onclick="append('4')">4</button>
+                    <button onclick="append('5')">5</button>
+                    <button onclick="append('6')">6</button>
+                    <button class="btn-op" onclick="append('-')">-</button>
+                    <button onclick="append('1')">1</button>
+                    <button onclick="append('2')">2</button>
+                    <button onclick="append('3')">3</button>
+                    <button class="btn-op" onclick="append('+')">+</button>
+                    <button onclick="append('0')">0</button>
+                    <button onclick="append('.')">.</button>
+                    <button class="btn-eq" onclick="calculate()">=</button>
+                </div>
+            </div>
+            <script>
+                let display = document.getElementById('display');
+                let currentVal = '';
+                function append(val) { if(currentVal === 'שגיאה') currentVal = ''; currentVal += val; updateDisplay(); }
+                function clearDisplay() { currentVal = ''; updateDisplay(); }
+                function calculate() {
+                    try { if(currentVal === '') return; let result = eval(currentVal); result = Math.round(result * 100000) / 100000; currentVal = result.toString(); updateDisplay(); } 
+                    catch(e) { currentVal = 'שגיאה'; updateDisplay(); }
+                }
+                function updateDisplay() { let show = currentVal.replace(/\\*/g, '×').replace(/\\//g, '÷'); display.value = show || '0'; }
+            <\/script>
+        </body>
+        </html>
+        `;
+        calcWin.document.write(calcHtml);
+        calcWin.document.close();
+    }
+
+    function openFormulasWindow() {
+        const formulaWin = window.open('', '_blank', 'width=850,height=800,scrollbars=yes');
+        if (!formulaWin) return;
+        let formulasHtml = `
+        <!DOCTYPE html>
+        <html lang="he" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>דף נוסחאות</title>
+            <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+            <style>
+                body { font-family: 'Heebo', sans-serif; background: #0b1121; padding: 20px; color: #f8fafc; line-height: 1.5; margin:0;}
+                .hdr { text-align: center; border-bottom: 2px solid #334155; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #f8fafc; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
+                .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+                @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
+                .section { background: #1e293b; padding: 20px; border-radius: 10px; border: 1px solid #334155; height: fit-content;}
+                .section-title { font-weight: 800; color: #3b82f6; font-size: 1.3rem; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
+                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #334155; gap: 15px; flex-wrap: wrap;}
+                .desc { font-size: 0.95rem; color: #cbd5e1; font-weight: 600; flex: 1; min-width: 120px;}
+                .math { font-size: 1.15rem; font-weight: 800; color: #fff; direction: ltr; background: #000; padding: 6px 12px; border-radius: 6px; border: 1px solid #475569; text-align: left; display: inline-block;}
+                sup { font-size: 0.75em; vertical-align: super; }
+            </style>
+        </head>
+        <body>
+            <div class="hdr"><h1>דף נוסחאות</h1></div>
+            <div class="grid-container">
+                <div class="section"><h2 class="section-title">שטחים והיקפים</h2>
+                    <div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div>
+                    <div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div>
+                    <div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">היקף מעגל</span><span class="math">P = 2 &middot; &pi; &middot; r</span></div>
+                </div>
+                <div class="section"><h2 class="section-title">אלגברה بסיסית</h2>
+                    <div class="item"><span class="desc">נוסחאות הכפל המקוצר</span><span class="math">(a &plusmn; b)<sup>2</sup> = a<sup>2</sup> &plusmn; 2ab + b<sup>2</sup><br>(a - b)(a + b) = a<sup>2</sup> - b<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b &plusmn; &radic;(b<sup>2</sup> - 4ac)) / 2a</span></div>
+                </div>
+            </div>
+        </body>
+        </html>`;
+        formulaWin.document.write(formulasHtml);
+        formulaWin.document.close();
+    }
+
     function containsHebrew(str) { return /[\u0590-\u05FF]/.test(str); }
 
     function formatContent(text) {
         if (text === null || text === undefined) return "";
         let html = Array.isArray(text) ? text.join('\n') : String(text);
+        
+        // Remove LaTeX delimiters \( and \) and $$
+        html = html.replace(/\\\(/g, '').replace(/\\\)/g, '').replace(/\$\$/g, '');
+
+        // Convert \dfrac{}{} or \frac{}{} to visual fraction
+        html = html.replace(/\\d?frac\{([^}]+)\}\{([^}]+)\}/g, '<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$1</span><span class="fraction-denominator">$2</span></span>');
+
         const svgs = [];
         html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `⚿SVG⚿`; });
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -641,13 +968,19 @@
         html = html.replace(/\*/g, '×'); 
         html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
         html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+        
+        // Improve inline math elements handling to keep them naturally flowing with text
         html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
-            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            if (!/[\u0590-\u05FF]/.test(content)) return `<span class="math-bdi" dir="ltr">${content}</span>`;
             return match; 
         });
+        
         const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
         html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+        
+        // תיקון שברים ישנים
         html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+        
         html = html.trim();
         if (/[\?\.\!\)]$/.test(html)) { html += '&rlm;'; }
         html = html.replace(/⚿SVG⚿/g, () => svgs.shift());
@@ -690,7 +1023,7 @@
     }
 
     function goBackToSelection() { 
-        if (document.getElementById('game-screen').style.display === 'block' && !confirm("יציאה באמצע התחרות תוביל לאובדן המשחק. לצאת?")) return; 
+        if (document.getElementById('game-screen').style.display === 'flex' && !confirm("יציאה באמצע התחרות תוביל לאובדן המשחק. לצאת?")) return; 
         window.location.href = returnUrl; 
     }
 </script>

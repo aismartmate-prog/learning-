@@ -5,134 +5,336 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ראש בראש - המרכז להישגים לימודיים</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-bg: #0f172a;  
-            --board-bg: #1e293b;
-            --accent-gold: #fbbf24;
-            --player1-color: #3b82f6; 
-            --player2-color: #ef4444; 
-            --success-green: #10b981;
-            --text-main: #f8fafc;
+            /* Premium Brand Colors */
+            --bg-main: #0f172a;
+            --bg-secondary: #1e293b;
+            --accent-gold: #c5a059;
+            --accent-gold-glow: rgba(197, 160, 89, 0.4);
+            
+            /* Game Colors */
+            --player1-base: #3b82f6;
+            --player1-glow: rgba(59, 130, 246, 0.5);
+            --player2-base: #ef4444;
+            --player2-glow: rgba(239, 68, 68, 0.5);
+            --success-base: #10b981;
+            --success-glow: rgba(16, 185, 129, 0.5);
+            
+            /* UI Colors */
+            --text-light: #f8fafc;
             --text-muted: #94a3b8;
-            --track-bg: #334155;
-            
-            --correct-bg: rgba(16, 185, 129, 0.2); 
-            --correct-border: #34d399; 
-            
-            --wrong-bg: rgba(239, 68, 68, 0.2); 
-            --wrong-border: #f87171; 
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; font-family: 'Heebo', sans-serif; }
+
+        /* Allow natural scrolling to prevent answers from disappearing on short screens */
+        body, html { 
+            margin: 0; padding: 0; 
+            min-height: 100vh; width: 100%; 
+            background: radial-gradient(circle at top, var(--bg-secondary) 0%, var(--bg-main) 100%);
+            color: var(--text-light); 
+            overflow-x: hidden; 
+            overflow-y: auto; 
+            display: flex; flex-direction: column; 
+        }
+
+        /* --- Header --- */
+        header { 
+            background: rgba(0, 0, 0, 0.4); 
+            backdrop-filter: blur(10px);
+            padding: 0 20px; 
+            border-bottom: 2px solid var(--accent-gold); 
+            display: flex; justify-content: space-between; align-items: center; 
+            height: 60px; flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+        header h1 { margin: 0; font-size: 1.4rem; font-weight: 900; color: var(--accent-gold); display: flex; align-items: center; gap: 8px; text-shadow: 0 0 10px var(--accent-gold-glow);}
+        .back-btn { color: var(--text-muted); text-decoration: none; cursor: pointer; font-size: 1rem; font-weight: 700; transition: 0.2s; display: flex; align-items: center; gap: 6px;}
+        .back-btn:hover { color: var(--text-light); text-shadow: 0 0 8px rgba(255,255,255,0.5); }
+
+        /* --- Main Game Container --- */
+        .game-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%; max-width: 900px;
+            margin: 0 auto; padding: 15px;
+        }
+
+        /* --- Intro Screen --- */
+        .overlay-screen {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            margin: auto; width: 100%; max-width: 500px;
+        }
+        .overlay-title { font-size: 2.8rem; font-weight: 900; color: var(--accent-gold); margin-bottom: 5px; text-shadow: 0 0 15px var(--accent-gold-glow); line-height: 1.1;}
+        .overlay-subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; font-weight: 500;}
+
+        .players-input { display: flex; gap: 15px; margin-bottom: 30px; flex-direction: row;}
+        .input-group { flex: 1; display: flex; flex-direction: column; gap: 8px; text-align: right;}
+        .input-group label { font-size: 0.9rem; font-weight: 800; display: flex; align-items: center; gap: 5px; }
+        .input-group.p1 label { color: var(--player1-base); }
+        .input-group.p2 label { color: var(--player2-base); }
+        
+        .input-group input { 
+            width: 100%; padding: 12px; border-radius: 10px; 
+            border: 2px solid var(--glass-border); background: rgba(0,0,0,0.3); 
+            color: white; font-size: 1rem; font-weight: 600; outline: none; transition: 0.3s; 
+        }
+        .input-group.p1 input:focus { border-color: var(--player1-base); box-shadow: 0 0 10px var(--player1-glow); background: rgba(59,130,246,0.1);}
+        .input-group.p2 input:focus { border-color: var(--player2-base); box-shadow: 0 0 10px var(--player2-glow); background: rgba(239,68,68,0.1);}
+
+        .btn-start { 
+            background: linear-gradient(135deg, var(--accent-gold), #9a7b42); 
+            color: #000; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: 900; 
+            border-radius: 12px; cursor: pointer; transition: 0.2s; width: 100%;
+            box-shadow: 0 8px 20px var(--accent-gold-glow); display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-start:hover:not(:disabled) { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 25px rgba(197, 160, 89, 0.6);}
+        .btn-start:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 10px rgba(0,0,0,0.5);}
+        .btn-start:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(100%); }
+
+        /* --- Game Screen Layout --- */
+        #game-screen { display: none; width: 100%; flex-direction: column; gap: 15px; flex: 1;}
+
+        /* Scoreboard */
+        .scoreboard { 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 15px 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.4); 
+            flex-shrink: 0; margin-bottom: 10px;
+        }
+        .score-card { 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 10px 20px; border-radius: 12px; min-width: 130px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            background: rgba(0,0,0,0.2); opacity: 0.5; transform: scale(0.95);
         }
         
-        body { font-family: 'Heebo', sans-serif; background-color: var(--primary-bg); color: var(--text-main); margin: 0; min-height: 100vh; display: flex; flex-direction: column; line-height: 1.3; }
-        header { background: #000000; color: white; padding: 0 25px; border-bottom: 2px solid var(--accent-gold); display: flex; justify-content: space-between; align-items: center; height: 55px; box-sizing: border-box; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
-        header h1 { margin: 0; font-size: 1.3rem; font-weight: 800; letter-spacing: 1px; }
+        .score-card.active-turn { opacity: 1; transform: scale(1.1); }
+        .score-card.p1 { border-bottom: 4px solid var(--player1-base); }
+        .score-card.p2 { border-bottom: 4px solid var(--player2-base); }
+        .score-card.p1.active-turn { background: linear-gradient(to top, rgba(59,130,246,0.2), transparent); box-shadow: 0 10px 20px var(--player1-glow); }
+        .score-card.p2.active-turn { background: linear-gradient(to top, rgba(239,68,68,0.2), transparent); box-shadow: 0 10px 20px var(--player2-glow); }
 
-        .game-container { display: flex; flex-direction: column; max-width: 1000px; margin: 20px auto; padding: 0 15px; width: 100%; box-sizing: border-box; flex: 1; }
+        .p-name { font-size: 1rem; font-weight: 800; margin-bottom: 5px; text-align: center; text-transform: uppercase;}
+        .p1 .p-name { color: var(--player1-base); }
+        .p2 .p-name { color: var(--player2-base); }
+        .p-score { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; text-shadow: 0 2px 5px rgba(0,0,0,0.5);}
+        .vs-badge { font-size: 1.8rem; font-weight: 900; color: var(--accent-gold); font-style: italic; text-shadow: 0 0 15px var(--accent-gold-glow);}
 
-        .overlay-screen { background: var(--board-bg); border-radius: 12px; padding: 30px 25px; text-align: center; border: 1px solid var(--track-bg); box-shadow: 0 8px 30px rgba(0,0,0,0.4); max-width: 500px; margin: 30px auto; width: 100%; box-sizing: border-box; }
-        .overlay-title { font-size: 2.2rem; color: var(--text-main); margin-bottom: 5px; font-weight: 800;}
-        .overlay-subtitle { font-size: 1rem; color: var(--text-muted); margin-bottom: 25px;}
+        /* Main Question Area */
+        .play-area {
+            flex: 1; display: flex; flex-direction: column;
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-        .players-input-area { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
-        .player-input-group { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; background: rgba(0,0,0,0.15); padding: 12px 15px; border-radius: 8px; border-right: 3px solid; }
-        .player-input-group.p1 { border-color: var(--player1-color); }
-        .player-input-group.p2 { border-color: var(--player2-color); }
-        .player-input-group label { font-size: 0.95rem; font-weight: 600; color: var(--text-main); }
-        .player-input-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--track-bg); background: var(--primary-bg); color: white; font-family: 'Heebo'; font-size: 1rem; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
-        .player-input-group input:focus { border-color: var(--accent-gold); }
+        /* Turn Announcement */
+        .turn-announcement { 
+            font-size: 1.2rem; font-weight: 800; text-align: center; margin-bottom: 15px; 
+            padding: 8px; border-radius: 8px; background: rgba(0,0,0,0.2); flex-shrink: 0;
+            animation: pulseText 2s infinite;
+        }
+        @keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
-        .btn-action { background: linear-gradient(135deg, #fbbf24, #d97706); color: #000; border: none; padding: 12px 30px; font-size: 1.15rem; font-weight: 800; border-radius: 25px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); width: 100%; }
-        .btn-action:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5); }
-        .btn-action:disabled { opacity: 0.5; cursor: not-allowed; }
+        /* Tools Bar */
+        .tools-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; flex-shrink: 0; flex-wrap: wrap;}
+        .btn-tool { 
+            background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); 
+            color: var(--text-muted); padding: 8px 15px; border-radius: 8px; 
+            cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 6px; font-size: 0.9rem; transition: 0.2s;
+        }
+        .btn-tool:hover { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(197, 160, 89, 0.1);}
 
-        .scoreboard { display: flex; justify-content: space-between; align-items: center; background: var(--board-bg); border-radius: 15px; padding: 15px 25px; margin-bottom: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); border: 1px solid var(--track-bg); }
-        .score-card { display: flex; flex-direction: column; align-items: center; padding: 10px 20px; border-radius: 10px; min-width: 120px; transition: all 0.3s ease; opacity: 0.5; transform: scale(0.95); }
-        .score-card.p1 { border-bottom: 4px solid var(--player1-color); }
-        .score-card.p2 { border-bottom: 4px solid var(--player2-color); }
-        .score-card.active-turn { opacity: 1; transform: scale(1.1); background: rgba(255,255,255,0.05); box-shadow: 0 0 20px rgba(255,255,255,0.1); }
-        .score-card.p1.active-turn { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); border-color: var(--player1-color); }
-        .score-card.p2.active-turn { box-shadow: 0 0 20px rgba(239, 68, 68, 0.3); border-color: var(--player2-color); }
-        .p-name { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
-        .p1 .p-name { color: var(--player1-color); }
-        .p2 .p-name { color: var(--player2-color); }
-        .p-score { font-size: 2.2rem; font-weight: 900; color: var(--text-main); line-height: 1; font-family: monospace;}
-        .vs-badge { font-size: 1.8rem; font-weight: 900; color: var(--accent-gold); text-shadow: 0 2px 10px rgba(251, 191, 36, 0.5); font-style: italic; }
-
-        .question-box { background: var(--board-bg); border-radius: 15px; padding: 30px; border: 1px solid var(--track-bg); box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-align: center; display: none; }
-        .turn-announcement { font-size: 1.3rem; font-weight: 800; margin-bottom: 20px; padding: 10px; border-radius: 8px; display: inline-block; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        .question-text { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; color: white; line-height: 1.4; }
-        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .option-btn { background: #0f172a; border: 2px solid #334155; color: #f8fafc; padding: 15px; border-radius: 10px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; min-height: 60px; display: flex; align-items: center; justify-content: center; }
-        .option-btn:hover:not(:disabled) { border-color: var(--accent-gold); background: rgba(251, 191, 36, 0.1); transform: scale(1.02); }
-        .opt-correct { background: var(--correct-bg) !important; border-color: var(--correct-border) !important; color: #10b981 !important; }
-        .opt-wrong { background: var(--wrong-bg) !important; border-color: var(--wrong-border) !important; color: #ef4444 !important; }
-
-        .turn-status { margin-top: 20px; font-size: 1.2rem; font-weight: 800; height: 30px; color: var(--accent-gold); }
-        .tools-bar { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; }
-        .btn-tool { background: #1e293b; border: 1px solid var(--accent-gold); color: var(--accent-gold); padding: 8px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; font-family: 'Heebo';}
-        .btn-tool:hover { background: rgba(251, 191, 36, 0.1); }
+        /* Question Box */
+        .question-text-wrapper { 
+            flex-shrink: 0; margin-bottom: 20px; padding: 20px; 
+            background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)); 
+            border-radius: 12px; border-top: 3px solid var(--accent-gold);
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            min-height: 100px; /* Allows it to stretch nicely but won't restrict options */
+        }
         
-        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } .question-text { font-size: 1.2rem; } .scoreboard { padding: 10px; } .score-card { min-width: 90px; padding: 5px 10px; } .p-score { font-size: 1.8rem; } .vs-badge { font-size: 1.4rem; } }
+        .question-text { 
+            font-size: 1.4rem; font-weight: 700; color: #fff; 
+            line-height: 1.6; text-align: center; width: 100%;
+            unicode-bidi: plaintext; white-space: pre-wrap; 
+        }
+        
+        .question-text img, .question-text svg { max-width: 100%; max-height: 180px; display: block; margin: 15px auto; border-radius: 8px; border: 1px solid var(--glass-border); }
 
-        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Heebo', sans-serif; }
-        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.9em; direction: ltr; }
-        .fraction-numerator { border-bottom: 1.5px solid currentColor; text-align: center; padding: 0 2px; }
-        .fraction-denominator { text-align: center; padding: 0 2px; }
-        sup { font-size: 0.7em; vertical-align: super; line-height: 0; }
+        /* Math and Fractions */
+        .math-bdi { display: inline-block; direction: ltr; unicode-bidi: isolate; margin: 0 4px; font-family: 'Courier New', monospace; font-size: 1.1em; color: var(--accent-gold); font-weight: bold; background: rgba(255,255,255,0.05); padding: 2px 6px; border-radius: 6px;}
+        .fraction-container { display: inline-flex; flex-direction: column; vertical-align: middle; padding: 0 4px; font-size: 0.85em; direction: ltr; margin: 0 2px;}
+        .fraction-numerator { border-bottom: 2px solid var(--accent-gold); text-align: center; padding: 2px 2px 0 2px; }
+        .fraction-denominator { text-align: center; padding: 0 2px 2px 2px; }
+        sup { font-size: 0.7em; vertical-align: super; line-height: 0; color: var(--accent-gold);}
         sub { font-size: 0.7em; vertical-align: sub; }
+
+        /* Options Grid (Answers) */
+        .options-grid { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px; flex: 1; align-content: stretch; min-height: 180px;
+        }
+        .option-btn { 
+            background: linear-gradient(180deg, #1e293b, #0f172a); 
+            border: 2px solid var(--border-soft); 
+            color: var(--text-light); padding: 15px; border-radius: 12px; 
+            font-size: 1.15rem; font-weight: 600; cursor: pointer; 
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            display: flex; align-items: center; justify-content: center; 
+            line-height: 1.4; text-align: center; box-shadow: 0 6px 0 rgba(0,0,0,0.3);
+            unicode-bidi: plaintext; white-space: pre-wrap; word-break: break-word;
+        }
+        
+        .option-btn:hover:not(:disabled):not(.hidden-opt) { 
+            border-color: var(--accent-gold); background: rgba(197, 160, 89, 0.1); 
+            transform: translateY(-2px); box-shadow: 0 8px 0 rgba(0,0,0,0.4), 0 0 15px var(--accent-gold-glow);
+        }
+        .option-btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,0.6); }
+
+        .opt-correct { 
+            background: linear-gradient(180deg, #059669, #064e3b) !important; 
+            border-color: var(--success-green) !important; color: #fff !important; 
+            box-shadow: 0 6px 0 #022c22, 0 0 30px var(--success-glow) !important; 
+            animation: popCorrect 0.5s ease;
+        }
+        @keyframes popCorrect { 0% {transform: scale(1);} 50% {transform: scale(1.05);} 100% {transform: scale(1);} }
+        
+        .opt-wrong { 
+            background: linear-gradient(180deg, #dc2626, #7f1d1d) !important; 
+            border-color: var(--danger-red) !important; color: #fff !important; 
+            box-shadow: 0 6px 0 #450a0a !important; opacity: 0.8;
+            animation: shakeWrong 0.4s ease;
+        }
+        @keyframes shakeWrong { 0%, 100% {transform: translateX(0);} 20%, 60% {transform: translateX(-5px);} 40%, 80% {transform: translateX(5px);} }
+        .hidden-opt { visibility: hidden; opacity: 0; }
+
+        /* Turn Status */
+        .turn-status { 
+            margin-top: 15px; font-size: 1.3rem; font-weight: 800; min-height: 35px; 
+            color: var(--accent-gold); text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
+            text-align: center; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+        }
+
+        /* End Screen */
+        .winner-display { font-size: 1.5rem; margin-bottom: 30px; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid var(--glass-border);}
+        .winner-display .p-score { font-size: 3rem; }
+
+        /* --- Responsive Mobile Perfect Fit --- */
+        @media (max-width: 768px) { 
+            .game-wrapper { padding: 10px; gap: 10px;}
+            
+            /* Compact Scoreboard */
+            .scoreboard { padding: 10px; margin-bottom: 5px;}
+            .score-card { min-width: 80px; padding: 6px; border-radius: 8px;}
+            .p-name { font-size: 0.85rem; margin-bottom: 2px;}
+            .p-score { font-size: 1.8rem; }
+            .vs-badge { font-size: 1.2rem; }
+            
+            /* Compact Play Area */
+            .play-area { padding: 15px; border-radius: 12px; }
+            .turn-announcement { font-size: 1.05rem; margin-bottom: 10px; padding: 5px;}
+            .tools-bar { gap: 6px; margin-bottom: 10px; }
+            .btn-tool { padding: 6px 10px; font-size: 0.8rem; flex: 1; justify-content: center; }
+            
+            .question-text-wrapper { padding: 15px; margin-bottom: 15px; min-height: 80px; border-top-width: 2px;}
+            .question-text { font-size: 1.2rem; line-height: 1.4;}
+            
+            .options-grid { grid-template-columns: 1fr; gap: 10px; } 
+            .option-btn { font-size: 1.05rem; padding: 12px; min-height: 60px; box-shadow: 0 4px 0 rgba(0,0,0,0.3); border-radius: 10px;}
+            
+            .overlay-screen { padding: 25px 20px; margin: auto 10px;}
+            .overlay-title { font-size: 2.2rem; }
+            .players-input { flex-direction: column; gap: 10px; margin-bottom: 20px;}
+            .btn-start { padding: 12px; font-size: 1.1rem; }
+        }
+        
+        @media (max-width: 380px) {
+            .score-card { min-width: 70px; }
+            .p-score { font-size: 1.5rem; }
+            .question-text { font-size: 1.1rem; }
+            .option-btn { font-size: 0.95rem; min-height: 50px;}
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 id="header-title">ראש בראש ⚔️</h1>
-    <a onclick="goBackToSelection()" style="color: var(--accent-gold); text-decoration: none; cursor: pointer; font-weight: 500; font-size: 1.05rem; transition: opacity 0.2s;">חזרה ↩</a>
+    <h1><i class="fa-solid fa-gamepad"></i> ראש בראש</h1>
+    <a onclick="goBackToSelection()" class="back-btn">יציאה <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
 </header>
 
-<div class="game-container">
+<div class="game-wrapper">
+
     <div id="intro-screen" class="overlay-screen">
-        <div class="overlay-title">ראש בראש ⚔️</div>
+        <div class="overlay-title">ראש בראש</div>
         <div class="overlay-subtitle" id="intro-topic-desc">טוען נתונים...</div>
         
-        <div class="players-input-area">
-            <div class="player-input-group p1">
-                <label for="p1-name">שחקן 1 (כחול 🔵)</label>
+        <div class="players-input">
+            <div class="input-group p1">
+                <label for="p1-name"><i class="fa-solid fa-user"></i> שחקן 1 (כחול)</label>
                 <input type="text" id="p1-name" placeholder="הקלידו שם..." value="שחקן 1">
             </div>
-            <div class="player-input-group p2">
-                <label for="p2-name">שחקן 2 (אדום 🔴)</label>
+            <div class="input-group p2">
+                <label for="p2-name"><i class="fa-solid fa-user"></i> שחקן 2 (אדום)</label>
                 <input type="text" id="p2-name" placeholder="הקלידו שם..." value="שחקן 2">
             </div>
         </div>
-        <button class="btn-action" id="start-btn" onclick="startGame()" disabled style="opacity:0.5;">התחילו בתחרות!</button>
+        
+        <button class="btn-start" id="start-btn" onclick="startGame()" disabled style="opacity:0.5;"><i class="fa-solid fa-play"></i> התחילו בקרב!</button>
     </div>
 
-    <div id="game-screen" style="display: none; width: 100%;">
+    <div id="game-screen">
+        
         <div class="scoreboard">
-            <div id="card-p1" class="score-card p1 active-turn"><div class="p-name" id="name-display-p1">שחקן 1</div><div class="p-score" id="score-p1">0</div></div>
+            <div id="card-p1" class="score-card p1 active-turn">
+                <div class="p-name" id="name-display-p1">שחקן 1</div>
+                <div class="p-score" id="score-p1">0</div>
+            </div>
             <div class="vs-badge">VS</div>
-            <div id="card-p2" class="score-card p2"><div class="p-name" id="name-display-p2">שחקן 2</div><div class="p-score" id="score-p2">0</div></div>
+            <div id="card-p2" class="score-card p2">
+                <div class="p-name" id="name-display-p2">שחקן 2</div>
+                <div class="p-score" id="score-p2">0</div>
+            </div>
         </div>
 
-        <div class="question-box" id="question-box">
+        <div class="play-area" id="question-box">
             <div id="turn-announcement" class="turn-announcement">תור של: שחקן 1</div>
+            
             <div class="tools-bar" id="tools-bar"></div>
-            <div class="question-text" id="q-text"></div>
+            
+            <div class="question-text-wrapper">
+                <div class="question-text" id="q-text"></div>
+            </div>
+            
             <div class="options-grid" id="q-options"></div>
-            <div class="turn-status" id="turn-status"></div>
+
+            <div class="turn-status" id="turn-status">תורכם. בחרו תשובה.</div>
         </div>
     </div>
 
     <div id="end-screen" class="overlay-screen" style="display: none;">
-        <div class="overlay-title" id="end-title" style="font-size: 3.5rem;"></div>
-        <div class="overlay-subtitle" id="end-subtitle" style="font-size: 1.5rem; color: white;"></div>
-        <div id="final-scores-display" style="font-size: 1.2rem; margin-bottom: 30px; color: var(--accent-gold); font-weight: bold;"></div>
-        <button class="btn-action" onclick="window.location.reload()">משחק חוזר 🔄</button>
-        <br><br>
-        <button class="btn-action" style="background: #334155; color: white; font-size: 1rem; padding: 10px 20px; box-shadow: none; margin-top: 15px;" onclick="goBackToSelection()">בחירת נושא אחר 🗂️</button>
+        <div class="overlay-title" id="end-title" style="font-size: 2.5rem; text-shadow: none;"></div>
+        <div class="overlay-subtitle" id="end-subtitle" style="margin-bottom: 25px; color: white;"></div>
+        
+        <div id="final-scores-display" class="winner-display"></div>
+        
+        <button class="btn-start" onclick="window.location.reload()" style="margin-bottom: 12px;"><i class="fa-solid fa-rotate-right"></i> משחק חוזר</button>
+        <button class="btn-start" style="background: var(--bg-secondary); color: var(--text-main); box-shadow: none; border: 1px solid var(--border-soft);" onclick="goBackToSelection()"><i class="fa-solid fa-folder-open"></i> בחירת נושא אחר</button>
     </div>
+
 </div>
 
 <script>
@@ -143,13 +345,54 @@
     const POINTS_PER_CORRECT = 100;
     
     let players = [
-        { name: "שחקן 1", score: 0, colorClass: "p1", hex: "var(--player1-color)" },
-        { name: "שחקן 2", score: 0, colorClass: "p2", hex: "var(--player2-color)" }
+        { name: "שחקן 1", score: 0, colorClass: "p1", hex: "var(--player1-base)" },
+        { name: "שחקן 2", score: 0, colorClass: "p2", hex: "var(--player2-base)" }
     ];
 
     let urlGrade = '', urlSubject = '', currentTopicStr = '', currentSubtopic = '';
     let isMathMode = false, isEnglishMode = false, isArabicMode = false, isHebrewMode = false;
     let returnUrl = 'tirgul.html';
+
+    const topicTranslations = {
+        "bagrut_prep": "הכנה לבגרות", "percents": "אחוזים", "verbal_problems": "בעיות מילוליות", "geometry": "גיאומטריה", 
+        "dataAnalysis": "חקר נתונים וסיכויים", "ratio": "יחס", "decimals": "מידות עשרוניות", "fractions": "שברים", 
+        "summary": "תרגול מסכם", "triangles": "המשולש", "angles": "זוויות", "arithmetic_laws": "חוקי פעולות החשבון", 
+        "powers": "חזקות ושורשים", "signed_numbers": "מספרים מכוונים", "quadrilaterals": "מרובעים", "equations": "משוואות",
+        "expressions": "ביטויים אלגבריים", "functions": "פונקציות", "word_problems": "בעיות מילוליות",
+        "distributive_and_factoring": "חוק הפילוג ופירוק לגורמים", "algebraic_technique": "טכניקה אלגברית",
+        "linear_systems": "מערכת משוואות", "statistics": "סטטיסטיקה והסתברות", "linear_functions": "פונקציה קווית", 
+        "meitzav": "מבחני מיצ\"ב", "algebraic_fractions": "שברים אלגבריים", "powers_and_roots": "חזקות ושורשים",
+        "equations_and_parametric": "משוואות ופרמטרים", "probability": "הסתברות", "final_review": "תרגול מסכם", 
+        "number_theory": "תורת המספרים", "logic_combinatorics": "לוגיקה וקומבינטוריקה", "advanced_verbal": "בעיות מילוליות מורכבות",
+        "advanced_geometry": "גיאומטריה מתקדמת", "patterns_sequences": "חשיבה אלגברית", "algebra_172": "אלגברה ומשוואות", 
+        "word_problems_172": "בעיות מילוליות", "analytic_geometry_172": "גיאומטריה אנליטית", "geometry_172": "הנדסת המישור והמרחב",
+        "trigo_172": "טריגונומטריה במישור", "stats_prob_172": "סטטיסטיקה והסתברות", "algebraic_expr_172": "ביטויים אלגבריים", 
+        "algebraic_frac_172": "שברים אלגבריים", "linear_eq_172": "משוואות ממעלה ראשונה", "lines_plane_172": "ישר במישור",
+        "area_perim_172": "שטחים והיקפים", "factoring_172": "פירוק לגורמים", "basic_algebra_172": "אלגברה בסיסית", 
+        "linear_func_172": "פונקציה לינארית", "triangles_quads_172": "משולשים ומרובעים", "finalReviews": "תרגול ומבחנים מסכמים",
+        "triangle_sim_371": "דמיון משולשים", "sim_ratio_371": "יחס דמיון", "trigo_right_371": "טריגונומטריה במשולש ישר זווית", 
+        "trigo_all_triangles_371": "שימוש בטריגונומטריה בכלל המשולשים", "growth_decay_371": "גדילה ודעיכה", "exp_models_371": "מודלים מעריכיים",
+        "prob_stats_371": "הסתברות וסטטיסטיקה", "linear_prog_opt_371": "תכנון לינארי ואופטימיזציה", "quad_func_372": "פונקציה ריבועית", 
+        "func_investigation_372": "חקירת פונקציה", "quad_eq_372": "משוואות ריבועיות", "analytic_geom_372": "גאומטריה אנליטית",
+        "space_geom_bodies_372": "הנדסת המרחב וגופים", "sequences_372": "סדרות", "normal_dist_372": "התפלגות נורמלית", 
+        "alg_frac_471": "אלגברה ושברים אלגבריים", "func_lin_quad_471": "פונקציות לינאריות וריבועיות", "trigo_471": "טריגונומטריה",
+        "geom_euclid_471": "גאומטריה אוקלידית", "analytic_geom_471": "גאומטריה אנליטית", "basic_calculus_471": "חדו\"א בסיסי", 
+        "adv_func_472": "פונקציות מתקדמות", "func_investigation_472": "חקירת פונקציות", "extrema_probs_472": "בעיות קיצון",
+        "adv_trigo_472": "טריגונומטריה מתקדמת", "probability_472": "הסתברות", "geom_euclid_571": "גאומטריה אוקלידית", 
+        "analytic_geom_571": "גאומטריה אנליטית", "functions_571": "פונקציות", "calculus_deriv_571": "חדו\"א – נגזרות",
+        "calculus_tangents_571": "חדו\"א – משיקים", "adv_trigo_571": "טריגונומטריה מתקדמת", "sequences_571": "סדרות", 
+        "probability_571": "הסתברות", "calculus_integrals_572": "חדו\"א – אינטגרלים", "trigo_func_572": "פונקציות טריגונומטריות",
+        "functions_572": "פונקציות", "func_investigation_572": "חקירת פונקציות", "sequences_572": "סדרות", 
+        "probability_572": "הסתברות", "analytic_geom_572": "גאומטריה אנליטית", "budget_consumerism": "ניהול תקציב וצרכנות נבונה", 
+        "work_and_wages": "עולם העבודה וזכויות עובדים", "banking_and_credit": "בנקאות, אשראי והלוואות", 
+        "savings_investments": "חיסכון, השקעות ושוק ההון", "insurance_risks": "ביטוח וניהול סיכונים", 
+        "digital_economy": "כלכלה דיגיטלית וזהירות פיננסית", "vocabulary": "אוצר מילים", "grammar": "דקדוק", 
+        "reading_comprehension": "הבנת הנקרא", "יסודי_כללי": "יסודי (ד'-ו') - יסודות הלשון", 
+        "תורת_ההגה": "תורת ההגה והצורות (חט\"ב)", "פועל": "מערכת הפועל", "גזרות_הפועל_מתקדם": "גזרות הפועל המורכבות",
+        "שם_העצם": "שם העצם ותצורתו", "תחביר": "תחביר בסיסי ומתקדם", "סוגי_משפטים": "סוגי משפטים", 
+        "מילות_יחס_וקישור": "מילות יחס וקישור", "הבנת_הנקרא_והבעה": "הבנת הנקרא והבעה", "כתיבה_וסקירה": "כתיבה וסקירה ממזגת", 
+        "תקינות": "תקינות לשונית"
+    };
 
     window.allFetchedQuestions = [];
 
@@ -170,8 +413,16 @@
         isArabicMode = (urlGrade === "arabic" || urlSubject === "arabic"); 
         isMathMode = !(isFinanceMode || isEnglishMode || isHebrewMode || isArabicMode || urlSubject === 'science' || urlGrade === 'science'); 
 
+        let displayTopic = "";
+        if (currentTopicStr.toLowerCase().includes('bagrut')) displayTopic = "הכנה לבגרות";
+        else if (currentTopicStr === 'abc_basics') displayTopic = "אנגלית מהבסיס";
+        else {
+            let topicsArray = currentTopicStr.split(',');
+            displayTopic = topicsArray.map(t => topicTranslations[t.trim()] || t.trim()).join(', ');
+        }
+        
         let safeSubtopicDisplay = currentSubtopic ? currentSubtopic.replace(/&#39;/g, "'").replace(/&quot;/g, '"') : '';
-        document.getElementById('intro-topic-desc').innerText = `הכן את עצמך לדו-קרב!`;
+        document.getElementById('intro-topic-desc').innerText = `${displayTopic} ${safeSubtopicDisplay ? '| '+safeSubtopicDisplay : ''}`;
 
         const backMap = { "bar_ilan": "ה-ו", "5_6_bar_ilan": "ה-ו", "grade7": "ז", "grade8": "ח", "grade9": "ט", "5_6": "ה-ו" };
         if (isEnglishMode) returnUrl = 'english.html';
@@ -314,9 +565,9 @@
         if(gameQuestions.length >= 2) {
             startBtn.disabled = false;
             startBtn.style.opacity = 1;
-            startBtn.innerText = "התחילו בתחרות!";
+            startBtn.innerHTML = '<i class="fa-solid fa-play"></i> התחילו בקרב!';
         } else {
-            startBtn.innerText = "אין שאלות זמינות למשחק זה";
+            startBtn.innerText = "אין מספיק שאלות לדו-קרב";
         }
     }
 
@@ -330,7 +581,7 @@
         document.getElementById('name-display-p2').innerText = players[1].name;
 
         document.getElementById('intro-screen').style.display = 'none';
-        document.getElementById('game-screen').style.display = 'block';
+        document.getElementById('game-screen').style.display = 'flex';
         
         currentQuestionIndex = 0;
         currentPlayerIndex = 0;
@@ -347,16 +598,11 @@
         const q = gameQuestions[currentQuestionIndex];
         const player = players[currentPlayerIndex];
 
-        if (!isMathMode) {
-            q.shuffledOptions = shuffleOptions(q.options);
-        } else {
-            q.shuffledOptions = q.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
-        }
+        // SHUFFLE OPTIONS ALWAYS
+        q.shuffledOptions = shuffleOptions(q.options);
 
         const turnAnnounce = document.getElementById('turn-announcement');
-        turnAnnounce.innerText = `תור של: ${player.name}`;
-        turnAnnounce.style.color = player.hex;
-        turnAnnounce.style.borderBottom = `2px dashed ${player.hex}`;
+        turnAnnounce.innerHTML = `התור של: <span style="color:${player.hex}; text-shadow:0 0 10px ${player.hex};">${player.name}</span>`;
 
         const qText = document.getElementById('q-text');
         const qOptions = document.getElementById('q-options');
@@ -370,13 +616,13 @@
         if (isMathMode) {
             let calcBtn = document.createElement('button');
             calcBtn.className = 'btn-tool';
-            calcBtn.innerHTML = '🖩 מחשבון';
+            calcBtn.innerHTML = '<i class="fa-solid fa-calculator"></i> מחשבון';
             calcBtn.onclick = openCalculatorWindow;
             toolsBar.appendChild(calcBtn);
 
             let formBtn = document.createElement('button');
             formBtn.className = 'btn-tool';
-            formBtn.innerHTML = '📐 דף נוסחאות';
+            formBtn.innerHTML = '<i class="fa-solid fa-square-root-variable"></i> נוסחאות';
             formBtn.onclick = openFormulasWindow;
             toolsBar.appendChild(formBtn);
         }
@@ -399,27 +645,31 @@
         if (showReadingBtn) {
             let btn = document.createElement('button');
             btn.className = 'btn-tool';
-            btn.innerHTML = '📖 טקסט קריאה';
+            btn.innerHTML = '<i class="fa-solid fa-book-open"></i> טקסט קריאה';
             btn.onclick = openReadingWindow;
             toolsBar.appendChild(btn);
         }
 
         let qDir = isEnglishMode ? "ltr" : "rtl";
-        let qAlign = isEnglishMode ? "left" : "right";
-        qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formatContent(q.question)}</div>`;
+        let qAlign = isEnglishMode ? "left" : "center";
+        
+        // עטיפת הטקסט עם formatContent שיודע לטפל בשברים ולסדר שורות
+        let formattedQText = formatContent(q.question).replace(/\n/g, '<br>');
+        qText.innerHTML = `<div dir="${qDir}" style="text-align: ${qAlign};">${formattedQText}</div>`;
 
         (q.shuffledOptions || []).forEach((opt, idx) => {
             const btn = document.createElement('button');
             btn.className = 'option-btn';
             btn.id = `opt-${idx}`;
-            let optDir = containsHebrew(opt.text) ? "rtl" : "ltr";
-            btn.innerHTML = `<span dir="${optDir}">${formatContent(opt.text)}</span>`;
+            
+            // תמיכה בטקסטים ארוכים בתשובות
+            let formattedOptText = formatContent(opt.text).replace(/\n/g, '<br>');
+            
+            btn.innerHTML = `<span>${formattedOptText}</span>`;
             
             btn.onclick = () => handleAnswer(opt.originalIndex, btn, q.correctAnswer);
             qOptions.appendChild(btn);
         });
-
-        document.getElementById('question-box').style.display = 'block';
     }
 
     function handleAnswer(selectedIndex, btnElement, correctIndex) {
@@ -432,14 +682,14 @@
         if (isCorrect) {
             btnElement.classList.add('opt-correct');
             playSound('correct');
-            turnStatus.innerText = "תשובה נכונה! +100 נקודות";
+            turnStatus.innerHTML = `נכון! <i class="fa-solid fa-check"></i> +100`;
             turnStatus.style.color = "var(--success-green)";
             player.score += POINTS_PER_CORRECT;
         } else {
             btnElement.classList.add('opt-wrong');
             playSound('wrong');
-            turnStatus.innerText = "תשובה שגויה!";
-            turnStatus.style.color = "var(--wrong-border)";
+            turnStatus.innerHTML = `שגוי. <i class="fa-solid fa-xmark"></i>`;
+            turnStatus.style.color = "var(--danger-red)";
             
             const q = gameQuestions[currentQuestionIndex];
             const correctOptIdx = (q.shuffledOptions || []).findIndex(o => o.originalIndex === correctIndex);
@@ -481,21 +731,36 @@
         let p1 = players[0];
         let p2 = players[1];
 
-        scoresDisplay.innerHTML = `${p1.name}: ${p1.score} נק' <br><br> VS <br><br> ${p2.name}: ${p2.score} נק'`;
+        scoresDisplay.innerHTML = `
+            <div style="display:flex; justify-content:space-around; align-items:center; width:100%;">
+                <div style="text-align:center;">
+                    <div style="font-size:0.9rem; color:var(--text-muted);">${p1.name}</div>
+                    <div style="font-size:2rem; color:var(--player1-base); text-shadow:0 0 10px var(--player1-glow);">${p1.score}</div>
+                </div>
+                <div style="font-size:1.2rem; color:var(--text-muted); font-style:italic;">VS</div>
+                <div style="text-align:center;">
+                    <div style="font-size:0.9rem; color:var(--text-muted);">${p2.name}</div>
+                    <div style="font-size:2rem; color:var(--player2-base); text-shadow:0 0 10px var(--player2-glow);">${p2.score}</div>
+                </div>
+            </div>
+        `;
 
         if (p1.score > p2.score) {
-            title.innerText = "ניצחון ל" + p1.name + "!";
+            title.innerHTML = `<i class="fa-solid fa-trophy"></i> ניצחון ל${p1.name}!`;
             title.style.color = p1.hex;
-            subtitle.innerText = "אלופה אמיתית! / אלוף אמיתי!";
+            title.style.textShadow = `0 0 20px ${p1.hex}`;
+            subtitle.innerText = "ביצועים מרשימים במיוחד!";
             playSound('correct'); 
         } else if (p2.score > p1.score) {
-            title.innerText = "ניצחון ל" + p2.name + "!";
+            title.innerHTML = `<i class="fa-solid fa-trophy"></i> ניצחון ל${p2.name}!`;
             title.style.color = p2.hex;
-            subtitle.innerText = "אלופה אמיתית! / אלוף אמיתי!";
+            title.style.textShadow = `0 0 20px ${p2.hex}`;
+            subtitle.innerText = "ביצועים מרשימים במיוחד!";
             playSound('correct'); 
         } else {
-            title.innerText = "תיקו!";
-            title.style.color = "var(--text-main)";
+            title.innerHTML = `<i class="fa-solid fa-handshake"></i> תיקו מותח!`;
+            title.style.color = "var(--accent-gold)";
+            title.style.textShadow = "0 0 20px var(--accent-gold-glow)";
             subtitle.innerText = "שניכם אלופים באותה מידה!";
             playSound('correct'); 
         }
@@ -512,11 +777,12 @@
             <title>טקסט קריאה</title>
             <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
             <style>
-                body { font-family: 'Heebo', sans-serif; background-color: #f8fafc; color: #0f172a; padding: 30px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
-                .header { text-align: center; border-bottom: 3px solid #c5a059; padding-bottom: 15px; margin-bottom: 25px; }
-                h1 { color: #0f172a; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
-                .content { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; white-space: pre-wrap;}
+                body { font-family: 'Heebo', sans-serif; background-color: #0b1121; color: #f8fafc; padding: 20px; margin: 0; line-height: 1.8; font-size: 1.15rem;}
+                .header { text-align: center; border-bottom: 2px solid #334155; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #f8fafc; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
+                .content { background: #1e293b; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #334155; white-space: pre-wrap;}
                 .en-text { direction: ltr; text-align: left; font-family: sans-serif; font-size: 1.15rem; }
+                @media (max-width: 600px) { body { padding: 15px; font-size: 1rem;} .content { padding: 15px; } }
             </style>
         </head>
         <body>
@@ -538,18 +804,15 @@
             <meta charset="UTF-8">
             <title>מחשבון</title>
             <style>
-                body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-                .calculator { background: #000000; padding: 20px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 100%; max-width: 280px; box-sizing: border-box; border: 1px solid #c5a059;}
-                .display { background: #1a1a1a; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #333; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
+                body { font-family: sans-serif; background: #0b1121; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+                .calculator { background: #1e293b; padding: 20px; border-radius: 15px; width: 100%; max-width: 300px; box-sizing: border-box; border: 1px solid #334155;}
+                .display { background: #000; color: #4ade80; padding: 15px; border-radius: 10px; font-size: 2rem; text-align: right; margin-bottom: 20px; border: 1px solid #000; width: 100%; box-sizing: border-box; font-family: monospace; outline: none;}
                 .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-                button { background: #333; color: white; border: none; padding: 15px; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
-                button:hover { background: #444; }
-                .btn-op { background: #c5a059; color: #000; }
-                .btn-op:hover { background: #a38042; }
+                button { background: #334155; color: white; border: none; padding: 15px 0; font-size: 1.2rem; border-radius: 8px; cursor: pointer; transition: 0.2s; font-weight: bold;}
+                button:hover { background: #475569; }
+                .btn-op { background: #3b82f6; color: #fff; }
                 .btn-clear { background: #ef4444; }
-                .btn-clear:hover { background: #dc2626; }
-                .btn-eq { background: #22c55e; grid-column: span 2; color: #000;}
-                .btn-eq:hover { background: #16a34a; }
+                .btn-eq { background: #10b981; grid-column: span 2; color: #fff;}
             </style>
         </head>
         <body>
@@ -606,27 +869,32 @@
             <title>דף נוסחאות עזר מתמטי מקיף</title>
             <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
             <style>
-                body { font-family: 'Heebo', sans-serif; background: #f8fafc; padding: 30px; color: #0f172a; line-height: 1.5; }
-                .hdr { text-align: center; border-bottom: 3px solid #000; padding-bottom: 15px; margin-bottom: 25px; }
-                h1 { color: #000; margin: 0 0 5px 0; font-size: 2rem; font-weight: 800;}
+                body { font-family: 'Heebo', sans-serif; background: #0b1121; padding: 20px; color: #f8fafc; line-height: 1.5; margin:0;}
+                .hdr { text-align: center; border-bottom: 2px solid #334155; padding-bottom: 15px; margin-bottom: 25px; }
+                h1 { color: #f8fafc; margin: 0 0 5px 0; font-size: 1.8rem; font-weight: 800;}
                 .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
                 @media (max-width: 800px) { .grid-container { grid-template-columns: 1fr; } }
-                .section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; height: fit-content;}
-                .section-title { font-weight: 800; color: #c5a059; font-size: 1.3rem; border-bottom: 2px dashed #cbd5e1; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
-                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f1f5f9; gap: 15px;}
-                .desc { font-size: 0.95rem; color: #334155; font-weight: 600; flex: 1; }
-                .math { font-size: 1.15rem; font-weight: 800; color: #0f172a; direction: ltr; background: #f8fafc; padding: 6px 12px; border-radius: 6px; border: 1px solid #e2e8f0; text-align: left;}
+                .section { background: #1e293b; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #334155; height: fit-content;}
+                .section-title { font-weight: 800; color: #3b82f6; font-size: 1.3rem; border-bottom: 2px dashed #475569; padding-bottom: 8px; margin-bottom: 15px; margin-top: 0; }
+                .item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #334155; gap: 15px; flex-wrap: wrap;}
+                .desc { font-size: 0.95rem; color: #cbd5e1; font-weight: 600; flex: 1; min-width: 120px;}
+                .math { font-size: 1.15rem; font-weight: 800; color: #fff; direction: ltr; background: #000; padding: 6px 12px; border-radius: 6px; border: 1px solid #475569; text-align: left; display: inline-block;}
                 sup { font-size: 0.75em; vertical-align: super; }
             </style>
         </head>
         <body>
             <div class="hdr"><h1>דף נוסחאות עזר מתמטי</h1></div>
-            <h2 style="text-align:center;">חטיבת ביניים</h2>
+            <h2 style="text-align:center; color:white;">חטיבת ביניים ותיכון</h2>
             <div class="grid-container">
                 <div class="section"><h2 class="section-title">שטחים והיקפים</h2>
                     <div class="item"><span class="desc">שטח מלבן / ריבוע</span><span class="math">S = a &middot; b</span></div>
                     <div class="item"><span class="desc">שטח משולש</span><span class="math">S = (a &middot; h) / 2</span></div>
                     <div class="item"><span class="desc">שטח מעגל</span><span class="math">S = &pi; &middot; r<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">היקף מעגל</span><span class="math">P = 2 &middot; &pi; &middot; r</span></div>
+                </div>
+                <div class="section"><h2 class="section-title">אלגברה بסיסית</h2>
+                    <div class="item"><span class="desc">נוסחאות הכפל המקוצר</span><span class="math">(a &plusmn; b)<sup>2</sup> = a<sup>2</sup> &plusmn; 2ab + b<sup>2</sup><br>(a - b)(a + b) = a<sup>2</sup> - b<sup>2</sup></span></div>
+                    <div class="item"><span class="desc">נוסחת השורשים</span><span class="math">x<sub>1,2</sub> = (-b &plusmn; &radic;(b<sup>2</sup> - 4ac)) / 2a</span></div>
                 </div>
             </div>
         </body>
@@ -640,6 +908,13 @@
     function formatContent(text) {
         if (text === null || text === undefined) return "";
         let html = Array.isArray(text) ? text.join('\n') : String(text);
+        
+        // Remove LaTeX delimiters \( and \) and $$
+        html = html.replace(/\\\(/g, '').replace(/\\\)/g, '').replace(/\$\$/g, '');
+
+        // Convert \dfrac{}{} or \frac{}{} to visual fraction
+        html = html.replace(/\\d?frac\{([^}]+)\}\{([^}]+)\}/g, '<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$1</span><span class="fraction-denominator">$2</span></span>');
+
         const svgs = [];
         html = html.replace(/<svg[\s\S]*?<\/svg>/gi, m => { svgs.push(m); return `⚿SVG⚿`; });
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -647,13 +922,17 @@
         html = html.replace(/\*/g, '×'); 
         html = html.replace(/\^\(([^)]+)\)/g, '<sup>$1</sup>');
         html = html.replace(/\^([a-zA-Z0-9\.\-]+)/g, '<sup>$1</sup>');
+        
         html = html.replace(/<strong>(.*?)<\/strong>/g, function(match, content) {
-            if (!/[\u0590-\u05FF]/.test(content)) return `<strong><span class="math-bdi" dir="ltr">${content}</span></strong>`;
+            if (!/[\u0590-\u05FF]/.test(content)) return `<span class="math-bdi" dir="ltr">${content}</span>`;
             return match; 
         });
+        
         const pMap = {'²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9','⁰':'0','¹':'1'};
         html = html.replace(/[²³⁴⁵⁶⁷⁸⁹⁰¹]/g, m => `<sup>${pMap[m]}</sup>`);
+        
         html = html.replace(/(^|[\s(=\><+\-*/×÷])(\d+)\/(\d+)(?=$|[\s)=\><+\-*/×÷])/g, '$1<span class="fraction-container" dir="ltr"><span class="fraction-numerator">$2</span><span class="fraction-denominator">$3</span></span>');
+        
         html = html.trim();
         if (/[\?\.\!\)]$/.test(html)) { html += '&rlm;'; }
         html = html.replace(/⚿SVG⚿/g, () => svgs.shift());
@@ -696,7 +975,7 @@
     }
 
     function goBackToSelection() { 
-        if (document.getElementById('game-screen').style.display === 'block' && !confirm("יציאה באמצע התחרות תוביל לאובדן המשחק. לצאת?")) return; 
+        if (document.getElementById('game-screen').style.display === 'flex' && !confirm("יציאה באמצע התחרות תוביל לאובדן המשחק. לצאת?")) return; 
         window.location.href = returnUrl; 
     }
 </script>
